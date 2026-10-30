@@ -62,4 +62,5 @@ jobs:
           name: synthetic-checks-${{ github.sha }}
           retention-days: 7
           if-no-files-found: warn
+          include-hidden-files: true
           path: .ci-artifacts/
