@@ -1,0 +1,5 @@
+[omitted from the public repository: third-party content without a redistribution licence]
+source: https://www.cellml.org/cellml/2.0
+retrieved: 2026-10-30T14:44:58.518478+00:00
+original sha256: 29fe3f7524382ff9201fc18ecb422c47a941491cad2b08b48ecab8bbdfbbb42f
+original size: 42793

@@ -1,0 +1,73 @@
+{
+  "scope": "Research algebra sanity checks; not verification of project or third-party model code",
+  "state_order": [
+    "LV",
+    "SA",
+    "SV",
+    "RV",
+    "PA",
+    "PV"
+  ],
+  "incidence_matrix": [
+    [
+      -1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      -1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      -1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      -1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1
+    ]
+  ],
+  "incidence_column_sums": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "exact_rational_conservation_and_power_cases": 100,
+  "all_exact_identities_passed": true,
+  "flow_unit_conversion_mL_per_s_to_L_per_min": "3/50",
+  "seed": 729
+}

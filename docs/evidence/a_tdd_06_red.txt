@@ -1,0 +1,224 @@
+FFFFFFFFFFF                                                              [100%]
+=================================== FAILURES ===================================
+________________ test_invalid_parameters_are_rejected[changes0] ________________
+
+changes = {'heart_rate': 0.0}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes1] ________________
+
+changes = {'heart_rate': nan}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes2] ________________
+
+changes = {'emax_lv': 0.01}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes3] ________________
+
+changes = {'emax_rv': 0.001}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes4] ________________
+
+changes = {'compliance_sv': -1.0}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes5] ________________
+
+changes = {'resistance_mitral': 0.0}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes6] ________________
+
+changes = {'systolic_fraction': 1.0}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes7] ________________
+
+changes = {'systolic_fraction': 0.0}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes8] ________________
+
+changes = {'initial_volumes': (100.0,)}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+________________ test_invalid_parameters_are_rejected[changes9] ________________
+
+changes = {'initial_volumes': (0.0, 1.0, 1.0, 1.0, 1.0, 1.0)}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+_______________ test_invalid_parameters_are_rejected[changes10] ________________
+
+changes = {'unstressed_volumes': (-1.0, 1.0, 1.0, 1.0, 1.0, 1.0)}
+
+    @pytest.mark.parametrize("changes", [
+        {"heart_rate": 0.}, {"heart_rate": float("nan")},
+        {"emax_lv": 0.01}, {"emax_rv": 0.001},
+        {"compliance_sv": -1.}, {"resistance_mitral": 0.},
+        {"systolic_fraction": 1.}, {"systolic_fraction": 0.},
+        {"initial_volumes": (100.,)},
+        {"initial_volumes": (0., 1., 1., 1., 1., 1.)},
+        {"unstressed_volumes": (-1., 1., 1., 1., 1., 1.)},
+    ])
+    def test_invalid_parameters_are_rejected(changes):
+        from physiosim.models.cardiovascular import Parameters
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:122: Failed
+=========================== short test summary info ============================
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes0]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes1]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes2]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes3]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes4]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes5]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes6]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes7]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes8]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes9]
+FAILED tests/test_cardiovascular.py::test_invalid_parameters_are_rejected[changes10]
+11 failed, 5 deselected in 0.07s

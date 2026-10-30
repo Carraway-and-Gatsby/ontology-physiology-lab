@@ -1,0 +1,5 @@
+[omitted from the public repository: third-party content without a redistribution licence]
+source: https://github.com/Carraway-and-Gatsby/cardiac-simulator
+retrieved: 2026-10-30T14:44:22.346281+00:00
+original sha256: e2568d3fc37cfd7597039489dd3c1d28dd731eade1495cc04527e1ca13ee92f9
+original size: 300671

@@ -1,0 +1,914 @@
+var siteUrlPrefix = "/plosone/";
+var WombatConfig = WombatConfig || {};
+    WombatConfig.journalKey = "PLoSONE";
+    WombatConfig.journalName = "PLOS One";
+    WombatConfig.figurePath = "/plosone/article/figure/image";
+    WombatConfig.figShareInstitutionString = "plos";
+    WombatConfig.doiResolverPrefix = "https://dx.plos.org/";
+var WombatConfig = WombatConfig || {};
+  WombatConfig.metrics = WombatConfig.metrics || {};
+  WombatConfig.metrics.referenceUrl      = "http://lagotto.io/plos";
+  WombatConfig.metrics.googleScholarUrl  = "https://scholar.google.com/scholar";
+  WombatConfig.metrics.googleScholarCitationUrl  = WombatConfig.metrics.googleScholarUrl + "?hl=en&lr=&q=";
+  WombatConfig.metrics.crossrefUrl  = "https://www.crossref.org";
+var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  if (window.plosCookieConsent?.hasConsented('advertising')) {
+    (function() {
+      var gads = document.createElement('script');
+      gads.async = true;
+      gads.type = 'text/javascript';
+      var useSSL = 'https:' == document.location.protocol;
+      gads.src = (useSSL ? 'https:' : 'http:') +
+          '//www.googletagservices.com/tag/js/gpt.js';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gads, node);
+    })();
+  }
+googletag.cmd.push(function() {
+  googletag.defineSlot('/75507958/PONE_728x90_ATF', [728, 90], 'div-gpt-ad-1458247671871-0').addService(googletag.pubads());
+  googletag.defineSlot('/75507958/PONE_160x600_BTF', [160, 600], 'div-gpt-ad-1458247671871-1').addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+dataLayer = [{
+    'mobileSite': 'false',
+    'desktopSite': 'true'
+  }];
+Semantics-Based Composition of Integrated Cardiomyocyte Models Motivated by Real-World Use Cases | PLOS One
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP26BH');
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQMGF');
+// from https://developers.hubspot.com/docs/reference/api/analytics-and-events/cookie-banner/cookie-banner-api#example-using-a-third-party-cookie-banner-to-control-hubspot-cookies
+  window.disableHubSpotCookieBanner = true;
+  window._hsp = window._hsp || [];
+  window._hsp.push(['setHubSpotConsent',
+      {
+        analytics: window.plosCookieConsent?.hasConsented('analytics'),
+        advertisement: window.plosCookieConsent?.hasConsented('advertising'),
+        functionality: window.plosCookieConsent?.hasConsented('functionality')
+      }
+    ]);
+;window.NREUM||(NREUM={});NREUM.init={distributed_tracing:{enabled:true},privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]}};
+  window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(32),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(33),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),P=t(15),S=t(10),M=t("ee"),N=M.get("tracer"),C=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),S.on(p,r),M.on(d,o),b.on(l,o),S.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),P.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),N.buffer([u,"no-"+u]),S.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(S,"new-jsonp"),a(S,"jsonp-end"),a(S,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,C(!0)),w[v]("load",i,C(!0)),w[v]("popstate",function(){i(0,U>1)},C(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(33),a=t(32);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(32),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(29),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=NREUM.o.REQ,y=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof y&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof y&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof y&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;"string"==typeof i?n=i:"object"==typeof i&&i instanceof g?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n);var s=(""+(i&&i instanceof g&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}),u.on("fetch-done",function(t,e){this.endTime=a.now(),this.params||(this.params={}),this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(32),s=t(33),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(34);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],28:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?p("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&p("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(c&&c<r.startTime)return;p("lcp",[r])}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||p("cls",[t])})}function a(t){if(t instanceof v&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=l.now()?n.fid=l.now()-e:e>l.offset&&e<=Date.now()?(e-=l.offset,n.fid=l.now()-e):e=l.now(),g=!0,p("timing",["fi",e,n])}}function s(t){"hidden"===t&&(c=l.now(),p("pageHide",[c]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,f,u,d,p=t("handle"),l=t("loader"),h=t(31),m=t(23),v=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(w){}u=new PerformanceObserver(o);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(w){}d=new PerformanceObserver(i);try{d.observe({type:"layout-shift",buffered:!0})}catch(w){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(t){document.addEventListener(t,a,m(!1))})}h(s)}},{}],29:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(31)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],30:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],31:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],32:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],33:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],34:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(32),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!P++){var t=T.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(R,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+T.offset],null,"api"),s("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=h+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===v.readyState&&i()}function i(){s("mark",["domContent",a()+T.offset],null,"api")}var a=t(26),s=t("handle"),c=t(32),f=t("ee"),u=t(30),d=t(27),p=t(21),l=t(23),h=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,w="addEventListener",g="attachEvent",y=m.XMLHttpRequest,x=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var E=""+location,R={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1212.min.js"},O=y&&x&&x[w]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:u,disabled:b};if(!b){t(20),t(28),v[w]?(v[w]("DOMContentLoaded",i,l(!1)),m[w]("load",r,l(!1))):(v[g]("onreadystatechange",o),m[g]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var P=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(33),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);
+  ;NREUM.loader_config={accountID:"804283",trustKey:"804283",agentID:"402703674",licenseKey:"cf99e8d2a3",applicationID:"402703674"}
+  ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"cf99e8d2a3",
+    // Modified this value from the generated script, to pass prod vs dev
+    applicationID: window.location.hostname.includes('journals.plos.org') ? "402703674" : "402694889",
+    sa:1}
+Skip to main content
+Advertisement
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1458247671871-0'); });
+PLOS One
+Publish
+Submissions
+Getting Started
+Submission Guidelines
+Figures
+Tables
+Supporting Information
+LaTeX
+What We Publish
+Preprints
+Revising Your Manuscript
+Submit Now
+Calls for Papers
+Policies
+Best Practices in Research Reporting
+Human Subjects Research
+Animal Research
+Competing Interests
+Disclosure of Funding Sources
+Licenses and Copyright
+Data Availability
+Complementary Research
+Materials, Software and Code Sharing
+Ethical Publishing Practice
+Authorship
+Corrections, Expressions of Concern, and Retractions
+Manuscript Review and Publication
+Criteria for Publication
+Editorial and Peer Review Process
+Editor Center
+Guidelines for Reviewers
+Accepted Manuscripts
+Comments
+Submit Your Manuscript
+Discover a faster, simpler path to publishing in a high-quality journal.
+PLOS ONE
+promises fair, rigorous peer review,
+  broad scope, and wide readership – a perfect fit for your research every time.
+Learn More
+Submit Now
+About
+Why Publish with PLOS ONE
+Journal Information
+Staff Editors
+Editorial Board
+Section Editors
+Advisory Groups
+Find and Read Articles
+Publishing Information
+Publication Fees
+Press and Media
+Contact
+Browse
+Search
+Search
+advanced search
+Browse Subject Areas
+?
+Click through the PLOS taxonomy to find articles in your field.
+For more information about PLOS Subject Areas, click
+here
+.
+Loading metrics
+<li id="metricsError">Article metrics are unavailable at this time. Please try again later.</li>
+<li></li><li></li><li id="tooSoon">Article metrics are unavailable for recently published articles.</li>
+<li id="almSaves">
+      <%= s.numberFormat(saveCount, 0) %>
+      <div class="tools" data-js-tooltip-hover="trigger">
+        <a class="metric-term" href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#savedHeader">Save</a>
+        <p class="saves-tip" data-js-tooltip-hover="target"><a href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#savedHeader">Total Mendeley and Citeulike bookmarks.</a></p>
+      </div>
+    </li>
+
+    <li id="almCitations">
+      <%= s.numberFormat(citationCount, 0) %>
+      <div class="tools" data-js-tooltip-hover="trigger">
+        <a class="metric-term" href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#citedHeader">Citation</a>
+        <p class="citations-tip" data-js-tooltip-hover="target"><a href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#citedHeader">Paper's citation count computed by Dimensions.</a></p>
+      </div>
+    </li>
+
+    <li id="almViews">
+      <%= s.numberFormat(viewCount, 0) %>
+      <div class="tools" data-js-tooltip-hover="trigger">
+        <a class="metric-term" href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#viewedHeader">View</a>
+        <p class="views-tip" data-js-tooltip-hover="target"><a href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#viewedHeader">PLOS views and downloads.</a></p>
+      </div>
+    </li>
+
+    <li id="almShares">
+      <%= s.numberFormat(shareCount, 0) %>
+      <div class="tools" data-js-tooltip-hover="trigger">
+        <a class="metric-term" href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#discussedHeader">Share</a>
+        <p class="shares-tip" data-js-tooltip-hover="target"><a href="/plosone/article/metrics?id=10.1371/journal.pone.0145621#discussedHeader">Sum of Facebook, Twitter, Reddit and Wikipedia activity.</a></p>
+      </div>
+    </li>
+Open Access
+Peer-reviewed
+Research Article
+Semantics-Based Composition of Integrated Cardiomyocyte Models Motivated by Real-World Use Cases
+Maxwell L. Neal
+,
+* E-mail:
+mneal@uw.edu
+Affiliation
+Department of Biomedical Informatics and Medical Education, University of Washington, Seattle, Washington, United States of America
+⨯
+Brian E. Carlson,
+Affiliation
+Department of Molecular and Integrative Physiology, University of Michigan, Ann Arbor, MI, United States of America
+⨯
+Christopher T. Thompson,
+Affiliation
+Department of Molecular and Integrative Physiology, University of Michigan, Ann Arbor, MI, United States of America
+⨯
+Ryan C. James,
+Affiliation
+Department of Biomedical Informatics and Medical Education, University of Washington, Seattle, Washington, United States of America
+⨯
+Karam G. Kim,
+Affiliation
+Department of Biomedical Informatics and Medical Education, University of Washington, Seattle, Washington, United States of America
+⨯
+Kenneth Tran,
+Affiliation
+Auckland Bioengineering Institute, The University of Auckland, Auckland, New Zealand
+⨯
+Edmund J. Crampin,
+Affiliations
+Systems Biology Laboratory, Melbourne School of Engineering, University of Melbourne, Victoria, Australia, 
+    ARC Centre of Excellence in Convergent Bio-Nano Science and Technology, Melbourne School of Engineering, University of Melbourne, Victoria, Australia, 
+    School of Mathematics and Statistics, University of Melbourne, Victoria, Australia, 
+    School of Medicine, University of Melbourne, Victoria, Australia
+⨯
+Daniel L. Cook,
+Affiliation
+Department of Physiology and Biophysics, University of Washington, Seattle, WA, United States of America
+⨯
+John H. Gennari
+Affiliation
+Department of Biomedical Informatics and Medical Education, University of Washington, Seattle, Washington, United States of America
+⨯
+Semantics-Based Composition of Integrated Cardiomyocyte Models Motivated by Real-World Use Cases
+Maxwell L. Neal,
+Brian E. Carlson,
+Christopher T. Thompson,
+Ryan C. James,
+Karam G. Kim,
+Kenneth Tran,
+Edmund J. Crampin,
+Daniel L. Cook,
+John H. Gennari
+x
+Published: December 30, 2015
+https://doi.org/10.1371/journal.pone.0145621
+Article
+Authors
+Metrics
+Comments
+Media Coverage
+Reader Comments
+Figures
+<div id="figure-lightbox" class="reveal-modal full" data-reveal aria-hidden="true"
+       role="dialog">
+    <div class="lb-header">
+      <h1 id="lb-title"><%= articleTitle %></h1>
+
+      <div id="lb-authors">
+              <span>Maxwell L. Neal</span>
+              <span>Brian E. Carlson</span>
+          <a class="more-authors" href="/plosone/article/authors?id=10.1371/journal.pone.0145621">...</a>
+          <span>John H. Gennari</span>
+      </div>
+
+      <div class="lb-close" title="close">&nbsp;</div>
+    </div>
+    <div class="img-container">
+      <div class="loader"> <i class="fa-spinner"></i> </div>
+      <img class="main-lightbox-image" src=""/>
+      <aside id="figures-list">
+        <% figureList.each(function (ix, figure) { %>
+        <div class="change-img" data-doi="<%= figure.getAttribute('data-doi') %>">
+          <img class="aside-figure" src="/plosone/article/figure/image?size=inline&id=<%= figure.getAttribute('data-doi') %>" />
+        </div>
+        <% }) %>
+        <div class="dummy-figure">
+        </div>
+      </aside>
+    </div>
+    <div id="lightbox-footer">
+
+      <div id="btns-container" class="lightbox-row <% if(figureList.length <= 1) { print('one-figure-only') } %>">
+        <div class="fig-btns-container reset-zoom-wrapper left">
+          <span class="fig-btn reset-zoom-btn">Reset zoom</span>
+        </div>
+        <div class="zoom-slider-container">
+          <div class="range-slider-container">
+            <span id="lb-zoom-min"></span>
+            <div class="range-slider round" data-slider data-options="start: 20; end: 200; initial: 20;">
+              <span class="range-slider-handle" role="slider" tabindex="0"></span>
+              <span class="range-slider-active-segment"></span>
+              <input type="hidden">
+            </div>
+            <span id="lb-zoom-max"></span>
+          </div>
+        </div>
+        <% if(figureList.length > 1) { %>
+        <div class="fig-btns-container">
+          <span class="fig-btn all-fig-btn"><i class="icon icon-all"></i> All Figures</span>
+          <span class="fig-btn next-fig-btn"><i class="icon icon-next"></i> Next</span>
+          <span class="fig-btn prev-fig-btn"><i class="icon icon-prev"></i> Previous</span>
+        </div>
+        <% } %>
+      </div>
+      <div id="image-context">
+      </div>
+    </div>
+  </div>
+<div class="footer-text">
+    <div id="figure-description-wrapper">
+      <div id="view-more-wrapper" style="<% descriptionExpanded? print('display:none;') : '' %>">
+        <span id="figure-title"><%= title %></span>
+        <p id="figure-description">
+          <%= description %>&nbsp;&nbsp;
+        </p>
+        <span id="view-more">show more<i class="icon-arrow-right"></i></span>
+
+      </div>
+      <div id="view-less-wrapper" style="<% descriptionExpanded? print('display:inline-block;') : '' %>" >
+        <span id="figure-title"><%= title %></span>
+        <p id="full-figure-description">
+          <%= description %>&nbsp;&nbsp;
+          <span id="view-less">show less<i class="icon-arrow-left"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="show-context-container">
+    <a class="btn show-context" href="<%= showInContext(strippedDoi) %>">Show in Context</a>
+  </div>
+  <div id="download-buttons">
+    <h3>Download:</h3>
+    <div class="item">
+      <a href="/plosone/article/figure/image?size=original&download=&id=<%= doi %>" title="original image">
+        <span class="download-btn">TIFF</span>
+      </a>
+      <span class="file-size"><%= fileSizes.original %></span>
+    </div>
+    <div class="item">
+      <a href="/plosone/article/figure/image?size=large&download=&id=<%= doi %>" title="large image">
+        <span class="download-btn">PNG</span>
+      </a>
+      <span class="file-size"><%= fileSizes.large %></span>
+    </div>
+
+  </div>
+Figures
+Abstract
+Semantics-based model composition is an approach for generating complex biosimulation models from existing components that relies on capturing the biological meaning of model elements in a machine-readable fashion. This approach allows the user to work at the biological rather than computational level of abstraction and helps minimize the amount of manual effort required for model composition. To support this compositional approach, we have developed the SemGen software, and here report on SemGen’s semantics-based merging capabilities using real-world modeling use cases. We successfully reproduced a large, manually-encoded, multi-model merge: the “Pandit-Hinch-Niederer” (PHN) cardiomyocyte excitation-contraction model, previously developed using CellML. We describe our approach for annotating the three component models used in the PHN composition and for merging them at the biological level of abstraction within SemGen. We demonstrate that we were able to reproduce the original PHN model results in a semi-automated, semantics-based fashion and also rapidly generate a second, novel cardiomyocyte model composed using an alternative, independently-developed tension generation component. We discuss the time-saving features of our compositional approach in the context of these merging exercises, the limitations we encountered, and potential solutions for enhancing the approach.
+Citation:
+Neal ML, Carlson BE, Thompson CT, James RC, Kim KG, Tran K, et al.  (2015) Semantics-Based Composition of Integrated Cardiomyocyte Models Motivated by Real-World Use Cases. PLoS ONE 10(12):
+           e0145621.
+        
+        https://doi.org/10.1371/journal.pone.0145621
+Editor:
+Neil R. Smalheiser, University of Illinois-Chicago, UNITED STATES
+Received:
+October 23, 2015;
+Accepted:
+November 6, 2015;
+Published:
+December 30, 2015
+Copyright:
+© 2015 Neal et al. This is an open access article distributed under the terms of the
+Creative Commons Attribution License
+, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited
+Data Availability:
+All relevant data are within the paper.
+Funding:
+This work was funded by National Institutes of Health (
+http://www.nih.gov/
+) grants R01LM011969 (MLN, BEC, CTT, KGK, DLC, JHG), P50GM094503 (BEC, CTT, KT, EJC) and T15LM007442 (RCJ) as well as Australian Research Council Centre of Excellence in Convergent Bio-Nano Science and Technology (
+http://www.bionano.org.au/
+) grant CE140100036 (EJC). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+Competing interests:
+The authors have declared that no competing interests exist.
+Introduction
+While biomedical researchers now have the computational power to express complex hypotheses about biological systems using quantitative biosimulation models, repurposing previously-published models to compose larger, multiscale systems remains a largely manual, time-consuming and error-prone task. Few tools exist that help automate the process of merging models into more complex, biologically consistent systems. Developing such tools is challenging because, for example, modelers do not all encode their models in the same language and they do not always employ the same system of physical units. Another critical challenge is that systems-level hypotheses differ between research groups; two modelers may conceptualize the same system at different levels of granularity, with different sets of biological role players, and with different input/output arrangements between interacting components. Harmonizing these differences at the time of model merging is often cumbersome. Thus, there is a need for a flexible model composition approach that accommodates the various ways researchers conceptualize a biological system, and one that scales across modeling languages [
+1
+]. To meet these needs we have developed the SemSim (semantic simulation) model description format [
+2
+,
+3
+], which describes a biosimulation model in terms of its biological meaning formally linked to the model’s specific mathematical implementation. To accomplish this we use composite annotations [
+2
+], a set of structured statements that link controlled ontology terms to form a precise, logical definition of what is being simulated. We currently encode SemSim models in OWL [
+4
+], but other knowledge representation formats might be used.
+Extraction and merging of biosimulation models begins by annotating each model using our Java-based application, SemGen, available at
+http://sbp.bhi.washington.edu/projects/semgen
+. SemGen provides utilities for annotating existing models encoded in CellML [
+5
+], Systems Biology Markup Language (SBML) [
+6
+] and JSim’s Mathematical Modeling Language (MML) [
+7
+] as well as utilities for extracting out parts of models and merging models into new systems. Our goal with SemGen is to provide a tool that facilitates biological annotation of a wide variety of available models and allows modelers to perform composition tasks at the biological, rather than computational, level of abstraction. That is, modelers who wish to merge two models will not necessarily need to have code-level knowledge of the models to couple them into a biologically-consistent system.
+One of our primary objectives is to provide modelers with a suite of tools that will allow them to more easily share, repurpose, and compose multiscale models of physiological systems. We have previously demonstrated SemGen’s merging capabilities using example model composition tasks derived from our own work as multiscale physiological modelers [
+2
+,
+3
+,
+8
+]. Our aim for the present study was to test these capabilities further using more complex merging tasks derived from external, real-world modeling efforts in physiology. We identified the “Pandit-Hinch-Niederer” (PHN) model [
+9
+,
+10
+], an integrated cardiomyocyte composition, as a candidate merging task, given its level of complexity and relevance to multiscale cardiac physiology. For this study we aimed to reproduce the PHN composition using SemGen and also further stress-test the application by creating variations of the PHN model using alternative source models.
+The original design and creation of the PHN model is described in Terkildsen et al. [
+9
+]. To summarize, Niederer and Smith [
+10
+] first reported the integration of this model, and then Terkildsen et al. re-created the integration task to showcase how a composite model can be created from independent CellML components that are imported by reference into a parent CellML 1.1 model. The Terkildsen et al. version was created by first merging the electrophysiology model of Pandit et al. [
+11
+] (referred to here as the “Pandit” model) with the calcium dynamics model of Hinch et al. [
+12
+] (referred to here as the “Hinch” model). Then, the active tension development model of Niederer et al. [
+13
+] (referred to here as the “Niederer” model) was incorporated to connect intracellular calcium dynamics to tension generated by the cell. The result is a cardiomyocyte model that integrates electrophysiological dynamics, calcium-induced calcium release, and active tension development (
+Fig 1
+). The CellML version of the PHN model published by Terkildsen et al. is available at
+https://models.cellml.org/exposure/e8ee336095b8955f75a3e6c09b791d42/Pandit_Hinch_Niederer.cellml/view
+.
+Download:
+PNG
+larger image
+TIFF
+original image
+Fig 1.
+Architecture of the integrated PHN model.
+Coloring indicates a component’s source model. Ion flows without circles represent facilitated transport; those with circles represent active transport. Adapted from Fig 1 of Terkildsen et al. [
+9
+].
+https://doi.org/10.1371/journal.pone.0145621.g001
+Using the Terkildsen et al. publication as a guide, we attempted to reproduce the PHN model by first downloading the source models from the CellML repository, annotating their biological content according to the SemSim framework, merging the Pandit and Hinch models with SemGen’s Merger tool [
+2
+], then merging the result with the Niederer model. Ultimately, we were able to generate a merged system that faithfully reproduces the numerical results of the PHN model published by Terkildsen et al. including membrane voltage, calcium dynamics and active tension development. Here we report the results from our PHN merging exercise, as well as some important limitations we identified that, if resolved, would have allowed further automation of the modeling task and obviated some code-level management required for model-to-model coupling. Most importantly, we discuss the need for a semantic-similarity scoring metric that will allow SemGen to recognize semantically similar, not just identical, biological content shared between models.
+We also report here on a follow-up test of our semantics-based modeling approach where we coupled the Pandit-Hinch merged system to a different model of active tension development based on Tran et al. [
+14
+] This tension model (referred to here as the “Tran” model) is distinct from the Niederer model in that it includes the effects of ATP, ADP, phosphate and pH on force development. This model-merging task was first performed at a conference as an impromptu collaboration between three of the authors. We describe this initial collaboration here as supplementary evidence, albeit anecdotal, that demonstrates the time-saving features of our semantics-based modeling approach.
+Materials and Methods
+In this section we describe the methodology behind SemGen’s semantics-based merging tool as well as the approach we used to annotate the source models used in our integrated cardiomyocyte models, including several “semantic alignment” steps required for SemGen to automatically recognize key points of semantic overlap between the models. We then describe the specific steps performed to couple the models within SemGen and generate simulation output.
+SemGen’s Merger Tool
+We designed SemGen to support a particular style of model merging, where the interface between the source models to be merged is formed at the time of merging and is based on the biophysical overlap between the models. We refer to this approach as “semantics-based, adaptable interface modularity” (SAIM) [
+1
+]. We contend that this approach is more scalable in the context of community-wide model sharing than pre-defining model-to-model interfaces because such interfaces may only be useful to research groups that share a common conceptualization of how a biological system should be organized for study. Because such conceptualizations differ between research groups, it is instead more practical to form the links between shared models based on their biological content, rather than specific input/output designations within the code.
+When two models are loaded into the Merger tool, SemGen analyzes their semantic annotations and lists the biophysical concepts shared by both models. Then, the user decides which mathematical implementation of the concept should be preserved in the merged system (or to ignore the equivalency and preserve both representations in the merged system). Once this resolution process is completed, SemGen makes the appropriate computational links between the models to couple them. Thus, it is crucial that models are annotated in a consistent fashion such that SemGen can recognize biological equivalencies between the models. To promote this consistency, we have developed an annotation protocol described next.
+Model Annotation
+We annotated the source models of our integrated cardiomyocyte simulations as part of a broader effort to create SemSim versions of a substantial set of publicly available CellML models. In order to test the ability of SemGen to combine model components annotated by different individuals, multiple annotators were assigned non-overlapping sets of CellML models to annotate in SemGen, including the Pandit, Hinch, and Niederer models. One author annotated the Pandit model and another annotated the Hinch and Niederer models. Both of these authors collaborated on annotating the Tran model. To promote inter-annotator consistency, we developed an annotation protocol before embarking on our annotation effort. Here we briefly describe our protocol for capturing the biological meaning of a model’s contents within SemSim models.
+The existing set of biophysical concepts in the corpus of publicly available ontologies is not detailed enough to provide single controlled terms as annotations for the physical properties often represented in biosimulation models. For example, a concept common to all three of the Pandit, Hinch and Niederer models is cytosolic calcium concentration in the cardiomyocyte; however, to our knowledge no single ontology term exists that represents this concept. To create a logical, machine-readable definition for this concept, we decompose the concept into a sequence of multiple ontology terms, linked via standardized ontological relationships. We call this post-coordinated construct a “composite annotation” [
+2
+]. The composite annotation for this particular example links the physical property “concentration” to a partonomy of multiple physical entities: calcium, cytosol, and cardiomyocyte.
+In our annotation approach we distinguish among three types of physical properties represented in biosimulation models: properties of physical entities (concentrations, volumes, etc.), properties of physical processes (chemical reaction flow rates, electrical currents, etc.), and properties of constitutive dependencies (chemical reaction rate constants, vascular compliances, etc.). We make these distinctions based on the logical, formal organization of the physical property hierarchy in the Ontology of Physics for Biology (OPB—[
+15
+,
+16
+]). Rather than annotate every physical concept in a biosimulation model, we instead focus on the first two types: properties of entities and processes. We have found that when performing semantics-based merging, the coupling points between models predominantly involve these properties, and coupling the models at these points subsequently resolves most, if not all, of the semantic overlap between the constitutive properties shared by the models.
+Annotating properties of physical entities.
+To annotate physical entities, we created composite annotations as described in our cytosolic calcium concentration example above. In each case we used terms from the OPB for the physical property component of the composite annotation. This was done because the OPB provides adequate coverage and principled organization of physical property concepts commonly used in biosimulation models. This principled organization is critical for reaching several of our broader research goals: performing automated reasoning over SemSim models to support advanced search and retrieval of models [
+17
+], further automating model annotation, detecting semantic similarities between models, and identifying biophysical inconsistencies in models. The OPB is being developed in close collaboration with SemGen so that we can leverage the ontology’s content and organization to support these broader research goals.
+For the physical entity components of our composite annotations, we have relied on a limited subset of available ontologies and terminologies as resources for naming and referencing physical entities in composite annotations. We selected this subset of ontologies, shown in
+Table 1
+, to promote inter-annotator consistency when creating composite annotations. We rely primarily on the Foundational Model of Anatomy (FMA—[
+18
+]) for anatomical terms because of its deep coverage, principled organization, and mereotopological detail. Although the FMA is comprehensive in its coverage of macroscopic human anatomy, we use the Mouse Adult Gross Anatomy Ontology (MA—[
+19
+]) for rodent-specific anatomical structures (e.g., tail vein), the Cell Type Ontology (CL—[
+20
+]) for non-mammalian cell types, and the cellular component branch of the Gene Ontology (GO:cc—[
+21
+]) for macromolecular structures not represented in the FMA. At the molecular level, we use the Protein Ontology (PR—[
+22
+]) for proteins and the Chemical Entities of Biological Interest (ChEBI—[
+23
+]) resource for atoms and small molecules. For laboratory materials such as cell culture media and patch clamps, we use the Ontology for Biomedical Investigations (OBI—[
+24
+]).
+Download:
+PNG
+larger image
+TIFF
+original image
+Table 1.
+The set of knowledge resources from which we selected terms to use in our composite annotations for properties of physical entities.
+https://doi.org/10.1371/journal.pone.0145621.t001
+When annotating our source models, we sometimes found that a precise reference term for a physical entity was not available. In such cases we created custom physical entities for use in the model. For example, the Niederer model simulates the cytosolic concentration of calcium-bound troponin. Because calcium-bound troponin is not a concept represented in any publicly available knowledge resource we know of, we introduced a custom term within the model. Although such custom terms are sometimes unavoidable, they do present a challenge for recognizing the semantic overlap between models. Because they are not defined against reference terms, SemGen currently has no way to determine the biological meaning of a custom physical entity, and therefore cannot recognize inter-model semantic equivalencies for composite annotations that use custom physical entity terms. We discuss this important limitation and its impact on our ability to automate the PHN merging operation later in the Discussion section.
+Annotating properties of physical processes.
+When creating composite annotations for physical processes, we use a logical structure that is different than for physical entities. For each process property, we select the OPB property that is represented (electrical current, for example), and link it to a custom term in SemGen that represents the process itself. This is done because no multiscale ontology of physical processes currently exists that formally connects processes to the physical entities that participate in them. Such connections are critical for our model merging purposes because merging often requires reformulating conservation equations (e.g. mass balance laws) that define the amount of a physical entity in a system. Automating such reformulations would require that SemGen know which processes consume and produce which physical entities. No existing process ontology provides this information, and although the OPB has been designed to eventually represent a set of physical process types, specifying the entity participants in those processes is beyond its scope. Therefore, our approach is to create a custom physical process term within SemGen for each process property, and explicitly designate which entities are consumed, produced or otherwise influence the process. To promote consistency and reduce effort when annotating the properties of physical processes, we annotated them only after annotating the properties of physical entities. This way we were able to readily specify process participants by selecting them from the set of physical entities already added to the model.
+To identify semantic equivalencies between properties of processes in models, SemGen analyzes the specific physical property represented, and the entities that participate in the process. If the property and the participating entities are all semantically equivalent by virtue of their ontological annotations, SemGen identifies the processes as equivalent.
+Annotating constitutive properties.
+As mentioned above, we did not attempt to annotate all the constitutive properties in the Pandit, Hinch, Niederer and Tran models; such annotations would have provided little benefit to the model merging process. However, some constitutive properties are available as single reference terms in the OPB due to widespread use in biophysical modeling. The universal gas constant and Faraday’s constant are two such concepts present in the Pandit and Hinch models that we annotated using single reference terms (as opposed to composites) from the OPB. At the time of model merging, SemGen compares singular as well as composite annotations; therefore, the program can identify semantic equivalencies based on singular reference terms such as these and can notify the user of differences in their computational implementation, including physical unit assignments.
+Semantic Alignment of Ion Channel Activity
+As reported in Terkildsen et al., there is a crucial difference between the Pandit and Hinch models that must be addressed before they can be coupled in a biophysically consistent way: ion channel activity rates are expressed as electrical currents (in nanoamps) in the Pandit model, and as chemical concentration flow rates (in millimolar/sec) in the Hinch model. Therefore, Terkildsen et al. added additional “glue code” to their merged system that converts the chemical concentration flow rates into currents. Because current is semantically distinct from chemical concentration flow rate, we had to perform a similar alignment between the models for SemGen to automatically recognize the ion channel commonalities shared by the Pandit and Hinch models. To address this issue we copied in the computational block of glue code that Terkildsen et al. added into the Hinch source model, and used this new version of the model in our annotation and merging processes.
+Merging Models in SemGen
+After annotating our source models, we performed sequential merges, two models at a time, within SemGen’s Merger tool. After analyzing the semantic annotations, SemGen presented the set of matching annotations present in the two models along with the model codewords associated with them. (As mentioned above, these matching annotations indicate the biologically equivalent concepts among the two models). We then selected which mathematical formulation of those biological concepts we wished to preserve in the merged model based on the composition described by Terkildsen et al.
+SemGen was able to automatically identify many, but not all, of the biological equivalencies during the merging process. Left unresolved, these unrecognized equivalencies result in redundant biological content being copied into the merged model. Therefore, for those cases where we knew SemGen had failed to find an equivalency, we determined whether we needed to manually specify the equivalency so that we could appropriately couple the models, computationally. In some cases the presence of redundant content may not impact the variables that a user cares about simulating; while the content is computed in the merged model, it may be a computational dead end having no downstream mathematical impact on any of the variables of interest. In other cases, copying in the redundant content results in two different mathematical formulations of the same biophysical property being used to compute a variable of interest; a logical inconsistency in the model that must be avoided. Therefore, for each equivalency not identified by SemGen, our challenge was to determine whether ignoring the equivalency (and thus copying in redundant mathematical content) would create such a logical inconsistency or would simply generate inconsequential content that could be manually pruned out later. If the former, then we manually specified the equivalency at the time of merging and resolved it according to the decisions made by Terkildsen et al. Creating the PHN model required two instances of this kind of manual intervention. See Tables
+2
+and
+3
+for the specific instances.
+Download:
+PNG
+larger image
+TIFF
+original image
+Table 2.
+Semantic equivalencies between the annotated Pandit and Hinch models grouped according to whether SemGen identified them or not.
+https://doi.org/10.1371/journal.pone.0145621.t002
+Download:
+PNG
+larger image
+TIFF
+original image
+Table 3.
+Semantic equivalencies between the merged Pandit-Hinch model and the Niederer model grouped according to whether SemGen identified them or not.
+https://doi.org/10.1371/journal.pone.0145621.t003
+After resolving all biological equivalencies, SemGen prompts the user to provide new names to disambiguate any variables and submodels that have identical names in the two models to be merged. SemGen also recognizes unit inconsistencies between model variables that it identifies as semantically equivalent. For example, myoplasmic volume is expressed in microliters in the Pandit model, but in cubic micrometers in the Hinch model. However, we were able to ignore prompts warning of unit inconsistencies during the merging process because the two simulation platforms we planned to use for validating our merged model—JSim [
+7
+] and OpenCOR [
+25
+]—support automatic unit conversion. Once our final merged SemSim models were generated, we converted them into CellML using SemGen’s SemSim-to-CellML translation function and simulated the model in JSim and OpenCOR.
+To gauge SemGen’s ability to merge models in a biologically consistent fashion, we also compared the points of semantic overlap identified by SemGen during merging against the points identified by a human expert. Based on this comparison, we discuss potential solutions for improving SemGen’s ability to identify biological overlap points between models. We outline these solutions in the Discussion section.
+Substituting the Tran Force-Generation Model for the Niederer Model
+The Tran model of cardiomyocyte crossbridge force development is based on the model by Rice et al. [
+26
+] and adds the regulation of crossbridge kinetics as a function of metabolites such as ATP and ADP. The purpose of merging the Tran model to the existing Pandit-Hinch merge is to demonstrate that functional model components (in this case force production) can be swapped into or out of larger composite models. For that reason, the link we made between the two models was through the cytosolic calcium concentration only, and we did not replace the buffering of calcium by troponin in the Pandit-Hinch model with the calcium-troponin binding in the Tran model. Three of the authors (KT, BEC and JHG) performed the initial merging attempt with the Tran model as an impromptu exercise at a conference. They were able to generate a runnable simulation from SemGen in approximately 15 minutes. Following-up on this initial attempt, we re-performed the PHT merge using a more thoroughly annotated version of the Tran model, the results of which are reported here.
+Validation of Merged Models
+To validate our version of the PHN model, we compared our simulation results for intracellular calcium, membrane voltage, and active myocyte tension to those from the model published by Terkildsen et al. We then investigated the mathematical differences between the versions that accounted for any deviations between the results. To validate the PHT model, we investigated whether the model gave expected results for cardiomyocyte force generation given the intracellular calcium and membrane dynamics provided by the Pandit-Hinch model.
+Results
+Pandit-Hinch-Niederer Merge
+Table 2
+shows which semantic equivalencies SemGen automatically identified when merging the Pandit and Hinch models based on the variables’ annotations. In cases where SemGen did not identify an existing equivalency where it should have, we determined whether we needed to manually specify the equivalency so that we could generate a merged PHN model that would correctly compute our variables of interest. These manually-specified equivalencies are indicated by an asterisk in Tables
+2
+,
+3
+and
+4
+.
+Download:
+PNG
+larger image
+TIFF
+original image
+Table 4.
+Semantic equivalencies between the merged Pandit-Hinch model and the Tran model grouped according to whether SemGen identified them or not.
+https://doi.org/10.1371/journal.pone.0145621.t004
+Table 3
+shows which semantic equivalencies SemGen automatically identified when merging the Pandit-Hinch and Niederer models as well as the equivalencies that we had to manually specify and those that we left unresolved.
+Fig 2
+compares simulation results from our SemGen-generated PHN model against those of the Terkildsen et al. PHN model. The results show that we were able to couple the models such that the membrane stimulation current used in the Pandit model creates an intracellular calcium transient. These calcium dynamics are controlled by the Hinch calcium mass balance equations, and they in turn produce active myocyte tension development according to the Niederer model formulation.
+Download:
+PNG
+larger image
+TIFF
+original image
+Fig 2.
+Comparison between simulation results from the original PHN model and the SemGen-generated version.
+https://doi.org/10.1371/journal.pone.0145621.g002
+We investigated a number of significant numerical differences between the two versions of the model and found that some of the computational aspects from the Pandit, Hinch and Niederer source models were adjusted in the Terkildsen et al. PHN model:
+The membrane stimulation current equation was edited so that stimulation is phase-shifted by 20 ms and doubles in frequency after 5 seconds
+Ryanodine receptor and L-type calcium channel currents were increased by introducing a scaling factor of 1.5
+A Hill coefficient in the equation for the sodium-potassium pump current was increased from 1.5 to 4
+Initial conditions were changed for several of the variables solved using ordinary differential equations.
+We manually incorporated these adjustments from the Terkildsen et al. PHN model into the simulation code of our SemGen-generated PHN model.
+Fig 3
+compares the simulation results between this new version and the Terkildsen et al. version.
+Download:
+PNG
+larger image
+TIFF
+original image
+Fig 3.
+Comparison between simulation results from the original PHN model and the manually-modified SemGen-generated version.
+This modified SemGen-generated model includes the adjustments to equations and initial conditions that were introduced into the PHN model published by Terkildsen et al.
+https://doi.org/10.1371/journal.pone.0145621.g003
+Because we did not resolve all the known biophysical overlap between the source models used in the PHN merge, the SemGen-generated version includes redundant representations of several biological components. For example, both representations of the sarcoplasmic reticulum (SR) and the diadic space (DS), including the calcium concentrations therein, are contained in the merged model. However, only the SR and DS from the Hinch model have any impact on tension generation dynamics. The Pandit representations of the SR and DS exist in a terminal branch of the model’s computational network and are effectively isolated from the model because the only fluxes that influence cytosolic calcium come from the Hinch SR and DS dynamics. The fluxes in the Pandit representation of the SR and DS, while they are computed based on cytosolic calcium concentration, do not in turn impact cytosolic calcium values. Due to biological redundancies such as these, the SemGen-generated model contains more computational code than the original PHN model: the SemGen-generated version contains 528 variables while the original contains 432.
+Pandit-Hinch-Tran Merge
+To create the Pandit-Hinch-Tran (PHT) model, we merged our previously generated Pandit-Hinch model with the Tran model of myocyte tension development.
+Table 4
+shows which semantic equivalencies SemGen automatically identified when generating the model, which unidentified equivalencies we had to manually specify, and which we left unresolved.
+Fig 4
+shows the simulation results for the SemGen-generated PHT model. All equation formulations and initial conditions from the original source models are preserved in this merged model; no manual, post-merge changes were made.
+Download:
+PNG
+larger image
+TIFF
+original image
+Fig 4.
+Simulation results for the PHT model demonstrating coupling of the stimulation current, membrane voltage, calcium transients, and cardiomyocyte force generation.
+https://doi.org/10.1371/journal.pone.0145621.g004
+Discussion
+Our merging exercises demonstrate that we can use SemGen to successfully couple the Pandit, Hinch, Niederer and Tran models into integrated cardiomyocyte systems that appropriately link ion channel dynamics, calcium-induced calcium release, cross-bridge dynamics and tension generation. We were able to apply SemGen’s SAIM-style approach to model integration, and in the majority of cases, specify the connections between source models at the level of their biophysics, rather than their mathematics. We were thus able to avoid much of the manual encoding required for generating the original PHN model, including the burden of “mapping” CellML variables to each other. Our impromptu creation of the novel, integrated PHT model further demonstrates the flexibility and compositional power of the SAIM approach.
+As described above, reproducing the numerical results of the Terkildsen et al. PHN model using our SemGen-generated version required the manual addition of several post-merge adjustments originally made by Terkildsen et al. Without these adjustments, the tension generated by the PHN model is relatively low (compare the bottom curves of Figs
+2
+and
+3
+). The changes increase the peak of the calcium transient to elicit a higher tension response that is more comparable to the Niederer source model. Similarly, the normalized force generated by the PHT model (
+Fig 4
+, bottom curve) is relatively low compared to the force generated in the Tran source model. This is also because the cytosolic calcium levels generated by the Pandit-Hinch model are lower than those used in the Tran source model. Therefore, additional post-merge parameter changes would be required to align the assumptions about calcium levels in the components of the PHT model. These kinds of post-merge adjustments are an important part of a modeler’s workflow when merging models. Often, they require a clear understanding of the mathematical relations among variables, and a broad contextual knowledge about the assumptions and underlying biology behind the models. For example, source models may be parameterized under different experimental conditions and for different species. The post-merge edits, such as those we described above, represent subtle (and sometimes subjective) decision-making by human intelligence. It is not within the scope of SemGen to help automate this aspect of model merging. Rather, SemGen aims to make all of the straightforward connections, and do the “heavy lifting” of semantic resolution, merging and automatic code generation. Using our tool, the modeler can more easily move to the challenging and subtler decisions about assumptions, context, and adjustments to parameters that might be needed to produce a biologically sensible result.
+Time-Saving Benefits
+While we have not yet performed formal tests to quantify the amount of time SemGen saves users when performing model merging tasks, the present study provides preliminary evidence, albeit anecdotal, illustrating its time-saving features. Based on estimates from the authors, the original Terkildsen et al. model required months to generate whereas our version required only weeks. Furthermore, the time required for us to assemble our version included the time required to annotate the models, and also to enhance and debug SemGen so that it correctly performed the model-model resolution, merging, and code-generation procedures. The actual time required to load in the annotated models, resolve their semantic overlap and output simulation code requires on the order of several minutes only. Indeed, authors KT, BEC and JHG were able to quickly generate an impromptu version of the PHT model during a 15-minute conference break—they already had the annotated Pandit and Hinch models available, and connecting them to the Tran model was simply a matter of annotating cytosolic calcium in the Tran model and then merging the Pandit-Hinch and Tran models in SemGen. We acknowledge that this process was likely facilitated by KT’s expert knowledge of the Pandit and Hinch models, nonetheless, we believe this impromptu composition is an important illustration of the time-saving benefits that are available through semantics-based model composition.
+We also note that after creating our version of the PHN model, we were able to quickly generate a model variant that used the
+epi
+cardial rather than
+endo
+cardial version of the Pandit model. The epicardial version is very similar to the endocardial version, and includes many of the same variables and equations. We were therefore able to automatically import many of the annotations from the endocardial version and apply them to the epicardial version, merge the latter with the Hinch model, then merge the result with the Niederer model (using the same resolution decisions presented in Tables
+2
+and
+3
+). The total amount of time required to generate this variant of the PHN model was approximately five minutes.
+Current Limitations and Solution Strategies
+Our merging exercises illuminated several limitations in our approach that, if addressed, would further automate model composition in SemGen. As discussed in the Methods section and indicated in Tables
+2
+–
+4
+, there were several points of semantic overlap between the models that SemGen did not recognize, requiring manual intervention during the merging process. From these examples, we have identified three primary impediments that account for the manual interventions we performed. These are presented below along with proposed solution strategies.
+1) Models represent semantically similar, but not identical, physical properties.
+As discussed in the Methods section, SemGen currently only recognizes semantic equivalency, not similarity. Therefore, to couple the Pandit and Hinch models in a biophysically consistent fashion, we manually introduced glue code into the Hinch model that represented ion channel activity in terms of electrical current rather than chemical concentration flow. This demonstrates how recognizing semantic similarity between models could accelerate the merging process. The activity of an ion channel expressed as electrical current is physically distinct from activity expressed as a molar flow rate, but the two properties are ontologically related: The terms ‘Charge flow rate’ and ‘Chemical concentration flow rate’, which represent the two properties used to express ion channel activity in this example, are both subclasses of
+OPB
+:
+Flow rate property
+. A semantic similarity scoring system that recognizes the close relationship between these terms could therefore be used to suggest inter-model links between ion channel activities, despite differences in implementations. We plan to investigate previously developed semantic similarity metrics [
+27
+,
+28
+] and eventually develop a scoring system within SemGen that will quantify the biological similarity of terms annotated with composite as well as singular annotations. We also plan to extend SemGen so that modelers can introduce glue code as needed during the merging process, rather than rely on the type of preemptive semantic alignment that we performed here.
+Recognizing semantic similarity is also crucial for addressing differences in representational detail among models to be merged. In our merging exercise there were some cases where the same biophysical phenomena were simulated at different levels of granularity. For example, while the Hinch model represents troponin buffering using one chemical species for troponin, the Pandit model represents high- and low-affinity versions of troponin. Also, the Hinch model represents the SR as a single container while the Pandit model breaks up the SR into “junctional SR” and “network SR” sub-components. Enhancing SemGen to recognize such similarities and provide the means to resolve them would eliminate much of the redundant biophysical phenomena present in our merged models. One such enhancement would be to allow users to link custom physical entity terms such as “high-affinity troponin” to related classes from reference ontologies. This way, SemGen could recognize the close relationship between the two representations of troponin in the Pandit and Hinch models. Another enhancement would be to leverage the mereotopological information contained in the ontologies we use for annotation so that SemGen can recognize critical parthood relationships between biological structures represented in models.
+Our merging exercises also showed us the importance of being able to recognize when two models simulate the same physical process, but with opposite directionality. For example, the Pandit model represents calcium-troponin buffering using a variable that simulates the association rate of calcium ion and troponin. The Hinch and Niederer models, on the other hand, represent the same process using a variable that simulates the
+dissociation
+rate of the calcium-troponin complex. SemGen currently recognizes equivalent physical processes by examining the physical property represented (electrical current, e.g.) and the physical entities that participate in the process as thermodynamic sources, sinks and mediators. Thus, if two models represent the same physical process but directionality is different such that the source entities for one model are the sinks for the other, SemGen does not yet recognize the equivalency. We plan to enhance SemGen so that it recognizes the close, inverse relationship between processes that have opposite directionality but are otherwise identical.
+2) Unavailable reference terms.
+During model annotation there were several physical entities for which we could not find suitable reference terms. We therefore used custom terms; however, SemGen cannot yet determine the biological relationship between composite annotations that include custom terms. There are several solutions to address this challenge. First, in some cases it may be prudent to send a term request to the appropriate ontology developers so that the reference term needed for annotation is added to the corpus of available reference ontologies. For example, we used a custom term for “diadic space” in our source models, and the developers of the FMA have said they would be willing to add this term to their ontology. Second, SemGen could potentially recognize the relationship between custom terms if they were linked to existing reference terms using structural and/or hierarchical relationships. For example, calcium-bound troponin (another custom term used in annotating our source models) could be linked to
+CHEBI
+:
+calcium(2+)
+and
+PR
+:
+Troponin C
+,
+slow skeletal and cardiac muscles
+using the
+has_part
+relation. Many examples of such linkages are found in SBML [
+6
+] models available in the BioModels database [
+29
+] because, as we also report here, reference terms that provide a precise biophysical definition for an annotated object are not always available. Previous studies within the SBML domain describe methods for quantifying the semantic similarity of model elements that are annotated using non-identity relations such as
+has_part
+[
+27
+]. In the future we plan to apply such methods to allow SemGen to recognize the relationship between custom terms. A third solution would be to establish a new knowledge resource that provides unique identifiers for whatever custom terms are created in curated SemSim models. In addition to providing a set of terms for molecular complexes (such as calcium-bound troponin), this knowledge resource would also provide a set of terms representing
+functional
+, as distinct from structural, anatomy since many anatomical entities used in biosimulation models are defined by their physiological function rather than their structural characteristics (such as the diadic space). Such terms could then be re-used during the annotation of new models.
+3) Recognizing equivalent constitutive properties.
+As mentioned in the Methods section, when annotating our source models we focused on model data structures that represent the properties of physical entities and processes. We only annotated constitutive properties, the third type of property, if a singular reference term was available in the OPB. Therefore, we had to manually specify the semantic equivalency between the rapid buffer coefficient used to represent calmodulin-calcium binding in the Pandit and Hinch models. To address this issue, we plan to enhance SemGen such that it can automatically recognize and/or propose annotations for constitutive properties as the annotation process proceeds and ontological information accumulates in the SemSim model. This will minimize the manual annotation of constitutive properties and still allow SemGen to recognize inter-model equivalencies among them. Accomplishing this will require substantial development of the OPB. Specifically, we must assert logical statements among the
+OPB
+:
+Physical dependency
+subclasses that indicate which physical properties are involved in which dependencies. Once this knowledge is asserted in the OPB, SemGen can use it to automatically identify appropriate annotations for constitutive properties based on how the property is used within the model’s computational dependency network.
+Despite the challenges listed above, we were nonetheless able to semi-automatically merge our source models into integrated cardiomyocyte models that generated desired simulation results in terms of membrane dynamics, calcium dynamics and tension development. This illustrates that recognizing and resolving all points of semantic connection between merged models may not be required for creating an integrated system that meets a modeler’s needs. Even though we left several points of semantic connection unresolved and thus allowed redundant biological content in the merged system, this content did not impact the simulation results for our variables of interest; it is computationally isolated from the rest of the model and can be pruned without consequence. For example, although the merged PHN model includes all three representations of calcium-troponin buffering present in the source models, only the Hinch representation has any influence on the model because only it impacts calcium concentration. This arrangement was established when we resolved the equivalency for calcium concentration between the Pandit and Hinch models; by choosing the Hinch representation of this concentration, we effectively chose to use the Hinch representation of calcium-troponin buffering at that point because the equation that solves for calcium concentration uses the Hinch representation of the buffering rate. This example demonstrates the value of providing users with a clear description of how their semantic resolution choices will impact the formulation of the merged model. We anticipate that graph visualizations would be a useful addition for communicating the consequences of such resolution choices within SemGen. As resolution choices are made, visualizing the changes to the merged model’s computational dependency network and/or PhysioMap [
+30
+] could help users quickly ascertain exactly which parts of the source models will be preserved in the merged system and how they will be linked together computationally.
+To summarize, we have applied semantics-based model composition to generate several versions of integrated cardiomyocyte models. Based on real-world modeling use cases, these exercises brought into relief the time-saving benefits of our approach and several important limitations. Addressing these limitations in the future will improve the accuracy of semantics-based model-to-model comparisons and further accelerate the model composition process. It is our intent to continue refinement of our approach and produce a robust set of modeling tools that significantly accelerates modeling work across research areas that employ biosimulation.
+Acknowledgments
+We would like to thank Michael Cooling and Alan Garny for their strategic and technical guidance in performing the model merging exercises. We would also like to thank Jonna Terkildsen for helping clarify the genealogy of the PHN model and thank David Nickerson for helping curate the Tran model.
+Author Contributions
+Conceived and designed the experiments: MLN JHG DLC BEC KT EJC. Performed the experiments: MLN JHG BEC KT. Analyzed the data: MLN KT. Wrote the paper: MLN BEC JHG DLC KT EJC KGK CTT RCJ. Contributed to SemGen software development: MLN CTT RCJ KGK.
+References
+1.
+Neal ML, Cooling MT, Smith LP, Thompson CT, Sauro HM, Carlson BE, et al. A reappraisal of how to build modular, reusable models of biological systems. PLoS Comput Biol. 2014/10/03 ed. 2014;10: e1003849.  pmid:25275523
+View Article
+PubMed/NCBI
+Google Scholar
+2.
+Gennari JH, Neal ML, Galdzicki M, Cook DL. Multiple ontologies in action: Composite annotations for biosimulation models. J Biomed Inform. 2011;44: 146–154.  pmid:20601121
+View Article
+PubMed/NCBI
+Google Scholar
+3.
+Beard DA, Neal ML, Tabesh-Saleki N, Thompson CT, Bassingthwaighte JB, Shimoyama M, et al. Multi-scale modeling and data integration in the Virtual Physiological Rat Project. Ann Biomed Eng. 2012;40: 2365–2378.  pmid:22805979
+View Article
+PubMed/NCBI
+Google Scholar
+4.
+Bechhofer S, van Harmelen F, Hendler J, Horrocks I, McGuinness DL, Patel-Schneider PF, et al. OWL Web Ontology Language Reference. In: W3C recommendation [Internet]. 2004. Available:
+http://www.w3.org/TR/owl-ref/
+.
+5.
+Cuellar AA, Lloyd CM, Nielsen PF, Bullivant DP, Nickerson DP, Hunter PJ. An overview of CellML 1.1, a biological model description language. Simulation. 2003;79: 740–747.
+View Article
+Google Scholar
+6.
+Hucka M, Finney A, Sauro HM, Bolouri H, Doyle JC, Kitano H, et al. The systems biology markup language (SBML): a medium for representation and exchange of biochemical network models. Bioinformatics. 2003;19: 524–531. pmid:12611808
+View Article
+PubMed/NCBI
+Google Scholar
+7.
+Butterworth E, Jardine BE, Raymond GM, Neal ML, Bassingthwaighte JB. JSim, an open-source modeling system for data analysis. F1000Research. 2013;2: 288.  pmid:24555116
+View Article
+PubMed/NCBI
+Google Scholar
+8.
+Neal ML, Gennari JH, Arts T, Cook DL. Advances in semantic representation for multiscale biosimulation: A case study in merging models. Pac Symp Biocomput. 2009: 304–315. pmid:19209710
+View Article
+PubMed/NCBI
+Google Scholar
+9.
+Terkildsen JR, Niederer S, Crampin EJ, Hunter P, Smith NP. Using Physiome standards to couple cellular functions for rat cardiac excitation-contraction. Exp Physiol. 2008;93: 919–929.  pmid:18344258
+View Article
+PubMed/NCBI
+Google Scholar
+10.
+Niederer SA, Smith NP. A mathematical model of the slow force response to stretch in rat ventricular myocytes. Biophys J. 2007;92: 4030–4044. pmid:17369410
+View Article
+PubMed/NCBI
+Google Scholar
+11.
+Pandit S V, Clark RB, Giles WR, Demir SS. A mathematical model of action potential heterogeneity in adult rat left ventricular myocytes. Biophys J. 2001;81: 3029–3051. pmid:11720973
+View Article
+PubMed/NCBI
+Google Scholar
+12.
+Hinch R, Greenstein JL, Tanskanen AJ, Xu L, Winslow RL. A simplified local control model of calcium-induced calcium release in cardiac ventricular myocytes. Biophys J. 2004;87: 3723–3736. pmid:15465866
+View Article
+PubMed/NCBI
+Google Scholar
+13.
+Niederer SA, Hunter PJ, Smith NP. A quantitative analysis of cardiac myocyte relaxation: a simulation study. Biophys J. 2006;90: 1697–1722. pmid:16339881
+View Article
+PubMed/NCBI
+Google Scholar
+14.
+Tran K, Smith NP, Loiselle DS, Crampin EJ. A metabolite-sensitive, thermodynamically constrained model of cardiac cross-bridge cycling: Implications for force development during ischemia. Biophys J. 2010;98: 267–276.  pmid:20338848
+View Article
+PubMed/NCBI
+Google Scholar
+15.
+Cook DL, Bookstein FL, Gennari JH. Physical Properties of Biological Entities: An Introduction to the Ontology of Physics for Biology. PLoS One. 2011;6: e28708.  pmid:22216106
+View Article
+PubMed/NCBI
+Google Scholar
+16.
+Cook DL, Neal ML, Bookstein FL, Gennari JH. Ontology of physics for biology: representing physical dependencies as a basis for biological processes. J Biomed Semantics. 2013;4: 41.  pmid:24295137
+View Article
+PubMed/NCBI
+Google Scholar
+17.
+Neal ML, Cook DL, Gennari JH. An OWL knowledge base for classifying and querying collections of physiological models: A prototype human physiome. International Conference on Biomedical Ontology. 2013: 16–21.
+View Article
+Google Scholar
+18.
+Rosse C, Mejino JL V. A Reference Ontology for Bioinformatics: The Foundational Model of Anatomy. J Biomed Inform. 2003;36: 478–500. pmid:14759820
+View Article
+PubMed/NCBI
+Google Scholar
+19.
+Hayamizu TF, Mangan M, Corradi JP, Kadin JA, Ringwald M. The Adult Mouse Anatomical Dictionary: a tool for annotating and integrating data. Genome Biol. 2005;6: R29. pmid:15774030
+View Article
+PubMed/NCBI
+Google Scholar
+20.
+Bard J, Rhee SY, Ashburner M. An ontology for cell types. Genome Biol. 2005;6: R21.1–R21.5.
+View Article
+Google Scholar
+21.
+Harris MA, Clark J, Ireland A, Lomax J, Ashburner M, Foulger R, et al. The Gene Ontology (GO) database and informatics resource. Nucleic Acids Res. 2004;32: D258–61. pmid:14681407
+View Article
+PubMed/NCBI
+Google Scholar
+22.
+Natale DA, Arighi CN, Blake JA, Bult CJ, Christie KR, Cowart J, et al. Protein Ontology: A controlled structured network of protein entities. Nucleic Acids Res. 2014;42: D415–D421.  pmid:24270789
+View Article
+PubMed/NCBI
+Google Scholar
+23.
+Hastings J, De Matos P, Dekker A, Ennis M, Harsha B, Kale N, et al. The ChEBI reference database and ontology for biologically relevant chemistry: Enhancements for 2013. Nucleic Acids Res. 2013;41: D456–D463.  pmid:23180789
+View Article
+PubMed/NCBI
+Google Scholar
+24.
+Brinkman RR, Courtot M, Derom D, Fostel JM, He Y, Lord P, et al. Modeling biomedical experimental processes with OBI. J Biomed Semantics. 2010;1 Suppl 1: S7.  pmid:20626927
+View Article
+PubMed/NCBI
+Google Scholar
+25.
+Garny A, Hunter PJ. OpenCOR: a modular and interoperable approach to computational biology. Front Physiol. Frontiers Media S.A.; 2015;6: 26.  pmid:25705192
+View Article
+PubMed/NCBI
+Google Scholar
+26.
+Rice JJ, Wang F, Bers DM, de Tombe PP. Approximate model of cooperative activation and crossbridge cycling in cardiac muscle using ordinary differential equations. Biophys J. 2008;95: 2368–2390.  pmid:18234826
+View Article
+PubMed/NCBI
+Google Scholar
+27.
+Schulz M, Klipp E, Liebermeister W. Propagating semantic information in biochemical network models. BMC Bioinformatics. 2012;13: 18.  pmid:22289386
+View Article
+PubMed/NCBI
+Google Scholar
+28.
+Schulz M, Krause F, Le Novère N, Klipp E, Liebermeister W. Retrieval, alignment, and clustering of computational models based on semantic annotations. Mol Syst Biol. 2011;7: 512.  pmid:21772260
+View Article
+PubMed/NCBI
+Google Scholar
+29.
+Li C, Donizelli M, Rodriguez N, Dharuri H, Endler L, Chelliah V, et al. BioModels Database: An enhanced, curated and annotated resource for published quantitative kinetic models. BMC Syst Biol. 2010;4: 92.  pmid:20587024
+View Article
+PubMed/NCBI
+Google Scholar
+30.
+Cook DL, Neal ML, Hoehndorf R, Gkoutos G V, Gennari JH. Representing physiological processes and their participants with PhysioMaps. J Biomed Semantics. 2013;4 Suppl 1: S2.  pmid:23735231
+View Article
+PubMed/NCBI
+Google Scholar
+Download PDF
+Citation
+XML
+Print
+Share
+Reddit
+Facebook
+LinkedIn
+Mendeley
+Bluesky
+Email
+Advertisement
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1458247671871-1'); });
+Subject Areas
+?
+For more information about PLOS Subject Areas, click
+here
+.
+We want your feedback.
+Do these Subject Areas make sense for this article? Click the target next to the incorrect Subject Area and let us know. Thanks for your help!
+Troponin
+Is the Subject Area
+"Troponin"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Biophysics
+Is the Subject Area
+"Biophysics"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Cardiomyocytes
+Is the Subject Area
+"Cardiomyocytes"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Simulation and modeling
+Is the Subject Area
+"Simulation and modeling"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Physical properties
+Is the Subject Area
+"Physical properties"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Intracellular membranes
+Is the Subject Area
+"Intracellular membranes"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Ion channels
+Is the Subject Area
+"Ion channels"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Semantics
+Is the Subject Area
+"Semantics"
+applicable to this article?
+Yes
+No
+Thanks for your feedback.
+Publications
+PLOS Aging and Health
+PLOS Biology
+PLOS Climate
+PLOS Complex Systems
+PLOS Computational Biology
+PLOS Digital Health
+PLOS Ecosystems
+PLOS Genetics
+PLOS Global Public Health
+PLOS Medicine
+PLOS Mental Health
+PLOS Neglected Tropical Diseases
+PLOS One
+PLOS Pathogens
+PLOS Sustainability and Transformation
+PLOS Water
+Home
+Blogs
+Collections
+Give feedback
+LOCKSS
+Privacy Policy
+Terms of Use
+Advertise
+Media Inquiries
+Contact
+PLOS is a nonprofit 501(c)(3) corporation, #C2354500, based in California, US
+var ArticleData = {
+    doi: '10.1371/journal.pone.0145621',
+    title: '<article-title xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">Semantics-Based Composition of Integrated Cardiomyocyte Models Motivated by Real-World Use Cases<\/article-title>',
+    date: 'Dec 30, 2015'
+  };
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    scale: 100,
+    availableFonts: ["STIX","TeX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    linebreaks: { automatic: false }
+  },
+  jax: ["input/MathML", "output/HTML-CSS"]
+});

@@ -1,0 +1,72 @@
+------------------------------------------------------------------------------
+
+This product includes software developed by Kitware, Inc. and Contributors.
+
+Pulse Physiology Simulation Engine
+Copyright 2018-2025 Kitware, Inc. and Contributors
+Distributed under the Apache License, Version 2.0.
+
+The following individuals and institutions are among the Contributors:
+
+* Matthew Pang Chia Hua <matthew.pang@entropicengineering.com>
+* Applied Research Associates, Inc.
+
+See version control history for details of individual contributions.
+
+The Pulse Physiology Simulation Engine is a fork of the BioGears project,
+version 6.1.1.  BioGears began at Applied Research Associates, Inc. (ARA) with
+oversight from the Telemedicine and Advanced Technology Research Center (TATRC)
+under award W81XWH-13-2-0068.
+
+------------------------------------------------------------------------------
+
+This product includes software developed at Applied Research Associates, Inc.
+
+BioGears 6.1.1
+Copyright 2015 Applied Research Associates, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+------------------------------------------------------------------------------
+
+This product uses the Eigen software package
+
+https://gitlab.com/libeigen/eigen
+
+https://gitlab.com/libeigen/eigen/-/blob/master/COPYING.APACHE
+
+------------------------------------------------------------------------------
+
+This product uses Google Protocol Buffers
+
+https://github.com/protocolbuffers/protobuf
+
+https://github.com/protocolbuffers/protobuf/blob/main/LICENSE
+
+------------------------------------------------------------------------------
+
+This product uses Absil via Google Protocol Buffers
+
+https://github.com/abseil/abseil-cpp
+
+https://github.com/abseil/abseil-cpp/blob/master/LICENSE
+
+------------------------------------------------------------------------------
+
+When building Python API support, this product uses the pybind11 package
+
+https://github.com/pybind/pybind11
+
+https://github.com/pybind/pybind11/blob/master/LICENSE
+
+------------------------------------------------------------------------------

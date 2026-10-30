@@ -1,0 +1,15 @@
+[
+ ["carraway_license", "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/LICENSE"],
+ ["carraway_notices", "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/THIRD_PARTY_NOTICES.md"],
+ ["carraway_physiology", "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/docs/physiology-model.md"],
+ ["carraway_head", "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/main"],
+ ["opencor_readme", "https://raw.githubusercontent.com/opencor/opencor/master/README.md"],
+ ["opencor_api", "https://api.github.com/repos/opencor/opencor"],
+ ["cellml_spec", "https://www.cellml.org/cellml/2.0"],
+ ["semgen_protocol", "https://raw.githubusercontent.com/wiki/SemBioProcess/SemGen/Annotation-protocol.md"],
+ ["semsim_article", "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0145621"],
+ ["smith_pubmed", "https://pubmed.ncbi.nlm.nih.gov/15036180/"],
+ ["pulse_license", "https://gitlab.kitware.com/physiology/engine/-/raw/stable/LICENSE"],
+ ["pulse_notice", "https://gitlab.kitware.com/physiology/engine/-/raw/stable/NOTICE"],
+ ["pulse_cardiovascular", "https://pulse.kitware.com/_cardiovascular_methodology.html"]
+]

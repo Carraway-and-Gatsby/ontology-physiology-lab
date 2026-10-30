@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics — Physiome Model Repository</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link href="/++theme++cellml.theme/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="/++theme++cellml.theme/ext/contextjs/context.bootstrap.css" rel="stylesheet" />
+    <link href="/++theme++cellml.theme/assets/theme.css" rel="stylesheet" />
+    <link href="/++theme++cellml.theme/assets/ploneui.css" rel="stylesheet" />
+    <link href="/++theme++cellml.theme/assets/cellml.css" rel="stylesheet" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="/++theme++cellml.theme/assets/images/favicon.ico" />
+
+  <base href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml" /><style type="text/css" media="screen">@import url(https://models.physiomeproject.org/portal_css/CellML%20Theme%20%28PMR2%29/resourcepmr2.cytoscapejs.cssmain-cachekey-09e9333e86e5105378fdf2a74d233eda.css);</style><script type="text/javascript" src="https://models.physiomeproject.org/portal_javascripts/CellML%20Theme%20%28PMR2%29/resourceplone.app.jquery-cachekey-a56447625a8b68bc81f15760e9b521e1.js"></script><script type="text/javascript" src="https://models.physiomeproject.org/portal_javascripts/CellML%20Theme%20%28PMR2%29/kss-bbb-cachekey-2834f3862298bb36566cfa37457f14cc.js"></script><script type="text/javascript" src="https://models.physiomeproject.org/portal_javascripts/CellML%20Theme%20%28PMR2%29/resourcepmr2.cytoscapejs.jslibcola.v3.min-cachekey-03887355223e0df5fde376cbddb2002e.js"></script><script type="text/javascript" src="https://models.physiomeproject.org/portal_javascripts/CellML%20Theme%20%28PMR2%29/resourcepmr2.cytoscapejs.jslibdagre-cachekey-0d97062e6baebd9a77ebfed3b6d16e09.js"></script><script type="text/javascript" src="https://models.physiomeproject.org/portal_javascripts/CellML%20Theme%20%28PMR2%29/resourcepmr2.cytoscapejs.jsbuildcytoscape.min-cachekey-ce52a93abe54f0ba6849c3c45fe4bc31.js"></script><script type="text/javascript" src="https://models.physiomeproject.org/portal_javascripts/CellML%20Theme%20%28PMR2%29/resourcecellml.pmr2.jsopencortooltip-cachekey-10e257c89f4ad386ee4c86832f2be883.js"></script><script type="text/javascript" src="https://models.physiomeproject.org/portal_javascripts/CellML%20Theme%20%28PMR2%29/preview_pmrplatform.js"></script></head>
+
+  <body class="template-license_citation portaltype-exposurefile site-pmr section-exposure subsection-3c63146a30a3118ee7725784743b9a7d subsection-3c63146a30a3118ee7725784743b9a7d-ModelMain.cellml icons-on userrole-anonymous" id="sticky-0" data-base-url="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml" data-portal-url="https://models.physiomeproject.org" dir="ltr"><div id="wrap">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="span3">
+            <div id="logo">
+  <a accesskey="1" href="http://physiomeproject.org/"><img alt="" title="IUPS Physiome Project" src="https://models.physiomeproject.org/++theme++cellml.theme/assets/images/logo-physiome.png" /></a>
+</div>
+          </div>
+          <div class="span3 offset6">
+            <div class="row">
+              <div id="PartOfLogo" class="row pull-right"></div>
+            </div>
+            <div id="searchbox" class="row pull-right"><div id="portal-searchbox">
+
+    <form id="searchGadget_form" action="https://models.physiomeproject.org/@@search">
+
+        <div class="LSBox">
+        <label class="hiddenStructure" for="searchGadget">Search Site</label>
+
+        <input name="SearchableText" type="text" size="18" title="Search Site" placeholder="Search Site" accesskey="4" class="searchField" id="searchGadget" />
+
+        <div class="LSResult" id="LSResult"><div class="LSShadow" id="LSShadow"></div></div>
+        </div>
+    </form>
+
+    <div id="portal-advanced-search" class="hiddenStructure">
+        <a href="https://models.physiomeproject.org/@@search" accesskey="5">
+            Advanced Search…
+        </a>
+    </div>
+
+</div></div>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="span12">
+
+            <div class="navbar navbar-inverse">
+              <div class="navbar-inner">
+                <div class="container">
+                  <ul id="tabs" class="nav span10">
+        <li id="portaltab-index_html" class="active">
+            <a href="https://models.physiomeproject.org" title="">Models Home</a></li>
+        <li id="portaltab-e" class="plain">
+            <a href="https://models.physiomeproject.org/e" title="">Exposures</a></li>
+        <li id="portaltab-docs" class="plain">
+            <a href="https://models.physiomeproject.org/docs" title="">Documentation</a></li>
+    </ul>
+                  <ul class="actionMenu deactivated nav pull-right" id="portal-personaltools">
+
+  <li class="actionMenuHeader dropdown">
+    <a id="user" class="dropdown-toggle" href="https://models.physiomeproject.org/login">
+        Log in
+    </a>
+
+    
+  </li>
+
+</ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="span12">
+            <div id="breadcrumbs"><div id="portal-breadcrumbs">
+
+    <span id="breadcrumbs-you-are-here">You
+are here:</span>
+    <span id="breadcrumbs-home">
+        <a href="https://models.physiomeproject.org">Home</a>
+        <span class="breadcrumbSeparator">
+            /
+            
+        </span>
+    </span>
+    <span id="breadcrumbs-1" dir="ltr">
+        
+            <a href="https://models.physiomeproject.org/exposure">Exposures</a>
+            <span class="breadcrumbSeparator">
+                /
+                
+            </span>
+            
+         
+    </span>
+    <span id="breadcrumbs-2" dir="ltr">
+        
+            <a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d">Korakianitis, Shi, 2006</a>
+            <span class="breadcrumbSeparator">
+                /
+                
+            </span>
+            
+         
+    </span>
+    <span id="breadcrumbs-3" dir="ltr">
+        
+            
+            
+            <span id="breadcrumbs-current">Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics</span>
+         
+    </span>
+
+</div></div>
+          </div>
+        </div>
+
+        <div class="row" id="portal-columns">
+
+          <div class="span9" id="content"><dl class="portalMessage info" id="kssPortalMessage" style="display:none">
+        <dt>Info</dt>
+        <dd></dd>
+    </dl>
+
+                            
+
+                            
+        
+    <h1 class="documentFirstHeading">Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics</h1>
+    <div id="content-core">
+      <div><h2>License and Citation</h2>
+
+<p>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">Creative Commons Attribution 3.0 Unported License</a>.</p>
+
+<h3>Citation Instructions</h3>
+<p>All publicly accessible content of the Physiome model repository is licensed to the public under the <a class="external-link" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+<p>Registered users are free to upload any model file, and associated data (such as images, experimental data, simulation data, session files, etc.). However, the repository curators reserve the right to remove any inappropriate material from the repository.</p>
+<p>To reference the CellML model repository please cite the following publication:</p>
+<p>Lloyd, C.M., Lawson, J.L., Hunter, P.J. and Nielsen, P.F. The CellML Model Repository. Bioinformatics. 2008 September;24(18):2122-2123.</p>
+<p>To reference a specific model in the CellML model repository, please cite:</p>
+<ul>
+<li>the model name (usually based on the title of the original published paper, the authors’ names and the publication date);</li>
+<li>the URL of the model exposure; </li>
+<li>the time and date on which you downloaded the model file; </li>
+<li>and the authors of the CellML model.</li>
+</ul>
+<p>For example:<br />Can yeast glycolysis be understood in terms of in vitro kinetics of the constituent enzymes? Testing biochemistry. Teusink et al. 2000. https://models.physiomeproject.org/e/72/<br />9.15am 31st January 2010<br />CellML author(s): Catherine Lloyd</p>
+<blockquote class="webkit-indent-blockquote"></blockquote>
+<p>To reference a specific figure in the CellML model repository, please cite:</p>
+<ul>
+<li>the figure name (usually based on the title of the original published paper, the authors’ names and the publication date);</li>
+<li>the URL of the figure; </li>
+<li>and the figure creators.</li>
+</ul>
+<p>For example:<br />Can yeast glycolysis be understood in terms of in vitro kinetics of the constituent enzymes? Testing biochemistry. Teusink et al. 2000.<br />https://models.physiomeproject.org/e/72/teusink_2000.png<br />Figure creators: Pulasthi Mithraratne, Peter Villiger, Linda Feng and Hanne Nielsen.</p>
+</div>
+    </div>
+  
+      
+                        </div>
+
+          
+
+          <div class="span3" id="right-column">
+            
+                
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d736f75726365" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d736f75726365"><dl class="portlet" id="pmr_source">
+  <dt class="portletHeader">Source</dt>
+  <dd>Derived from workspace <a href="https://models.physiomeproject.org/workspace/shi_hose_2009">Shi, Hose, 2009</a> at changeset <a href="https://models.physiomeproject.org/workspace/shi_hose_2009/@@file/9ac0ad67a45f9d792ac92c2b60fc7c0ce89096a9/">9ac0ad67a45f</a>.
+  </dd>
+  <dd>
+    <span class="state-expired">This exposure was expired</span>.
+    <if>
+    <a href="https://models.physiomeproject.org/exposure/c49d416ae3a5132882e6ea7479ba50f5">A more up-to-date exposure is available</a>,
+      or view <a href="https://models.physiomeproject.org/workspace/shi_hose_2009/related">related resources</a>.
+    </if>
+  </dd>
+</dl>
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d636f6c6c61626f726174696f6e2d696e666f" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d636f6c6c61626f726174696f6e2d696e666f"><dl class="portlet" id="pmr_collab">
+  <dt class="portletHeader">Collaboration</dt>
+  <dd>
+      To begin collaborating on this work, please use your
+    git client and issue this
+    command:
+    <input type="text" value="git clone https://models.physiomeproject.org/workspace/shi_hose_2009" class="clone-command" onclick="this.select()" readonly="readonly" />
+  </dd>
+</dl>
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d646f776e6c6f61642d31" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d646f776e6c6f61642d31"><dl class="portlet portletNavigationTree" id="pmr_download">
+  <dt class="portletHeader">Downloads</dt>
+  <dd>
+    <ul>
+      <li><a class="btn" href="https://models.physiomeproject.org/workspace/shi_hose_2009/@@rawfile/9ac0ad67a45f9d792ac92c2b60fc7c0ce89096a9/ModelMain.cellml"><i class="icon-download-alt"></i>
+              Download This File</a></li>
+      <li><a class="btn" href="https://models.physiomeproject.org/workspace/shi_hose_2009/@@archive/9ac0ad67a45f9d792ac92c2b60fc7c0ce89096a9/tgz"><i class="icon-download-alt"></i>
+              Complete Archive as .tgz</a></li>
+      <li><a class="btn" href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/download_generated_omex"><i class="icon-download-alt"></i>
+              COMBINE Archive (exposure)</a></li>
+    </ul>
+  </dd>
+</dl>
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d66696c652d6e6f746573" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d66696c652d6e6f746573">
+<dl class="portlet portletNavigationTree">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+       <a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/view" class="title">Views Available</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="exposure-nav portletItem lastItem">
+        <ul class="navTree navTreeLevel0">
+            <li class="navTreeItem exposurefilenote docgen"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/docgen">Documentation</a></li>
+            <li class="navTreeItem exposurefilenote cmeta"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/cmeta">Model Metadata</a></li>
+            <li class="navTreeItem exposurefilenote cellml_math"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/cellml_math">Mathematics</a></li>
+            <li class="navTreeItem exposurefilenote cellml_codegen"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/cellml_codegen">Generated Code</a></li>
+            <li class="navTreeItem exposurefilenote license_citation"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/license_citation">Cite this model</a></li>
+            <li class="navTreeItem exposurefilenote source_text"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/source_text">Source View</a></li>
+            <li class="navTreeItem exposurefilenote virtuoso_rdf"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/virtuoso_rdf">Semantic Metadata</a></li>
+            <li class="navTreeItem exposurefilenote opencor"><a href="opencor://openFile/https://models.physiomeproject.org/workspace/shi_hose_2009/rawfile/9ac0ad67a45f9d792ac92c2b60fc7c0ce89096a9/ModelMain.cellml">Launch with OpenCOR</a></li>
+        </ul>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d66696c652d746f6f6c2d706f72746c6574" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6578706f737572652d66696c652d746f6f6c2d706f72746c6574"><dl class="portlet portletNavigationTree" id="pmr_exposurefiletool">
+  <dt class="portletHeader">Tools</dt>
+  <dd class="portletItem">
+    <ul class="navTree">
+      <li class="navTreeItem"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/webcat_tool">CombineArchive Web</a></li>
+      <li class="navTreeItem"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/bives_pick_file">Compare...</a></li>
+      <li class="navTreeItem"><a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/virtuoso_rdf">Export Exposure Metadata</a></li>
+      <li class="navTreeItem"><a href="https://github.com/PMR2/models.physiomeproject.org/issues/new?exposure-url=https%3A%2F%2Fmodels.physiomeproject.org%2Fexposure%2F3c63146a30a3118ee7725784743b9a7d%2FModelMain.cellml&amp;labels=exposure&amp;template=exposure.yml&amp;title=%5BExposure%5D%3A+Korakianitis%2C+Shi%2C+2006">Report a problem with this resource</a></li>
+    </ul>
+  </dd>
+</dl>
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6c6963656e7365" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d722f6578706f737572650a6c6963656e7365"><dl class="portlet" id="pmr_license">
+  <dt class="portletHeader">License</dt>
+  <dd>
+<p>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">Creative Commons Attribution 3.0 Unported License</a>.</p>
+</dd>
+</dl>
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d720a6e617669676174696f6e" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706d720a6e617669676174696f6e">
+<dl class="portlet portletNavigationTree">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="https://models.physiomeproject.org/sitemap" class="tile">Navigation</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem lastItem">
+        <ul class="navTree navTreeLevel0">
+            
+            
+
+
+
+<li class="navTreeItem visualNoMarker navTreeCurrentNode section-modelmain-cellml">
+
+    
+
+
+        <a href="https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/view" class="state-missing-value navTreeCurrentItem navTreeCurrentNode contenttype-exposurefile" title="Numerical simulation of cardiovascular dynamics with left heart failure and in-series pulsatile ventricular assist device">
+            
+            <span>Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics</span>
+        </a>
+
+        
+
+    
+</li>
+
+
+
+
+        </ul>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+</div>
+
+
+
+
+            
+        </div>
+
+        </div>
+
+        <div class="row">
+          <div id="cellml-footer" class="span12">
+  
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2BPLKG3GXH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BPLKG3GXH', {
+    cookie_domain: window.location.host,
+    cookie_flags: 'SameSite=None;Secure',
+  });
+</script>
+</div>
+        </div>
+
+      </div> <!-- /container -->
+
+      <div id="push"></div>
+    </div><!-- /wrap --><div id="footer">
+      <div id="footer-inner" class="container">
+        <div class="row">
+          <div id="footer-content">
+
+            <div id="copyright" class="span6"><acronym title="Copyright">©</acronym> 2001-2026 - IUPS Physiome Project.</div>
+
+            <div class="span6 text-right pull-right">
+              <ul class="inline" id="siteactions">
+
+    <li id="siteaction-sitemap"><a href="https://models.physiomeproject.org/sitemap" accesskey="3" title="Site Map">Site Map</a></li>
+    <li id="siteaction-accessibility"><a href="https://models.physiomeproject.org/accessibility-info" accesskey="0" title="Accessibility">Accessibility</a></li>
+    <li id="siteaction-contact"><a href="https://models.physiomeproject.org/about/contact" accesskey="9" title="Contact">Contact</a></li>
+    <li id="siteaction-about"><a href="https://models.physiomeproject.org/about/pmr2" accesskey="" title="About">About</a></li>
+</ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div><!--
+    <script src="http://code.jquery.com/jquery.js"></script>
+    --><script src="/++theme++cellml.theme/bootstrap/js/bootstrap.min.js"></script><script src="/++theme++cellml.theme/ext/contextjs/context.js"></script><script src="/++theme++cellml.theme/console.js"></script></body>
+</html>

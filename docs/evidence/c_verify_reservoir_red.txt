@@ -1,0 +1,13 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_isolated_passive_reservoir_exact_solution_under_step_refinement _____
+
+    def test_isolated_passive_reservoir_exact_solution_under_step_refinement():
+>       evidence = oracle().passive_reservoir_refinement()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'c_verify_run' has no attribute 'passive_reservoir_refinement'
+
+tests/test_independent_verification.py:139: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_independent_verification.py::test_isolated_passive_reservoir_exact_solution_under_step_refinement
+1 failed in 0.38s

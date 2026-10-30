@@ -1,0 +1,317 @@
+[
+  {
+    "source_id": 1,
+    "evidence_file": "docs/evidence/c_carraway_web_plain.txt",
+    "quote": "GitHub - Carraway-and-Gatsby/cardiac-simulator: Bilingual educational cardiovascular physiology lab with synchronized 3D heart, valve and blood-flow animation. MIT source; local HRA assets. · GitHub"
+  },
+  {
+    "source_id": 2,
+    "evidence_file": "docs/evidence/c_carraway_api_plain.txt",
+    "quote": "\"full_name\": \"Carraway-and-Gatsby/cardiac-simulator\",\n  \"private\": false,"
+  },
+  {
+    "source_id": 2,
+    "evidence_file": "docs/evidence/c_carraway_api_plain.txt",
+    "quote": "\"default_branch\": \"main\",\n  \"temp_clone_token\": null,"
+  },
+  {
+    "source_id": 2,
+    "evidence_file": "docs/evidence/c_carraway_api_plain.txt",
+    "quote": "\"spdx_id\": \"MIT\",\n    \"url\": \"https://api.github.com/licenses/mit\","
+  },
+  {
+    "source_id": 3,
+    "evidence_file": "docs/evidence/c_carraway_readme_main.txt",
+    "quote": "An interactive educational cardiovascular lab with a 3D anatomy viewer, a"
+  },
+  {
+    "source_id": 3,
+    "evidence_file": "docs/evidence/c_carraway_readme_main.txt",
+    "quote": "**This is an educational software prototype, not a clinically validated"
+  },
+  {
+    "source_id": 3,
+    "evidence_file": "docs/evidence/c_carraway_readme_main.txt",
+    "quote": "| Circulation | Eight blood-volume compartments, time-varying elastance, exponential passive ventricular pressure, resistances/compliances, signed valve flows, RK4 and periodic convergence | Estimated parameters; no patient calibration, autonomic regulation, electrophysiology or external waveform validation |"
+  },
+  {
+    "source_id": 4,
+    "evidence_file": "docs/evidence/c_semgen_readme.txt",
+    "quote": "permitted for non-commercial purposes (such as for research, personal use, or educational use), provided that redistribution in any form includes this entire notice in all copies of the software, derivative works, and supporting documentation."
+  },
+  {
+    "source_id": 4,
+    "evidence_file": "docs/evidence/c_semgen_readme.txt",
+    "quote": "Use of JxBrowser as part of SemGen in any commercial software requires a commercial license from TeamDev Ltd."
+  },
+  {
+    "source_id": 4,
+    "evidence_file": "docs/evidence/c_semgen_readme.txt",
+    "quote": "Each composite annotation consists of a physical property term connected to a physical entity or physical process term. The physical entity term can itself also be a composite of ontology terms. We recommend using only terms from the Ontology of Physics for Biology (OPB) for the physical property annotation components. For the physical entity annotations we recommend using robust, thorough, and widely accepted online reference ontologies like the Foundational Model of Anatomy (FMA), Chemical Entities of Biological Interest (ChEBI), and Gene Ontology cellular components (GO-cc). For physical processes annotations, we recommend creating custom terms and defining them by identifying their thermodynamic sources, sinks and mediators from the physical entities in the model."
+  },
+  {
+    "source_id": 5,
+    "evidence_file": "docs/evidence/c_circadapt_license_plain.txt",
+    "quote": "Licensor grant to User a free, revocable, non-exclusive, non-transferable, non-sublicensable, License"
+  },
+  {
+    "source_id": 5,
+    "evidence_file": "docs/evidence/c_circadapt_license_plain.txt",
+    "quote": "Developer User shall not (i) distribute or sell the Licensed Intellectual Property Rights (i) distribute or"
+  },
+  {
+    "source_id": 5,
+    "evidence_file": "docs/evidence/c_circadapt_license_plain.txt",
+    "quote": "Any Improvements shall be the property of Licensor."
+  },
+  {
+    "source_id": 6,
+    "evidence_file": "docs/evidence/c_opencor_license.txt",
+    "quote": "GNU GENERAL PUBLIC LICENSE"
+  },
+  {
+    "source_id": 6,
+    "evidence_file": "docs/evidence/c_opencor_license.txt",
+    "quote": "Version 3, 29 June 2007"
+  },
+  {
+    "source_id": 8,
+    "evidence_file": "docs/evidence/c_cellml_model_license_plain.txt",
+    "quote": "Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics — Physiome Model Repository"
+  },
+  {
+    "source_id": 8,
+    "evidence_file": "docs/evidence/c_cellml_model_license_plain.txt",
+    "quote": "Creative Commons Attribution 3.0 Unported License"
+  },
+  {
+    "source_id": 9,
+    "evidence_file": "docs/evidence/c_cellml_environments_plain.txt",
+    "quote": "Apache v2.0 license\n) being developed at the Auckland Bioengineering Institute. The latest available release is"
+  },
+  {
+    "source_id": 10,
+    "evidence_file": "docs/evidence/c_carraway_license.txt",
+    "quote": "MIT License\n\nCopyright (c) 2026 CardioLab contributors"
+  },
+  {
+    "source_id": 10,
+    "evidence_file": "docs/evidence/c_carraway_license.txt",
+    "quote": "Permission is hereby granted, free of charge, to any person obtaining a copy"
+  },
+  {
+    "source_id": 11,
+    "evidence_file": "docs/evidence/c_carraway_notices.txt",
+    "quote": "third-party dependencies, source data or derived anatomical material."
+  },
+  {
+    "source_id": 11,
+    "evidence_file": "docs/evidence/c_carraway_notices.txt",
+    "quote": "4.0 International (CC BY 4.0)**. The local asset setup downloads the associated"
+  },
+  {
+    "source_id": 11,
+    "evidence_file": "docs/evidence/c_carraway_notices.txt",
+    "quote": "links and modification record. MIT does not relicense that model."
+  },
+  {
+    "source_id": 12,
+    "evidence_file": "docs/evidence/c_carraway_physiology.txt",
+    "quote": "The eight state variables are blood volumes in LA, LV, systemic arteries (SA), systemic veins (SV), RA, RV, pulmonary arteries (PA), and pulmonary veins (PV). All volumes are in mL, pressures in mmHg, time in seconds, flow in mL/s, compliance in mL/mmHg, and resistance in mmHg·s/mL. Reported cardiac output is converted to L/min. EF and regurgitant fraction are stored as fractions, not percentages."
+  },
+  {
+    "source_id": 12,
+    "evidence_file": "docs/evidence/c_carraway_physiology.txt",
+    "quote": "These sources support the equation classes and mechanistic expectations. **Every numerical default below is an engineering estimate**, not an extracted experimental measurement, a patient fit, or a published parameter set. Broad regression acceptance bands are developer checks, not clinical reference intervals. No clinical normal-range claim is made from the baseline numbers."
+  },
+  {
+    "source_id": 12,
+    "evidence_file": "docs/evidence/c_carraway_physiology.txt",
+    "quote": "Numeric convergence is **not** sufficient for physiological interpretation. If the passive ventricular curve exceeds the peak active relation at a sampled volume, activation in the convex interpolation would lower pressure at fixed volume. That combination lies outside this model's supported domain. Simultaneous forward AV and semilunar flow also invalidates the usual interpretation that volume-extremum SV describes all ventricular throughput. Both conditions set `modelWithinDomain=false`, with explicit diagnostic reasons; the application must withhold physiological plots and interpretation for that result."
+  },
+  {
+    "source_id": 12,
+    "evidence_file": "docs/evidence/c_carraway_physiology.txt",
+    "quote": "This increment adds an explicit numerical model to the existing provisional anatomical viewer. It is an original, simplified educational implementation. It has passed conservation, numerical and qualitative mechanism checks; it has **not** been calibrated to patients, compared with an external waveform dataset, independently reviewed by a cardiovascular expert, or clinically validated. Anatomical asset approval and physiological verification are separate."
+  },
+  {
+    "source_id": 13,
+    "evidence_file": "docs/evidence/c_carraway_head_plain.txt",
+    "quote": "\"sha\": \"b3f437403e709f11099f50b38272f77ded5ea9b5\",\n  \"node_id\": \"C_kwDOVUcgUNoAKGIzZjQzNzQwM2U3MDlmMTEwOTlmNTBiMzgyNzJmNzdkZWQ1ZWE5YjU\","
+  },
+  {
+    "source_id": 14,
+    "evidence_file": "docs/evidence/c_opencor_readme.txt",
+    "quote": "404: Not Found"
+  },
+  {
+    "source_id": 15,
+    "evidence_file": "docs/evidence/c_opencor_api_plain.txt",
+    "quote": "\"spdx_id\": \"GPL-3.0\",\n    \"url\": \"https://api.github.com/licenses/gpl-3.0\","
+  },
+  {
+    "source_id": 16,
+    "evidence_file": "docs/evidence/c_cellml_spec_plain.txt",
+    "quote": "Tuples differing by a multiplying factor in their unit reduction MUST be taken into account when interpreting the numerical values of the variables (see"
+  },
+  {
+    "source_id": 16,
+    "evidence_file": "docs/evidence/c_cellml_spec_plain.txt",
+    "quote": ") is referred to as the “variable unit reduction”."
+  },
+  {
+    "source_id": 16,
+    "evidence_file": "docs/evidence/c_cellml_spec_plain.txt",
+    "quote": "The variable equivalence network MUST NOT contain any cycles."
+  },
+  {
+    "source_id": 17,
+    "evidence_file": "docs/evidence/c_semgen_protocol.txt",
+    "quote": "_When loading an un-annotated model into SemGen, the software will attempt to accurately identify the OPB:Physical property that a codeword represents based on the codeword’s physical units and its mathematical relationship to other codewords. However, these assignments are not guaranteed to be correct._"
+  },
+  {
+    "source_id": 17,
+    "evidence_file": "docs/evidence/c_semgen_protocol.txt",
+    "quote": "* Define the term logically by specifying the dynamical sources, sinks and mediating entities that participate in the process (SemGen provides an interface for this that allows the user to select from the physical entities entered in step 3)."
+  },
+  {
+    "source_id": 18,
+    "evidence_file": "docs/evidence/c_semsim_article_plain.txt",
+    "quote": "While we have not yet performed formal tests to quantify the amount of time SemGen saves users when performing model merging tasks, the present study provides preliminary evidence, albeit anecdotal, illustrating its time-saving features. Based on estimates from the authors, the original Terkildsen et al. model required months to generate whereas our version required only weeks. Furthermore, the time required for us to assemble our version included the time required to annotate the models, and also to enhance and debug SemGen so that it correctly performed the model-model resolution, merging, and code-generation procedures. The actual time required to load in the annotated models, resolve their semantic overlap and output simulation code requires on the order of several minutes only. Indeed, authors KT, BEC and JHG were able to quickly generate an impromptu version of the PHT model during a 15-minute conference break—they already had the annotated Pandit and Hinch models available, and connecting them to the Tran model was simply a matter of annotating cytosolic calcium in the Tran model and then merging the Pandit-Hinch and Tran models in SemGen. We acknowledge that this process was likely facilitated by KT’s expert knowledge of the Pandit and Hinch models, nonetheless, we believe this impromptu composition is an important illustration of the time-saving benefits that are available through semantics-based model composition."
+  },
+  {
+    "source_id": 18,
+    "evidence_file": "docs/evidence/c_semsim_article_plain.txt",
+    "quote": ", bottom curve) is relatively low compared to the force generated in the Tran source model. This is also because the cytosolic calcium levels generated by the Pandit-Hinch model are lower than those used in the Tran source model. Therefore, additional post-merge parameter changes would be required to align the assumptions about calcium levels in the components of the PHT model. These kinds of post-merge adjustments are an important part of a modeler’s workflow when merging models. Often, they require a clear understanding of the mathematical relations among variables, and a broad contextual knowledge about the assumptions and underlying biology behind the models. For example, source models may be parameterized under different experimental conditions and for different species. The post-merge edits, such as those we described above, represent subtle (and sometimes subjective) decision-making by human intelligence. It is not within the scope of SemGen to help automate this aspect of model merging. Rather, SemGen aims to make all of the straightforward connections, and do the “heavy lifting” of semantic resolution, merging and automatic code generation. Using our tool, the modeler can more easily move to the challenging and subtler decisions about assumptions, context, and adjustments to parameters that might be needed to produce a biologically sensible result."
+  },
+  {
+    "source_id": 18,
+    "evidence_file": "docs/evidence/c_semsim_article_plain.txt",
+    "quote": "rate of the calcium-troponin complex. SemGen currently recognizes equivalent physical processes by examining the physical property represented (electrical current, e.g.) and the physical entities that participate in the process as thermodynamic sources, sinks and mediators. Thus, if two models represent the same physical process but directionality is different such that the source entities for one model are the sinks for the other, SemGen does not yet recognize the equivalency. We plan to enhance SemGen so that it recognizes the close, inverse relationship between processes that have opposite directionality but are otherwise identical."
+  },
+  {
+    "source_id": 18,
+    "evidence_file": "docs/evidence/c_semsim_article_plain.txt",
+    "quote": "], which describes a biosimulation model in terms of its biological meaning formally linked to the model’s specific mathematical implementation. To accomplish this we use composite annotations ["
+  },
+  {
+    "source_id": 19,
+    "evidence_file": "docs/evidence/c_smith_pubmed_plain.txt",
+    "quote": "[abstract omitted: publisher copyright; see DOI/PMID]"
+  },
+  {
+    "source_id": 20,
+    "evidence_file": "docs/evidence/c_pulse_license.txt",
+    "quote": "Apache License\n                           Version 2.0, January 2004"
+  },
+  {
+    "source_id": 20,
+    "evidence_file": "docs/evidence/c_pulse_license.txt",
+    "quote": "Version 2.0, January 2004"
+  },
+  {
+    "source_id": 21,
+    "evidence_file": "docs/evidence/c_pulse_notice.txt",
+    "quote": "Distributed under the Apache License, Version 2.0."
+  },
+  {
+    "source_id": 21,
+    "evidence_file": "docs/evidence/c_pulse_notice.txt",
+    "quote": "This product uses the Eigen software package"
+  },
+  {
+    "source_id": 22,
+    "evidence_file": "docs/evidence/c_pulse_cardiovascular_plain.txt",
+    "quote": "The cardiovascular system is a closed-loop system of compartments that represents the human circulatory system. The cardiovascular system is sometimes described as two separate circulations: the systemic circulation and the pulmonary circulation. Both circulations are represented in the Cardiovascular system, as well as the lymph. The dynamical state of the Cardiovascular System is determined at every timestep through a three-step process. First, intra- and inter-system feedback is applied during the preprocess step. Next, the state of the circulatory system is determined by solving an equivalent circuit. Finally, the state of the system is updated in preparation of time advancement. Through system and action validation, we demonstrate the accuracy of the model at resting physiology and a variety of cardiovascular related insults and interventions with appropriate system feedback."
+  },
+  {
+    "source_id": 22,
+    "evidence_file": "docs/evidence/c_pulse_cardiovascular_plain.txt",
+    "quote": "The heart model generates pressure that drives the hemodynamics through a variable capacitor that simulates the changing elastance of the myocardium throughout the cardiac cycle. The simulated heart has two sides, left and right, simulating the two sides of the human heart. The atria are not included in the heart model; only the ventricular behavior is modeled."
+  },
+  {
+    "source_id": 22,
+    "evidence_file": "docs/evidence/c_pulse_cardiovascular_plain.txt",
+    "quote": "The heart compliance is calculated from the inverse of the heart elastance. The heart elastance model used is adapted from the one developed by Stergiopulos et al"
+  },
+  {
+    "source_id": 23,
+    "evidence_file": "docs/evidence/c_opencor_licensing_plain.txt",
+    "quote": "GPL v3.0 license\n, a copy of which can be found in the OpenCOR distribution package in"
+  },
+  {
+    "source_id": 24,
+    "evidence_file": "docs/evidence/c_opencor_readme_rst.txt",
+    "quote": "`OpenCOR <https://opencor.ws/>`__ is an `open source <https://opencor.ws/licensing.html>`__ `cross-platform <https://opencor.ws/supportedPlatforms.html>`__ modelling environment."
+  },
+  {
+    "source_id": 25,
+    "evidence_file": "docs/evidence/c_zero_d_review_plain.txt",
+    "quote": "Like all fluid systems, blood flow in the cardiovascular system obeys the laws of mass conservation, momentum conservation and energy conservation, which are described by a group of governing equations. Unlike more traditional engineering piping networks the vessels are comparatively flexible, and the constitutive equations of the vessel walls provide additional constraints that strongly influence the blood flow dynamics. Furthermore the mechanical propulsion is provided by the muscle of the heart, governed by its own constitutive equations including active components."
+  },
+  {
+    "source_id": 25,
+    "evidence_file": "docs/evidence/c_zero_d_review_plain.txt",
+    "quote": "The selection of the appropriate dimensionality in a model representation, from 0D though to 3D, depends on the aims, and on the required accuracy, of the research study. Zero dimensional, or lumped parameter, models assume a uniform distribution of the fundamental variables (pressure, flow and volume) within any particular compartment (organ, vessel or part of vessel) of the model at any instant in time, whilst the higher dimensional models recognise the variation of these parameters in space. This is illustrated in Figure"
+  },
+  {
+    "source_id": 25,
+    "evidence_file": "docs/evidence/c_zero_d_review_plain.txt",
+    "quote": "]. However, with more elements included, identification of model parameters becomes a difficulty. The model parameters are often obtained through nonlinear regression analysis based on measured pressure/flow data at aortic root. With only one more element added, parameter identification for the four-element RLRCR1 and RLRCR2 models are much more difficult than for the three-element RCR model and the two-element RC model. For this reason the RLRCR1 and RLRCR2 model are not so widely used as the RCR and RC models."
+  },
+  {
+    "source_id": 26,
+    "evidence_file": "docs/evidence/c_contractility_pubmed_plain.txt",
+    "quote": "[abstract omitted: publisher copyright; see DOI/PMID]"
+  },
+  {
+    "source_id": 27,
+    "evidence_file": "docs/evidence/c_carraway_engine_pinned.txt",
+    "quote": "const index = { LA: 0, LV: 1, SA: 2, SV: 3, RA: 4, RV: 5, PA: 6, PV: 7 } as const;"
+  },
+  {
+    "source_id": 27,
+    "evidence_file": "docs/evidence/c_carraway_engine_pinned.txt",
+    "quote": "export function simulate(parameters: SimulationParameters, options: SimulationOptions = {}): SimulationResult {"
+  },
+  {
+    "source_id": 27,
+    "evidence_file": "docs/evidence/c_carraway_engine_pinned.txt",
+    "quote": "/** Every edge has one signed flow reused with opposite signs in its two endpoints. */"
+  },
+  {
+    "source_id": 27,
+    "evidence_file": "docs/evidence/c_carraway_engine_pinned.txt",
+    "quote": "export function evaluateState(time: number, volumes: Volumes, parameters: SimulationParameters): SimulationSample {"
+  },
+  {
+    "source_id": 27,
+    "evidence_file": "docs/evidence/c_carraway_engine_pinned.txt",
+    "quote": "export function volumeDerivative(time: number, volumes: Volumes, parameters: SimulationParameters): Volumes {"
+  },
+  {
+    "source_id": 28,
+    "evidence_file": "docs/evidence/c_carraway_license_pinned.txt",
+    "quote": "MIT License\n\nCopyright (c) 2026 CardioLab contributors"
+  },
+  {
+    "source_id": 28,
+    "evidence_file": "docs/evidence/c_carraway_license_pinned.txt",
+    "quote": "Permission is hereby granted, free of charge, to any person obtaining a copy"
+  },
+  {
+    "source_id": 28,
+    "evidence_file": "docs/evidence/c_carraway_license_pinned.txt",
+    "quote": "The above copyright notice and this permission notice shall be included in all"
+  },
+  {
+    "source_id": 29,
+    "evidence_file": "docs/evidence/c_circadapt_verification_plain.txt",
+    "quote": "Verification of ArtVen and Tube0D"
+  },
+  {
+    "source_id": 29,
+    "evidence_file": "docs/evidence/c_circadapt_verification_plain.txt",
+    "quote": "Verification of Valve\nTest Results"
+  }
+]

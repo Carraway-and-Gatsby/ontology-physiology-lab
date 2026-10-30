@@ -1,0 +1,857 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sim: <https://example.org/physiosim/> .
+
+<https://example.org/physiosim/graph/verified-labels> {
+    <http://bhi.washington.edu/OPB#OPB_00076> rdfs:label "Fluid volumetric elastance" ;
+        dcterms:source <https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl> .
+
+    <http://bhi.washington.edu/OPB#OPB_00154> rdfs:label "Fluid volume" ;
+        dcterms:source <https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl> .
+
+    <http://bhi.washington.edu/OPB#OPB_00160> rdfs:label "Fluid flow resistance" ;
+        dcterms:source <https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl> .
+
+    <http://bhi.washington.edu/OPB#OPB_00299> rdfs:label "Fluid flow rate" ;
+        dcterms:source <https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl> .
+
+    <http://bhi.washington.edu/OPB#OPB_00509> rdfs:label "Fluid pressure" ;
+        dcterms:source <https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl> .
+
+    <http://bhi.washington.edu/OPB#OPB_01212> rdfs:label "Event frequency" ;
+        dcterms:source <https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl> .
+
+    <http://purl.obolibrary.org/obo/DOID_6000> rdfs:label "congestive heart failure" ;
+        dcterms:source <https://www.ebi.ac.uk/ols4/api/> .
+
+    <http://purl.obolibrary.org/obo/GO_0008015> rdfs:label "blood circulation" ;
+        dcterms:source <https://www.ebi.ac.uk/ols4/api/> .
+
+    <http://purl.obolibrary.org/obo/GO_0060047> rdfs:label "heart contraction" ;
+        dcterms:source <https://www.ebi.ac.uk/ols4/api/> .
+
+    <http://purl.org/sig/ont/fma/fma7088> rdfs:label "Heart" ;
+        dcterms:source <https://www.ebi.ac.uk/ols4/api/> .
+
+    <http://purl.org/sig/ont/fma/fma7098> rdfs:label "Right ventricle" ;
+        dcterms:source <https://www.ebi.ac.uk/ols4/api/> .
+
+    <http://purl.org/sig/ont/fma/fma7101> rdfs:label "Left ventricle" ;
+        dcterms:source <https://www.ebi.ac.uk/ols4/api/> .
+
+    <http://purl.org/sig/ont/fma/fma9670> rdfs:label "Portion of blood" ;
+        dcterms:source <https://www.ebi.ac.uk/ols4/api/> .
+}
+
+<https://example.org/physiosim/graph/provenance> {
+    <https://example.org/physiosim/graph/model-assertions> dcterms:description "Project-authored model assertions; not ontology entailments" .
+
+    <https://example.org/physiosim/graph/verified-labels> dcterms:description "Selected source-verified labels only; no imported ontology axioms" .
+
+    <http://purl.obolibrary.org/obo/DOID_6000> sim:usageNote "Disease context vocabulary only; does not diagnose simulated baseline" .
+}
+
+<https://example.org/physiosim/graph/model-assertions> {
+    <https://example.org/physiosim/variable/CO> a sim:AnnotatedVariable ;
+        rdfs:label "CO" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/HR>,
+            <https://example.org/physiosim/variable/Q_aortic> ;
+        sim:equation "CO = integral(Q_aortic, complete_beat)/T" ;
+        sim:flowSink <https://example.org/physiosim/concept/sa> ;
+        sim:flowSource <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:physicalProperty <https://example.org/physiosim/concept/cardiac_output> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/CO> ;
+        sim:reference "not applicable" ;
+        sim:role "observable" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "complete-beat mean" ;
+        sim:unit "mL/s" .
+
+    <https://example.org/physiosim/variable/Q_mitral> a sim:AnnotatedVariable ;
+        rdfs:label "Q_mitral" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_mitral> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/P_lv>,
+            <https://example.org/physiosim/variable/P_pv>,
+            <https://example.org/physiosim/variable/R_mitral> ;
+        sim:equation "Q = max(P_up-P_down,0)/R" ;
+        sim:flowSink <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:flowSource <https://example.org/physiosim/concept/pv> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00299> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/Q_mitral> ;
+        sim:reference "not applicable" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/s" .
+
+    <https://example.org/physiosim/variable/Q_pulmonary> a sim:AnnotatedVariable ;
+        rdfs:label "Q_pulmonary" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_pulmonary> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/P_pa>,
+            <https://example.org/physiosim/variable/P_pv>,
+            <https://example.org/physiosim/variable/R_pulmonary> ;
+        sim:equation "Q = (P_up-P_down)/R" ;
+        sim:flowSink <https://example.org/physiosim/concept/pv> ;
+        sim:flowSource <https://example.org/physiosim/concept/pa> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00299> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/Q_pulmonary> ;
+        sim:reference "not applicable" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/s" .
+
+    <https://example.org/physiosim/variable/Q_pulmonary_valve> a sim:AnnotatedVariable ;
+        rdfs:label "Q_pulmonary_valve" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_pulmonary_valve> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/P_pa>,
+            <https://example.org/physiosim/variable/P_rv>,
+            <https://example.org/physiosim/variable/R_pulmonary_valve> ;
+        sim:equation "Q = max(P_up-P_down,0)/R" ;
+        sim:flowSink <https://example.org/physiosim/concept/pa> ;
+        sim:flowSource <http://purl.org/sig/ont/fma/fma7098> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00299> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/Q_pulmonary_valve> ;
+        sim:reference "not applicable" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/s" .
+
+    <https://example.org/physiosim/variable/Q_systemic> a sim:AnnotatedVariable ;
+        rdfs:label "Q_systemic" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_systemic> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/P_sa>,
+            <https://example.org/physiosim/variable/P_sv>,
+            <https://example.org/physiosim/variable/R_systemic> ;
+        sim:equation "Q = (P_up-P_down)/R" ;
+        sim:flowSink <https://example.org/physiosim/concept/sv> ;
+        sim:flowSource <https://example.org/physiosim/concept/sa> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00299> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/Q_systemic> ;
+        sim:reference "not applicable" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/s" .
+
+    <https://example.org/physiosim/variable/Q_tricuspid> a sim:AnnotatedVariable ;
+        rdfs:label "Q_tricuspid" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_tricuspid> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/P_rv>,
+            <https://example.org/physiosim/variable/P_sv>,
+            <https://example.org/physiosim/variable/R_tricuspid> ;
+        sim:equation "Q = max(P_up-P_down,0)/R" ;
+        sim:flowSink <http://purl.org/sig/ont/fma/fma7098> ;
+        sim:flowSource <https://example.org/physiosim/concept/sv> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00299> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/Q_tricuspid> ;
+        sim:reference "not applicable" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/s" .
+
+    <https://example.org/physiosim/variable/SV> a sim:AnnotatedVariable ;
+        rdfs:label "SV" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/Q_aortic> ;
+        sim:equation "SV = integral(Q_aortic, complete_beat)" ;
+        sim:physicalProperty <https://example.org/physiosim/concept/stroke_volume> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/SV> ;
+        sim:reference "not applicable" ;
+        sim:role "observable" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "complete beat" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/variable/V_total> a sim:AnnotatedVariable ;
+        rdfs:label "V_total" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/circulation> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:dependsOn <https://example.org/physiosim/variable/V_lv>,
+            <https://example.org/physiosim/variable/V_pa>,
+            <https://example.org/physiosim/variable/V_pv>,
+            <https://example.org/physiosim/variable/V_rv>,
+            <https://example.org/physiosim/variable/V_sa>,
+            <https://example.org/physiosim/variable/V_sv> ;
+        sim:equation "V_total = sum(V_i)" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00154> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/V_total> ;
+        sim:reference "not applicable" ;
+        sim:role "observable" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/bearer/CO> sim:locatedIn <http://purl.org/sig/ont/fma/fma7101> .
+
+    <https://example.org/physiosim/bearer/C_pa> sim:locatedIn <https://example.org/physiosim/concept/pa> .
+
+    <https://example.org/physiosim/bearer/C_pv> sim:locatedIn <https://example.org/physiosim/concept/pv> .
+
+    <https://example.org/physiosim/bearer/C_sa> sim:locatedIn <https://example.org/physiosim/concept/sa> .
+
+    <https://example.org/physiosim/bearer/C_sv> sim:locatedIn <https://example.org/physiosim/concept/sv> .
+
+    <https://example.org/physiosim/bearer/E_lv> sim:locatedIn <http://purl.org/sig/ont/fma/fma7101> .
+
+    <https://example.org/physiosim/bearer/E_rv> sim:locatedIn <http://purl.org/sig/ont/fma/fma7098> .
+
+    <https://example.org/physiosim/bearer/HR> sim:locatedIn <http://purl.org/sig/ont/fma/fma7088> .
+
+    <https://example.org/physiosim/bearer/P_lv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <http://purl.org/sig/ont/fma/fma7101> .
+
+    <https://example.org/physiosim/bearer/P_pa> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/pa> .
+
+    <https://example.org/physiosim/bearer/P_pv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/pv> .
+
+    <https://example.org/physiosim/bearer/P_rv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <http://purl.org/sig/ont/fma/fma7098> .
+
+    <https://example.org/physiosim/bearer/P_sa> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/sa> .
+
+    <https://example.org/physiosim/bearer/P_sv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/sv> .
+
+    <https://example.org/physiosim/bearer/Q_aortic> sim:locatedIn <https://example.org/physiosim/concept/path_aortic> .
+
+    <https://example.org/physiosim/bearer/Q_mitral> sim:locatedIn <https://example.org/physiosim/concept/path_mitral> .
+
+    <https://example.org/physiosim/bearer/Q_pulmonary> sim:locatedIn <https://example.org/physiosim/concept/path_pulmonary> .
+
+    <https://example.org/physiosim/bearer/Q_pulmonary_valve> sim:locatedIn <https://example.org/physiosim/concept/path_pulmonary_valve> .
+
+    <https://example.org/physiosim/bearer/Q_systemic> sim:locatedIn <https://example.org/physiosim/concept/path_systemic> .
+
+    <https://example.org/physiosim/bearer/Q_tricuspid> sim:locatedIn <https://example.org/physiosim/concept/path_tricuspid> .
+
+    <https://example.org/physiosim/bearer/R_aortic> sim:locatedIn <https://example.org/physiosim/concept/path_aortic> .
+
+    <https://example.org/physiosim/bearer/R_mitral> sim:locatedIn <https://example.org/physiosim/concept/path_mitral> .
+
+    <https://example.org/physiosim/bearer/R_pulmonary> sim:locatedIn <https://example.org/physiosim/concept/path_pulmonary> .
+
+    <https://example.org/physiosim/bearer/R_pulmonary_valve> sim:locatedIn <https://example.org/physiosim/concept/path_pulmonary_valve> .
+
+    <https://example.org/physiosim/bearer/R_systemic> sim:locatedIn <https://example.org/physiosim/concept/path_systemic> .
+
+    <https://example.org/physiosim/bearer/R_tricuspid> sim:locatedIn <https://example.org/physiosim/concept/path_tricuspid> .
+
+    <https://example.org/physiosim/bearer/SV> sim:locatedIn <http://purl.org/sig/ont/fma/fma7101> .
+
+    <https://example.org/physiosim/bearer/V_lv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <http://purl.org/sig/ont/fma/fma7101> .
+
+    <https://example.org/physiosim/bearer/V_pa> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/pa> .
+
+    <https://example.org/physiosim/bearer/V_pv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/pv> .
+
+    <https://example.org/physiosim/bearer/V_rv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <http://purl.org/sig/ont/fma/fma7098> .
+
+    <https://example.org/physiosim/bearer/V_sa> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/sa> .
+
+    <https://example.org/physiosim/bearer/V_sv> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/sv> .
+
+    <https://example.org/physiosim/bearer/V_total> sim:entityType <http://purl.org/sig/ont/fma/fma9670> ;
+        sim:locatedIn <https://example.org/physiosim/concept/circulation> .
+
+    <https://example.org/physiosim/concept/cardiac_output> rdfs:label "Cycle-mean aortic outflow" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/stroke_volume> rdfs:label "Left ventricular stroke volume per complete beat" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/variable/C_pa> a sim:AnnotatedVariable ;
+        rdfs:label "C_pa" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/pa> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "compartment wall" ;
+        sim:equation "C = dV/dP; constant linear reservoir compliance" ;
+        sim:physicalProperty <https://example.org/physiosim/concept/fluid_volume_compliance> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/C_pa> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/mmHg" .
+
+    <https://example.org/physiosim/variable/C_pv> a sim:AnnotatedVariable ;
+        rdfs:label "C_pv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/pv> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "compartment wall" ;
+        sim:equation "C = dV/dP; constant linear reservoir compliance" ;
+        sim:physicalProperty <https://example.org/physiosim/concept/fluid_volume_compliance> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/C_pv> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/mmHg" .
+
+    <https://example.org/physiosim/variable/C_sa> a sim:AnnotatedVariable ;
+        rdfs:label "C_sa" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/sa> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "compartment wall" ;
+        sim:equation "C = dV/dP; constant linear reservoir compliance" ;
+        sim:physicalProperty <https://example.org/physiosim/concept/fluid_volume_compliance> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/C_sa> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/mmHg" .
+
+    <https://example.org/physiosim/variable/C_sv> a sim:AnnotatedVariable ;
+        rdfs:label "C_sv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/sv> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "compartment wall" ;
+        sim:equation "C = dV/dP; constant linear reservoir compliance" ;
+        sim:physicalProperty <https://example.org/physiosim/concept/fluid_volume_compliance> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/C_sv> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/mmHg" .
+
+    <https://example.org/physiosim/variable/E_lv> a sim:AnnotatedVariable ;
+        rdfs:label "E_lv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "compartment wall" ;
+        sim:dependsOn <https://example.org/physiosim/variable/HR> ;
+        sim:equation "E(t) = Emin + (Emax-Emin)*activation(t,HR)" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00076> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0060047> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/E_lv> ;
+        sim:reference "not applicable" ;
+        sim:role "time-varying parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg/mL" .
+
+    <https://example.org/physiosim/variable/E_rv> a sim:AnnotatedVariable ;
+        rdfs:label "E_rv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7098> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "compartment wall" ;
+        sim:dependsOn <https://example.org/physiosim/variable/HR> ;
+        sim:equation "E(t) = Emin + (Emax-Emin)*activation(t,HR)" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00076> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0060047> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/E_rv> ;
+        sim:reference "not applicable" ;
+        sim:role "time-varying parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg/mL" .
+
+    <https://example.org/physiosim/variable/R_aortic> a sim:AnnotatedVariable ;
+        rdfs:label "R_aortic" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_aortic> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:equation "R = pressure_drop / flow" ;
+        sim:flowSink <https://example.org/physiosim/concept/sa> ;
+        sim:flowSource <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00160> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/R_aortic> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg*s/mL" .
+
+    <https://example.org/physiosim/variable/R_mitral> a sim:AnnotatedVariable ;
+        rdfs:label "R_mitral" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_mitral> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:equation "R = pressure_drop / flow" ;
+        sim:flowSink <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:flowSource <https://example.org/physiosim/concept/pv> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00160> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/R_mitral> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg*s/mL" .
+
+    <https://example.org/physiosim/variable/R_pulmonary> a sim:AnnotatedVariable ;
+        rdfs:label "R_pulmonary" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_pulmonary> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:equation "R = pressure_drop / flow" ;
+        sim:flowSink <https://example.org/physiosim/concept/pv> ;
+        sim:flowSource <https://example.org/physiosim/concept/pa> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00160> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/R_pulmonary> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg*s/mL" .
+
+    <https://example.org/physiosim/variable/R_pulmonary_valve> a sim:AnnotatedVariable ;
+        rdfs:label "R_pulmonary_valve" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_pulmonary_valve> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:equation "R = pressure_drop / flow" ;
+        sim:flowSink <https://example.org/physiosim/concept/pa> ;
+        sim:flowSource <http://purl.org/sig/ont/fma/fma7098> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00160> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/R_pulmonary_valve> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg*s/mL" .
+
+    <https://example.org/physiosim/variable/R_systemic> a sim:AnnotatedVariable ;
+        rdfs:label "R_systemic" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_systemic> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:equation "R = pressure_drop / flow" ;
+        sim:flowSink <https://example.org/physiosim/concept/sv> ;
+        sim:flowSource <https://example.org/physiosim/concept/sa> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00160> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/R_systemic> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg*s/mL" .
+
+    <https://example.org/physiosim/variable/R_tricuspid> a sim:AnnotatedVariable ;
+        rdfs:label "R_tricuspid" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_tricuspid> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:equation "R = pressure_drop / flow" ;
+        sim:flowSink <http://purl.org/sig/ont/fma/fma7098> ;
+        sim:flowSource <https://example.org/physiosim/concept/sv> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00160> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/R_tricuspid> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg*s/mL" .
+
+    <https://example.org/physiosim/concept/circulation> rdfs:label "Closed six-compartment blood circulation" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/variable/P_lv> a sim:AnnotatedVariable ;
+        rdfs:label "P_lv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:dependsOn <https://example.org/physiosim/variable/E_lv>,
+            <https://example.org/physiosim/variable/V_lv> ;
+        sim:equation "P = E(t)*(V - V0)" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00509> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/P_lv> ;
+        sim:reference "model gauge pressure; fixed external pressure zero" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg" .
+
+    <https://example.org/physiosim/variable/P_pa> a sim:AnnotatedVariable ;
+        rdfs:label "P_pa" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/pa> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:dependsOn <https://example.org/physiosim/variable/C_pa>,
+            <https://example.org/physiosim/variable/V_pa> ;
+        sim:equation "P = (V - V0)/C" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00509> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/P_pa> ;
+        sim:reference "model gauge pressure; fixed external pressure zero" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg" .
+
+    <https://example.org/physiosim/variable/P_pv> a sim:AnnotatedVariable ;
+        rdfs:label "P_pv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/pv> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:dependsOn <https://example.org/physiosim/variable/C_pv>,
+            <https://example.org/physiosim/variable/V_pv> ;
+        sim:equation "P = (V - V0)/C" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00509> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/P_pv> ;
+        sim:reference "model gauge pressure; fixed external pressure zero" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg" .
+
+    <https://example.org/physiosim/variable/P_rv> a sim:AnnotatedVariable ;
+        rdfs:label "P_rv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7098> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:dependsOn <https://example.org/physiosim/variable/E_rv>,
+            <https://example.org/physiosim/variable/V_rv> ;
+        sim:equation "P = E(t)*(V - V0)" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00509> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/P_rv> ;
+        sim:reference "model gauge pressure; fixed external pressure zero" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg" .
+
+    <https://example.org/physiosim/variable/P_sa> a sim:AnnotatedVariable ;
+        rdfs:label "P_sa" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/sa> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:dependsOn <https://example.org/physiosim/variable/C_sa>,
+            <https://example.org/physiosim/variable/V_sa> ;
+        sim:equation "P = (V - V0)/C" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00509> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/P_sa> ;
+        sim:reference "model gauge pressure; fixed external pressure zero" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg" .
+
+    <https://example.org/physiosim/variable/P_sv> a sim:AnnotatedVariable ;
+        rdfs:label "P_sv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/sv> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:dependsOn <https://example.org/physiosim/variable/C_sv>,
+            <https://example.org/physiosim/variable/V_sv> ;
+        sim:equation "P = (V - V0)/C" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00509> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/P_sv> ;
+        sim:reference "model gauge pressure; fixed external pressure zero" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mmHg" .
+
+    <https://example.org/physiosim/variable/Q_aortic> a sim:AnnotatedVariable ;
+        rdfs:label "Q_aortic" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/path_aortic> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "flow process" ;
+        sim:dependsOn <https://example.org/physiosim/variable/P_lv>,
+            <https://example.org/physiosim/variable/P_sa>,
+            <https://example.org/physiosim/variable/R_aortic> ;
+        sim:equation "Q = max(P_up-P_down,0)/R" ;
+        sim:flowSink <https://example.org/physiosim/concept/sa> ;
+        sim:flowSource <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00299> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/Q_aortic> ;
+        sim:reference "not applicable" ;
+        sim:role "algebraic" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL/s" .
+
+    <https://example.org/physiosim/variable/V_lv> a sim:AnnotatedVariable ;
+        rdfs:label "V_lv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7101> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:equation "dV/dt = Q_in - Q_out" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00154> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/V_lv> ;
+        sim:reference "not applicable" ;
+        sim:role "state" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/variable/V_pa> a sim:AnnotatedVariable ;
+        rdfs:label "V_pa" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/pa> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:equation "dV/dt = Q_in - Q_out" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00154> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/V_pa> ;
+        sim:reference "not applicable" ;
+        sim:role "state" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/variable/V_pv> a sim:AnnotatedVariable ;
+        rdfs:label "V_pv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/pv> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:equation "dV/dt = Q_in - Q_out" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00154> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/V_pv> ;
+        sim:reference "not applicable" ;
+        sim:role "state" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/variable/V_rv> a sim:AnnotatedVariable ;
+        rdfs:label "V_rv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7098> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:equation "dV/dt = Q_in - Q_out" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00154> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/V_rv> ;
+        sim:reference "not applicable" ;
+        sim:role "state" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/variable/V_sa> a sim:AnnotatedVariable ;
+        rdfs:label "V_sa" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/sa> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:equation "dV/dt = Q_in - Q_out" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00154> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/V_sa> ;
+        sim:reference "not applicable" ;
+        sim:role "state" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/variable/V_sv> a sim:AnnotatedVariable ;
+        rdfs:label "V_sv" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <https://example.org/physiosim/concept/sv> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "blood" ;
+        sim:equation "dV/dt = Q_in - Q_out" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_00154> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0008015> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/V_sv> ;
+        sim:reference "not applicable" ;
+        sim:role "state" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "mL" .
+
+    <https://example.org/physiosim/variable/HR> a sim:AnnotatedVariable ;
+        rdfs:label "HR" ;
+        dcterms:source "docs/physiology.md" ;
+        sim:anatomy <http://purl.org/sig/ont/fma/fma7088> ;
+        sim:applicableScenario <https://example.org/physiosim/scenario/baseline>,
+            <https://example.org/physiosim/scenario/partial_contractility_restoration>,
+            <https://example.org/physiosim/scenario/reduced_contractility> ;
+        sim:bearerKind "heart process" ;
+        sim:equation "T_seconds = 60 / HR_per_minute" ;
+        sim:physicalProperty <http://bhi.washington.edu/OPB#OPB_01212> ;
+        sim:processContext <http://purl.obolibrary.org/obo/GO_0060047> ;
+        sim:propertyOf <https://example.org/physiosim/bearer/HR> ;
+        sim:reference "not applicable" ;
+        sim:role "parameter" ;
+        sim:sourceContext "project six-compartment lumped cardiovascular model; not a clinical measurement" ;
+        sim:temporalContext "instantaneous" ;
+        sim:unit "1/min" .
+
+    <https://example.org/physiosim/concept/fluid_volume_compliance> rdfs:label "Fluid volume compliance" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/path_aortic> rdfs:label "Model flow path lv to sa" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/path_mitral> rdfs:label "Model flow path pv to lv" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/path_pulmonary> rdfs:label "Model flow path pa to pv" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/path_pulmonary_valve> rdfs:label "Model flow path rv to pa" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/path_systemic> rdfs:label "Model flow path sa to sv" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/path_tricuspid> rdfs:label "Model flow path sv to rv" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/pa> rdfs:label "Lumped pulmonary arterial compartment" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/pv> rdfs:label "Lumped pulmonary venous compartment" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/sv> rdfs:label "Lumped systemic venous compartment" ;
+        sim:mappingStatus "local extension" .
+
+    <https://example.org/physiosim/concept/sa> rdfs:label "Lumped systemic arterial compartment" ;
+        sim:mappingStatus "local extension" .
+}
+

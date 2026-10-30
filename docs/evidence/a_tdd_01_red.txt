@@ -1,0 +1,17 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_elastance_and_pressure_constitutive_laws _________________
+
+    def test_elastance_and_pressure_constitutive_laws():
+        try:
+            spec = importlib.util.find_spec("physiosim.models.cardiovascular")
+        except ModuleNotFoundError:
+            spec = None
+>       assert spec is not None, "cardiovascular model must exist"
+E       AssertionError: cardiovascular model must exist
+E       assert None is not None
+
+tests/test_cardiovascular.py:15: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_cardiovascular.py::test_elastance_and_pressure_constitutive_laws
+1 failed in 0.03s

@@ -1,0 +1,52 @@
+{
+  "python": "3.11.15 [build details redacted]",
+  "imported_package": "<repo>/.clean-venv/lib/python3.11/site-packages/physiosim/__init__.py",
+  "runs": [
+    {
+      "command": [
+        "<repo>/.clean-venv/bin/python",
+        "-I",
+        "-m",
+        "physiosim",
+        "--config",
+        "<repo>/experiments/phase1.json",
+        "--output",
+        "<repo>/results/phase1"
+      ],
+      "exit_code": 0,
+      "stdout": "EXPERIMENTAL SIMULATIONS \u2014 not clinically validated\nbaseline: CO=7.699313 L/min; SV=102.657512 mL; periodic_within_declared_gate\nreduced_contractility: CO=6.699349 L/min; SV=89.324647 mL; periodic_within_declared_gate\npartial_contractility_restoration: CO=7.330973 L/min; SV=97.746307 mL; periodic_within_declared_gate\nResults: <repo>/results/phase1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "<repo>/.clean-venv/bin/python",
+        "-I",
+        "-m",
+        "physiosim",
+        "--config",
+        "<repo>/experiments/phase1.json",
+        "--output",
+        "<repo>/results/replay"
+      ],
+      "exit_code": 0,
+      "stdout": "EXPERIMENTAL SIMULATIONS \u2014 not clinically validated\nbaseline: CO=7.699313 L/min; SV=102.657512 mL; periodic_within_declared_gate\nreduced_contractility: CO=6.699349 L/min; SV=89.324647 mL; periodic_within_declared_gate\npartial_contractility_restoration: CO=7.330973 L/min; SV=97.746307 mL; periodic_within_declared_gate\nResults: <repo>/results/replay\n",
+      "stderr": ""
+    }
+  ],
+  "csv_comparisons": {
+    "baseline.csv": {
+      "identical_bytes": true,
+      "sha256": "1820f3a341d41423870c7f577e6e3cb458d736b32a39652d074537db1b455a5f"
+    },
+    "partial_contractility_restoration.csv": {
+      "identical_bytes": true,
+      "sha256": "82f472961c355879ce5a84d3e3fe264f9e42b3da842209784b4b9a65abd1cf6f"
+    },
+    "reduced_contractility.csv": {
+      "identical_bytes": true,
+      "sha256": "9e0622fce8a6ae5a9cd20497162a9148c4a75d518ef2da1c7f2aa581d5b6f23d"
+    }
+  },
+  "summary_equal": true,
+  "scope": "Same-host, same-dependency installed-wheel deterministic replay; not cross-platform bitwise reproducibility"
+}

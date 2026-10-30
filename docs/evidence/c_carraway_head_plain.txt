@@ -1,0 +1,197 @@
+{
+  "sha": "b3f437403e709f11099f50b38272f77ded5ea9b5",
+  "node_id": "C_kwDOVUcgUNoAKGIzZjQzNzQwM2U3MDlmMTEwOTlmNTBiMzgyNzJmNzdkZWQ1ZWE5YjU",
+  "commit": {
+    "author": {
+      "name": "Carraway-and-Gatsby",
+      "email": "270285620+Carraway-and-Gatsby@users.noreply.github.com",
+      "date": "2026-10-23T09:06:59Z"
+    },
+    "committer": {
+      "name": "Carraway-and-Gatsby",
+      "email": "270285620+Carraway-and-Gatsby@users.noreply.github.com",
+      "date": "2026-10-23T09:06:59Z"
+    },
+    "message": "Rename the public project and Pages path to cardiac-simulator",
+    "tree": {
+      "sha": "7fd327404ff67bed0e1857c25f9954fd79687e09",
+      "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/git/trees/7fd327404ff67bed0e1857c25f9954fd79687e09"
+    },
+    "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/git/commits/b3f437403e709f11099f50b38272f77ded5ea9b5",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/b3f437403e709f11099f50b38272f77ded5ea9b5",
+  "html_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/commit/b3f437403e709f11099f50b38272f77ded5ea9b5",
+  "comments_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/b3f437403e709f11099f50b38272f77ded5ea9b5/comments",
+  "author": {
+    "login": "Carraway-and-Gatsby",
+    "id": 270285620,
+    "node_id": "U_kgDOEBw7NA",
+    "avatar_url": "https://avatars.githubusercontent.com/u/270285620?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Carraway-and-Gatsby",
+    "html_url": "https://github.com/Carraway-and-Gatsby",
+    "followers_url": "https://api.github.com/users/Carraway-and-Gatsby/followers",
+    "following_url": "https://api.github.com/users/Carraway-and-Gatsby/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Carraway-and-Gatsby/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Carraway-and-Gatsby/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/Carraway-and-Gatsby/subscriptions",
+    "organizations_url": "https://api.github.com/users/Carraway-and-Gatsby/orgs",
+    "repos_url": "https://api.github.com/users/Carraway-and-Gatsby/repos",
+    "events_url": "https://api.github.com/users/Carraway-and-Gatsby/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/Carraway-and-Gatsby/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "Carraway-and-Gatsby",
+    "id": 270285620,
+    "node_id": "U_kgDOEBw7NA",
+    "avatar_url": "https://avatars.githubusercontent.com/u/270285620?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Carraway-and-Gatsby",
+    "html_url": "https://github.com/Carraway-and-Gatsby",
+    "followers_url": "https://api.github.com/users/Carraway-and-Gatsby/followers",
+    "following_url": "https://api.github.com/users/Carraway-and-Gatsby/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Carraway-and-Gatsby/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Carraway-and-Gatsby/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/Carraway-and-Gatsby/subscriptions",
+    "organizations_url": "https://api.github.com/users/Carraway-and-Gatsby/orgs",
+    "repos_url": "https://api.github.com/users/Carraway-and-Gatsby/repos",
+    "events_url": "https://api.github.com/users/Carraway-and-Gatsby/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/Carraway-and-Gatsby/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "404bb056c3eb1f3d2b96d1aed5c3a02c2cf44599",
+      "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/404bb056c3eb1f3d2b96d1aed5c3a02c2cf44599",
+      "html_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/commit/404bb056c3eb1f3d2b96d1aed5c3a02c2cf44599"
+    }
+  ],
+  "stats": {
+    "total": 42,
+    "additions": 21,
+    "deletions": 21
+  },
+  "files": [
+    {
+      "sha": "760f3df552922afd09d042680d573d6686013693",
+      "filename": ".github/workflows/pages.yml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/.github%2Fworkflows%2Fpages.yml",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/.github%2Fworkflows%2Fpages.yml",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/.github%2Fworkflows%2Fpages.yml?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -14,7 +14,7 @@ concurrency:\n \n jobs:\n   build:\n-    if: github.repository == 'Carraway-and-Gatsby/cardio-simulator' && github.ref == 'refs/heads/main'\n+    if: github.repository == 'Carraway-and-Gatsby/cardiac-simulator' && github.ref == 'refs/heads/main'\n     runs-on: ubuntu-24.04\n     timeout-minutes: 25\n     permissions:"
+    },
+    {
+      "sha": "ecaaf2db41c6b966aff25e97662f8071eec52f36",
+      "filename": "README.ko.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/README.ko.md",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/README.ko.md",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/README.ko.md?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -4,7 +4,7 @@\n \n \uc571\uc740 \uae30\ubcf8 \uc601\uc5b4\ub85c \uc2dc\uc791\ud558\uba70 **EN / KO** \uc804\ud658\uacfc \uc5b8\uc5b4 \uc120\ud0dd \uc800\uc7a5\uc744 \uc9c0\uc6d0\ud569\ub2c8\ub2e4.\n \n-**[\uc124\uce58 \uc5c6\uc774 \ube0c\ub77c\uc6b0\uc800 \ub370\ubaa8 \uc5f4\uae30](https://carraway-and-gatsby.github.io/cardio-simulator/)**\n+**[\uc124\uce58 \uc5c6\uc774 \ube0c\ub77c\uc6b0\uc800 \ub370\ubaa8 \uc5f4\uae30](https://carraway-and-gatsby.github.io/cardiac-simulator/)**\n \u2014 WebGL\uc744 \uc9c0\uc6d0\ud558\ub294 \ube0c\ub77c\uc6b0\uc800\uc5d0\uc11c 3D \uc2ec\uc7a5, \ud608\ub958\uc640 \ub3d9\uae30\ud654\ub41c \ud310\ub9c9 \uc560\ub2c8\uba54\uc774\uc158\uc744 \ubcfc \uc218 \uc788\uc2b5\ub2c8\ub2e4.\n \uacc4\uc815\uc774\ub098 API \ud0a4\ub294 \ud544\uc694\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.\n \n@@ -24,8 +24,8 @@ React Three Fiber \ubdf0\uc5b4, Blender \uc790\uc0b0 \ud30c\uc774\ud504\ub77c\uc778, \ub3c5\ub9bd\uc801\uc778 TypeScrip\n ## \ub85c\uceec \uc2e4\ud589\n \n ```bash\n-git clone https://github.com/Carraway-and-Gatsby/cardio-simulator.git\n-cd cardio-simulator\n+git clone https://github.com/Carraway-and-Gatsby/cardiac-simulator.git\n+cd cardiac-simulator\n npm ci\n npm run check:source\n # \uc124\uce58\ub41c Blender 4.5 LTS \uc2e4\ud589 \ud30c\uc77c\uc758 \uacbd\ub85c\ub97c \uc9c0\uc815\ud569\ub2c8\ub2e4.\n@@ -177,7 +177,7 @@ npm run mcp:check -- --scene # \uc2e4\uc81c MCP get_scene_info\ub85c GUI \uc7a5\uba74 \uc870\ud68c\n npm run licenses        # lockfile \ubc0f \uc124\uce58\ubcf8 \ub77c\uc774\uc120\uc2a4 \ubaa9\ub85d \uc0dd\uc131\n npm run mcp:probe       # GUI \uc560\ub4dc\uc628 \uc2dc\uc791 \ud6c4, \ub450 \ud074\ub77c\uc774\uc5b8\ud2b8 MCP\uac00 \uaebc\uc9c4 \uc0c1\ud0dc\uc5d0\uc11c \uc77d\uae30 \uac80\uc0ac\n npm run verify:release # \ud604\uc7ac\ub294 \uc2e4\ud328\uac00 \uc815\uc0c1: \uac80\uc218\u00b7\ubc30\ud3ec \uad8c\ub9ac \ubbf8\uc2b9\uc778\n-npm run build:pages     # /cardio-simulator/ \uacbd\ub85c\uc758 \ub370\ubaa8 \ube4c\ub4dc\u00b7\uc0b0\ucd9c\ubb3c \uad6c\uc131\u00b7\uac80\uc0ac\n+npm run build:pages     # /cardiac-simulator/ \uacbd\ub85c\uc758 \ub370\ubaa8 \ube4c\ub4dc\u00b7\uc0b0\ucd9c\ubb3c \uad6c\uc131\u00b7\uac80\uc0ac\n npm run verify:pages    # .local/pages\uc758 \ubaa8\ub378\u00b7\ucd9c\ucc98\u00b7\ub77c\uc774\uc120\uc2a4 \uace0\uc9c0 \uc7ac\uac80\uc0ac\n npm run preview        # \ube4c\ub4dc \uacb0\uacfc \ub85c\uceec \ud655\uc778\n ```"
+    },
+    {
+      "sha": "9e389bb7df2cdfc7f5f6bb49983b5c103c6f576d",
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/README.md",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/README.md",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/README.md?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -8,7 +8,7 @@ and valve animation. Built with React, TypeScript, Three.js and a reproducible\n Blender pipeline. The interface defaults to **English**, with an **EN / KO**\n switch and a saved language preference.\n \n-**[Open the browser demo](https://carraway-and-gatsby.github.io/cardio-simulator/)**\n+**[Open the browser demo](https://carraway-and-gatsby.github.io/cardiac-simulator/)**\n \u2014 no installation, account or API key required. Use a browser with WebGL support\n to explore the 3D heart, blood flow and synchronized valve animation.\n \n@@ -27,8 +27,8 @@ not require Blender. The shared Blender launcher currently supports macOS/Linux\n file locking; Windows users can use a supported POSIX development environment.\n \n ```bash\n-git clone https://github.com/Carraway-and-Gatsby/cardio-simulator.git\n-cd cardio-simulator\n+git clone https://github.com/Carraway-and-Gatsby/cardiac-simulator.git\n+cd cardiac-simulator\n npm ci\n npm run check:source\n ```\n@@ -123,7 +123,7 @@ npm run validate:physiology # Regenerate the numerical report with source hashes\n npm run blender:check       # Actual Blender generation, preservation and reimport checks\n npm run verify:assets       # Check local assets and manifest integrity\n npm run verify:release      # Expected failure: current assets lack expert/release approval\n-npm run build:pages         # Build /cardio-simulator/ and stage the audited demo artifact\n+npm run build:pages         # Build /cardiac-simulator/ and stage the audited demo artifact\n npm run verify:pages        # Recheck .local/pages, model provenance and included notices\n npm run licenses            # Dependency license inventory from lockfile and install\n npm run preview             # Serve the production build locally"
+    },
+    {
+      "sha": "6ce0ba332d0384d5a15fefd76677adef479e2cc7",
+      "filename": "docs/public-source-release.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/docs%2Fpublic-source-release.md",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/docs%2Fpublic-source-release.md",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/docs%2Fpublic-source-release.md?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -10,7 +10,7 @@ metadata retains CC BY 4.0 attribution as described in\n [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).\n \n The installation-free browser demonstration uses this GitHub Pages address:\n-**[CardioLab on GitHub Pages](https://carraway-and-gatsby.github.io/cardio-simulator/)**.\n+**[CardioLab on GitHub Pages](https://carraway-and-gatsby.github.io/cardiac-simulator/)**.\n Its intended scope is exploration of the 3D atlas, numerical model, blood-flow\n animation, cardiac deformation and valve motion. English is the default; EN / KO\n switching preserves the current experiment. A WebGL-capable browser is required.\n@@ -60,7 +60,7 @@ owned scenes; it does not connect to a developer's GUI or MCP server.\n \n Software tests and source checks are distinct from the generated-asset checks.\n The latter verify hashes, structure correspondence and geometry-preservation\n-evidence. The workflow builds the app for `/cardio-simulator/`, stages the public\n+evidence. The workflow builds the app for `/cardiac-simulator/`, stages the public\n web bundle and deploys it with GitHub Pages. Source CI continues to work without\n Blender or anatomical binaries.\n "
+    },
+    {
+      "sha": "294d460d38b691f70ee59f84b8a84554081622fc",
+      "filename": "package-lock.json",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/package-lock.json",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/package-lock.json",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/package-lock.json?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -1,11 +1,11 @@\n {\n-  \"name\": \"cardio-simulator\",\n+  \"name\": \"cardiac-simulator\",\n   \"version\": \"0.1.0\",\n   \"lockfileVersion\": 3,\n   \"requires\": true,\n   \"packages\": {\n     \"\": {\n-      \"name\": \"cardio-simulator\",\n+      \"name\": \"cardiac-simulator\",\n       \"version\": \"0.1.0\",\n       \"dependencies\": {\n         \"@react-three/drei\": \"10.7.9\","
+    },
+    {
+      "sha": "4016d2e6b7e5c3f257aedaa2e6a3d8c446fc93de",
+      "filename": "package.json",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/package.json",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/package.json",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/package.json?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -1,5 +1,5 @@\n {\n-  \"name\": \"cardio-simulator\",\n+  \"name\": \"cardiac-simulator\",\n   \"version\": \"0.1.0\",\n   \"private\": true,\n   \"type\": \"module\",\n@@ -31,7 +31,7 @@\n     \"check:source\": \"npm run verify:source && npm test && npm run build\",\n     \"setup:assets\": \"npm run anatomy:acquire && npm run blender:build && npm run verify:assets\",\n     \"setup:local\": \"python3 scripts/setup-local.py\",\n-    \"build:pages\": \"npm run build -- --base=/cardio-simulator/ && node scripts/stage-pages.mjs && node scripts/verify-pages.mjs\",\n+    \"build:pages\": \"npm run build -- --base=/cardiac-simulator/ && node scripts/stage-pages.mjs && node scripts/verify-pages.mjs\",\n     \"verify:pages\": \"node scripts/verify-pages.mjs\"\n   },\n   \"dependencies\": {\n@@ -52,7 +52,7 @@\n   \"description\": \"Bilingual educational cardiovascular physiology lab with synchronized 3D heart, valve and flow visualization.\",\n   \"repository\": {\n     \"type\": \"git\",\n-    \"url\": \"https://github.com/Carraway-and-Gatsby/cardio-simulator.git\"\n+    \"url\": \"https://github.com/Carraway-and-Gatsby/cardiac-simulator.git\"\n   },\n-  \"homepage\": \"https://carraway-and-gatsby.github.io/cardio-simulator/\"\n+  \"homepage\": \"https://carraway-and-gatsby.github.io/cardiac-simulator/\"\n }"
+    },
+    {
+      "sha": "d974e6beabf3edd9467e93a9474c2741df32f9a8",
+      "filename": "scripts/stage-pages.mjs",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/scripts%2Fstage-pages.mjs",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/scripts%2Fstage-pages.mjs",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/scripts%2Fstage-pages.mjs?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -5,8 +5,8 @@ import { createHash } from 'node:crypto';\n import { execFileSync } from 'node:child_process';\n \n const destination = '.local/pages';\n-const base = '/cardio-simulator/';\n-const repository = 'https://github.com/Carraway-and-Gatsby/cardio-simulator';\n+const base = '/cardiac-simulator/';\n+const repository = 'https://github.com/Carraway-and-Gatsby/cardiac-simulator';\n const commit = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();\n const readJson = path => JSON.parse(readFileSync(path, 'utf8'));\n const hash = bytes => createHash('sha256').update(bytes).digest('hex');"
+    },
+    {
+      "sha": "09414f1195321a833e5ed6343db3599ecf27d7e4",
+      "filename": "scripts/verify-pages.mjs",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/scripts%2Fverify-pages.mjs",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/scripts%2Fverify-pages.mjs",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/scripts%2Fverify-pages.mjs?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -16,7 +16,7 @@ assert.equal(manifest.model.id, 'heart-hra-male-v1');\n assert.equal(manifest.model.anatomyReview, 'unreviewed');\n assert.equal(manifest.model.license, 'CC-BY-4.0');\n assert.equal(manifest.model.sha256, asset.sha256);\n-assert.equal(manifest.base, '/cardio-simulator/');\n+assert.equal(manifest.base, '/cardiac-simulator/');\n assert.match(manifest.commit, /^[0-9a-f]{40}$/);\n \n const allowed = /^(?:index\\.html|\\.nojekyll|LICENSE|THIRD_PARTY_NOTICES\\.md|demo-manifest\\.json|docs\\/public-source-release\\.md|assets\\/licenses\\/heart-hra\\.md|assets\\/[^/]+\\.(?:js|css)|models\\/heart-hra\\.glb|licenses\\/dependencies\\.(?:json|md)|provenance\\/heart-hra\\.(?:source|structures|geometry|asset)\\.json)$/;"
+    },
+    {
+      "sha": "d88a8ac27c9817cc0c42b9c5cff9140c98cfef22",
+      "filename": "src/App.tsx",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/b3f437403e709f11099f50b38272f77ded5ea9b5/src%2FApp.tsx",
+      "raw_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator/raw/b3f437403e709f11099f50b38272f77ded5ea9b5/src%2FApp.tsx",
+      "contents_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/src%2FApp.tsx?ref=b3f437403e709f11099f50b38272f77ded5ea9b5",
+      "patch": "@@ -148,6 +148,6 @@ export default function App() {\n     {retainedResult ? <div hidden={pending || !!error || !result?.diagnostics.modelWithinDomain}>\n       <Results result={retainedResult} playing={playing && !!result?.diagnostics.modelWithinDomain && !pending} setPlaying={setPlaying} />\n     </div> : null}\n-    <footer><span>{t('CardioLab \u00b7 education and research portfolio \u00b7 anatomy awaiting review', 'CardioLab \u00b7 \uad50\uc721\u00b7\uc5f0\uad6c \ud3ec\ud2b8\ud3f4\ub9ac\uc624 \u00b7 \uac80\uc218 \uc804 \ud574\ubd80\ud559')}<br /><a href=\"https://github.com/Carraway-and-Gatsby/cardio-simulator\" target=\"_blank\" rel=\"noreferrer\">{t('Open source on GitHub', 'GitHub \uc624\ud508\uc18c\uc2a4')}</a> \u00b7 <a href=\"https://github.com/Carraway-and-Gatsby/cardio-simulator/blob/main/THIRD_PARTY_NOTICES.md\" target=\"_blank\" rel=\"noreferrer\">{t('Licenses & attribution', '\ub77c\uc774\uc120\uc2a4 \ubc0f \ucd9c\ucc98')}</a></span><span>{t('Do not use for diagnosis, treatment decisions or individual medical predictions.', '\uc9c4\ub2e8\u00b7\uce58\ub8cc \ud310\ub2e8 \ub610\ub294 \uac1c\uc778\ubcc4 \uc758\ud559\uc801 \uc608\uce21\uc5d0 \uc0ac\uc6a9\ud558\uc9c0 \ub9c8\uc138\uc694.')}</span></footer>\n+    <footer><span>{t('CardioLab \u00b7 education and research portfolio \u00b7 anatomy awaiting review', 'CardioLab \u00b7 \uad50\uc721\u00b7\uc5f0\uad6c \ud3ec\ud2b8\ud3f4\ub9ac\uc624 \u00b7 \uac80\uc218 \uc804 \ud574\ubd80\ud559')}<br /><a href=\"https://github.com/Carraway-and-Gatsby/cardiac-simulator\" target=\"_blank\" rel=\"noreferrer\">{t('Open source on GitHub', 'GitHub \uc624\ud508\uc18c\uc2a4')}</a> \u00b7 <a href=\"https://github.com/Carraway-and-Gatsby/cardiac-simulator/blob/main/THIRD_PARTY_NOTICES.md\" target=\"_blank\" rel=\"noreferrer\">{t('Licenses & attribution', '\ub77c\uc774\uc120\uc2a4 \ubc0f \ucd9c\ucc98')}</a></span><span>{t('Do not use for diagnosis, treatment decisions or individual medical predictions.', '\uc9c4\ub2e8\u00b7\uce58\ub8cc \ud310\ub2e8 \ub610\ub294 \uac1c\uc778\ubcc4 \uc758\ud559\uc801 \uc608\uce21\uc5d0 \uc0ac\uc6a9\ud558\uc9c0 \ub9c8\uc138\uc694.')}</span></footer>\n   </main>;\n }"
+    }
+  ]
+}

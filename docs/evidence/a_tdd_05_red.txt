@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_metrics_integrate_only_last_full_beat_with_explicit_units ________
+
+    def test_metrics_integrate_only_last_full_beat_with_explicit_units():
+        from physiosim.models.cardiovascular import Parameters
+        from physiosim.simulation import SimulationResult
+>       assert hasattr(SimulationResult, "metrics"), "summary metrics must exist"
+E       AssertionError: summary metrics must exist
+E       assert False
+E        +  where False = hasattr(<class 'physiosim.simulation.SimulationResult'>, 'metrics')
+
+tests/test_cardiovascular.py:83: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_cardiovascular.py::test_metrics_integrate_only_last_full_beat_with_explicit_units
+1 failed in 0.19s

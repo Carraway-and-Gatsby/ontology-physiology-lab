@@ -1,0 +1,292 @@
+[
+  {
+    "url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator",
+    "final_url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_web.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:22.346281+00:00",
+    "sha256": "e2568d3fc37cfd7597039489dd3c1d28dd731eade1495cc04527e1ca13ee92f9",
+    "bytes": 300671,
+    "citation_registration": "[1] https://github.com/Carraway-and-Gatsby/cardiac-simulator"
+  },
+  {
+    "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator",
+    "final_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_api.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:21.617374+00:00",
+    "sha256": "962492cd65b0703fa34318f498325c135c630ded680e87b18a2b5224d2de7ba3",
+    "bytes": 6282,
+    "citation_registration": "[2] https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/README.md",
+    "final_url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/README.md",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_readme_main.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:21.695148+00:00",
+    "sha256": "1696aa69affb93a526c13e805cff48fd21d589e997416cc4ff3f4b74cee80feb",
+    "bytes": 11007,
+    "citation_registration": "[3] https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/README.md"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/README.md",
+    "final_url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/README.md",
+    "http_status": 200,
+    "file": "docs/evidence/c_semgen_readme.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:21.631385+00:00",
+    "sha256": "5d18a266a4e24e5d1b7a342c961971bc3c67594934e7e011fcf71181d2067503",
+    "bytes": 16603,
+    "citation_registration": "[4] https://raw.githubusercontent.com/SemBioProcess/SemGen/master/README.md"
+  },
+  {
+    "url": "https://framework.circadapt.org/latest/license.html",
+    "final_url": "https://framework.circadapt.org/latest/license.html",
+    "http_status": 200,
+    "file": "docs/evidence/c_circadapt_license.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:22.327109+00:00",
+    "sha256": "490bf146d47d0158d5e86f63da8d00f4dbca48e79d36261a5b31cd32a9788f74",
+    "bytes": 18932,
+    "citation_registration": "[5] https://framework.circadapt.org/latest/license.html"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/opencor/opencor/master/LICENSE.txt",
+    "final_url": "https://raw.githubusercontent.com/opencor/opencor/master/LICENSE.txt",
+    "http_status": 200,
+    "file": "docs/evidence/c_opencor_license.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:21.555853+00:00",
+    "sha256": "0030635a4014438f4edc8ed68aca1edb308d6398b946249f478e79932e77abd9",
+    "bytes": 32402,
+    "citation_registration": "[6] https://raw.githubusercontent.com/opencor/opencor/master/LICENSE.txt"
+  },
+  {
+    "url": "https://pulse.kitware.com/_about_pulse.html",
+    "final_url": "https://pulse.kitware.com/_about_pulse.html",
+    "http_status": 200,
+    "file": "docs/evidence/c_pulse_about.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:22.217177+00:00",
+    "sha256": "2a8e10c1e423433e8abb2188a43eece0c045eef036be485d0f748e9f7f00efc6",
+    "bytes": 36417,
+    "citation_registration": "[7] https://pulse.kitware.com/_about_pulse.html"
+  },
+  {
+    "url": "https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/license_citation",
+    "final_url": "https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/license_citation",
+    "http_status": 200,
+    "file": "docs/evidence/c_cellml_model_license.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:21.818270+00:00",
+    "sha256": "38accd5350b215a776f46be0f07dc1ac79ecb32b5076b2312896bdad8e0a5891",
+    "bytes": 20347,
+    "citation_registration": "[8] https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/license_citation"
+  },
+  {
+    "url": "https://www.cellml.org/tools/modeling-environments",
+    "final_url": "https://www.cellml.org/tools/modeling-environments",
+    "http_status": 200,
+    "file": "docs/evidence/c_cellml_environments.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:22.316967+00:00",
+    "sha256": "be6459ba3dd7483a213b9f58d2381789597891299362f6ab21faf0f13f101963",
+    "bytes": 27667,
+    "citation_registration": "[9] https://www.cellml.org/tools/modeling-environments"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/LICENSE",
+    "final_url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/LICENSE",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_license.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.160803+00:00",
+    "sha256": "4cb05148999a39973d8bbe7bc138409d8a6a0e3b508c3fd04ff52c1a4c37ea12",
+    "bytes": 1079,
+    "citation_registration": "[10] https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/LICENSE"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/THIRD_PARTY_NOTICES.md",
+    "final_url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/THIRD_PARTY_NOTICES.md",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_notices.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.083476+00:00",
+    "sha256": "5ed15db0b99110558fb90120b6c14bc4b60d5ee9abe84808e5249ea6eb7efa6c",
+    "bytes": 4475,
+    "citation_registration": "[11] https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/THIRD_PARTY_NOTICES.md"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/docs/physiology-model.md",
+    "final_url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/docs/physiology-model.md",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_physiology.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.186664+00:00",
+    "sha256": "e3a68ba01c35586ebd47b7e91aed7e0a95cfa2313d40569c7e28c2961f6307cb",
+    "bytes": 16065,
+    "citation_registration": "[12] https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/docs/physiology-model.md"
+  },
+  {
+    "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/main",
+    "final_url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/main",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_head.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.309413+00:00",
+    "sha256": "259cc78ddcd109a197c8f5002ecb83e52a478aa7ac912be898962a9f347a8815",
+    "bytes": 18911,
+    "citation_registration": "[13] https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/main"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/opencor/opencor/master/README.md",
+    "final_url": "https://raw.githubusercontent.com/opencor/opencor/master/README.md",
+    "http_status": 404,
+    "file": "docs/evidence/c_opencor_readme.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.137510+00:00",
+    "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+    "bytes": 14,
+    "citation_registration": "[14] https://raw.githubusercontent.com/opencor/opencor/master/README.md"
+  },
+  {
+    "url": "https://api.github.com/repos/opencor/opencor",
+    "final_url": "https://api.github.com/repos/opencor/opencor",
+    "http_status": 200,
+    "file": "docs/evidence/c_opencor_api.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.224179+00:00",
+    "sha256": "b3bb08c0d62d444b8131bfb033194afc734604abeb302aaaa0db0067760bc782",
+    "bytes": 6176,
+    "citation_registration": "[15] https://api.github.com/repos/opencor/opencor"
+  },
+  {
+    "url": "https://www.cellml.org/cellml/2.0",
+    "final_url": "https://www.cellml.org/cellml/2.0",
+    "http_status": 200,
+    "file": "docs/evidence/c_cellml_spec.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:58.518478+00:00",
+    "sha256": "2ec74917458e2e33ad90f18e375c93f1c1907f5dcf0335f7ce1e8c33a35ba1f2",
+    "bytes": 155580,
+    "citation_registration": "[16] https://www.cellml.org/cellml/2.0"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/wiki/SemBioProcess/SemGen/Annotation-protocol.md",
+    "final_url": "https://raw.githubusercontent.com/wiki/SemBioProcess/SemGen/Annotation-protocol.md",
+    "http_status": 200,
+    "file": "docs/evidence/c_semgen_protocol.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.122709+00:00",
+    "sha256": "8116ed78503235178b0323fb98bb062d91d571ff6329c674fe51b8727d0f967c",
+    "bytes": 10658,
+    "citation_registration": "[17] https://raw.githubusercontent.com/wiki/SemBioProcess/SemGen/Annotation-protocol.md"
+  },
+  {
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0145621",
+    "final_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0145621",
+    "http_status": 200,
+    "file": "docs/evidence/c_semsim_article.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:08.295630+00:00",
+    "sha256": "774239fa6bf63adf0ed84679f7a2024616ee5fbdf5cc461ca52c329b354da793",
+    "bytes": 207795,
+    "citation_registration": "[18] https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0145621"
+  },
+  {
+    "url": "https://pubmed.ncbi.nlm.nih.gov/15036180/",
+    "final_url": "https://pubmed.ncbi.nlm.nih.gov/15036180/",
+    "http_status": 200,
+    "file": "docs/evidence/c_smith_pubmed.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.967989+00:00",
+    "sha256": "d0580e3c2ad28d5bad5e4ed6f17abeb055d4a580f14fc4e6cc1d12228a321ce7",
+    "bytes": 127423,
+    "citation_registration": "[19] https://pubmed.ncbi.nlm.nih.gov/15036180"
+  },
+  {
+    "url": "https://gitlab.kitware.com/physiology/engine/-/raw/stable/LICENSE",
+    "final_url": "https://gitlab.kitware.com/physiology/engine/-/raw/stable/LICENSE",
+    "http_status": 200,
+    "file": "docs/evidence/c_pulse_license.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.986211+00:00",
+    "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+    "bytes": 11356,
+    "citation_registration": "[20] https://gitlab.kitware.com/physiology/engine/-/raw/stable/LICENSE"
+  },
+  {
+    "url": "https://gitlab.kitware.com/physiology/engine/-/raw/stable/NOTICE",
+    "final_url": "https://gitlab.kitware.com/physiology/engine/-/raw/stable/NOTICE",
+    "http_status": 200,
+    "file": "docs/evidence/c_pulse_notice.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:57.982074+00:00",
+    "sha256": "99a17dceaadffd6687113bddd8fbda9051dd8b74fac0b88548edbc3a09665de6",
+    "bytes": 2560,
+    "citation_registration": "[21] https://gitlab.kitware.com/physiology/engine/-/raw/stable/NOTICE"
+  },
+  {
+    "url": "https://pulse.kitware.com/_cardiovascular_methodology.html",
+    "final_url": "https://pulse.kitware.com/_cardiovascular_methodology.html",
+    "http_status": 200,
+    "file": "docs/evidence/c_pulse_cardiovascular.txt",
+    "retrieved_at_utc": "2026-10-30T14:44:58.697899+00:00",
+    "sha256": "d9125d8ab7739c994996fe5ad9dd7082d9f897aa43e61d049c182a787776a91d",
+    "bytes": 268708,
+    "citation_registration": "[22] https://pulse.kitware.com/_cardiovascular_methodology.html"
+  },
+  {
+    "url": "https://www.opencor.ws/licensing.html",
+    "final_url": "https://www.opencor.ws/licensing.html",
+    "http_status": 200,
+    "file": "docs/evidence/c_opencor_licensing.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:45.048179+00:00",
+    "sha256": "6100fe69f1e3a39bb45e683cd6bc52dbdaeab80c3771649fb3181a7a9100345a",
+    "bytes": 2195,
+    "citation_registration": "[23] https://www.opencor.ws/licensing.html"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/opencor/opencor/master/README.rst",
+    "final_url": "https://raw.githubusercontent.com/opencor/opencor/master/README.rst",
+    "http_status": 200,
+    "file": "docs/evidence/c_opencor_readme_rst.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:44.256079+00:00",
+    "sha256": "09d3205f367ac14e5e17b3c6af5c36e5f32f3cde3f5fc7a57ea0219a6f9d9200",
+    "bytes": 1154,
+    "citation_registration": "[24] https://raw.githubusercontent.com/opencor/opencor/master/README.rst"
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3103466/",
+    "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3103466/",
+    "http_status": 200,
+    "file": "docs/evidence/c_zero_d_review.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:45.014260+00:00",
+    "sha256": "65a96d0072e9f891a4fe665ed34a1a83da37afdd68ac25834a834d523e4da01e",
+    "bytes": 411622,
+    "citation_registration": "[25] https://pmc.ncbi.nlm.nih.gov/articles/PMC3103466"
+  },
+  {
+    "url": "https://pubmed.ncbi.nlm.nih.gov/8238596/",
+    "final_url": "https://pubmed.ncbi.nlm.nih.gov/8238596/",
+    "http_status": 200,
+    "file": "docs/evidence/c_contractility_pubmed.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:44.873733+00:00",
+    "sha256": "de2e88f1747e54a72c1433ced2d587d991c3eaf658ba7818dd8ee8c4ebe8dbe0",
+    "bytes": 135685,
+    "citation_registration": "[26] https://pubmed.ncbi.nlm.nih.gov/8238596"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/src/simulation/engine.ts",
+    "final_url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/src/simulation/engine.ts",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_engine_pinned.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:44.249272+00:00",
+    "sha256": "922be76d8c50182fd5c51e9cb795f414c7897e907d9eb3a34fa134f4343f7cf1",
+    "bytes": 14866,
+    "citation_registration": "[27] https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/src/simulation/engine.ts"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/LICENSE",
+    "final_url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/LICENSE",
+    "http_status": 200,
+    "file": "docs/evidence/c_carraway_license_pinned.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:44.214374+00:00",
+    "sha256": "4cb05148999a39973d8bbe7bc138409d8a6a0e3b508c3fd04ff52c1a4c37ea12",
+    "bytes": 1079,
+    "citation_registration": "[28] https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/LICENSE"
+  },
+  {
+    "url": "https://framework.circadapt.org/latest/userguide/verification/index.html",
+    "final_url": "https://framework.circadapt.org/latest/userguide/verification/index.html",
+    "http_status": 200,
+    "file": "docs/evidence/c_circadapt_verification.txt",
+    "retrieved_at_utc": "2026-10-30T14:45:44.718268+00:00",
+    "sha256": "eb10f86057a899e28fc1d6a74e8e544aa087a37fc008adc1158cca855341e107",
+    "bytes": 9210,
+    "citation_registration": "[29] https://framework.circadapt.org/latest/userguide/verification/index.html"
+  }
+]

@@ -1,0 +1,187 @@
+{
+  "scope": "Verified labels are external source data; variable mapping, relations and equations are local model assertions.",
+  "external_terms": [
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Left+ventricle&ontology=fma&exact=true&rows=10",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/search?q=Left+ventricle&ontology=fma&exact=true&rows=10",
+      "retrieved_at": "2026-10-30T14:44:50.104619+00:00",
+      "sha256": "a940bf841f56df1473127aebb0c5ef80fc26dd743514590e3b66e83756a17be3",
+      "bytes": 3238,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_ols_terms.json",
+      "label": "Left ventricle",
+      "verification": "exact-label EBI OLS4 API ontology-filtered response",
+      "uri": "http://purl.org/sig/ont/fma/fma7101"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Right+ventricle&ontology=fma&exact=true&rows=10",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/search?q=Right+ventricle&ontology=fma&exact=true&rows=10",
+      "retrieved_at": "2026-10-30T14:44:50.103867+00:00",
+      "sha256": "05a4b2b8ebe5417b94b8ab9011abe7b725747390e2d7cc4c65052b00ffb8da0e",
+      "bytes": 3233,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_ols_terms.json",
+      "label": "Right ventricle",
+      "verification": "exact-label EBI OLS4 API ontology-filtered response",
+      "uri": "http://purl.org/sig/ont/fma/fma7098"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Heart&ontology=fma&exact=true&rows=10",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/search?q=Heart&ontology=fma&exact=true&rows=10",
+      "retrieved_at": "2026-10-30T14:44:52.109245+00:00",
+      "sha256": "5d876c2fe4fe68f1d2230d9f39e96e5fb34c9e263e29e33ad78b633d2947783b",
+      "bytes": 4755,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_ols_terms.json",
+      "label": "Heart",
+      "verification": "exact-label EBI OLS4 API ontology-filtered response",
+      "uri": "http://purl.org/sig/ont/fma/fma7088"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "resolved_url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "retrieved_at": "2026-10-30T14:44:52.533378+00:00",
+      "sha256": "ef9715888af345549823fd4d4ee254bea6c991383c57bd0917b6f3a8cd6f6f48",
+      "bytes": 559493,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_opb_excerpt.json",
+      "label": "Fluid pressure",
+      "verification": "rdfs:label in SemBioProcess-bundled OPB v1.07 OWL download",
+      "uri": "http://bhi.washington.edu/OPB#OPB_00509"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "resolved_url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "retrieved_at": "2026-10-30T14:44:52.533378+00:00",
+      "sha256": "ef9715888af345549823fd4d4ee254bea6c991383c57bd0917b6f3a8cd6f6f48",
+      "bytes": 559493,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_opb_excerpt.json",
+      "label": "Fluid volume",
+      "verification": "rdfs:label in SemBioProcess-bundled OPB v1.07 OWL download",
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "resolved_url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "retrieved_at": "2026-10-30T14:44:52.533378+00:00",
+      "sha256": "ef9715888af345549823fd4d4ee254bea6c991383c57bd0917b6f3a8cd6f6f48",
+      "bytes": 559493,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_opb_excerpt.json",
+      "label": "Fluid flow rate",
+      "verification": "rdfs:label in SemBioProcess-bundled OPB v1.07 OWL download",
+      "uri": "http://bhi.washington.edu/OPB#OPB_00299"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "resolved_url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "retrieved_at": "2026-10-30T14:44:52.533378+00:00",
+      "sha256": "ef9715888af345549823fd4d4ee254bea6c991383c57bd0917b6f3a8cd6f6f48",
+      "bytes": 559493,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_opb_excerpt.json",
+      "label": "Fluid flow resistance",
+      "verification": "rdfs:label in SemBioProcess-bundled OPB v1.07 OWL download",
+      "uri": "http://bhi.washington.edu/OPB#OPB_00160"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "resolved_url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "retrieved_at": "2026-10-30T14:44:52.533378+00:00",
+      "sha256": "ef9715888af345549823fd4d4ee254bea6c991383c57bd0917b6f3a8cd6f6f48",
+      "bytes": 559493,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_opb_excerpt.json",
+      "label": "Fluid volumetric elastance",
+      "verification": "rdfs:label in SemBioProcess-bundled OPB v1.07 OWL download",
+      "uri": "http://bhi.washington.edu/OPB#OPB_00076"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "resolved_url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "retrieved_at": "2026-10-30T14:44:52.533378+00:00",
+      "sha256": "ef9715888af345549823fd4d4ee254bea6c991383c57bd0917b6f3a8cd6f6f48",
+      "bytes": 559493,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_opb_excerpt.json",
+      "label": "Event frequency",
+      "verification": "rdfs:label in SemBioProcess-bundled OPB v1.07 OWL download",
+      "uri": "http://bhi.washington.edu/OPB#OPB_01212"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Portion+of+blood&ontology=fma&exact=true&rows=10",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/search?q=Portion+of+blood&ontology=fma&exact=true&rows=10",
+      "retrieved_at": "2026-10-30T14:44:49.875144+00:00",
+      "sha256": "567674ef9940a19cdd87a3c95e84ea6f7e541f4283002bc1892f60b63161c648",
+      "bytes": 1572,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_ols_terms.json",
+      "label": "Portion of blood",
+      "verification": "exact-label EBI OLS4 API ontology-filtered response",
+      "uri": "http://purl.org/sig/ont/fma/fma9670"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=blood+circulation&ontology=go&exact=true&rows=10",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/search?q=blood+circulation&ontology=go&exact=true&rows=10",
+      "retrieved_at": "2026-10-30T14:44:51.466692+00:00",
+      "sha256": "af4f75a4dd143f582ebeb3e3d9d35da4949a4b4bdab0c134e12daf451d7a1f3f",
+      "bytes": 7461,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_ols_terms.json",
+      "label": "blood circulation",
+      "verification": "exact-label EBI OLS4 API ontology-filtered response",
+      "uri": "http://purl.obolibrary.org/obo/GO_0008015"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=heart+contraction&ontology=go&exact=true&rows=10",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/search?q=heart+contraction&ontology=go&exact=true&rows=10",
+      "retrieved_at": "2026-10-30T14:44:51.688378+00:00",
+      "sha256": "84173fe3399928030363aede7f6a45b51acc8a0f2b1c9812d264d47dafc4d891",
+      "bytes": 9772,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_ols_terms.json",
+      "label": "heart contraction",
+      "verification": "exact-label EBI OLS4 API ontology-filtered response",
+      "uri": "http://purl.obolibrary.org/obo/GO_0060047"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=congestive+heart+failure&ontology=doid&exact=true&rows=10",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/search?q=congestive+heart+failure&ontology=doid&exact=true&rows=10",
+      "retrieved_at": "2026-10-30T14:44:51.347649+00:00",
+      "sha256": "0106c8b2291ab01d6a236d9a7fcd17f78abbe60dc6eb60700c5f18117a34ac0c",
+      "bytes": 5796,
+      "http_status": 200,
+      "evidence_file": "docs/evidence/b_ols_terms.json",
+      "label": "congestive heart failure",
+      "verification": "exact-label EBI OLS4 API ontology-filtered response",
+      "uri": "http://purl.obolibrary.org/obo/DOID_6000"
+    }
+  ],
+  "cellml_conventions": {
+    "url": "https://www.cellml.org/specifications/metadata",
+    "resolved_url": "https://www.cellml.org/specifications/metadata",
+    "retrieved_at": "2026-10-30T14:48:35.484983+00:00",
+    "sha256": "84e50e5e475217a94a7803f660a1d1b667720692d6a7c65e158d52329821542a"
+  },
+  "limitations": [
+    "OPB is a SemBioProcess-bundled v1.07 snapshot, not a claim of latest release.",
+    "FMA/GO/DOID labels verified through EBI OLS4; not full ontology downloads.",
+    "No external exact identifiers asserted for aggregate circulation compartments, compliance, stroke volume or cardiac output.",
+    "No OWL entailment, CellML serialization or clinical disease diagnosis."
+  ],
+  "retrieval_failures": [
+    {
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=fluid%20pressure&ontology=opb&rows=5",
+      "result": "empty OPB result; switched to bundled ontology download"
+    },
+    {
+      "url": "https://www.cellml.org/specifications/metadata/1.0",
+      "result": "404; corrected via search to official metadata specification URL"
+    },
+    {
+      "url": "https://tutorial-on-cellml-opencor-and-pmr.readthedocs.io/en/latest/annotation.html",
+      "result": "403; used official CellML specification instead"
+    }
+  ]
+}

@@ -1,0 +1,495 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://github.com/Carraway-and-Gatsby/cardiac-simulator",
+      "title": "Exact requested GitHub repository",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "GitHub - Carraway-and-Gatsby/cardiac-simulator: Bilingual educational cardiovascular physiology lab with synchronized 3D heart, valve and blood-flow animation. MIT source; local HRA assets. · GitHub",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator",
+      "title": "GitHub repository metadata",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "{\"id\":1430724688,\"node_id\":\"R_kgDOVUcgUA\",\"name\":\"cardiac-simulator\",\"full_name\":\"Carraway-and-Gatsby/cardiac-simulator\",\"private\":false,\"owner\":{\"login\":\"Carraway-and-Gatsby\",\"id\":270285620,\"node_id\":\"U_kgDOEBw7NA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/270285620?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/Carraway-and-Gatsby\",\"html_url\":\"https://github.com/Carraway-and-Gatsby\",\"followers_url\":\"https://api.github.com/users/Carraway-and-Gatsby/followers\",\"following_url\":\"https://api.github.com/users/Carraway-and-Gatsby/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/Carraway-and-Gatsby/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/Carraway-and-Gatsby/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/Carraway-and-Gatsby/subscriptions\",\"organizations_url\":\"https://api.github.com/users/Carraway-and-Gatsby/orgs\",\"repos_url\":\"https://api.github.com/users/Carraway-and-Gatsby/repos\",\"events_url\":\"https://api.github.com/users/Carraway-and-Gatsby/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/Carraway-and-Gatsby/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"html_url\":\"https://github.com/Carraway-and-Gatsby/cardiac-simulator\",\"description\":\"Bilingual educational cardiovascular physiology lab with synchronized 3D heart, valve and blood-flow animation. MIT source; local HRA assets.\",\"fork\":false,\"url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator\",\"forks_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/forks\",\"keys_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/keys{/key_id}\",\"collaborators_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/collaborators{/collaborator}\",\"teams_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/teams\",\"hooks_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/hooks\",\"issue_events_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/issues/events{/number}\",\"events_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/events\",\"assignees_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/assignees{/user}\",\"branches_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/branches{/branch}\",\"tags_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/tags\",\"blobs_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/git/blobs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/git/tags{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/git/refs{/sha}\",\"trees_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/git/trees{/sha}\",\"statuses_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/statuses/{sha}\",\"languages_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/languages\",\"stargazers_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/stargazers\",\"contributors_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contributors\",\"subscribers_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/subscribers\",\"subscription_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/subscription\",\"commits_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits{/sha}\",\"git_commits_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/git/commits{/sha}\",\"comments_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/comments{/number}\",\"issue_comment_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/issues/comments{/number}\",\"contents_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/contents/{+path}\",\"compare_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/compare/{base}...{head}\",\"merges_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/merges\",\"archive_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/{archive_format}{/ref}\",\"downloads_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/downloads\",\"issues_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/issues{/number}\",\"pulls_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/pulls{/number}\",\"milestones_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/notifications{?since,all,participating}\",\"labels_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/labels{/name}\",\"releases_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/releases{/id}\",\"deployments_url\":\"https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/deployments\",\"created_at\":\"2026-10-23T07:32:07Z\",\"updated_at\":\"2026-10-23T09:08:46Z\",\"pushed_at\":\"2026-10-23T09:07:01Z\",\"git_url\":\"git://github.com/Carraway-and-Gatsby/cardiac-simulator.git\",\"ssh_url\":\"git@github.com:Carraway-and-Gatsby/cardiac-simulator.git\",\"clone_url\":\"https://github.com/Carraway-and-Gatsby/cardiac-simulator.git\",\"svn_url\":\"https://github.com/Carraway-and-Gatsby/cardiac-simulator\",\"homepage\":\"https://carraway-and-gatsby.github.io/cardiac-simulator/\",\"size\":287,\"stargazers_count\":1,\"watchers_count\":1,\"language\":\"TypeScript\",\"has_issues\":true,\"has_projects\":true,\"has_downloads\":false,\"has_wiki\":true,\"has_pages\":true,\"has_discussions\":false,\"forks_count\":0,\"mirror_url\":null,\"archived\":false,\"disabled\":false,\"open_issues_count\":0,\"license\":{\"key\":\"mit\",\"name\":\"MIT License\",\"spdx_id\":\"MIT\",\"url\":\"https://api.github.com/licenses/mit\",\"node_id\":\"MDc6TGljZW5zZTEz\"},\"allow_forking\":true,\"is_template\":false,\"web_commit_signoff_required\":false,\"has_pull_requests\":true,\"pull_request_creation_policy\":\"all\",\"topics\":[],\"visibility\":\"public\",\"forks\":0,\"open_issues\":0,\"watchers\":1,\"default_branch\":\"main\",\"temp_clone_token\":null,\"network_count\":0,\"subscribers_count\":0}",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "\"full_name\": \"Carraway-and-Gatsby/cardiac-simulator\",\n  \"private\": false,",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "\"default_branch\": \"main\",\n  \"temp_clone_token\": null,",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "\"spdx_id\": \"MIT\",\n    \"url\": \"https://api.github.com/licenses/mit\",",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/README.md",
+      "title": "CardioLab README",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "An interactive educational cardiovascular lab with a 3D anatomy viewer, a",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "**This is an educational software prototype, not a clinically validated",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "| Circulation | Eight blood-volume compartments, time-varying elastance, exponential passive ventricular pressure, resistances/compliances, signed valve flows, RK4 and periodic convergence | Estimated parameters; no patient calibration, autonomic regulation, electrophysiology or external waveform validation |",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/README.md",
+      "title": "SemGen README and license",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "permitted for non-commercial purposes (such as for research, personal use, or educational use), provided that redistribution in any form includes this entire notice in all copies of the software, derivative works, and supporting documentation.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Use of JxBrowser as part of SemGen in any commercial software requires a commercial license from TeamDev Ltd.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Each composite annotation consists of a physical property term connected to a physical entity or physical process term. The physical entity term can itself also be a composite of ontology terms. We recommend using only terms from the Ontology of Physics for Biology (OPB) for the physical property annotation components. For the physical entity annotations we recommend using robust, thorough, and widely accepted online reference ontologies like the Foundational Model of Anatomy (FMA), Chemical Entities of Biological Interest (ChEBI), and Gene Ontology cellular components (GO-cc). For physical processes annotations, we recommend creating custom terms and defining them by identifying their thermodynamic sources, sinks and mediators from the physical entities in the model.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "https://framework.circadapt.org/latest/license.html",
+      "title": "CircAdapt framework current EULA",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Licensor grant to User a free, revocable, non-exclusive, non-transferable, non-sublicensable, License",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Developer User shall not (i) distribute or sell the Licensed Intellectual Property Rights (i) distribute or",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Any Improvements shall be the property of Licensor.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "https://raw.githubusercontent.com/opencor/opencor/master/LICENSE.txt",
+      "title": "OpenCOR repository GPLv3 license",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "GNU GENERAL PUBLIC LICENSE",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Version 3, 29 June 2007",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "https://pulse.kitware.com/_about_pulse.html",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 8,
+      "url": "https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/license_citation",
+      "title": "Physiome cardiovascular model license and citation",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics — Physiome Model Repository",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Creative Commons Attribution 3.0 Unported License",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "https://www.cellml.org/tools/modeling-environments",
+      "title": "CellML modeling environments directory",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Apache v2.0 license",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Apache v2.0 license\n) being developed at the Auckland Bioengineering Institute. The latest available release is",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/LICENSE",
+      "title": "CardioLab MIT license on main",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "MIT License\n\nCopyright (c) 2026 CardioLab contributors",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Permission is hereby granted, free of charge, to any person obtaining a copy",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/THIRD_PARTY_NOTICES.md",
+      "title": "CardioLab third-party notices",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "third-party dependencies, source data or derived anatomical material.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "4.0 International (CC BY 4.0)**. The local asset setup downloads the associated",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "links and modification record. MIT does not relicense that model.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/docs/physiology-model.md",
+      "title": "CardioLab model equations and scientific scope",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "The eight state variables are blood volumes in LA, LV, systemic arteries (SA), systemic veins (SV), RA, RV, pulmonary arteries (PA), and pulmonary veins (PV). All volumes are in mL, pressures in mmHg, time in seconds, flow in mL/s, compliance in mL/mmHg, and resistance in mmHg·s/mL. Reported cardiac output is converted to L/min. EF and regurgitant fraction are stored as fractions, not percentages.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "These sources support the equation classes and mechanistic expectations. **Every numerical default below is an engineering estimate**, not an extracted experimental measurement, a patient fit, or a published parameter set. Broad regression acceptance bands are developer checks, not clinical reference intervals. No clinical normal-range claim is made from the baseline numbers.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Numeric convergence is **not** sufficient for physiological interpretation. If the passive ventricular curve exceeds the peak active relation at a sampled volume, activation in the convex interpolation would lower pressure at fixed volume. That combination lies outside this model's supported domain. Simultaneous forward AV and semilunar flow also invalidates the usual interpretation that volume-extremum SV describes all ventricular throughput. Both conditions set `modelWithinDomain=false`, with explicit diagnostic reasons; the application must withhold physiological plots and interpretation for that result.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "This increment adds an explicit numerical model to the existing provisional anatomical viewer. It is an original, simplified educational implementation. It has passed conservation, numerical and qualitative mechanism checks; it has **not** been calibrated to patients, compared with an external waveform dataset, independently reviewed by a cardiovascular expert, or clinically validated. Anatomical asset approval and physiological verification are separate.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "url": "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator/commits/main",
+      "title": "CardioLab main commit metadata",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"sha\": \"b3f437403e709f11099f50b38272f77ded5ea9b5\",\n  \"node_id\": \"C_kwDOVUcgUNoAKGIzZjQzNzQwM2U3MDlmMTEwOTlmNTBiMzgyNzJmNzdkZWQ1ZWE5YjU\",",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "url": "https://raw.githubusercontent.com/opencor/opencor/master/README.md",
+      "title": "HTTP 404 for guessed OpenCOR README.md path",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "404: Not Found",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "url": "https://api.github.com/repos/opencor/opencor",
+      "title": "OpenCOR repository metadata",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"spdx_id\": \"GPL-3.0\",\n    \"url\": \"https://api.github.com/licenses/gpl-3.0\",",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "url": "https://www.cellml.org/cellml/2.0",
+      "title": "CellML 2.0 normative specification",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Tuples differing by a multiplying factor in their unit reduction MUST be taken into account when interpreting the numerical values of the variables (see",
+          "added": "2026-10-30"
+        },
+        {
+          "text": ") is referred to as the “variable unit reduction”.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "The variable equivalence network MUST NOT contain any cycles.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "url": "https://raw.githubusercontent.com/wiki/SemBioProcess/SemGen/Annotation-protocol.md",
+      "title": "SemGen annotation protocol",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "_When loading an un-annotated model into SemGen, the software will attempt to accurately identify the OPB:Physical property that a codeword represents based on the codeword’s physical units and its mathematical relationship to other codewords. However, these assignments are not guaranteed to be correct._",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "* Define the term logically by specifying the dynamical sources, sinks and mediating entities that participate in the process (SemGen provides an interface for this that allows the user to select from the physical entities entered in step 3).",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0145621",
+      "title": "Neal et al. 2015 semantic cardiomyocyte composition",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "While we have not yet performed formal tests to quantify the amount of time SemGen saves users when performing model merging tasks, the present study provides preliminary evidence, albeit anecdotal, illustrating its time-saving features. Based on estimates from the authors, the original Terkildsen et al. model required months to generate whereas our version required only weeks. Furthermore, the time required for us to assemble our version included the time required to annotate the models, and also to enhance and debug SemGen so that it correctly performed the model-model resolution, merging, and code-generation procedures. The actual time required to load in the annotated models, resolve their semantic overlap and output simulation code requires on the order of several minutes only. Indeed, authors KT, BEC and JHG were able to quickly generate an impromptu version of the PHT model during a 15-minute conference break—they already had the annotated Pandit and Hinch models available, and connecting them to the Tran model was simply a matter of annotating cytosolic calcium in the Tran model and then merging the Pandit-Hinch and Tran models in SemGen. We acknowledge that this process was likely facilitated by KT’s expert knowledge of the Pandit and Hinch models, nonetheless, we believe this impromptu composition is an important illustration of the time-saving benefits that are available through semantics-based model composition.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": ", bottom curve) is relatively low compared to the force generated in the Tran source model. This is also because the cytosolic calcium levels generated by the Pandit-Hinch model are lower than those used in the Tran source model. Therefore, additional post-merge parameter changes would be required to align the assumptions about calcium levels in the components of the PHT model. These kinds of post-merge adjustments are an important part of a modeler’s workflow when merging models. Often, they require a clear understanding of the mathematical relations among variables, and a broad contextual knowledge about the assumptions and underlying biology behind the models. For example, source models may be parameterized under different experimental conditions and for different species. The post-merge edits, such as those we described above, represent subtle (and sometimes subjective) decision-making by human intelligence. It is not within the scope of SemGen to help automate this aspect of model merging. Rather, SemGen aims to make all of the straightforward connections, and do the “heavy lifting” of semantic resolution, merging and automatic code generation. Using our tool, the modeler can more easily move to the challenging and subtler decisions about assumptions, context, and adjustments to parameters that might be needed to produce a biologically sensible result.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "rate of the calcium-troponin complex. SemGen currently recognizes equivalent physical processes by examining the physical property represented (electrical current, e.g.) and the physical entities that participate in the process as thermodynamic sources, sinks and mediators. Thus, if two models represent the same physical process but directionality is different such that the source entities for one model are the sinks for the other, SemGen does not yet recognize the equivalency. We plan to enhance SemGen so that it recognizes the close, inverse relationship between processes that have opposite directionality but are otherwise identical.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "], which describes a biosimulation model in terms of its biological meaning formally linked to the model’s specific mathematical implementation. To accomplish this we use composite annotations [",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15036180",
+      "title": "Smith et al. 2004 minimal haemodynamic model abstract",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "[abstract omitted: publisher copyright; see DOI/PMID]",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "url": "https://gitlab.kitware.com/physiology/engine/-/raw/stable/LICENSE",
+      "title": "Pulse stable branch Apache 2.0 license",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Apache License\n                           Version 2.0, January 2004",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Version 2.0, January 2004",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "url": "https://gitlab.kitware.com/physiology/engine/-/raw/stable/NOTICE",
+      "title": "Pulse stable branch copyright and dependency notice",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Distributed under the Apache License, Version 2.0.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "This product uses the Eigen software package",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "url": "https://pulse.kitware.com/_cardiovascular_methodology.html",
+      "title": "Pulse cardiovascular methodology",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "The cardiovascular system is a closed-loop system of compartments that represents the human circulatory system. The cardiovascular system is sometimes described as two separate circulations: the systemic circulation and the pulmonary circulation. Both circulations are represented in the Cardiovascular system, as well as the lymph. The dynamical state of the Cardiovascular System is determined at every timestep through a three-step process. First, intra- and inter-system feedback is applied during the preprocess step. Next, the state of the circulatory system is determined by solving an equivalent circuit. Finally, the state of the system is updated in preparation of time advancement. Through system and action validation, we demonstrate the accuracy of the model at resting physiology and a variety of cardiovascular related insults and interventions with appropriate system feedback.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "The heart model generates pressure that drives the hemodynamics through a variable capacitor that simulates the changing elastance of the myocardium throughout the cardiac cycle. The simulated heart has two sides, left and right, simulating the two sides of the human heart. The atria are not included in the heart model; only the ventricular behavior is modeled.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "The heart compliance is calculated from the inverse of the heart elastance. The heart elastance model used is adapted from the one developed by Stergiopulos et al",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "url": "https://www.opencor.ws/licensing.html",
+      "title": "OpenCOR official licensing page",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "GPL v3.0 license\n, a copy of which can be found in the OpenCOR distribution package in",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "url": "https://raw.githubusercontent.com/opencor/opencor/master/README.rst",
+      "title": "OpenCOR accessible README.rst",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "`OpenCOR <https://opencor.ws/>`__ is an `open source <https://opencor.ws/licensing.html>`__ `cross-platform <https://opencor.ws/supportedPlatforms.html>`__ modelling environment.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3103466",
+      "title": "Shi et al. 2011 review of 0D and 1D blood flow models",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Like all fluid systems, blood flow in the cardiovascular system obeys the laws of mass conservation, momentum conservation and energy conservation, which are described by a group of governing equations. Unlike more traditional engineering piping networks the vessels are comparatively flexible, and the constitutive equations of the vessel walls provide additional constraints that strongly influence the blood flow dynamics. Furthermore the mechanical propulsion is provided by the muscle of the heart, governed by its own constitutive equations including active components.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "The selection of the appropriate dimensionality in a model representation, from 0D though to 3D, depends on the aims, and on the required accuracy, of the research study. Zero dimensional, or lumped parameter, models assume a uniform distribution of the fundamental variables (pressure, flow and volume) within any particular compartment (organ, vessel or part of vessel) of the model at any instant in time, whilst the higher dimensional models recognise the variation of these parameters in space. This is illustrated in Figure",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "]. However, with more elements included, identification of model parameters becomes a difficulty. The model parameters are often obtained through nonlinear regression analysis based on measured pressure/flow data at aortic root. With only one more element added, parameter identification for the four-element RLRCR1 and RLRCR2 models are much more difficult than for the three-element RCR model and the two-element RC model. For this reason the RLRCR1 and RLRCR2 model are not so widely used as the RCR and RC models.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8238596",
+      "title": "Burkhoff and Tyberg 1993 theoretical LV dysfunction analysis",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "[abstract omitted: publisher copyright; see DOI/PMID]",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/src/simulation/engine.ts",
+      "title": "CardioLab numerical engine at pinned commit",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "const index = { LA: 0, LV: 1, SA: 2, SV: 3, RA: 4, RV: 5, PA: 6, PV: 7 } as const;",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "export function simulate(parameters: SimulationParameters, options: SimulationOptions = {}): SimulationResult {",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "/** Every edge has one signed flow reused with opposite signs in its two endpoints. */",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "export function evaluateState(time: number, volumes: Volumes, parameters: SimulationParameters): SimulationSample {",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "export function volumeDerivative(time: number, volumes: Volumes, parameters: SimulationParameters): Volumes {",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "url": "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/LICENSE",
+      "title": "CardioLab MIT license at pinned commit",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "MIT License\n\nCopyright (c) 2026 CardioLab contributors",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Permission is hereby granted, free of charge, to any person obtaining a copy",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "The above copyright notice and this permission notice shall be included in all",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "url": "https://framework.circadapt.org/latest/userguide/verification/index.html",
+      "title": "CircAdapt component verification index",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Verification of ArtVen and Tube0D",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Verification of Valve\nTest Results",
+          "added": "2026-10-30"
+        }
+      ]
+    }
+  ]
+}

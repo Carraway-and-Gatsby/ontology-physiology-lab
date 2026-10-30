@@ -1,0 +1,27 @@
+.F.........                                                              [100%]
+=================================== FAILURES ===================================
+_________ test_pint_dimensions_and_real_equation_trajectory_covariance _________
+
+    def test_pint_dimensions_and_real_equation_trajectory_covariance():
+        o = oracle()
+        u = pint.UnitRegistry()
+        pressure, volume, time = 1*u.mmHg, 1*u.mL, 1*u.s
+        e, c, r = pressure/volume, volume/pressure, pressure*time/volume
+        assert (e*volume).to('Pa').dimensionality == pressure.dimensionality
+        assert (volume/c).to('mmHg').magnitude == pytest.approx(1)
+        assert (pressure/r).to('mL/s').magnitude == pytest.approx(1)
+        assert ((pressure/r)*pressure).to('watt').magnitude > 0
+        assert (1*u.mL/u.s).to('L/min').magnitude == pytest.approx(.06)
+        with pytest.raises(pint.DimensionalityError):
+            (pressure*c).to('mmHg')
+        result = o.unit_covariance()
+        assert result['equation_max_error_ml_s'] < 1e-8
+        assert result['trajectory_max_error_ml'] < 2e-5
+        assert result['pressure_max_error_mmhg'] < 2e-5
+>       assert result['unscaled_parameter_negative_control_error_ml_s'] > 1
+E       assert 7.275957614183426e-12 > 1
+
+tests/test_independent_verification.py:65: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_independent_verification.py::test_pint_dimensions_and_real_equation_trajectory_covariance
+1 failed, 10 passed in 8.53s

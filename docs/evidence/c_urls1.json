@@ -1,0 +1,11 @@
+[
+ ["carraway_web", "https://github.com/Carraway-and-Gatsby/cardiac-simulator"],
+ ["carraway_api", "https://api.github.com/repos/Carraway-and-Gatsby/cardiac-simulator"],
+ ["carraway_readme_main", "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/main/README.md"],
+ ["semgen_readme", "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/README.md"],
+ ["circadapt_license", "https://framework.circadapt.org/latest/license.html"],
+ ["opencor_license", "https://raw.githubusercontent.com/opencor/opencor/master/LICENSE.txt"],
+ ["pulse_about", "https://pulse.kitware.com/_about_pulse.html"],
+ ["cellml_model_license", "https://models.physiomeproject.org/exposure/3c63146a30a3118ee7725784743b9a7d/ModelMain.cellml/license_citation"],
+ ["cellml_environments", "https://www.cellml.org/tools/modeling-environments"]
+]

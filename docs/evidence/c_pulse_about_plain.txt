@@ -1,0 +1,428 @@
+window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-111251846-1');
+Pulse Physiology Engine
+jQuery(document).ready(function(){
+      jQuery('#slippry-unreal').slippry()
+    });
+    jQuery(document).ready(function(){
+      jQuery('#slippry-unity').slippry()
+    });
+What’s New in the Pulse Physiology Engine 4.4.0
+Webinar
+×
+Kitware
+Open Source
+Toggle navigation
+About
+Pulse in Action
+Resources
+Publications
+Documentation
+Blog
+Forums
+Wiki
+Newsletter
+Methodology
+Anesthesia Machine
+Blood Chemistry
+Bag Valve Mask
+Cardiovascular
+Circuit
+Drugs
+Endocrine
+Energy
+Environment
+Extracorporeal Membrane Oxygenation
+Gastrointestinal
+Inhaler
+Mechancial Ventilator
+Nervous
+Patient
+Renal
+Respiratory
+Substance Transport
+System
+Tissue
+Downloads
+Contact Kitware
+Pulse Support
+(function() {
+      var cx = '016064990144358497655:wevtar8xwty';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+      })();
+About Pulse
+The Pulse Physiology Engine can be used as a standalone application or integrated with simulators, sensor interfaces, and models of all fidelities. The platform includes a common data model for standard model and data definitions, a software interface for engine control, robust physics-based circuit and transport solvers, and a verification and validation suite. The architecture was specifically designed to reduce model development time and increase the usability of the engine in simulations by creating a modular, extensible definition for human physiology.
+Pulse provides the following benefits to its user community:
+Sound underlying physics:
+Clear, accurate, precise first principles conservation equations.
+Standardized data model:
+Easily understandable, widely usable ontologies and software interfaces.
+Extensible:
+Reusable, repeatable implementation to allow the addition of new capabilities and functionality.
+Modular:
+Interdependent, hierarchical models for varying fidelity and complexity.
+Interoperable:
+Seamless integration with various simulators, sensors, and software platforms, with easy cross-platform deployment on all standard operating systems (Windows, Mac, Linux, and ARM) and multiple languages (C++, C#, Java, Unity).
+Credible:
+Computational models transparently derived from evidence-based literature, analyzed with extensive verification and validation tools, ensuring reliable performance.
+Thorough documentation:
+In-depth, referenced descriptions of physiology methodology and software design.
+Open:
+Public repository managed by an experienced Kitware team with a permissible Apache 2.0 license, allowing users complete control without dependency on proprietary vendors, and facilitating multicenter and multidisciplinary collaborative development.
+Economical:
+Cost-sharing model supported by contributions from government and private entities, reducing financial barriers for users.
+Sustained support:
+Continuity through active maintenance, responsive technical support, and continued development by an experienced Kitware team.
+Pulse is comprised of numerical models representing the different body systems, feedback mechanisms and interactions between the systems, PK/PD, and medical equipment. The major systems are modeled using zero-dimensional lumped-parameter circuit analogs (e.g., the cardiovascular circuit) with homeostatic feedback. The differential equations contained in each system are calculated through transient analysis with a shared dynamic time step. The numerical models currently execute with a time step of 20 ms, which can be reduced, as necessary, to ensure all physiology features of interest are captured, while maintaining real-time execution for the simulation.
+Pulse has been developed through a combination of funding by many different government and private entities, and is a significantly improved and extended fork from the DoD-funded BioGears program. The Pulse repository is maintained by the Kitware team that includes the original core BioGears creators (see the
+FAQ
+).
+Pulse has recently been incorporated into a number of commercial, research, and academic tools for medical simulation (see
+Pulse in action
+)
+Systems and Methodology Reports
+Each system, device, and solver has a methodology report describing its models, assumptions, and validation:
+Patient Methodology
+System Methodology
+Organ Systems:
+Cardiovascular Methodology
+Endocrine Methodology
+Gastrointestinal Methodology
+Nervous Methodology
+Renal Methodology
+Respiratory Methodology
+Tissue Methodology
+Functional Systems:
+Blood Chemistry Methodology
+Drugs Methodology
+Energy Methodology
+Environment Methodology
+Devices:
+Anesthesia Machine Methodology
+Bag Valve Mask Methodology
+Extracorporeal Membrane Oxygenation Methodology
+Inhaler Methodology
+Mechanical Ventilator Methodology
+Electrocardiogram (ECG) Methodology (see
+Cardiovascular Methodology
+)
+Supplemental Oxygen Methodology (see
+Respiratory Methodology
+)
+Foundation:
+Circuit Methodology
+Substance Transport Methodology
+Validation Methodology
+Models are validated using a combination of peer-reviewed publications and subject matter expertise. The validation process includes:
+Defining key parameters for system validation
+Performing literature reviews to gather published data in the form of waveforms, and max, min, and mean values
+Using custom developed tools to compare data, perform analysis, and generate plots and tables of results
+We validate each system at a compartment level (pressure, flow, volume, temperature, etc.). We also validate each action for a variety of system level parameters (heart rate, respiratory rate, tidal volume, blood pressure, etc.). We provide reports for each system in our
+Methodology documentation.
+Below is a summary of our system and compartment level validation.
+Key
+Good agreement: correct trends, generally <10% deviation from expected
+Fair agreement / Some deviation: correct trend, generally <30% deviation from expected
+Poor agreement: incorrect trends, generally >30% deviation from expected
+Standard Male Validation Summary
+Category
+Good
+Fair
+Bad
+Not Validated
+Total
+Patient
+15
+0
+0
+0
+15
+BloodChemistry
+48
+3
+1
+0
+52
+ArterialBloodGasTest
+5
+0
+0
+0
+5
+CompleteBloodCount
+8
+0
+0
+0
+8
+CompleteMetabolicPanel
+8
+0
+0
+0
+8
+Cardiovascular
+27
+2
+0
+0
+29
+CardiovascularCompartments
+71
+2
+0
+0
+73
+Endocrine
+1
+0
+0
+0
+1
+Energy
+7
+0
+0
+0
+7
+Gastrointestinal
+1
+0
+0
+0
+1
+Renal
+23
+17
+4
+0
+44
+RenalCompartments
+33
+9
+7
+0
+49
+RenalSubstances
+12
+14
+10
+0
+36
+Urinalysis
+5
+0
+1
+0
+6
+Respiratory
+44
+8
+5
+0
+57
+RespiratoryCompartments
+38
+1
+0
+0
+39
+Tissue
+8
+2
+0
+0
+10
+TissueCompartments
+39
+0
+0
+0
+39
+Totals
+393
+58
+28
+0
+479
+Standard Female Validation Summary
+Category
+Good
+Fair
+Bad
+Not Validated
+Total
+Patient
+15
+0
+0
+0
+15
+BloodChemistry
+49
+1
+2
+0
+52
+ArterialBloodGasTest
+5
+0
+0
+0
+5
+CompleteBloodCount
+8
+0
+0
+0
+8
+CompleteMetabolicPanel
+7
+1
+0
+0
+8
+Cardiovascular
+27
+2
+0
+0
+29
+CardiovascularCompartments
+69
+4
+0
+0
+73
+Endocrine
+1
+0
+0
+0
+1
+Energy
+7
+0
+0
+0
+7
+Gastrointestinal
+1
+0
+0
+0
+1
+Renal
+21
+11
+12
+0
+44
+RenalCompartments
+28
+11
+10
+0
+49
+RenalSubstances
+11
+6
+19
+0
+36
+Urinalysis
+6
+0
+0
+0
+6
+Respiratory
+41
+8
+8
+0
+57
+RespiratoryCompartments
+36
+3
+0
+0
+39
+Tissue
+7
+1
+2
+0
+10
+TissueCompartments
+39
+0
+0
+0
+39
+Totals
+378
+48
+53
+0
+479
+What can I do with the physiology engine?
+Define patient parameters, such as height, weight, systolic and diastolic pressure.
+Simulate specific chronic and/or disease states via conditions.
+Modify external environmental conditions (weather, submerge in water, etc.)
+Apply various actions (acute insults/injuries, interventions, conscious breathing, exercise, etc.) to the patient.
+Have patient interact with equipment models, such as an Anesthesia and/or an ECG Machine as well as an Inhaler via actions.
+Integrate the engine into your applications.
+Available data is defined within the engine in three major ways:
+System data (Cardiovascular, Respiratory, etc.) that is analogous to system vitals
+Examples:
+heart rate, oxygen consumption, mean arterial pressure, etc.
+Compartment data
+Flow, pressure, and volume related to specific region of the body or component of equipment
+Examples:
+Cerebral Blood Flow, Right Lung Volume, Right Heart Pressure
+Substance specific data related to a specific part of the body or component of equipment
+Examples:
+The Extracellular concentration of succinylcholine in the brain tissue, anesthesia machine gas inlet oxygen volume fraction
+Assessments formed at the level of a clinician's report, Intended to mimic test results
+Examples:
+Complete Blood Count
+Distributed under the
+Apache License, Version 2.0
+.
+See accompanying
+NOTICE
+file for details.
+Copyright © 2017-2026
+Kitware Inc.
+All Rights Reserved.
+Generated 2026-10-27 - 5e29e5b13
+What We Do
+|
+Open Source
+|
+Privacy Notice
+|
+Contact
+$(function(){
+$('.cse-search').change(function(){
+  $('.adjust-right li.active').focus();
+});
+$('.cse-search').on('click', function(){
+  if($(this).hasClass('active')){
+    $(this).removeClass('active');
+    $('.google-cse').slideUp();
+  } else {
+    $(this).addClass('active');
+    $('.google-cse').hide().removeClass('hide').slideDown();
+  }
+});
+});

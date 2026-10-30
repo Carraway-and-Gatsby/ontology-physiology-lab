@@ -1,0 +1,143 @@
+{
+  "kind": "synthetic fault-injection benchmark",
+  "fixture_count": 12,
+  "payload_evidence": {
+    "actual_payload": "computed RV pressure array",
+    "advertised_quantity": "LV pressure",
+    "validator_accepted": true,
+    "mislabeled_pressure_max_error_mmhg": 129.79348371179418,
+    "scope": "unsafe output-port binding, not an altered ODE topology"
+  },
+  "fixtures": [
+    {
+      "id": "same_pressure",
+      "truth": true,
+      "manual": true,
+      "units_only": true,
+      "semantic": true,
+      "reason": "accepted descriptor equivalence",
+      "unit_factor": 1
+    },
+    {
+      "id": "same_flow",
+      "truth": true,
+      "manual": true,
+      "units_only": true,
+      "semantic": true,
+      "reason": "accepted descriptor equivalence",
+      "unit_factor": 1
+    },
+    {
+      "id": "explicit_conversion",
+      "truth": true,
+      "manual": true,
+      "units_only": true,
+      "semantic": true,
+      "reason": "accepted descriptor equivalence",
+      "unit_factor": 133.322387415
+    },
+    {
+      "id": "wrong_anatomy",
+      "truth": false,
+      "manual": true,
+      "units_only": true,
+      "semantic": false,
+      "reason": "anatomy mismatch",
+      "unit_factor": 1
+    },
+    {
+      "id": "wrong_property",
+      "truth": false,
+      "manual": true,
+      "units_only": false,
+      "semantic": false,
+      "reason": "property mismatch",
+      "unit_factor": null
+    },
+    {
+      "id": "reversed_flow",
+      "truth": false,
+      "manual": true,
+      "units_only": true,
+      "semantic": false,
+      "reason": "orientation mismatch",
+      "unit_factor": 1
+    },
+    {
+      "id": "wrong_reference",
+      "truth": false,
+      "manual": true,
+      "units_only": true,
+      "semantic": false,
+      "reason": "reference mismatch",
+      "unit_factor": 1
+    },
+    {
+      "id": "wrong_temporal_context",
+      "truth": false,
+      "manual": true,
+      "units_only": true,
+      "semantic": false,
+      "reason": "temporal_context mismatch",
+      "unit_factor": 1
+    },
+    {
+      "id": "wrong_dimensions",
+      "truth": false,
+      "manual": true,
+      "units_only": false,
+      "semantic": false,
+      "reason": "property and units incompatible: Cannot convert from 'milliliter' ([length] ** 3) to 'millimeter_Hg' ([mass] / [length] / [time] ** 2)",
+      "unit_factor": null
+    },
+    {
+      "id": "missing_conversion",
+      "truth": false,
+      "manual": true,
+      "units_only": false,
+      "semantic": false,
+      "reason": "explicit unit conversion contract required",
+      "unit_factor": 133.322387415
+    },
+    {
+      "id": "wrong_bearer",
+      "truth": false,
+      "manual": true,
+      "units_only": true,
+      "semantic": false,
+      "reason": "bearer mismatch",
+      "unit_factor": 1
+    },
+    {
+      "id": "misannotated_payload",
+      "truth": false,
+      "manual": true,
+      "units_only": true,
+      "semantic": true,
+      "reason": "accepted descriptor equivalence; UNSAFE: fixture describes RV data falsely labeled LV; metadata-only check cannot detect this",
+      "unit_factor": 1
+    }
+  ],
+  "counts": {
+    "manual": {
+      "true_accept": 3,
+      "true_reject": 0,
+      "false_accept": 9,
+      "false_reject": 0
+    },
+    "units_only": {
+      "true_accept": 3,
+      "true_reject": 3,
+      "false_accept": 6,
+      "false_reject": 0
+    },
+    "semantic": {
+      "true_accept": 3,
+      "true_reject": 8,
+      "false_accept": 1,
+      "false_reject": 0
+    }
+  },
+  "human_integration_effort": "not measured",
+  "limitations": "Hand-designed descriptors, not independent held-out tasks. Manual is a scripted unguarded baseline. No clinical or general model-composition validity established."
+}

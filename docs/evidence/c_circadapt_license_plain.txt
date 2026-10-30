@@ -1,0 +1,5 @@
+[omitted from the public repository: third-party content without a redistribution licence]
+source: https://framework.circadapt.org/latest/license.html
+retrieved: 2026-10-30T14:44:22.327109+00:00
+original sha256: 1f55b4fa00744aff495d9d30fa2ea8b7732ab310f169350301051ec727efa7ec
+original size: 11117

@@ -1,0 +1,5 @@
+[omitted from the public repository: third-party content without a redistribution licence]
+source: https://framework.circadapt.org/latest/userguide/verification/index.html
+retrieved: 2026-10-30T14:45:44.718268+00:00
+original sha256: cfcc7e1421eac7c82c10527c7bd9d136cc078762e3e875f7a9e07cedb3d92a20
+original size: 959

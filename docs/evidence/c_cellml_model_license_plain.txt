@@ -1,0 +1,102 @@
+Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics — Physiome Model Repository
+@import url(https://models.physiomeproject.org/portal_css/CellML%20Theme%20%28PMR2%29/resourcepmr2.cytoscapejs.cssmain-cachekey-09e9333e86e5105378fdf2a74d233eda.css);
+Search Site
+Advanced Search…
+Models Home
+Exposures
+Documentation
+Log in
+You
+are here:
+Home
+/
+Exposures
+/
+Korakianitis, Shi, 2006
+/
+Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics
+Info
+Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics
+License and Citation
+This work is licensed under a
+Creative Commons Attribution 3.0 Unported License
+.
+Citation Instructions
+All publicly accessible content of the Physiome model repository is licensed to the public under the
+Creative Commons Attribution 3.0 License
+.
+Registered users are free to upload any model file, and associated data (such as images, experimental data, simulation data, session files, etc.). However, the repository curators reserve the right to remove any inappropriate material from the repository.
+To reference the CellML model repository please cite the following publication:
+Lloyd, C.M., Lawson, J.L., Hunter, P.J. and Nielsen, P.F. The CellML Model Repository. Bioinformatics. 2008 September;24(18):2122-2123.
+To reference a specific model in the CellML model repository, please cite:
+the model name (usually based on the title of the original published paper, the authors’ names and the publication date);
+the URL of the model exposure;
+the time and date on which you downloaded the model file;
+and the authors of the CellML model.
+For example:
+Can yeast glycolysis be understood in terms of in vitro kinetics of the constituent enzymes? Testing biochemistry. Teusink et al. 2000. https://models.physiomeproject.org/e/72/
+9.15am 31st January 2010
+CellML author(s): Catherine Lloyd
+To reference a specific figure in the CellML model repository, please cite:
+the figure name (usually based on the title of the original published paper, the authors’ names and the publication date);
+the URL of the figure;
+and the figure creators.
+For example:
+Can yeast glycolysis be understood in terms of in vitro kinetics of the constituent enzymes? Testing biochemistry. Teusink et al. 2000.
+https://models.physiomeproject.org/e/72/teusink_2000.png
+Figure creators: Pulasthi Mithraratne, Peter Villiger, Linda Feng and Hanne Nielsen.
+Source
+Derived from workspace
+Shi, Hose, 2009
+at changeset
+9ac0ad67a45f
+.
+This exposure was expired
+.
+A more up-to-date exposure is available
+,
+      or view
+related resources
+.
+Collaboration
+To begin collaborating on this work, please use your
+    git client and issue this
+    command:
+Downloads
+Download This File
+Complete Archive as .tgz
+COMBINE Archive (exposure)
+Views Available
+Documentation
+Model Metadata
+Mathematics
+Generated Code
+Cite this model
+Source View
+Semantic Metadata
+Launch with OpenCOR
+Tools
+CombineArchive Web
+Compare...
+Export Exposure Metadata
+Report a problem with this resource
+License
+This work is licensed under a
+Creative Commons Attribution 3.0 Unported License
+.
+Navigation
+Zero dimensional (lumped parameter) modelling of native human cardiovascular dynamics
+window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BPLKG3GXH', {
+    cookie_domain: window.location.host,
+    cookie_flags: 'SameSite=None;Secure',
+  });
+©
+2001-2026 - IUPS Physiome Project.
+Site Map
+Accessibility
+Contact
+About

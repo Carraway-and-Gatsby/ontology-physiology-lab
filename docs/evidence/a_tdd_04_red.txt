@@ -1,0 +1,17 @@
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+_____ test_simulation_returns_conserved_stable_six_compartment_trajectory ______
+
+    def test_simulation_returns_conserved_stable_six_compartment_trajectory():
+        try:
+            spec = importlib.util.find_spec("physiosim.simulation")
+        except ModuleNotFoundError:
+            spec = None
+>       assert spec is not None, "simulation API must exist"
+E       AssertionError: simulation API must exist
+E       assert None is not None
+
+tests/test_cardiovascular.py:61: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_cardiovascular.py::test_simulation_returns_conserved_stable_six_compartment_trajectory
+1 failed, 3 passed in 0.04s

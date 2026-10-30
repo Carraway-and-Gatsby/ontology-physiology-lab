@@ -1,0 +1,9 @@
+[
+ ["opencor_licensing", "https://www.opencor.ws/licensing.html"],
+ ["opencor_readme_rst", "https://raw.githubusercontent.com/opencor/opencor/master/README.rst"],
+ ["zero_d_review", "https://pmc.ncbi.nlm.nih.gov/articles/PMC3103466/"],
+ ["contractility_pubmed", "https://pubmed.ncbi.nlm.nih.gov/8238596/"],
+ ["carraway_engine_pinned", "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/src/simulation/engine.ts"],
+ ["carraway_license_pinned", "https://raw.githubusercontent.com/Carraway-and-Gatsby/cardiac-simulator/b3f437403e709f11099f50b38272f77ded5ea9b5/LICENSE"],
+ ["circadapt_verification", "https://framework.circadapt.org/latest/userguide/verification/index.html"]
+]

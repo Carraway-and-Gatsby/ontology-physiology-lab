@@ -1,0 +1,240 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Experimental cardiovascular simulation</title>
+<style>body{font:16px system-ui;max-width:1200px;margin:30px auto;padding:20px}img{width:100%}td,th{border:1px solid #ccc;padding:6px}table{border-collapse:collapse}pre{white-space:pre-wrap}.warning{background:#fff0ce;padding:16px}</style>
+<h1>EXPERIMENTAL cardiovascular simulation</h1><p class="warning">Research and education only. No clinical validity established. All numerical defaults are exploratory. Baseline has elevated pressure and is not a healthy reference. Independent parameter scenarios are not a timed treatment-response simulation.</p>
+<table><tr><th>Scenario</th><th>CO (L/min)</th><th>Forward SV (mL)</th><th>Periodicity</th></tr><tr><td>baseline</td><td>7.6993</td><td>102.658</td><td>periodic_within_declared_gate</td></tr><tr><td>reduced_contractility</td><td>6.6993</td><td>89.325</td><td>periodic_within_declared_gate</td></tr><tr><td>partial_contractility_restoration</td><td>7.3310</td><td>97.746</td><td>periodic_within_declared_gate</td></tr></table>
+<img src="comparison.png" alt="Computed final-cycle pressure, flow, volume and pressure-volume plots">
+<img src="transients.png" alt="Computed initialization transients and beatwise cardiac output">
+<h2>Model assumptions and limits</h2><p>Six compartments; synchronous prescribed elastance; linear vascular compliance; four ideal diode valves; fixed external pressure zero. No atria, baroreflex, renal regulation, septal interaction, respiration or drug pharmacokinetics. Pulmonary venous pressure is a reservoir variable, not measured left-atrial pressure. Metadata checks cannot detect falsely labeled numerical data.</p>
+<h2>Actual parameters, solver settings and mechanism changes</h2><pre>{
+  &quot;experimental&quot;: true,
+  &quot;clinical_validity&quot;: &quot;not established&quot;,
+  &quot;baseline_interpretation&quot;: &quot;Exploratory elevated-pressure reference; not a normal healthy adult&quot;,
+  &quot;scenario_design&quot;: &quot;Independent runs from identical initial volumes; changes applied at simulation time zero&quot;,
+  &quot;config&quot;: {
+    &quot;cycles&quot;: 60,
+    &quot;samples_per_cycle&quot;: 400,
+    &quot;rtol&quot;: 1e-09,
+    &quot;atol&quot;: 1e-10,
+    &quot;max_step_fraction&quot;: 0.005,
+    &quot;periodicity_tolerance_ml&quot;: 0.1
+  },
+  &quot;solver&quot;: &quot;DOP853&quot;,
+  &quot;all_periodic&quot;: true,
+  &quot;periodicity_definition&quot;: &quot;maximum absolute six-volume difference between last two sampled beat waveforms&quot;,
+  &quot;scenarios&quot;: {
+    &quot;baseline&quot;: {
+      &quot;parameters&quot;: {
+        &quot;heart_rate&quot;: 75.0,
+        &quot;emin_lv&quot;: 0.06,
+        &quot;emax_lv&quot;: 2.5,
+        &quot;emin_rv&quot;: 0.03,
+        &quot;emax_rv&quot;: 0.8,
+        &quot;systolic_fraction&quot;: 0.4,
+        &quot;compliance_sa&quot;: 1.5,
+        &quot;compliance_sv&quot;: 100.0,
+        &quot;compliance_pa&quot;: 5.0,
+        &quot;compliance_pv&quot;: 20.0,
+        &quot;resistance_aortic&quot;: 0.01,
+        &quot;resistance_systemic&quot;: 1.0,
+        &quot;resistance_tricuspid&quot;: 0.01,
+        &quot;resistance_pulmonary_valve&quot;: 0.01,
+        &quot;resistance_pulmonary&quot;: 0.1,
+        &quot;resistance_mitral&quot;: 0.01,
+        &quot;unstressed_volumes&quot;: [
+          10.0,
+          700.0,
+          2500.0,
+          10.0,
+          100.0,
+          400.0
+        ],
+        &quot;initial_volumes&quot;: [
+          140.0,
+          850.0,
+          3200.0,
+          140.0,
+          180.0,
+          490.0
+        ]
+      },
+      &quot;changes&quot;: [],
+      &quot;metrics&quot;: {
+        &quot;heart_rate_bpm&quot;: 75.0,
+        &quot;stroke_volume_ml&quot;: 102.65751198454987,
+        &quot;cardiac_output_l_min&quot;: 7.699313398841268,
+        &quot;cardiac_output_m3_s&quot;: 0.00012832188998068779,
+        &quot;lv_edv_ml&quot;: 177.73485172537997,
+        &quot;lv_esv_ml&quot;: 75.13491056135032,
+        &quot;lv_ejection_fraction&quot;: 0.57726405467487,
+        &quot;systemic_systolic_pressure_mmhg&quot;: 163.00977619235437,
+        &quot;systemic_diastolic_pressure_mmhg&quot;: 104.70270100399655,
+        &quot;systemic_mean_pressure_mmhg&quot;: 133.49919202970068,
+        &quot;pulmonary_mean_pressure_mmhg&quot;: 23.76309372242614,
+        &quot;pulmonary_venous_mean_pressure_mmhg&quot;: 10.938102139247901,
+        &quot;volume_drift_ml&quot;: 1.546140993013978e-11,
+        &quot;final_beat_max_volume_difference_ml&quot;: 2.2905086780156125e-05
+      },
+      &quot;audit&quot;: {
+        &quot;volume_drift_ml&quot;: 1.546140993013978e-11,
+        &quot;volume_tolerance_ml&quot;: 1e-06
+      },
+      &quot;connected_CO_l_min&quot;: 7.699313398841267,
+      &quot;status&quot;: &quot;periodic_within_declared_gate&quot;
+    },
+    &quot;reduced_contractility&quot;: {
+      &quot;parameters&quot;: {
+        &quot;heart_rate&quot;: 75.0,
+        &quot;emin_lv&quot;: 0.06,
+        &quot;emax_lv&quot;: 1.25,
+        &quot;emin_rv&quot;: 0.03,
+        &quot;emax_rv&quot;: 0.8,
+        &quot;systolic_fraction&quot;: 0.4,
+        &quot;compliance_sa&quot;: 1.5,
+        &quot;compliance_sv&quot;: 100.0,
+        &quot;compliance_pa&quot;: 5.0,
+        &quot;compliance_pv&quot;: 20.0,
+        &quot;resistance_aortic&quot;: 0.01,
+        &quot;resistance_systemic&quot;: 1.0,
+        &quot;resistance_tricuspid&quot;: 0.01,
+        &quot;resistance_pulmonary_valve&quot;: 0.01,
+        &quot;resistance_pulmonary&quot;: 0.1,
+        &quot;resistance_mitral&quot;: 0.01,
+        &quot;unstressed_volumes&quot;: [
+          10.0,
+          700.0,
+          2500.0,
+          10.0,
+          100.0,
+          400.0
+        ],
+        &quot;initial_volumes&quot;: [
+          140.0,
+          850.0,
+          3200.0,
+          140.0,
+          180.0,
+          490.0
+        ]
+      },
+      &quot;changes&quot;: [
+        {
+          &quot;name&quot;: &quot;Reduced LV contractility&quot;,
+          &quot;target&quot;: &quot;emax_lv&quot;,
+          &quot;factor&quot;: 0.5,
+          &quot;mechanism&quot;: &quot;Maximum LV systolic elastance&quot;,
+          &quot;rationale&quot;: &quot;Exploratory isolated contractility impairment; not a clinical heart-failure diagnosis&quot;,
+          &quot;limitations&quot;: &quot;Exploratory parameter change; not a drug-dose or clinical outcome prediction.&quot;,
+          &quot;before&quot;: 2.5,
+          &quot;after&quot;: 1.25,
+          &quot;time_s&quot;: 0
+        }
+      ],
+      &quot;metrics&quot;: {
+        &quot;heart_rate_bpm&quot;: 75.0,
+        &quot;stroke_volume_ml&quot;: 89.32464668175137,
+        &quot;cardiac_output_l_min&quot;: 6.699348501131377,
+        &quot;cardiac_output_m3_s&quot;: 0.0001116558083521896,
+        &quot;lv_edv_ml&quot;: 214.0823293599992,
+        &quot;lv_esv_ml&quot;: 124.70492862960826,
+        &quot;lv_ejection_fraction&quot;: 0.41749078963025754,
+        &quot;systemic_systolic_pressure_mmhg&quot;: 142.82899395888822,
+        &quot;systemic_diastolic_pressure_mmhg&quot;: 91.42413034475422,
+        &quot;systemic_mean_pressure_mmhg&quot;: 116.43359848386868,
+        &quot;pulmonary_mean_pressure_mmhg&quot;: 24.17095161514612,
+        &quot;pulmonary_venous_mean_pressure_mmhg&quot;: 12.998776337882521,
+        &quot;volume_drift_ml&quot;: 2.3646862246096134e-11,
+        &quot;final_beat_max_volume_difference_ml&quot;: 9.568865209530486e-06
+      },
+      &quot;audit&quot;: {
+        &quot;volume_drift_ml&quot;: 2.3646862246096134e-11,
+        &quot;volume_tolerance_ml&quot;: 1e-06
+      },
+      &quot;connected_CO_l_min&quot;: 6.699348501131376,
+      &quot;status&quot;: &quot;periodic_within_declared_gate&quot;
+    },
+    &quot;partial_contractility_restoration&quot;: {
+      &quot;parameters&quot;: {
+        &quot;heart_rate&quot;: 75.0,
+        &quot;emin_lv&quot;: 0.06,
+        &quot;emax_lv&quot;: 1.875,
+        &quot;emin_rv&quot;: 0.03,
+        &quot;emax_rv&quot;: 0.8,
+        &quot;systolic_fraction&quot;: 0.4,
+        &quot;compliance_sa&quot;: 1.5,
+        &quot;compliance_sv&quot;: 100.0,
+        &quot;compliance_pa&quot;: 5.0,
+        &quot;compliance_pv&quot;: 20.0,
+        &quot;resistance_aortic&quot;: 0.01,
+        &quot;resistance_systemic&quot;: 1.0,
+        &quot;resistance_tricuspid&quot;: 0.01,
+        &quot;resistance_pulmonary_valve&quot;: 0.01,
+        &quot;resistance_pulmonary&quot;: 0.1,
+        &quot;resistance_mitral&quot;: 0.01,
+        &quot;unstressed_volumes&quot;: [
+          10.0,
+          700.0,
+          2500.0,
+          10.0,
+          100.0,
+          400.0
+        ],
+        &quot;initial_volumes&quot;: [
+          140.0,
+          850.0,
+          3200.0,
+          140.0,
+          180.0,
+          490.0
+        ]
+      },
+      &quot;changes&quot;: [
+        {
+          &quot;name&quot;: &quot;Reduced LV contractility&quot;,
+          &quot;target&quot;: &quot;emax_lv&quot;,
+          &quot;factor&quot;: 0.5,
+          &quot;mechanism&quot;: &quot;Maximum LV systolic elastance&quot;,
+          &quot;rationale&quot;: &quot;Exploratory isolated contractility impairment; not a clinical heart-failure diagnosis&quot;,
+          &quot;limitations&quot;: &quot;Exploratory parameter change; not a drug-dose or clinical outcome prediction.&quot;,
+          &quot;before&quot;: 2.5,
+          &quot;after&quot;: 1.25,
+          &quot;time_s&quot;: 0
+        },
+        {
+          &quot;name&quot;: &quot;Partial contractility restoration&quot;,
+          &quot;target&quot;: &quot;emax_lv&quot;,
+          &quot;factor&quot;: 1.5,
+          &quot;mechanism&quot;: &quot;Maximum LV systolic elastance&quot;,
+          &quot;rationale&quot;: &quot;Illustrative increase relative to impaired parameter; independent run, not a timed drug treatment&quot;,
+          &quot;limitations&quot;: &quot;Exploratory parameter change; not a drug-dose or clinical outcome prediction.&quot;,
+          &quot;before&quot;: 1.25,
+          &quot;after&quot;: 1.875,
+          &quot;time_s&quot;: 0
+        }
+      ],
+      &quot;metrics&quot;: {
+        &quot;heart_rate_bpm&quot;: 75.0,
+        &quot;stroke_volume_ml&quot;: 97.7463072345066,
+        &quot;cardiac_output_l_min&quot;: 7.33097304258802,
+        &quot;cardiac_output_m3_s&quot;: 0.00012218288404313368,
+        &quot;lv_edv_ml&quot;: 190.91920833449768,
+        &quot;lv_esv_ml&quot;: 93.13592382843385,
+        &quot;lv_ejection_fraction&quot;: 0.512171013902089,
+        &quot;systemic_systolic_pressure_mmhg&quot;: 155.73361473909677,
+        &quot;systemic_diastolic_pressure_mmhg&quot;: 99.85324232394373,
+        &quot;systemic_mean_pressure_mmhg&quot;: 127.28245082208977,
+        &quot;pulmonary_mean_pressure_mmhg&quot;: 23.908034103067326,
+        &quot;pulmonary_venous_mean_pressure_mmhg&quot;: 11.685124536522242,
+        &quot;volume_drift_ml&quot;: 3.183231456205249e-11,
+        &quot;final_beat_max_volume_difference_ml&quot;: 9.263523878644264e-06
+      },
+      &quot;audit&quot;: {
+        &quot;volume_drift_ml&quot;: 3.183231456205249e-11,
+        &quot;volume_tolerance_ml&quot;: 1e-06
+      },
+      &quot;connected_CO_l_min&quot;: 7.33097304258802,
+      &quot;status&quot;: &quot;periodic_within_declared_gate&quot;
+    }
+  },
+  &quot;annotated_variable_count&quot;: 34
+}</pre>
+<h2>Selected biological annotations and equations</h2><p>External concept labels are source-verified; aggregate compartments and several quantities are explicitly local extensions. Project relations are not imported ontology entailments.</p><table><tr><th>Variable</th><th>Anatomy</th><th>Property</th><th>Unit</th><th>Equation</th></tr><tr><td>V_lv</td><td>Left ventricle</td><td>Fluid volume</td><td>mL</td><td>dV/dt = Q_in - Q_out</td></tr><tr><td>P_lv</td><td>Left ventricle</td><td>Fluid pressure</td><td>mmHg</td><td>P = E(t)*(V - V0)</td></tr><tr><td>E_lv</td><td>Left ventricle</td><td>Fluid volumetric elastance</td><td>mmHg/mL</td><td>E(t) = Emin + (Emax-Emin)*activation(t,HR)</td></tr><tr><td>V_rv</td><td>Right ventricle</td><td>Fluid volume</td><td>mL</td><td>dV/dt = Q_in - Q_out</td></tr><tr><td>P_rv</td><td>Right ventricle</td><td>Fluid pressure</td><td>mmHg</td><td>P = E(t)*(V - V0)</td></tr><tr><td>E_rv</td><td>Right ventricle</td><td>Fluid volumetric elastance</td><td>mmHg/mL</td><td>E(t) = Emin + (Emax-Emin)*activation(t,HR)</td></tr><tr><td>V_sa</td><td>Lumped systemic arterial compartment</td><td>Fluid volume</td><td>mL</td><td>dV/dt = Q_in - Q_out</td></tr><tr><td>P_sa</td><td>Lumped systemic arterial compartment</td><td>Fluid pressure</td><td>mmHg</td><td>P = (V - V0)/C</td></tr><tr><td>C_sa</td><td>Lumped systemic arterial compartment</td><td>Fluid volume compliance</td><td>mL/mmHg</td><td>C = dV/dP; constant linear reservoir compliance</td></tr><tr><td>V_sv</td><td>Lumped systemic venous compartment</td><td>Fluid volume</td><td>mL</td><td>dV/dt = Q_in - Q_out</td></tr><tr><td>P_sv</td><td>Lumped systemic venous compartment</td><td>Fluid pressure</td><td>mmHg</td><td>P = (V - V0)/C</td></tr><tr><td>C_sv</td><td>Lumped systemic venous compartment</td><td>Fluid volume compliance</td><td>mL/mmHg</td><td>C = dV/dP; constant linear reservoir compliance</td></tr><tr><td>V_pa</td><td>Lumped pulmonary arterial compartment</td><td>Fluid volume</td><td>mL</td><td>dV/dt = Q_in - Q_out</td></tr><tr><td>P_pa</td><td>Lumped pulmonary arterial compartment</td><td>Fluid pressure</td><td>mmHg</td><td>P = (V - V0)/C</td></tr><tr><td>C_pa</td><td>Lumped pulmonary arterial compartment</td><td>Fluid volume compliance</td><td>mL/mmHg</td><td>C = dV/dP; constant linear reservoir compliance</td></tr><tr><td>V_pv</td><td>Lumped pulmonary venous compartment</td><td>Fluid volume</td><td>mL</td><td>dV/dt = Q_in - Q_out</td></tr><tr><td>P_pv</td><td>Lumped pulmonary venous compartment</td><td>Fluid pressure</td><td>mmHg</td><td>P = (V - V0)/C</td></tr><tr><td>C_pv</td><td>Lumped pulmonary venous compartment</td><td>Fluid volume compliance</td><td>mL/mmHg</td><td>C = dV/dP; constant linear reservoir compliance</td></tr><tr><td>Q_aortic</td><td>Model flow path lv to sa</td><td>Fluid flow rate</td><td>mL/s</td><td>Q = max(P_up-P_down,0)/R</td></tr><tr><td>R_aortic</td><td>Model flow path lv to sa</td><td>Fluid flow resistance</td><td>mmHg*s/mL</td><td>R = pressure_drop / flow</td></tr><tr><td>Q_systemic</td><td>Model flow path sa to sv</td><td>Fluid flow rate</td><td>mL/s</td><td>Q = (P_up-P_down)/R</td></tr><tr><td>R_systemic</td><td>Model flow path sa to sv</td><td>Fluid flow resistance</td><td>mmHg*s/mL</td><td>R = pressure_drop / flow</td></tr><tr><td>Q_tricuspid</td><td>Model flow path sv to rv</td><td>Fluid flow rate</td><td>mL/s</td><td>Q = max(P_up-P_down,0)/R</td></tr><tr><td>R_tricuspid</td><td>Model flow path sv to rv</td><td>Fluid flow resistance</td><td>mmHg*s/mL</td><td>R = pressure_drop / flow</td></tr><tr><td>Q_pulmonary_valve</td><td>Model flow path rv to pa</td><td>Fluid flow rate</td><td>mL/s</td><td>Q = max(P_up-P_down,0)/R</td></tr><tr><td>R_pulmonary_valve</td><td>Model flow path rv to pa</td><td>Fluid flow resistance</td><td>mmHg*s/mL</td><td>R = pressure_drop / flow</td></tr><tr><td>Q_pulmonary</td><td>Model flow path pa to pv</td><td>Fluid flow rate</td><td>mL/s</td><td>Q = (P_up-P_down)/R</td></tr><tr><td>R_pulmonary</td><td>Model flow path pa to pv</td><td>Fluid flow resistance</td><td>mmHg*s/mL</td><td>R = pressure_drop / flow</td></tr><tr><td>Q_mitral</td><td>Model flow path pv to lv</td><td>Fluid flow rate</td><td>mL/s</td><td>Q = max(P_up-P_down,0)/R</td></tr><tr><td>R_mitral</td><td>Model flow path pv to lv</td><td>Fluid flow resistance</td><td>mmHg*s/mL</td><td>R = pressure_drop / flow</td></tr><tr><td>HR</td><td>Heart</td><td>Event frequency</td><td>1/min</td><td>T_seconds = 60 / HR_per_minute</td></tr><tr><td>CO</td><td>Left ventricle</td><td>Cycle-mean aortic outflow</td><td>mL/s</td><td>CO = integral(Q_aortic, complete_beat)/T</td></tr><tr><td>SV</td><td>Left ventricle</td><td>Left ventricular stroke volume per complete beat</td><td>mL</td><td>SV = integral(Q_aortic, complete_beat)</td></tr><tr><td>V_total</td><td>Closed six-compartment blood circulation</td><td>Fluid volume</td><td>mL</td><td>V_total = sum(V_i)</td></tr></table></html>

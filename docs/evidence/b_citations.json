@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "title": "OPB v1.07 bundled by SemBioProcess",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Fluid volumetric elastance",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Left+ventricle&ontology=fma&exact=true&rows=10",
+      "title": "EBI OLS4: Left ventricle",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"label\": \"Left ventricle\", \"obo_id\": \"fma7101\"",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Right+ventricle&ontology=fma&exact=true&rows=10",
+      "title": "EBI OLS4: Right ventricle",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"label\": \"Right ventricle\", \"obo_id\": \"fma7098\"",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Portion+of+blood&ontology=fma&exact=true&rows=10",
+      "title": "EBI OLS4: Portion of blood",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"label\": \"Portion of blood\", \"obo_id\": \"fma9670\"",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=Heart&ontology=fma&exact=true&rows=10",
+      "title": "EBI OLS4: Heart",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"label\": \"Heart\", \"obo_id\": \"fma7088\"",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=blood+circulation&ontology=go&exact=true&rows=10",
+      "title": "EBI OLS4: blood circulation",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"label\": \"blood circulation\", \"obo_id\": \"GO:0008015\"",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=heart+contraction&ontology=go&exact=true&rows=10",
+      "title": "EBI OLS4: heart contraction",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"label\": \"heart contraction\", \"obo_id\": \"GO:0060047\"",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "url": "https://www.ebi.ac.uk/ols4/api/search?q=congestive+heart+failure&ontology=doid&exact=true&rows=10",
+      "title": "EBI OLS4: congestive heart failure",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "\"label\": \"congestive heart failure\", \"obo_id\": \"DOID:6000\"",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "https://www.cellml.org/specifications/metadata",
+      "title": "CellML Metadata 1.0 Specification",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "The CellML specification recommends the use of the Resource Description Framework for the association of metadata with CellML objects.",
+          "added": "2026-10-30"
+        }
+      ]
+    }
+  ]
+}

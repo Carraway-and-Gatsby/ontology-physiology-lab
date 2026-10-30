@@ -1,0 +1,24 @@
+...............................................................          [100%]
+=============================== warnings summary ===============================
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/serializers/trig.py:31: DeprecationWarning: Dataset.contexts is deprecated, use Dataset.graphs instead.
+    self.contexts = list(store.contexts())
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/serializers/trig.py:32: DeprecationWarning: Dataset.default_context is deprecated, use Dataset.default_graph instead.
+    self.default_context = store.default_context.identifier
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/serializers/trig.py:33: DeprecationWarning: Dataset.default_context is deprecated, use Dataset.default_graph instead.
+    if store.default_context:
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/graph.py:2508: DeprecationWarning: Dataset.default_context is deprecated, use Dataset.default_graph instead.
+    context = self.default_context
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/parsers/trig.py:155: DeprecationWarning: ConjunctiveGraph is deprecated, use Dataset instead.
+    conj_graph = ConjunctiveGraph(store=graph.store, identifier=graph.identifier)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+63 passed, 5 warnings in 17.87s

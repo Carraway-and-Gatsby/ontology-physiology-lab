@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://models.physiomeproject.org/workspace/267/rawfile/6ae217019bf59fc1e22e2dc5235751c6fcf6be24/Smith_2004.cellml",
+      "title": "Smith 2004 CellML encoding",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "The CellML transaltion of the model is based on the original Matlab code obtained from the model authors.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "<apply>\n        <eq />\n        <ci>P_vc</ci>\n        <apply>\n          <times />\n          <ci>E_es_vc</ci>\n          <apply>\n            <minus />\n            <ci>V_vc</ci>\n            <ci>V_d_vc</ci>\n          </apply>\n        </apply>\n      </apply>",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "<apply>\n        <eq />\n        <ci>Q_sys</ci>\n        <apply>\n          <divide />\n          <apply>\n            <minus />\n            <ci>P_ao</ci>\n            <ci>P_vc</ci>\n          </apply>\n          <ci>R_sys</ci>\n        </apply>\n      </apply>\n      <apply>\n        <eq />\n        <ci>Q_pul</ci>\n        <apply>\n          <divide />\n          <apply>\n            <minus />\n            <ci>P_pa</ci>\n            <ci>P_pu</ci>\n          </apply>\n          <ci>R_pul</ci>\n        </apply>\n      </apply>",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "https://models.physiomeproject.org/exposure/9d046663ba5cac5c8a61ac146183614b/view",
+      "title": "Physiome Smith 2004 overview",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "An \"open on pressure close on flow\" valve law is created to capture the effects of inertia and the resulting dynamics of blood flow through the cardiac valves.",
+          "added": "2026-10-30"
+        }
+      ]
+    }
+  ]
+}

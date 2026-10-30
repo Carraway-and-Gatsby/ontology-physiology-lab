@@ -1,0 +1,1221 @@
+{
+  "V_lv": {
+    "name": "V_lv",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7101",
+      "label": "Left ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154",
+      "label": "Fluid volume",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL",
+    "equation": "dV/dt = Q_in - Q_out",
+    "role": "state",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "P_lv": {
+    "name": "P_lv",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7101",
+      "label": "Left ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00509",
+      "label": "Fluid pressure",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg",
+    "equation": "P = E(t)*(V - V0)",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "model gauge pressure; fixed external pressure zero",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "V_lv",
+      "E_lv"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "E_lv": {
+    "name": "E_lv",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7101",
+      "label": "Left ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00076",
+      "label": "Fluid volumetric elastance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg/mL",
+    "equation": "E(t) = Emin + (Emax-Emin)*activation(t,HR)",
+    "role": "time-varying parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "HR"
+    ],
+    "biological_context": [
+      "contraction"
+    ],
+    "bearer": "compartment wall"
+  },
+  "V_rv": {
+    "name": "V_rv",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7098",
+      "label": "Right ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154",
+      "label": "Fluid volume",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL",
+    "equation": "dV/dt = Q_in - Q_out",
+    "role": "state",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "P_rv": {
+    "name": "P_rv",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7098",
+      "label": "Right ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00509",
+      "label": "Fluid pressure",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg",
+    "equation": "P = E(t)*(V - V0)",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "model gauge pressure; fixed external pressure zero",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "V_rv",
+      "E_rv"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "E_rv": {
+    "name": "E_rv",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7098",
+      "label": "Right ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00076",
+      "label": "Fluid volumetric elastance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg/mL",
+    "equation": "E(t) = Emin + (Emax-Emin)*activation(t,HR)",
+    "role": "time-varying parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "HR"
+    ],
+    "biological_context": [
+      "contraction"
+    ],
+    "bearer": "compartment wall"
+  },
+  "V_sa": {
+    "name": "V_sa",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/sa",
+      "label": "Lumped systemic arterial compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154",
+      "label": "Fluid volume",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL",
+    "equation": "dV/dt = Q_in - Q_out",
+    "role": "state",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "P_sa": {
+    "name": "P_sa",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/sa",
+      "label": "Lumped systemic arterial compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00509",
+      "label": "Fluid pressure",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg",
+    "equation": "P = (V - V0)/C",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "model gauge pressure; fixed external pressure zero",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "V_sa",
+      "C_sa"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "C_sa": {
+    "name": "C_sa",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/sa",
+      "label": "Lumped systemic arterial compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "https://example.org/physiosim/concept/fluid_volume_compliance",
+      "label": "Fluid volume compliance",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "unit": "mL/mmHg",
+    "equation": "C = dV/dP; constant linear reservoir compliance",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "compartment wall"
+  },
+  "V_sv": {
+    "name": "V_sv",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/sv",
+      "label": "Lumped systemic venous compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154",
+      "label": "Fluid volume",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL",
+    "equation": "dV/dt = Q_in - Q_out",
+    "role": "state",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "P_sv": {
+    "name": "P_sv",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/sv",
+      "label": "Lumped systemic venous compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00509",
+      "label": "Fluid pressure",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg",
+    "equation": "P = (V - V0)/C",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "model gauge pressure; fixed external pressure zero",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "V_sv",
+      "C_sv"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "C_sv": {
+    "name": "C_sv",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/sv",
+      "label": "Lumped systemic venous compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "https://example.org/physiosim/concept/fluid_volume_compliance",
+      "label": "Fluid volume compliance",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "unit": "mL/mmHg",
+    "equation": "C = dV/dP; constant linear reservoir compliance",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "compartment wall"
+  },
+  "V_pa": {
+    "name": "V_pa",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/pa",
+      "label": "Lumped pulmonary arterial compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154",
+      "label": "Fluid volume",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL",
+    "equation": "dV/dt = Q_in - Q_out",
+    "role": "state",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "P_pa": {
+    "name": "P_pa",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/pa",
+      "label": "Lumped pulmonary arterial compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00509",
+      "label": "Fluid pressure",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg",
+    "equation": "P = (V - V0)/C",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "model gauge pressure; fixed external pressure zero",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "V_pa",
+      "C_pa"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "C_pa": {
+    "name": "C_pa",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/pa",
+      "label": "Lumped pulmonary arterial compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "https://example.org/physiosim/concept/fluid_volume_compliance",
+      "label": "Fluid volume compliance",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "unit": "mL/mmHg",
+    "equation": "C = dV/dP; constant linear reservoir compliance",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "compartment wall"
+  },
+  "V_pv": {
+    "name": "V_pv",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/pv",
+      "label": "Lumped pulmonary venous compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154",
+      "label": "Fluid volume",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL",
+    "equation": "dV/dt = Q_in - Q_out",
+    "role": "state",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "P_pv": {
+    "name": "P_pv",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/pv",
+      "label": "Lumped pulmonary venous compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00509",
+      "label": "Fluid pressure",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg",
+    "equation": "P = (V - V0)/C",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "model gauge pressure; fixed external pressure zero",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "V_pv",
+      "C_pv"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  },
+  "C_pv": {
+    "name": "C_pv",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/pv",
+      "label": "Lumped pulmonary venous compartment",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "https://example.org/physiosim/concept/fluid_volume_compliance",
+      "label": "Fluid volume compliance",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "unit": "mL/mmHg",
+    "equation": "C = dV/dP; constant linear reservoir compliance",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "compartment wall"
+  },
+  "Q_aortic": {
+    "name": "Q_aortic",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_aortic",
+      "label": "Model flow path lv to sa",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00299",
+      "label": "Fluid flow rate",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL/s",
+    "equation": "Q = max(P_up-P_down,0)/R",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "lv",
+      "sa"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "P_lv",
+      "P_sa",
+      "R_aortic"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "R_aortic": {
+    "name": "R_aortic",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_aortic",
+      "label": "Model flow path lv to sa",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00160",
+      "label": "Fluid flow resistance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg*s/mL",
+    "equation": "R = pressure_drop / flow",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "lv",
+      "sa"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "Q_systemic": {
+    "name": "Q_systemic",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_systemic",
+      "label": "Model flow path sa to sv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00299",
+      "label": "Fluid flow rate",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL/s",
+    "equation": "Q = (P_up-P_down)/R",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "sa",
+      "sv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "P_sa",
+      "P_sv",
+      "R_systemic"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "R_systemic": {
+    "name": "R_systemic",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_systemic",
+      "label": "Model flow path sa to sv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00160",
+      "label": "Fluid flow resistance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg*s/mL",
+    "equation": "R = pressure_drop / flow",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "sa",
+      "sv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "Q_tricuspid": {
+    "name": "Q_tricuspid",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_tricuspid",
+      "label": "Model flow path sv to rv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00299",
+      "label": "Fluid flow rate",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL/s",
+    "equation": "Q = max(P_up-P_down,0)/R",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "sv",
+      "rv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "P_sv",
+      "P_rv",
+      "R_tricuspid"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "R_tricuspid": {
+    "name": "R_tricuspid",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_tricuspid",
+      "label": "Model flow path sv to rv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00160",
+      "label": "Fluid flow resistance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg*s/mL",
+    "equation": "R = pressure_drop / flow",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "sv",
+      "rv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "Q_pulmonary_valve": {
+    "name": "Q_pulmonary_valve",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_pulmonary_valve",
+      "label": "Model flow path rv to pa",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00299",
+      "label": "Fluid flow rate",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL/s",
+    "equation": "Q = max(P_up-P_down,0)/R",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "rv",
+      "pa"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "P_rv",
+      "P_pa",
+      "R_pulmonary_valve"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "R_pulmonary_valve": {
+    "name": "R_pulmonary_valve",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_pulmonary_valve",
+      "label": "Model flow path rv to pa",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00160",
+      "label": "Fluid flow resistance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg*s/mL",
+    "equation": "R = pressure_drop / flow",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "rv",
+      "pa"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "Q_pulmonary": {
+    "name": "Q_pulmonary",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_pulmonary",
+      "label": "Model flow path pa to pv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00299",
+      "label": "Fluid flow rate",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL/s",
+    "equation": "Q = (P_up-P_down)/R",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "pa",
+      "pv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "P_pa",
+      "P_pv",
+      "R_pulmonary"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "R_pulmonary": {
+    "name": "R_pulmonary",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_pulmonary",
+      "label": "Model flow path pa to pv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00160",
+      "label": "Fluid flow resistance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg*s/mL",
+    "equation": "R = pressure_drop / flow",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "pa",
+      "pv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "Q_mitral": {
+    "name": "Q_mitral",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_mitral",
+      "label": "Model flow path pv to lv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00299",
+      "label": "Fluid flow rate",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL/s",
+    "equation": "Q = max(P_up-P_down,0)/R",
+    "role": "algebraic",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "pv",
+      "lv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "P_pv",
+      "P_lv",
+      "R_mitral"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "R_mitral": {
+    "name": "R_mitral",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/path_mitral",
+      "label": "Model flow path pv to lv",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00160",
+      "label": "Fluid flow resistance",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mmHg*s/mL",
+    "equation": "R = pressure_drop / flow",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "pv",
+      "lv"
+    ],
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "HR": {
+    "name": "HR",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7088",
+      "label": "Heart",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_01212",
+      "label": "Event frequency",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "1/min",
+    "equation": "T_seconds = 60 / HR_per_minute",
+    "role": "parameter",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [],
+    "biological_context": [
+      "contraction"
+    ],
+    "bearer": "heart process"
+  },
+  "CO": {
+    "name": "CO",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7101",
+      "label": "Left ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "https://example.org/physiosim/concept/cardiac_output",
+      "label": "Cycle-mean aortic outflow",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "unit": "mL/s",
+    "equation": "CO = integral(Q_aortic, complete_beat)/T",
+    "role": "observable",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": [
+      "lv",
+      "sa"
+    ],
+    "temporal_context": "complete-beat mean",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "Q_aortic",
+      "HR"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "SV": {
+    "name": "SV",
+    "anatomy": {
+      "uri": "http://purl.org/sig/ont/fma/fma7101",
+      "label": "Left ventricle",
+      "source": "https://www.ebi.ac.uk/ols4/api/",
+      "local": false
+    },
+    "property": {
+      "uri": "https://example.org/physiosim/concept/stroke_volume",
+      "label": "Left ventricular stroke volume per complete beat",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "unit": "mL",
+    "equation": "SV = integral(Q_aortic, complete_beat)",
+    "role": "observable",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "complete beat",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "Q_aortic"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "flow process"
+  },
+  "V_total": {
+    "name": "V_total",
+    "anatomy": {
+      "uri": "https://example.org/physiosim/concept/circulation",
+      "label": "Closed six-compartment blood circulation",
+      "source": "project-local model definition",
+      "local": true
+    },
+    "property": {
+      "uri": "http://bhi.washington.edu/OPB#OPB_00154",
+      "label": "Fluid volume",
+      "source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "local": false
+    },
+    "unit": "mL",
+    "equation": "V_total = sum(V_i)",
+    "role": "observable",
+    "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+    "orientation": null,
+    "temporal_context": "instantaneous",
+    "reference": "not applicable",
+    "source_document": "docs/physiology.md",
+    "applicable_contexts": [
+      "baseline",
+      "reduced_contractility",
+      "partial_contractility_restoration"
+    ],
+    "depends_on": [
+      "V_lv",
+      "V_rv",
+      "V_sa",
+      "V_sv",
+      "V_pa",
+      "V_pv"
+    ],
+    "biological_context": [
+      "circulation"
+    ],
+    "bearer": "blood"
+  }
+}

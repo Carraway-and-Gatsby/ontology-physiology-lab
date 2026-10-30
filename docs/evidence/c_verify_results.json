@@ -1,0 +1,1125 @@
+{
+  "scope": "independent implementation verification, NOT external biological validation",
+  "versions": {
+    "python": "3.11.15 [build details redacted]",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pint": "0.25.3",
+    "platform": "[redacted: OS version]"
+  },
+  "seed": 20261030,
+  "state_order": [
+    "lv",
+    "sa",
+    "sv",
+    "rv",
+    "pa",
+    "pv"
+  ],
+  "flow_order": [
+    "aortic",
+    "systemic",
+    "tricuspid",
+    "pulmonary_valve",
+    "pulmonary",
+    "mitral"
+  ],
+  "runs": {
+    "baseline_default": {
+      "configuration": {
+        "parameters": {
+          "heart_rate": 75.0,
+          "emin_lv": 0.06,
+          "emax_lv": 2.5,
+          "emin_rv": 0.03,
+          "emax_rv": 0.8,
+          "systolic_fraction": 0.4,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "resistance_aortic": 0.01,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary": 0.1,
+          "resistance_mitral": 0.01,
+          "unstressed_volumes": [
+            10.0,
+            700.0,
+            2500.0,
+            10.0,
+            100.0,
+            400.0
+          ],
+          "initial_volumes": [
+            140.0,
+            850.0,
+            3200.0,
+            140.0,
+            180.0,
+            490.0
+          ]
+        },
+        "cycles": 60,
+        "samples_per_cycle": 400,
+        "method": "DOP853",
+        "rtol": 1e-07,
+        "atol": 1e-08,
+        "max_step": 0.008
+      },
+      "configuration_sha256": "7d7ef9083473336c99a087050a5c2f7f4651ceb1d7b74526d63c169f31f9902f",
+      "artifact": "docs/evidence/c_verify_baseline_default.npz",
+      "metrics": {
+        "stroke_volume_ml": 102.65730730695812,
+        "cardiac_output_l_min": 7.699298048021886,
+        "lv_edv_ml": 177.73435751109264,
+        "lv_esv_ml": 75.13486039685039,
+        "lv_ejection_fraction": 0.5772631614449608,
+        "systemic_mean_pressure_mmhg": 133.49873661030384,
+        "systemic_systolic_pressure_mmhg": 163.00929238327768,
+        "systemic_diastolic_pressure_mmhg": 104.7023306178593,
+        "pulmonary_venous_mean_pressure_mmhg": 10.938113825016792,
+        "peak_lv_pressure_mmhg": 165.48261398934062
+      },
+      "solver_success": true,
+      "nfev": 149417,
+      "native_accepted_steps": 7853,
+      "min_native_step_s": 0.0002013938663694148,
+      "max_native_step_s": 0.008000000000002672,
+      "runtime_seconds": 1.8323135420214385,
+      "minimum_stage_volume_ml": 46.909995716488154,
+      "all_stages_finite": true,
+      "global_volume_relative_drift": 4.0017766878008845e-15,
+      "native_global_volume_drift_ml": 2.000888343900442e-11,
+      "native_integrated_balance_max_error_ml": 79.88846482741792,
+      "final_beat_integrated_balance_max_error_ml": 0.05781261125038384,
+      "final_beat_integrated_edge_flows_ml": [
+        102.6573073069581,
+        102.59956516028642,
+        102.59800705103822,
+        102.59967262090395,
+        102.5999288041017,
+        102.59987227165985
+      ],
+      "final_beat_inlet_outlet_overlap_samples": 0,
+      "flow_sv_minus_volume_excursion_ml": 0.05781019271586274,
+      "final_three_beat_residuals_ml": [
+        0.005553810725189123,
+        0.0027846552253549817,
+        0.0021808055107612745
+      ],
+      "milestone_periodicity_pass": true,
+      "strict_final_three_periodicity_pass": false,
+      "first_three_successive_strict_pass_ending_beat": null,
+      "independent_metric_max_abs_difference": 0.0,
+      "sampling_refinement": {
+        "400": {
+          "stroke_volume_ml": 102.65730730696644,
+          "cardiac_output_l_min": 7.699298048022509,
+          "lv_edv_ml": 177.73435751109264,
+          "lv_esv_ml": 75.13486039685039,
+          "lv_ejection_fraction": 0.5772631614449608,
+          "systemic_mean_pressure_mmhg": 133.49873661030384,
+          "systemic_systolic_pressure_mmhg": 163.00929238327768,
+          "systemic_diastolic_pressure_mmhg": 104.7023306178593,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938113825016792,
+          "peak_lv_pressure_mmhg": 165.4826139893428
+        },
+        "800": {
+          "stroke_volume_ml": 102.58493617453215,
+          "cardiac_output_l_min": 7.693870213089937,
+          "lv_edv_ml": 177.73435751109264,
+          "lv_esv_ml": 75.13486039685039,
+          "lv_ejection_fraction": 0.5772631614449608,
+          "systemic_mean_pressure_mmhg": 133.4987411270846,
+          "systemic_systolic_pressure_mmhg": 163.01126959923036,
+          "systemic_diastolic_pressure_mmhg": 104.67627159239858,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938113412910429,
+          "peak_lv_pressure_mmhg": 165.4826139893428
+        },
+        "1600": {
+          "stroke_volume_ml": 102.59873634239422,
+          "cardiac_output_l_min": 7.6949052256795945,
+          "lv_edv_ml": 177.73435751109264,
+          "lv_esv_ml": 75.13477344455164,
+          "lv_ejection_fraction": 0.5772636506711294,
+          "systemic_mean_pressure_mmhg": 133.49873993494944,
+          "systemic_systolic_pressure_mmhg": 163.01126959923036,
+          "systemic_diastolic_pressure_mmhg": 104.66229174379,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938113362382497,
+          "peak_lv_pressure_mmhg": 165.4826139893428
+        }
+      }
+    },
+    "baseline_tight": {
+      "configuration": {
+        "parameters": {
+          "heart_rate": 75.0,
+          "emin_lv": 0.06,
+          "emax_lv": 2.5,
+          "emin_rv": 0.03,
+          "emax_rv": 0.8,
+          "systolic_fraction": 0.4,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "resistance_aortic": 0.01,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary": 0.1,
+          "resistance_mitral": 0.01,
+          "unstressed_volumes": [
+            10.0,
+            700.0,
+            2500.0,
+            10.0,
+            100.0,
+            400.0
+          ],
+          "initial_volumes": [
+            140.0,
+            850.0,
+            3200.0,
+            140.0,
+            180.0,
+            490.0
+          ]
+        },
+        "cycles": 60,
+        "samples_per_cycle": 400,
+        "method": "DOP853",
+        "rtol": 1e-09,
+        "atol": 1e-10,
+        "max_step": 0.004
+      },
+      "configuration_sha256": "09da57e4948795473ed6bedbe04c22a6cdefa9216bdfe0bc4497d1ea19eaa8ef",
+      "artifact": "docs/evidence/c_verify_baseline_tight.npz",
+      "metrics": {
+        "stroke_volume_ml": 102.65751198454987,
+        "cardiac_output_l_min": 7.699313398841267,
+        "lv_edv_ml": 177.73485172537997,
+        "lv_esv_ml": 75.13491056135032,
+        "lv_ejection_fraction": 0.57726405467487,
+        "systemic_mean_pressure_mmhg": 133.49919202970068,
+        "systemic_systolic_pressure_mmhg": 163.00977619235437,
+        "systemic_diastolic_pressure_mmhg": 104.70270100399655,
+        "pulmonary_venous_mean_pressure_mmhg": 10.938102139247901,
+        "peak_lv_pressure_mmhg": 165.4831048980902
+      },
+      "solver_success": true,
+      "nfev": 274382,
+      "native_accepted_steps": 15264,
+      "min_native_step_s": 1.643200208834017e-05,
+      "max_native_step_s": 0.004000000000001336,
+      "runtime_seconds": 3.2928795000188984,
+      "minimum_stage_volume_ml": 47.09431268016577,
+      "all_stages_finite": true,
+      "global_volume_relative_drift": 3.092281986027956e-15,
+      "native_global_volume_drift_ml": 1.546140993013978e-11,
+      "native_integrated_balance_max_error_ml": 24.86134747772087,
+      "final_beat_integrated_balance_max_error_ml": 0.05859243668429315,
+      "final_beat_integrated_edge_flows_ml": [
+        102.65751198454983,
+        102.59993320497976,
+        102.59786787211729,
+        102.5987955167579,
+        102.59993266542557,
+        102.59891338942072
+      ],
+      "final_beat_inlet_outlet_overlap_samples": 0,
+      "flow_sv_minus_volume_excursion_ml": 0.05757082052022611,
+      "final_three_beat_residuals_ml": [
+        0.00023305120453187556,
+        7.373441439995077e-05,
+        2.2905086780156125e-05
+      ],
+      "milestone_periodicity_pass": true,
+      "strict_final_three_periodicity_pass": false,
+      "first_three_successive_strict_pass_ending_beat": 35,
+      "independent_metric_max_abs_difference": 8.881784197001252e-16,
+      "sampling_refinement": {
+        "400": {
+          "stroke_volume_ml": 102.6575119845582,
+          "cardiac_output_l_min": 7.699313398841893,
+          "lv_edv_ml": 177.73485172537997,
+          "lv_esv_ml": 75.13491056135032,
+          "lv_ejection_fraction": 0.57726405467487,
+          "systemic_mean_pressure_mmhg": 133.49919202970068,
+          "systemic_systolic_pressure_mmhg": 163.00977619235437,
+          "systemic_diastolic_pressure_mmhg": 104.70270100399655,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938102139247901,
+          "peak_lv_pressure_mmhg": 165.4831048980924
+        },
+        "800": {
+          "stroke_volume_ml": 102.58514768176452,
+          "cardiac_output_l_min": 7.693886076132367,
+          "lv_edv_ml": 177.73485172537997,
+          "lv_esv_ml": 75.13491056135032,
+          "lv_ejection_fraction": 0.57726405467487,
+          "systemic_mean_pressure_mmhg": 133.499196632401,
+          "systemic_systolic_pressure_mmhg": 163.01175347453832,
+          "systemic_diastolic_pressure_mmhg": 104.67658625639106,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938101820494385,
+          "peak_lv_pressure_mmhg": 165.4831048980924
+        },
+        "1600": {
+          "stroke_volume_ml": 102.59894202496339,
+          "cardiac_output_l_min": 7.694920651872281,
+          "lv_edv_ml": 177.73485172537997,
+          "lv_esv_ml": 75.13491056135032,
+          "lv_ejection_fraction": 0.57726405467487,
+          "systemic_mean_pressure_mmhg": 133.49919540367293,
+          "systemic_systolic_pressure_mmhg": 163.01175347453832,
+          "systemic_diastolic_pressure_mmhg": 104.66266600728568,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938101798822453,
+          "peak_lv_pressure_mmhg": 165.4831048980924
+        }
+      }
+    },
+    "baseline_fine": {
+      "configuration": {
+        "parameters": {
+          "heart_rate": 75.0,
+          "emin_lv": 0.06,
+          "emax_lv": 2.5,
+          "emin_rv": 0.03,
+          "emax_rv": 0.8,
+          "systolic_fraction": 0.4,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "resistance_aortic": 0.01,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary": 0.1,
+          "resistance_mitral": 0.01,
+          "unstressed_volumes": [
+            10.0,
+            700.0,
+            2500.0,
+            10.0,
+            100.0,
+            400.0
+          ],
+          "initial_volumes": [
+            140.0,
+            850.0,
+            3200.0,
+            140.0,
+            180.0,
+            490.0
+          ]
+        },
+        "cycles": 60,
+        "samples_per_cycle": 400,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "atol": 1e-12,
+        "max_step": 0.002
+      },
+      "configuration_sha256": "114ee8d238a51f827a2e9b8358ac9851278334dfcc0e7837f2438ad5edf9d409",
+      "artifact": "docs/evidence/c_verify_baseline_fine.npz",
+      "metrics": {
+        "stroke_volume_ml": 102.65750114373571,
+        "cardiac_output_l_min": 7.6993125857802065,
+        "lv_edv_ml": 177.73484199160555,
+        "lv_esv_ml": 75.13490815484259,
+        "lv_ejection_fraction": 0.5772640450633127,
+        "systemic_mean_pressure_mmhg": 133.4991899913824,
+        "systemic_systolic_pressure_mmhg": 163.0097727286655,
+        "systemic_diastolic_pressure_mmhg": 104.70270387591873,
+        "pulmonary_venous_mean_pressure_mmhg": 10.938101773989553,
+        "peak_lv_pressure_mmhg": 165.48310139627372
+      },
+      "solver_success": true,
+      "nfev": 501371,
+      "native_accepted_steps": 29307,
+      "min_native_step_s": 1.7225293431621935e-06,
+      "max_native_step_s": 0.0020000000000024443,
+      "runtime_seconds": 5.987689125002362,
+      "minimum_stage_volume_ml": 47.20017717885339,
+      "all_stages_finite": true,
+      "global_volume_relative_drift": 3.4560798667371273e-15,
+      "native_global_volume_drift_ml": 1.7280399333685637e-11,
+      "native_integrated_balance_max_error_ml": 6.760933925639847,
+      "final_beat_integrated_balance_max_error_ml": 0.05858785337528616,
+      "final_beat_integrated_edge_flows_ml": [
+        102.65750114373573,
+        102.5999314706677,
+        102.59787550052337,
+        102.59879911196074,
+        102.59993941081989,
+        102.59891328243604
+      ],
+      "final_beat_inlet_outlet_overlap_samples": 0,
+      "flow_sv_minus_volume_excursion_ml": 0.05756730697275714,
+      "final_three_beat_residuals_ml": [
+        8.786450962361414e-07,
+        3.548290123944753e-07,
+        2.308781859028386e-07
+      ],
+      "milestone_periodicity_pass": true,
+      "strict_final_three_periodicity_pass": true,
+      "first_three_successive_strict_pass_ending_beat": 26,
+      "independent_metric_max_abs_difference": 8.881784197001252e-16,
+      "sampling_refinement": {
+        "400": {
+          "stroke_volume_ml": 102.65750114374404,
+          "cardiac_output_l_min": 7.699312585780831,
+          "lv_edv_ml": 177.73484199160555,
+          "lv_esv_ml": 75.13490815484259,
+          "lv_ejection_fraction": 0.5772640450633127,
+          "systemic_mean_pressure_mmhg": 133.4991899913824,
+          "systemic_systolic_pressure_mmhg": 163.0097727286655,
+          "systemic_diastolic_pressure_mmhg": 104.70270387591873,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938101773989553,
+          "peak_lv_pressure_mmhg": 165.4831013962759
+        },
+        "800": {
+          "stroke_volume_ml": 102.58513735253658,
+          "cardiac_output_l_min": 7.69388530144027,
+          "lv_edv_ml": 177.73484199160555,
+          "lv_esv_ml": 75.13490815484259,
+          "lv_ejection_fraction": 0.5772640450633127,
+          "systemic_mean_pressure_mmhg": 133.499194593768,
+          "systemic_systolic_pressure_mmhg": 163.01175001529487,
+          "systemic_diastolic_pressure_mmhg": 104.67658815760743,
+          "pulmonary_venous_mean_pressure_mmhg": 10.938101455277403,
+          "peak_lv_pressure_mmhg": 165.4831013962759
+        },
+        "1600": {
+          "stroke_volume_ml": 102.59893142922091,
+          "cardiac_output_l_min": 7.694919857191596,
+          "lv_edv_ml": 177.73484199160555,
+          "lv_esv_ml": 75.13490815484259,
+          "lv_ejection_fraction": 0.5772640450633127,
+          "systemic_mean_pressure_mmhg": 133.4991933652713,
+          "systemic_systolic_pressure_mmhg": 163.01175001529487,
+          "systemic_diastolic_pressure_mmhg": 104.66266922488458,
+          "pulmonary_venous_mean_pressure_mmhg": 10.93810143362284,
+          "peak_lv_pressure_mmhg": 165.4831013962759
+        }
+      }
+    },
+    "reduced_default": {
+      "configuration": {
+        "parameters": {
+          "heart_rate": 75.0,
+          "emin_lv": 0.06,
+          "emax_lv": 1.25,
+          "emin_rv": 0.03,
+          "emax_rv": 0.8,
+          "systolic_fraction": 0.4,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "resistance_aortic": 0.01,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary": 0.1,
+          "resistance_mitral": 0.01,
+          "unstressed_volumes": [
+            10.0,
+            700.0,
+            2500.0,
+            10.0,
+            100.0,
+            400.0
+          ],
+          "initial_volumes": [
+            140.0,
+            850.0,
+            3200.0,
+            140.0,
+            180.0,
+            490.0
+          ]
+        },
+        "cycles": 60,
+        "samples_per_cycle": 400,
+        "method": "DOP853",
+        "rtol": 1e-07,
+        "atol": 1e-08,
+        "max_step": 0.008
+      },
+      "configuration_sha256": "377ba3dc3ebe777f82566f31f52e20e4aaea42c9644f613eceacd763c369057a",
+      "artifact": "docs/evidence/c_verify_reduced_default.npz",
+      "metrics": {
+        "stroke_volume_ml": 89.32476732670622,
+        "cardiac_output_l_min": 6.69935754950299,
+        "lv_edv_ml": 214.08246869467456,
+        "lv_esv_ml": 124.70499265536687,
+        "lv_ejection_fraction": 0.4174908696833942,
+        "systemic_mean_pressure_mmhg": 116.43367491564466,
+        "systemic_systolic_pressure_mmhg": 142.8290867199336,
+        "systemic_diastolic_pressure_mmhg": 91.42414562725367,
+        "pulmonary_venous_mean_pressure_mmhg": 12.998773471263016,
+        "peak_lv_pressure_mmhg": 145.3552089103507
+      },
+      "solver_success": true,
+      "nfev": 139412,
+      "native_accepted_steps": 7438,
+      "min_native_step_s": 0.0002311937556314092,
+      "max_native_step_s": 0.008000000000002672,
+      "runtime_seconds": 1.877357832971029,
+      "minimum_stage_volume_ml": 47.18828335800565,
+      "all_stages_finite": true,
+      "global_volume_relative_drift": 2.7284841053187848e-15,
+      "native_global_volume_drift_ml": 1.3642420526593924e-11,
+      "native_integrated_balance_max_error_ml": 54.811509999820146,
+      "final_beat_integrated_balance_max_error_ml": 0.05270446289111419,
+      "final_beat_integrated_edge_flows_ml": [
+        89.32476732670621,
+        89.3774577195815,
+        89.37487121181208,
+        89.38881076781443,
+        89.37731734455684,
+        89.37551714925185
+      ],
+      "final_beat_inlet_outlet_overlap_samples": 0,
+      "flow_sv_minus_volume_excursion_ml": -0.05270871260147203,
+      "final_three_beat_residuals_ml": [
+        0.0022267086017393467,
+        0.001905708489545077,
+        0.0019773065295112247
+      ],
+      "milestone_periodicity_pass": true,
+      "strict_final_three_periodicity_pass": false,
+      "first_three_successive_strict_pass_ending_beat": null,
+      "independent_metric_max_abs_difference": 0.0,
+      "sampling_refinement": {
+        "400": {
+          "stroke_volume_ml": 89.32476732671336,
+          "cardiac_output_l_min": 6.699357549503525,
+          "lv_edv_ml": 214.08246869467456,
+          "lv_esv_ml": 124.70499265536687,
+          "lv_ejection_fraction": 0.4174908696833942,
+          "systemic_mean_pressure_mmhg": 116.43367491564466,
+          "systemic_systolic_pressure_mmhg": 142.8290867199336,
+          "systemic_diastolic_pressure_mmhg": 91.42414562725367,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998773471263018,
+          "peak_lv_pressure_mmhg": 145.35520891034997
+        },
+        "800": {
+          "stroke_volume_ml": 89.36869856647141,
+          "cardiac_output_l_min": 6.702652392485379,
+          "lv_edv_ml": 214.08246869467456,
+          "lv_esv_ml": 124.70496238335994,
+          "lv_ejection_fraction": 0.41749101108687814,
+          "systemic_mean_pressure_mmhg": 116.4336790039454,
+          "systemic_systolic_pressure_mmhg": 142.83246482420986,
+          "systemic_diastolic_pressure_mmhg": 91.42414562725367,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998773181606161,
+          "peak_lv_pressure_mmhg": 145.35872540693686
+        },
+        "1600": {
+          "stroke_volume_ml": 89.37738104298741,
+          "cardiac_output_l_min": 6.703303578224079,
+          "lv_edv_ml": 214.08246869467456,
+          "lv_esv_ml": 124.70496238335994,
+          "lv_ejection_fraction": 0.41749101108687814,
+          "systemic_mean_pressure_mmhg": 116.43368004155595,
+          "systemic_systolic_pressure_mmhg": 142.83246482420986,
+          "systemic_diastolic_pressure_mmhg": 91.42117928970318,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998773163278653,
+          "peak_lv_pressure_mmhg": 145.35872540693686
+        }
+      }
+    },
+    "reduced_tight": {
+      "configuration": {
+        "parameters": {
+          "heart_rate": 75.0,
+          "emin_lv": 0.06,
+          "emax_lv": 1.25,
+          "emin_rv": 0.03,
+          "emax_rv": 0.8,
+          "systolic_fraction": 0.4,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "resistance_aortic": 0.01,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary": 0.1,
+          "resistance_mitral": 0.01,
+          "unstressed_volumes": [
+            10.0,
+            700.0,
+            2500.0,
+            10.0,
+            100.0,
+            400.0
+          ],
+          "initial_volumes": [
+            140.0,
+            850.0,
+            3200.0,
+            140.0,
+            180.0,
+            490.0
+          ]
+        },
+        "cycles": 60,
+        "samples_per_cycle": 400,
+        "method": "DOP853",
+        "rtol": 1e-09,
+        "atol": 1e-10,
+        "max_step": 0.004
+      },
+      "configuration_sha256": "cb81b4ffc4ce76861461d08dcabbfba0c543ad59cce524b5630792680e7c4c49",
+      "artifact": "docs/evidence/c_verify_reduced_tight.npz",
+      "metrics": {
+        "stroke_volume_ml": 89.32464668175137,
+        "cardiac_output_l_min": 6.699348501131376,
+        "lv_edv_ml": 214.0823293599992,
+        "lv_esv_ml": 124.70492862960826,
+        "lv_ejection_fraction": 0.41749078963025754,
+        "systemic_mean_pressure_mmhg": 116.43359848386868,
+        "systemic_systolic_pressure_mmhg": 142.82899395888822,
+        "systemic_diastolic_pressure_mmhg": 91.42413034475422,
+        "pulmonary_venous_mean_pressure_mmhg": 12.998776337882521,
+        "peak_lv_pressure_mmhg": 145.35511435067406
+      },
+      "solver_success": true,
+      "nfev": 267776,
+      "native_accepted_steps": 14670,
+      "min_native_step_s": 2.179599918861186e-05,
+      "max_native_step_s": 0.004000000000001336,
+      "runtime_seconds": 3.3159637079807,
+      "minimum_stage_volume_ml": 47.171258756459984,
+      "all_stages_finite": true,
+      "global_volume_relative_drift": 4.729372449219227e-15,
+      "native_global_volume_drift_ml": 2.3646862246096134e-11,
+      "native_integrated_balance_max_error_ml": 17.130165747825913,
+      "final_beat_integrated_balance_max_error_ml": 0.052749849992451914,
+      "final_beat_integrated_edge_flows_ml": [
+        89.32464668175137,
+        89.37739685925003,
+        89.37480119599635,
+        89.38900832880881,
+        89.37740221810846,
+        89.37556433208837
+      ],
+      "final_beat_inlet_outlet_overlap_samples": 0,
+      "flow_sv_minus_volume_excursion_ml": -0.05275404863955657,
+      "final_three_beat_residuals_ml": [
+        9.423632491234457e-06,
+        7.387247080714587e-06,
+        9.568865209530486e-06
+      ],
+      "milestone_periodicity_pass": true,
+      "strict_final_three_periodicity_pass": true,
+      "first_three_successive_strict_pass_ending_beat": 32,
+      "independent_metric_max_abs_difference": 8.881784197001252e-16,
+      "sampling_refinement": {
+        "400": {
+          "stroke_volume_ml": 89.32464668175848,
+          "cardiac_output_l_min": 6.699348501131909,
+          "lv_edv_ml": 214.0823293599992,
+          "lv_esv_ml": 124.70492862960826,
+          "lv_ejection_fraction": 0.41749078963025754,
+          "systemic_mean_pressure_mmhg": 116.43359848386868,
+          "systemic_systolic_pressure_mmhg": 142.82899395888822,
+          "systemic_diastolic_pressure_mmhg": 91.42413034475422,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998776337882521,
+          "peak_lv_pressure_mmhg": 145.35511435067335
+        },
+        "800": {
+          "stroke_volume_ml": 89.3685815389014,
+          "cardiac_output_l_min": 6.702643615417628,
+          "lv_edv_ml": 214.0823293599992,
+          "lv_esv_ml": 124.70492862960826,
+          "lv_ejection_fraction": 0.41749078963025754,
+          "systemic_mean_pressure_mmhg": 116.43360251846995,
+          "systemic_systolic_pressure_mmhg": 142.8323743038633,
+          "systemic_diastolic_pressure_mmhg": 91.42413034475422,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998776062852304,
+          "peak_lv_pressure_mmhg": 145.35863583032273
+        },
+        "1600": {
+          "stroke_volume_ml": 89.37726451773925,
+          "cardiac_output_l_min": 6.703294838830468,
+          "lv_edv_ml": 214.0823293599992,
+          "lv_esv_ml": 124.70492862960826,
+          "lv_ejection_fraction": 0.41749078963025754,
+          "systemic_mean_pressure_mmhg": 116.43360356091179,
+          "systemic_systolic_pressure_mmhg": 142.8323743038633,
+          "systemic_diastolic_pressure_mmhg": 91.42115673915085,
+          "pulmonary_venous_mean_pressure_mmhg": 12.99877604962122,
+          "peak_lv_pressure_mmhg": 145.35863583032273
+        }
+      }
+    },
+    "reduced_fine": {
+      "configuration": {
+        "parameters": {
+          "heart_rate": 75.0,
+          "emin_lv": 0.06,
+          "emax_lv": 1.25,
+          "emin_rv": 0.03,
+          "emax_rv": 0.8,
+          "systolic_fraction": 0.4,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "resistance_aortic": 0.01,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary": 0.1,
+          "resistance_mitral": 0.01,
+          "unstressed_volumes": [
+            10.0,
+            700.0,
+            2500.0,
+            10.0,
+            100.0,
+            400.0
+          ],
+          "initial_volumes": [
+            140.0,
+            850.0,
+            3200.0,
+            140.0,
+            180.0,
+            490.0
+          ]
+        },
+        "cycles": 60,
+        "samples_per_cycle": 400,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "atol": 1e-12,
+        "max_step": 0.002
+      },
+      "configuration_sha256": "09557456db552bd2b8cf0e20b446006e74e3d8d4186183719957ddc757e55e73",
+      "artifact": "docs/evidence/c_verify_reduced_fine.npz",
+      "metrics": {
+        "stroke_volume_ml": 89.32464634530442,
+        "cardiac_output_l_min": 6.699348475897855,
+        "lv_edv_ml": 214.08233046385996,
+        "lv_esv_ml": 124.70492794647043,
+        "lv_ejection_fraction": 0.41749079582482246,
+        "systemic_mean_pressure_mmhg": 116.43360030506169,
+        "systemic_systolic_pressure_mmhg": 142.82899524775257,
+        "systemic_diastolic_pressure_mmhg": 91.42413186722986,
+        "pulmonary_venous_mean_pressure_mmhg": 12.998776276205946,
+        "peak_lv_pressure_mmhg": 145.35511565423968
+      },
+      "solver_success": true,
+      "nfev": 483287,
+      "native_accepted_steps": 28103,
+      "min_native_step_s": 2.073779704403478e-06,
+      "max_native_step_s": 0.0020000000000024443,
+      "runtime_seconds": 6.822798333014362,
+      "minimum_stage_volume_ml": 47.19432964747044,
+      "all_stages_finite": true,
+      "global_volume_relative_drift": 6.730260793119669e-15,
+      "native_global_volume_drift_ml": 3.3651303965598345e-11,
+      "native_integrated_balance_max_error_ml": 4.4732340704545095,
+      "final_beat_integrated_balance_max_error_ml": 0.052751973308119204,
+      "final_beat_integrated_edge_flows_ml": [
+        89.32464634530434,
+        89.37739831488751,
+        89.37480267005702,
+        89.38900742878113,
+        89.37740308974952,
+        89.37557125094129
+      ],
+      "final_beat_inlet_outlet_overlap_samples": 0,
+      "flow_sv_minus_volume_excursion_ml": -0.052756172085111075,
+      "final_three_beat_residuals_ml": [
+        1.7305160326941404e-07,
+        1.5103728401300032e-07,
+        1.9768864945035602e-07
+      ],
+      "milestone_periodicity_pass": true,
+      "strict_final_three_periodicity_pass": true,
+      "first_three_successive_strict_pass_ending_beat": 32,
+      "independent_metric_max_abs_difference": 0.0,
+      "sampling_refinement": {
+        "400": {
+          "stroke_volume_ml": 89.32464634531146,
+          "cardiac_output_l_min": 6.6993484758983834,
+          "lv_edv_ml": 214.08233046385996,
+          "lv_esv_ml": 124.70492794647043,
+          "lv_ejection_fraction": 0.41749079582482246,
+          "systemic_mean_pressure_mmhg": 116.43360030506169,
+          "systemic_systolic_pressure_mmhg": 142.82899524775257,
+          "systemic_diastolic_pressure_mmhg": 91.42413186722986,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998776276205946,
+          "peak_lv_pressure_mmhg": 145.35511565423897
+        },
+        "800": {
+          "stroke_volume_ml": 89.36858124377005,
+          "cardiac_output_l_min": 6.702643593282778,
+          "lv_edv_ml": 214.08233046385996,
+          "lv_esv_ml": 124.70492794647043,
+          "lv_ejection_fraction": 0.41749079582482246,
+          "systemic_mean_pressure_mmhg": 116.43360434031749,
+          "systemic_systolic_pressure_mmhg": 142.83237557472353,
+          "systemic_diastolic_pressure_mmhg": 91.42413186722986,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998776001512612,
+          "peak_lv_pressure_mmhg": 145.35863711984092
+        },
+        "1600": {
+          "stroke_volume_ml": 89.37726424985836,
+          "cardiac_output_l_min": 6.7032948187394,
+          "lv_edv_ml": 214.08233046385996,
+          "lv_esv_ml": 124.70492794647043,
+          "lv_ejection_fraction": 0.41749079582482246,
+          "systemic_mean_pressure_mmhg": 116.43360538234421,
+          "systemic_systolic_pressure_mmhg": 142.83237557472353,
+          "systemic_diastolic_pressure_mmhg": 91.42115822335828,
+          "pulmonary_venous_mean_pressure_mmhg": 12.998775988431778,
+          "peak_lv_pressure_mmhg": 145.35863711984092
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "baseline": {
+      "default_vs_tight": {
+        "metric_errors": {
+          "stroke_volume_ml": {
+            "absolute": 0.000204677591753466,
+            "relative_with_floor": 1.9937906909751558e-06
+          },
+          "cardiac_output_l_min": {
+            "absolute": 1.5350819380977043e-05,
+            "relative_with_floor": 1.9937906909059337e-06
+          },
+          "lv_edv_ml": {
+            "absolute": 0.0004942142873289868,
+            "relative_with_floor": 2.7806267737101026e-06
+          },
+          "lv_esv_ml": {
+            "absolute": 5.0164499938887275e-05,
+            "relative_with_floor": 6.676590091622745e-07
+          },
+          "lv_ejection_fraction": {
+            "absolute": 8.932299091490847e-07,
+            "relative_with_floor": 1.5473506481400005e-06
+          },
+          "systemic_mean_pressure_mmhg": {
+            "absolute": 0.0004554193968431264,
+            "relative_with_floor": 3.4114018962886715e-06
+          },
+          "systemic_systolic_pressure_mmhg": {
+            "absolute": 0.0004838090766838832,
+            "relative_with_floor": 2.9679758354675617e-06
+          },
+          "systemic_diastolic_pressure_mmhg": {
+            "absolute": 0.0003703861372486017,
+            "relative_with_floor": 3.5375031751517457e-06
+          },
+          "pulmonary_venous_mean_pressure_mmhg": {
+            "absolute": 1.1685768891211978e-05,
+            "relative_with_floor": 1.0683543399436098e-06
+          },
+          "peak_lv_pressure_mmhg": {
+            "absolute": 0.0004909087495832409,
+            "relative_with_floor": 2.9665188472597145e-06
+          }
+        },
+        "max_metric_relative_error": 3.5375031751517457e-06,
+        "full_volume_max_error_ml": 0.31525435259243295,
+        "full_volume_error_location": {
+          "time_s": 28.856,
+          "compartment": "sa"
+        },
+        "final_volume_max_error_ml": 0.0013840394723274585,
+        "final_pressure_max_error_mmhg": 0.0005757665287546843,
+        "final_volume_scaled_max_error": 6.859674817228115e-06,
+        "final_pressure_scaled_max_error": 5.4048559708962336e-06
+      },
+      "tight_vs_fine": {
+        "metric_errors": {
+          "stroke_volume_ml": {
+            "absolute": 1.0840814155699263e-05,
+            "relative_with_floor": 1.0560177322571409e-07
+          },
+          "cardiac_output_l_min": {
+            "absolute": 8.130610602563593e-07,
+            "relative_with_floor": 1.0560177304114067e-07
+          },
+          "lv_edv_ml": {
+            "absolute": 9.73377441937373e-06,
+            "relative_with_floor": 5.476570778302129e-08
+          },
+          "lv_esv_ml": {
+            "absolute": 2.4065077326440587e-06,
+            "relative_with_floor": 3.202915650984202e-08
+          },
+          "lv_ejection_fraction": {
+            "absolute": 9.611557216793187e-09,
+            "relative_with_floor": 1.665019205507424e-08
+          },
+          "systemic_mean_pressure_mmhg": {
+            "absolute": 2.0383182857131033e-06,
+            "relative_with_floor": 1.5268394406323215e-08
+          },
+          "systemic_systolic_pressure_mmhg": {
+            "absolute": 3.463688869942416e-06,
+            "relative_with_floor": 2.1248351015787422e-08
+          },
+          "systemic_diastolic_pressure_mmhg": {
+            "absolute": 2.871922177405395e-06,
+            "relative_with_floor": 2.7429302884182033e-08
+          },
+          "pulmonary_venous_mean_pressure_mmhg": {
+            "absolute": 3.65258348011821e-07,
+            "relative_with_floor": 3.3393211688740487e-08
+          },
+          "peak_lv_pressure_mmhg": {
+            "absolute": 3.5018164794564655e-06,
+            "relative_with_floor": 2.116117265092131e-08
+          }
+        },
+        "max_metric_relative_error": 1.0560177322571409e-07,
+        "full_volume_max_error_ml": 0.0010292771597164574,
+        "full_volume_error_location": {
+          "time_s": 35.252,
+          "compartment": "lv"
+        },
+        "final_volume_max_error_ml": 1.7408200164936716e-05,
+        "final_pressure_max_error_mmhg": 7.1919106687801104e-06,
+        "final_volume_scaled_max_error": 6.297433652268822e-08,
+        "final_pressure_scaled_max_error": 1.206428441648909e-07
+      }
+    },
+    "reduced": {
+      "default_vs_tight": {
+        "metric_errors": {
+          "stroke_volume_ml": {
+            "absolute": 0.00012064495484764848,
+            "relative_with_floor": 1.3506345597703406e-06
+          },
+          "cardiac_output_l_min": {
+            "absolute": 9.048371613751272e-06,
+            "relative_with_floor": 1.3506345597968513e-06
+          },
+          "lv_edv_ml": {
+            "absolute": 0.0001393346753673086,
+            "relative_with_floor": 6.508462224969744e-07
+          },
+          "lv_esv_ml": {
+            "absolute": 6.402575860420257e-05,
+            "relative_with_floor": 5.13418028523703e-07
+          },
+          "lv_ejection_fraction": {
+            "absolute": 8.005313667514002e-08,
+            "relative_with_floor": 1.9174827005414299e-07
+          },
+          "systemic_mean_pressure_mmhg": {
+            "absolute": 7.643177598026796e-05,
+            "relative_with_floor": 6.564408982932639e-07
+          },
+          "systemic_systolic_pressure_mmhg": {
+            "absolute": 9.276104538002983e-05,
+            "relative_with_floor": 6.494552878159324e-07
+          },
+          "systemic_diastolic_pressure_mmhg": {
+            "absolute": 1.5282499447266673e-05,
+            "relative_with_floor": 1.6716045741575446e-07
+          },
+          "pulmonary_venous_mean_pressure_mmhg": {
+            "absolute": 2.8666195053261845e-06,
+            "relative_with_floor": 2.205299507286662e-07
+          },
+          "peak_lv_pressure_mmhg": {
+            "absolute": 9.45596766541712e-05,
+            "relative_with_floor": 6.505424805765198e-07
+          }
+        },
+        "max_metric_relative_error": 1.3506345597968513e-06,
+        "full_volume_max_error_ml": 0.039700716093989286,
+        "full_volume_error_location": {
+          "time_s": 31.5,
+          "compartment": "pv"
+        },
+        "final_volume_max_error_ml": 0.00022445428325568173,
+        "final_pressure_max_error_mmhg": 9.62475865549095e-05,
+        "final_volume_scaled_max_error": 1.602907931212411e-06,
+        "final_pressure_scaled_max_error": 1.0204007351800413e-06
+      },
+      "tight_vs_fine": {
+        "metric_errors": {
+          "stroke_volume_ml": {
+            "absolute": 3.3644695918155776e-07,
+            "relative_with_floor": 3.766563573965316e-09
+          },
+          "cardiac_output_l_min": {
+            "absolute": 2.5233521050438412e-08,
+            "relative_with_floor": 3.766563441388468e-09
+          },
+          "lv_edv_ml": {
+            "absolute": 1.1038607681257417e-06,
+            "relative_with_floor": 5.156244168932422e-09
+          },
+          "lv_esv_ml": {
+            "absolute": 6.831378271954236e-07,
+            "relative_with_floor": 5.478033935344242e-09
+          },
+          "lv_ejection_fraction": {
+            "absolute": 6.194564916572887e-09,
+            "relative_with_floor": 1.483760834615406e-08
+          },
+          "systemic_mean_pressure_mmhg": {
+            "absolute": 1.8211930097322693e-06,
+            "relative_with_floor": 1.564147295076898e-08
+          },
+          "systemic_systolic_pressure_mmhg": {
+            "absolute": 1.2888643539099576e-06,
+            "relative_with_floor": 9.0238284717629e-09
+          },
+          "systemic_diastolic_pressure_mmhg": {
+            "absolute": 1.5224756424458974e-06,
+            "relative_with_floor": 1.6652885965129024e-08
+          },
+          "pulmonary_venous_mean_pressure_mmhg": {
+            "absolute": 6.16765749583692e-08,
+            "relative_with_floor": 4.744798560097322e-09
+          },
+          "peak_lv_pressure_mmhg": {
+            "absolute": 1.3035656252213812e-06,
+            "relative_with_floor": 8.968144116249817e-09
+          }
+        },
+        "max_metric_relative_error": 1.6652885965129024e-08,
+        "full_volume_max_error_ml": 0.0009157913616775204,
+        "full_volume_error_location": {
+          "time_s": 9.664,
+          "compartment": "lv"
+        },
+        "final_volume_max_error_ml": 8.045773796538924e-06,
+        "final_pressure_max_error_mmhg": 2.418070437215647e-06,
+        "final_volume_scaled_max_error": 3.7582614964559916e-08,
+        "final_pressure_scaled_max_error": 1.7148043505438347e-08
+      }
+    }
+  },
+  "repeatability": {
+    "baseline": {
+      "exact_volume_equality": true,
+      "exact_pressure_equality": true,
+      "exact_flow_equality": true
+    },
+    "reduced": {
+      "exact_volume_equality": true,
+      "exact_pressure_equality": true,
+      "exact_flow_equality": true
+    }
+  },
+  "unit_covariance": {
+    "volume_units": "mL -> L",
+    "pressure_units": "mmHg -> Pa",
+    "time_units": "s unchanged",
+    "volume_scale": 0.001,
+    "pressure_scale": 133.322387415,
+    "equation_max_error_ml_s": 3.637978807091713e-12,
+    "trajectory_max_error_ml": 8.654964744891913e-08,
+    "pressure_max_error_mmhg": 3.47245077136904e-08,
+    "unscaled_parameter_negative_control_error_ml_s": 2465843329.6871657
+  },
+  "semantic_probes": {
+    "decisions": {
+      "wrong_anatomy": {
+        "decision": "rejected",
+        "reason": "anatomy mismatch"
+      },
+      "wrong_reference": {
+        "decision": "rejected",
+        "reason": "reference mismatch"
+      },
+      "wrong_temporal": {
+        "decision": "rejected",
+        "reason": "temporal_context mismatch"
+      },
+      "wrong_unit": {
+        "decision": "rejected",
+        "reason": "property and units incompatible: Cannot convert from 'milliliter' ([length] ** 3) to 'millimeter_Hg' ([mass] / [length] / [time] ** 2)"
+      },
+      "missing_both_references": {
+        "decision": "accepted"
+      },
+      "missing_both_anatomy_iris": {
+        "decision": "accepted"
+      },
+      "changed_equation_only": {
+        "decision": "accepted"
+      },
+      "changed_source_context_only": {
+        "decision": "accepted"
+      }
+    },
+    "sv_annotation": {
+      "name": "SV",
+      "anatomy": {
+        "uri": "http://purl.org/sig/ont/fma/fma7101",
+        "label": "Left ventricle",
+        "source": "https://www.ebi.ac.uk/ols4/api/",
+        "local": false
+      },
+      "property": {
+        "uri": "https://example.org/physiosim/concept/stroke_volume",
+        "label": "Left ventricular stroke volume per complete beat",
+        "source": "project-local model definition",
+        "local": true
+      },
+      "unit": "mL",
+      "equation": "SV = integral(Q_aortic, complete_beat)",
+      "role": "observable",
+      "source_context": "project six-compartment lumped cardiovascular model; not a clinical measurement",
+      "orientation": null,
+      "temporal_context": "complete beat",
+      "reference": "model gauge pressure; fixed external pressure zero",
+      "depends_on": [
+        "Q_aortic"
+      ],
+      "biological_context": [
+        "circulation"
+      ],
+      "bearer": "flow process"
+    },
+    "note": "Connection equivalence checker is not a registry completeness or equation-equivalence validator."
+  },
+  "passive_reservoir_refinement": [
+    {
+      "method": "RK23",
+      "max_step_s": 0.2,
+      "max_volume_error_ml": 6.138133835520421e-05,
+      "other_compartments_max_change_ml": 2.1316282072803006e-14
+    },
+    {
+      "method": "RK23",
+      "max_step_s": 0.1,
+      "max_volume_error_ml": 7.252328941831365e-06,
+      "other_compartments_max_change_ml": 1.4210854715202004e-14
+    },
+    {
+      "method": "RK23",
+      "max_step_s": 0.05,
+      "max_volume_error_ml": 9.039245014719199e-07,
+      "other_compartments_max_change_ml": 1.4210854715202004e-14
+    }
+  ],
+  "source_sha256": {
+    "src/physiosim/models/cardiovascular.py": "41be222561d553b93510448630c091c642f999b5be8f01ba65160f3a10ec3492",
+    "src/physiosim/simulation/__init__.py": "0fc8b0d65758eb562ac6463e040e3bfc1ca8d3761abdbd785f4f0c5c145a7543",
+    "src/physiosim/ontology/__init__.py": "8c33269aeb2e47ebef1a6665013e035a6aaed3bd1e121a4ec14d408f66139b09",
+    "docs/evidence/c_verify_run.py": "52fc952132150c7ba5df7e3a524819d65da34f0c9ec4a9aec481afcfd314bf2e",
+    "tests/test_independent_verification.py": "1180123d57f80cdb16576a9af1b5c87ebff5233f6976488dcf8e7f4c2a63d875"
+  }
+}

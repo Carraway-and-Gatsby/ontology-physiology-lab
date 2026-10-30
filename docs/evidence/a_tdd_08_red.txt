@@ -1,0 +1,15 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_models_package_exports_the_public_parameter_type_and_names ________
+
+    def test_models_package_exports_the_public_parameter_type_and_names():
+        import physiosim.models as models
+        from physiosim.models.cardiovascular import Parameters, COMPARTMENTS, FLOW_NAMES
+>       assert getattr(models, "Parameters", None) is Parameters
+E       AssertionError: assert None is <class 'physiosim.models.cardiovascular.Parameters'>
+E        +  where None = getattr(<module 'physiosim.models' (<_frozen_importlib_external.NamespaceLoader object at 0x10ad84310>)>, 'Parameters', None)
+
+tests/test_cardiovascular.py:170: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_cardiovascular.py::test_models_package_exports_the_public_parameter_type_and_names
+1 failed in 0.05s

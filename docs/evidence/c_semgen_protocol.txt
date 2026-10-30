@@ -1,0 +1,5 @@
+[omitted from the public repository: third-party content without a redistribution licence]
+source: https://raw.githubusercontent.com/wiki/SemBioProcess/SemGen/Annotation-protocol.md
+retrieved: 2026-10-30T14:44:57.122709+00:00
+original sha256: 8116ed78503235178b0323fb98bb062d91d571ff6329c674fe51b8727d0f967c
+original size: 10658

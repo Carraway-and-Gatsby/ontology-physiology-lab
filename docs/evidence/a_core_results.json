@@ -1,0 +1,102 @@
+{
+  "status": "exploratory model execution, not clinical validation or published replication",
+  "versions": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "settings": {
+    "cycles": 40,
+    "samples_per_cycle": 400,
+    "rtol": 1e-07,
+    "atol_ml": 1e-08,
+    "max_step_s": 0.008,
+    "method": "DOP853"
+  },
+  "parameters": {
+    "heart_rate": 75.0,
+    "emin_lv": 0.06,
+    "emax_lv": 2.5,
+    "emin_rv": 0.03,
+    "emax_rv": 0.8,
+    "systolic_fraction": 0.4,
+    "compliance_sa": 1.5,
+    "compliance_sv": 100.0,
+    "compliance_pa": 5.0,
+    "compliance_pv": 20.0,
+    "resistance_aortic": 0.01,
+    "resistance_systemic": 1.0,
+    "resistance_tricuspid": 0.01,
+    "resistance_pulmonary_valve": 0.01,
+    "resistance_pulmonary": 0.1,
+    "resistance_mitral": 0.01,
+    "unstressed_volumes": [
+      10.0,
+      700.0,
+      2500.0,
+      10.0,
+      100.0,
+      400.0
+    ],
+    "initial_volumes": [
+      140.0,
+      850.0,
+      3200.0,
+      140.0,
+      180.0,
+      490.0
+    ]
+  },
+  "baseline": {
+    "heart_rate_bpm": 75.0,
+    "stroke_volume_ml": 102.65644789485842,
+    "cardiac_output_l_min": 7.699233592114374,
+    "cardiac_output_m3_s": 0.0001283205598685729,
+    "lv_edv_ml": 177.7335745360894,
+    "lv_esv_ml": 75.13452660188626,
+    "lv_ejection_fraction": 0.5772631772134311,
+    "systemic_systolic_pressure_mmhg": 163.00881921167652,
+    "systemic_diastolic_pressure_mmhg": 104.70235385588845,
+    "systemic_mean_pressure_mmhg": 133.4984520059691,
+    "pulmonary_mean_pressure_mmhg": 23.763132776148527,
+    "pulmonary_venous_mean_pressure_mmhg": 10.938148021282567,
+    "volume_drift_ml": 2.000888343900442e-11,
+    "final_beat_max_volume_difference_ml": 0.006657164871768373
+  },
+  "reduced_contractility": {
+    "heart_rate_bpm": 75.0,
+    "stroke_volume_ml": 89.32444657530823,
+    "cardiac_output_l_min": 6.699333493148111,
+    "cardiac_output_m3_s": 0.00011165555821913518,
+    "lv_edv_ml": 214.08211887994975,
+    "lv_esv_ml": 124.70484524678618,
+    "lv_ejection_fraction": 0.4174906064120349,
+    "systemic_systolic_pressure_mmhg": 142.8288920623019,
+    "systemic_diastolic_pressure_mmhg": 91.42412773472839,
+    "systemic_mean_pressure_mmhg": 116.43351825320316,
+    "pulmonary_mean_pressure_mmhg": 24.171002968332566,
+    "pulmonary_venous_mean_pressure_mmhg": 12.998883851048253,
+    "volume_drift_ml": 1.3642420526593924e-11,
+    "final_beat_max_volume_difference_ml": 0.03981873888540122
+  },
+  "tight": {
+    "heart_rate_bpm": 75.0,
+    "stroke_volume_ml": 102.65748931536339,
+    "cardiac_output_l_min": 7.699311698652247,
+    "cardiac_output_m3_s": 0.00012832186164420413,
+    "lv_edv_ml": 177.73482721377457,
+    "lv_esv_ml": 75.13490490240765,
+    "lv_ejection_fraction": 0.5772640282141358,
+    "systemic_systolic_pressure_mmhg": 163.00976445908833,
+    "systemic_diastolic_pressure_mmhg": 104.7027024631393,
+    "systemic_mean_pressure_mmhg": 133.49918354790887,
+    "pulmonary_mean_pressure_mmhg": 23.763094302979866,
+    "pulmonary_venous_mean_pressure_mmhg": 10.938102270336051,
+    "volume_drift_ml": 1.2732925824820995e-11,
+    "final_beat_max_volume_difference_ml": 0.00022133462564966067
+  },
+  "baseline_vs_tight_max_volume_difference_ml": 0.31525435259243295,
+  "total_initial_volume_ml": 5000.0,
+  "minimum_volume_ml": 47.202029908225946,
+  "minimum_valve_flow_ml_s": 0.0
+}

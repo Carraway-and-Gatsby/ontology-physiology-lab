@@ -1,0 +1,85 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_____________ test_invalid_solver_controls_are_rejected[options0] ______________
+
+options = {'cycles': True}
+
+    @pytest.mark.parametrize("options", [
+        {"cycles": True}, {"samples_per_cycle": 3}, {"rtol": 0.},
+        {"atol": 0.}, {"max_step": float("inf")},
+    ])
+    def test_invalid_solver_controls_are_rejected(options):
+        from physiosim.simulation import simulate
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:132: Failed
+_____________ test_invalid_solver_controls_are_rejected[options1] ______________
+
+options = {'samples_per_cycle': 3}
+
+    @pytest.mark.parametrize("options", [
+        {"cycles": True}, {"samples_per_cycle": 3}, {"rtol": 0.},
+        {"atol": 0.}, {"max_step": float("inf")},
+    ])
+    def test_invalid_solver_controls_are_rejected(options):
+        from physiosim.simulation import simulate
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:132: Failed
+_____________ test_invalid_solver_controls_are_rejected[options2] ______________
+
+options = {'rtol': 0.0}
+
+    @pytest.mark.parametrize("options", [
+        {"cycles": True}, {"samples_per_cycle": 3}, {"rtol": 0.},
+        {"atol": 0.}, {"max_step": float("inf")},
+    ])
+    def test_invalid_solver_controls_are_rejected(options):
+        from physiosim.simulation import simulate
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:132: Failed
+_____________ test_invalid_solver_controls_are_rejected[options3] ______________
+
+options = {'atol': 0.0}
+
+    @pytest.mark.parametrize("options", [
+        {"cycles": True}, {"samples_per_cycle": 3}, {"rtol": 0.},
+        {"atol": 0.}, {"max_step": float("inf")},
+    ])
+    def test_invalid_solver_controls_are_rejected(options):
+        from physiosim.simulation import simulate
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:132: Failed
+_____________ test_invalid_solver_controls_are_rejected[options4] ______________
+
+options = {'max_step': inf}
+
+    @pytest.mark.parametrize("options", [
+        {"cycles": True}, {"samples_per_cycle": 3}, {"rtol": 0.},
+        {"atol": 0.}, {"max_step": float("inf")},
+    ])
+    def test_invalid_solver_controls_are_rejected(options):
+        from physiosim.simulation import simulate
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cardiovascular.py:132: Failed
+=============================== warnings summary ===============================
+tests/test_cardiovascular.py::test_invalid_solver_controls_are_rejected[options2]
+  <repo>/.venv/lib/python3.11/site-packages/scipy/integrate/_ivp/rk.py:505: UserWarning: At least one element of `rtol` is too small. Setting `rtol = np.maximum(rtol, 2.220446049250313e-14)`.
+    super().__init__(fun, t0, y0, t_bound, max_step, rtol, atol,
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_cardiovascular.py::test_invalid_solver_controls_are_rejected[options0]
+FAILED tests/test_cardiovascular.py::test_invalid_solver_controls_are_rejected[options1]
+FAILED tests/test_cardiovascular.py::test_invalid_solver_controls_are_rejected[options2]
+FAILED tests/test_cardiovascular.py::test_invalid_solver_controls_are_rejected[options3]
+FAILED tests/test_cardiovascular.py::test_invalid_solver_controls_are_rejected[options4]
+5 failed, 16 deselected, 1 warning in 0.30s

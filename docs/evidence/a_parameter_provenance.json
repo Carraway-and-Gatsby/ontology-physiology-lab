@@ -1,0 +1,178 @@
+[
+  {
+    "parameter": "heart_rate",
+    "default": 75.0,
+    "unit": "beat/min",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "emin_lv",
+    "default": 0.06,
+    "unit": "mmHg/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "emax_lv",
+    "default": 2.5,
+    "unit": "mmHg/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "emin_rv",
+    "default": 0.03,
+    "unit": "mmHg/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "emax_rv",
+    "default": 0.8,
+    "unit": "mmHg/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "systolic_fraction",
+    "default": 0.4,
+    "unit": "1",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "compliance_sa",
+    "default": 1.5,
+    "unit": "mL/mmHg",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "compliance_sv",
+    "default": 100.0,
+    "unit": "mL/mmHg",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "compliance_pa",
+    "default": 5.0,
+    "unit": "mL/mmHg",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "compliance_pv",
+    "default": 20.0,
+    "unit": "mL/mmHg",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "resistance_aortic",
+    "default": 0.01,
+    "unit": "mmHg s/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "resistance_systemic",
+    "default": 1.0,
+    "unit": "mmHg s/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "resistance_tricuspid",
+    "default": 0.01,
+    "unit": "mmHg s/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "resistance_pulmonary_valve",
+    "default": 0.01,
+    "unit": "mmHg s/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "resistance_pulmonary",
+    "default": 0.1,
+    "unit": "mmHg s/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "resistance_mitral",
+    "default": 0.01,
+    "unit": "mmHg s/mL",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "unstressed_volumes",
+    "default": [
+      10.0,
+      700.0,
+      2500.0,
+      10.0,
+      100.0,
+      400.0
+    ],
+    "unit": "mL; order lv,sa,sv,rv,pa,pv",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  },
+  {
+    "parameter": "initial_volumes",
+    "default": [
+      140.0,
+      850.0,
+      3200.0,
+      140.0,
+      180.0,
+      490.0
+    ],
+    "unit": "mL; order lv,sa,sv,rv,pa,pv",
+    "provenance": "author-selected exploratory default",
+    "source_id": null,
+    "fitted": false,
+    "clinical_validation": false
+  }
+]

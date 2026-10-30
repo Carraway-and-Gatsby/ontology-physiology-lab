@@ -1,0 +1,73 @@
+Building wheel...
+running egg_info
+writing src/ontology_physiosim.egg-info/PKG-INFO
+writing dependency_links to src/ontology_physiosim.egg-info/dependency_links.txt
+writing entry points to src/ontology_physiosim.egg-info/entry_points.txt
+writing requirements to src/ontology_physiosim.egg-info/requires.txt
+writing top-level names to src/ontology_physiosim.egg-info/top_level.txt
+reading manifest file 'src/ontology_physiosim.egg-info/SOURCES.txt'
+writing manifest file 'src/ontology_physiosim.egg-info/SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+copying src/physiosim/ontology/__init__.py -> build/lib/physiosim/ontology
+running egg_info
+writing src/ontology_physiosim.egg-info/PKG-INFO
+writing dependency_links to src/ontology_physiosim.egg-info/dependency_links.txt
+writing entry points to src/ontology_physiosim.egg-info/entry_points.txt
+writing requirements to src/ontology_physiosim.egg-info/requires.txt
+writing top-level names to src/ontology_physiosim.egg-info/top_level.txt
+reading manifest file 'src/ontology_physiosim.egg-info/SOURCES.txt'
+writing manifest file 'src/ontology_physiosim.egg-info/SOURCES.txt'
+installing to build/bdist.macosx-11.0-arm64/wheel
+running install
+running install_lib
+creating build/bdist.macosx-11.0-arm64/wheel
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim/visualization
+copying build/lib/physiosim/visualization/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/visualization
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim/experiments
+copying build/lib/physiosim/experiments/runner.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/experiments
+copying build/lib/physiosim/experiments/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/experiments
+copying build/lib/physiosim/experiments/semantic_benchmark.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/experiments
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim/simulation
+copying build/lib/physiosim/simulation/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/simulation
+copying build/lib/physiosim/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim/models
+copying build/lib/physiosim/models/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/models
+copying build/lib/physiosim/models/cardiovascular.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/models
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim/ontology
+copying build/lib/physiosim/ontology/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/ontology
+copying build/lib/physiosim/ontology/bindings.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/ontology
+copying build/lib/physiosim/cli.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim
+copying build/lib/physiosim/__main__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim/interventions
+copying build/lib/physiosim/interventions/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/interventions
+creating build/bdist.macosx-11.0-arm64/wheel/physiosim/validation
+copying build/lib/physiosim/validation/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./physiosim/validation
+running install_egg_info
+Copying src/ontology_physiosim.egg-info to build/bdist.macosx-11.0-arm64/wheel/./ontology_physiosim-0.1.0-py3.11.egg-info
+running install_scripts
+creating build/bdist.macosx-11.0-arm64/wheel/ontology_physiosim-0.1.0.dist-info/WHEEL
+creating '<repo>/dist/.tmp-lmkpn8n5/ontology_physiosim-0.1.0-py3-none-any.whl' and adding 'build/bdist.macosx-11.0-arm64/wheel' to it
+adding 'physiosim/__init__.py'
+adding 'physiosim/__main__.py'
+adding 'physiosim/cli.py'
+adding 'physiosim/experiments/__init__.py'
+adding 'physiosim/experiments/runner.py'
+adding 'physiosim/experiments/semantic_benchmark.py'
+adding 'physiosim/interventions/__init__.py'
+adding 'physiosim/models/__init__.py'
+adding 'physiosim/models/cardiovascular.py'
+adding 'physiosim/ontology/__init__.py'
+adding 'physiosim/ontology/bindings.py'
+adding 'physiosim/simulation/__init__.py'
+adding 'physiosim/validation/__init__.py'
+adding 'physiosim/visualization/__init__.py'
+adding 'ontology_physiosim-0.1.0.dist-info/METADATA'
+adding 'ontology_physiosim-0.1.0.dist-info/WHEEL'
+adding 'ontology_physiosim-0.1.0.dist-info/entry_points.txt'
+adding 'ontology_physiosim-0.1.0.dist-info/top_level.txt'
+adding 'ontology_physiosim-0.1.0.dist-info/RECORD'
+removing build/bdist.macosx-11.0-arm64/wheel
+Successfully built dist/ontology_physiosim-0.1.0-py3-none-any.whl

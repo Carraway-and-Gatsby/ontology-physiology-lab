@@ -1,0 +1,65 @@
+..........................F..................................            [100%]
+=================================== FAILURES ===================================
+________ test_cli_executes_real_scenarios_exports_and_flags_transients _________
+
+tmp_path = PosixPath('<repo>/.pytest_tmp/test_cli_executes_real_scenari0')
+
+    def test_cli_executes_real_scenarios_exports_and_flags_transients(tmp_path):
+        import importlib.util
+        import json
+        import subprocess
+        import sys
+        import csv
+        import hashlib
+        from pathlib import Path
+        assert importlib.util.find_spec('physiosim.cli') is not None, 'Missing executable CLI'
+        config = {
+            'cycles': 2, 'samples_per_cycle': 40, 'rtol': 1e-9, 'atol': 1e-10,
+            'max_step_fraction': 0.005, 'periodicity_tolerance_ml': 0.1,
+        }
+        config_path = tmp_path / 'config.json'
+        config_path.write_text(json.dumps(config))
+        output = tmp_path / 'results'
+        completed = subprocess.run([sys.executable, '-m', 'physiosim', '--config', str(config_path),
+                                    '--output', str(output)], capture_output=True, text=True)
+        assert completed.returncode == 2, completed.stdout + completed.stderr
+        report = json.loads((output / 'summary.json').read_text())
+        assert report['experimental'] is True
+        assert report['all_periodic'] is False
+        assert set(report['scenarios']) == {'baseline', 'reduced_contractility', 'partial_contractility_restoration'}
+        for name, scenario in report['scenarios'].items():
+            assert scenario['metrics']['volume_drift_ml'] < 1e-6
+            assert scenario['status'] == 'transient_not_periodic'
+            with (output / (name + '.csv')).open() as stream:
+                rows = list(csv.DictReader(stream))
+            assert len(rows) == config['cycles'] * config['samples_per_cycle'] + 1
+            assert 'P_sa_mmhg' in rows[0]
+>           assert scenario['connected_CO_l_min'] == scenario['metrics']['cardiac_output_l_min']
+E           assert 3.7861617241428482 == 3.786161724142848
+
+tests/test_experiments.py:53: AssertionError
+=============================== warnings summary ===============================
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/serializers/trig.py:31: DeprecationWarning: Dataset.contexts is deprecated, use Dataset.graphs instead.
+    self.contexts = list(store.contexts())
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/serializers/trig.py:32: DeprecationWarning: Dataset.default_context is deprecated, use Dataset.default_graph instead.
+    self.default_context = store.default_context.identifier
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/serializers/trig.py:33: DeprecationWarning: Dataset.default_context is deprecated, use Dataset.default_graph instead.
+    if store.default_context:
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/graph.py:2508: DeprecationWarning: Dataset.default_context is deprecated, use Dataset.default_graph instead.
+    context = self.default_context
+
+tests/test_ontology.py::test_graph_preserves_provenance_without_asserting_ontology_entailments
+  <repo>/.venv/lib/python3.11/site-packages/rdflib/plugins/parsers/trig.py:155: DeprecationWarning: ConjunctiveGraph is deprecated, use Dataset instead.
+    conj_graph = ConjunctiveGraph(store=graph.store, identifier=graph.identifier)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_experiments.py::test_cli_executes_real_scenarios_exports_and_flags_transients
+1 failed, 60 passed, 5 warnings in 17.99s

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111251846-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-111251846-1');
+  </script>
+  <title>Pulse Physiology Engine</title>
+  <link rel="shortcut icon" href="bootstrap/favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- For Mobile Devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Loading Lato Font -->
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- Loading Font Awesome -->
+  <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+  <meta http-equiv="Content-Type" content="charset=UTF-8"/>
+  <meta name="generator" content="Doxygen 1.9.4"/>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="dynsections.js"></script>
+  <link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+  <link href="bootstrap/css/customdoxygen.css" rel="stylesheet">
+  <link href="bootstrap/css/slippry.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/doxy-boot.js"></script>
+  <script type="text/javascript" src="bootstrap/js/slippry.min.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery('#slippry-unreal').slippry()
+    });
+    jQuery(document).ready(function(){
+      jQuery('#slippry-unity').slippry()
+    });
+  </script>
+</head>
+<body screen_capture_injected="true">
+  <div class="kw-alert">
+    <div class="container">
+      <div class="kw-alert-text">
+      <table>
+      <tr>
+      <!--
+      <td>
+        <img src="Images/webinar.png" style="max-height: 50%; max-width: 50%;"/>
+      </td>
+      -->
+      <td>
+        What’s New in the Pulse Physiology Engine 4.4.0
+      </td></tr></table>
+      </div>
+      <div class="kw-alert-action">
+        <a href="https://www.kitware.com/webinars/whats-new-in-pulse/" target="_blank" class="btn btn-lg">Webinar</a>
+      </div>
+    </div>
+    <span class="kw-alert-close">&times;</span>
+  </div>
+  <!-- Wrap all page content here -->
+  <div id="wrap">
+    <!-- Fixed navbar -->
+    <div class="navbar" role="navigation">
+      <div class="topbar">
+        <div class="container">
+          <ul class="kw-menu">
+            <li><a href="https://www.kitware.com/" target="_blank">Kitware</a></li>
+            <li><a href="https://www.kitware.com/platforms/" target="_blank">Open Source</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src='Images/pulse_logo_512.png' /></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <!-- Left -->
+          <ul class="nav navbar-nav adjust-right">
+            <li><a href="_about_pulse.html">About</a></li>
+            <li><a href="pulse-in-action.html">Pulse in Action</a></li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="published.html">Publications</a></li>
+                <li><a href="_docs.html">Documentation</a></li>
+                <li><a href="https://www.kitware.com/tag/pulse/" target="_blank">Blog</a></li>
+                <li><a href="https://discourse.kitware.com/c/pulse-physiology-engine" target="_blank">Forums</a></li>
+                <li><a href="https://gitlab.kitware.com/physiology/engine/-/wikis/home" target="_blank">Wiki</a></li>
+                <li><a href="news.html">Newsletter</a></li>
+              </ul>
+            </li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Methodology<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="_anesthesia_machine_methodology.html">Anesthesia Machine</a></li>
+                <li><a href="_blood_chemistry_methodology.html">Blood Chemistry</a></li>
+                <li><a href="_bag_valve_mask_methodology.html">Bag Valve Mask</a></li>
+                <li><a href="_cardiovascular_methodology.html">Cardiovascular</a></li>
+                <li><a href="_circuit_methodology.html">Circuit</a></li>
+                <li><a href="_drugs_methodology.html">Drugs</a></li>
+                <li><a href="_endocrine_methodology.html">Endocrine</a></li>
+                <li><a href="_energy_methodology.html">Energy</a></li>
+                <li><a href="_environment_methodology.html">Environment</a></li>
+                <li><a href="_extracorporeal_membrane_oxygenation_methodology.html">Extracorporeal Membrane Oxygenation</a></li>
+                <li><a href="_gastrointestinal_methodology.html">Gastrointestinal</a></li>
+                <li><a href="_inhaler_methodology.html">Inhaler</a></li>
+                <li><a href="_mechanical_ventilator_methodology.html">Mechancial Ventilator</a></li>
+                <li><a href="_nervous_methodology.html">Nervous</a></li>
+                <li><a href="_patient_methodology.html">Patient</a></li>
+                <li><a href="_renal_methodology.html">Renal</a></li>
+                <li><a href="_respiratory_methodology.html">Respiratory</a></li>
+                <li><a href="_substance_transport_methodology.html">Substance Transport</a></li>
+                <li><a href="_system_methodology.html">System</a></li>
+                <li><a href="_tissue_methodology.html">Tissue</a></li>
+              </ul>
+            </li>
+            <li><a href="index.html#downloads">Downloads</a></li>
+            <li><a href="https://kitware.com/contact-us" target="_blank">Contact Kitware</a></li>
+            <li class="support-link"><a href="support.html">Pulse Support</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <script>
+      (function() {
+      var cx = '016064990144358497655:wevtar8xwty';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+    <div class="google-cse hide">
+      <div class="container">
+        <gcse:search></gcse:search>
+      </div>
+    </div>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <!-- This is where the header.html file ends and index.html begins -->
+    <!-- Set up the centering panel -->
+    <div class="content" id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 panel panel-default" style="padding-bottom: 15px;">
+                <div style="margin-bottom: 15px;">
+<!-- Generated by Doxygen 1.9.4 -->
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">About Pulse </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p ><a class="anchor" id="md_About"></a></p>
+<p >The Pulse Physiology Engine can be used as a standalone application or integrated with simulators, sensor interfaces, and models of all fidelities. The platform includes a common data model for standard model and data definitions, a software interface for engine control, robust physics-based circuit and transport solvers, and a verification and validation suite. The architecture was specifically designed to reduce model development time and increase the usability of the engine in simulations by creating a modular, extensible definition for human physiology.</p>
+<p >Pulse provides the following benefits to its user community:</p>
+<ul>
+<li><b>Sound underlying physics:</b> Clear, accurate, precise first principles conservation equations.</li>
+<li><b>Standardized data model:</b> Easily understandable, widely usable ontologies and software interfaces.</li>
+<li><b>Extensible:</b> Reusable, repeatable implementation to allow the addition of new capabilities and functionality.</li>
+<li><b>Modular:</b> Interdependent, hierarchical models for varying fidelity and complexity.</li>
+<li><b>Interoperable:</b> Seamless integration with various simulators, sensors, and software platforms, with easy cross-platform deployment on all standard operating systems (Windows, Mac, Linux, and ARM) and multiple languages (C++, C#, Java, Unity).</li>
+<li><b>Credible:</b> Computational models transparently derived from evidence-based literature, analyzed with extensive verification and validation tools, ensuring reliable performance.</li>
+<li><b>Thorough documentation:</b> In-depth, referenced descriptions of physiology methodology and software design.</li>
+<li><b>Open:</b> Public repository managed by an experienced Kitware team with a permissible Apache 2.0 license, allowing users complete control without dependency on proprietary vendors, and facilitating multicenter and multidisciplinary collaborative development.</li>
+<li><b>Economical:</b> Cost-sharing model supported by contributions from government and private entities, reducing financial barriers for users.</li>
+<li><b>Sustained support:</b> Continuity through active maintenance, responsive technical support, and continued development by an experienced Kitware team.</li>
+</ul>
+<p >Pulse is comprised of numerical models representing the different body systems, feedback mechanisms and interactions between the systems, PK/PD, and medical equipment. The major systems are modeled using zero-dimensional lumped-parameter circuit analogs (e.g., the cardiovascular circuit) with homeostatic feedback. The differential equations contained in each system are calculated through transient analysis with a shared dynamic time step. The numerical models currently execute with a time step of 20 ms, which can be reduced, as necessary, to ensure all physiology features of interest are captured, while maintaining real-time execution for the simulation.</p>
+<p >Pulse has been developed through a combination of funding by many different government and private entities, and is a significantly improved and extended fork from the DoD-funded BioGears program. The Pulse repository is maintained by the Kitware team that includes the original core BioGears creators (see the <a href="_f_a_q.html">FAQ</a>).</p>
+<p >Pulse has recently been incorporated into a number of commercial, research, and academic tools for medical simulation (see <a href="pulse-in-action.html">Pulse in action</a>)</p>
+<hr  />
+<h4><a class="anchor" id="autotoc_md1"></a>
+Systems and Methodology Reports</h4>
+<p >Each system, device, and solver has a methodology report describing its models, assumptions, and validation:</p>
+<ul>
+<li><a class="el" href="_patient_methodology.html">Patient Methodology</a></li>
+<li><a class="el" href="_system_methodology.html">System Methodology</a></li>
+</ul>
+<p >Organ Systems:</p><ul>
+<li><a class="el" href="_cardiovascular_methodology.html">Cardiovascular Methodology</a></li>
+<li><a class="el" href="_endocrine_methodology.html">Endocrine Methodology</a></li>
+<li><a class="el" href="_gastrointestinal_methodology.html">Gastrointestinal Methodology</a></li>
+<li><a class="el" href="_nervous_methodology.html">Nervous Methodology</a></li>
+<li><a class="el" href="_renal_methodology.html">Renal Methodology</a></li>
+<li><a class="el" href="_respiratory_methodology.html">Respiratory Methodology</a></li>
+<li><a class="el" href="_tissue_methodology.html">Tissue Methodology</a></li>
+</ul>
+<p >Functional Systems:</p><ul>
+<li><a class="el" href="_blood_chemistry_methodology.html">Blood Chemistry Methodology</a></li>
+<li><a class="el" href="_drugs_methodology.html">Drugs Methodology</a></li>
+<li><a class="el" href="_energy_methodology.html">Energy Methodology</a></li>
+<li><a class="el" href="_environment_methodology.html">Environment Methodology</a></li>
+</ul>
+<p >Devices:</p><ul>
+<li><a class="el" href="_anesthesia_machine_methodology.html">Anesthesia Machine Methodology</a></li>
+<li><a class="el" href="_bag_valve_mask_methodology.html">Bag Valve Mask Methodology</a></li>
+<li><a class="el" href="_extracorporeal_membrane_oxygenation_methodology.html">Extracorporeal Membrane Oxygenation Methodology</a></li>
+<li><a class="el" href="_inhaler_methodology.html">Inhaler Methodology</a></li>
+<li><a class="el" href="_mechanical_ventilator_methodology.html">Mechanical Ventilator Methodology</a></li>
+<li>Electrocardiogram (ECG) Methodology (see <a class="el" href="_cardiovascular_methodology.html">Cardiovascular Methodology</a>)</li>
+<li>Supplemental Oxygen Methodology (see <a class="el" href="_respiratory_methodology.html">Respiratory Methodology</a>)</li>
+</ul>
+<p >Foundation:</p><ul>
+<li><a class="el" href="_circuit_methodology.html">Circuit Methodology</a></li>
+<li><a class="el" href="_substance_transport_methodology.html">Substance Transport Methodology</a></li>
+</ul>
+<hr  />
+<h4><a class="anchor" id="autotoc_md3"></a>
+Validation Methodology</h4>
+<p >Models are validated using a combination of peer-reviewed publications and subject matter expertise. The validation process includes:</p>
+<ul>
+<li>Defining key parameters for system validation</li>
+<li>Performing literature reviews to gather published data in the form of waveforms, and max, min, and mean values</li>
+<li>Using custom developed tools to compare data, perform analysis, and generate plots and tables of results</li>
+</ul>
+<p >We validate each system at a compartment level (pressure, flow, volume, temperature, etc.). We also validate each action for a variety of system level parameters (heart rate, respiratory rate, tidal volume, blood pressure, etc.). We provide reports for each system in our <a href="_system_methodology.html">Methodology documentation.</a></p>
+<p >Below is a summary of our system and compartment level validation.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Key    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="success"> Good agreement: correct trends, generally &lt;10% deviation from expected </span>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="warning"> Fair agreement / Some deviation: correct trend, generally &lt;30% deviation from expected </span>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="danger"> Poor agreement: incorrect trends, generally &gt;30% deviation from expected </span>   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md4"></a>
+Standard Male Validation Summary</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Category   </th><th class="markdownTableHeadCenter">Good   </th><th class="markdownTableHeadCenter">Fair   </th><th class="markdownTableHeadCenter">Bad   </th><th class="markdownTableHeadCenter">Not Validated   </th><th class="markdownTableHeadCenter">Total    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Patient   </td><td class="markdownTableBodyCenter"><span class="success">15</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">15    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">BloodChemistry   </td><td class="markdownTableBodyCenter"><span class="success">48</span>   </td><td class="markdownTableBodyCenter"><span class="warning">3</span>   </td><td class="markdownTableBodyCenter"><span class="danger">1</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">52    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">ArterialBloodGasTest   </td><td class="markdownTableBodyCenter"><span class="success">5</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">5    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">CompleteBloodCount   </td><td class="markdownTableBodyCenter"><span class="success">8</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">8    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CompleteMetabolicPanel   </td><td class="markdownTableBodyCenter"><span class="success">8</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">8    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Cardiovascular   </td><td class="markdownTableBodyCenter"><span class="success">27</span>   </td><td class="markdownTableBodyCenter"><span class="warning">2</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">29    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CardiovascularCompartments   </td><td class="markdownTableBodyCenter"><span class="success">71</span>   </td><td class="markdownTableBodyCenter"><span class="warning">2</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">73    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Endocrine   </td><td class="markdownTableBodyCenter"><span class="success">1</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Energy   </td><td class="markdownTableBodyCenter"><span class="success">7</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">7    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Gastrointestinal   </td><td class="markdownTableBodyCenter"><span class="success">1</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Renal   </td><td class="markdownTableBodyCenter"><span class="success">23</span>   </td><td class="markdownTableBodyCenter"><span class="warning">17</span>   </td><td class="markdownTableBodyCenter"><span class="danger">4</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">44    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">RenalCompartments   </td><td class="markdownTableBodyCenter"><span class="success">33</span>   </td><td class="markdownTableBodyCenter"><span class="warning">9</span>   </td><td class="markdownTableBodyCenter"><span class="danger">7</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">49    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">RenalSubstances   </td><td class="markdownTableBodyCenter"><span class="success">12</span>   </td><td class="markdownTableBodyCenter"><span class="warning">14</span>   </td><td class="markdownTableBodyCenter"><span class="danger">10</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">36    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Urinalysis   </td><td class="markdownTableBodyCenter"><span class="success">5</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">1</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">6    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Respiratory   </td><td class="markdownTableBodyCenter"><span class="success">44</span>   </td><td class="markdownTableBodyCenter"><span class="warning">8</span>   </td><td class="markdownTableBodyCenter"><span class="danger">5</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">57    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">RespiratoryCompartments   </td><td class="markdownTableBodyCenter"><span class="success">38</span>   </td><td class="markdownTableBodyCenter"><span class="warning">1</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">39    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Tissue   </td><td class="markdownTableBodyCenter"><span class="success">8</span>   </td><td class="markdownTableBodyCenter"><span class="warning">2</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">10    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">TissueCompartments   </td><td class="markdownTableBodyCenter"><span class="success">39</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">39    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter"><b>Totals</b>   </td><td class="markdownTableBodyCenter"><span class="success"><b>393</b></span>   </td><td class="markdownTableBodyCenter"><span class="warning"><b>58</b></span>   </td><td class="markdownTableBodyCenter"><span class="danger"><b>28</b></span>   </td><td class="markdownTableBodyCenter"><b>0</b>   </td><td class="markdownTableBodyCenter"><b>479</b>   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md5"></a>
+Standard Female Validation Summary</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Category   </th><th class="markdownTableHeadCenter">Good   </th><th class="markdownTableHeadCenter">Fair   </th><th class="markdownTableHeadCenter">Bad   </th><th class="markdownTableHeadCenter">Not Validated   </th><th class="markdownTableHeadCenter">Total    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Patient   </td><td class="markdownTableBodyCenter"><span class="success">15</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">15    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">BloodChemistry   </td><td class="markdownTableBodyCenter"><span class="success">49</span>   </td><td class="markdownTableBodyCenter"><span class="warning">1</span>   </td><td class="markdownTableBodyCenter"><span class="danger">2</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">52    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">ArterialBloodGasTest   </td><td class="markdownTableBodyCenter"><span class="success">5</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">5    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">CompleteBloodCount   </td><td class="markdownTableBodyCenter"><span class="success">8</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">8    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CompleteMetabolicPanel   </td><td class="markdownTableBodyCenter"><span class="success">7</span>   </td><td class="markdownTableBodyCenter"><span class="warning">1</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">8    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Cardiovascular   </td><td class="markdownTableBodyCenter"><span class="success">27</span>   </td><td class="markdownTableBodyCenter"><span class="warning">2</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">29    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CardiovascularCompartments   </td><td class="markdownTableBodyCenter"><span class="success">69</span>   </td><td class="markdownTableBodyCenter"><span class="warning">4</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">73    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Endocrine   </td><td class="markdownTableBodyCenter"><span class="success">1</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Energy   </td><td class="markdownTableBodyCenter"><span class="success">7</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">7    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Gastrointestinal   </td><td class="markdownTableBodyCenter"><span class="success">1</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Renal   </td><td class="markdownTableBodyCenter"><span class="success">21</span>   </td><td class="markdownTableBodyCenter"><span class="warning">11</span>   </td><td class="markdownTableBodyCenter"><span class="danger">12</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">44    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">RenalCompartments   </td><td class="markdownTableBodyCenter"><span class="success">28</span>   </td><td class="markdownTableBodyCenter"><span class="warning">11</span>   </td><td class="markdownTableBodyCenter"><span class="danger">10</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">49    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">RenalSubstances   </td><td class="markdownTableBodyCenter"><span class="success">11</span>   </td><td class="markdownTableBodyCenter"><span class="warning">6</span>   </td><td class="markdownTableBodyCenter"><span class="danger">19</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">36    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Urinalysis   </td><td class="markdownTableBodyCenter"><span class="success">6</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">6    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Respiratory   </td><td class="markdownTableBodyCenter"><span class="success">41</span>   </td><td class="markdownTableBodyCenter"><span class="warning">8</span>   </td><td class="markdownTableBodyCenter"><span class="danger">8</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">57    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">RespiratoryCompartments   </td><td class="markdownTableBodyCenter"><span class="success">36</span>   </td><td class="markdownTableBodyCenter"><span class="warning">3</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">39    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Tissue   </td><td class="markdownTableBodyCenter"><span class="success">7</span>   </td><td class="markdownTableBodyCenter"><span class="warning">1</span>   </td><td class="markdownTableBodyCenter"><span class="danger">2</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">10    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">TissueCompartments   </td><td class="markdownTableBodyCenter"><span class="success">39</span>   </td><td class="markdownTableBodyCenter"><span class="warning">0</span>   </td><td class="markdownTableBodyCenter"><span class="danger">0</span>   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">39    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter"><b>Totals</b>   </td><td class="markdownTableBodyCenter"><span class="success"><b>378</b></span>   </td><td class="markdownTableBodyCenter"><span class="warning"><b>48</b></span>   </td><td class="markdownTableBodyCenter"><span class="danger"><b>53</b></span>   </td><td class="markdownTableBodyCenter"><b>0</b>   </td><td class="markdownTableBodyCenter"><b>479</b>   </td></tr>
+</table>
+<hr  />
+<div class="container"> <div class="row"> <h3>What can I do with the physiology engine?</h3>
+</div></div><div class="container"><div class="row"> <div class="row-content"> <div class="patient-actions"> <div class="action col-sm-4"> <div class="action-content"> Define patient parameters, such as height, weight, systolic and diastolic pressure. </div> </div> <div class="action col-sm-4"> <div class="action-content"> Simulate specific chronic and/or disease states via conditions. </div> </div> <div class="action col-sm-4"> <div class="action-content"> Modify external environmental conditions (weather, submerge in water, etc.) </div> </div> <div class="action col-sm-4"> <div class="action-content"> Apply various actions (acute insults/injuries, interventions, conscious breathing, exercise, etc.) to the patient. </div> </div> <div class="action col-sm-4"> <div class="action-content"> Have patient interact with equipment models, such as an Anesthesia and/or an ECG Machine as well as an Inhaler via actions. </div> </div> <div class="action col-sm-4"> <div class="action-content"> Integrate the engine into your applications. </div> </div> </div> </div> </div> <div class="row"> <div class="row-content"> <h4>Available data is defined within the engine in three major ways:</h4>
+</div></div></div><div class="container"><div class="row"><div class="row-content"> <ol class="data-definitions row">
+<li class="definition col-sm-4">
+<span> System data (Cardiovascular, Respiratory, etc.) that is analogous to system vitals <span class="examples"><b>Examples:</b> heart rate, oxygen consumption, mean arterial pressure, etc.</span> </span>  </li>
+<li class="definition col-sm-4">
+<span> Compartment data <ul>
+<li>
+Flow, pressure, and volume related to specific region of the body or component of equipment <span class="examples"><b>Examples:</b> Cerebral Blood Flow, Right Lung Volume, Right Heart Pressure</span>  </li>
+<li>
+Substance specific data related to a specific part of the body or component of equipment <span class="examples"><b>Examples:</b> The Extracellular concentration of succinylcholine in the brain tissue, anesthesia machine gas inlet oxygen volume fraction</span>  </li>
+</ul>
+</span>  </li>
+<li class="definition col-sm-4">
+<span> Assessments formed at the level of a clinician's report, Intended to mimic test results <span class="examples"><b>Examples:</b> Complete Blood Count</span> </span>  </li>
+</ol>
+</div> </div> </div> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- Close out the paneling -->
+</div>
+</div>
+</div>
+</div>
+<!-- This is where the body of the pages ends and footer.html begins -->
+</div>
+<!-- END #top -->
+</div>
+<!-- END #wrap -->
+<section class="license">
+<div class="container">
+<p>Distributed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.</p>
+<p class="sub">See accompanying <a href="https://gitlab.kitware.com/physiology/engine/blob/master/NOTICE" target="_blank">NOTICE</a> file for details.</p>
+</div>
+</section>
+<div id="footer">
+<div class="container">
+<div class='row text-muted'>
+  <div class='footer-row col-md-6' align="left">Copyright &copy; 2017-2026 <a href='https://www.kitware.com/' target="_blank">Kitware Inc.</a> All Rights Reserved.
+  <br>Generated 2026-10-27 - 5e29e5b13
+  </div>
+  <div class='footer-row col-md-6' align="right">
+    <a href='https://www.kitware.com/what-we-offer/' target="_blank">What We Do</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='https://www.kitware.com/platforms/' target="_blank">Open Source</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='https://www.kitware.com/privacy/' target="_blank">Privacy Notice</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='https://www.kitware.com/contact-us/' target="_blank">Contact</a>
+  </div>
+</div>
+</div>
+</div>
+<script>
+$(function(){
+$('.cse-search').change(function(){
+  $('.adjust-right li.active').focus();
+});
+$('.cse-search').on('click', function(){
+  if($(this).hasClass('active')){
+    $(this).removeClass('active');
+    $('.google-cse').slideUp();
+  } else {
+    $(this).addClass('active');
+    $('.google-cse').hide().removeClass('hide').slideDown();
+  }
+});
+});
+</script>
+</body>
+</html>

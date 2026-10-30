@@ -1,0 +1,40 @@
+{
+  "python": "3.11.15 [build details redacted]",
+  "platform": "[redacted: OS version]",
+  "dependencies": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2",
+    "rdflib": "7.6.0",
+    "pint": "0.25.3"
+  },
+  "source_sha256": {
+    "__init__.py": "bc3caf6e971a0e7b2d375e17a8924697b36d9502fce77ccd57a74d57f8c1bb8f",
+    "__main__.py": "3b6c7736854ae82aaf36901f679e794421a4eb3e8cf23c51e14ce789e7189738",
+    "cli.py": "e8e211bae43455d04e7f09b08c98e88e235de2b6f39ea35ac4d527234ad22c0c",
+    "experiments/__init__.py": "951fe30d6c322aabafee32c25750d9523096781f550842fc6617fe4aae844ff2",
+    "experiments/runner.py": "97c05606d19df74912e4d54b8fa668f9b9700ec62b4aff6d6397901278a93f82",
+    "experiments/semantic_benchmark.py": "6c74fe9796f29de31f3d14599119d68f1e1cb33f0da880526f2dc3ccbe4d6732",
+    "interventions/__init__.py": "f05c65e61db9189c05b5c9f262685dc44f14be576dc20d51fd24783ffdd9d1e9",
+    "models/__init__.py": "071932dd03fee288974988ad7990b6834b658faaedc19ed2c386fc4f291791ce",
+    "models/cardiovascular.py": "41be222561d553b93510448630c091c642f999b5be8f01ba65160f3a10ec3492",
+    "ontology/__init__.py": "7b470c00e3e9b0ed4f1aee1bc7cf705cc91987d092f7e45457236ec17f9837fd",
+    "ontology/bindings.py": "b5b0a5a58e6ac832a6241ccfb8ed13031a0685341859fa60422c7278e98010e0",
+    "simulation/__init__.py": "0fc8b0d65758eb562ac6463e040e3bfc1ca8d3761abdbd785f4f0c5c145a7543",
+    "validation/__init__.py": "4c3b96c1e1179eb7a187fd6239ee5a0b6253472b7d024be7a8785dfe62ebfd68",
+    "visualization/__init__.py": "b1edc090d08e6dbdbd58c28a5226ceb482bd05e376f9642782a6ff21f6993440"
+  },
+  "config_sha256": "d32ec29b0f8e3c451d8910cd8d0c4f32024e8e567b45a42da52a07954e348599",
+  "output_sha256": {
+    "summary.json": "f122a7a2146b4a265414d0d54c1a07fae47fc614a329834dd33d7740317d7a92",
+    "semantic_benchmark.json": "042e22bfb087cc7c340e0a0b232d68360900e799dd00a230a041aaf6fe936fcf",
+    "variables.json": "9ba1a04ece70f66538bd52d93e0fd2d9fb0cceaec2d57e722ee6438973fd3da6",
+    "annotations.trig": "b77597587146ce78866485b500ec38046ca9ecef2b13a6961cd8bef0002728d9",
+    "comparison.png": "1a3611e78c26e4ded1409978fd2585c2bdecd4e0831da3c58d307a49acd1ed88",
+    "transients.png": "67d5c3ba09ebb0010cdc8236aaabc2afd99ebaa0d820185efa5dee205c5e988c",
+    "index.html": "cc18cf60611d61e3dc336b21932237732c337651b734133b0ab0f743549a358b",
+    "baseline.csv": "1820f3a341d41423870c7f577e6e3cb458d736b32a39652d074537db1b455a5f",
+    "reduced_contractility.csv": "9e0622fce8a6ae5a9cd20497162a9148c4a75d518ef2da1c7f2aa581d5b6f23d",
+    "partial_contractility_restoration.csv": "82f472961c355879ce5a84d3e3fe264f9e42b3da842209784b4b9a65abd1cf6f"
+  }
+}

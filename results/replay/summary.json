@@ -1,0 +1,232 @@
+{
+  "experimental": true,
+  "clinical_validity": "not established",
+  "baseline_interpretation": "Exploratory elevated-pressure reference; not a normal healthy adult",
+  "scenario_design": "Independent runs from identical initial volumes; changes applied at simulation time zero",
+  "config": {
+    "cycles": 60,
+    "samples_per_cycle": 400,
+    "rtol": 1e-09,
+    "atol": 1e-10,
+    "max_step_fraction": 0.005,
+    "periodicity_tolerance_ml": 0.1
+  },
+  "solver": "DOP853",
+  "all_periodic": true,
+  "periodicity_definition": "maximum absolute six-volume difference between last two sampled beat waveforms",
+  "scenarios": {
+    "baseline": {
+      "parameters": {
+        "heart_rate": 75.0,
+        "emin_lv": 0.06,
+        "emax_lv": 2.5,
+        "emin_rv": 0.03,
+        "emax_rv": 0.8,
+        "systolic_fraction": 0.4,
+        "compliance_sa": 1.5,
+        "compliance_sv": 100.0,
+        "compliance_pa": 5.0,
+        "compliance_pv": 20.0,
+        "resistance_aortic": 0.01,
+        "resistance_systemic": 1.0,
+        "resistance_tricuspid": 0.01,
+        "resistance_pulmonary_valve": 0.01,
+        "resistance_pulmonary": 0.1,
+        "resistance_mitral": 0.01,
+        "unstressed_volumes": [
+          10.0,
+          700.0,
+          2500.0,
+          10.0,
+          100.0,
+          400.0
+        ],
+        "initial_volumes": [
+          140.0,
+          850.0,
+          3200.0,
+          140.0,
+          180.0,
+          490.0
+        ]
+      },
+      "changes": [],
+      "metrics": {
+        "heart_rate_bpm": 75.0,
+        "stroke_volume_ml": 102.65751198454987,
+        "cardiac_output_l_min": 7.699313398841268,
+        "cardiac_output_m3_s": 0.00012832188998068779,
+        "lv_edv_ml": 177.73485172537997,
+        "lv_esv_ml": 75.13491056135032,
+        "lv_ejection_fraction": 0.57726405467487,
+        "systemic_systolic_pressure_mmhg": 163.00977619235437,
+        "systemic_diastolic_pressure_mmhg": 104.70270100399655,
+        "systemic_mean_pressure_mmhg": 133.49919202970068,
+        "pulmonary_mean_pressure_mmhg": 23.76309372242614,
+        "pulmonary_venous_mean_pressure_mmhg": 10.938102139247901,
+        "volume_drift_ml": 1.546140993013978e-11,
+        "final_beat_max_volume_difference_ml": 2.2905086780156125e-05
+      },
+      "audit": {
+        "volume_drift_ml": 1.546140993013978e-11,
+        "volume_tolerance_ml": 1e-06
+      },
+      "connected_CO_l_min": 7.699313398841267,
+      "status": "periodic_within_declared_gate"
+    },
+    "reduced_contractility": {
+      "parameters": {
+        "heart_rate": 75.0,
+        "emin_lv": 0.06,
+        "emax_lv": 1.25,
+        "emin_rv": 0.03,
+        "emax_rv": 0.8,
+        "systolic_fraction": 0.4,
+        "compliance_sa": 1.5,
+        "compliance_sv": 100.0,
+        "compliance_pa": 5.0,
+        "compliance_pv": 20.0,
+        "resistance_aortic": 0.01,
+        "resistance_systemic": 1.0,
+        "resistance_tricuspid": 0.01,
+        "resistance_pulmonary_valve": 0.01,
+        "resistance_pulmonary": 0.1,
+        "resistance_mitral": 0.01,
+        "unstressed_volumes": [
+          10.0,
+          700.0,
+          2500.0,
+          10.0,
+          100.0,
+          400.0
+        ],
+        "initial_volumes": [
+          140.0,
+          850.0,
+          3200.0,
+          140.0,
+          180.0,
+          490.0
+        ]
+      },
+      "changes": [
+        {
+          "name": "Reduced LV contractility",
+          "target": "emax_lv",
+          "factor": 0.5,
+          "mechanism": "Maximum LV systolic elastance",
+          "rationale": "Exploratory isolated contractility impairment; not a clinical heart-failure diagnosis",
+          "limitations": "Exploratory parameter change; not a drug-dose or clinical outcome prediction.",
+          "before": 2.5,
+          "after": 1.25,
+          "time_s": 0
+        }
+      ],
+      "metrics": {
+        "heart_rate_bpm": 75.0,
+        "stroke_volume_ml": 89.32464668175137,
+        "cardiac_output_l_min": 6.699348501131377,
+        "cardiac_output_m3_s": 0.0001116558083521896,
+        "lv_edv_ml": 214.0823293599992,
+        "lv_esv_ml": 124.70492862960826,
+        "lv_ejection_fraction": 0.41749078963025754,
+        "systemic_systolic_pressure_mmhg": 142.82899395888822,
+        "systemic_diastolic_pressure_mmhg": 91.42413034475422,
+        "systemic_mean_pressure_mmhg": 116.43359848386868,
+        "pulmonary_mean_pressure_mmhg": 24.17095161514612,
+        "pulmonary_venous_mean_pressure_mmhg": 12.998776337882521,
+        "volume_drift_ml": 2.3646862246096134e-11,
+        "final_beat_max_volume_difference_ml": 9.568865209530486e-06
+      },
+      "audit": {
+        "volume_drift_ml": 2.3646862246096134e-11,
+        "volume_tolerance_ml": 1e-06
+      },
+      "connected_CO_l_min": 6.699348501131376,
+      "status": "periodic_within_declared_gate"
+    },
+    "partial_contractility_restoration": {
+      "parameters": {
+        "heart_rate": 75.0,
+        "emin_lv": 0.06,
+        "emax_lv": 1.875,
+        "emin_rv": 0.03,
+        "emax_rv": 0.8,
+        "systolic_fraction": 0.4,
+        "compliance_sa": 1.5,
+        "compliance_sv": 100.0,
+        "compliance_pa": 5.0,
+        "compliance_pv": 20.0,
+        "resistance_aortic": 0.01,
+        "resistance_systemic": 1.0,
+        "resistance_tricuspid": 0.01,
+        "resistance_pulmonary_valve": 0.01,
+        "resistance_pulmonary": 0.1,
+        "resistance_mitral": 0.01,
+        "unstressed_volumes": [
+          10.0,
+          700.0,
+          2500.0,
+          10.0,
+          100.0,
+          400.0
+        ],
+        "initial_volumes": [
+          140.0,
+          850.0,
+          3200.0,
+          140.0,
+          180.0,
+          490.0
+        ]
+      },
+      "changes": [
+        {
+          "name": "Reduced LV contractility",
+          "target": "emax_lv",
+          "factor": 0.5,
+          "mechanism": "Maximum LV systolic elastance",
+          "rationale": "Exploratory isolated contractility impairment; not a clinical heart-failure diagnosis",
+          "limitations": "Exploratory parameter change; not a drug-dose or clinical outcome prediction.",
+          "before": 2.5,
+          "after": 1.25,
+          "time_s": 0
+        },
+        {
+          "name": "Partial contractility restoration",
+          "target": "emax_lv",
+          "factor": 1.5,
+          "mechanism": "Maximum LV systolic elastance",
+          "rationale": "Illustrative increase relative to impaired parameter; independent run, not a timed drug treatment",
+          "limitations": "Exploratory parameter change; not a drug-dose or clinical outcome prediction.",
+          "before": 1.25,
+          "after": 1.875,
+          "time_s": 0
+        }
+      ],
+      "metrics": {
+        "heart_rate_bpm": 75.0,
+        "stroke_volume_ml": 97.7463072345066,
+        "cardiac_output_l_min": 7.33097304258802,
+        "cardiac_output_m3_s": 0.00012218288404313368,
+        "lv_edv_ml": 190.91920833449768,
+        "lv_esv_ml": 93.13592382843385,
+        "lv_ejection_fraction": 0.512171013902089,
+        "systemic_systolic_pressure_mmhg": 155.73361473909677,
+        "systemic_diastolic_pressure_mmhg": 99.85324232394373,
+        "systemic_mean_pressure_mmhg": 127.28245082208977,
+        "pulmonary_mean_pressure_mmhg": 23.908034103067326,
+        "pulmonary_venous_mean_pressure_mmhg": 11.685124536522242,
+        "volume_drift_ml": 3.183231456205249e-11,
+        "final_beat_max_volume_difference_ml": 9.263523878644264e-06
+      },
+      "audit": {
+        "volume_drift_ml": 3.183231456205249e-11,
+        "volume_tolerance_ml": 1e-06
+      },
+      "connected_CO_l_min": 7.33097304258802,
+      "status": "periodic_within_declared_gate"
+    }
+  },
+  "annotated_variable_count": 34
+}

@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_incidence_oracle_matches_seeded_states_and_rejects_conserving_wrong_topology _
+
+    def test_incidence_oracle_matches_seeded_states_and_rejects_conserving_wrong_topology():
+>       o = oracle()
+            ^^^^^^^^
+
+tests/test_independent_verification.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def oracle():
+        path = Path(__file__).resolve().parents[1] / 'docs/evidence/c_verify_run.py'
+>       assert path.exists(), 'independent numerical evidence generator must exist'
+E       AssertionError: independent numerical evidence generator must exist
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('<repo>/docs/evidence/c_verify_run.py').exists
+
+tests/test_independent_verification.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_independent_verification.py::test_incidence_oracle_matches_seeded_states_and_rejects_conserving_wrong_topology
+1 failed in 0.23s

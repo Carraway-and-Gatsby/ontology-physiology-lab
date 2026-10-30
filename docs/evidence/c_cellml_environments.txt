@@ -1,0 +1,5 @@
+[omitted from the public repository: third-party content without a redistribution licence]
+source: https://www.cellml.org/tools/modeling-environments
+retrieved: 2026-10-30T14:44:22.316967+00:00
+original sha256: be6459ba3dd7483a213b9f58d2381789597891299362f6ab21faf0f13f101963
+original size: 27667
