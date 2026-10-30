@@ -1,5 +1,7 @@
 .venv/
 .clean-venv/
+.ci-venv/
+.ci-artifacts/
 __pycache__/
 *.py[cod]
 .pytest_cache/
