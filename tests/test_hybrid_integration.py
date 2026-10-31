@@ -110,3 +110,29 @@ def test_output_sampling_does_not_change_the_trajectory():
     np.testing.assert_array_equal(coarse.time, dense.time[::2])
     np.testing.assert_array_equal(coarse.volumes, dense.volumes[::2])
     np.testing.assert_array_equal(coarse.cumulative_flows, dense.cumulative_flows[::2])
+
+
+@pytest.mark.parametrize('ventricle,edge', [('lv', 0), ('rv', 3)])
+@pytest.mark.parametrize('peak_fraction', [0.8, 0.95, 0.99])
+def test_large_step_does_not_skip_an_entire_valve_opening(ventricle, edge, peak_fraction):
+    p = model.Parameters()
+    # Nearly static vascular beds let the fixed closed-valve RHS take a long
+    # step. The pressure gap is negative at both systolic endpoints, but the
+    # ventricular pulse must still open the valve between them.
+    peak_pressure = (p.emax_lv * 130 if ventricle == 'lv' else p.emax_rv * 200)
+    arterial_pressure = peak_fraction * peak_pressure
+    p = replace(
+        p, resistance_systemic=1000., resistance_pulmonary=1000.,
+        emax_lv=p.emax_lv if ventricle == 'lv' else p.emin_lv,
+        emax_rv=p.emax_rv if ventricle == 'rv' else p.emin_rv,
+        initial_volumes=(140., 700+1.5*arterial_pressure, 3000., 210.,
+                         100+5*arterial_pressure, 500.),
+    )
+    settings = dict(parameters=p, cycles=1, samples_per_cycle=800,
+                    rtol=1e-9, atol=1e-10, cumulative_flows=True)
+    reference = simulate(**settings, max_step=p.period/400)
+    large_step = simulate(**settings, max_step=p.period)
+    assert reference.cumulative_flows[-1, edge] > 0.1
+    np.testing.assert_allclose(large_step.volumes, reference.volumes, rtol=0, atol=1e-4)
+    np.testing.assert_allclose(large_step.cumulative_flows, reference.cumulative_flows,
+                               rtol=0, atol=1e-5)

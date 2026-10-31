@@ -287,6 +287,10 @@ the solver while finding the root, but only the trajectory through that root
 is retained. The next solve starts in the new regime. Dense output therefore
 does not interpolate across the ideal-diode corner. Integration also restarts
 at known systole/diastole boundaries of the activation pulse.
+The pulse peak is also an integration checkpoint: a large closed-valve step
+can otherwise start and end with a negative pressure gap while skipping an
+entire intervening opening and closure. This checkpoint preserves the user
+controls and requires no trajectory projection or change to the flow law.
 
 For the augmented solve, each regime starts six local flow integrals at zero.
 Their endpoint increments are added to the running cumulative offsets.
@@ -308,7 +312,9 @@ stroke-volume agreement within **1e-5 mL absolute**, both with zero relative
 allowance. `tests/test_hybrid_integration.py` additionally exercises alternate
 dot-product reductions and an algebraically equivalent activation formula,
 conservation, simultaneous transitions, zero-flow equilibrium and independence
-from output sampling. These tests do not establish accuracy for all parameter
+from output sampling. Six additional large-step cases cover LV/RV pulses at
+three arterial-pressure levels, using the same 1e-4 mL volume and 1e-5 mL
+cumulative-flow absolute bounds. These tests do not establish accuracy for all parameter
 sets or clinical validity. A small balance residual still checks linear
 incidence wiring, not independent quadrature accuracy.
 

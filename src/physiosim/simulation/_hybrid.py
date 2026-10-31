@@ -66,7 +66,10 @@ def integrate(parameters, times, cycles, cumulative_flows, method, rtol, atol, m
     zero_length_events = 0
     # The activation is smooth within systole and diastole, but not across
     # their boundaries at the order assumed by high-order RK interpolants.
+    # Checkpoint the pulse peak too: a long closed-valve step could otherwise
+    # have negative pressure gaps at both ends and skip opening AND closure.
     boundaries = [value for beat in range(cycles) for value in (
+        (beat + p.systolic_fraction/2) * p.period,
         (beat + p.systolic_fraction) * p.period, (beat + 1) * p.period)]
     boundaries[-1] = float(times[-1])
 
