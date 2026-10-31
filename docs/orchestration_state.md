@@ -75,12 +75,17 @@ No escalation was needed. No task was retried.
   host: github.com` inside the worker CLI sandbox. The host itself resolves
   github.com, so the block was the sandbox's network policy, not the server.
 - Official OpenCOR v0.8.3 `OpenCOR-0-8-3-Linux.tar.gz` (322,810,313 bytes,
-  GitHub asset SHA-256 `513ad729…60ee`) was staged and hash-checked on the
-  host at `~/opencor/OpenCOR-0-8-3-Linux`. Static `ldd` with the bundled
-  `lib/` and `plugins/`: core simulation/Python plugins resolve; only GUI,
-  web-view and PMR plugins miss system libraries. Startup not yet tried.
-- Reference input switched to the canonical CellML (SHA-256 `8cca17e8…3e60`),
-  to be downloaded by the integrator outside the sandbox. Status: PROPOSED.
+  GitHub asset SHA-256 `513ad729…60ee`) is staged at
+  `/opt/opencor/OpenCOR-0-8-3-Linux` (root-owned, read-only to others).
+  Hermes runs as `medical-ontology` ([redacted: uid]), so the first staging under
+  `<server path>` was invisible to it (ENOENT); after the move, the archive
+  hash, `pythonshell` and `bin/OpenCOR` were checked as [redacted: uid]. Static
+  `ldd` with the bundled `lib/` and `plugins/`: core simulation/Python
+  plugins resolve; only GUI, web-view and PMR plugins miss system
+  libraries. Startup not yet tried.
+- Reference input switched to the canonical CellML (SHA-256 `8cca17e8…3e60`);
+  the integrator downloaded and hash-verified it outside the sandbox
+  (2026-10-31 14:25:29 UTC). Simulation status: PROPOSED.
 
 ## Open questions
 
