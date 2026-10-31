@@ -259,6 +259,8 @@ def main():
                            'pint': pint.__version__, 'platform': platform.platform()},
               'seed': 20261030, 'state_order': list(model.COMPARTMENTS),
               'flow_order': list(model.FLOW_NAMES), 'runs': {}, 'comparisons': {}, 'repeatability': {},
+              'repeatability_scope': 'Two identical calls to the current public simulate API',
+              'public_api_vs_native_fine': {},
               'unit_covariance': unit_covariance(), 'semantic_probes': semantic_probes(),
               'passive_reservoir_refinement': passive_reservoir_refinement()}
     for scenario, parameters in (('baseline', p), ('reduced', replace(p, emax_lv=1.25))):
@@ -271,14 +273,19 @@ def main():
                                                  'last_three': record['final_three_beat_residuals_ml']}), flush=True)
         report['comparisons'][scenario] = {'default_vs_tight': compare(runs['default'], runs['tight']),
                                             'tight_vs_fine': compare(runs['tight'], runs['fine'])}
-        # Exercise actual public API independently of native-step generator route.
+        # Determinism compares the SAME integrator twice. The native-step
+        # generator intentionally retains its independent single-solve route;
+        # compare it numerically, not bitwise, with the event-split public API.
         replay = simulate(parameters, cycles=60, samples_per_cycle=400, rtol=1e-9, atol=1e-10, max_step=p.period/200)
-        report['repeatability'][scenario] = {'exact_volume_equality': bool(np.array_equal(replay.volumes, runs['tight'].volumes)),
-                                             'exact_pressure_equality': bool(np.array_equal(replay.pressures, runs['tight'].pressures)),
-                                             'exact_flow_equality': bool(np.array_equal(replay.flows, runs['tight'].flows))}
+        repeat = simulate(parameters, cycles=60, samples_per_cycle=400, rtol=1e-9, atol=1e-10, max_step=p.period/200)
+        report['repeatability'][scenario] = {'exact_volume_equality': bool(np.array_equal(replay.volumes, repeat.volumes)),
+                                             'exact_pressure_equality': bool(np.array_equal(replay.pressures, repeat.pressures)),
+                                             'exact_flow_equality': bool(np.array_equal(replay.flows, repeat.flows))}
+        report['public_api_vs_native_fine'][scenario] = compare(replay, runs['fine'])
     report['source_sha256'] = {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                                for path in [ROOT/'src/physiosim/models/cardiovascular.py',
                                             ROOT/'src/physiosim/simulation/__init__.py',
+                                            ROOT/'src/physiosim/simulation/_hybrid.py',
                                             ROOT/'src/physiosim/ontology/__init__.py', Path(__file__),
                                             ROOT/'tests/test_independent_verification.py']}
     (OUT/'c_verify_results.json').write_text(json.dumps(report, indent=2, allow_nan=False)+'\n')

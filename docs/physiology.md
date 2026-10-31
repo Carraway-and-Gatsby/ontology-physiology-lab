@@ -155,7 +155,8 @@ six finite entries (initial volumes positive, unstressed volumes nonnegative).
 
 `simulate(parameters=None, cycles=40, samples_per_cycle=400, rtol=1e-7,
 atol=1e-8, max_step=None, method="DOP853") -> SimulationResult` uses
-`scipy.integrate.solve_ivp`. It exposes solver selection directly; `Radau` was
+`scipy.integrate.solve_ivp` on smooth valve/activation regimes, as described
+below. It exposes solver selection directly; `Radau` was
 independently exercised in the tests. Integration failure raises `RuntimeError`.
 `cycles` must be an integer >=1, and `samples_per_cycle` an integer >=4.
 Tolerances must be positive finite scalars; `atol` is in mL.
@@ -191,6 +192,12 @@ Consumers writing strict JSON must handle this NaN rather than calling it zero.
 Sampling resolution affects extrema/quadrature independently of ODE tolerances.
 
 ## Executed numerical evidence
+
+**Historical pre-event-splitting evidence:** the measurements in this section
+and the original evidence captures describe the previous single-solve
+integrator. They are retained for provenance, not as freshly generated outputs
+of the current implementation. The equations and acceptance bounds are unchanged;
+numerical trajectories need not be bitwise identical after the integration fix.
 
 Run `python docs/evidence/a_verify_core.py` in the project environment to regenerate
 `evidence/a_core_results.json`; exact results and library versions are recorded
@@ -235,7 +242,8 @@ Eight incremental red→green feature slices were run; logs are stored as
 `evidence/a_tdd_01_red.txt` through `a_tdd_08_green.txt`.
 Later response and solver comparisons are acceptance/regression tests against
 already implemented behavior, not evidence of clinical validation.
-The implemented feature suite last returned **25 passed**.
+That historical feature suite returned **25 passed**. Current portability
+regressions are described below; fresh test results are retained by CI.
 
 ## Limitations and next validation work
 
@@ -265,8 +273,60 @@ C_k(t)=\int_0^t Q_k(t')\,dt', \qquad \dot C_k=Q_k,
 
 where flow is in mL/s and cumulative flow is in mL. Edge `i` is the outflow of
 compartment `i`, and edge `i-1` (modulo six) is its inflow. The scalar absolute
-tolerance, in mL, applies to all 12 states. The default remains the original
-six-state integration and returns no cumulative-flow array.
+tolerance, in mL, applies to all 12 states. The default remains six volume
+states and returns no cumulative-flow array.
+
+### Integration across valve transitions
+
+The physical pressure and ideal-diode flow laws above are unchanged. Both
+six-state and augmented solves now use fixed valve regimes. Within a regime,
+an open valve uses its signed pressure difference divided by resistance and a
+closed valve has zero flow. Terminal pressure-gap events locate the first
+opening or closure. A smooth continuation beyond an event may be evaluated by
+the solver while finding the root, but only the trajectory through that root
+is retained. The next solve starts in the new regime. Dense output therefore
+does not interpolate across the ideal-diode corner. Integration also restarts
+at known systole/diastole boundaries of the activation pulse.
+The pulse peak is also an integration checkpoint: a large closed-valve step
+can otherwise start and end with a negative pressure gap while skipping an
+entire intervening opening and closure. This checkpoint preserves the user
+controls and requires no trajectory projection or change to the flow law.
+
+For the augmented solve, each regime starts six local flow integrals at zero.
+Their endpoint increments are added to the running cumulative offsets.
+`rtol`, `atol`, `max_step`, output sampling, parameters and reported units are
+unchanged. Error control thus uses local increments instead of an ever-growing
+cumulative scale. Volumes are neither projected nor renormalized, and sampled
+cumulative flows are not clipped or replaced by post-hoc quadrature.
+
+At roundoff-scale pressure ties, a short forward Euler probe determines the
+right-hand valve mode only; it never advances the integrated state. The tie
+resolution includes pressure arithmetic and a few ulps of event-time error
+multiplied by the estimated pressure-gap slope. Simultaneous transitions and
+zero-flow equilibria have dedicated regressions. Repeated zero-time events
+raise an error rather than silently skipping time.
+
+The original two acceptance tests remain unchanged: four-cycle augmented/plain
+volume agreement within **1e-4 mL absolute**, and 40-cycle tight/fine cumulative
+stroke-volume agreement within **1e-5 mL absolute**, both with zero relative
+allowance. `tests/test_hybrid_integration.py` additionally exercises alternate
+dot-product reductions and an algebraically equivalent activation formula,
+conservation, simultaneous transitions, zero-flow equilibrium and independence
+from output sampling. Six additional large-step cases cover LV/RV pulses at
+three arterial-pressure levels, using the same 1e-4 mL volume and 1e-5 mL
+cumulative-flow absolute bounds. These tests do not establish accuracy for all parameter
+sets or clinical validity. A small balance residual still checks linear
+incidence wiring, not independent quadrature accuracy.
+
+The implementation uses the public `solve_ivp` terminal-event and dense-output
+interfaces, without SciPy internals or dependency changes:
+https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.integrate.solve_ivp.html
+
+### Historical measurements before event splitting
+
+All values and limitations in the remainder of this cumulative-flow section
+were measured with the previous single-solve integrator and are preserved as
+historical evidence. They are not current-version results.
 
 At `rtol=1e-9`, `atol=1e-10`, and `max_step=T/200`, a four-cycle augmented run
 differed from the six-state volume trajectory by at most 2.28515e-5 mL. In a
@@ -314,8 +374,8 @@ atol 1e-12, T/400):
   after 4 cycles and 1.69e-3 mL (plain: 1.02e-3 mL) after 40 cycles. The likely
   mechanism (reasoned, not isolated experimentally) is that the large
   cumulative states dilute scipy's RMS error norm, allowing longer steps.
-  Use the six-state default for volume trajectories and the augmented mode
-  for throughput, or tighten tolerances.
+  The event splitting and local integral resets above address this numerical
+  mechanism; these old measurements do not quantify the current solver.
 
 ## Strict multi-beat periodicity report
 
@@ -329,7 +389,8 @@ Passing is a numerical settling check, not biological validation, and not
 proof of a unique limit cycle. It is not yet wired into the runner's exit
 status; the declared 0.1 mL last/prior-beat milestone gate is unchanged.
 
-Measured on the three canonical scenarios (60 cycles, 400 samples/beat,
+**Historical pre-event-splitting measurements**, not re-executed here:
+three canonical scenarios (60 cycles, 400 samples/beat,
 DOP853), three successive beats, 1e-4 mL:
 
 | Scenario | six-state, rtol 1e-9/atol 1e-10/T/200 | augmented (cumulative_flows), same | augmented, rtol 1e-11/atol 1e-12/T/400 |
@@ -338,7 +399,7 @@ DOP853), three successive beats, 1e-4 mL:
 | reduced contractility | 9.42e-6, 7.39e-6, 9.57e-6 — pass | 1.83e-5, 2.09e-5, 2.42e-5 — pass | 7.2e-8, 1.4e-7, 1.5e-7 — pass |
 | partial restoration | 2.22e-5, 1.94e-5, 9.26e-6 — pass | 4.29e-4, 8.89e-4, 4.86e-4 — FAIL | 3.8e-7, 1.8e-7, 6.1e-7 — pass |
 
-The six-state baseline values reproduce those previously reported by the
+The historical six-state baseline values reproduce those previously reported by the
 independent reviewer. At the canonical tolerances the strict verdict changes
 when only the error-control state set changes, and residuals are not
 monotone, so residuals of 1e-5 to 1e-3 mL there are dominated by integration
