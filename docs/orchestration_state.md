@@ -63,9 +63,24 @@ No escalation was needed. No task was retried.
 2. Rebuild wheel, reinstall `.clean-venv`, rerun reproducibility scripts
    (not done; `dist/` wheel and `results/` predate these changes).
 3. Local parameter sensitivity analysis of final-beat metrics (STANDARD, Codex).
-4. Licensed reference-model reproduction (DEEP research + human license
-   decision; Smith 2004 redistribution status unresolved).
+4. Licensed reference-model reproduction (DEEP research). Smith 2004 license
+   resolved 2026-10-31: CC BY 3.0 with attribution (physiology.md). Use only
+   the canonical CellML (`evidence/a_smith_2004_canonical.cellml`); the
+   workspace-267 capture has no parameter/initial values.
 5. Renal coupling remains deferred per decisions.md.
+
+## OpenCOR reference run (Hermes, [redacted: cloud host] `[redacted: host]`)
+
+- 2026-10-31 attempt stopped before download: `curl: (6) Could not resolve
+  host: github.com` inside the worker CLI sandbox. The host itself resolves
+  github.com, so the block was the sandbox's network policy, not the server.
+- Official OpenCOR v0.8.3 `OpenCOR-0-8-3-Linux.tar.gz` (322,810,313 bytes,
+  GitHub asset SHA-256 `513ad729…60ee`) was staged and hash-checked on the
+  host at `~/opencor/OpenCOR-0-8-3-Linux`. Static `ldd` with the bundled
+  `lib/` and `plugins/`: core simulation/Python plugins resolve; only GUI,
+  web-view and PMR plugins miss system libraries. Startup not yet tried.
+- Reference input switched to the canonical CellML (SHA-256 `8cca17e8…3e60`),
+  to be downloaded by the integrator outside the sandbox. Status: PROPOSED.
 
 ## Open questions
 

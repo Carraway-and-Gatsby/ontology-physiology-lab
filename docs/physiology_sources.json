@@ -19,7 +19,11 @@
           "text": "<apply>\n        <eq />\n        <ci>Q_sys</ci>\n        <apply>\n          <divide />\n          <apply>\n            <minus />\n            <ci>P_ao</ci>\n            <ci>P_vc</ci>\n          </apply>\n          <ci>R_sys</ci>\n        </apply>\n      </apply>\n      <apply>\n        <eq />\n        <ci>Q_pul</ci>\n        <apply>\n          <divide />\n          <apply>\n            <minus />\n            <ci>P_pa</ci>\n            <ci>P_pu</ci>\n          </apply>\n          <ci>R_pul</ci>\n        </apply>\n      </apply>",
           "added": "2026-10-30"
         }
-      ]
+      ],
+      "sha256": "92d98dcc028e307b06d7931465951f0025f085663859cd126334dca40a260715",
+      "evidence_file": "evidence/a_smith_2004.cellml",
+      "license": "CC BY 3.0 Unported via the PMR-wide statement that all publicly accessible content is CC BY 3.0 [4]; no file-specific license page exists for workspace 267",
+      "note": "SemSim-annotated copy in PMR workspace 267 (\"semantic-annotation\"); byte-identical re-fetch 2026-10-31. Same 32 equations as [3] but no initial_value attributes (43 parameters, 10 state initial conditions), so it is not simulatable as captured. See evidence/a_smith_2004_compare.json."
     },
     {
       "id": 2,
@@ -30,6 +34,46 @@
         {
           "text": "An \"open on pressure close on flow\" valve law is created to capture the effects of inertia and the resulting dynamics of blood flow through the cardiac valves.",
           "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "https://models.physiomeproject.org/workspace/smith_chase_nokes_shaw_wake_2004/rawfile/f7b732c9707abdba5a55d471c49baf7dee92b036/smith_chase_nokes_shaw_wake_2004.cellml",
+      "title": "Smith 2004 canonical CellML encoding (exposure source, workspace changeset f7b732c9)",
+      "accessed": "2026-10-31",
+      "retrieved_at_utc": "2026-10-31T14:02:27Z",
+      "sha256": "8cca17e89404daeef858fb3db67a16ce4200b7c2712ae6c1ccac83c68f813e60",
+      "evidence_file": "evidence/a_smith_2004_canonical.cellml",
+      "license": "CC BY 3.0 Unported [4]",
+      "attribution": "CellML model by Geoffrey Nunns (Auckland Bioengineering Institute); Smith BW, Chase JG, Nokes RI, Shaw GM, Wake G 2004, PMID 15036180; PMR: Lloyd CM, Lawson JL, Hunter PJ, Nielsen PF, Bioinformatics 2008;24(18):2122-2123",
+      "quotes": [
+        {
+          "text": "This CellML model will run in PCEnv and OpenCell to recreate the published results. Note that the model will not run in COR because it contains differential algebraic equations (DAEs).",
+          "added": "2026-10-31"
+        },
+        {
+          "text": "However, the CellML model will only simulate 14 heart beats, because if statements (piecewise equations) were used instead of a remainder operator to cycle the heart beat, but this number of beats can be increased if desired.",
+          "added": "2026-10-31"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "https://models.physiomeproject.org/exposure/9d046663ba5cac5c8a61ac146183614b/smith_chase_nokes_shaw_wake_2004.cellml/license_citation",
+      "title": "PMR license and citation page for the Smith 2004 exposure",
+      "accessed": "2026-10-31",
+      "retrieved_at_utc": "2026-10-31T13:59:54Z",
+      "sha256": "48790dfe65777e5b19b25c82685d0514d2c5cc40ea0ebc36acc8bc5a7c4d84f7",
+      "evidence_file": "evidence/a_smith_2004_license.txt",
+      "quotes": [
+        {
+          "text": "All publicly accessible content of the Physiome model repository is licensed to the public under the Creative Commons Attribution 3.0 License .",
+          "added": "2026-10-31"
+        },
+        {
+          "text": "Derived from workspace Smith Chase 2004 at changeset f7b732c9707a .",
+          "added": "2026-10-31"
         }
       ]
     }

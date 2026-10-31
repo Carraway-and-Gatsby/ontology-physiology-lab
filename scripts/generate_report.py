@@ -79,7 +79,7 @@ Open `../results/phase1/index.html` for plots, parameters and annotations. CSV, 
 
 No external reference trajectory has been reproduced; no physiological parameter estimation, patient data, confidence intervals, identifiability analysis or clinical validation are claimed. Numerical domain checks are not physiological range validation. The model omits separate atria, nonlinear passive ventricular mechanics, septal/pericardial interaction, valve inertia, baroreflex, respiratory and renal feedback, and drug pharmacology. The entire prospective verification plan is not complete.
 
-The existing external cardiac simulator was accessible and reviewed, but no external engine was executed or incorporated. Its eight-state architecture is not silently treated as equivalent to this six-state model. Artifact-specific license restrictions and the unresolved exact Smith XML redistribution permission are documented; local research captures should not be published without that review.
+The existing external cardiac simulator was accessible and reviewed, but no external engine was executed or incorporated. Its eight-state architecture is not silently treated as equivalent to this six-state model. Artifact-specific license restrictions are documented. The Smith 2004 CellML captures fall under the Physiome Model Repository CC BY 3.0 statement and may be redistributed with the attribution recorded in physiology.md; the originally parsed workspace-267 capture lacks all parameter and initial values, so only the canonical exposure file can serve as a reference simulation input.
 
 ## Next scientifically justified step
 

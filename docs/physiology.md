@@ -43,11 +43,30 @@ that law.[2]
 Raw evidence is in `evidence/a_smith_2004.cellml` and
 `evidence/a_smith_overview.html`; the former was parsed but **never executed**.
 Source identities and verbatim evidence are in `physiology_sources.json`.
-The exact Smith XML capture's redistribution license was not established in this
-bounded review; it is retained locally as research evidence only. Do not
-redistribute that capture without checking its file-specific permissions. The
-separate CC BY model listed in `ecosystem.md` is not a license determination for
-this XML. No source-model implementation was incorporated into the simulator.
+No source-model implementation was incorporated into the simulator.
+
+**Source identity and license (reviewed 2026-10-31).** The parsed capture[1] is a
+SemSim-annotated copy from PMR workspace 267 (`semantic-annotation`), not the
+file behind the Smith exposure. The exposure's own source is a separate
+workspace at changeset `f7b732c9`[3][4], retained as
+`evidence/a_smith_2004_canonical.cellml`. A static comparison
+(`evidence/a_smith_2004_compare.py`, output `a_smith_2004_compare.json`) finds
+the same 14 components, 32 equations and 94 variable connections in both, but
+the workspace-267 capture has **no `initial_value` attributes**: 43 parameters
+and 10 state initial conditions are absent, so it is underdetermined and cannot
+be simulated as captured. Any reference simulation must use the canonical file.
+That file's own status note says the beat is cycled by piecewise conditions, so
+only 14 beats (10.5 s at the 0.75 s period) are encoded.[3]
+
+PMR states that all publicly accessible repository content is licensed under
+CC BY 3.0 Unported.[4] Both captures are publicly accessible, so both fall under
+that statement; only the canonical file also has an exposure-specific license
+page.[4] Redistribution requires attribution to the CellML author (Geoffrey
+Nunns, Auckland Bioengineering Institute), the original paper (PMID 15036180),
+the source URL and download time, and the PMR citation (Lloyd et al.,
+*Bioinformatics* 2008;24(18):2122–2123). The license covers the CellML
+encodings, not the journal article's text or figures. This is technical due
+diligence, not legal advice.
 
 ## Implemented equations
 
@@ -253,6 +272,8 @@ must inspect positivity, conservation, beat convergence and intervention ranges.
 
 [1] https://models.physiomeproject.org/workspace/267/rawfile/6ae217019bf59fc1e22e2dc5235751c6fcf6be24/Smith_2004.cellml — Smith 2004 CellML encoding
 [2] https://models.physiomeproject.org/exposure/9d046663ba5cac5c8a61ac146183614b/view — Physiome Smith 2004 overview
+[3] https://models.physiomeproject.org/workspace/smith_chase_nokes_shaw_wake_2004/rawfile/f7b732c9707abdba5a55d471c49baf7dee92b036/smith_chase_nokes_shaw_wake_2004.cellml — Smith 2004 canonical CellML encoding
+[4] https://models.physiomeproject.org/exposure/9d046663ba5cac5c8a61ac146183614b/smith_chase_nokes_shaw_wake_2004.cellml/license_citation — PMR license and citation page
 
 ## Solver-integrated cumulative flows (opt-in)
 

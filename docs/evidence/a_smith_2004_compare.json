@@ -1,0 +1,410 @@
+{
+  "scope": "Static structural comparison of two retained CellML captures; neither file was simulated",
+  "files": {
+    "workspace_267": {
+      "path": "a_smith_2004.cellml",
+      "sha256": "92d98dcc028e307b06d7931465951f0025f085663859cd126334dca40a260715",
+      "namespace": "http://www.cellml.org/cellml/1.1#"
+    },
+    "canonical": {
+      "path": "a_smith_2004_canonical.cellml",
+      "sha256": "8cca17e89404daeef858fb3db67a16ce4200b7c2712ae6c1ccac83c68f813e60",
+      "namespace": "http://www.cellml.org/cellml/1.0#"
+    }
+  },
+  "components": {
+    "workspace_267": 14,
+    "canonical": 14
+  },
+  "common_components": 14,
+  "equations": {
+    "workspace_267": 32,
+    "canonical": 32
+  },
+  "equation_sets_identical": true,
+  "connections": {
+    "workspace_267": 94,
+    "canonical": 94
+  },
+  "connections_identical": true,
+  "variables_differing_only_in_initial_value": 53,
+  "missing_initial_values_in_workspace_267": {
+    "state_initial_conditions": [
+      "aorta.V_ao",
+      "flow.Q_av",
+      "flow.Q_mt",
+      "flow.Q_pv",
+      "flow.Q_tc",
+      "left_ventricle.V_lv",
+      "pulmonary_artery.V_pa",
+      "pulmonary_vein.V_pu",
+      "right_ventricle.V_rv",
+      "vena_cava.V_vc"
+    ],
+    "parameters": [
+      "aorta.E_es_ao",
+      "aorta.V_d_ao",
+      "driver_function.A",
+      "driver_function.B",
+      "driver_function.C",
+      "driver_function.period",
+      "heart_parameters.L_av",
+      "heart_parameters.L_mt",
+      "heart_parameters.L_pv",
+      "heart_parameters.L_tc",
+      "heart_parameters.P_th",
+      "heart_parameters.R_av",
+      "heart_parameters.R_mt",
+      "heart_parameters.R_pul",
+      "heart_parameters.R_pv",
+      "heart_parameters.R_sys",
+      "heart_parameters.R_tc",
+      "heart_parameters.V_tot",
+      "lvf_calculator.E_es_lvf",
+      "lvf_calculator.P_0_lvf",
+      "lvf_calculator.V_0_lvf",
+      "lvf_calculator.V_d_lvf",
+      "lvf_calculator.lambda_lvf",
+      "pericardium.P_0_pcd",
+      "pericardium.V_0_pcd",
+      "pericardium.lambda_pcd",
+      "pulmonary_artery.E_es_pa",
+      "pulmonary_artery.V_d_pa",
+      "pulmonary_vein.E_es_pu",
+      "pulmonary_vein.V_d_pu",
+      "rvf_calculator.E_es_rvf",
+      "rvf_calculator.P_0_rvf",
+      "rvf_calculator.V_0_rvf",
+      "rvf_calculator.V_d_rvf",
+      "rvf_calculator.lambda_rvf",
+      "septum.E_es_spt",
+      "septum.P_0_spt",
+      "septum.V_0_spt",
+      "septum.V_d_spt",
+      "septum.lambda_spt",
+      "septum.one",
+      "vena_cava.E_es_vc",
+      "vena_cava.V_d_vc"
+    ]
+  },
+  "unvalued_without_defining_equation": {
+    "workspace_267": [
+      "aorta.E_es_ao",
+      "aorta.V_d_ao",
+      "driver_function.A",
+      "driver_function.B",
+      "driver_function.C",
+      "driver_function.period",
+      "environment.time",
+      "heart_parameters.L_av",
+      "heart_parameters.L_mt",
+      "heart_parameters.L_pv",
+      "heart_parameters.L_tc",
+      "heart_parameters.P_th",
+      "heart_parameters.R_av",
+      "heart_parameters.R_mt",
+      "heart_parameters.R_pul",
+      "heart_parameters.R_pv",
+      "heart_parameters.R_sys",
+      "heart_parameters.R_tc",
+      "heart_parameters.V_tot",
+      "lvf_calculator.E_es_lvf",
+      "lvf_calculator.P_0_lvf",
+      "lvf_calculator.V_0_lvf",
+      "lvf_calculator.V_d_lvf",
+      "lvf_calculator.lambda_lvf",
+      "pericardium.P_0_pcd",
+      "pericardium.V_0_pcd",
+      "pericardium.lambda_pcd",
+      "pulmonary_artery.E_es_pa",
+      "pulmonary_artery.V_d_pa",
+      "pulmonary_vein.E_es_pu",
+      "pulmonary_vein.V_d_pu",
+      "rvf_calculator.E_es_rvf",
+      "rvf_calculator.P_0_rvf",
+      "rvf_calculator.V_0_rvf",
+      "rvf_calculator.V_d_rvf",
+      "rvf_calculator.lambda_rvf",
+      "septum.E_es_spt",
+      "septum.P_0_spt",
+      "septum.V_0_spt",
+      "septum.V_d_spt",
+      "septum.V_spt",
+      "septum.lambda_spt",
+      "septum.one",
+      "vena_cava.E_es_vc",
+      "vena_cava.V_d_vc"
+    ],
+    "canonical": [
+      "environment.time",
+      "septum.V_spt"
+    ]
+  },
+  "initial_value_differences": [
+    {
+      "variable": "aorta.E_es_ao",
+      "workspace_267": null,
+      "canonical": "0.6913"
+    },
+    {
+      "variable": "aorta.V_ao",
+      "workspace_267": null,
+      "canonical": "133.3381"
+    },
+    {
+      "variable": "aorta.V_d_ao",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "driver_function.A",
+      "workspace_267": null,
+      "canonical": "1"
+    },
+    {
+      "variable": "driver_function.B",
+      "workspace_267": null,
+      "canonical": "80"
+    },
+    {
+      "variable": "driver_function.C",
+      "workspace_267": null,
+      "canonical": "0.375"
+    },
+    {
+      "variable": "driver_function.period",
+      "workspace_267": null,
+      "canonical": "0.75"
+    },
+    {
+      "variable": "flow.Q_av",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "flow.Q_mt",
+      "workspace_267": null,
+      "canonical": "245.5813"
+    },
+    {
+      "variable": "flow.Q_pv",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "flow.Q_tc",
+      "workspace_267": null,
+      "canonical": "190.0661"
+    },
+    {
+      "variable": "heart_parameters.L_av",
+      "workspace_267": null,
+      "canonical": "1.2189e-4"
+    },
+    {
+      "variable": "heart_parameters.L_mt",
+      "workspace_267": null,
+      "canonical": "7.6968e-5"
+    },
+    {
+      "variable": "heart_parameters.L_pv",
+      "workspace_267": null,
+      "canonical": "1.4868e-4"
+    },
+    {
+      "variable": "heart_parameters.L_tc",
+      "workspace_267": null,
+      "canonical": "8.0093e-5"
+    },
+    {
+      "variable": "heart_parameters.P_th",
+      "workspace_267": null,
+      "canonical": "-4"
+    },
+    {
+      "variable": "heart_parameters.R_av",
+      "workspace_267": null,
+      "canonical": "0.0180"
+    },
+    {
+      "variable": "heart_parameters.R_mt",
+      "workspace_267": null,
+      "canonical": "0.0158"
+    },
+    {
+      "variable": "heart_parameters.R_pul",
+      "workspace_267": null,
+      "canonical": "0.1552"
+    },
+    {
+      "variable": "heart_parameters.R_pv",
+      "workspace_267": null,
+      "canonical": "0.0055"
+    },
+    {
+      "variable": "heart_parameters.R_sys",
+      "workspace_267": null,
+      "canonical": "1.0889"
+    },
+    {
+      "variable": "heart_parameters.R_tc",
+      "workspace_267": null,
+      "canonical": "0.0237"
+    },
+    {
+      "variable": "heart_parameters.V_tot",
+      "workspace_267": null,
+      "canonical": "5.5"
+    },
+    {
+      "variable": "left_ventricle.V_lv",
+      "workspace_267": null,
+      "canonical": "94.6812"
+    },
+    {
+      "variable": "lvf_calculator.E_es_lvf",
+      "workspace_267": null,
+      "canonical": "2.8798"
+    },
+    {
+      "variable": "lvf_calculator.P_0_lvf",
+      "workspace_267": null,
+      "canonical": "0.1203"
+    },
+    {
+      "variable": "lvf_calculator.V_0_lvf",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "lvf_calculator.V_d_lvf",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "lvf_calculator.lambda_lvf",
+      "workspace_267": null,
+      "canonical": "0.033"
+    },
+    {
+      "variable": "pericardium.P_0_pcd",
+      "workspace_267": null,
+      "canonical": "0.5003"
+    },
+    {
+      "variable": "pericardium.V_0_pcd",
+      "workspace_267": null,
+      "canonical": "200"
+    },
+    {
+      "variable": "pericardium.lambda_pcd",
+      "workspace_267": null,
+      "canonical": "0.03"
+    },
+    {
+      "variable": "pulmonary_artery.E_es_pa",
+      "workspace_267": null,
+      "canonical": "0.369"
+    },
+    {
+      "variable": "pulmonary_artery.V_d_pa",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "pulmonary_artery.V_pa",
+      "workspace_267": null,
+      "canonical": "43.0123"
+    },
+    {
+      "variable": "pulmonary_vein.E_es_pu",
+      "workspace_267": null,
+      "canonical": "0.0073"
+    },
+    {
+      "variable": "pulmonary_vein.V_d_pu",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "pulmonary_vein.V_pu",
+      "workspace_267": null,
+      "canonical": "808.4579"
+    },
+    {
+      "variable": "right_ventricle.V_rv",
+      "workspace_267": null,
+      "canonical": "90.7302"
+    },
+    {
+      "variable": "rvf_calculator.E_es_rvf",
+      "workspace_267": null,
+      "canonical": "0.585"
+    },
+    {
+      "variable": "rvf_calculator.P_0_rvf",
+      "workspace_267": null,
+      "canonical": "0.2157"
+    },
+    {
+      "variable": "rvf_calculator.V_0_rvf",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "rvf_calculator.V_d_rvf",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "rvf_calculator.lambda_rvf",
+      "workspace_267": null,
+      "canonical": "0.023"
+    },
+    {
+      "variable": "septum.E_es_spt",
+      "workspace_267": null,
+      "canonical": "48.754"
+    },
+    {
+      "variable": "septum.P_0_spt",
+      "workspace_267": null,
+      "canonical": "1.1101"
+    },
+    {
+      "variable": "septum.V_0_spt",
+      "workspace_267": null,
+      "canonical": "2"
+    },
+    {
+      "variable": "septum.V_d_spt",
+      "workspace_267": null,
+      "canonical": "2"
+    },
+    {
+      "variable": "septum.lambda_spt",
+      "workspace_267": null,
+      "canonical": "0.435"
+    },
+    {
+      "variable": "septum.one",
+      "workspace_267": null,
+      "canonical": "1"
+    },
+    {
+      "variable": "vena_cava.E_es_vc",
+      "workspace_267": null,
+      "canonical": "0.0059"
+    },
+    {
+      "variable": "vena_cava.V_d_vc",
+      "workspace_267": null,
+      "canonical": "0"
+    },
+    {
+      "variable": "vena_cava.V_vc",
+      "workspace_267": null,
+      "canonical": "329.7803"
+    }
+  ]
+}

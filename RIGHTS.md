@@ -28,6 +28,16 @@ Short bounded quotations in otherwise retained ledgers remain as audited. Re-fet
 | --- | ---: | --- | --- |
 | `92d98dcc028e307b06d7931465951f0025f085663859cd126334dca40a260715` | 130247 | https://models.physiomeproject.org/workspace/267/rawfile/6ae217019bf59fc1e22e2dc5235751c6fcf6be24/Smith_2004.cellml | 2026-10-30 |
 
+## `docs/evidence/a_smith_2004_canonical.cellml`
+
+- Class: UNSURE; action: KEEP; original version count: 1.
+
+- Licence: CC BY 3.0 (PMR whole model; binding integrator decision)
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `8cca17e89404daeef858fb3db67a16ce4200b7c2712ae6c1ccac83c68f813e60` | 75074 | https://models.physiomeproject.org/workspace/smith_chase_nokes_shaw_wake_2004/rawfile/f7b732c9707abdba5a55d471c49baf7dee92b036/smith_chase_nokes_shaw_wake_2004.cellml | 2026-10-31T14:02:27Z |
+
 ## `docs/evidence/a_smith_overview.html`
 
 - Class: UNSURE; action: STUB; original version count: 1.
