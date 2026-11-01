@@ -75,6 +75,9 @@ def check_dependencies():
             off_path = [i for i in ids if eqs[i]['defines'] not in reach]
             if off_path:
                 problems.append(f'{name(dep)}: equations {off_path} are not on the path from {p} to {v}')
+    valves = {name(f): str(v) for f, v in ((g.value(d_, DEP.flow), g.value(d_, DEP.valve)) for d_ in g.subjects(DEP.valve, None))}
+    if sorted(valves) != ['Q_av', 'Q_mt', 'Q_pv', 'Q_tc'] or len(set(valves.values())) != 4:
+        problems.append(f'valve mapping must name four distinct valves for Q_mt, Q_av, Q_tc, Q_pv; got {valves}')
     return problems
 
 

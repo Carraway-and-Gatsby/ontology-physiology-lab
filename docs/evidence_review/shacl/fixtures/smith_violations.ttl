@@ -36,6 +36,18 @@ OMEXmodel:V_pa bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:bloo
 
 # S4: Q_av annotated in the reverse direction (aorta -> LV) while E30 drives it LV -> aorta
 OMEXmodel:Q_av bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_av .
-local:proc_av semsim:hasSourceParticipant local:proc_av_src ; semsim:hasSinkParticipant local:proc_av_snk .
+local:proc_av semsim:hasSourceParticipant local:proc_av_src ; semsim:hasSinkParticipant local:proc_av_snk ;
+    bqbiol:occursIn fma:7236 .
 local:proc_av_src semsim:hasPhysicalEntityReference local:blood_ao .
 local:proc_av_snk semsim:hasPhysicalEntityReference local:blood_lv .
+
+# S5: Q_mt located at the tricuspid valve instead of the mitral valve (E29)
+local:blood_pv bqbiol:is fma:9670 ; bqbiol:isPartOf fma:52455 .
+OMEXmodel:Q_mt bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_mt .
+local:proc_mt semsim:hasSourceParticipant local:proc_mt_src ; semsim:hasSinkParticipant local:proc_mt_snk ;
+    bqbiol:occursIn fma:7234 .
+local:proc_mt_src semsim:hasPhysicalEntityReference local:blood_pv .
+local:proc_mt_snk semsim:hasPhysicalEntityReference local:blood_lv .
+
+# S6: V_pu borne by blood in the pulmonary venous lumen only (no left-atrial part); V_vc absent
+OMEXmodel:V_pu bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_pv .

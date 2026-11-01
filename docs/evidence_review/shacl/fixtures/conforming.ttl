@@ -38,9 +38,32 @@ local:ed_P_rvf_snk semsim:hasPhysicalEntityReference local:pericardial_fluid .
 
 OMEXmodel:Q_av bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_av .
 local:proc_av semsim:hasSourceParticipant local:proc_av_src ; semsim:hasSinkParticipant local:proc_av_snk ;
+    bqbiol:occursIn fma:7236 ;
     dc:description "Blood flow through aortic valve" .
 local:proc_av_src semsim:hasPhysicalEntityReference local:blood_lv .
 local:proc_av_snk semsim:hasPhysicalEntityReference local:blood_ao .
 
 OMEXmodel:R_av bqbiol:isVersionOf opb:OPB_00160 ; dc:description "Aortic valve resistance" .
 OMEXmodel:L_av bqbiol:isVersionOf opb:OPB_00104 .
+
+# Lumped venous compartments (decisions.md "Atria as separate nodes"): each compartment's blood has two
+# single parts, one in the vessel lumen and one in the atrial cavity.
+local:blood_pv_lumen  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:52455 .
+local:blood_la_cavity bqbiol:is fma:9670 ; bqbiol:isPartOf fma:9465 .
+local:blood_pu_compartment bqbiol:is fma:9670 ; bqbiol:hasPart local:blood_pv_lumen , local:blood_la_cavity .
+local:blood_vc_lumen  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:280059 .
+local:blood_ra_cavity bqbiol:is fma:9670 ; bqbiol:isPartOf fma:11359 .
+local:blood_vc_compartment bqbiol:is fma:9670 ; bqbiol:hasPart local:blood_vc_lumen , local:blood_ra_cavity .
+
+OMEXmodel:V_pu bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_pu_compartment .
+OMEXmodel:V_vc bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_vc_compartment .
+
+OMEXmodel:P_pu bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_pu .
+local:ed_P_pu semsim:hasSourceParticipant local:ed_P_pu_src .
+local:ed_P_pu_src semsim:hasPhysicalEntityReference local:blood_pu_compartment .
+
+OMEXmodel:Q_mt bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_mt .
+local:proc_mt semsim:hasSourceParticipant local:proc_mt_src ; semsim:hasSinkParticipant local:proc_mt_snk ;
+    bqbiol:occursIn fma:7235 .
+local:proc_mt_src semsim:hasPhysicalEntityReference local:blood_pu_compartment .
+local:proc_mt_snk semsim:hasPhysicalEntityReference local:blood_lv .

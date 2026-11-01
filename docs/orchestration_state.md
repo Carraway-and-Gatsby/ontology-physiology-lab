@@ -196,6 +196,12 @@ No escalation was needed. No task was retried.
   outputs labelled kPa are read as mmHg, with no conversion factor; no file
   is edited. Numeric comparison with the CellML is no longer blocked and
   stays report-only.
+- 2026-11-01 C11 check (Hermes [redacted: request id], read-only on the A/B/C
+  CSVs; results in evidence_review.md C11): three Q_av < 0 spans per run,
+  each exactly constant, with P_lv - P_ao < 0 throughout. B/C ratios of the
+  frozen values are 2.0000, 16.27 and 10.50, so only the first span halves
+  with the step; the earlier "halves with the step" wording applies to the
+  first span only. Independent review of the result is not done.
 
 ## Open questions
 

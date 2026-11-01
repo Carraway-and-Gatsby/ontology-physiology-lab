@@ -1,0 +1,147 @@
+{
+ "source": "https://www.ebi.ac.uk/ols4/api/search?q=<label>&ontology=fma&exact=true&rows=3",
+ "retrieved_at_utc": "2026-11-01T10:05:08Z",
+ "fma_version_in_ols": "5.1.0",
+ "terms": [
+  {
+   "query": "Aortic valve",
+   "label": "Aortic valve",
+   "obo_id": "fma7236",
+   "iri": "http://purl.org/sig/ont/fma/fma7236",
+   "is_obsolete": null
+  },
+  {
+   "query": "Cardiac septum",
+   "label": "Cardiac septum",
+   "obo_id": "fma7180",
+   "iri": "http://purl.org/sig/ont/fma/fma7180",
+   "is_obsolete": null
+  },
+  {
+   "query": "Cavity of left atrium",
+   "label": "Cavity of left atrium",
+   "obo_id": "fma9465",
+   "iri": "http://purl.org/sig/ont/fma/fma9465",
+   "is_obsolete": null
+  },
+  {
+   "query": "Cavity of right atrium",
+   "label": "Cavity of right atrium",
+   "obo_id": "fma11359",
+   "iri": "http://purl.org/sig/ont/fma/fma11359",
+   "is_obsolete": null
+  },
+  {
+   "query": "Interventricular septum",
+   "label": "Interventricular septum",
+   "obo_id": "fma7133",
+   "iri": "http://purl.org/sig/ont/fma/fma7133",
+   "is_obsolete": null
+  },
+  {
+   "query": "Left atrium",
+   "label": "Left atrium",
+   "obo_id": "fma7097",
+   "iri": "http://purl.org/sig/ont/fma/fma7097",
+   "is_obsolete": null
+  },
+  {
+   "query": "Lumen of aorta",
+   "label": "Lumen of aorta",
+   "obo_id": "fma12239",
+   "iri": "http://purl.org/sig/ont/fma/fma12239",
+   "is_obsolete": null
+  },
+  {
+   "query": "Lumen of pulmonary trunk",
+   "label": "Lumen of pulmonary trunk",
+   "obo_id": "fma14167",
+   "iri": "http://purl.org/sig/ont/fma/fma14167",
+   "is_obsolete": null
+  },
+  {
+   "query": "Mitral valve",
+   "label": "Mitral valve",
+   "obo_id": "fma7235",
+   "iri": "http://purl.org/sig/ont/fma/fma7235",
+   "is_obsolete": null
+  },
+  {
+   "query": "Pericardial cavity",
+   "label": "Pericardial cavity",
+   "obo_id": "fma11350",
+   "iri": "http://purl.org/sig/ont/fma/fma11350",
+   "is_obsolete": null
+  },
+  {
+   "query": "Pericardium",
+   "label": "Pericardium",
+   "obo_id": "fma9869",
+   "iri": "http://purl.org/sig/ont/fma/fma9869",
+   "is_obsolete": null
+  },
+  {
+   "query": "Pulmonary valve",
+   "label": "Pulmonary valve",
+   "obo_id": "fma7246",
+   "iri": "http://purl.org/sig/ont/fma/fma7246",
+   "is_obsolete": null
+  },
+  {
+   "query": "Right atrium",
+   "label": "Right atrium",
+   "obo_id": "fma7096",
+   "iri": "http://purl.org/sig/ont/fma/fma7096",
+   "is_obsolete": null
+  },
+  {
+   "query": "Thoracic cavity",
+   "label": "Thoracic cavity",
+   "obo_id": "fma7565",
+   "iri": "http://purl.org/sig/ont/fma/fma7565",
+   "is_obsolete": null
+  },
+  {
+   "query": "Tricuspid valve",
+   "label": "Tricuspid valve",
+   "obo_id": "fma7234",
+   "iri": "http://purl.org/sig/ont/fma/fma7234",
+   "is_obsolete": null
+  },
+  {
+   "query": "Valve of coronary sinus",
+   "label": "Valve of coronary sinus",
+   "obo_id": "fma9242",
+   "iri": "http://purl.org/sig/ont/fma/fma9242",
+   "is_obsolete": null
+  },
+  {
+   "query": "Valve of foramen ovale",
+   "label": "Valve of foramen ovale",
+   "obo_id": "fma75348",
+   "iri": "http://purl.org/sig/ont/fma/fma75348",
+   "is_obsolete": null
+  },
+  {
+   "query": "Valve of inferior vena cava",
+   "label": "Valve of inferior vena cava",
+   "obo_id": "fma9240",
+   "iri": "http://purl.org/sig/ont/fma/fma9240",
+   "is_obsolete": null
+  },
+  {
+   "query": "Wall of left ventricle",
+   "label": "Wall of left ventricle",
+   "obo_id": "fma9556",
+   "iri": "http://purl.org/sig/ont/fma/fma9556",
+   "is_obsolete": null
+  },
+  {
+   "query": "Wall of right ventricle",
+   "label": "Wall of right ventricle",
+   "obo_id": "fma9533",
+   "iri": "http://purl.org/sig/ont/fma/fma9533",
+   "is_obsolete": null
+  }
+ ]
+}

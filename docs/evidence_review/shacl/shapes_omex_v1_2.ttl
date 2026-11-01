@@ -78,13 +78,14 @@ ps:G2_FluidVolumeBearer
             }""" ;
     ] , [
         a sh:SPARQLConstraint ;
-        sh:message "G2b: fluid portion {?b} bearing a fluid volume has no bqbiol:isPartOf container (C5)" ;
+        sh:message "G2b: fluid portion {?b} bearing a fluid volume has no container, neither its own bqbiol:isPartOf nor through bqbiol:hasPart parts (C5; decisions.md \"Atria as separate nodes\")" ;
         sh:prefixes ps:prefixes ;
         sh:select """
             SELECT $this ?b WHERE {
                 $this bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ?b .
                 ?b bqbiol:is ?f . FILTER ( ?f IN ( fma:9670, fma:9887 ) )
                 FILTER NOT EXISTS { ?b bqbiol:isPartOf ?c }
+                FILTER NOT EXISTS { ?b bqbiol:hasPart/bqbiol:isPartOf ?c2 }
             }""" ;
     ] .
 
@@ -152,13 +153,27 @@ ps:G6_ParticipantEntity
         sh:path semsim:hasPhysicalEntityReference ;
         sh:minCount 1 ; sh:maxCount 1 ;
         sh:node ps:FluidPortion ;
-        sh:message "G6: participant must reference exactly one fluid portion that is part of exactly one container (C5)" ;
+        sh:message "G6: participant must reference exactly one fluid portion that is either part of exactly one container or composed of at least two such portions (C5; decisions.md \"Atria as separate nodes\")" ;
     ] .
+
+# A fluid portion is either single (one container) or lumped (no own container; at least two single
+# parts via bqbiol:hasPart, BioModels.net qualifiers 1.1; used for the Smith venous compartments
+# that include the atria, decisions.md "Atria as separate nodes").
+ps:SingleFluidPortion
+    a sh:NodeShape ;
+    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( fma:9670 fma:9887 ) ] ,
+                [ sh:path bqbiol:isPartOf ; sh:minCount 1 ; sh:maxCount 1 ] ,
+                [ sh:path bqbiol:hasPart ; sh:maxCount 0 ] .
+
+ps:LumpedFluidPortion
+    a sh:NodeShape ;
+    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( fma:9670 fma:9887 ) ] ,
+                [ sh:path bqbiol:isPartOf ; sh:maxCount 0 ] ,
+                [ sh:path bqbiol:hasPart ; sh:minCount 2 ; sh:node ps:SingleFluidPortion ] .
 
 ps:FluidPortion
     a sh:NodeShape ;
-    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( fma:9670 fma:9887 ) ] ,
-                [ sh:path bqbiol:isPartOf ; sh:minCount 1 ; sh:maxCount 1 ] .
+    sh:or ( ps:SingleFluidPortion ps:LumpedFluidPortion ) .
 
 # G7. Constitutive (dependency) properties carry the property only, with no bearer (S16 §2.3.7.4:
 # "we advise annotators to only indicate the represented physical property"). Advisory, so Warning.
@@ -182,16 +197,31 @@ ps:G7_ConstitutiveHasNoBearer
 #   9466 Cavity of left ventricle, 9291 Cavity of right ventricle, 12239 Lumen of aorta,
 #   280059 Set of lumens of vena cava trunks, 14167 Lumen of pulmonary trunk,
 #   52449 Lumen of pulmonary arterial tree, 52455 Lumen of pulmonary venous tree organ,
-#   11350 Pericardial cavity. Anything else may be correct but has not been checked: Warning.
+#   11350 Pericardial cavity, 9465 Cavity of left atrium, 11359 Cavity of right atrium.
+#   Anything else may be correct but has not been checked: Warning.
 ps:G8_CheckedContainer
     a sh:NodeShape ;
     rdfs:label "G8 container is a label-checked FMA term" ;
     sh:targetSubjectsOf bqbiol:isPartOf ;
     sh:property [
         sh:path bqbiol:isPartOf ;
-        sh:in ( fma:9466 fma:9291 fma:12239 fma:280059 fma:14167 fma:52449 fma:52455 fma:11350 ) ;
+        sh:in ( fma:9466 fma:9291 fma:12239 fma:280059 fma:14167 fma:52449 fma:52455 fma:11350 fma:9465 fma:11359 ) ;
         sh:severity sh:Warning ;
         sh:message "G8: container is not one of the FMA terms label-checked in this review" ;
+    ] .
+
+# G10. A process location (bqbiol:occursIn, BioModels.net qualifiers 1.1, card S22) is one of the valve
+# terms label-checked in this review (OLS FMA 5.1.0): 7235 Mitral valve, 7236 Aortic valve,
+# 7234 Tricuspid valve, 7246 Pulmonary valve. Anything else may be correct but is unchecked: Warning.
+ps:G10_CheckedProcessLocation
+    a sh:NodeShape ;
+    rdfs:label "G10 process location is a label-checked valve" ;
+    sh:targetSubjectsOf bqbiol:occursIn ;
+    sh:property [
+        sh:path bqbiol:occursIn ;
+        sh:in ( fma:7235 fma:7236 fma:7234 fma:7246 ) ;
+        sh:severity sh:Warning ;
+        sh:message "G10: process location is not one of the valve terms label-checked in this review" ;
     ] .
 
 # G9. Coverage: a variable described in free text but with no structured annotation (Info only;

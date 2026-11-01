@@ -1954,11 +1954,12 @@
     "direct_definition": []
    },
    "reference_point_or_external_pressure": "n/a",
-   "direction": "from P_lv side to P_ao side: LV -> aorta through aortic valve (E30); positive = forward",
+   "direction": "from P_lv side to P_ao side: LV -> aorta through aortic valve (E30); positive = forward; process occursIn Aortic valve fma7236",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
-   "unit_as_read": "mL_per_second"
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Aortic valve fma7236"
   },
   {
    "variable": "Q_mt",
@@ -2009,11 +2010,12 @@
     "direct_definition": []
    },
    "reference_point_or_external_pressure": "n/a",
-   "direction": "from P_pu side to P_lv side: pulmonary vein -> LV through mitral valve (E29); positive = forward",
+   "direction": "from P_pu side to P_lv side: pulmonary vein -> LV through mitral valve (E29); positive = forward; process occursIn Mitral valve fma7235",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
-   "unit_as_read": "mL_per_second"
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Mitral valve fma7235"
   },
   {
    "variable": "Q_pul",
@@ -2114,11 +2116,12 @@
     "direct_definition": []
    },
    "reference_point_or_external_pressure": "n/a",
-   "direction": "from P_rv side to P_pa side: RV -> pulmonary artery through pulmonary valve (E32); positive = forward",
+   "direction": "from P_rv side to P_pa side: RV -> pulmonary artery through pulmonary valve (E32); positive = forward; process occursIn Pulmonary valve fma7246",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
-   "unit_as_read": "mL_per_second"
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Pulmonary valve fma7246"
   },
   {
    "variable": "Q_sys",
@@ -2219,11 +2222,12 @@
     "direct_definition": []
    },
    "reference_point_or_external_pressure": "n/a",
-   "direction": "from P_vc side to P_rv side: vena cava -> RV through tricuspid valve (E31); positive = forward",
+   "direction": "from P_vc side to P_rv side: vena cava -> RV through tricuspid valve (E31); positive = forward; process occursIn Tricuspid valve fma7234",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
-   "unit_as_read": "mL_per_second"
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Tricuspid valve fma7234"
   },
   {
    "variable": "R_av",

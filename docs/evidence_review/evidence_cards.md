@@ -480,3 +480,19 @@ Our interpretation, applied to the Smith equations. This is a reading, not an au
 
 Consequence: under this convention the six chamber pressures share one reference, the model's common ground. Treating P_th as gauge relative to atmosphere is the physiological convention, but the CellML does not state it, so it stays UNKNOWN. What differs between compartments is which external pressures enter each pressure law: P_th for P_pa and P_pu, P_peri = P_pcd + P_th for P_lv and P_rv, and none for P_ao and P_vc. That is dependency information (Q2), not a reference point. The FMA entities for "contents of the pericardial space" and "contents of the thoracic cavity" were not selected; fma9887 "Portion of pericardial fluid" is the candidate used in S9.
 
+---
+
+## S22 BioModels.net qualifiers, version 1.1 (COMBINE specification)
+
+- Identifier: https://identifiers.org/combine.specifications:qualifiers-1.1. Text retrieved 2026-11-01 from https://github.com/combine-org/combine-specifications/raw/main/specifications/qualifiers-1.1.md (SHA-256 `b2c044a7084d23b12b676e285113bdd4d95c9a5fc28445837d455eeb850161b2`); not retained (licence of the repository not checked). Version 1.1 "was developed during HARMONY 2023 in Seattle, primarily to collect the qualifers used in the OMEX Metadata Specification under the BioModels.net qualifiers namespace" (companion index file).
+
+Quotations
+
+1. occursIn: "The biological entity represented by the model element is physically limited to a location, which is the subject of the referenced resource (biological entity B). This relation may be used to ascribe a compartmental location, within which a reaction takes place." → Q1 (a flow process located at its valve).
+2. isPartOf: "The biological entity represented by the model element is a physical or logical part of the subject of the referenced resource (biological entity B)."
+3. isPropertyOf: "The biological entity represented by the model element is a property of the referenced resource (biological entity B)."
+3a. hasPart: "The biological entity represented by the model element includes the subject of the referenced resource (biological entity B), either physically or logically. This relation might be used to link a complex to the description of its components." → Q1 (a lumped compartment includes its anatomical parts; decisions.md "Atria as separate nodes").
+4. hasSource / hasSink / hasMediator: "The biological process (e.g., a reaction) has inputs (sources) as listed by the referenced resource." (and the parallel definitions for sinks and mediators); hasPhysicalEntity "connects this participation link to the physical entity description of the participant."
+
+Our interpretation: `bqbiol:occursIn` is the standard relation for "this flow happens at that valve", so the four Smith valves become nodes without a project-local predicate (decisions.md "Anatomical structures as nodes"; rules G10, S5). Version 1.1 also places source, sink, mediator, multiplier and physical-entity links in the bqbiol namespace, whereas OMEX metadata v1.2 (S16) uses the SemSim namespace for them. The shapes still follow OMEX v1.2; whether to move to the 1.1 names is open.
+

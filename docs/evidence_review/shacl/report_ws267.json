@@ -23,6 +23,12 @@
   },
   "S3": {
    "Violation": 1
+  },
+  "S5": {
+   "Violation": 4
+  },
+  "S6": {
+   "Violation": 2
   }
  },
  "results": [
@@ -471,8 +477,50 @@
    "focus": "https://example.org/physiosim/dependency#cap_pa",
    "code": "S3",
    "severity": "Violation",
-   "message": "S3: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa (container https://identifiers.org/FMA:14167) and http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pa (container https://identifiers.org/FMA:52449) are linked by E19 but annotated to different containers",
+   "message": "S3: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa (blood http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_14167) and http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pa (blood http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_52449) are linked by E19 but annotated to different entities",
    "value": "https://example.org/physiosim/dependency#cap_pa"
+  },
+  {
+   "focus": "https://example.org/physiosim/dependency#flow_av",
+   "code": "S5",
+   "severity": "Violation",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_av is a flow through https://identifiers.org/FMA:7236 (E30) but its process is not bqbiol:occursIn that valve",
+   "value": "https://example.org/physiosim/dependency#flow_av"
+  },
+  {
+   "focus": "https://example.org/physiosim/dependency#flow_mt",
+   "code": "S5",
+   "severity": "Violation",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_mt is a flow through https://identifiers.org/FMA:7235 (E29) but its process is not bqbiol:occursIn that valve",
+   "value": "https://example.org/physiosim/dependency#flow_mt"
+  },
+  {
+   "focus": "https://example.org/physiosim/dependency#flow_pv",
+   "code": "S5",
+   "severity": "Violation",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_pv is a flow through https://identifiers.org/FMA:7246 (E32) but its process is not bqbiol:occursIn that valve",
+   "value": "https://example.org/physiosim/dependency#flow_pv"
+  },
+  {
+   "focus": "https://example.org/physiosim/dependency#flow_tc",
+   "code": "S5",
+   "severity": "Violation",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_tc is a flow through https://identifiers.org/FMA:7234 (E31) but its process is not bqbiol:occursIn that valve",
+   "value": "https://example.org/physiosim/dependency#flow_tc"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pu",
+   "code": "S6",
+   "severity": "Violation",
+   "message": "S6: the blood bearing V_pu must include a part in Cavity of left atrium (fma9465); decisions.md \"Atria as separate nodes\"",
+   "value": null
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_vc",
+   "code": "S6",
+   "severity": "Violation",
+   "message": "S6: the blood bearing V_vc must include a part in Cavity of right atrium (fma11359); decisions.md \"Atria as separate nodes\"",
+   "value": null
   }
  ],
  "environment": {
@@ -481,13 +529,13 @@
   "rdflib": "7.6.0"
  },
  "sha256": {
-  "shapes_omex_v1_2.ttl": "6dd6eaa3dec0d048fc659b7c3beb7ea349821c3de18352ce3b79629ffd9871dc",
-  "shapes_smith2004.ttl": "712e68182e32f203c4669a89d8f630cf7fcd3d238c5515fd62e7de4d290fe9ef",
-  "smith2004_dependencies.ttl": "af7dfbe485289091f3942d6e9e44b40de9b7502f12d28e7fe088e1ce24ddbe39",
+  "shapes_omex_v1_2.ttl": "2fee467d588e57a61bbd4544b1d818d466c6ef598a5c1e10d65fa270c7eb13fd",
+  "shapes_smith2004.ttl": "b3e190f0074dd9131cc690ad0e7c24a96ea401955babaf6a5a4aa92ee2166109",
+  "smith2004_dependencies.ttl": "c00fc7d9eaaf72ccbfb64f4cdec7c71b7500cd2f415df9d32591a32c8a63a972",
   "ws267_omex_form.ttl": "bc50132fadc70ee4b60f9b0fb6ca587273d8ddbd22842930f4c1b03592b4de1b",
-  "expected_results.json": "7e1872b0a2740d94c2c1c6a96732cbc2f16e6ed0502801376cb21f7b69f99afd",
-  "fixtures/conforming.ttl": "05361a65f1c128bf5ba1802f6c7400a022554b12cebcf44897909717868ede82",
-  "fixtures/generic_violations.ttl": "8419cb0029e78d38053f430a230f4498efc35f64cdb495dfc96da2907feb8851",
-  "fixtures/smith_violations.ttl": "1befd1374d36e5ae3bc79f12e3ee155679f5e31f4f67adc170a171cef3278516"
+  "expected_results.json": "5878ac68ec8f8d644c3f20ba6b4e938f0865f440eb8f17f2a95536d6c5863e78",
+  "fixtures/conforming.ttl": "3ba6c7e328db1abc2ca084e9b795fc3140b3a481302b0edce6b1c9f862e995e9",
+  "fixtures/generic_violations.ttl": "e560a8287007b3e29a50257d84abda5a7e1a83f7f926a3e06ae0e37302730fc3",
+  "fixtures/smith_violations.ttl": "01f7fc3c3c4a4ca230007c2f627b200f2d16942f2686307ef6423f503227ebb6"
  }
 }

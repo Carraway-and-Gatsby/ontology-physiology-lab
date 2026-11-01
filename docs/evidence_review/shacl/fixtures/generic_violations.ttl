@@ -45,3 +45,14 @@ ex:blood_lca bqbiol:is fma:9670 ; bqbiol:isPartOf fma:18228 .
 ex:v10 dc:description "Septal end systolic elastance" .
 # v11 (G0, Warning): pressure with no bearer
 ex:v11 bqbiol:isVersionOf opb:OPB_00509 .
+# v12 (G10, Warning): flow process located at a cavity, not a label-checked valve
+ex:v12 bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf ex:proc12 .
+ex:proc12 semsim:hasSourceParticipant ex:proc12s ; semsim:hasSinkParticipant ex:proc12k ; bqbiol:occursIn fma:9466 .
+ex:proc12s semsim:hasPhysicalEntityReference ex:blood_lv .
+ex:proc12k semsim:hasPhysicalEntityReference ex:blood_ao .
+# v13 (G6): a "lumped" portion with a single part is neither a single nor a valid lumped fluid portion
+ex:v13 bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf ex:proc13 .
+ex:proc13 semsim:hasSourceParticipant ex:proc13s ; semsim:hasSinkParticipant ex:proc13k .
+ex:proc13s semsim:hasPhysicalEntityReference ex:lumped_one_part .
+ex:proc13k semsim:hasPhysicalEntityReference ex:blood_ao .
+ex:lumped_one_part bqbiol:is fma:9670 ; bqbiol:hasPart ex:blood_lv .

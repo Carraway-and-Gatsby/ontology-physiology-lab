@@ -1,24 +1,133 @@
 {
   "note": "Exact result sets the control fixtures must produce. Each entry is [focus node, rule code, severity]; the rule code is the prefix of sh:resultMessage before the colon.",
-  "conforming": {"shapes": ["shapes_omex_v1_2.ttl", "shapes_smith2004.ttl"], "with_dependencies": true, "results": []},
-  "generic_violations": {"shapes": ["shapes_omex_v1_2.ttl"], "with_dependencies": false, "results": [
-    ["http://example.org/fixture#v1", "G1", "Violation"],
-    ["http://example.org/fixture#v2", "G3", "Violation"],
-    ["http://example.org/fixture#v3", "G4", "Violation"],
-    ["http://example.org/fixture#v4", "G5", "Violation"],
-    ["http://example.org/fixture#proc5s", "G6", "Violation"],
-    ["http://example.org/fixture#v6", "G2a", "Violation"],
-    ["http://example.org/fixture#v7", "G2b", "Violation"],
-    ["http://example.org/fixture#v8", "G7", "Warning"],
-    ["http://example.org/fixture#blood_lca", "G8", "Warning"],
-    ["http://example.org/fixture#v10", "G9", "Info"],
-    ["http://example.org/fixture#v11", "G0", "Warning"]
-  ]},
-  "smith_violations": {"shapes": ["shapes_omex_v1_2.ttl", "shapes_smith2004.ttl"], "with_dependencies": true, "results": [
-    ["http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lv", "S1", "Violation"],
-    ["http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lvf", "S2", "Violation"],
-    ["http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rvf", "S2", "Violation"],
-    ["https://example.org/physiosim/dependency#cap_pa", "S3", "Violation"],
-    ["https://example.org/physiosim/dependency#flow_av", "S4", "Violation"]
-  ]}
+  "conforming": {
+    "shapes": [
+      "shapes_omex_v1_2.ttl",
+      "shapes_smith2004.ttl"
+    ],
+    "with_dependencies": true,
+    "results": []
+  },
+  "generic_violations": {
+    "shapes": [
+      "shapes_omex_v1_2.ttl"
+    ],
+    "with_dependencies": false,
+    "results": [
+      [
+        "http://example.org/fixture#v1",
+        "G1",
+        "Violation"
+      ],
+      [
+        "http://example.org/fixture#v2",
+        "G3",
+        "Violation"
+      ],
+      [
+        "http://example.org/fixture#v3",
+        "G4",
+        "Violation"
+      ],
+      [
+        "http://example.org/fixture#v4",
+        "G5",
+        "Violation"
+      ],
+      [
+        "http://example.org/fixture#proc5s",
+        "G6",
+        "Violation"
+      ],
+      [
+        "http://example.org/fixture#v6",
+        "G2a",
+        "Violation"
+      ],
+      [
+        "http://example.org/fixture#v7",
+        "G2b",
+        "Violation"
+      ],
+      [
+        "http://example.org/fixture#v8",
+        "G7",
+        "Warning"
+      ],
+      [
+        "http://example.org/fixture#blood_lca",
+        "G8",
+        "Warning"
+      ],
+      [
+        "http://example.org/fixture#v10",
+        "G9",
+        "Info"
+      ],
+      [
+        "http://example.org/fixture#v11",
+        "G0",
+        "Warning"
+      ],
+      [
+        "http://example.org/fixture#proc12",
+        "G10",
+        "Warning"
+      ],
+      [
+        "http://example.org/fixture#proc13s",
+        "G6",
+        "Violation"
+      ]
+    ]
+  },
+  "smith_violations": {
+    "shapes": [
+      "shapes_omex_v1_2.ttl",
+      "shapes_smith2004.ttl"
+    ],
+    "with_dependencies": true,
+    "results": [
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lv",
+        "S1",
+        "Violation"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lvf",
+        "S2",
+        "Violation"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rvf",
+        "S2",
+        "Violation"
+      ],
+      [
+        "https://example.org/physiosim/dependency#cap_pa",
+        "S3",
+        "Violation"
+      ],
+      [
+        "https://example.org/physiosim/dependency#flow_av",
+        "S4",
+        "Violation"
+      ],
+      [
+        "https://example.org/physiosim/dependency#flow_mt",
+        "S5",
+        "Violation"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pu",
+        "S6",
+        "Violation"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_vc",
+        "S6",
+        "Violation"
+      ]
+    ]
+  }
 }
