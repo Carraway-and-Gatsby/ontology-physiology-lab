@@ -202,6 +202,18 @@ No escalation was needed. No task was retried.
   frozen values are 2.0000, 16.27 and 10.50, so only the first span halves
   with the step; the earlier "halves with the step" wording applies to the
   first span only. Independent review of the result is not done.
+- 2026-11-01 SHACL reproduction (Hermes [redacted: request id]; clean
+  detached worktree of baf499e on [redacted: host], new venv from
+  `requirements-shacl.txt`; Python 3.12.3, pyshacl 0.26.0, rdflib 7.6.0):
+  `translate_ws267.py` and `run_shacl.py` exit 0 with the same output as
+  here (controls 0 / 13 / 12; ws267 22 Violations, 7 Warnings, 46 Info).
+  `ws267_omex_form.ttl` regenerates byte for byte; `report_ws267.json`
+  differs only in its Python version line (3.11.15 here). The SHACL
+  results therefore do not depend on this Mac's environment. This is a
+  reproduction test, not a check that the shapes are correct. The install
+  log Hermes says it attached was not seen here. The server's other
+  worktrees stay at older commits (main tree d19e3bc, smith-c11 4b2e181,
+  smith-prov-runs 63d3ac1).
 
 ## Open questions
 

@@ -1,6 +1,6 @@
 # SHACL validation of the Smith 2004 annotations (2026-11-01; valve rules G10 and S5, atrium rule S6 and compartment rule S7 added, and identifiers moved to the node specification v2, the same day)
 
-Generated from `report_ws267.json` by hand after running `run_shacl.py` (Python 3.11.15, pyshacl 0.26.0, rdflib 7.6.0; `requirements-shacl.txt`). SHA-256 of every input is in the JSON.
+Generated from `report_ws267.json` by hand after running `run_shacl.py` (Python 3.11.15, pyshacl 0.26.0, rdflib 7.6.0; `requirements-shacl.txt`). SHA-256 of every input is in the JSON. Reproduced the same day on a second machine (Hermes server, Linux, Python 3.12.3, same pyshacl and rdflib) from a clean checkout of baf499e: the translation regenerates byte for byte and the JSON differs only in its Python version line (`docs/orchestration_state.md`).
 
 ## What was run
 
