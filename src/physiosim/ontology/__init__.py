@@ -4,6 +4,8 @@ from dataclasses import dataclass
 BASE = 'https://example.org/physiosim/'  # Explicit project-local namespace, not a public ontology.
 OPB_SOURCE = 'https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl'
 OLS_SOURCE = 'https://www.ebi.ac.uk/ols4/api/'
+BQBIOL = 'http://biomodels.net/biology-qualifiers/'
+OBO_XREF = 'http://www.geneontology.org/formats/oboInOwl#hasDbXref'
 
 
 @dataclass(frozen=True)
@@ -12,6 +14,7 @@ class Concept:
     label: str
     source: str
     local: bool = False
+    xref: str = ''  # the other ontology's identifier, kept on every v2 node
 
 
 def _local(key, label):
@@ -20,6 +23,10 @@ def _local(key, label):
 
 def _opb(number, label):
     return Concept('http://bhi.washington.edu/OPB#OPB_' + number, label, OPB_SOURCE)
+
+
+def _uberon(number, label, fma):
+    return Concept('http://purl.obolibrary.org/obo/UBERON_' + number, label, OLS_SOURCE, xref='FMA:' + fma)
 
 
 PROPERTIES = {
@@ -33,17 +40,35 @@ PROPERTIES = {
     'stroke_volume': _local('stroke_volume', 'Left ventricular stroke volume per complete beat'),
     'cardiac_output': _local('cardiac_output', 'Cycle-mean aortic outflow'),
 }
+# Anatomical node specification v2 (docs/evidence_review/anatomy_nodes_v2.json): Uberon primary,
+# FMA cross-reference kept. Only the nodes the registry refers to; keys follow the specification.
+NODES = {
+    'blood': _uberon('0000178', 'blood', '9670'),
+    'lv_cavity': _uberon('0016514', 'cavity of left ventricle', '9466'),
+    'rv_cavity': _uberon('0016509', 'cavity of right ventricle', '9291'),
+    'mitral_valve': _uberon('0002135', 'mitral valve', '7235'),
+    'aortic_valve': _uberon('0002137', 'aortic valve', '7236'),
+    'tricuspid_valve': _uberon('0002134', 'tricuspid valve', '7234'),
+    'pulmonary_valve': _uberon('0002146', 'pulmonary valve', '7246'),
+    'heart': _uberon('0000948', 'heart', '7088'),
+    'lv': _uberon('0002084', 'heart left ventricle', '7101'),
+    'rv': _uberon('0002080', 'heart right ventricle', '7098'),
+}
+# Container of each compartment's blood, keyed by model compartment code (decisions.md C5: blood
+# part_of cavity/lumen). The peripheral compartments stay local: no source maps them to v2 nodes.
 ANATOMY = {
-    'lv': Concept('http://purl.org/sig/ont/fma/fma7101', 'Left ventricle', OLS_SOURCE),
-    'rv': Concept('http://purl.org/sig/ont/fma/fma7098', 'Right ventricle', OLS_SOURCE),
-    'heart': Concept('http://purl.org/sig/ont/fma/fma7088', 'Heart', OLS_SOURCE),
+    'lv': NODES['lv_cavity'],
+    'rv': NODES['rv_cavity'],
     **{k: _local(k, label) for k, label in {
         'sa': 'Lumped systemic arterial compartment', 'sv': 'Lumped systemic venous compartment',
         'pa': 'Lumped pulmonary arterial compartment', 'pv': 'Lumped pulmonary venous compartment',
         'circulation': 'Closed six-compartment blood circulation',
     }.items()},
 }
-BLOOD = Concept('http://purl.org/sig/ont/fma/fma9670', 'Portion of blood', OLS_SOURCE)
+BLOOD = NODES['blood']
+# Location of each valve flow process, bqbiol:occursIn (decisions.md "Anatomical structures as nodes").
+VALVES = {'aortic': NODES['aortic_valve'], 'tricuspid': NODES['tricuspid_valve'],
+          'pulmonary_valve': NODES['pulmonary_valve'], 'mitral': NODES['mitral_valve']}
 CONTEXTS = {
     'circulation': Concept('http://purl.obolibrary.org/obo/GO_0008015', 'blood circulation', OLS_SOURCE),
     'contraction': Concept('http://purl.obolibrary.org/obo/GO_0060047', 'heart contraction', OLS_SOURCE),
@@ -68,6 +93,7 @@ class VariableAnnotation:
     depends_on: tuple[str, ...] = ()
     biological_context: tuple[str, ...] = ('circulation',)
     bearer: str = 'blood'  # blood, compartment wall, flow process, or heart process
+    occurs_in: Concept | None = None  # location of a flow process (valve flows only)
 
     @property
     def uri(self):
@@ -90,7 +116,8 @@ def cardiovascular_registry() -> dict[str, VariableAnnotation]:
             reference='model gauge pressure; fixed external pressure zero',
             depends_on=('V_' + compartment, ('E_' if chamber else 'C_') + compartment))
         if chamber:
-            add('E_' + compartment, anatomy, 'elastance', 'mmHg/mL',
+            # Organ-level v2 reference; whether the wall node fits a whole-chamber elastance is undecided.
+            add('E_' + compartment, NODES[compartment], 'elastance', 'mmHg/mL',
                 'E(t) = Emin + (Emax-Emin)*activation(t,HR)', 'time-varying parameter',
                 depends_on=('HR',), biological_context=('contraction',), bearer='compartment wall')
         else:
@@ -104,14 +131,15 @@ def cardiovascular_registry() -> dict[str, VariableAnnotation]:
         orientation = (origin, target)
         add('Q_' + edge, anatomy, 'flow', 'mL/s',
             'Q = max(P_up-P_down,0)/R' if valve else 'Q = (P_up-P_down)/R', 'algebraic',
-            orientation=orientation, depends_on=('P_' + origin, 'P_' + target, 'R_' + edge), bearer='flow process')
+            orientation=orientation, depends_on=('P_' + origin, 'P_' + target, 'R_' + edge), bearer='flow process',
+            occurs_in=VALVES.get(edge))
         add('R_' + edge, anatomy, 'resistance', 'mmHg*s/mL', 'R = pressure_drop / flow',
             'parameter', orientation=orientation, bearer='flow process')
-    add('HR', ANATOMY['heart'], 'frequency', '1/min', 'T_seconds = 60 / HR_per_minute',
+    add('HR', NODES['heart'], 'frequency', '1/min', 'T_seconds = 60 / HR_per_minute',
         'parameter', biological_context=('contraction',), bearer='heart process')
-    add('CO', ANATOMY['lv'], 'cardiac_output', 'mL/s', 'CO = integral(Q_aortic, complete_beat)/T',
+    add('CO', NODES['lv'], 'cardiac_output', 'mL/s', 'CO = integral(Q_aortic, complete_beat)/T',
         'observable', orientation=('lv', 'sa'), temporal_context='complete-beat mean', depends_on=('Q_aortic', 'HR'), bearer='flow process')
-    add('SV', ANATOMY['lv'], 'stroke_volume', 'mL', 'SV = integral(Q_aortic, complete_beat)',
+    add('SV', NODES['lv'], 'stroke_volume', 'mL', 'SV = integral(Q_aortic, complete_beat)',
         'observable', temporal_context='complete beat', depends_on=('Q_aortic',), bearer='flow process')
     add('V_total', ANATOMY['circulation'], 'volume', 'mL', 'V_total = sum(V_i)',
         'observable', depends_on=tuple('V_' + x for x in ('lv', 'rv', 'sa', 'sv', 'pa', 'pv')))
@@ -158,8 +186,10 @@ def validate_connection(source: VariableAnnotation, target: VariableAnnotation,
             value = getattr(endpoint, field)
             if not isinstance(value, str) or not value.strip():
                 raise SemanticConnectionError(f'incomplete {field}')
-        for field in ('anatomy', 'property'):
+        for field in ('anatomy', 'property', 'occurs_in'):
             concept = getattr(endpoint, field)
+            if field == 'occurs_in' and concept is None:
+                continue
             if not isinstance(concept, Concept) or any(not isinstance(value, str) or not value.strip()
                                                        for value in (concept.uri, concept.label, concept.source)):
                 raise SemanticConnectionError(f'incomplete {field}')
@@ -172,6 +202,8 @@ def validate_connection(source: VariableAnnotation, target: VariableAnnotation,
     for field in ('anatomy', 'property'):
         if getattr(source, field).uri != getattr(target, field).uri:
             raise SemanticConnectionError(f'{field} mismatch')
+    if (source.occurs_in and source.occurs_in.uri) != (target.occurs_in and target.occurs_in.uri):
+        raise SemanticConnectionError('occurs_in mismatch')
     for field in ('orientation', 'temporal_context', 'reference', 'bearer', 'biological_context'):
         if getattr(source, field) != getattr(target, field):
             raise SemanticConnectionError(f'{field} mismatch')
@@ -230,11 +262,13 @@ def build_graph(registry=None):
     provenance.add((labels.identifier, DCTERMS.description,
                     Literal('Selected source-verified labels only; no imported ontology axioms')))
     # Only the source-verified built-in catalog is allowed in the verified graph.
-    known = (*PROPERTIES.values(), *ANATOMY.values(), BLOOD, *CONTEXTS.values())
+    known = (*PROPERTIES.values(), *ANATOMY.values(), *NODES.values(), *CONTEXTS.values())
     verified = {c.uri: c for c in known if not c.local}
     for c in verified.values():
         labels.add((URIRef(c.uri), RDFS.label, Literal(c.label)))
         labels.add((URIRef(c.uri), DCTERMS.source, URIRef(c.source)))
+        if c.xref:
+            labels.add((URIRef(c.uri), URIRef(OBO_XREF), Literal(c.xref)))
     for key, v in registry.items():
         subject = URIRef(v.uri)
         model.add((subject, RDF.type, ns.AnnotatedVariable))
@@ -248,15 +282,22 @@ def build_graph(registry=None):
         model.add((subject, DCTERMS.source, Literal(v.source_document)))
         for context in v.applicable_contexts:
             model.add((subject, ns.applicableScenario, URIRef(BASE + 'scenario/' + context)))
-        for c in (v.anatomy, v.property):
+        for c in filter(None, (v.anatomy, v.property, v.occurs_in)):
             if c.uri not in verified:
                 model.add((URIRef(c.uri), RDFS.label, Literal(c.label)))
                 model.add((URIRef(c.uri), ns.mappingStatus, Literal('local extension' if c.local else 'unverified caller concept')))
         bearer = URIRef(BASE + 'bearer/' + key)
         model.add((subject, ns.propertyOf, bearer))
-        model.add((bearer, ns.locatedIn, URIRef(v.anatomy.uri)))
+        if v.bearer == 'blood' and not v.anatomy.local:
+            # C5 bearer form: the portion of blood is part of its cavity or lumen.
+            model.add((bearer, URIRef(BQBIOL + 'isPartOf'), URIRef(v.anatomy.uri)))
+        else:
+            # Non-blood bearers and local compartments keep the project relation (no lumen mapping decided).
+            model.add((bearer, ns.locatedIn, URIRef(v.anatomy.uri)))
         if v.bearer == 'blood':
             model.add((bearer, ns.entityType, URIRef(BLOOD.uri)))
+        if v.occurs_in:
+            model.add((bearer, URIRef(BQBIOL + 'occursIn'), URIRef(v.occurs_in.uri)))
         if v.orientation:
             model.add((subject, ns.flowSource, URIRef(ANATOMY[v.orientation[0]].uri)))
             model.add((subject, ns.flowSink, URIRef(ANATOMY[v.orientation[1]].uri)))
