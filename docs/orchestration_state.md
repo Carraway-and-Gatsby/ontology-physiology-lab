@@ -122,6 +122,14 @@ No escalation was needed. No task was retried.
   interest fixed beforehand: P_lv, P_ao, Q_av, stroke volume, valve
   open/close times. The independent scipy re-implementation stays blind
   until the procedure is fixed. Run C must be requested from Hermes.
+- 2026-11-01 Hermes check before run C: A used RK4 step 1e-5 s and B 5e-6 s
+  (settings read back before and after); both CSVs have 0.001 s output
+  spacing and 1,501 rows. The earlier "every 4th C row = A grid" instruction
+  was the assistant's error and was withdrawn. Run C: step 2.5e-6 s, same
+  0.001 s output, compared by output index; scalar definitions and the
+  decision not to add the negative-flow integral are in decisions.md. Hermes
+  confirmed it will run C once with these rules and add no pass/fail wording.
+  Run C is not yet executed; A and B files unchanged.
 - Not yet verified: negative Q_av, original-unit plausibility (pressures
   labelled kPa behave numerically as mmHg), agreement with the published
   waveform.
