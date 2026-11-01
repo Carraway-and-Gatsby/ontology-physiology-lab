@@ -150,12 +150,34 @@ No escalation was needed. No task was retried.
 - Blind comparison with the assistant's scipy re-implementation (not a
   reference, not independent of the assistant), report-only: stroke volume
   65.8 mL vs 65.848 mL (beat 1); aortic valve opening 0.247 s vs first
-  positive sample 0.247 s. P_lv, P_ao ranges and Q_av peak not compared:
-  the Hermes summary does not list them.
-- Not yet reviewed here: Hermes's comparator and runner changes
-  (`comparator.diff`, `runner.diff`), the ZIP contents and hash, and
-  `negative-q-intervals.csv`. Scientific checks (negative Q_av, units,
-  published waveform) remain open.
+  positive sample 0.247 s. From the raw C CSV: P_lv -3.2 to 119.0 vs
+  -3.23 to 119.00; P_ao 79.0 to 116.4 vs 78.96 to 116.38; Q_av peak 1110 vs
+  1110.05. All agree to the precision the scipy values were recorded at.
+- 2026-11-01 review of the Hermes report ZIP (SHA-256 matches `b4ec9e79…
+  2166`; read, not executed). A/B/C `signals.csv` hashes match the report;
+  B's `rawsignals.csv` is byte-identical to its `signals.csv`. Solver
+  readbacks: KINSOL settings identical in A, B, C; only the RK4 Step differs
+  (1e-5, 5e-6, 2.5e-6); output interval 0.001 s. Comparator
+  (`compare_abc.py`, `report_math.py`) implements the approved definitions;
+  undefined orders are labelled, not adjusted. Runner changes limit
+  execution to the single run C and re-hash A/B before and after; the old
+  1e-9 s grid assertion and the embedded PATH injection were removed. No
+  defect found. An independent recomputation from the raw CSVs (own code,
+  not Hermes's) reproduces every reported number.
+- Observation, not an established cause: negative Q_av holds one constant
+  value per closed-valve span, and in the first span it halves exactly with
+  each step halving (-3.856, -1.928, -0.964 mL/s over 0.001-0.246 s); later
+  spans are smaller (A/B/C -0.0095/-0.0049/-0.0003 and -0.0097/-0.0051/
+  -0.0005) and do not halve cleanly. Flow that scales with the integration
+  step points to a numerical artifact of the fixed-step solution at the
+  valve law's Q=0 switch rather than physiology; Smith 2004 (abstract only
+  read) describes solving with a phase-dependent number of states. This
+  offset dominates the Q_av order (largest B-C difference at t=0.001 s);
+  the largest P_lv/P_ao B-C differences sit at 0.255-0.26 s, just after
+  aortic valve opening. Hermes notes OpenCOR's Step unit (seconds) is
+  owner intent, not confirmed from API documentation.
+- Still open: unit labels (kPa labels on values that behave as mmHg) and
+  agreement with the published waveform; both need the Smith 2004 paper.
 - Not yet verified: negative Q_av, original-unit plausibility (pressures
   labelled kPa behave numerically as mmHg), agreement with the published
   waveform.
