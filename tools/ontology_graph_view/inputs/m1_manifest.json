@@ -1,0 +1,1516 @@
+{
+  "run": {
+    "config": {
+      "parameters": {
+        "compliance_pa": 5.0,
+        "compliance_pv": 20.0,
+        "compliance_sa": 1.5,
+        "compliance_sv": 100.0,
+        "elastance_la": 0.15,
+        "elastance_ra": 0.1,
+        "emax_lv": 2.5,
+        "emax_rv": 0.8,
+        "emin_lv": 0.06,
+        "emin_rv": 0.03,
+        "heart_rate": 75.0,
+        "initial_volumes": [
+          140.0,
+          850.0,
+          3200.0,
+          60.0,
+          140.0,
+          180.0,
+          490.0,
+          60.0
+        ],
+        "resistance_aortic": 0.01,
+        "resistance_mitral": 0.01,
+        "resistance_pulmonary": 0.1,
+        "resistance_pulmonary_valve": 0.01,
+        "resistance_pulmonary_venous": 0.05,
+        "resistance_systemic": 1.0,
+        "resistance_tricuspid": 0.01,
+        "resistance_venous_return": 0.05,
+        "systolic_fraction": 0.4,
+        "unstressed_volumes": [
+          10.0,
+          700.0,
+          2500.0,
+          20.0,
+          10.0,
+          100.0,
+          400.0,
+          20.0
+        ]
+      },
+      "simulation": {
+        "cycles": 30,
+        "samples_per_cycle": 400
+      },
+      "solver": {
+        "atol": 1e-10,
+        "max_step": 0.004,
+        "method": "DOP853",
+        "rtol": 1e-09
+      }
+    },
+    "config_sha256": "1dc412b19c1a36a17f650b8a2aaca60d04f96219051b9b4511b6b530917eb048",
+    "dependencies": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.4.6",
+      "pint": "0.25.3",
+      "scipy": "1.17.1"
+    },
+    "hash_scope": "All four output files other than manifest.json; manifest excludes its own hash.",
+    "output_sha256": {
+      "figure.png": "cf0e8d659513efc2561b5e95141019e237380f760232a5ba28c85bb47a8e789e",
+      "index.html": "d9e2c729e9776571ac3e32a1311b2c6d3f246c8f44afc74c06e68bcf24685da5",
+      "summary.json": "d465c183b031bbec747ef81f1ac45387a28e88ca7a9ac0acb3091e9939682e55",
+      "trajectories.csv": "e853bab484597e61eb46e48766e7868142a7113317a6b8664eb394e9523f1d98"
+    },
+    "parameters": {
+      "compliance_pa": 5.0,
+      "compliance_pv": 20.0,
+      "compliance_sa": 1.5,
+      "compliance_sv": 100.0,
+      "elastance_la": 0.15,
+      "elastance_ra": 0.1,
+      "emax_lv": 2.5,
+      "emax_rv": 0.8,
+      "emin_lv": 0.06,
+      "emin_rv": 0.03,
+      "heart_rate": 75.0,
+      "initial_volumes": [
+        140.0,
+        850.0,
+        3200.0,
+        60.0,
+        140.0,
+        180.0,
+        490.0,
+        60.0
+      ],
+      "resistance_aortic": 0.01,
+      "resistance_mitral": 0.01,
+      "resistance_pulmonary": 0.1,
+      "resistance_pulmonary_valve": 0.01,
+      "resistance_pulmonary_venous": 0.05,
+      "resistance_systemic": 1.0,
+      "resistance_tricuspid": 0.01,
+      "resistance_venous_return": 0.05,
+      "systolic_fraction": 0.4,
+      "unstressed_volumes": [
+        10.0,
+        700.0,
+        2500.0,
+        20.0,
+        10.0,
+        100.0,
+        400.0,
+        20.0
+      ]
+    },
+    "python": "3.11.15",
+    "replay_scope": "Same implementation and environment; no timestamps or stochastic input.",
+    "settings": {
+      "atol": 1e-10,
+      "max_step": 0.004,
+      "method": "DOP853",
+      "rtol": 1e-09
+    },
+    "simulation": {
+      "cycles": 30,
+      "samples_per_cycle": 400
+    },
+    "source_hash_scope": "Package-relative observed runtime bytes; not proof of semantic or physiological validity.",
+    "source_sha256": {
+      "experiments/four_chamber_m1_demo.py": "a69c4ab485bcec60d8110bd37ec1e07e607f1708b0242d6596c37cec5a913dcd",
+      "models/cardiovascular.py": "41be222561d553b93510448630c091c642f999b5be8f01ba65160f3a10ec3492",
+      "models/four_chamber_m1.py": "5d7d68818554a7bf66772f7ca89eaeba76ce5daa31bc2198ed373617ec63c381",
+      "ontology/anatomy_nodes_v2.json": "1539226fad5620d056ae02ccccc2f4a0ed44c532ba8830193ef47d1ba4c84fd1",
+      "ontology/four_chamber_m1_manifest.py": "3f5ce12019c3680a52c5630efd0552cd3c166ce28fd244605ec2ef03b7190d8e",
+      "simulation/_hybrid.py": "6c413537bbe91a2859bb612d488e54379d1462a023dfea2ca4eb319e3fb9cc77",
+      "simulation/four_chamber_m1.py": "492c032ac03b6712db127a83e87b0b0109afdaa1c42c3c641f21793dcda9834c"
+    }
+  },
+  "semantic_contract": {
+    "compartments": {
+      "la": {
+        "anatomy": {
+          "fma": "FMA:9465",
+          "key": "la_cavity",
+          "primary_id": "UBERON:0016513",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/4",
+          "source_role_in_smith": "part of the pulmonary venous compartment blood (lumped)",
+          "structure": "Cavity of left atrium",
+          "uberon": "UBERON:0016513",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Separate M1 blood volume state.",
+        "relation": "blood_contained_in",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_container"
+        ]
+      },
+      "lv": {
+        "anatomy": {
+          "fma": "FMA:9466",
+          "key": "lv_cavity",
+          "primary_id": "UBERON:0016514",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/2",
+          "source_role_in_smith": "container of LV blood (P_lv, V_lv)",
+          "structure": "Cavity of left ventricle",
+          "uberon": "UBERON:0016514",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Separate M1 blood volume state.",
+        "relation": "blood_contained_in",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_container"
+        ]
+      },
+      "pa": {
+        "anatomy": {
+          "fma": "FMA:52449",
+          "key": "pulmonary_arterial_lumen",
+          "primary_id": "FMA:52449",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/18",
+          "source_role_in_smith": "container of the \"pulmonary artery\" compartment blood (P_pa, V_pa)",
+          "structure": "Lumen of pulmonary arterial tree",
+          "uberon": "UBERON:0002012",
+          "uberon_relation": "related_structure"
+        },
+        "interpretation": "Anatomical context only; the lumen label is not identity with the whole lumped vascular bed.",
+        "relation": "lumped_compartment_context",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_context"
+        ]
+      },
+      "pv": {
+        "anatomy": {
+          "fma": "FMA:52455",
+          "key": "pulmonary_venous_lumen",
+          "primary_id": "FMA:52455",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/19",
+          "source_role_in_smith": "with the LA cavity, container of the \"pulmonary vein\" compartment blood (P_pu, V_pu)",
+          "structure": "Lumen of pulmonary venous tree organ",
+          "uberon": "UBERON:0013127",
+          "uberon_relation": "related_structure"
+        },
+        "interpretation": "Anatomical context only; the lumen label is not identity with the whole lumped vascular bed.",
+        "relation": "lumped_compartment_context",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_context"
+        ]
+      },
+      "ra": {
+        "anatomy": {
+          "fma": "FMA:11359",
+          "key": "ra_cavity",
+          "primary_id": "UBERON:0016522",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/5",
+          "source_role_in_smith": "part of the systemic venous compartment blood (lumped)",
+          "structure": "Cavity of right atrium",
+          "uberon": "UBERON:0016522",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Separate M1 blood volume state.",
+        "relation": "blood_contained_in",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_container"
+        ]
+      },
+      "rv": {
+        "anatomy": {
+          "fma": "FMA:9291",
+          "key": "rv_cavity",
+          "primary_id": "UBERON:0016509",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/3",
+          "source_role_in_smith": "container of RV blood",
+          "structure": "Cavity of right ventricle",
+          "uberon": "UBERON:0016509",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Separate M1 blood volume state.",
+        "relation": "blood_contained_in",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_container"
+        ]
+      },
+      "sa": {
+        "anatomy": {
+          "fma": "FMA:52448",
+          "key": "systemic_arterial_lumen",
+          "primary_id": "FMA:52448",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/16",
+          "source_role_in_smith": "container of the \"aorta\" compartment blood (P_ao, V_ao): lumped systemic arteries (S6P p. 12-13)",
+          "structure": "Lumen of systemic arterial tree",
+          "uberon": "UBERON:0004571",
+          "uberon_relation": "related_structure"
+        },
+        "interpretation": "Anatomical context only; the lumen label is not identity with the whole lumped vascular bed.",
+        "relation": "lumped_compartment_context",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_context"
+        ]
+      },
+      "sv": {
+        "anatomy": {
+          "fma": "FMA:52454",
+          "key": "systemic_venous_lumen",
+          "primary_id": "FMA:52454",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/17",
+          "source_role_in_smith": "with the RA cavity, container of the \"vena cava\" compartment blood (P_vc, V_vc): lumped systemic veins",
+          "structure": "Lumen of systemic venous tree organ",
+          "uberon": "UBERON:0004581",
+          "uberon_relation": "related_structure"
+        },
+        "interpretation": "Anatomical context only; the lumen label is not identity with the whole lumped vascular bed.",
+        "relation": "lumped_compartment_context",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_context"
+        ]
+      }
+    },
+    "edges": {
+      "aortic": {
+        "anatomy": {
+          "fma": "FMA:7236",
+          "key": "aortic_valve",
+          "primary_id": "UBERON:0002137",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/7",
+          "source_role_in_smith": "location of Q_av (E30)",
+          "structure": "Aortic valve",
+          "uberon": "UBERON:0002137",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Model flow located at v2 valve.",
+        "kind": "diode",
+        "relation": "flow_location",
+        "relationship_direction": [
+          "flow_process",
+          "valve_location"
+        ],
+        "source": "lv",
+        "target": "sa"
+      },
+      "mitral": {
+        "anatomy": {
+          "fma": "FMA:7235",
+          "key": "mitral_valve",
+          "primary_id": "UBERON:0002135",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/6",
+          "source_role_in_smith": "location of Q_mt (E29)",
+          "structure": "Mitral valve",
+          "uberon": "UBERON:0002135",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Model flow located at v2 valve.",
+        "kind": "diode",
+        "relation": "flow_location",
+        "relationship_direction": [
+          "flow_process",
+          "valve_location"
+        ],
+        "source": "la",
+        "target": "lv"
+      },
+      "pulmonary": {
+        "anatomy": null,
+        "interpretation": "No dedicated v2 path node; project-local connection between the named compartments.",
+        "kind": "resistor",
+        "relation": "project_local_flow_path",
+        "relationship_direction": [
+          "pa",
+          "pv"
+        ],
+        "source": "pa",
+        "target": "pv"
+      },
+      "pulmonary_valve": {
+        "anatomy": {
+          "fma": "FMA:7246",
+          "key": "pulmonary_valve",
+          "primary_id": "UBERON:0002146",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/9",
+          "source_role_in_smith": "location of Q_pv (E32)",
+          "structure": "Pulmonary valve",
+          "uberon": "UBERON:0002146",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Model flow located at v2 valve.",
+        "kind": "diode",
+        "relation": "flow_location",
+        "relationship_direction": [
+          "flow_process",
+          "valve_location"
+        ],
+        "source": "rv",
+        "target": "pa"
+      },
+      "pulmonary_venous": {
+        "anatomy": null,
+        "interpretation": "No dedicated v2 path node; project-local connection between the named compartments.",
+        "kind": "resistor",
+        "relation": "project_local_flow_path",
+        "relationship_direction": [
+          "pv",
+          "la"
+        ],
+        "source": "pv",
+        "target": "la"
+      },
+      "systemic": {
+        "anatomy": null,
+        "interpretation": "No dedicated v2 path node; project-local connection between the named compartments.",
+        "kind": "resistor",
+        "relation": "project_local_flow_path",
+        "relationship_direction": [
+          "sa",
+          "sv"
+        ],
+        "source": "sa",
+        "target": "sv"
+      },
+      "tricuspid": {
+        "anatomy": {
+          "fma": "FMA:7234",
+          "key": "tricuspid_valve",
+          "primary_id": "UBERON:0002134",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/8",
+          "source_role_in_smith": "location of Q_tc (E31)",
+          "structure": "Tricuspid valve",
+          "uberon": "UBERON:0002134",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Model flow located at v2 valve.",
+        "kind": "diode",
+        "relation": "flow_location",
+        "relationship_direction": [
+          "flow_process",
+          "valve_location"
+        ],
+        "source": "ra",
+        "target": "rv"
+      },
+      "venous_return": {
+        "anatomy": null,
+        "interpretation": "No dedicated v2 path node; project-local connection between the named compartments.",
+        "kind": "resistor",
+        "relation": "project_local_flow_path",
+        "relationship_direction": [
+          "sv",
+          "ra"
+        ],
+        "source": "sv",
+        "target": "ra"
+      }
+    },
+    "evidence_status": {
+      "extracted_facts": "Identifiers, labels and Smith roles copied from project-owned v2.",
+      "interpretation": "M1 topology, gauge and mappings are software design assertions, not ontology entailments.",
+      "verbatim_evidence": "Not reproduced here; see v2 source pointers."
+    },
+    "metric_aliases": {
+      "lv_cardiac_output_ml_s": "CO_lv",
+      "lv_stroke_volume_ml": "SV_lv",
+      "rv_cardiac_output_ml_s": "CO_rv",
+      "rv_stroke_volume_ml": "SV_rv"
+    },
+    "model_id": "four_chamber_m1",
+    "model_version": "1.0.0",
+    "parameter_contract": {
+      "compliance_pa": {
+        "order": null,
+        "property": "https://example.org/physiosim/concept/fluid_volume_compliance",
+        "property_source": "project-local model definition",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mL/mmHg"
+      },
+      "compliance_pv": {
+        "order": null,
+        "property": "https://example.org/physiosim/concept/fluid_volume_compliance",
+        "property_source": "project-local model definition",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mL/mmHg"
+      },
+      "compliance_sa": {
+        "order": null,
+        "property": "https://example.org/physiosim/concept/fluid_volume_compliance",
+        "property_source": "project-local model definition",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mL/mmHg"
+      },
+      "compliance_sv": {
+        "order": null,
+        "property": "https://example.org/physiosim/concept/fluid_volume_compliance",
+        "property_source": "project-local model definition",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mL/mmHg"
+      },
+      "elastance_la": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00076",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg/mL"
+      },
+      "elastance_ra": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00076",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg/mL"
+      },
+      "emax_lv": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00076",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg/mL"
+      },
+      "emax_rv": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00076",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg/mL"
+      },
+      "emin_lv": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00076",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg/mL"
+      },
+      "emin_rv": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00076",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg/mL"
+      },
+      "heart_rate": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_01212",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "1/min"
+      },
+      "initial_volumes": {
+        "order": [
+          "lv",
+          "sa",
+          "sv",
+          "ra",
+          "rv",
+          "pa",
+          "pv",
+          "la"
+        ],
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "initial",
+        "unit": "mL"
+      },
+      "resistance_aortic": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "resistance_mitral": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "resistance_pulmonary": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "resistance_pulmonary_valve": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "resistance_pulmonary_venous": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "resistance_systemic": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "resistance_tricuspid": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "resistance_venous_return": {
+        "order": null,
+        "property": "http://bhi.washington.edu/OPB#OPB_00160",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mmHg*s/mL"
+      },
+      "systolic_fraction": {
+        "order": null,
+        "property": "https://example.org/physiosim/concept/systolic_fraction",
+        "property_source": "project-local M1 definition",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "dimensionless"
+      },
+      "unstressed_volumes": {
+        "order": [
+          "lv",
+          "sa",
+          "sv",
+          "ra",
+          "rv",
+          "pa",
+          "pv",
+          "la"
+        ],
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+        "temporal": "constant_parameter",
+        "unit": "mL"
+      }
+    },
+    "pressure_reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+    "source": {
+      "canonical_json_sha256": "87fc51a3fb94296167e5e016c9b9376280550c0063333635293c5f8717c1d941",
+      "ontology_versions": {
+        "fma": "5.1.0 (2026-05-15, uw-sig/FMA), CC BY 4.0, OBO inactive",
+        "uberon": "2026-10-01 (http://purl.obolibrary.org/obo/uberon/releases/2026-10-01/uberon.owl), CC BY 3.0, OBO active"
+      },
+      "path": "docs/evidence_review/anatomy_nodes_v2.json",
+      "validation_scope": "Checked against project-owned v2; no new external source validation.",
+      "version": "Anatomical node specification v2 (2026-11-01)"
+    },
+    "unresolved_conflicts": [
+      "v2 la_cavity/ra_cavity roles describe Smith lumped venous blood; M1 uses separate states. No legacy identity or volume split is asserted.",
+      "v2 pulmonary_venous_lumen records UBERON:0013127 as related structure with no FMA xref; FMA:52455 is the primary lumen identifier."
+    ],
+    "variables": {
+      "CO_lv": {
+        "bearer": "flow_process",
+        "compartment": "lv",
+        "direction": [
+          "lv",
+          "sa"
+        ],
+        "edge": "aortic",
+        "kind": "cardiac_output",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_mean",
+        "unit": "mL/s"
+      },
+      "CO_rv": {
+        "bearer": "flow_process",
+        "compartment": "rv",
+        "direction": [
+          "rv",
+          "pa"
+        ],
+        "edge": "pulmonary_valve",
+        "kind": "cardiac_output",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_mean",
+        "unit": "mL/s"
+      },
+      "P_la": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "chamber_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "P_lv": {
+        "bearer": "blood",
+        "compartment": "lv",
+        "direction": null,
+        "edge": null,
+        "kind": "chamber_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "P_pa": {
+        "bearer": "blood",
+        "compartment": "pa",
+        "direction": null,
+        "edge": null,
+        "kind": "compartment_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "P_pv": {
+        "bearer": "blood",
+        "compartment": "pv",
+        "direction": null,
+        "edge": null,
+        "kind": "compartment_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "P_ra": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "chamber_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "P_rv": {
+        "bearer": "blood",
+        "compartment": "rv",
+        "direction": null,
+        "edge": null,
+        "kind": "chamber_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "P_sa": {
+        "bearer": "blood",
+        "compartment": "sa",
+        "direction": null,
+        "edge": null,
+        "kind": "compartment_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "P_sv": {
+        "bearer": "blood",
+        "compartment": "sv",
+        "direction": null,
+        "edge": null,
+        "kind": "compartment_pressure",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "instantaneous",
+        "unit": "mmHg"
+      },
+      "Q_aortic": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "lv",
+          "sa"
+        ],
+        "edge": "aortic",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "Q_cum_aortic": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "lv",
+          "sa"
+        ],
+        "edge": "aortic",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_cum_mitral": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "la",
+          "lv"
+        ],
+        "edge": "mitral",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_cum_pulmonary": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "pa",
+          "pv"
+        ],
+        "edge": "pulmonary",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_cum_pulmonary_valve": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "rv",
+          "pa"
+        ],
+        "edge": "pulmonary_valve",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_cum_pulmonary_venous": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "pv",
+          "la"
+        ],
+        "edge": "pulmonary_venous",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_cum_systemic": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "sa",
+          "sv"
+        ],
+        "edge": "systemic",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_cum_tricuspid": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "ra",
+          "rv"
+        ],
+        "edge": "tricuspid",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_cum_venous_return": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "sv",
+          "ra"
+        ],
+        "edge": "venous_return",
+        "kind": "cumulative_transported_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "run_integrated",
+        "unit": "mL"
+      },
+      "Q_mitral": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "la",
+          "lv"
+        ],
+        "edge": "mitral",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "Q_pulmonary": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "pa",
+          "pv"
+        ],
+        "edge": "pulmonary",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "Q_pulmonary_valve": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "rv",
+          "pa"
+        ],
+        "edge": "pulmonary_valve",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "Q_pulmonary_venous": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "pv",
+          "la"
+        ],
+        "edge": "pulmonary_venous",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "Q_systemic": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "sa",
+          "sv"
+        ],
+        "edge": "systemic",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "Q_tricuspid": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "ra",
+          "rv"
+        ],
+        "edge": "tricuspid",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "Q_venous_return": {
+        "bearer": "flow_process",
+        "compartment": null,
+        "direction": [
+          "sv",
+          "ra"
+        ],
+        "edge": "venous_return",
+        "kind": "flow",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL/s"
+      },
+      "SV_lv": {
+        "bearer": "flow_process",
+        "compartment": "lv",
+        "direction": [
+          "lv",
+          "sa"
+        ],
+        "edge": "aortic",
+        "kind": "forward_stroke_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_integrated",
+        "unit": "mL"
+      },
+      "SV_rv": {
+        "bearer": "flow_process",
+        "compartment": "rv",
+        "direction": [
+          "rv",
+          "pa"
+        ],
+        "edge": "pulmonary_valve",
+        "kind": "forward_stroke_volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_integrated",
+        "unit": "mL"
+      },
+      "V_la": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "V_lv": {
+        "bearer": "blood",
+        "compartment": "lv",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "V_pa": {
+        "bearer": "blood",
+        "compartment": "pa",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "V_pv": {
+        "bearer": "blood",
+        "compartment": "pv",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "V_ra": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "V_rv": {
+        "bearer": "blood",
+        "compartment": "rv",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "V_sa": {
+        "bearer": "blood",
+        "compartment": "sa",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "V_sv": {
+        "bearer": "blood",
+        "compartment": "sv",
+        "direction": null,
+        "edge": null,
+        "kind": "volume",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "instantaneous",
+        "unit": "mL"
+      },
+      "la_pressure_max_mmhg": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      },
+      "la_pressure_mean_mmhg": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_mean",
+        "unit": "mmHg"
+      },
+      "la_pressure_min_mmhg": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      },
+      "la_volume_max_ml": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "volume_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "la_volume_mean_ml": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "volume_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_mean",
+        "unit": "mL"
+      },
+      "la_volume_min_ml": {
+        "bearer": "blood",
+        "compartment": "la",
+        "direction": null,
+        "edge": null,
+        "kind": "volume_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "lv_cardiac_output_l_min": {
+        "bearer": "flow_process",
+        "compartment": "lv",
+        "direction": [
+          "lv",
+          "sa"
+        ],
+        "edge": "aortic",
+        "kind": "cardiac_output",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_mean",
+        "unit": "L/min"
+      },
+      "lv_edv_sample_ml": {
+        "bearer": "blood",
+        "compartment": "lv",
+        "direction": null,
+        "edge": null,
+        "kind": "sampled_volume_extremum",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "lv_ejection_fraction_sample": {
+        "bearer": "blood",
+        "compartment": "lv",
+        "direction": null,
+        "edge": null,
+        "kind": "sampled_volume_excursion_fraction",
+        "property": "https://example.org/physiosim/concept/volume_excursion_fraction",
+        "property_source": "project-local M1 definition",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "dimensionless"
+      },
+      "lv_esv_sample_ml": {
+        "bearer": "blood",
+        "compartment": "lv",
+        "direction": null,
+        "edge": null,
+        "kind": "sampled_volume_extremum",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "pa_pressure_max_mmhg": {
+        "bearer": "blood",
+        "compartment": "pa",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      },
+      "pa_pressure_mean_mmhg": {
+        "bearer": "blood",
+        "compartment": "pa",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_mean",
+        "unit": "mmHg"
+      },
+      "pa_pressure_min_mmhg": {
+        "bearer": "blood",
+        "compartment": "pa",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      },
+      "ra_pressure_max_mmhg": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      },
+      "ra_pressure_mean_mmhg": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_mean",
+        "unit": "mmHg"
+      },
+      "ra_pressure_min_mmhg": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      },
+      "ra_volume_max_ml": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "volume_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "ra_volume_mean_ml": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "volume_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_mean",
+        "unit": "mL"
+      },
+      "ra_volume_min_ml": {
+        "bearer": "blood",
+        "compartment": "ra",
+        "direction": null,
+        "edge": null,
+        "kind": "volume_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "rv_cardiac_output_l_min": {
+        "bearer": "flow_process",
+        "compartment": "rv",
+        "direction": [
+          "rv",
+          "pa"
+        ],
+        "edge": "pulmonary_valve",
+        "kind": "cardiac_output",
+        "property": "http://bhi.washington.edu/OPB#OPB_00299",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_mean",
+        "unit": "L/min"
+      },
+      "rv_edv_sample_ml": {
+        "bearer": "blood",
+        "compartment": "rv",
+        "direction": null,
+        "edge": null,
+        "kind": "sampled_volume_extremum",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "rv_ejection_fraction_sample": {
+        "bearer": "blood",
+        "compartment": "rv",
+        "direction": null,
+        "edge": null,
+        "kind": "sampled_volume_excursion_fraction",
+        "property": "https://example.org/physiosim/concept/volume_excursion_fraction",
+        "property_source": "project-local M1 definition",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "dimensionless"
+      },
+      "rv_esv_sample_ml": {
+        "bearer": "blood",
+        "compartment": "rv",
+        "direction": null,
+        "edge": null,
+        "kind": "sampled_volume_extremum",
+        "property": "http://bhi.washington.edu/OPB#OPB_00154",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "not applicable",
+        "temporal": "beat_sample_extremum",
+        "unit": "mL"
+      },
+      "sa_pressure_max_mmhg": {
+        "bearer": "blood",
+        "compartment": "sa",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      },
+      "sa_pressure_mean_mmhg": {
+        "bearer": "blood",
+        "compartment": "sa",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_mean",
+        "unit": "mmHg"
+      },
+      "sa_pressure_min_mmhg": {
+        "bearer": "blood",
+        "compartment": "sa",
+        "direction": null,
+        "edge": null,
+        "kind": "pressure_summary",
+        "property": "http://bhi.washington.edu/OPB#OPB_00509",
+        "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+        "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+        "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+        "temporal": "beat_sample_extremum",
+        "unit": "mmHg"
+      }
+    }
+  }
+}

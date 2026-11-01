@@ -1,0 +1,285 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>온톨로지 그래프 탐색</title><style>
+:root{font-family:system-ui,sans-serif;color:#24313a;background:#f3f5f4}*{box-sizing:border-box}body{margin:0}header{padding:14px 24px;background:#fff;border-bottom:1px solid #d9e0df;display:flex;align-items:center;justify-content:space-between;gap:12px}h1{font-size:19px;margin:0}header p{font-size:12px;margin:4px 0 0;color:#60716f}.tag{color:#865b11;background:#fff3d4;border:1px solid #ead5a6;padding:6px 10px;border-radius:4px;font-size:12px}main{display:grid;grid-template-columns:240px minmax(0,1fr) 320px;min-height:calc(100vh - 68px)}aside{padding:18px;background:#fff;overflow:auto}aside:first-child{border-right:1px solid #d9e0df}aside:last-child{border-left:1px solid #d9e0df}h2{font-size:14px;margin:0 0 12px}label{font-size:12px;font-weight:700;display:block;margin:14px 0 5px}input,select,button{font:inherit}input,select{width:100%;padding:8px;border:1px solid #bccac8;border-radius:4px;background:#fff;color:#24313a}button{border:1px solid #bbc9c7;background:#fff;color:#24313a;border-radius:4px;padding:7px 10px;cursor:pointer}button:hover,button:focus{border-color:#237b80;background:#edf7f6}button.active{background:#e5f3f2;border-color:#237b80}.views{display:grid;gap:5px}.views button{text-align:left}.hint{font-size:12px;line-height:1.55;color:#60716f}.legend{font-size:12px;line-height:1.5;margin-top:16px;display:grid;gap:4px}.legend div{display:flex;align-items:center;gap:7px}.legend svg{flex:none}.blue{color:#356e9d}.teal{color:#1c827e}.amber{color:#98660d}.content{min-width:0;padding:18px}.top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.top h2{font-size:17px;margin:0}.tools{display:flex;gap:5px}.canvas{margin-top:12px;background:#fff;border:1px solid #d9e0df;border-radius:5px;overflow:auto;height:620px}#graph{display:block;margin:0 auto;background:#fff}.node rect{fill:#eef4f7;stroke:#6591af;stroke-width:1.5}.node.model rect{fill:#e9f5f2;stroke:#429087}.node.catalog rect{fill:#f4f5f4;stroke:#a3b0ad}.node text{font-size:12px;fill:#26373b;pointer-events:none}.node{cursor:pointer}.node.selected rect{stroke:#d29526;stroke-width:3}.node.dim,.edge.dim{opacity:.16}.edge .line{fill:none;stroke:#5282a0;stroke-width:1.5;marker-end:url(#arrow)}.edge .hit{fill:none;stroke:transparent;stroke-width:12}.edge.review .line{stroke:#b07b1c;marker-end:url(#arrow-review)}.edge.model .line{stroke:#39877e;stroke-dasharray:5 4;marker-end:url(#arrow-model)}.edge.role .line{stroke-dasharray:10 3 2 3}.edge.port .line{stroke-dasharray:2 3}.edge text{font-size:10px;fill:#435f70;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round;pointer-events:none}.edge.review text{fill:#8a5d0e}.edge.model text{fill:#2f6f68}.edge text.crowded{visibility:hidden}.edge:hover text.crowded,.edge:focus text.crowded,.edge.focus text.crowded{visibility:visible}.edge{cursor:pointer}.edge:hover .line,.edge.focus .line{stroke-width:2.6}.group-label{font-size:11px;font-weight:700;fill:#60716f}.count{font-size:12px;color:#60716f}.node-list{max-height:250px;overflow:auto;display:grid;gap:3px;margin-top:10px}.node-list button{text-align:left;font-size:12px;overflow-wrap:anywhere}.empty{padding:12px;color:#795b26;font-size:13px}.details pre{white-space:pre-wrap;overflow-wrap:anywhere;font:11px/1.5 ui-monospace,monospace;background:#f5f7f6;padding:10px;border:1px solid #e3e9e7}.details p{font-size:12px;line-height:1.6}.notice{background:#fff7e7;border-left:3px solid #d49d32;padding:10px;font-size:12px;line-height:1.6}.inspector-title{overflow-wrap:anywhere} @media(max-width:1000px){main{grid-template-columns:210px minmax(0,1fr)}aside:last-child{grid-column:1/-1;border-left:0;border-top:1px solid #d9e0df}.canvas{height:550px}}@media(max-width:650px){header{align-items:flex-start;flex-direction:column}main{display:block}aside:first-child{border:0;border-bottom:1px solid #d9e0df}.views{grid-template-columns:repeat(3,1fr)}.views button{text-align:center}.content{padding:12px}.canvas{height:480px}.node-list{max-height:150px}}
+</style></head><body><header><div><h1>온톨로지 그래프 탐색</h1><p>지식 템플릿 · 모델 참조 · v2 카탈로그 / 읽기 전용</p></div><span class="tag">G3 CLOSED · 수치 사용 NONE</span></header><main><aside><h2>탐색 설정</h2><div class="views"><button id="view-source" class="active" data-view="source">원본 주장</button><button id="view-model" data-view="model">모델 참조</button><button id="view-catalog" data-view="catalog">v2 카탈로그</button></div><label for="search">검색</label><input id="search" type="search" placeholder="이름, ID, 상태 검색"><label for="relation">관계 필터</label><select id="relation"><option value="all">모든 관계</option></select><div class="legend"><div class="blue"><svg width="34" height="8" aria-hidden="true"><path d="M1 4H33" stroke="#5282a0" stroke-width="2"/></svg>원본 주장 ACCEPT (화살표 = 방향)</div><div class="amber"><svg width="34" height="8" aria-hidden="true"><path d="M1 4H33" stroke="#b07b1c" stroke-width="2"/></svg>원본 주장 REVIEW</div><div class="teal"><svg width="34" height="8" aria-hidden="true"><path d="M1 4H33" stroke="#39877e" stroke-width="2" stroke-dasharray="5 4"/></svg>의존성 (on → dependent)</div><div class="teal"><svg width="34" height="8" aria-hidden="true"><path d="M1 4H33" stroke="#39877e" stroke-width="2" stroke-dasharray="10 3 2 3"/></svg>모델 역할 → 원본 템플릿</div><div class="teal"><svg width="34" height="8" aria-hidden="true"><path d="M1 4H33" stroke="#39877e" stroke-width="2" stroke-dasharray="2 3"/></svg>포트 참조</div></div><p class="hint">배치는 화면 정렬용입니다. 화살표가 가리키는 노드를 위에 두었을 뿐 새로운 관계를 뜻하지 않습니다. 모델 참조는 해부학 공리나 수치 연결이 아닙니다.</p><button id="download">그래프 JSON 내보내기</button><h2 style="margin-top:22px">노드 목록</h2><div id="node-list" class="node-list"></div></aside><section class="content"><div class="top"><div><h2 id="view-title">원본 주장 그래프</h2><div class="count" id="counts"></div></div><div class="tools"><button id="zoom-out" aria-label="축소">−</button><button id="zoom-in" aria-label="확대">+</button><button id="fit">맞춤 / 초기화</button></div></div><p id="view-description" class="hint">원본 템플릿과 검토된 방향성 주장입니다. 채택된 보편 공리가 아닙니다.</p><p class="hint">노드를 누르면 직접 연결된 관계만 강조됩니다. 확대한 그래프는 스크롤하여 이동할 수 있습니다.</p><div class="canvas"><svg id="graph" role="img" aria-label="방향성 온톨로지 그래프" viewBox="0 0 1000 620"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5282a0"/></marker><marker id="arrow-review" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b07b1c"/></marker><marker id="arrow-model" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#39877e"/></marker></defs><g id="viewport"></g></svg></div><div id="empty" class="empty" hidden>일치하는 노드가 없습니다. 검색어나 필터를 바꿔 주세요.</div></section><aside class="details"><h2>선택 항목 검사</h2><div id="inspector"><p>노드 또는 관계를 선택하면 원본 레코드와 출처가 표시됩니다.</p></div><div class="notice">상태는 독립적입니다: 원본 ACCEPT / REVIEW · 대상 crosswalk PROPOSED · 외부 수치 사용 NONE. C5 USER_DECISION_RUNTIME_DEFERRED (applied false), 기계적 bearer 미선택. 승모판 REVIEW / REVISE / DRAFT; G3 CLOSED.</div><p class="hint">선언된 법칙과 버전은 수치 무결성 증명이 아닙니다. 카탈로그는 전체 Uberon/FMA가 아니며 Smith 역할은 참조 모델의 설명입니다.</p><details><summary>범위와 미결 근거</summary><pre id="scope"></pre></details></aside></main><script id="graph-data" type="application/json"><!-- GRAPH_DATA --></script><script id="graph-layout">
+'use strict';
+// Layered layout for the viewer. Pure functions with no DOM access, so tests can run them under node.
+// The ranks only position boxes on screen: a node is drawn above the nodes whose edges point to it.
+// No relation is added, removed or inferred here.
+const GraphLayout=(()=>{
+  const NODE_H=30, RANK_GAP=92, NODE_GAP=30, DUMMY_W=14, MARGIN=36, ROW_GAP=16, GROUP_GAP=50, LABEL_H=13;
+  const LABEL_STEPS=[0.5,0.4,0.6,0.3,0.7,0.2,0.8];
+
+  function viewSubset(data,view){
+    const nodes=data.nodes.filter(n=>view==='source'?n.layer==='source':view==='catalog'?n.layer==='catalog':n.layer==='source'||n.layer==='model');
+    const ids=new Set(nodes.map(n=>n.id));
+    const edges=data.edges.filter(e=>ids.has(e.source)&&ids.has(e.target)&&(view==='source'?e.layer==='source_claim':view==='model'));
+    return {nodes,edges};
+  }
+  function nodeLabel(n){return n.layer==='model'?n.id:n.label}
+  function edgeKind(e){return e.layer==='source_claim'?'claim':e.id.split(':')[0]}
+  function edgeLabel(e){
+    if(e.layer==='source_claim')return e.predicate.split('/').pop()+' · '+e.record.decision;
+    return edgeKind(e)==='dependency'?'의존':e.predicate;
+  }
+
+  // Least-squares non-decreasing fit (pool adjacent violators).
+  function isotonic(values){
+    const blocks=[];
+    for(const v of values){
+      blocks.push({sum:v,n:1});
+      while(blocks.length>1){
+        const b=blocks[blocks.length-1],a=blocks[blocks.length-2];
+        if(a.sum/a.n<=b.sum/b.n)break;
+        a.sum+=b.sum;a.n+=b.n;blocks.pop();
+      }
+    }
+    return blocks.flatMap(b=>Array(b.n).fill(b.sum/b.n));
+  }
+  function cubicPoints(points){
+    const out=[points[0]];
+    for(let i=1;i<points.length;i++){
+      const a=points[i-1],b=points[i],my=(a.y+b.y)/2;
+      for(let k=1;k<=16;k++){
+        const t=k/16,u=1-t;
+        out.push({x:u*u*u*a.x+3*u*u*t*a.x+3*u*t*t*b.x+t*t*t*b.x,y:u*u*u*a.y+3*u*u*t*my+3*u*t*t*my+t*t*t*b.y});
+      }
+    }
+    return out;
+  }
+  function pathData(points){
+    let d='M'+points[0].x.toFixed(1)+' '+points[0].y.toFixed(1);
+    for(let i=1;i<points.length;i++){
+      const a=points[i-1],b=points[i],my=((a.y+b.y)/2).toFixed(1);
+      d+=' C'+a.x.toFixed(1)+' '+my+' '+b.x.toFixed(1)+' '+my+' '+b.x.toFixed(1)+' '+b.y.toFixed(1);
+    }
+    return d;
+  }
+  function pointAlong(samples,fraction){
+    const lengths=[0];
+    for(let i=1;i<samples.length;i++)lengths.push(lengths[i-1]+Math.hypot(samples[i].x-samples[i-1].x,samples[i].y-samples[i-1].y));
+    const goal=lengths[lengths.length-1]*fraction;
+    let i=1;
+    while(i<lengths.length-1&&lengths[i]<goal)i++;
+    const span=lengths[i]-lengths[i-1]||1,t=(goal-lengths[i-1])/span;
+    return {x:samples[i-1].x+(samples[i].x-samples[i-1].x)*t,y:samples[i-1].y+(samples[i].y-samples[i-1].y)*t};
+  }
+  const box=(cx,cy,w,h)=>({left:cx-w/2,right:cx+w/2,top:cy-h/2,bottom:cy+h/2});
+  const overlaps=(a,b)=>a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom;
+
+  function layoutGraph(nodes,edges,opt={}){
+    const nodeWidth=opt.nodeWidth||(n=>Math.min(230,Math.max(64,nodeLabel(n).length*7+22)));
+    const labelWidth=opt.labelWidth||(e=>edgeLabel(e).length*6+6);
+    const order=new Map(nodes.map((n,i)=>[n.id,i]));
+    const boxes=new Map(nodes.map(n=>[n.id,{w:nodeWidth(n),h:NODE_H,x:0,y:0}]));
+    const degree=new Map(nodes.map(n=>[n.id,0]));
+    for(const e of edges){degree.set(e.source,degree.get(e.source)+1);degree.set(e.target,degree.get(e.target)+1)}
+    const linked=nodes.filter(n=>degree.get(n.id)>0),isolated=nodes.filter(n=>degree.get(n.id)===0);
+    const flowing=edges.filter(e=>e.source!==e.target),loops=edges.filter(e=>e.source===e.target);
+
+    // 1. An edge that closes a cycle is laid out reversed; it is still drawn source → target.
+    const reversed=new Set(),mark=new Map(),outgoing=new Map(linked.map(n=>[n.id,[]]));
+    for(const e of flowing)outgoing.get(e.source).push(e);
+    const visit=id=>{
+      mark.set(id,1);
+      for(const e of outgoing.get(id)){
+        const m=mark.get(e.target);
+        if(m===1)reversed.add(e.id);else if(!m)visit(e.target);
+      }
+      mark.set(id,2);
+    };
+    for(const n of linked)if(!mark.get(n.id))visit(n.id);
+
+    // 2. Ranks: the upper end of each link sits on a smaller rank than the lower end.
+    const links=flowing.map(e=>{const r=reversed.has(e.id);return {edge:e,reversed:r,low:r?e.target:e.source,high:r?e.source:e.target}});
+    const highs=new Map(linked.map(n=>[n.id,[]])),lows=new Map(linked.map(n=>[n.id,[]]));
+    for(const l of links){highs.get(l.low).push(l.high);lows.get(l.high).push(l.low)}
+    const rank=new Map();
+    const rankOf=id=>{
+      if(!rank.has(id)){let r=0;for(const h of highs.get(id))r=Math.max(r,rankOf(h)+1);rank.set(id,r)}
+      return rank.get(id);
+    };
+    linked.forEach(n=>rankOf(n.id));
+    // Move a node toward the side holding more of its neighbours, within its allowed ranks, to shorten edges.
+    for(let pass=0;pass<10;pass++){
+      let moved=false;
+      for(const n of linked){
+        const h=highs.get(n.id),l=lows.get(n.id);
+        let r=rank.get(n.id);
+        if(l.length>h.length)r=Math.min(...l.map(x=>rank.get(x)))-1;
+        else if(h.length>l.length)r=Math.max(...h.map(x=>rank.get(x)))+1;
+        if(r!==rank.get(n.id)){rank.set(n.id,r);moved=true}
+      }
+      if(!moved)break;
+    }
+    const levels=[...new Set(rank.values())].sort((a,b)=>a-b),level=new Map(levels.map((r,i)=>[r,i]));
+    for(const [id,r] of rank)rank.set(id,level.get(r));
+
+    // 3. A link spanning several ranks gets a bend point on each rank it crosses.
+    const layers=levels.map(()=>[]),up=new Map(),down=new Map();
+    const connect=(high,low)=>{
+      if(!down.has(high))down.set(high,[]);
+      if(!up.has(low))up.set(low,[]);
+      down.get(high).push(low);up.get(low).push(high);
+    };
+    for(const n of linked)layers[rank.get(n.id)].push({id:n.id,w:boxes.get(n.id).w,order:order.get(n.id)});
+    for(const l of links){
+      let previous=l.low;
+      l.chain=[l.low];
+      for(let r=rank.get(l.low)-1;r>rank.get(l.high);r--){
+        const id='~'+l.edge.id+'~'+r;
+        layers[r].push({id,w:DUMMY_W,order:order.get(l.low),bend:true});
+        connect(id,previous);previous=id;l.chain.push(id);
+      }
+      connect(l.high,previous);l.chain.push(l.high);
+    }
+
+    // 4. Order each rank by the mean position of its neighbours; keep the order with fewest crossings.
+    const positions=()=>{const p=new Map();layers.forEach(L=>L.forEach((item,i)=>p.set(item.id,i)));return p};
+    const crossings=()=>{
+      const p=positions();let count=0;
+      for(let r=0;r+1<layers.length;r++){
+        const segments=[];
+        for(const item of layers[r])for(const low of down.get(item.id)||[])segments.push([p.get(item.id),p.get(low)]);
+        for(let i=0;i<segments.length;i++)for(let j=i+1;j<segments.length;j++){
+          if((segments[i][0]-segments[j][0])*(segments[i][1]-segments[j][1])<0)count++;
+        }
+      }
+      return count;
+    };
+    const sweep=(r,neighbours)=>{
+      const p=positions(),L=layers[r];
+      const key=new Map(L.map((item,i)=>{const ns=neighbours.get(item.id)||[];return [item.id,ns.length?ns.reduce((s,x)=>s+p.get(x),0)/ns.length:i]}));
+      L.sort((a,b)=>key.get(a.id)-key.get(b.id)||p.get(a.id)-p.get(b.id));
+    };
+    layers.forEach(L=>L.sort((a,b)=>a.order-b.order));
+    let best=layers.map(L=>L.slice()),fewest=crossings();
+    for(let round=0;round<12;round++){
+      if(round%2===0)for(let r=1;r<layers.length;r++)sweep(r,up);
+      else for(let r=layers.length-2;r>=0;r--)sweep(r,down);
+      const count=crossings();
+      if(count<fewest){fewest=count;best=layers.map(L=>L.slice())}
+    }
+    best.forEach((L,r)=>{layers[r]=L});
+    // Then swap neighbours within a rank while that removes crossings.
+    for(let improved=true,round=0;improved&&round<8;round++){
+      improved=false;
+      for(const L of layers)for(let i=0;i+1<L.length;i++){
+        [L[i],L[i+1]]=[L[i+1],L[i]];
+        const count=crossings();
+        if(count<fewest){fewest=count;improved=true}else [L[i],L[i+1]]=[L[i+1],L[i]];
+      }
+    }
+
+    // 5. x: pack each rank, then pull nodes toward their neighbours while keeping rank order and spacing.
+    const x=new Map();
+    for(const L of layers){let left=0;for(const item of L){x.set(item.id,left+item.w/2);left+=item.w+NODE_GAP}}
+    const place=(L,want)=>{
+      const offset=[0];
+      for(let i=1;i<L.length;i++)offset.push(offset[i-1]+(L[i-1].w+L[i].w)/2+NODE_GAP);
+      const fit=isotonic(want.map((w,i)=>w-offset[i]));
+      L.forEach((item,i)=>x.set(item.id,fit[i]+offset[i]));
+    };
+    for(let round=0;round<30;round++){
+      const maps=round%3===0?[up]:round%3===1?[down]:[up,down];
+      const ranks=round%3===1?[...layers.keys()].reverse():[...layers.keys()];
+      for(const r of ranks){
+        const L=layers[r];
+        place(L,L.map(item=>{const ns=maps.flatMap(m=>m.get(item.id)||[]);return ns.length?ns.reduce((s,n)=>s+x.get(n),0)/ns.length:x.get(item.id)}));
+      }
+    }
+    const items=layers.flat(),width=new Map(items.map(item=>[item.id,item.w]));
+    const shift=items.length?MARGIN-Math.min(...items.map(item=>x.get(item.id)-item.w/2)):0;
+    const rankY=r=>MARGIN+NODE_H/2+r*(NODE_H+RANK_GAP);
+    const y=new Map();
+    layers.forEach((L,r)=>L.forEach(item=>{x.set(item.id,x.get(item.id)+shift);y.set(item.id,rankY(r))}));
+    for(const n of linked)Object.assign(boxes.get(n.id),{x:x.get(n.id),y:y.get(n.id)});
+    let right=items.length?Math.max(...items.map(item=>x.get(item.id)+item.w/2)):0;
+
+    // 6. Nodes without an edge in this view are listed below the graph, grouped when a key is given.
+    const groups=[],grouped=new Map(),groupOf=opt.groupOf||(()=>opt.isolatedLabel||'');
+    for(const n of isolated){const g=groupOf(n);if(!grouped.has(g))grouped.set(g,[]);grouped.get(g).push(n)}
+    const rowWidth=Math.max(opt.wrapWidth||600,right-MARGIN);
+    let top=layers.length?rankY(layers.length-1)+NODE_H/2+GROUP_GAP:MARGIN;
+    for(const [label,members] of grouped){
+      groups.push({label,x:MARGIN,y:top+10,members:members.map(n=>n.id)});
+      let left=0,rowTop=top+22;
+      for(const n of members){
+        const b=boxes.get(n.id);
+        if(left>0&&left+b.w>rowWidth){left=0;rowTop+=NODE_H+ROW_GAP}
+        Object.assign(b,{x:MARGIN+left+b.w/2,y:rowTop+NODE_H/2});
+        left+=b.w+NODE_GAP;right=Math.max(right,b.x+b.w/2);
+      }
+      top=rowTop+NODE_H+GROUP_GAP;
+    }
+    const height=grouped.size?top-GROUP_GAP+MARGIN:(layers.length?rankY(layers.length-1)+NODE_H/2+MARGIN:2*MARGIN);
+
+    // 7. Routes leave the top of the lower node and enter the bottom of the upper node.
+    //    Several routes on one side are spread along it, ordered by where they head.
+    const sides=new Map();
+    const attach=(id,side,link,towards)=>{const k=id+'|'+side;if(!sides.has(k))sides.set(k,[]);sides.get(k).push({link,towards})};
+    for(const l of links){attach(l.low,'top',l,x.get(l.chain[1]));attach(l.high,'bottom',l,x.get(l.chain[l.chain.length-2]))}
+    const anchor=new Map();
+    for(const [k,list] of sides){
+      const [id,side]=[k.slice(0,k.lastIndexOf('|')),k.slice(k.lastIndexOf('|')+1)],b=boxes.get(id);
+      list.sort((a,c)=>a.towards-c.towards||(a.link.edge.id<c.link.edge.id?-1:1));
+      const span=list.length>1?Math.min(b.w-20,(list.length-1)*12):0;
+      list.forEach((entry,i)=>anchor.set(entry.link.edge.id+'|'+side,{x:b.x-span/2+(list.length>1?i*span/(list.length-1):0),y:side==='top'?b.y-b.h/2:b.y+b.h/2}));
+    }
+    const routes=new Map();
+    for(const l of links){
+      let points=[anchor.get(l.edge.id+'|top'),...l.chain.slice(1,-1).map(id=>({x:x.get(id),y:y.get(id)})),anchor.get(l.edge.id+'|bottom')];
+      if(l.reversed)points=points.reverse();
+      routes.set(l.edge.id,{points,path:pathData(points),samples:cubicPoints(points)});
+    }
+    for(const e of loops){
+      const b=boxes.get(e.source),sx=b.x+b.w/2;
+      const points=[{x:sx,y:b.y-6},{x:sx+34,y:b.y},{x:sx,y:b.y+6}];
+      routes.set(e.id,{points,path:`M${sx} ${b.y-6} C${sx+40} ${b.y-34} ${sx+40} ${b.y+34} ${sx} ${b.y+6}`,samples:points});
+    }
+
+    // 8. Labels: try spots along each edge and keep the first that clears every node and earlier label.
+    const blocked=[...boxes.values()].map(b=>box(b.x,b.y,b.w+6,b.h+6));
+    for(const g of groups)blocked.push({left:g.x,right:g.x+g.label.length*8,top:g.y-10,bottom:g.y+4});
+    const priority=e=>({claim:0,role:1,port:2,dependency:3})[edgeKind(e)]??4;
+    const labelled=edges.slice().sort((a,b)=>priority(a)-priority(b));
+    for(const e of labelled){
+      const route=routes.get(e.id),w=labelWidth(e);
+      let spot=null;
+      for(const f of LABEL_STEPS){
+        const p=pointAlong(route.samples,f),r=box(p.x,p.y,w+4,LABEL_H+2);
+        if(!blocked.some(b=>overlaps(b,r))){spot={x:p.x,y:p.y,w,h:LABEL_H,crowded:false};blocked.push(r);break}
+      }
+      if(!spot){const p=pointAlong(route.samples,0.5);spot={x:p.x,y:p.y,w,h:LABEL_H,crowded:true}}
+      route.label=spot;
+    }
+    return {width:Math.ceil(right+MARGIN),height:Math.ceil(height),nodes:boxes,routes,groups,crossings:fewest};
+  }
+  return {viewSubset,nodeLabel,edgeKind,edgeLabel,layoutGraph};
+})();
+if(typeof module!=='undefined')module.exports=GraphLayout;
+</script><script>
+'use strict';
+const data=JSON.parse(document.getElementById('graph-data').textContent), $=id=>document.getElementById(id), ns='http://www.w3.org/2000/svg';
+const state={view:'source',query:'',relation:'all',selected:null,scale:1};
+const names={source:'원본 주장 그래프',model:'모델 참조와 의존성',catalog:'v2 카탈로그'};
+const descriptions={source:'원본 템플릿과 검토된 방향성 주장입니다. 채택된 보편 공리가 아닙니다.',model:'원본 주장과 별도로 표시한 모델 역할 및 의존성입니다. 점선은 모델 참조이며 수치 결합이나 해부학 공리가 아닙니다.',catalog:'31개 v2 노드 목록입니다. 이 카탈로그에는 구조 관계가 없어 간선을 만들지 않았습니다. node_class별로 묶어 표시합니다. Smith 역할은 참조 모델의 역할입니다.'};
+const NODE_FONT='12px system-ui, sans-serif', LABEL_FONT='10px system-ui, sans-serif', layouts={}, pen=document.createElement('canvas').getContext('2d');
+function textWidth(text,font){pen.font=font;return pen.measureText(text).width}
+function nodeText(n){const t=GraphLayout.nodeLabel(n);return t.length>32?t.slice(0,31)+'…':t}
+function layoutFor(view){if(!layouts[view]){const {nodes,edges}=GraphLayout.viewSubset(data,view);layouts[view]=GraphLayout.layoutGraph(nodes,edges,{nodeWidth:n=>Math.min(230,Math.max(64,Math.ceil(textWidth(nodeText(n),NODE_FONT))+22)),labelWidth:e=>Math.ceil(textWidth(GraphLayout.edgeLabel(e),LABEL_FONT))+4,groupOf:view==='catalog'?n=>'node_class: '+n.record.node_class:null,isolatedLabel:'이 보기에서 관계가 없는 노드'})}return layouts[view]}
+function element(tag,attrs={}){const x=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))x.setAttribute(k,v);return x}
+function subset(){return GraphLayout.viewSubset(data,state.view)}
+function relations(){const s=$('relation');s.replaceChildren();const all=document.createElement('option');all.value='all';all.textContent='모든 관계';s.append(all);for(const p of [...new Set(subset().edges.map(e=>e.predicate))].sort()){const o=document.createElement('option');o.value=p;o.textContent=p;s.append(o)}s.value=state.relation}
+function inspect(item){state.selected=item.id;const d=$('inspector');d.replaceChildren();let title=document.createElement('h3');title.className='inspector-title';title.textContent=item.label||item.claim_id||item.predicate;d.append(title);let p=document.createElement('p');p.textContent=item.source?'방향: '+item.source+' → '+item.target+' / 관계: '+item.predicate:'정확한 ID: '+item.id;d.append(p);let pre=document.createElement('pre');pre.textContent=JSON.stringify(item,null,2);d.append(pre);draw()}
+function draw(){let base=subset(), query=state.query.trim().toLowerCase();let edges=base.edges.filter(e=>state.relation==='all'||e.predicate===state.relation);let nodes=base.nodes.filter(n=>!query||JSON.stringify(n).toLowerCase().includes(query));if(state.relation!=='all'){let connected=new Set(edges.flatMap(e=>[e.source,e.target]));nodes=nodes.filter(n=>connected.has(n.id))}let ids=new Set(nodes.map(n=>n.id));edges=edges.filter(e=>ids.has(e.source)&&ids.has(e.target));$('counts').textContent=`노드 ${nodes.length} / ${base.nodes.length} · 간선 ${edges.length} / ${base.edges.length}`;$('empty').hidden=nodes.length>0;
+const list=$('node-list');list.replaceChildren();for(const n of nodes){const b=document.createElement('button');b.textContent=n.label;b.dataset.nodeId=n.id;b.onclick=()=>inspect(n);list.append(b)}
+const layout=layoutFor(state.view),svg=$('graph'),g=$('viewport');g.replaceChildren();svg.setAttribute('viewBox',`0 0 ${layout.width} ${layout.height}`);
+let focus=null;if(state.selected){focus=new Set([state.selected]);const chosen=edges.find(e=>e.id===state.selected);if(chosen){focus.add(chosen.source);focus.add(chosen.target)}else for(const e of edges)if(e.source===state.selected||e.target===state.selected){focus.add(e.source);focus.add(e.target);focus.add(e.id)}}
+for(const group of layout.groups.filter(gr=>gr.members.some(id=>ids.has(id)))){const t=element('text',{class:'group-label',x:group.x,y:group.y});t.textContent=group.label;g.append(t)}
+for(const e of edges){const route=layout.routes.get(e.id),kind=GraphLayout.edgeKind(e);let group=element('g',{class:'edge '+(e.layer==='model_reference'?'model '+kind+' ':e.record.decision!=='ACCEPT'?'review ':'')+(focus?(focus.has(e.id)?'focus':'dim'):''),'data-edge-id':e.id,tabindex:'0'});group.append(element('path',{class:'line',d:route.path}),element('path',{class:'hit',d:route.path}));let t=element('text',{x:route.label.x.toFixed(1),y:(route.label.y+3.5).toFixed(1),'text-anchor':'middle',class:route.label.crowded?'crowded':''});t.textContent=GraphLayout.edgeLabel(e);group.append(t);let tip=element('title');tip.textContent=e.source+' → '+e.target+'\n'+e.predicate;group.append(tip);group.addEventListener('click',()=>inspect(e));group.addEventListener('keydown',ev=>{if(ev.key==='Enter')inspect(e)});g.append(group)}
+for(const n of nodes){let p=layout.nodes.get(n.id), group=element('g',{class:'node '+n.layer+' '+(state.selected===n.id?'selected ':'')+(focus&&!focus.has(n.id)?'dim':''),transform:`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`,'data-node-id':n.id,tabindex:'0',role:'button'});group.append(element('rect',{x:-p.w/2,y:-p.h/2,width:p.w,height:p.h,rx:5}));let t=element('text',{'text-anchor':'middle',y:4});t.textContent=nodeText(n);group.append(t);group.addEventListener('click',()=>inspect(n));group.addEventListener('keydown',ev=>{if(ev.key==='Enter')inspect(n)});g.append(group)} }
+function fitScale(){const layout=layoutFor(state.view),canvas=$('graph').parentElement;return Math.max(.25,Math.min(1,(canvas.clientWidth-2)/layout.width,(canvas.clientHeight-2)/layout.height))}
+function sizeGraph(scale, preserveCenter=true){const svg=$('graph'), canvas=svg.parentElement, oldScale=state.scale, layout=layoutFor(state.view);const centerX=(canvas.scrollLeft+canvas.clientWidth/2)/oldScale,centerY=(canvas.scrollTop+canvas.clientHeight/2)/oldScale;state.scale=scale;svg.style.width=(layout.width*scale)+'px';svg.style.height=(layout.height*scale)+'px';if(preserveCenter){canvas.scrollLeft=centerX*scale-canvas.clientWidth/2;canvas.scrollTop=centerY*scale-canvas.clientHeight/2}else{canvas.scrollLeft=0;canvas.scrollTop=0}}
+function changeView(view){state.view=view;state.selected=null;state.relation='all';document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));$('view-title').textContent=names[view];$('view-description').textContent=descriptions[view];relations();draw();sizeGraph(fitScale(),false)}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>changeView(b.dataset.view));$('search').oninput=e=>{state.query=e.target.value;state.selected=null;draw()};$('relation').onchange=e=>{state.relation=e.target.value;state.selected=null;draw()};$('zoom-in').onclick=()=>sizeGraph(Math.min(3,state.scale*1.2));$('zoom-out').onclick=()=>sizeGraph(Math.max(.25,state.scale/1.2));$('fit').onclick=()=>{state.selected=null;state.query='';$('search').value='';state.relation='all';$('relation').value='all';$('inspector').textContent='노드 또는 관계를 선택하세요.';draw();sizeGraph(fitScale(),false)};$('download').onclick=()=>{let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([$('graph-data').textContent],{type:'application/json'}));a.download='graph-data.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};window.addEventListener('resize',()=>sizeGraph(state.scale));$('scope').textContent=JSON.stringify(data.scope,null,2);window.graphExplorerState=state;window.graphExplorerLayout=view=>layoutFor(view||state.view);relations();draw();sizeGraph(fitScale(),false);
+</script></body></html>

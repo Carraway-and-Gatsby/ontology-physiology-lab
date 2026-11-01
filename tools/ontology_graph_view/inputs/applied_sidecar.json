@@ -1,0 +1,2339 @@
+{
+  "anatomy_roles": {
+    "P_la": {
+      "role": "PROPOSED_BEARER_CONTEXT",
+      "template": "la_blood"
+    },
+    "P_lv": {
+      "role": "PROPOSED_BEARER_CONTEXT",
+      "template": "lv_blood"
+    },
+    "V_la": {
+      "role": "PROPOSED_BEARER_CONTEXT",
+      "template": "la_blood"
+    },
+    "V_lv": {
+      "role": "PROPOSED_BEARER_CONTEXT",
+      "template": "lv_blood"
+    },
+    "la_cavity": {
+      "role": "SPATIAL_CONTEXT",
+      "template": "la_cavity"
+    },
+    "la_myocardium": {
+      "role": "MECHANICAL_CONTEXT_CANDIDATE",
+      "selected_mechanical_bearer": false,
+      "template": "la_myocardium"
+    },
+    "la_wall": {
+      "role": "MECHANICAL_CONTEXT_CANDIDATE",
+      "selected_mechanical_bearer": false,
+      "template": "la_wall"
+    },
+    "lv_cavity": {
+      "role": "SPATIAL_CONTEXT",
+      "template": "lv_cavity"
+    },
+    "lv_myocardium": {
+      "role": "MECHANICAL_CONTEXT_CANDIDATE",
+      "selected_mechanical_bearer": false,
+      "template": "lv_myocardium"
+    },
+    "lv_wall": {
+      "role": "MECHANICAL_CONTEXT_CANDIDATE",
+      "selected_mechanical_bearer": false,
+      "template": "lv_wall"
+    }
+  },
+  "crosswalk": {
+    "la": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+      "source_id": "UBERON:0002079",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0002079",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/9"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/la",
+          "https://example.org/physiosim/anatomical-contents#heart/organ"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/la",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "la_blood": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": {
+        "anatomy": {
+          "fma": "FMA:9465",
+          "key": "la_cavity",
+          "primary_id": "UBERON:0016513",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/4",
+          "source_role_in_smith": "part of the pulmonary venous compartment blood (lumped)",
+          "structure": "Cavity of left atrium",
+          "uberon": "UBERON:0016513",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Separate M1 blood volume state.",
+        "relation": "blood_contained_in",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_container"
+        ]
+      },
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+      "source_id": "UBERON:0000178",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/11"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/la_blood",
+          "https://example.org/physiosim/anatomical-contents#heart/la_cavity"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/RO_0001025"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/la_blood",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "la_cavity": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "m1_v2_context": {
+        "fma": "FMA:9465",
+        "key": "la_cavity",
+        "primary_id": "UBERON:0016513",
+        "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/4",
+        "source_role_in_smith": "part of the pulmonary venous compartment blood (lumped)",
+        "structure": "Cavity of left atrium",
+        "uberon": "UBERON:0016513",
+        "uberon_relation": "same_structure_v2_xref"
+      },
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/la",
+      "source_id": "UBERON:0016513",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/10"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+          "https://example.org/physiosim/anatomical-contents#heart/la"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/RO_0002572"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "la_myocardium": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+      "source_id": "UBERON:0003380",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0003380",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/51"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/la_myocardium",
+          "https://example.org/physiosim/anatomical-contents#heart/la_wall"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/la_myocardium",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "la_wall": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/la",
+      "source_id": "FMA:9531",
+      "source_iri": "http://purl.org/sig/ont/fma/fma9531",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/41"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+          "https://example.org/physiosim/anatomical-contents#heart/la"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "lv": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+      "source_id": "UBERON:0002084",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/1"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/lv",
+          "https://example.org/physiosim/anatomical-contents#heart/organ"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/lv",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "lv_blood": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": {
+        "anatomy": {
+          "fma": "FMA:9466",
+          "key": "lv_cavity",
+          "primary_id": "UBERON:0016514",
+          "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/2",
+          "source_role_in_smith": "container of LV blood (P_lv, V_lv)",
+          "structure": "Cavity of left ventricle",
+          "uberon": "UBERON:0016514",
+          "uberon_relation": "same_structure_v2_xref"
+        },
+        "interpretation": "Separate M1 blood volume state.",
+        "relation": "blood_contained_in",
+        "relationship_direction": [
+          "modelled_blood",
+          "anatomical_container"
+        ]
+      },
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+      "source_id": "UBERON:0000178",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/4"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/lv_blood",
+          "https://example.org/physiosim/anatomical-contents#heart/lv_cavity"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/RO_0001025"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/lv_blood",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "lv_cavity": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "m1_v2_context": {
+        "fma": "FMA:9466",
+        "key": "lv_cavity",
+        "primary_id": "UBERON:0016514",
+        "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/2",
+        "source_role_in_smith": "container of LV blood (P_lv, V_lv)",
+        "structure": "Cavity of left ventricle",
+        "uberon": "UBERON:0016514",
+        "uberon_relation": "same_structure_v2_xref"
+      },
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/lv",
+      "source_id": "UBERON:0016514",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/2"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+          "https://example.org/physiosim/anatomical-contents#heart/lv"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/RO_0002572"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "lv_myocardium": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+      "source_id": "UBERON:0006566",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0006566",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/18"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/lv_myocardium",
+          "https://example.org/physiosim/anatomical-contents#heart/lv_wall"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/lv_myocardium",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "lv_wall": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/lv",
+      "source_id": "UBERON:0036285",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0036285",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/3"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+          "https://example.org/physiosim/anatomical-contents#heart/lv"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "mitral_annulus": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+      "source_id": "UBERON:0005995",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0005995",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/65"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+          "https://example.org/physiosim/anatomical-contents#heart/mitral_valve"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "mitral_orifice": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": null,
+      "source_id": "FMA:9335",
+      "source_iri": "http://purl.org/sig/ont/fma/fma9335",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/47"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice",
+          null
+        ],
+        "iri": null
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "mitral_valve": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+      "source_id": "UBERON:0002135",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/26"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+          "https://example.org/physiosim/anatomical-contents#heart/organ"
+        ],
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000050"
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    },
+    "organ": {
+      "crosswalk_review": "PROPOSED",
+      "equivalence": "NONE",
+      "m1_relation": null,
+      "numeric_use": "NONE",
+      "source_context": null,
+      "source_id": "UBERON:0000948",
+      "source_iri": "http://purl.obolibrary.org/obo/UBERON_0000948",
+      "source_provenance": {
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/0"
+      },
+      "source_relation": {
+        "direction": [
+          "https://example.org/physiosim/anatomical-contents#heart/organ",
+          null
+        ],
+        "iri": null
+      },
+      "source_template": "https://example.org/physiosim/anatomical-contents#heart/organ",
+      "target_c5": {
+        "applied": false,
+        "provenance": "docs/decisions.md:27",
+        "relation": "part_of",
+        "status": "USER_DECISION_RUNTIME_DEFERRED"
+      }
+    }
+  },
+  "dependencies": [
+    {
+      "dependent": "activation",
+      "kind": "constitutive",
+      "on": [
+        "heart_rate",
+        "systolic_fraction"
+      ]
+    },
+    {
+      "dependent": "E_lv(t)",
+      "kind": "constitutive",
+      "on": [
+        "emin_lv",
+        "emax_lv",
+        "activation"
+      ]
+    },
+    {
+      "dependent": "P_lv",
+      "kind": "constitutive",
+      "on": [
+        "E_lv(t)",
+        "V_lv",
+        "V0_lv"
+      ]
+    },
+    {
+      "dependent": "P_la",
+      "kind": "constitutive",
+      "on": [
+        "elastance_la",
+        "V_la",
+        "V0_la"
+      ]
+    },
+    {
+      "dependent": "Q_mitral",
+      "kind": "constitutive",
+      "on": [
+        "P_la",
+        "P_lv",
+        "resistance_mitral"
+      ]
+    },
+    {
+      "dependent": "Q_cum_mitral",
+      "kind": "definition",
+      "on": [
+        "Q_mitral"
+      ]
+    },
+    {
+      "coefficient": -1,
+      "dependent": "V_la",
+      "kind": "conservation",
+      "on": [
+        "Q_mitral"
+      ],
+      "scope": "Mitral contribution only; remaining M1 inflows/outflows are unchanged."
+    },
+    {
+      "coefficient": 1,
+      "dependent": "V_lv",
+      "kind": "conservation",
+      "on": [
+        "Q_mitral"
+      ],
+      "scope": "Mitral contribution only; remaining M1 inflows/outflows are unchanged."
+    }
+  ],
+  "evidence": {
+    "extracted_facts": "14 knowledge templates, 12 directed relation claims, 2 special reviews and 2 draft boundaries; shared blood concept ID has distinct LA/LV contextual templates.",
+    "interpretations": "Crosswalk roles, constitutive dependencies and M1 scope are explicit project design assertions. No identity, value equivalence or numeric binding is asserted.",
+    "unresolved_conflicts": [
+      "C5 part_of adapter remains deferred; source located_in and M1 blood_contained_in remain separate.",
+      "LV/LA wall versus myocardium mechanical bearer is unselected.",
+      "Mitral orifice boundary REVIEW; annulus relation REVIEW and definition REVISE; interface DRAFT.",
+      "M1 no-reverse-flow diode restricts signed source transport; no EOA or geometry is represented.",
+      "v2 la_cavity Smith lumped-venous role differs from separate M1 LA state; no identity asserted.",
+      "Inherited M1 batch-TDD review limitation remains unresolved; baseline snapshot is UNREVIEWED."
+    ],
+    "verbatim_evidence": "source.catalog/claims/special_claims/boundaries/sources retain original JSON fields and per-record path/pointer/full-file hash. These are untrusted reference evidence, not adopted axioms."
+  },
+  "laws": {
+    "E_lv(t)": {
+      "aggregation": "instantaneous law evaluation",
+      "anchor": "E_v(t) = Emin_v + (Emax_v-Emin_v)*a(phi), v in {lv,rv}",
+      "declared_contract": "four_chamber_m1@1.0.0:la-mitral-lv-laws-v1",
+      "inputs": [
+        "emin_lv",
+        "emax_lv",
+        "activation"
+      ],
+      "integrity_scope": "Declared M1 law/version contract only; does not prove numerical implementation integrity. Observed runtime file hashes are separate provenance.",
+      "kind": "constitutive_law",
+      "line": 63,
+      "path": "docs/physiology_four_chamber_m1.md",
+      "reference": "not applicable",
+      "scope": "Existing M1 equation reference restricted to LA/LV/mitral; not an adopted ontology axiom.",
+      "section": "#equations-and-contract",
+      "sign": "positive elastance",
+      "temporal": "instantaneous",
+      "unit": "mmHg/mL"
+    },
+    "P_la": {
+      "aggregation": "instantaneous law evaluation",
+      "anchor": "P_a = E_a*(V_a-V0_a), a in {la,ra}, constant positive E_a",
+      "declared_contract": "four_chamber_m1@1.0.0:la-mitral-lv-laws-v1",
+      "inputs": [
+        "elastance_la",
+        "V_la",
+        "V0_la"
+      ],
+      "integrity_scope": "Declared M1 law/version contract only; does not prove numerical implementation integrity. Observed runtime file hashes are separate provenance.",
+      "kind": "constitutive_law",
+      "line": 65,
+      "path": "docs/physiology_four_chamber_m1.md",
+      "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+      "scope": "Existing M1 equation reference restricted to LA/LV/mitral; not an adopted ontology axiom.",
+      "section": "#equations-and-contract",
+      "sign": "signed common gauge pressure",
+      "temporal": "instantaneous",
+      "unit": "mmHg"
+    },
+    "P_lv": {
+      "aggregation": "instantaneous law evaluation",
+      "anchor": "P_v = E_v(t)*(V_v-V0_v), v in {lv,rv}",
+      "declared_contract": "four_chamber_m1@1.0.0:la-mitral-lv-laws-v1",
+      "inputs": [
+        "E_lv(t)",
+        "V_lv",
+        "V0_lv"
+      ],
+      "integrity_scope": "Declared M1 law/version contract only; does not prove numerical implementation integrity. Observed runtime file hashes are separate provenance.",
+      "kind": "constitutive_law",
+      "line": 64,
+      "path": "docs/physiology_four_chamber_m1.md",
+      "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+      "scope": "Existing M1 equation reference restricted to LA/LV/mitral; not an adopted ontology axiom.",
+      "section": "#equations-and-contract",
+      "sign": "signed common gauge pressure",
+      "temporal": "instantaneous",
+      "unit": "mmHg"
+    },
+    "Q_cum_mitral": {
+      "aggregation": "integral from run start",
+      "anchor": "Cumulative_e(t) = integral from 0 to t of q_e(u) du",
+      "declared_contract": "four_chamber_m1@1.0.0:la-mitral-lv-laws-v1",
+      "inputs": [
+        "Q_mitral",
+        "time_s"
+      ],
+      "integrity_scope": "Declared M1 law/version contract only; does not prove numerical implementation integrity. Observed runtime file hashes are separate provenance.",
+      "kind": "integral_definition",
+      "line": 70,
+      "path": "docs/physiology_four_chamber_m1.md",
+      "reference": "not applicable",
+      "scope": "Existing M1 equation reference restricted to LA/LV/mitral; not an adopted ontology axiom.",
+      "section": "#equations-and-contract",
+      "sign": "nonnegative LA->LV transport",
+      "temporal": "run_integrated",
+      "unit": "mL"
+    },
+    "Q_mitral": {
+      "aggregation": "instantaneous law evaluation",
+      "anchor": "q_e = max(dp_e/R_e,0), for the four ideal diodes",
+      "declared_contract": "four_chamber_m1@1.0.0:la-mitral-lv-laws-v1",
+      "inputs": [
+        "P_la",
+        "P_lv",
+        "resistance_mitral"
+      ],
+      "integrity_scope": "Declared M1 law/version contract only; does not prove numerical implementation integrity. Observed runtime file hashes are separate provenance.",
+      "kind": "constitutive_law",
+      "line": 68,
+      "path": "docs/physiology_four_chamber_m1.md",
+      "reference": "not applicable",
+      "scope": "Existing M1 equation reference restricted to LA/LV/mitral; not an adopted ontology axiom.",
+      "section": "#equations-and-contract",
+      "sign": "nonnegative LA->LV transport",
+      "temporal": "instantaneous",
+      "unit": "mL/s"
+    },
+    "activation": {
+      "aggregation": "instantaneous law evaluation",
+      "anchor": "a(phi) = (1-cos(2*pi*phi/s))/2, if phi < s; 0 otherwise",
+      "declared_contract": "four_chamber_m1@1.0.0:la-mitral-lv-laws-v1",
+      "implementation": "physiosim.models.cardiovascular.elastance",
+      "inputs": [
+        "heart_rate",
+        "systolic_fraction"
+      ],
+      "integrity_scope": "Declared M1 law/version contract only; does not prove numerical implementation integrity. Observed runtime file hashes are separate provenance.",
+      "kind": "constitutive_law",
+      "line": 62,
+      "path": "docs/physiology_four_chamber_m1.md",
+      "reference": "not applicable",
+      "scope": "Existing M1 equation reference restricted to LA/LV/mitral; not an adopted ontology axiom.",
+      "section": "#equations-and-contract",
+      "sign": "activation in [0,1]",
+      "temporal": "instantaneous",
+      "unit": "dimensionless"
+    }
+  },
+  "mitral": {
+    "annulus": {
+      "definition_review": "REVISE",
+      "equivalence": "NONE",
+      "relation_review": "REVIEW",
+      "role": "ANATOMICAL_ATTACHMENT",
+      "template": "mitral_annulus"
+    },
+    "direction": [
+      "la",
+      "lv"
+    ],
+    "effective_orifice_area": "NOT_REPRESENTED",
+    "interface": {
+      "equivalence": "NONE",
+      "proposal_id": "boundary-mitral_orifice-transfer-v1",
+      "role": "DRAFT_OPERATIONAL_INTERFACE_CANDIDATE",
+      "signed_flow_allowed": true,
+      "status": "DRAFT_MODEL_CONVENTION"
+    },
+    "orifice": {
+      "boundary_review": "REVIEW",
+      "equivalence": "NONE",
+      "role": "ANATOMICAL_OPENING",
+      "template": "mitral_orifice"
+    },
+    "restriction": "M1 ideal diode q=max(dp/R,0) is a restricted no-reverse-flow model relative to the source signed-transport interface; it does not model regurgitation, area or patient geometry.",
+    "valve": {
+      "equivalence": "NONE",
+      "m1_v2_context": {
+        "fma": "FMA:7235",
+        "key": "mitral_valve",
+        "primary_id": "UBERON:0002135",
+        "provenance": "docs/evidence_review/anatomy_nodes_v2.json#/nodes/6",
+        "source_role_in_smith": "location of Q_mt (E29)",
+        "structure": "Mitral valve",
+        "uberon": "UBERON:0002135",
+        "uberon_relation": "same_structure_v2_xref"
+      },
+      "role": "FLOW_LOCATION_CONTEXT",
+      "template": "mitral_valve"
+    }
+  },
+  "model_id": "four_chamber_m1",
+  "model_source": {
+    "baseline_snapshot": "456abc8c77134cd8909d603a1d96ed1384bad41f",
+    "declared_contract": "four_chamber_m1@1.0.0:la-mitral-lv-laws-v1",
+    "integrity_scope": "Declared M1 law/version contract only; does not prove numerical implementation integrity. Observed runtime file hashes are separate provenance.",
+    "review": "UNREVIEWED; inherited M1 batch-TDD limitation remains unresolved"
+  },
+  "model_version": "1.0.0",
+  "parameter_roles": {
+    "elastance_la": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "constant_parameter"
+    },
+    "emax_lv": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "constant_parameter"
+    },
+    "emin_lv": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "constant_parameter"
+    },
+    "heart_rate": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "constant_parameter"
+    },
+    "initial_volumes": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "initial"
+    },
+    "resistance_mitral": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "constant_parameter"
+    },
+    "systolic_fraction": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "constant_parameter"
+    },
+    "unstressed_volumes": {
+      "external_numeric_permission": "NONE",
+      "kind": "parameter",
+      "temporal": "constant_parameter"
+    }
+  },
+  "parameters": {
+    "elastance_la": {
+      "order": null,
+      "property": "http://bhi.washington.edu/OPB#OPB_00076",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "constant_parameter",
+      "unit": "mmHg/mL"
+    },
+    "emax_lv": {
+      "order": null,
+      "property": "http://bhi.washington.edu/OPB#OPB_00076",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "constant_parameter",
+      "unit": "mmHg/mL"
+    },
+    "emin_lv": {
+      "order": null,
+      "property": "http://bhi.washington.edu/OPB#OPB_00076",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "constant_parameter",
+      "unit": "mmHg/mL"
+    },
+    "heart_rate": {
+      "order": null,
+      "property": "http://bhi.washington.edu/OPB#OPB_01212",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "constant_parameter",
+      "unit": "1/min"
+    },
+    "initial_volumes": {
+      "order": [
+        "lv",
+        "sa",
+        "sv",
+        "ra",
+        "rv",
+        "pa",
+        "pv",
+        "la"
+      ],
+      "property": "http://bhi.washington.edu/OPB#OPB_00154",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "initial",
+      "unit": "mL"
+    },
+    "resistance_mitral": {
+      "order": null,
+      "property": "http://bhi.washington.edu/OPB#OPB_00160",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "constant_parameter",
+      "unit": "mmHg*s/mL"
+    },
+    "systolic_fraction": {
+      "order": null,
+      "property": "https://example.org/physiosim/concept/systolic_fraction",
+      "property_source": "project-local M1 definition",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "constant_parameter",
+      "unit": "dimensionless"
+    },
+    "unstressed_volumes": {
+      "order": [
+        "lv",
+        "sa",
+        "sv",
+        "ra",
+        "rv",
+        "pa",
+        "pv",
+        "la"
+      ],
+      "property": "http://bhi.washington.edu/OPB#OPB_00154",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "Required explicit caller input; no literature-derived default or calibration.",
+      "temporal": "constant_parameter",
+      "unit": "mL"
+    }
+  },
+  "ports": {
+    "mitral_flow_port": {
+      "aggregation": "instantaneous",
+      "direction": [
+        "la",
+        "lv"
+      ],
+      "interpretation": "Flow metadata reference; no duplicate physical state.",
+      "kind": "port",
+      "ref": "Q_mitral",
+      "reference": "not applicable",
+      "sign": "nonnegative LA->LV",
+      "temporal": "instantaneous",
+      "unit": "mL/s"
+    }
+  },
+  "roles": {
+    "P_la": {
+      "aggregation": "instantaneous",
+      "kind": "algebraic_observable",
+      "sign": "signed common gauge pressure"
+    },
+    "P_lv": {
+      "aggregation": "instantaneous",
+      "kind": "algebraic_observable",
+      "sign": "signed common gauge pressure"
+    },
+    "Q_cum_mitral": {
+      "aggregation": "run_integrated",
+      "kind": "auxiliary_integral",
+      "sign": "nonnegative LA->LV transport"
+    },
+    "Q_mitral": {
+      "aggregation": "instantaneous",
+      "kind": "edge_flow",
+      "sign": "nonnegative LA->LV transport"
+    },
+    "V_la": {
+      "aggregation": "instantaneous",
+      "kind": "state",
+      "sign": "positive total blood volume"
+    },
+    "V_lv": {
+      "aggregation": "instantaneous",
+      "kind": "state",
+      "sign": "positive total blood volume"
+    },
+    "la_pressure_mean_mmhg": {
+      "aggregation": "beat_mean",
+      "kind": "metric",
+      "sign": "manifest-defined metric"
+    },
+    "lv_edv_sample_ml": {
+      "aggregation": "beat_sample_extremum",
+      "kind": "metric",
+      "sign": "manifest-defined metric"
+    },
+    "lv_ejection_fraction_sample": {
+      "aggregation": "beat_sample_extremum",
+      "kind": "metric",
+      "sign": "manifest-defined metric"
+    },
+    "lv_esv_sample_ml": {
+      "aggregation": "beat_sample_extremum",
+      "kind": "metric",
+      "sign": "manifest-defined metric"
+    }
+  },
+  "sidecar_version": "1.0.0",
+  "source": {
+    "absent_claims": [],
+    "boundaries": {
+      "proposals": [
+        {
+          "provenance": {
+            "full_file_sha256": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0",
+            "path": "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json",
+            "pointer": "#/proposals/5"
+          },
+          "record": {
+            "anatomical_base_iri": "http://purl.obolibrary.org/obo/UBERON_0005995",
+            "anatomical_base_label": "mitral valve anulus",
+            "assumptions": [
+              "A complete hinge locus is identifiable; incomplete or fused/variant configurations require a separately documented variant protocol.",
+              "No arbitrary mm-wide band or tissue thickness is introduced.",
+              "Geometry is not extracted from the existing coarse CT mask."
+            ],
+            "boundary_rule": "Follow the complete 3D leaflet-to-atrioventricular-junction hinge locus through the commissural attachments. Preserve its nonplanarity rather than replacing it with a flat circle.",
+            "bundle": "boundary_valves",
+            "concept_kind": "anatomical_attachment_boundary",
+            "connection_intent": [
+              "hasAttachmentBoundary",
+              "attachmentBoundaryOf"
+            ],
+            "current_base_iri": "http://purl.obolibrary.org/obo/UBERON_0005995",
+            "definition_basis": "integrated",
+            "definition_status": "DRAFT_MODEL_CONVENTION",
+            "evidence_locator": "\u00a73(a)(i), Fig14",
+            "evidence_urls": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/"
+            ],
+            "excludes": [
+              "leaflet free edges and coaptation line",
+              "homogeneous material ring of assumed thickness",
+              "a virtual projected or best-fit annular area",
+              "hemodynamic effective orifice area"
+            ],
+            "functional_rationale": "Use the leaflet attachment locus as the reference supporting the valve apparatus, with closure and opening represented by distinct leaflet states.",
+            "includes": [
+              "leaflet attachment hinge locus",
+              "commissural attachment landmarks"
+            ],
+            "measurement_performed": false,
+            "model_role": "leaflet-support reference; not itself a blood compartment or resistance parameter",
+            "new_local_predicates": [
+              "hasAttachmentBoundary",
+              "attachmentBoundaryOf"
+            ],
+            "normative_status": "project operational definition; not new standard ontology equivalence",
+            "observed_geometry": false,
+            "original_mapping_outcome": "REMAINS_REVIEW",
+            "patient_geometry_status": "NOT_MEASURED",
+            "proposal_id": "boundary-mitral_annulus-attachment-v1",
+            "proposal_status": "PROPOSED",
+            "proposal_uri": "https://example.org/physiosim/boundary-proposals#heart/mitral_annulus",
+            "proposed_local_concept": "mitral_leaflet_attachment_boundary",
+            "relation_to_anatomy": "The current UBERON material anulus term remains unchanged. This local boundary is a landmark of attachment tissue, not owl:sameAs or owl:equivalentClass to that tissue. Material support and its boundary are represented separately.",
+            "required_geometry_fields": [
+              "3D hinge contour in image world mm",
+              "coordinate reference and original image provenance",
+              "cardiac phase or fixation state",
+              "landmark selection method/version",
+              "missing-landmark/variant handling"
+            ],
+            "source_refs": [
+              "BV01"
+            ],
+            "source_vs_proposal": "Literature motivates the anatomical distinctions; choosing this locus as the project boundary is our proposed modeling convention.",
+            "state_or_phase": "Contour is indexed by cardiac phase t if measured in a living heart; no default systolic/diastolic coordinates are assigned. In fixed specimens record fixation state.",
+            "target_key": "heart/mitral_annulus",
+            "target_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+            "target_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+            "topological_dimension": 1
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0",
+            "path": "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json",
+            "pointer": "#/proposals/6"
+          },
+          "record": {
+            "anatomical_base_iri": "http://purl.org/sig/ont/fma/fma9335",
+            "anatomical_base_label": "Orifice of left atrioventricular junction",
+            "assumptions": [
+              "The upstream/downstream control-volume partition is declared consistently and avoids overlap/gaps in a future mesh.",
+              "No patient-specific interface geometry, flow, effective area or pressure is inferred from the present CT.",
+              "If landmarks or the required surface construction are absent, this proposal remains symbolic and cannot yield a numerical area.",
+              "A nonplanar hinge contour has infinitely many spanning surfaces; the future construction method is part of the definition, not an anatomical fact."
+            ],
+            "boundary_rule": "Choose an oriented spanning control surface whose boundary is the full nonplanar atrioventricular hinge contour. A surface-construction algorithm and version must be supplied before geometry is instantiated because a contour does not determine a unique spanning surface. Preserve the 3D contour; a planar projection is a different derived representation.",
+            "bundle": "boundary_valves",
+            "competence_assumption": "Only a declared normally competent closed-valve approximation may set cross-interface flow to zero; a closed-phase label alone does not exclude regurgitation or leakage.",
+            "concept_kind": "functional_transfer_interface",
+            "connection_intent": [
+              "operationallyAssociatedWith",
+              "separatesControlVolumes",
+              "hasBoundaryConstructionRule"
+            ],
+            "current_base_iri": "http://purl.org/sig/ont/fma/fma9335",
+            "definition_basis": "integrated",
+            "definition_status": "DRAFT_MODEL_CONVENTION",
+            "downstream_compartment": "LV",
+            "evidence_locator": "\u00a73(a)(i), Fig14",
+            "evidence_urls": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/"
+            ],
+            "excludes": [
+              "blood material volume",
+              "leaflet tissue or attachment tissue",
+              "leaflet free-edge geometric aperture",
+              "effective orifice area or vena-contracta cross-section",
+              "automatic equality to pressure-separating leaflet surface"
+            ],
+            "functional_rationale": "Define the port across which net volume is transferred between LA and LV; orient the normal in the reference antegrade direction LA \u2192 LV. Reverse/regurgitant transfer is allowed to have negative signed flux.",
+            "includes": [
+              "a zero-thickness control interface",
+              "a declared boundary-construction rule",
+              "state-dependent reference orientation and signed transport"
+            ],
+            "measurement_performed": false,
+            "model_role": "transport port between declared control volumes; separate from anatomical ostium, actual open gap and functional area property",
+            "new_local_predicates": [
+              "operationallyAssociatedWith",
+              "separatesControlVolumes",
+              "hasBoundaryConstructionRule"
+            ],
+            "normal_direction": "LA -> LV",
+            "normative_status": "project operational control boundary; not asserted exact mapping to FMA ostium",
+            "observed_geometry": false,
+            "original_mapping_outcome": "REMAINS_REVIEW",
+            "patient_geometry_status": "NOT_MEASURED",
+            "proposal_id": "boundary-mitral_orifice-transfer-v1",
+            "proposal_status": "PROPOSED",
+            "proposal_uri": "https://example.org/physiosim/boundary-proposals#heart/mitral_orifice",
+            "proposed_local_concept": "mitral_transfer_interface",
+            "relation_to_anatomy": "Keep the FMA anatomical opening and its current REVIEW boundary mapping. Link this functional interface with a local operationallyAssociatedWith annotation; do not add owl:sameAs, owl:equivalentClass or unverified standard relation IDs.",
+            "required_geometry_fields": [
+              "interface mesh or planar region in image world mm",
+              "coordinate reference and original image provenance",
+              "phase/time and surface velocity if moving",
+              "landmark and lumen-boundary provenance",
+              "surface construction algorithm/version",
+              "orientation and mesh integrity checks"
+            ],
+            "source_refs": [
+              "BV01"
+            ],
+            "source_vs_proposal": "The control-cut choice, flux orientation and required geometry algorithm are project proposals; the sources support anatomical landmarks and the need to distinguish anatomical, geometric and functional definitions.",
+            "state_or_phase": "Phase-specific hinge contour and spanning surface must refer to the same cardiac state. Diastolic opening and systolic closure must not be collapsed into a timeless open area.",
+            "target_key": "heart/mitral_orifice",
+            "target_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice",
+            "target_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice",
+            "topological_dimension": 2,
+            "transport_definition": "For a moving interface use relative-to-surface velocity when defining net transport Q(t)=integral_S(t) (v-v_surface) dot n dA. This is a proposed measurement definition, not a computed flow result.",
+            "upstream_compartment": "LA"
+          }
+        }
+      ],
+      "status": "DRAFT_MODEL_CONVENTION",
+      "version": "0.1.0"
+    },
+    "catalog": [
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/0"
+        },
+        "record": {
+          "base_id": "UBERON:0000948",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0000948",
+          "base_label": "heart",
+          "context": null,
+          "key": "organ",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": null,
+          "role": "Structure",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/organ"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/1"
+        },
+        "record": {
+          "base_id": "UBERON:0002084",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+          "base_label": "heart left ventricle",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+          "key": "lv",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Structure",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/2"
+        },
+        "record": {
+          "base_id": "UBERON:0016514",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+          "base_label": "cavity of left ventricle",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/lv",
+          "key": "lv_cavity",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+          "role": "Space",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/3"
+        },
+        "record": {
+          "base_id": "UBERON:0036285",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0036285",
+          "base_label": "wall of left ventricle",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/lv",
+          "key": "lv_wall",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Wall",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_wall"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/4"
+        },
+        "record": {
+          "base_id": "UBERON:0000178",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+          "base_label": "blood",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+          "key": "lv_blood",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+          "role": "Content",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_blood"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/9"
+        },
+        "record": {
+          "base_id": "UBERON:0002079",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0002079",
+          "base_label": "left cardiac atrium",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+          "key": "la",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Structure",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/10"
+        },
+        "record": {
+          "base_id": "UBERON:0016513",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+          "base_label": "cavity of left atrium",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/la",
+          "key": "la_cavity",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+          "role": "Space",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_cavity"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/11"
+        },
+        "record": {
+          "base_id": "UBERON:0000178",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+          "base_label": "blood",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+          "key": "la_blood",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+          "role": "Content",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_blood"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/18"
+        },
+        "record": {
+          "base_id": "UBERON:0006566",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0006566",
+          "base_label": "left ventricle myocardium",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+          "key": "lv_myocardium",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Tissue",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_myocardium"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/26"
+        },
+        "record": {
+          "base_id": "UBERON:0002135",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+          "base_label": "mitral valve",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+          "key": "mitral_valve",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Structure",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/41"
+        },
+        "record": {
+          "base_id": "FMA:9531",
+          "base_iri": "http://purl.org/sig/ont/fma/fma9531",
+          "base_label": "Wall of left atrium",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/la",
+          "key": "la_wall",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Wall",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_wall"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/47"
+        },
+        "record": {
+          "base_id": "FMA:9335",
+          "base_iri": "http://purl.org/sig/ont/fma/fma9335",
+          "base_label": "Orifice of left atrioventricular junction",
+          "context": null,
+          "key": "mitral_orifice",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": null,
+          "role": "Opening",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/51"
+        },
+        "record": {
+          "base_id": "UBERON:0003380",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0003380",
+          "base_label": "cardiac muscle of left atrium",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+          "key": "la_myocardium",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Tissue",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_myocardium"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+          "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+          "pointer": "#/65"
+        },
+        "record": {
+          "base_id": "UBERON:0005995",
+          "base_iri": "http://purl.obolibrary.org/obo/UBERON_0005995",
+          "base_label": "mitral valve anulus",
+          "context": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+          "key": "mitral_annulus",
+          "observed_in_CT": false,
+          "profile": "heart",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "role": "Structure",
+          "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+          "template_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus"
+        }
+      }
+    ],
+    "claims": [
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/20"
+        },
+        "record": {
+          "anatomical_evidence_status": "SUPPORTED",
+          "bundle": "cardiac_structure",
+          "claim_id": "rel-2bf81398478e7827",
+          "decision": "ACCEPT",
+          "evidence_locator": [
+            {
+              "locator": "pp 347\u2013351; The right atrium; The atrial septum; The left atrium; Figs 1\u20133 captions",
+              "source_id": "CS_ATRIA2017"
+            }
+          ],
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\ubc29\uacfc \ubc29\ubcbd\u00b7\uc2ec\uc774\uc758 \uad6c\uc870\uc801 \uad6c\uc131 \uad00\uacc4\ub85c \uc720\uc9c0\ud55c\ub2e4. \ub0b4\uac15 \uc790\uccb4\uc640 \uc870\uc9c1\uc744 \ub3d9\uc77c\uc2dc\ud558\uc9c0 \uc54a\ub294\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:/root/cardiac_structure",
+          "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la",
+          "source_ids": [
+            "CS_ATRIA2017"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/organ"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/22"
+        },
+        "record": {
+          "bundle": "cardiac_spaces",
+          "claim_id": "rel-7e2dcb89ebc3f935",
+          "contextual_source_ids": [
+            "ROOT_MMWHS"
+          ],
+          "decision": "ACCEPT",
+          "evidence_locator": "Section 2.2, definitions 1\u20134; The right atrium; The left atrium; Figures 1\u20132; RO_0002571, RO_0002572; BFO_0000050 and RO_0001025 evidence caches",
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "Accept the class-level cavity/content contextualization only. No measurement boundary or benchmark segmentation convention is imported; no specimen occupancy is asserted. MM-WHS\ub294 \ubd84\ud560 \uaddc\uc57d\uc758 \ucc28\uc774\ub97c \ubcf4\uc5ec\uc8fc\ub294 \ucc38\uace0 \uc790\ub8cc\ub85c\ub9cc \uc0ac\uc6a9\ud55c\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+          "reviewer": "root (agent); no independent human adjudication",
+          "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_blood",
+          "source_ids": [
+            "ROOT_RO",
+            "ROOT_ATRIA"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_cavity"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/23"
+        },
+        "record": {
+          "bundle": "cardiac_spaces",
+          "claim_id": "rel-7306eaacd0f3dbdc",
+          "contextual_source_ids": [
+            "ROOT_MMWHS"
+          ],
+          "decision": "ACCEPT",
+          "evidence_locator": "Section 2.2, definitions 1\u20134; The right atrium; The left atrium; Figures 1\u20132; RO_0002571, RO_0002572; BFO_0000050 and RO_0001025 evidence caches",
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "Accept the class-level cavity/content contextualization only. No measurement boundary or benchmark segmentation convention is imported; no specimen occupancy is asserted. MM-WHS\ub294 \ubd84\ud560 \uaddc\uc57d\uc758 \ucc28\uc774\ub97c \ubcf4\uc5ec\uc8fc\ub294 \ucc38\uace0 \uc790\ub8cc\ub85c\ub9cc \uc0ac\uc6a9\ud55c\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+          "reviewer": "root (agent); no independent human adjudication",
+          "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+          "source_ids": [
+            "ROOT_RO",
+            "ROOT_ATRIA"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/26"
+        },
+        "record": {
+          "anatomical_evidence_status": "SUPPORTED",
+          "bundle": "cardiac_structure",
+          "claim_id": "rel-d302b072c938390a",
+          "decision": "ACCEPT",
+          "evidence_locator": [
+            {
+              "locator": "p 3 Measurement of Atrial Wall Thickness; pp 4\u20136 Results; Figs 2\u20134 captions; Fig 3 ventricular section",
+              "source_id": "CS_HIPCT2024"
+            },
+            {
+              "locator": "pp 347\u2013351; The right atrium; The atrial septum; The left atrium; Figs 1\u20133 captions",
+              "source_id": "CS_ATRIA2017"
+            }
+          ],
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\ud574\ub2f9 \uc2ec\ubc29\ubcbd\uc758 \uc870\uc9c1\uce35\uc73c\ub85c \ud55c\uc815\ud55c \ubb38\ub9e5 \uc815\uc758\ub97c \uc9c0\uc9c0\ud55c\ub2e4. \uad00\uce21\ub418\uc9c0 \uc54a\uc740 CT \ub0b4\ubd80 \ub178\ub4dc\ub294 \uc9c0\uc2dd \ud15c\ud50c\ub9bf\uc73c\ub85c \ub0a8\uae34\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:/root/cardiac_structure",
+          "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_myocardium",
+          "source_ids": [
+            "CS_HIPCT2024",
+            "CS_ATRIA2017"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_wall"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/27"
+        },
+        "record": {
+          "anatomical_evidence_status": "SUPPORTED",
+          "bundle": "cardiac_structure",
+          "claim_id": "rel-ae3c59503ebb0f46",
+          "decision": "ACCEPT",
+          "evidence_locator": [
+            {
+              "locator": "pp 347\u2013351; The right atrium; The atrial septum; The left atrium; Figs 1\u20133 captions",
+              "source_id": "CS_ATRIA2017"
+            }
+          ],
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\ubc29\uacfc \ubc29\ubcbd\u00b7\uc2ec\uc774\uc758 \uad6c\uc870\uc801 \uad6c\uc131 \uad00\uacc4\ub85c \uc720\uc9c0\ud55c\ub2e4. \ub0b4\uac15 \uc790\uccb4\uc640 \uc870\uc9c1\uc744 \ub3d9\uc77c\uc2dc\ud558\uc9c0 \uc54a\ub294\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:/root/cardiac_structure",
+          "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+          "source_ids": [
+            "CS_ATRIA2017"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/32"
+        },
+        "record": {
+          "anatomical_evidence_status": "SUPPORTED",
+          "bundle": "cardiac_structure",
+          "claim_id": "rel-a7c89e14ee4d9076",
+          "decision": "ACCEPT",
+          "evidence_locator": [
+            {
+              "locator": "Anatomy of the left ventricle; Figs 1\u20133; The myocardium; Normal left ventricle",
+              "source_id": "CS_LV2009"
+            }
+          ],
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\uc0ac\ub78c \uc2ec\uc7a5\uc758 \ud574\ub2f9 \uad6c\uc870\ub97c \ud55c\uc815\ud55c \uad6c\uc870\uc801 \ubd80\ubd84 \uad00\uacc4\ub85c \uc720\uc9c0\ud55c\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:/root/cardiac_structure",
+          "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv",
+          "source_ids": [
+            "CS_LV2009"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/organ"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/33"
+        },
+        "record": {
+          "bundle": "cardiac_spaces",
+          "claim_id": "rel-6ae26ff7e2c1b0d1",
+          "decision": "ACCEPT",
+          "evidence_interpretation": "LOCAL_CONTENT_CLASS_DEFINITION",
+          "evidence_locator": "LV: Anatomy of the left ventricle, Figures 1\u20132; RV: Section 3, ventricular cavity and semilunar hinge boundary discussion",
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\ud574\ubd80\ud559\uc801 \uc2ec\uc2e4 \ub0b4\uac15\uacfc \uadf8 \uc548\uc758 \ud608\uc561\uc744 \uc11c\ub85c \ub2e4\ub978 \ud074\ub798\uc2a4 \uc5ed\ud560\ub85c \uc815\uc758\ud55c\ub2e4. \ud608\uc561 \uc704\uce58 \uc81c\ud55c\uc2dd\uc740 \ub85c\uceec \uc815\uc758\uc774\uba70 \uc6d0\ubb38\uc774 \ud2b9\uc815 \ud658\uc790\ub098 \ubd80\ud53c\ub97c \ud655\uc778\ud588\ub2e4\ub294 \ub73b\uc740 \uc544\ub2c8\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+          "reviewer": "root (agent); no independent human adjudication",
+          "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_blood",
+          "source_ids": [
+            "ROOT_LV",
+            "ROOT_RO"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/34"
+        },
+        "record": {
+          "bundle": "cardiac_spaces",
+          "claim_id": "rel-71017ae81387a71c",
+          "decision": "ACCEPT",
+          "evidence_interpretation": "ANATOMICAL_SPACE_CONTEXT",
+          "evidence_locator": "LV: Anatomy of the left ventricle, Figures 1\u20132; RV: Section 3, ventricular cavity and semilunar hinge boundary discussion",
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\ud574\ubd80\ud559\uc801 \uc2ec\uc2e4 \ub0b4\uac15\uacfc \uadf8 \uc548\uc758 \ud608\uc561\uc744 \uc11c\ub85c \ub2e4\ub978 \ud074\ub798\uc2a4 \uc5ed\ud560\ub85c \uc815\uc758\ud55c\ub2e4. \ud608\uc561 \uc704\uce58 \uc81c\ud55c\uc2dd\uc740 \ub85c\uceec \uc815\uc758\uc774\uba70 \uc6d0\ubb38\uc774 \ud2b9\uc815 \ud658\uc790\ub098 \ubd80\ud53c\ub97c \ud655\uc778\ud588\ub2e4\ub294 \ub73b\uc740 \uc544\ub2c8\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+          "reviewer": "root (agent); no independent human adjudication",
+          "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+          "source_ids": [
+            "ROOT_LV",
+            "ROOT_RO"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/39"
+        },
+        "record": {
+          "anatomical_evidence_status": "SUPPORTED",
+          "bundle": "cardiac_structure",
+          "claim_id": "rel-90b4c5951f5917ee",
+          "decision": "ACCEPT",
+          "evidence_locator": [
+            {
+              "locator": "p 3 Measurement of Atrial Wall Thickness; pp 4\u20136 Results; Figs 2\u20134 captions; Fig 3 ventricular section",
+              "source_id": "CS_HIPCT2024"
+            },
+            {
+              "locator": "Layers of the Heart Wall; Chambers of the Heart",
+              "source_id": "CS_NCI_WALL"
+            },
+            {
+              "locator": "Anatomy of the left ventricle; Figs 1\u20133; The myocardium; Normal left ventricle",
+              "source_id": "CS_LV2009"
+            }
+          ],
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\ud574\ub2f9 \uc2ec\uc2e4\ubcbd\uc758 \uc870\uc9c1\uce35 \ubd80\ubd84\uc73c\ub85c \uc720\uc9c0\ud55c\ub2e4. \uc2ec\uadfc \ub0b4 \uc12c\uc720 \ubc29\ud5a5\uc758 \uce35\uc744 \ubcc4\ub3c4 \uc808\ub2e8 \uac00\ub2a5\ud55c \uc870\uc9c1\uce35\uc73c\ub85c \ud574\uc11d\ud558\uc9c0 \uc54a\ub294\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:/root/cardiac_structure",
+          "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_myocardium",
+          "source_ids": [
+            "CS_HIPCT2024",
+            "CS_NCI_WALL",
+            "CS_LV2009"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_wall"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/41"
+        },
+        "record": {
+          "anatomical_evidence_status": "SUPPORTED",
+          "bundle": "cardiac_structure",
+          "claim_id": "rel-d4fc71cd7059c217",
+          "decision": "ACCEPT",
+          "evidence_locator": [
+            {
+              "locator": "Anatomy of the left ventricle; Figs 1\u20133; The myocardium; Normal left ventricle",
+              "source_id": "CS_LV2009"
+            }
+          ],
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#SourceReported",
+          "rationale": "\uc0ac\ub78c \uc2ec\uc7a5\uc758 \ud574\ub2f9 \uad6c\uc870\ub97c \ud55c\uc815\ud55c \uad6c\uc870\uc801 \ubd80\ubd84 \uad00\uacc4\ub85c \uc720\uc9c0\ud55c\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:/root/cardiac_structure",
+          "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+          "source_ids": [
+            "CS_LV2009"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/42"
+        },
+        "record": {
+          "bundle": "cardiac_boundaries",
+          "claim_id": "rel-f295a18d9efb2c62",
+          "decision": "REVIEW",
+          "evidence_locator": "CB02 parietal junctions, Fig7; CB01 \u00a73(a)(i)",
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "REVIEW",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#SourceReported",
+          "proposed_change": "\ucca8\ud310 \ubd80\ucc29 \uc870\uc9c1, \ubd80\ucc29 \uacbd\uacc4/\uc601\uc5ed \ubc0f \uc601\uc0c1 \uce21\uc815\uba74\uc744 \uad6c\ubd84\ud558\uace0, UBERON \uc12c\uc720\ub95c \ud074\ub798\uc2a4\uac00 \ud45c\ud604\ud558\ub294 \ubc94\uc704\ub97c \uba85\uc2dc\ud55c \ub4a4 part_of\ub97c \uc7ac\uc2ec\uc0ac\ud55c\ub2e4. ID \uc790\ub3d9 \ub300\uccb4 \ub610\ub294 owl:equivalentClass \ucd94\uac00 \uae08\uc9c0.",
+          "rationale": "part_of \ubc29\ud5a5 \uc790\uccb4\uc758 \ubc18\uc99d\uc740 \uc544\ub2c8\ub2e4. \ud45c\uc900 baseConcept\uc758 fibrous ring\uacfc \ud604\uc7ac \uc758\ub3c4\ud55c \uc804\uccb4 \ud574\ubd80\ud559 \ubd80\ucc29\uc601\uc5ed/\uc120\uc774 \uac19\uc740 \ubc94\uc704\uc778\uc9c0 \ud655\uc815 \uc804\uc774\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:cardiac_boundaries",
+          "scope": "Human anatomical class template; typical unfused valve configuration; does not assert observed CT components or universal leaflet count.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+          "source_ids": [
+            "CB01",
+            "CB02"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve"
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/claims/45"
+        },
+        "record": {
+          "bundle": "cardiac_boundaries",
+          "claim_id": "rel-aec067caf4c6add6",
+          "decision": "ACCEPT",
+          "evidence_locator": "CB01 \u00a71 Fig1/3 and valve-specific \u00a7\u00a72\u20135; CB02 Figs1\u20134",
+          "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+          "formalization_decision": "ACCEPT",
+          "formalization_rationale": "\uc120\ud0dd\ub41c \ud074\ub798\uc2a4\uc5d0 part_of some Heart\ub97c \ubd80\uac00\ud558\ub294 \ubb38\ub9e5 \uc81c\ud55c. \ubaa8\ub4e0 \uc2ec\uc7a5\uc774 \ub3d9\uc77c\ud55c \uc815\uc0c1 \uad6c\uc131/\uac1c\uc218\ub97c \uac00\uc9c4\ub2e4\ub294 \uc804\uce6d \uacf5\ub9ac \uc544\ub2d8.",
+          "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+          "rationale": "\uc778\uac04 \uc2ec\uc7a5 \uad6c\uc131\uc694\uc18c\ub85c\uc11c\uc758 \ubd80\ubd84 \uad00\uacc4\ub97c \uc9c0\uc9c0\ud55c\ub2e4. \uc644\uc804\ud55c \ud310\ub9c9\uc7a5\uce58\uc758 \ubaa8\ub4e0 \uc138\ubd80\uac00 \ub3d9\uc77c \uacbd\uacc4\ub77c\ub294 \uc8fc\uc7a5\uc740 \ud3ec\ud568\ud558\uc9c0 \uc54a\ub294\ub2e4.",
+          "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+          "reviewer": "agent:cardiac_boundaries",
+          "scope": "Human anatomical class template; typical unfused valve configuration; does not assert observed CT components or universal leaflet count.",
+          "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+          "source_ids": [
+            "CB01",
+            "CB02"
+          ],
+          "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/organ"
+        }
+      }
+    ],
+    "full_files": {
+      "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0",
+      "experiments/medmlx_anatomy_mapping/results/contents_catalog.json": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+      "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+    },
+    "null_context_keys": [
+      "heart/organ",
+      "heart/mitral_orifice"
+    ],
+    "roles": "Knowledge templates only; no specimen observations.",
+    "source_commit": "70784bcdb9c14fba5271ee73f3c62b5f94ccbcfb",
+    "source_repo": "[private repository]",
+    "sources": {
+      "boundaries": [
+        {
+          "provenance": {
+            "full_file_sha256": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0",
+            "path": "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json",
+            "pointer": "#/sources/0"
+          },
+          "record": {
+            "access": "full_text_relevant_sections_read",
+            "bundle": "boundary_valves",
+            "evidence_locator": "\u00a72(b)(i) and \u00a72(b)(vi); \u00a73(a)(i), Fig14; \u00a74(a)(i), Fig19; \u00a75(a)(i)",
+            "id": "BV01",
+            "license": "Royal Society copyright; metadata and paraphrase only",
+            "pmid": "17581807",
+            "retrieved_at": "2026-11-01T14:17:46.772270+00:00",
+            "summary": "Four valves differ in attachment anatomy; atrioventricular boundaries are dynamic and nonplanar; arterial attachments are crown shaped. No common homogeneous fibrous ring is presumed.",
+            "title": "Heart valve macro- and microstructure",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/0"
+          },
+          "record": {
+            "access": "full_text_relevant_sections_read",
+            "doi": "10.1098/rstb.2007.2125",
+            "evidence_locator": "\u00a71 and Fig1/3; \u00a72(a,b); \u00a73(a)(i,ii); \u00a74(a)(i,ii,vi), Fig19; \u00a75(a)(i,ii)",
+            "id": "CB01",
+            "independent_source_group": "Misfeld-Sievers review; figures reuse McAlpine/Anderson-Becker sources",
+            "license": "\u00a92007 The Royal Society; PMC accessible, no permissive reuse license verified; only metadata and original paraphrase saved.",
+            "pmcid": "PMC2440405",
+            "pmid": "17581807",
+            "study_type": "anatomical/histological review; not independent ground-truth validation",
+            "summary": "\uac01 \ud310\ub9c9\uc758 \uad6c\uc131\uacfc \ucca8\ud310 \uba85\uce6d\uc744 \uc124\uba85\ud55c\ub2e4. \ud310\ub95c\uc758 \uad6c\uc870\ub294 \ud310\ub9c9\ub9c8\ub2e4 \ub2e4\ub974\uba70 \ub2e8\uc21c\ud55c \ud3c9\uba74 \uace0\ub9ac\uc640 \uad6c\ubcc4\ud574\uc57c \ud55c\ub2e4.",
+            "title": "Heart valve macro- and microstructure",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/1"
+          },
+          "record": {
+            "access": "full_text_relevant_sections_read",
+            "doi": "10.1002/1097-0185(20000901)260:1<81::AID-AR90>3.0.CO;2-3",
+            "evidence_locator": "What are the Atrioventricular Junctions, and How Should We Describe Them?; Figs1\u20137; paragraphs on parietal junctions and fibrous cords",
+            "id": "CB02",
+            "independent_source_group": "Anderson-Ho-Becker",
+            "license": "\u00a92000 Wiley-Liss; Free Access, redistribution license not established; only metadata/paraphrase saved.",
+            "pmid": "10967539",
+            "study_type": "anatomical review with dissections/histological illustrations",
+            "summary": "\ubc29\uc2e4\uc811\ud569\ubd80\uac00 \ub458\ub7ec\uc2f8\ub294 \ud310\uad6c\uc640 \ud310\uc5fd\uc758 \uc5f0\uacb0\uc744 \uae30\uc220\ud55c\ub2e4. \uc12c\uc720\uc870\uc9c1\uc774 \uc811\ud569\ubd80 \uc804\uccb4\uc5d0 \uade0\uc77c\ud558\uac8c \uc874\uc7ac\ud55c\ub2e4\uace0 \ubcfc \uc218 \uc5c6\ub2e4.",
+            "title": "Anatomy of the human atrioventricular junctions revisited",
+            "url": "https://anatomypubs.onlinelibrary.wiley.com/doi/full/10.1002/1097-0185%2820000901%29260%3A1%3C81%3A%3AAID-AR90%3E3.0.CO%3B2-3"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/11"
+          },
+          "record": {
+            "access": "full_text_html_read_via_official_PDF_redirect",
+            "doi": "10.1093/ejechocard/jep159",
+            "evidence_locator": "Anatomy of the left ventricle; Figs 1\u20133; The myocardium; Normal left ventricle",
+            "id": "CS_LV2009",
+            "independent_source_group": "Ho_morphology_group",
+            "license": "Publisher copyright; redistribution permission not established. No article or figures copied.",
+            "pmid": "19889656",
+            "source_origin": "peer_reviewed_anatomical_review",
+            "summary": "Defines ventricular wall, septal and free-wall components; describes papillary muscles and attached cords. Myocardial strand layers are a continuum, not discrete cleavage planes.",
+            "title": "Anatomy and myoarchitecture of the left ventricular wall in normal and in disease",
+            "url": "https://academic.oup.com/ehjcimaging/article-pdf/10/8/iii3/7137761/jep159.pdf"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/13"
+          },
+          "record": {
+            "access": "official_full_text_PDF_read; PMC browser challenge avoided with publisher PDF",
+            "doi": "10.1007/s00399-017-0535-x",
+            "evidence_locator": "pp 347\u2013351; The right atrium; The atrial septum; The left atrium; Figs 1\u20133 captions",
+            "id": "CS_ATRIA2017",
+            "independent_source_group": "Ho_morphology_group",
+            "license": "CC BY 4.0; third-party figure permissions separate; no figures reproduced.",
+            "pmid": "29101544",
+            "source_origin": "peer_reviewed_anatomical_review",
+            "summary": "Both atria contain appendages and walls. The article describes myocardial atrial walls between inner and outer surfaces and distinguishes true septum from atrial infolding.",
+            "title": "Anatomy of the atria: A road map to the left atrial appendage",
+            "url": "https://link.springer.com/content/pdf/10.1007/s00399-017-0535-x.pdf"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/14"
+          },
+          "record": {
+            "access": "official_peer_reviewed_full_text_PDF_read",
+            "doi": "10.1148/radiol.232731",
+            "evidence_locator": "p 3 Measurement of Atrial Wall Thickness; pp 4\u20136 Results; Figs 2\u20134 captions; Fig 3 ventricular section",
+            "id": "CS_HIPCT2024",
+            "independent_source_group": "Brunet_Cook_synchrotron_group",
+            "license": "CC BY 4.0, explicitly stated on official published PDF page 1; no figures copied",
+            "limitations": "n=2; one control and one diseased; formalin-fixed ex vivo. Replaces preprint PMC10592740; preprint is not counted as independent evidence.",
+            "pmid": "39012246",
+            "source_origin": "original_ex_vivo_human_imaging_study",
+            "summary": "Two adult donor hearts were imaged. Atrial endocardial, myocardial and epicardial sublayers were measured, and ventricular and conduction structures depicted. This validates structure existence in specimens, not prevalence or current CT segmentation.",
+            "title": "Multidimensional Analysis of the Adult Human Heart in Health and Disease Using Hierarchical Phase-Contrast Tomography",
+            "url": "https://pubs.rsna.org/doi/pdf/10.1148/radiol.232731"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/19"
+          },
+          "record": {
+            "access": "official_institutional_text_passages_read",
+            "evidence_locator": "Layers of the Heart Wall; Chambers of the Heart",
+            "id": "CS_NCI_WALL",
+            "independent_source_group": "NCI_SEER_editorial",
+            "license": "Not verified; own summary only.",
+            "pmid": null,
+            "source_origin": "official_anatomical_education_supplement_not_journal_article",
+            "summary": "Provides an institutional cross-check of four chambers and endocardial, myocardial, epicardial wall layers. It is supplementary rather than primary journal evidence.",
+            "title": "Structure of the Heart \u2014 SEER Training",
+            "url": "https://training.seer.cancer.gov/anatomy/cardiovascular/heart/structure.html"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/22"
+          },
+          "record": {
+            "access": "full_text",
+            "evidence_locator": "Section 2.2, definitions 1\u20134",
+            "id": "ROOT_MMWHS",
+            "license": "CC BY 4.0",
+            "pmid": "31446280",
+            "retrieved_at": "2026-11-01T14:02:24.062028+00:00",
+            "study_type": "original segmentation benchmark",
+            "summary": "Four chambers have blood-cavity annotations. Dataset cuts and inclusion of papillary muscles are protocol choices, not universal anatomical boundary definitions.",
+            "title": "Evaluation of algorithms for Multi-Modality Whole Heart Segmentation: An open-access grand challenge",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6839613/"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/23"
+          },
+          "record": {
+            "access": "full_text",
+            "evidence_locator": "The right atrium; The left atrium; Figures 1\u20132",
+            "id": "ROOT_ATRIA",
+            "license": "Open access; publisher attribution terms; no figure copying",
+            "pmid": "29101544",
+            "retrieved_at": "2026-11-01T14:02:24.062028+00:00",
+            "study_type": "anatomical review",
+            "summary": "Both atria have internal endocardial surfaces and identifiable venous/valvar openings. Local cavity classes do not specify a segmentation truncation plane.",
+            "title": "Anatomy of the atria. A road map to the left atrial appendage",
+            "url": "https://link.springer.com/content/pdf/10.1007/s00399-017-0535-x.pdf"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/25"
+          },
+          "record": {
+            "access": "official_ontology",
+            "evidence_locator": "RO_0002571, RO_0002572; BFO_0000050 and RO_0001025 evidence caches",
+            "id": "ROOT_RO",
+            "license": "CC0",
+            "pmid": null,
+            "retrieved_at": "2026-11-01T14:02:24.062028+00:00",
+            "study_type": "official ontology",
+            "summary": "Luminal space is an immaterial lumen. Anatomical support and formal expression checks are separate.",
+            "title": "RO official ontology, pinned relationship-definition snapshot",
+            "url": "https://raw.githubusercontent.com/oborel/obo-relations/1763baea8065348487ec30080f1fc320f1fe67cc/src/ontology/ro-edit.owl"
+          }
+        },
+        {
+          "provenance": {
+            "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+            "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+            "pointer": "#/sources/26"
+          },
+          "record": {
+            "access": "full_text_html_read_via_official_PDF_redirect",
+            "doi": "10.1093/ejechocard/jep159",
+            "evidence_locator": "Anatomy of the left ventricle; Figs 1\u20133; The myocardium; Normal left ventricle",
+            "id": "ROOT_LV",
+            "independent_source_group": "Ho_morphology_group",
+            "license": "Publisher copyright; redistribution permission not established. No article or figures copied.",
+            "pmid": "19889656",
+            "source_origin": "peer_reviewed_anatomical_review",
+            "summary": "Defines ventricular wall, septal and free-wall components; describes papillary muscles and attached cords. Myocardial strand layers are a continuum, not discrete cleavage planes.",
+            "title": "Anatomy and myoarchitecture of the left ventricular wall in normal and in disease",
+            "url": "https://academic.oup.com/ehjcimaging/article-pdf/10/8/iii3/7137761/jep159.pdf"
+          }
+        }
+      ]
+    },
+    "special_claims": [
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/special_claims/6"
+        },
+        "record": {
+          "claim_type": "boundary_identity",
+          "component_key": "mitral_orifice",
+          "decision": "REVIEW",
+          "evidence_locator": {
+            "CB02": "What are the Atrioventricular Junctions, and How Should We Describe Them?; Figs1\u20134. Provides valve/orifice association, not an exact FMA boundary-equivalence assertion."
+          },
+          "key": "mitral_orifice_boundary_equivalence",
+          "proposed_change": "Keep associatedValve annotation; do not add equivalence/part_of or effective-orifice-area equality.",
+          "rationale": "\ud574\ub2f9 \ud310\ub9c9\uacfc \uac1c\uad6c\ubd80\uc758 \uc5f0\uad00\uc740 \uc9c0\uc9c0\ub418\uc9c0\ub9cc \uc120\ud0dd\ud55c FMA \uac1c\uad6c\ubd80\uc758 \uc815\ud655\ud55c \uacbd\uacc4\uc640 \ud310\ub9c9\uc758 \ud574\ubd80\ud559\uc801 \ud310\uad6c \uacbd\uacc4\uac00 \ub3d9\uc77c\ud558\ub2e4\ub294 \uacf5\ub9ac\ub294 \uc774\ubc88 \uc6d0\ubb38 \uadfc\uac70\ub9cc\uc73c\ub85c \ud655\uc815\ud558\uc9c0 \ubabb\ud588\ub2e4.",
+          "source_ids": [
+            "CB02"
+          ]
+        }
+      },
+      {
+        "provenance": {
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/special_claims/7"
+        },
+        "record": {
+          "claim_type": "anatomical_definition",
+          "component_key": "mitral_annulus",
+          "decision": "REVISE",
+          "evidence_locator": {
+            "CB01": "\u00a73(a)(i) Annulus and (b)(i) Annulus; annular attachment/transition zone.",
+            "CB02": "Parietal atrioventricular junction paragraphs, Fig7a; nonuniform fibrous cords around left AV junction."
+          },
+          "key": "mitral_annulus_complete_fibrous_ring_interpretation",
+          "proposed_change": "Record definition boundary mismatch; distinguish fibrous tissue subregions, anatomical attachment loci and derived measurement planes. Do not infer a replacement ontology ID.",
+          "rationale": "\uc12c\uc720\ub95c\uc774\ub77c\ub294 \ud45c\uc900 \uba85\uce6d\ub9cc\uc73c\ub85c \uc804\uccb4 \ud310\ub95c\uc744 \uc5f0\uc18d\uc801\uc778 \uc6d0\ud615 \uc12c\uc720\uc870\uc9c1 \ub610\ub294 \ud3c9\uba74\uc73c\ub85c \ud574\uc11d\ud558\uc9c0 \uc54a\ub3c4\ub85d \uc815\uc758\ub97c \uad6c\uccb4\ud654\ud574\uc57c \ud55c\ub2e4.",
+          "source_ids": [
+            "CB01",
+            "CB02"
+          ]
+        }
+      }
+    ],
+    "subset_sha256": {
+      "boundaries": "c07a3c3bc0f19f954fba81a2a6f12078f03ed26095178e5880d25ca3fe5868d6",
+      "catalog": "1b204803270c77a9313b55adce472bef0d07c96d61b4a012c159b75086adbcd6",
+      "claims": "1f7b2be65640bdb9bdbf4f992345a7890332c6fc7914785a0eeb580087105a5d",
+      "sources": "fd1b87d7974635112d39acd824f44176aa4209634ea8cb0f57ca1d2565a7ef6e",
+      "special_claims": "01be0588876f08d4d8ac13183dee5270a8b6c755a983634ba89bf4d70aa80c1e"
+    },
+    "third_party_notice": {
+      "FMA": "CC BY 4.0",
+      "RO": "CC0",
+      "Uberon": "CC BY 3.0",
+      "other_sources": "Original access/license metadata retained in sources; separate third-party terms remain applicable.",
+      "own_code": "No separate open-source license; owner-authorized internal use only; no relicensing or redistribution rights asserted.",
+      "sha256": "e8867ce9111ff52423de7c1ecbebe715d1343281e43b9788880c4d2cb4c4d031",
+      "source": "THIRD_PARTY_NOTICES.md:3-14"
+    }
+  },
+  "status_axes": {
+    "boundary_status": "DRAFT_MODEL_CONVENTION",
+    "external_numeric_permission": "NONE",
+    "source_claims": {
+      "rel-2bf81398478e7827": {
+        "anatomical_evidence_status": "SUPPORTED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-6ae26ff7e2c1b0d1": {
+        "anatomical_evidence_status": "NOT_RECORDED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-71017ae81387a71c": {
+        "anatomical_evidence_status": "NOT_RECORDED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-7306eaacd0f3dbdc": {
+        "anatomical_evidence_status": "NOT_RECORDED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-7e2dcb89ebc3f935": {
+        "anatomical_evidence_status": "NOT_RECORDED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-90b4c5951f5917ee": {
+        "anatomical_evidence_status": "SUPPORTED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-a7c89e14ee4d9076": {
+        "anatomical_evidence_status": "SUPPORTED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-ae3c59503ebb0f46": {
+        "anatomical_evidence_status": "SUPPORTED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-aec067caf4c6add6": {
+        "anatomical_evidence_status": "NOT_RECORDED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-d302b072c938390a": {
+        "anatomical_evidence_status": "SUPPORTED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "rel-d4fc71cd7059c217": {
+        "anatomical_evidence_status": "SUPPORTED",
+        "decision": "ACCEPT",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "ACCEPT",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#SourceReported"
+      },
+      "rel-f295a18d9efb2c62": {
+        "anatomical_evidence_status": "NOT_RECORDED",
+        "decision": "REVIEW",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "formalization_decision": "REVIEW",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#SourceReported"
+      }
+    },
+    "special_reviews": {
+      "mitral_annulus_complete_fibrous_ring_interpretation": "REVISE",
+      "mitral_orifice_boundary_equivalence": "REVIEW"
+    },
+    "target_crosswalk_review": "PROPOSED"
+  },
+  "target_anatomy_source": {
+    "canonical_json_sha256": "87fc51a3fb94296167e5e016c9b9376280550c0063333635293c5f8717c1d941",
+    "ontology_versions": {
+      "fma": "5.1.0 (2026-05-15, uw-sig/FMA), CC BY 4.0, OBO inactive",
+      "uberon": "2026-10-01 (http://purl.obolibrary.org/obo/uberon/releases/2026-10-01/uberon.owl), CC BY 3.0, OBO active"
+    },
+    "path": "docs/evidence_review/anatomy_nodes_v2.json",
+    "validation_scope": "Checked against project-owned v2; no new external source validation.",
+    "version": "Anatomical node specification v2 (2026-11-01)"
+  },
+  "time_contract": {
+    "aggregation": "per manifest variable",
+    "origin": 0,
+    "phase": "phi=(t mod T)/T; T=60/heart_rate s",
+    "reference": "elapsed from synthetic run start",
+    "unit": "s"
+  },
+  "variables": {
+    "P_la": {
+      "bearer": "blood",
+      "compartment": "la",
+      "direction": null,
+      "edge": null,
+      "kind": "chamber_pressure",
+      "property": "http://bhi.washington.edu/OPB#OPB_00509",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+      "temporal": "instantaneous",
+      "unit": "mmHg"
+    },
+    "P_lv": {
+      "bearer": "blood",
+      "compartment": "lv",
+      "direction": null,
+      "edge": null,
+      "kind": "chamber_pressure",
+      "property": "http://bhi.washington.edu/OPB#OPB_00509",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+      "temporal": "instantaneous",
+      "unit": "mmHg"
+    },
+    "Q_cum_mitral": {
+      "bearer": "flow_process",
+      "compartment": null,
+      "direction": [
+        "la",
+        "lv"
+      ],
+      "edge": "mitral",
+      "kind": "cumulative_transported_volume",
+      "property": "http://bhi.washington.edu/OPB#OPB_00154",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "not applicable",
+      "temporal": "run_integrated",
+      "unit": "mL"
+    },
+    "Q_mitral": {
+      "bearer": "flow_process",
+      "compartment": null,
+      "direction": [
+        "la",
+        "lv"
+      ],
+      "edge": "mitral",
+      "kind": "flow",
+      "property": "http://bhi.washington.edu/OPB#OPB_00299",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "not applicable",
+      "temporal": "instantaneous",
+      "unit": "mL/s"
+    },
+    "V_la": {
+      "bearer": "blood",
+      "compartment": "la",
+      "direction": null,
+      "edge": null,
+      "kind": "volume",
+      "property": "http://bhi.washington.edu/OPB#OPB_00154",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "not applicable",
+      "temporal": "instantaneous",
+      "unit": "mL"
+    },
+    "V_lv": {
+      "bearer": "blood",
+      "compartment": "lv",
+      "direction": null,
+      "edge": null,
+      "kind": "volume",
+      "property": "http://bhi.washington.edu/OPB#OPB_00154",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "not applicable",
+      "temporal": "instantaneous",
+      "unit": "mL"
+    },
+    "la_pressure_mean_mmhg": {
+      "bearer": "blood",
+      "compartment": "la",
+      "direction": null,
+      "edge": null,
+      "kind": "pressure_summary",
+      "property": "http://bhi.washington.edu/OPB#OPB_00509",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
+      "temporal": "beat_mean",
+      "unit": "mmHg"
+    },
+    "lv_edv_sample_ml": {
+      "bearer": "blood",
+      "compartment": "lv",
+      "direction": null,
+      "edge": null,
+      "kind": "sampled_volume_extremum",
+      "property": "http://bhi.washington.edu/OPB#OPB_00154",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "not applicable",
+      "temporal": "beat_sample_extremum",
+      "unit": "mL"
+    },
+    "lv_ejection_fraction_sample": {
+      "bearer": "blood",
+      "compartment": "lv",
+      "direction": null,
+      "edge": null,
+      "kind": "sampled_volume_excursion_fraction",
+      "property": "https://example.org/physiosim/concept/volume_excursion_fraction",
+      "property_source": "project-local M1 definition",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "not applicable",
+      "temporal": "beat_sample_extremum",
+      "unit": "dimensionless"
+    },
+    "lv_esv_sample_ml": {
+      "bearer": "blood",
+      "compartment": "lv",
+      "direction": null,
+      "edge": null,
+      "kind": "sampled_volume_extremum",
+      "property": "http://bhi.washington.edu/OPB#OPB_00154",
+      "property_source": "https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+      "provenance": "docs/physiology_four_chamber_m1.md#equations-and-contract",
+      "reference": "not applicable",
+      "temporal": "beat_sample_extremum",
+      "unit": "mL"
+    }
+  },
+  "volume_references": {
+    "V0_la": {
+      "compartment": "la",
+      "index": 7,
+      "kind": "parameter",
+      "parameter": "unstressed_volumes",
+      "unit": "mL"
+    },
+    "V0_lv": {
+      "compartment": "lv",
+      "index": 0,
+      "kind": "parameter",
+      "parameter": "unstressed_volumes",
+      "unit": "mL"
+    },
+    "V_initial_la": {
+      "compartment": "la",
+      "index": 7,
+      "kind": "initial_state_input",
+      "parameter": "initial_volumes",
+      "unit": "mL"
+    },
+    "V_initial_lv": {
+      "compartment": "lv",
+      "index": 0,
+      "kind": "initial_state_input",
+      "parameter": "initial_volumes",
+      "unit": "mL"
+    }
+  }
+}
