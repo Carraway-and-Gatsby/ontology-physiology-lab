@@ -206,7 +206,10 @@ def main(cellml_path, out_path, map_path=None):
               '# metadata v1.2 form; FMA identifiers with an exact Uberon equivalent (same FMA xref) written as\n'
               '# Uberon per node specification v2; content unchanged, defects preserved. See the module docstring.\n'
               f"# Source RDF subjects mapped to CellML variables: {stats['subjects']}; unmapped described subjects: {len(stats['unmapped'])}\n")
-    open(out_path, 'w', encoding='utf-8').write(header + out.serialize(format='turtle'))
+    # rdflib ends its Turtle with a blank line; end with exactly one newline so the committed
+    # file passes `git diff --check` and regenerates byte for byte.
+    text = (header + out.serialize(format='turtle')).rstrip('\n') + '\n'
+    open(out_path, 'w', encoding='utf-8').write(text)
     print(f"subjects mapped {stats['subjects']}, variables {len(set(out.subjects(PROV.wasDerivedFrom, None)))}, "
           f"triples {len(out)}, unmapped described subjects {stats['unmapped']}")
 
