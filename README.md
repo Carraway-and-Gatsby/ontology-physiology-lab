@@ -93,7 +93,8 @@ co = connect_value(result, 'CO', target,
 - `docs/independent_verification.md`: independent executed checks and remaining gaps.
 - `docs/research_report.md`: generated current results, failures, claim boundaries and next steps.
 - `docs/decisions.md`: concise architecture/scientific decision record.
-- `docs/evidence/`: retained retrieval evidence, citation ledgers, parameter provenance and verification records. Earlier development outputs are historical; `results/phase1/` is the canonical current experiment.
+- `docs/evidence/`: retained retrieval evidence, citation ledgers, parameter provenance and verification records.
+- `docs/evidence_review/`: 2026-11-01 literature evidence review for the Smith 2004 semantic layer: evidence cards with quotations, a 76-variable/32-equation dictionary of the canonical CellML, candidate concepts, unresolved conflicts (including the kPa/mmHg label question) and rejected connection cases. Review only; no OWL, model or registry change. Earlier development outputs are historical; `results/phase1/` is the canonical current experiment.
 
 ## Scientific limits and next step
 

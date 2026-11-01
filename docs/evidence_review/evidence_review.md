@@ -1,0 +1,166 @@
+# Evidence review for the Smith 2004 semantic layer (2026-11-01)
+
+Status: evidence review only. No OWL was generated, no model, experiment or UI code was changed, and no mapping below is adopted. Candidates are proposals with the evidence location beside them; where the retained sources do not settle a point it is marked `UNKNOWN`. Abstract-only sources (Smith 2004, Rosse and Mejino 2003, the two OMEX specification records) were not used to fix any relation direction or mapping.
+
+Companion files in this folder:
+
+- `evidence_cards.md`: one card per source (identifiers, exact quotations with location, claim versus interpretation versus independent confirmation, licence, limits).
+- `smith2004_variable_dictionary.{json,md}`: all 76 variables and 32 equations of the canonical CellML with units, role, SemSim annotation, reference point, direction and unit plausibility.
+- `d_sources.json`: retrieval ledger (URLs, method, licence, SHA-256) for the new `docs/evidence/d_*` files.
+
+Source identifiers used below: S1 Gennari 2011, S2 Cook 2013 (OPB dependencies), S3 Harmonizing 2019, S4 Rosse and Mejino 2003 (abstract), S5 SemGen 2019, S6 Smith 2004 (abstract), S7 SHACL, S8 PROV-O, S9 SemSim-annotated Smith CellML (PMR workspace 267), S10 OPB releases, S11 FMA releases, S12 Wiley passages (Colunga 2020, Jones 2021), S13 Neal 2014, S14 Neal 2015, S15/S16 OMEX metadata specifications (abstracts), S17 Paeme 2011, S18 Revie 2013, S19 Pironet 2013. Project files: `physiology.md`, `ontology.md`, `src/physiosim/ontology/__init__.py` (the registry), `orchestration_state.md` (Hermes OpenCOR runs).
+
+## 1. What was obtained
+
+| Source | Access achieved | Retained as |
+|---|---|---|
+| S1 Gennari 2011 | full text (PMC author manuscript, all rights reserved) | quotations only |
+| S2 Cook 2013 | full text, CC BY 2.0 | `d_fulltext_PMC3904761_cook2013_opb.xml` |
+| S3 Harmonizing 2019 | full text, CC BY (Europe PMC) | `d_fulltext_PMC6433895_neal2019_harmonizing.xml` |
+| S4 Rosse and Mejino 2003 | abstract | card only |
+| S5 SemGen 2019 | PMC page (all rights reserved); supplement not open | quotations only |
+| S6 Smith 2004 | abstract; no open copy found | card only |
+| S7 SHACL, S8 PROV-O | W3C Recommendations read | quotations |
+| S9 SemSim-annotated Smith CellML | already retained (`a_smith_2004.cellml`), now fully parsed | `d_semsim_ws267_annotations_by_variable.json`, `d_ols_fma_terms_ws267.json` |
+| S10 OPB | GitHub master OWL + bundled v1.07; BioPortal blocked (403/401) | `d_opb_master_excerpt_and_version_diff.json` |
+| S11 FMA | OWL header, OLS record, UW release page; licence document not retrieved | `d_fma_*`, `d_ols_fma_ontology.json` |
+| S12 Wiley passages | 20 passages / 13 articles via the Wiley connector | quotations only |
+| S13 Neal 2014, S14 Neal 2015 | full text, CC BY | `d_fulltext_PMC4183381…`, `d_fulltext_PMC4696653…` |
+| S15/S16 OMEX metadata v1.0, v1.2 | abstract only in Europe PMC XML; publisher page refused (HTTP 405) | short XML records |
+| S17 Paeme 2011, S18 Revie 2013, S19 Pironet 2013 | full text, CC BY | `d_fulltext_PMC3271239…`, `…PMC3621159…`, `…PMC3610305…` |
+
+Connector failures worth knowing: the PubMed connector's `search_articles` returned an API error for every query (full-text and metadata calls worked); Europe PMC `fullTextXML` returned HTTP 500 for the two non-open-access PMC items (S1, S5), as the user also saw; BioPortal requires an API key; Smith's 2004 University of Canterbury thesis (cited by S19 as the source of the total blood volume) was not located by web search.
+
+## 2. The four questions and what the sources say
+
+### Q1. Same unit, different meaning, compartment or reference point
+
+Evidence that the distinction is needed and how the literature makes it:
+
+- The composite-annotation grammar: exactly one physical property, at least one physical entity, the first entity being the bearer, further entities linked by RO relations (S1 quote 4). Granularity, role players and input/output arrangement are named as three separate axes of mismatch (S14 quote 1).
+- The SemSim annotation of this very model (S9) distinguishes P_lv, P_rv, P_ao, P_vc, P_pa, P_pu only by the entity chain: `Portion of blood` (fma9670) `part_of` cavity of left ventricle (fma9466) / cavity of right ventricle (fma9291) / lumen of aorta (fma12239) / set of lumens of vena cava trunks (fma280059) / lumen of pulmonary trunk (fma14167) / lumen of pulmonary venous tree organ (fma52455). The property is the same (OPB_00509) and the unit is the same.
+- Reference point is **not** representable in that grammar and is not represented in S9. The equations make it necessary: P_lv and P_rv include P_peri = P_pcd + P_th (E5, E8, E14); P_pa and P_pu include P_th (E19, E21); P_ao and P_vc do not (E23, E25); P_lvf and P_rvf are free-wall pressures that exclude P_peri (S18 (A.4) text). So the model contains three pressure reference classes behind one OPB term and one unit.
+- Temporal meaning: all 32 equations are instantaneous; the project's `CO` and `SV` are complete-beat quantities (`ontology.md`). No source in this set annotates temporal aggregation; S14 Table 2 lists "Temporal solution domain" only as the shared time variable.
+- Compartments that are functional rather than structural: Pironet notes the atria are merged into the pulmonary vein compartment (S19 quote 2); Neal 2015 says many model entities are "defined by their physiological function rather than their structural characteristics" (S14 quote 17). This is the situation of the project's local `sa`, `sv`, `pa`, `pv` concepts, which `ontology.md` already keeps local.
+
+Candidate concepts (proposals, each with its evidence):
+
+| candidate | evidence | status |
+|---|---|---|
+| Pressure variables carry a separate *pressure reference* slot with values {includes thoracic pressure, includes pericardial and thoracic pressure, free-wall (transmural), none} | equations E5, E8, E14, E19, E21, E23, E25; S18 (A.3), (A.4), (A.17) | candidate; the project registry already has a `reference` string for pressures; what is missing is a controlled value set and the fact that Smith's compartments differ in it |
+| Bearer entity = `Portion of blood` part_of a cavity/lumen, not the organ | S9 table; S1 quote 4; S4 abstract (material versus non-material entities) | candidate; conflicts with the project registry's use of fma7101 "Left ventricle" and fma7098 for P_lv/V_lv (conflict C5) |
+| Flow direction encoded as process source/sink participants | S9 (all six Q_*); S5 protocol step 5 ("anonymous … defined by their generating sources and sinks"); S14 quote 6 | candidate; the project encodes the same information as an `orientation` pair; both are explicit, the SemSim form names the entities |
+| Constitutive parameters (E_es, lambda, P_0, R, L, V_d, V_0) annotated with an OPB constitutive property only, no entity | S14 quote 4; SemGen protocol step 6; S9 (all such variables have free text only) | candidate; OPB_00160 Fluid flow resistance and OPB_00076 Fluid volumetric elastance are confirmed present and unchanged in OPB master (S10); OPB_00104 Fluid inertance is a candidate for L_* |
+| V_spt is "the blood volume displaced by the septum", a difference term, not a fluid volume of an organ part | S18 (A.11)-(A.14) text; E6, E12, E18 | candidate meaning; OPB property UNKNOWN (S9 labels it with a dependency class, see C6) |
+
+### Q2. "Represents the same thing" versus "depends on through an equation"
+
+The sources draw this line explicitly:
+
+- Gennari 2011: the composite annotation "is for model variables, and is not sufficient for annotating the model equations" and roles in equations are a separate concern (S1 quotes 10, 11).
+- Cook 2013 adds OPB *dependency* classes with role-bound *players* for exactly this purpose (S2 quotes 2, 4), and says instance-level role binding was still future work (S2 quote 8).
+- Neal 2014: input/output status is computational, equivalence is semantic, and resolving an equivalence rewrites who depends on whom (S13 quotes 1, 5, 6). Neal 2015 gives the concrete case: choosing one model's calcium concentration implicitly chose its buffering formulation "because the equation that solves for calcium concentration uses" it (S14 quote 18).
+- SemGen's merger lists overlaps (equivalence) and then "makes the appropriate computational links" (dependency) as a second step (S14 quote 3; S5 quotes 4-5).
+
+Candidate relation set for the Smith model (proposal; equation ids from the dictionary):
+
+| relation kind | candidate vocabulary | Smith equations it would describe | evidence |
+|---|---|---|---|
+| identity of meaning (variable ↔ composite annotation) | `isComputationalComponentFor` / `hasPhysicalDefinition` / `physicalPropertyOf` (SemSim, as used in S9); OMEX form not verified (S15/S16 abstract-only) | each variable once | S1 quote 4, S9 |
+| capacitive dependency (pressure from volume) | OPB_01543 Fluid capacitive dependency: "the volume of a fluid depends the differential of fluid pressures across its boundary" | E10, E16, E19, E21, E23, E25 (linear); E4, E11, E17 (exponential EDPVR) | S2 quote 3; S10 definitions |
+| resistive flow dependency | OPB_01572 Resistive flow dependency | E27, E28 | S2 quote 3; S10 |
+| inductive dependency (valve inertance) | OPB_01541 Fluid inductive dependency; property OPB_00104 Fluid inertance | E29-E32 (the non-zero branch) | S2 quote 6; S10 |
+| boundary / temporal integrative dependency (volume from flows) | OPB_01173 Temporal integrative dependency | E9, E15, E20, E22, E24, E26 | S2 quote 5; S10 |
+| additive / difference dependencies | OPB_01194 Additive dependency, OPB_01195 Difference dependency | E3, E5, E6, E8, E12, E14 | S10 (no `rdfs:comment` on these two classes: definition UNKNOWN) |
+| weighted activation (E7, E13), driver E1-E2, septum balance E18, piecewise valve switching | no OPB class identified in the retained excerpt | — | `UNKNOWN`; Cook 2013 says non-proportional dependencies are "beyond the scope of the OPB" (S2 quote 7) |
+
+The project's registry stores `depends_on` as a tuple of names and `equation` as a string on the variable itself. That conflates the two layers the sources separate. Recording this is the finding; changing the registry is out of scope for this review.
+
+### Q3. Which connections to allow and which to reject
+
+Rules stated by the sources:
+
+- Allowed: links at points of biophysical overlap, with one surviving implementation chosen by a person (S14 quote 3; S13 quote 4). Deliberately linking through one variable only is legitimate (S14, Tran substitution).
+- Must reject: two formulations of the same property both feeding a variable of interest, "a logical inconsistency in the model that must be avoided" (S14 quote 8); a merged model that is "biologically overdetermined" (S13 quote 4).
+- Tolerated: redundant content that is "a computational dead end" (S14 quote 9); harm is judged on the dependency graph, not on the annotation.
+- Not decidable by annotation alone: range-of-validity violations (S13 quotes 2-3); custom (local) entities (S14 quote 5); synonymous terms from different ontologies (S13 quote 8); reversed source/sink conventions (S14 quote 15).
+
+Concrete cases for the Smith model, with the evidence that decides each. "Reject" means reject as *direct equivalence*; a component equation may still relate the two.
+
+| # | proposed connection | decision | evidence |
+|---|---|---|---|
+| R1 | Smith `P_lv` ≡ Smith `P_lvf` (both kPa-labelled pressures of the left ventricle) | reject | E8: P_lv = P_lvf + P_peri; S18 (A.4) "free wall pressures" exclude septum and pericardium |
+| R2 | Smith `P_ao` ≡ Smith `P_pa` as "the same kind of arterial pressure" for a shared reference | reject | E19 includes P_th, E23 does not; different reference class |
+| R3 | Smith `V_spt` ≡ a fluid volume of the cardiac septum | reject | S18: displaced blood volume; E6, E12 difference terms; S9 annotation to OPB_01061 is itself defective (C6) |
+| R4 | Smith `V_pcd` ≡ fluid volume of the pericardium (fma9869) as annotated in S9 | reject as stated | E3: V_pcd = V_lv + V_rv (sum of ventricular blood volumes); the bearer is not the pericardium |
+| R5 | Smith `Q_av` (instantaneous) ≡ project `CO` (complete-beat mean) | reject | temporal context differs (`ontology.md`); no source annotates aggregation |
+| R6 | Smith `Q_av` ≡ project `Q_aortic` | candidate allow, pending C1 | same property (OPB_00299), same direction (S9 source blood in LV cavity → sink blood in aortic lumen; project orientation lv→sa); bearer entities differ in granularity (named lumen versus local aggregate), so this is a human-asserted mapping with provenance, not an automatic match (S14 quote 5) |
+| R7 | Smith `P_lv` ≡ project `P_lv` | candidate allow with explicit reference statement | same property; S9 bearer = blood in cavity of LV, project anatomy = Left ventricle (fma7101) (C5); project reference "model gauge pressure; fixed external pressure zero" versus Smith reference "includes P_pcd + P_th" (E8): equal only if P_th and P_pcd are treated as part of the gauge, which must be stated |
+| R8 | Smith `P_ao` ≡ project `P_sa` | candidate allow, pending C1 | both exclude a thoracic term (E23; project equation); bearers differ (lumen of aorta versus local "systemic arteries"); mapping would be user-asserted |
+| R9 | project `HR` → OPB_01212 Event frequency in current OPB | blocked | identifier absent from OPB master (C4); only valid against the pinned v1.07 file |
+| R10 | Smith `R_sys` ≡ project `R_systemic` | candidate allow | both OPB_00160, both aorta/systemic-arterial → vena-cava/systemic-venous paths; path endpoints differ in granularity (as R6) |
+| R11 | Smith `E_es_lvf` ≡ project `E_lv` | reject as equivalence | E_es_lvf is the end-systolic slope of the free wall (S17 quote 2); project E_lv is a time-varying elastance E(t); Smith's time variation is in e(t) (E7), so the project's E_lv corresponds to a *product* term, a dependency, not a variable |
+| R12 | Smith `V_lv` ≡ project `V_lv` | candidate allow | same property (OPB_00154), both ODE states integrating valve flows (E9 versus project `dV/dt = Q_in - Q_out`); S9 bearer blood in cavity of LV versus project fma7101 (C5) |
+| R13 | any Smith pressure ≡ any project pressure *with a numeric unit conversion kPa→mmHg* | blocked | the conversion factor cannot be chosen until C1 is resolved: if the CellML labels are wrong, a factor of 7.5 would corrupt the comparison |
+
+### Q4. Which errors are semantic information and which need numeric or provenance checks
+
+The sources separate three things: semantic annotation (meaning), provenance/curatorial metadata (origin), and numeric behaviour (S3 quote 1; S14 quotes 10-13). Applied to what this project has actually encountered:
+
+| observed problem | class | why | what would check it |
+|---|---|---|---|
+| CellML declares kPa for values that behave as mmHg (C1) | provenance + numeric | S17 tabulates the identical numerals in mmHg; S6 abstract reports mmHg; the semantic layer cannot know which label is right | read the 2004 paper; or a dimensional check against a published waveform; PROV-O `wasDerivedFrom`/`wasQuotedFrom` from paper to CellML would record the source of each value |
+| negative Q_av that halves with the RK4 step (Hermes run C) | numeric | S17 quote 6 and S6: the original solver changed the state set by phase; a fixed-state ODE run of E29-E32 is a different numerical procedure | solver study; not an annotation matter |
+| SemSim annotates V_lvf, V_rvf, V_spt with OPB_01061 (a dependency class) | semantic QC | S3 recommendation (vi) names exactly this check; S7 `sh:class` or `sh:in` on the property slot would flag it | SHACL shape on allowed property classes |
+| SemSim free text "Pericardial blood volume" on a pressure; "atrial valve" for the aortic valve | semantic QC (text versus structured annotation) | S3 quote 9 | human review; a text/annotation consistency check cannot be automated from these sources |
+| P_pa and V_pa annotated to different lumens (S9) | semantic QC | the capacitive dependency E19 relates them, so one bearer is expected | shape: variables linked by a capacitive dependency share a bearer |
+| `identifiers.org/opb/...` → 403; `bhi.washington.edu/OPB#...` → 404 | provenance / infrastructure | S3 recommends identifiers.org for resolvability; resolution currently fails without credentials | record resolution status and date with each identifier; pin the OWL file hash |
+| OPB_01212 absent from OPB master; 67 labels changed | provenance / version | S13 quote 9 (term obsolescence); S8 `wasRevisionOf`, `specializationOf` | pin `owl:versionIRI` (OPB master has none) or the file hash; re-verify labels per release |
+| project benchmark: correct metadata on the wrong numeric column | provenance | S3 quote 1 and S14 quote 12: semantics does not see numbers | PROV-O chain from CSV column to variable to run; numeric replay |
+| different compartment granularity (named lumen versus lumped "systemic arteries") | semantic, but not decidable automatically | S14 quotes 5, 16, 17 | human assertion with recorded rationale |
+
+## 3. Unresolved conflicts
+
+- **C1 Units of the CellML.** Declared kPa, kPa/mL, kPa·s/mL, kPa·s²/mL. Paeme 2011 Tables 1-3 give the same numerals in mmHg, mmHg/mL, mmHg·s/mL, mmHg·s²/mL with P_th = −4 mmHg; the Smith 2004 abstract reports "−4 to 0 mmHg" and "120/80"; Colunga 2020 and Jones 2021 describe the lineage in mmHg; the Hermes run C P_ao range 79-116 matches mmHg magnitudes. No retained source supports kPa. Resolution requires the 2004 paper or a statement from the CellML curators. Until then every cross-model numeric comparison involving these variables is blocked (R13).
+- **C2 V_tot.** CellML 5.5 "mL"; Paeme 5.5 l; Pironet 1500 ml (stressed volume, citing Smith's thesis). V_tot is used by no equation, so this affects annotation, not simulation.
+- **C3 Thoracic pressure on the vena cava.** CellML E25 has no P_th; Revie 2013 (A.3) includes +P_th on P_vc. Which follows Smith 2004 is UNKNOWN. Paeme and Pironet give no pressure law with P_th at all.
+- **C4 OPB identifier and URI stability.** OPB_01212 Event frequency (project `HR`) is absent from OPB master (22 identifiers removed, 67 relabelled between v1.07 and master); neither OPB URI form dereferences without credentials; the OPB repository states no licence. The project's six other OPB identifiers are unchanged.
+- **C5 Bearer granularity.** Project P_lv/V_lv anatomy is fma7101 "Left ventricle" (an organ part); the SemSim reference annotation uses `Portion of blood part_of Cavity of left ventricle` (fma9466). Both labels verify in FMA 5.1.0. They are not the same entity; whether the project should move to the blood-in-cavity form is a decision, not a finding.
+- **C6 Reference annotation defects.** OPB_01061 on three volumes; "Pericardial blood volume" text on P_peri; "atrial valve" text on Q_av/R_av/L_av; P_pa/V_pa split across two lumens. The SemSim file is evidence of practice, not an authority; its errors must not be copied.
+- **C7 Driver timing.** Paeme (citing Smith 2005) C_1 = 0.27 s, period 1 s; CellML C = 0.375 s, period 0.75 s. Not a contradiction of Smith 2004, but the 2004 values are UNKNOWN from primary text.
+- **C8 Aortic elastance.** Paeme Table 1 prints E_ao = 0.0; CellML 0.6913. Almost certainly a typesetting error in Paeme, but recorded as such.
+
+## 4. UNKNOWN register
+
+- Smith 2004 primary equations, parameter table, units and sign conventions (abstract only).
+- Whether the 2004 paper's pressure laws for P_vc include P_th (C3).
+- OPB licence; OPB official current version identifier (BioPortal not reachable; OWL has no versionIRI).
+- FMA licence text (UW draft document not retrieved); FMA release used by Rosse and Mejino 2003 versus 5.1.0.
+- OMEX metadata normative rules (both records abstract-only; publisher page refused).
+- Which CellML hemodynamics model is the Harmonizing paper's example archive.
+- OPB definitions for OPB_01194/01195 (no `rdfs:comment`) and whether OPB dependency classes carry formal player restrictions.
+- An OPB class for the weighted activation law E7/E13, the Gaussian driver and the piecewise valve switch.
+- Temporal-aggregation vocabulary for beat-mean quantities (none found in this source set).
+- SemGen 2019 supplementary merging example (not open access).
+
+## 5. What SHACL and PROV-O can and cannot do here
+
+- SHACL (S7) validates an RDF graph against shapes and reports `sh:conforms`; it can enforce the structural rules above (one bearer per pressure, allowed property classes, source and sink present on flows, equal reference slots for asserted equivalences, shared bearer across a capacitive dependency). It cannot test physiological validity or numeric agreement, and a shape passes vacuously on unannotated data unless `sh:minCount` is used.
+- PROV-O (S8) records which file, run, solver and agent produced which artefact and how one version derives from another (`wasDerivedFrom`, `wasRevisionOf`, `hadPrimarySource`, `wasQuotedFrom`); `alternateOf`/`specializationOf` are the closest standard terms for "two annotations of the same thing from different aspects" without asserting identity. It does not validate anything.
+- Neither standard demonstrates physiological plausibility; the brief's separation between the standards' role and physiological validation holds.
+
+## 6. Manual comparison group (design sketch, same knowledge for both arms)
+
+The brief asks for a hand-performed semantic and unit comparison that receives the same knowledge as the ontology-assisted path, so that no advantage is assumed. Neal 2015 is the precedent: automatic overlap detection was scored against a human expert and missed about half the overlaps (S14 quote 19).
+
+- Material given to both arms: `smith2004_variable_dictionary.md` (without the "candidate" tables of this document), the S9 annotation table, the project registry listing from `ontology.md`, and the equations.
+- Task, fixed in advance: decide each of R1-R13 (and a held-out set of further pairs) as allow / reject / cannot decide, giving the reason and the unit factor if any.
+- Arms: (a) two people with the material only; (b) the same material plus the SemSim/OPB composite annotations and the candidate SHACL rules once written. Order and pairs are fixed before anyone sees the answers; decisions and reasons are recorded per pair.
+- Outcomes: agreement with the evidence-based decision in this document (which is itself open to challenge), time per pair, number of "cannot decide" answers, and whether C1 is caught without being told.
+- What this does not show: anything about numeric correctness or physiology; it compares decision quality on mapping questions only.
+
+## 7. Scope of this review and next steps that follow from it
+
+Done: full texts of six papers and three derivative papers read; two W3C Recommendations read; the SemSim reference annotation of the Smith model parsed and label-checked; OPB versions compared; the variable dictionary produced. Not done: no OWL, SHACL or PROV files written; no registry change; no numeric work; Smith 2004 and the OMEX normative text still unread.
+
+Next steps that the evidence supports, in order: obtain the Smith 2004 paper (or the Canterbury thesis) to close C1-C3 and C7 before any numeric cross-model comparison; decide C5 (bearer granularity) and the pressure-reference value set as explicit project decisions; then, and only then, write SHACL shapes for the structural rules in section 4 and a PROV-O record for the Hermes runs.

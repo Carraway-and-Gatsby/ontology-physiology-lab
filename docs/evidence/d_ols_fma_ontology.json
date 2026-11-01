@@ -1,0 +1,56 @@
+{
+  "languages" : [ "en" ],
+  "lang" : "en",
+  "ontologyId" : "fma",
+  "loaded" : "2026-10-31T00:48:53.197101049",
+  "updated" : "2026-10-31T00:48:53.197101049",
+  "status" : "LOADED",
+  "message" : "",
+  "version" : "5.1.0",
+  "fileHash" : null,
+  "loadAttempts" : 0,
+  "numberOfTerms" : 104721,
+  "numberOfProperties" : 216,
+  "numberOfIndividuals" : 2,
+  "config" : {
+    "id" : "fma",
+    "versionIri" : "http://purl.org/sig/ont/fma_5.1.0.owl",
+    "namespace" : "fma",
+    "preferredPrefix" : "FMA",
+    "title" : "Foundational Model of Anatomy Ontology",
+    "description" : "The Foundational Model of Anatomy Ontology (FMA) is a reference ontology for the domain of human anatomy.",
+    "homepage" : "http://si.washington.edu/projects/fma",
+    "version" : "5.1.0",
+    "mailingList" : null,
+    "tracker" : "https://bitbucket.org/uwsig/fma/issues",
+    "logo" : null,
+    "creators" : [ ],
+    "annotations" : null,
+    "fileLocation" : "http://purl.org/sig/ont/fma.owl",
+    "oboSlims" : false,
+    "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+    "definitionProperties" : [ ],
+    "synonymProperties" : [ ],
+    "hierarchicalProperties" : [ ],
+    "baseUris" : [ ],
+    "hiddenProperties" : [ ],
+    "preferredRootTerms" : [ ],
+    "isSkos" : false,
+    "allowDownload" : false
+  },
+  "baseUris" : [ ],
+  "_links" : {
+    "self" : {
+      "href" : "http://www.ebi.ac.uk/ols4/api/ontologies/fma?lang=en"
+    },
+    "terms" : {
+      "href" : "http://www.ebi.ac.uk/ols4/api/ontologies/fma/terms"
+    },
+    "properties" : {
+      "href" : "http://www.ebi.ac.uk/ols4/api/ontologies/fma/properties"
+    },
+    "individuals" : {
+      "href" : "http://www.ebi.ac.uk/ols4/api/ontologies/fma/individuals"
+    }
+  }
+}

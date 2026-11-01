@@ -1,0 +1,151 @@
+# Smith 2004 canonical CellML: variable and equation dictionary
+
+evidence review draft 2026-11-01; equations transcribed mechanically from MathML; interpretation fields are ours and marked; nothing here changes the model
+
+Counts: 76 variables, 32 equations, 14 components. Source files: `docs/evidence/a_smith_2004_canonical.cellml` (equations, units, values) and `docs/evidence/a_smith_2004.cellml` (SemSim composite annotations, PMR workspace 267). Machine-readable version: `smith2004_variable_dictionary.json`.
+
+## Units declared in the CellML
+
+| name | definition |
+|---|---|
+| `kPa` | [['pascal', 'kilo', None]] |
+| `mL` | [['liter', 'milli', None]] |
+| `per_mL` | [['liter', 'milli', '-1']] |
+| `kPa_per_mL` | [['kPa', None, None], ['per_mL', None, None]] |
+| `kPa_second_per_mL` | [['pascal', 'kilo', None], ['second', None, None], ['mL', None, '-1']] |
+| `mL_per_second` | [['mL', None, None], ['second', None, '-1']] |
+| `mL_per_second2` | [['mL', None, None], ['second', None, '-2']] |
+| `per_second2` | [['second', None, '-2']] |
+| `kPa_second2_per_mL` | [['pascal', 'kilo', None], ['second', None, '2'], ['mL', None, '-1']] |
+
+## Equations (mechanical MathML transcription)
+
+| id | component | defines | equation |
+|---|---|---|---|
+| E1 | driver_function | `tau` | `(tau = piecewise{ time if time<=period ; time-period if time<=2*period ; ... ; time-12*period if time<=13*period })  [14-beat explicit remainder, see CellML]` |
+| E2 | driver_function | `e_t` | `(e_t = (A * exp(((-B) * ((tau - C) ^ 2[dimensionless])))))` |
+| E3 | pericardium | `V_pcd` | `(V_pcd = (V_lv + V_rv))` |
+| E4 | pericardium | `P_pcd` | `(P_pcd = (P_0_pcd * (exp((lambda_pcd * (V_pcd - V_0_pcd))) - 1[dimensionless])))` |
+| E5 | pericardium | `P_peri` | `(P_peri = (P_pcd + P_th))` |
+| E6 | left_ventricle | `V_lvf` | `(V_lvf = (V_lv - V_spt))` |
+| E7 | left_ventricle | `P_lvf` | `(P_lvf = ((e_t * P_es_lvf) + ((1[dimensionless] - e_t) * P_ed_lvf)))` |
+| E8 | left_ventricle | `P_lv` | `(P_lv = (P_lvf + P_peri))` |
+| E9 | left_ventricle | `V_lv` (ODE) | `(d(V_lv)/dtime = piecewise{ 0[mL_per_second] if ((Q_mt < 0[mL_per_second]) and (Q_av < 0[mL_per_second])) ; (-Q_av) if (Q_mt < 0[mL_per_second]) ; Q_mt if (Q_av < 0[mL_per_second]) ; (Q_mt - Q_av) otherwise })` |
+| E10 | lvf_calculator | `P_es_lvf` | `(P_es_lvf = (E_es_lvf * (V_lvf - V_d_lvf)))` |
+| E11 | lvf_calculator | `P_ed_lvf` | `(P_ed_lvf = (P_0_lvf * (exp((lambda_lvf * (V_lvf - V_0_lvf))) - 1[dimensionless])))` |
+| E12 | right_ventricle | `V_rvf` | `(V_rvf = (V_rv + V_spt))` |
+| E13 | right_ventricle | `P_rvf` | `(P_rvf = ((e_t * P_es_rvf) + ((1[dimensionless] - e_t) * P_ed_rvf)))` |
+| E14 | right_ventricle | `P_rv` | `(P_rv = (P_rvf + P_peri))` |
+| E15 | right_ventricle | `V_rv` (ODE) | `(d(V_rv)/dtime = piecewise{ 0[mL_per_second] if ((Q_tc < 0[mL_per_second]) and (Q_pv < 0[mL_per_second])) ; (-Q_pv) if (Q_tc < 0[mL_per_second]) ; Q_tc if (Q_pv < 0[mL_per_second]) ; (Q_tc - Q_pv) otherwise })` |
+| E16 | rvf_calculator | `P_es_rvf` | `(P_es_rvf = (E_es_rvf * (V_rvf - V_d_rvf)))` |
+| E17 | rvf_calculator | `P_ed_rvf` | `(P_ed_rvf = (P_0_rvf * (exp((lambda_rvf * (V_rvf - V_0_rvf))) - 1[dimensionless])))` |
+| E18 | septum | `0[kPa]` | `(0[kPa] = (((((e_t * E_es_spt * (V_spt - V_d_spt)) + ((one - e_t) * P_0_spt * (exp((lambda_spt * (V_spt - V_0_spt))) - one))) - (e_t * E_es_lvf * (V_lv - V_spt))) - ((1[dimensionless] - e_t) * P_0_lvf * (exp((lambda_lvf * (V_lv - V_spt))) - 1[dimensionless]))) + (e_t * E_es_rvf * (V_rv + V_spt)) + ((1[dimensionless] - e_t) * P_0_rvf * (exp((lambda_rvf * (V_rv + V_spt))) - 1[dimensionless]))))` |
+| E19 | pulmonary_artery | `P_pa` | `(P_pa = ((E_es_pa * (V_pa - V_d_pa)) + P_th))` |
+| E20 | pulmonary_artery | `V_pa` (ODE) | `(d(V_pa)/dtime = piecewise{ (-Q_pul) if (Q_pv < 0[mL_per_second]) ; (Q_pv - Q_pul) otherwise })` |
+| E21 | pulmonary_vein | `P_pu` | `(P_pu = ((E_es_pu * (V_pu - V_d_pu)) + P_th))` |
+| E22 | pulmonary_vein | `V_pu` (ODE) | `(d(V_pu)/dtime = piecewise{ Q_pul if (Q_mt < 0[mL_per_second]) ; (Q_pul - Q_mt) otherwise })` |
+| E23 | aorta | `P_ao` | `(P_ao = (E_es_ao * (V_ao - V_d_ao)))` |
+| E24 | aorta | `V_ao` (ODE) | `(d(V_ao)/dtime = piecewise{ (-Q_sys) if (Q_av < 0[mL_per_second]) ; (Q_av - Q_sys) otherwise })` |
+| E25 | vena_cava | `P_vc` | `(P_vc = (E_es_vc * (V_vc - V_d_vc)))` |
+| E26 | vena_cava | `V_vc` (ODE) | `(d(V_vc)/dtime = piecewise{ Q_sys if (Q_tc < 0[mL_per_second]) ; (Q_sys - Q_tc) otherwise })` |
+| E27 | flow | `Q_sys` | `(Q_sys = ((P_ao - P_vc) / R_sys))` |
+| E28 | flow | `Q_pul` | `(Q_pul = ((P_pa - P_pu) / R_pul))` |
+| E29 | flow | `Q_mt` (ODE) | `(d(Q_mt)/dtime = piecewise{ 0[mL_per_second2] if (((P_pu - P_lv) < 0[kPa]) and (Q_mt < 0[mL_per_second])) ; (((P_pu - P_lv) - (Q_mt * R_mt)) / L_mt) otherwise })` |
+| E30 | flow | `Q_av` (ODE) | `(d(Q_av)/dtime = piecewise{ 0[mL_per_second2] if (((P_lv - P_ao) < 0[kPa]) and (Q_av < 0[mL_per_second])) ; (((P_lv - P_ao) - (Q_av * R_av)) / L_av) otherwise })` |
+| E31 | flow | `Q_tc` (ODE) | `(d(Q_tc)/dtime = piecewise{ 0[mL_per_second2] if (((P_vc - P_rv) < 0[kPa]) and (Q_tc < 0[mL_per_second])) ; (((P_vc - P_rv) - (Q_tc * R_tc)) / L_tc) otherwise })` |
+| E32 | flow | `Q_pv` (ODE) | `(d(Q_pv)/dtime = piecewise{ 0[mL_per_second2] if (((P_rv - P_pa) < 0[kPa]) and (Q_pv < 0[mL_per_second])) ; (((P_rv - P_pa) - (Q_pv * R_pv)) / L_pv) otherwise })` |
+
+## Variables
+
+Columns: unit as declared; role; defining equation; SemSim workspace-267 annotation (free text / OPB property / entity or process); reference point (our reading of the equations); direction; unit plausibility; published value and unit in the CC BY derivative literature. `UNKNOWN` means no retained source settles it; `CONFLICT Cn` points to `evidence_review.md`.
+
+| variable | unit | value | role | eq. | SemSim free text | SemSim OPB property | SemSim entity / process | reference point / external pressure | direction | unit plausibility | literature value (unit) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `A` | `dimensionless` | 1 | parameter (constant) or ODE initial condition |  | Gaussian Curve Magnitude | - | - | n/a | n/a | consistent |  |
+| `B` | `per_second2` | 80 | parameter (constant) or ODE initial condition |  | Gaussian Curve Width | - | - | n/a | n/a | consistent |  |
+| `C` | `second` | 0.375 | parameter (constant) or ODE initial condition |  | Gaussian Curve Delay | - | - | n/a | n/a | consistent | Paeme 2011 eq (4): C_1 = 0.27 s, D_1 = 1 s, citing Smith 2005 Control Eng Pract (not Smith 2004); CellML C = 0.375 s, period 0.75 s |
+| `E_es_ao` | `kPa_per_mL` | 0.6913 | parameter (constant) or ODE initial condition |  | Aortic end systolic elastance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.0 mmHg/ml (sic; CellML 0.6913) |
+| `E_es_lvf` | `kPa_per_mL` | 2.8798 | parameter (constant) or ODE initial condition |  | Left ventricular free wall end systolic elastance; Left ventricular free wall end systolic pressure | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 2.8798 mmHg/ml |
+| `E_es_pa` | `kPa_per_mL` | 0.369 | parameter (constant) or ODE initial condition |  | Pulmonary arterial end systolic elastance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.3690 mmHg/ml |
+| `E_es_pu` | `kPa_per_mL` | 0.0073 | parameter (constant) or ODE initial condition |  | End systolic pulmonary vein elastance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.0073 mmHg/ml |
+| `E_es_rvf` | `kPa_per_mL` | 0.585 | parameter (constant) or ODE initial condition |  | Right ventricular free wall end systolic elastance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.5850 mmHg/ml |
+| `E_es_spt` | `kPa_per_mL` | 48.754 | parameter (constant) or ODE initial condition |  | Septal end systolic elastance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 48.7540 mmHg/ml |
+| `E_es_vc` | `kPa_per_mL` | 0.0059 | parameter (constant) or ODE initial condition |  | Vena cava end systolic elastance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.0059 mmHg/ml |
+| `L_av` | `kPa_second2_per_mL` | 1.2189e-4 | parameter (constant) or ODE initial condition |  | Atrial valve fluid inertance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 1.2189e-4 mmHg s^2/ml |
+| `L_mt` | `kPa_second2_per_mL` | 7.6968e-5 | parameter (constant) or ODE initial condition |  | Mitrial valve fluid inertance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 7.6968e-5 mmHg s^2/ml |
+| `L_pv` | `kPa_second2_per_mL` | 1.4868e-4 | parameter (constant) or ODE initial condition |  | Pulmonary valve fluid inertance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 1.4868e-4 mmHg s^2/ml |
+| `L_tc` | `kPa_second2_per_mL` | 8.0093e-5 | parameter (constant) or ODE initial condition |  | Tricuspid valve fluid inertance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 8.0093e-5 mmHg s^2/ml |
+| `P_0_lvf` | `kPa` | 0.1203 | parameter (constant) or ODE initial condition |  | End diastolic pressure across the left ventricular wall | - | - | EDPVR scale parameter | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.1203 mmHg |
+| `P_0_pcd` | `kPa` | 0.5003 | parameter (constant) or ODE initial condition |  | End diastolic pressure across the pericardium | - | - | pericardium EDPVR scale parameter | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.5003 mmHg |
+| `P_0_rvf` | `kPa` | 0.2157 | parameter (constant) or ODE initial condition |  | Right ventricular free wall end diastolic pressure | - | - | EDPVR scale parameter | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.2157 mmHg |
+| `P_0_spt` | `kPa` | 1.1101 | parameter (constant) or ODE initial condition |  | Septal wall end diastolic pressure | - | - | EDPVR scale parameter (septum) | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 1.1101 mmHg |
+| `P_ao` | `kPa` |  | algebraic (explicitly computed) | E23 | Pressure in systemic arteries | OPB_00509 (Fluid pressure) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta) | P_ao = E_es_ao*(V_ao-V_d_ao); NO P_th term (E23) | n/a | UNKNOWN |  |
+| `P_ed_lvf` | `kPa` |  | algebraic (explicitly computed) | E11 | End diastolic pressure across the left ventricular free wall | - | - | EDPVR pressure of LV free wall (E11) | n/a | UNKNOWN |  |
+| `P_ed_rvf` | `kPa` |  | algebraic (explicitly computed) | E17 | Right ventricular free wall end diastolic pressure | - | - | EDPVR pressure of RV free wall (E17) | n/a | UNKNOWN |  |
+| `P_es_lvf` | `kPa` |  | algebraic (explicitly computed) | E10 | Left ventricular freewall end systolic blood pressure | - | - | ESPVR pressure of LV free wall (E10) | n/a | UNKNOWN |  |
+| `P_es_rvf` | `kPa` |  | algebraic (explicitly computed) | E16 | Right ventricular free wall end systolic pressure | - | - | ESPVR pressure of RV free wall (E16) | n/a | UNKNOWN |  |
+| `P_lv` | `kPa` |  | algebraic (explicitly computed) | E8 | Left ventricular blood pressure | OPB_00509 (Fluid pressure) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle) | P_lv = P_lvf + P_peri; P_peri = P_pcd + P_th, so P_lv includes thoracic pressure (E8,E5) | n/a | UNKNOWN |  |
+| `P_lvf` | `kPa` |  | algebraic (explicitly computed) | E7 | Pressure across the left ventricular freewall | - | - | transmural-type pressure across LV free wall; excludes P_peri (E7) | n/a | UNKNOWN |  |
+| `P_pa` | `kPa` |  | algebraic (explicitly computed) | E19 | Blood pressure in the pulmonary artery | OPB_00509 (Fluid pressure) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_14167 (Lumen of pulmonary trunk) | P_pa = E_es_pa*(V_pa-V_d_pa) + P_th; includes P_th (E19) | n/a | UNKNOWN |  |
+| `P_pcd` | `kPa` |  | algebraic (explicitly computed) | E4 | Pressure across the pericardial wall | OPB_00509 (Fluid pressure) | - | pressure generated by pericardium as function of V_pcd (E4) | n/a | UNKNOWN |  |
+| `P_peri` | `kPa` |  | algebraic (explicitly computed) | E5 | Pericardial blood volume | OPB_00509 (Fluid pressure) | physicalPropertyOf: FMA_9887 (Portion of pericardial fluid) | P_pcd + P_th (E5) | n/a | UNKNOWN |  |
+| `P_pu` | `kPa` |  | algebraic (explicitly computed) | E21 | Pulmonary venous blood pressure | OPB_00509 (Fluid pressure) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ) | P_pu = E_es_pu*(V_pu-V_d_pu) + P_th; includes P_th (E21) | n/a | UNKNOWN |  |
+| `P_rv` | `kPa` |  | algebraic (explicitly computed) | E14 | Right ventricular blood pressure | OPB_00509 (Fluid pressure) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle) | P_rv = P_rvf + P_peri; includes P_th (E14,E5) | n/a | UNKNOWN |  |
+| `P_rvf` | `kPa` |  | algebraic (explicitly computed) | E13 | Pressure across the right ventricular free wall | - | - | transmural-type pressure across RV free wall; excludes P_peri (E13) | n/a | UNKNOWN |  |
+| `P_th` | `kPa` | -4 | parameter (constant) or ODE initial condition |  | Thoracic cavity pressure | - | - | constant parameter; external (thoracic) pressure, value -4 labelled kPa | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): -4 mmHg |
+| `P_vc` | `kPa` |  | algebraic (explicitly computed) | E25 | Blood Pressure in the Vena Cava | OPB_00509 (Fluid pressure) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks) | P_vc = E_es_vc*(V_vc-V_d_vc); NO P_th term (E25); CONFLICT C3: Revie 2013 (A.3) writes P_vc = E_vc(V_vc - V_d,vc) + P_th | n/a | UNKNOWN |  |
+| `Q_av` | `mL_per_second` | 0 | ODE state variable | E30 | Blood flow through atrial valve | OPB_00299 (Fluid flow rate) | physicalPropertyOf: custom:Blood flow through aortic valve --hasSinkParticipant--> sink_5 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta) --hasSourceParticipant--> source_5 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle) | n/a | from P_lv side to P_ao side: LV -> aorta through aortic valve (E30); positive = forward | consistent |  |
+| `Q_mt` | `mL_per_second` | 245.5813 | ODE state variable | E29 | Blood flow through mitrial valve | OPB_00299 (Fluid flow rate) | physicalPropertyOf: custom:Blood flow through mitral valve --hasSinkParticipant--> sink_3 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle) --hasSourceParticipant--> source_3 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ) | n/a | from P_pu side to P_lv side: pulmonary vein -> LV through mitral valve (E29); positive = forward | consistent |  |
+| `Q_pul` | `mL_per_second` |  | algebraic (explicitly computed) | E28 | Pulmonary blood flow | OPB_00299 (Fluid flow rate) | physicalPropertyOf: custom:Pulmonary circulatory blood flow --hasSinkParticipant--> sink_2 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ) --hasSourceParticipant--> source_2 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_14167 (Lumen of pulmonary trunk) | n/a | from P_pa side to P_pu side: pulmonary artery -> pulmonary vein (E28); positive = forward | consistent |  |
+| `Q_pv` | `mL_per_second` | 0 | ODE state variable | E32 | Blood flow through pulmonary valve | OPB_00299 (Fluid flow rate) | physicalPropertyOf: custom:Blood flow through pulmonary valve --hasSinkParticipant--> sink_4 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_14167 (Lumen of pulmonary trunk) --hasSourceParticipant--> source_4 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle) | n/a | from P_rv side to P_pa side: RV -> pulmonary artery through pulmonary valve (E32); positive = forward | consistent |  |
+| `Q_sys` | `mL_per_second` |  | algebraic (explicitly computed) | E27 | Systemic circulatory blood flow | OPB_00299 (Fluid flow rate) | physicalPropertyOf: custom:Systemic circulatory blood flow --hasSinkParticipant--> sink_1 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks) --hasSourceParticipant--> source_1 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta) | n/a | from P_ao side to P_vc side: aorta -> vena cava (E27); positive = forward | consistent |  |
+| `Q_tc` | `mL_per_second` | 190.0661 | ODE state variable | E31 | Blood flow across tricuspid valve | OPB_00299 (Fluid flow rate) | physicalPropertyOf: custom:Blood flow through tricuspid valve --hasSinkParticipant--> sink_0 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle) --hasSourceParticipant--> source_0 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks) | n/a | from P_vc side to P_rv side: vena cava -> RV through tricuspid valve (E31); positive = forward | consistent |  |
+| `R_av` | `kPa_second_per_mL` | 0.0180 | parameter (constant) or ODE initial condition |  | Atrial valve fluid resistance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.0180 mmHg s/ml |
+| `R_mt` | `kPa_second_per_mL` | 0.0158 | parameter (constant) or ODE initial condition |  | Mitrial valve fluid resistance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.0158 mmHg s/ml |
+| `R_pul` | `kPa_second_per_mL` | 0.1552 | parameter (constant) or ODE initial condition |  | Pulmonary circulatory fluid resistance | - | - | n/a | n/a | UNKNOWN | note: not tabulated in Paeme 2011 or Revie 2013; Pironet 2013 gives re-identified canine values only |
+| `R_pv` | `kPa_second_per_mL` | 0.0055 | parameter (constant) or ODE initial condition |  | Pulmonary valve fluid resistance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.0055 mmHg s/ml |
+| `R_sys` | `kPa_second_per_mL` | 1.0889 | parameter (constant) or ODE initial condition |  | Systemic circulatory fluid resistance | - | - | n/a | n/a | UNKNOWN | note: not tabulated in Paeme 2011 or Revie 2013; Pironet 2013 gives re-identified canine values only |
+| `R_tc` | `kPa_second_per_mL` | 0.0237 | parameter (constant) or ODE initial condition |  | Tricuspid valve fluid resistance | - | - | n/a | n/a | CONFLICT C1 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.0237 mmHg s/ml |
+| `V_0_lvf` | `mL` | 0 | parameter (constant) or ODE initial condition |  | Left ventricular free wall volume at end diastolic pressure | - | - | n/a | n/a | consistent |  |
+| `V_0_pcd` | `mL` | 200 | parameter (constant) or ODE initial condition |  | Pericardial volume at end diastolic pressure | - | - | n/a | n/a | consistent | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 200.00 ml |
+| `V_0_rvf` | `mL` | 0 | parameter (constant) or ODE initial condition |  | Right ventricular free wall volume at end diastolic pressure | - | - | n/a | n/a | consistent |  |
+| `V_0_spt` | `mL` | 2 | parameter (constant) or ODE initial condition |  | Septal wall volume at end diastolic pressure | OPB_00154 (Fluid volume) | - | n/a | n/a | consistent | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 2.00 ml |
+| `V_ao` | `mL` | 133.3381 | ODE state variable | E24 | Volume of blood contained in aorta | OPB_00154 (Fluid volume) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta) | n/a | n/a | consistent |  |
+| `V_d_ao` | `mL` | 0 | parameter (constant) or ODE initial condition |  | Aortic blood volume at zero pressure | - | - | n/a | n/a | consistent |  |
+| `V_d_lvf` | `mL` | 0 | parameter (constant) or ODE initial condition |  | Left ventricular free wall volume at end zero pressure | - | - | n/a | n/a | consistent |  |
+| `V_d_pa` | `mL` | 0 | parameter (constant) or ODE initial condition |  | Pulmonary arterial blood volume at zero pressure | OPB_00154 (Fluid volume) | - | n/a | n/a | consistent |  |
+| `V_d_pu` | `mL` | 0 | parameter (constant) or ODE initial condition |  | - | - | - | n/a | n/a | consistent |  |
+| `V_d_rvf` | `mL` | 0 | parameter (constant) or ODE initial condition |  | Right ventricular free wall volume at zero pressure | - | - | n/a | n/a | consistent |  |
+| `V_d_spt` | `mL` | 2 | parameter (constant) or ODE initial condition |  | Septal wall volume at zero pressure | OPB_00154 (Fluid volume) | - | n/a | n/a | consistent | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 2.00 ml |
+| `V_d_vc` | `mL` | 0 | parameter (constant) or ODE initial condition |  | Vena cava volume at zero pressure | - | - | n/a | n/a | consistent |  |
+| `V_lv` | `mL` | 94.6812 | ODE state variable | E9 | Volume of blood contained in left ventricle | OPB_00154 (Fluid volume) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle) | n/a | n/a | consistent |  |
+| `V_lvf` | `mL` |  | algebraic (explicitly computed) | E6 | Volume of the free wall of the left ventricle | OPB_01061 (van't Hoff law of osmosis (master) / van't Hoff law (v1.07)) | physicalPropertyOf: FMA_9556 (Wall of left ventricle) | n/a | n/a | consistent |  |
+| `V_pa` | `mL` | 43.0123 | ODE state variable | E20 | Pulmonary arterial blood volume | OPB_00154 (Fluid volume) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_52449 (Lumen of pulmonary arterial tree) | n/a | n/a | consistent |  |
+| `V_pcd` | `mL` |  | algebraic (explicitly computed) | E3 | Volume of the pericardium | OPB_00154 (Fluid volume) | physicalPropertyOf: FMA_9869 (Pericardium) | n/a | n/a | consistent |  |
+| `V_pu` | `mL` | 808.4579 | ODE state variable | E22 | Pulmonary venous blood volume | OPB_00154 (Fluid volume) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ) | n/a | n/a | consistent |  |
+| `V_rv` | `mL` | 90.7302 | ODE state variable | E15 | Right ventricle blood volume | OPB_00154 (Fluid volume) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle) | n/a | n/a | consistent |  |
+| `V_rvf` | `mL` |  | algebraic (explicitly computed) | E12 | Right ventricular free wall volume | OPB_01061 (van't Hoff law of osmosis (master) / van't Hoff law (v1.07)) | physicalPropertyOf: FMA_9533 (Wall of right ventricle) | n/a | n/a | consistent |  |
+| `V_spt` | `mL` |  | algebraic state solved from implicit equation E18 (nonlinear algebraic, needs NLA solver) |  | Septal wall volume | OPB_01061 (van't Hoff law of osmosis (master) / van't Hoff law (v1.07)) | physicalPropertyOf: FMA_7180 (Cardiac septum) | n/a | n/a | consistent |  |
+| `V_tot` | `mL` | 5.5 | parameter (constant) or ODE initial condition |  | Total blood volume in the body | - | - | n/a | n/a | CONFLICT C2 | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 5.5 l |
+| `V_vc` | `mL` | 329.7803 | ODE state variable | E26 | Vena cava blood volume | OPB_00154 (Fluid volume) | physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks) | n/a | n/a | consistent |  |
+| `e_t` | `dimensionless` |  | algebraic (explicitly computed) | E2 | Heart beat driver function | - | - | n/a | n/a | consistent |  |
+| `lambda_lvf` | `per_mL` | 0.033 | parameter (constant) or ODE initial condition |  | Left Ventricular Freewall Diastolic Exponential Parameter | - | - | n/a | n/a | consistent | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.033 1/ml |
+| `lambda_pcd` | `per_mL` | 0.03 | parameter (constant) or ODE initial condition |  | Pericardial Diastolic Exponential Parameter | - | - | n/a | n/a | consistent | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.030 1/ml |
+| `lambda_rvf` | `per_mL` | 0.023 | parameter (constant) or ODE initial condition |  | Right Ventricular Freewall Diastolic Exponential Parameter | - | - | n/a | n/a | consistent | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.023 1/ml |
+| `lambda_spt` | `per_mL` | 0.435 | parameter (constant) or ODE initial condition |  | Septal Wall Diastolic Exponential Parameter | - | - | n/a | n/a | consistent | Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml): 0.435 1/ml |
+| `one` | `dimensionless` | 1 | parameter (constant) or ODE initial condition |  | - | - | - | n/a | n/a | consistent |  |
+| `period` | `second` | 0.75 | parameter (constant) or ODE initial condition |  | Length of Heart Contraction | - | - | n/a | n/a | consistent |  |
+| `tau` | `second` |  | algebraic (explicitly computed) | E1 | Contraction Time Elapsed | - | - | n/a | n/a | consistent |  |
+| `time` | `second` |  | free variable (independent) |  | - | OPB_01023 | - | n/a | n/a | consistent |  |
+
+## Open items carried into the evidence review
+
+- C1 unit labels kPa vs mmHg (original paper needed)
+- V_tot 5.5 mL vs L and unused
+- V_spt implicit equation E18 solved by NLA; V_spt initial value absent
+- Driver function E1 covers only 13 periods explicitly (14 beats per PMR note)
+- SemSim ws267 annotates V_lvf/V_rvf/V_spt with OPB_01061 (van't Hoff law), a dependency class, not a property: reference-annotation defect
+- SemSim ws267 free text for P_peri reads "Pericardial blood volume" while the property is Fluid pressure of Portion of pericardial fluid: text/annotation conflict
+- SemSim ws267 free text for Q_av/R_av/L_av says "atrial valve" while the process is named "Blood flow through aortic valve": naming defect
+- C3 P_vc thoracic-pressure term: CellML E25 has none; Revie 2013 (A.3) includes +P_th on P_vc (and on P_pu, P_pa, not P_ao)
+- Driver timing: Paeme 2011 gives C_1 = 0.27 s, D_1 = 1 s citing Smith 2005; CellML uses C = 0.375 s, period 0.75 s; which the 2004 paper used is UNKNOWN

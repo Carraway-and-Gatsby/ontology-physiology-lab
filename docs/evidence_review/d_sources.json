@@ -1,0 +1,217 @@
+{
+ "scope": "Retrieval ledger for the 2026-11-01 evidence review (docs/evidence_review/). Hashes are of the files as stored here. Full texts are retained only where the article license permits redistribution (CC BY); all-rights-reserved articles are represented by bibliographic records and bounded quotations in evidence_cards.md.",
+ "files": {
+  "d_fulltext_PMC3904761_cook2013_opb.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3904761/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY 2.0 (PubMed/PMC copyright record: Cook et al.; licensee BioMed Central)",
+   "note": "Cook DL, Neal ML, Bookstein FL, Gennari JH. J Biomed Semantics 2013;4:41. doi 10.1186/2041-1480-4-41. Also read in full through the PubMed MCP connector."
+  },
+  "d_fulltext_PMC6433895_neal2019_harmonizing.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6433895/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC license field \"cc by\"; PubMed record gives no license URL)",
+   "note": "Neal ML et al. Brief Bioinform 2019;20(2):540-550. doi 10.1093/bib/bby087. Also read in full through the PubMed MCP connector."
+  },
+  "d_fulltext_PMC4183381_neal2014_reappraisal.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4183381/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC)",
+   "note": "Neal ML, Cook DL, Gennari JH et al. PLoS Comput Biol 2014;10(10):e1003849."
+  },
+  "d_fulltext_PMC4696653_neal2015_cardiomyocyte.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4696653/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC)",
+   "note": "Neal ML, Carlson BE, Thompson CT et al. PLoS One 2015;10(12):e0145621. Replaces the HTML capture c_semsim_article_plain.txt for quotation purposes."
+  },
+  "d_fulltext_PMC7756623_omex_metadata_v1_0.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7756623/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC)",
+   "note": "Neal ML et al. J Integr Bioinform 2020;17(2-3):20200020. Short record."
+  },
+  "d_fulltext_PMC8560343_omex_metadata_v1_2.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8560343/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC)",
+   "note": "Gennari JH et al. J Integr Bioinform 2021;18(3):20210020. Short record."
+  },
+  "d_fulltext_PMC3271239_paeme2011.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3271239/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC)",
+   "note": "Paeme S et al. Biomed Eng Online 2011;10:86. Smith-model derivative (open access)."
+  },
+  "d_fulltext_PMC3621159_revie2013.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3621159/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC)",
+   "note": "Revie JA et al. Comput Math Methods Med 2013:505417. Appendix A restates the Smith/Chase CVS model."
+  },
+  "d_fulltext_PMC3610305_pironet2013.xml": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3610305/fullTextXML",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY (Europe PMC)",
+   "note": "Pironet A et al. Biomed Eng Online 2013;12:8."
+  },
+  "d_epmc_bibliographic_core.json": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:... (13 PMIDs)&resultType=core",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "Europe PMC metadata (open)",
+   "note": "Bibliographic/licence records for every paper in the review, including the four not open access."
+  },
+  "d_epmc_search_chase_desaive_oa.json": {
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=(AUTH:\"Chase JG\" OR AUTH:\"Desaive T\") AND (septum OR \"ventricular interaction\" OR \"minimal cardiovascular\" OR \"valve law\") AND OPEN_ACCESS:y",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "Europe PMC metadata (open)",
+   "note": "9 hits; used to select open-access restatements of the Smith model."
+  },
+  "d_github_opb_repo.json": {
+   "url": "https://api.github.com/repos/SemBioProcess/OPB",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "GitHub API metadata",
+   "note": "license field is null: the repository declares no license."
+  },
+  "d_github_opb_master_commit.json": {
+   "url": "https://api.github.com/repos/SemBioProcess/OPB/commits/master",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "GitHub API metadata",
+   "note": "2aa5148e, 2022-12-16."
+  },
+  "d_github_semgen_latest_release.json": {
+   "url": "https://api.github.com/repos/SemBioProcess/SemGen/releases/latest",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "GitHub API metadata",
+   "note": "SemGen v4.3.2, 2022-09-12."
+  },
+  "d_opb_master_excerpt_and_version_diff.json": {
+   "url": "https://raw.githubusercontent.com/SemBioProcess/OPB/master/OPB.owl and https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl",
+   "retrieved_via": "curl + regex excerpt",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "OPB license not stated in either file or repository; excerpt only, not the whole OWL",
+   "note": "Classes of interest from both versions, 22 identifiers absent from master, 67 label changes."
+  },
+  "d_fma_release_page.html": {
+   "url": "http://sig.biostr.washington.edu/projects/fm/FMA_Release/",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "page text itself",
+   "note": "Offers \"Draft Open Source FMA License\" (FMA_License_DRAFT_10-18-06.doc); no final license text retrieved."
+  },
+  "d_fma_owl_header_first6000bytes.txt": {
+   "url": "http://purl.org/sig/ont/fma.owl (HTTP range 0-6000)",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "header only",
+   "note": "owl:versionInfo 5.1.0; versionIRI http://purl.org/sig/ont/fma_5.1.0.owl."
+  },
+  "d_ols_fma_ontology.json": {
+   "url": "https://www.ebi.ac.uk/ols4/api/ontologies/fma",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "EBI OLS metadata",
+   "note": "OLS loads FMA 5.1.0 from purl.org/sig/ont/fma.owl; 104,721 terms; loaded 2026-10-31."
+  },
+  "d_ols_fma_terms_ws267.json": {
+   "url": "https://www.ebi.ac.uk/ols4/api/ontologies/fma/terms?iri=http://purl.org/sig/ont/fma/fmaNNNN",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "EBI OLS term records",
+   "note": "Label check of the 13 FMA identifiers used by the SemSim annotation of the Smith model."
+  },
+  "d_semsim_ws267_annotations_by_variable.json": {
+   "url": "docs/evidence/a_smith_2004.cellml (PMR workspace 267 rawfile 6ae21701), parsed with rdflib",
+   "retrieved_via": "local parse",
+   "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
+   "license_or_terms": "CC BY 3.0 Unported (PMR)",
+   "note": "Every SemSim composite annotation and free-text description in the annotated Smith CellML, grouped by variable name."
+  }
+ },
+ "retrievals_not_retained_as_files": [
+  {
+   "what": "Gennari JH, Neal ML, Galdzicki M, Cook DL. Multiple ontologies in action: composite annotations for biosimulation models. J Biomed Inform 2011;44(1):146-154. doi 10.1016/j.jbi.2010.06.007 (PMID 20601121, PMC2989341)",
+   "how": "PubMed MCP connector get_full_text_article (author manuscript); Europe PMC fullTextXML returned HTTP 500",
+   "license": "Copyright 2010 Elsevier Inc. All rights reserved (PubMed record); not redistributed",
+   "retained": "bounded quotations in evidence_cards.md"
+  },
+  {
+   "what": "Neal ML et al. SemGen: a tool for semantics-based annotation and composition of biosimulation models. Bioinformatics 2019;35(9):1600-1602. doi 10.1093/bioinformatics/bty829 (PMID 30256901, PMC6499248)",
+   "how": "PubMed MCP full text came back empty; PMC HTML read through WebFetch (two passes); Europe PMC fullTextXML HTTP 500; supplementaryFiles: \"not open access\"",
+   "license": "© The Author(s) 2018. Published by Oxford University Press. All rights reserved",
+   "retained": "bounded quotations in evidence_cards.md"
+  },
+  {
+   "what": "Rosse C, Mejino JLV. A reference ontology for biomedical informatics: the Foundational Model of Anatomy. J Biomed Inform 2003;36(6):478-500. doi 10.1016/j.jbi.2003.11.007 (PMID 14759820)",
+   "how": "PubMed MCP metadata (abstract); no PMC version exists",
+   "license": "not available in PubMed; Elsevier",
+   "retained": "abstract-level card only"
+  },
+  {
+   "what": "Smith BW, Chase JG, Nokes RI, Shaw GM, Wake G. Minimal haemodynamic system model including ventricular interaction and valve dynamics. Med Eng Phys 2004;26(2):131-139. doi 10.1016/j.medengphy.2003.10.001 (PMID 15036180)",
+   "how": "PubMed MCP metadata (abstract); web search found no open copy; no PMC version",
+   "license": "not available in PubMed; Elsevier",
+   "retained": "abstract-level card only; equations taken from the CC BY CellML encoding and CC BY derivative papers"
+  },
+  {
+   "what": "W3C SHACL (REC 20 July 2017) and PROV-O (REC 30 April 2013)",
+   "how": "WebFetch of https://www.w3.org/TR/shacl/ and https://www.w3.org/TR/prov-o/ in 100k-character windows",
+   "license": "W3C document license (copyright W3C, MIT, ERCIM, Keio, Beihang)",
+   "retained": "quoted definitions in evidence_cards.md"
+  },
+  {
+   "what": "Wiley Scholar Gateway full-text search (20 passages, 13 articles) for Smith 2004 restatements",
+   "how": "Wiley MCP connector; result parsed by a subagent",
+   "license": "mixed; Revie 2013 CC BY, J Physiol articles not OA",
+   "retained": "bounded quotations in evidence_cards.md; raw result kept only in the session scratchpad"
+  },
+  {
+   "what": "BioPortal OPB and FMA pages / data API",
+   "how": "WebFetch and curl",
+   "result": "HTTP 403 (page) and 401 (API key required); not retrieved",
+   "retained": "nothing"
+  },
+  {
+   "what": "SemGen README, annotation protocol wiki, repository license text",
+   "how": "WebFetch github.com (README page) and raw wiki; also already retained as c_semgen_readme.txt / c_semgen_protocol.txt",
+   "license": "custom SemGen license, non-commercial; see c_semgen_readme.txt",
+   "retained": "existing c_ files"
+  }
+ ],
+ "sha256": {
+  "d_fulltext_PMC3271239_paeme2011.xml": "af8a8440d33f6a94ba30cf1386408743a5e30b971807014553255d02574d7721",
+  "d_fma_owl_header_first6000bytes.txt": "cd055d0d5bba87925ff74911c0c8de8941e03097073cfe3311dde9b62dff3d88",
+  "d_fma_release_page.html": "23af20f5aabf815630d32922d43b2ab85958b30e83ec4a1a250ea90775485ec1",
+  "d_fulltext_PMC3610305_pironet2013.xml": "1dda3f39d0abd9bf47ccb903b40be599f2e77ac6c1f127eca1bf554a5ae2c60d",
+  "d_github_opb_repo.json": "19897fdaa4a0ae4170fb359268a9d47a8640152d4f118bdc273b354538619f38",
+  "d_fulltext_PMC4183381_neal2014_reappraisal.xml": "9bd0b8f6bfce80cbbf2b03e87455319265bc6ca31b7c0b8d6bdd1488a55615fb",
+  "d_fulltext_PMC8560343_omex_metadata_v1_2.xml": "b27b42de3e2804832c528ed2bfaaff577ac99f600ad298e0f3e3fc48794056c3",
+  "d_ols_fma_terms_ws267.json": "f1444f903d2b7d31b483bf59ba10239232c75adccba37c2c9fb0a4762b00e8aa",
+  "d_epmc_bibliographic_core.json": "714f30a530bc1c8ba7f02e0a16d0bf6ebec0af5f6f212ec7c7b29840d78ef451",
+  "d_ols_fma_ontology.json": "6cb483e74258d8cc64330515ca5c249d9d094d5478d573cf29c054d8f81fffa3",
+  "d_fulltext_PMC3621159_revie2013.xml": "121f2847ac5d6e6bdf7a64958178ae9d9e47346f6d8f753466c75dc0da5c41d8",
+  "d_fulltext_PMC6433895_neal2019_harmonizing.xml": "195bb04896d66b14e46854b1c73694ba4a2fdbcd8b61cf7477b302218a4c194b",
+  "d_github_semgen_latest_release.json": "f1712c03722afa71ebc1301d26bbe90361adde037dfcaff0752a6a27f9b09b8d",
+  "d_semsim_ws267_annotations_by_variable.json": "57d259efc742487692e2c626c5184ac61fe3b97ee7d1e3d726b75ff0ce8fd3e8",
+  "d_opb_master_excerpt_and_version_diff.json": "b0dc1638f72dc1184ac073074269670bb0dd1d1afb6aca2fa141bc2903a04f04",
+  "d_fulltext_PMC3904761_cook2013_opb.xml": "98382b8e5d3e1fe7568f7b0cefe699d90bec8867b1be0ec3c097c11d111dc98f",
+  "d_fulltext_PMC4696653_neal2015_cardiomyocyte.xml": "d113db797823cac63bedb2fbc504393701b0634d73cc506131559628f27692fe",
+  "d_epmc_search_chase_desaive_oa.json": "edd4e7ae5d67d33081e0852435927bd8fc10d32103f97930de9024e1d1cc8b3a",
+  "d_github_opb_master_commit.json": "6bbb3c88df11c4f71897a5d4bfc27d0b5df9c09949e6e0760cb9451942f34c5f",
+  "d_fulltext_PMC7756623_omex_metadata_v1_0.xml": "83a36a75e9743423a13e143ea2b687e67a0dd78d19d8a2780aa2f4517cf17a53"
+ }
+}

@@ -1,0 +1,2276 @@
+{
+  "version": "6.9",
+  "hitCount": 9,
+  "request": {
+    "queryString": "(AUTH:\"Chase JG\" OR AUTH:\"Desaive T\") AND (septum OR \"ventricular interaction\" OR \"minimal cardiovascular\" OR \"valve law\") AND OPEN_ACCESS:y",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 50,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "29463246",
+        "source": "MED",
+        "pmid": "29463246",
+        "pmcid": "PMC5819676",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC5819676"
+          ]
+        },
+        "doi": "10.1186/s12938-018-0455-y",
+        "title": "Next-generation, personalised, model-based critical care medicine: a state-of-the art review of in silico virtual patient models, methods, and cohorts, and how to validation them.",
+        "authorString": "Chase JG, Preiser JC, Dickson JL, Pironet A, Chiew YS, Pretty CG, Shaw GM, Benyo B, Moeller K, Safaei S, Tawhai M, Hunter P, Desaive T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Chase JG",
+              "lastName": "Chase",
+              "firstName": "J Geoffrey",
+              "initials": "JG",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9989-4849"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Mechanical Engineering, Centre for Bio-Engineering, University of Canterbury, Private Bag 4800, Christchurch, New Zealand. Geoff.chase@canterbury.ac.nz."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Preiser JC",
+              "lastName": "Preiser",
+              "firstName": "Jean-Charles",
+              "initials": "JC",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-3163-0390"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Intensive Care, Erasme University of Hospital, 1070, Brussels, Belgium."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Dickson JL",
+              "lastName": "Dickson",
+              "firstName": "Jennifer L",
+              "initials": "JL",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Mechanical Engineering, Centre for Bio-Engineering, University of Canterbury, Private Bag 4800, Christchurch, New Zealand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Pironet A",
+              "lastName": "Pironet",
+              "firstName": "Antoine",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "GIGA In Silico Medicine, University of Liege, 4000, Liege, Belgium."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chiew YS",
+              "lastName": "Chiew",
+              "firstName": "Yeong Shiong",
+              "initials": "YS",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-3222-2006"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Mechanical Engineering, School of Engineering, Monash University Malaysia, 47500, Selangor, Malaysia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Pretty CG",
+              "lastName": "Pretty",
+              "firstName": "Christopher G",
+              "initials": "CG",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2265-6065"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Mechanical Engineering, Centre for Bio-Engineering, University of Canterbury, Private Bag 4800, Christchurch, New Zealand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shaw GM",
+              "lastName": "Shaw",
+              "firstName": "Geoffrey M",
+              "initials": "GM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Intensive Care, Christchurch Hospital, Christchurch, New Zealand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Benyo B",
+              "lastName": "Benyo",
+              "firstName": "Balazs",
+              "initials": "B",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2770-9127"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Control Engineering and Information Technology, Budapest University of Technology and Economics, Budapest, Hungary."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Moeller K",
+              "lastName": "Moeller",
+              "firstName": "Knut",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biomedical Engineering, Institute of Technical Medicine, Furtwangen University, Villingen-Schwenningen, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Safaei S",
+              "lastName": "Safaei",
+              "firstName": "Soroush",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-5734-243X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Auckland Bioengineering Institute, University of Auckland, Auckland, New Zealand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tawhai M",
+              "lastName": "Tawhai",
+              "firstName": "Merryn",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Auckland Bioengineering Institute, University of Auckland, Auckland, New Zealand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hunter P",
+              "lastName": "Hunter",
+              "firstName": "Peter",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Auckland Bioengineering Institute, University of Auckland, Auckland, New Zealand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "Thomas",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "GIGA In Silico Medicine, University of Liege, 4000, Liege, Belgium."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5734-243X"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9989-4849"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2265-6065"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2770-9127"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3163-0390"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3222-2006"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "17",
+          "journalIssueId": 2645738,
+          "dateOfPublication": "2018 Feb",
+          "monthOfPublication": 2,
+          "yearOfPublication": 2018,
+          "journal": {
+            "medlineAbbreviation": "Biomed Eng Online",
+            "title": "Biomedical engineering online",
+            "essn": "1475-925X",
+            "issn": "1475-925X",
+            "nlmid": "101147518",
+            "isoabbreviation": "Biomed Eng Online"
+          },
+          "printPublicationDate": "2018-02-01"
+        },
+        "pubYear": "2018",
+        "pageInfo": "24",
+        "abstractText": "Critical care, like many healthcare areas, is under a dual assault from significantly increasing demographic and economic pressures. Intensive care unit (ICU) patients are highly variable in response to treatment, and increasingly aging populations mean ICUs are under increasing demand and their cohorts are increasingly ill. Equally, patient expectations are growing, while the economic ability to deliver care to all is declining. Better, more productive care is thus the big challenge. One means to that end is personalised care designed to manage the significant inter- and intra-patient variability that makes the ICU patient difficult. Thus, moving from current \"one size fits all\" protocolised care to adaptive, model-based \"one method fits all\" personalised care could deliver the required step change in the quality, and simultaneously the productivity and cost, of care. Computer models of human physiology are a unique tool to personalise care, as they can couple clinical data with mathematical methods to create subject-specific models and virtual patients to design new, personalised and more optimal protocols, as well as to guide care in real-time. They rely on identifying time varying patient-specific parameters in the model that capture inter- and intra-patient variability, the difference between patients and the evolution of patient condition. Properly validated, virtual patients represent the real patients, and can be used in silico to test different protocols or interventions, or in real-time to guide care. Hence, the underlying models and methods create the foundation for next generation care, as well as a tool for safely and rapidly developing personalised treatment protocols over large virtual cohorts using virtual trials. This review examines the models and methods used to create virtual patients. Specifically, it presents the models types and structures used and the data required. It then covers how to validate the resulting virtual patients and trials, and how these virtual trials can help design and optimise clinical trial. Links between these models and higher order, more complex physiome models are also discussed. In each section, it explores the progress reported up to date, especially on core ICU therapies in glycemic, circulatory and mechanical ventilation management, where high cost and frequency of occurrence provide a significant opportunity for model-based methods to have measurable clinical and economic impact. The outcomes are readily generalised to other areas of medical care.",
+        "affiliation": "Department of Mechanical Engineering, Centre for Bio-Engineering, University of Canterbury, Private Bag 4800, Christchurch, New Zealand. Geoff.chase@canterbury.ac.nz.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "review-article",
+            "Review",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "Royal Society of New Zealand",
+              "grantId": "JCF-15-UOC-013",
+              "orderIn": 0
+            },
+            {
+              "agency": "New Zealand National Science Challenge",
+              "grantId": "CRS-S3-2016",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Critical Care",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "MT",
+                    "qualifierName": "methods"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Cohort Studies"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Models, Biological"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Computer Simulation"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Physiological Phenomena"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Precision Medicine",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "MT",
+                    "qualifierName": "methods"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://biomedical-engineering-online.biomedcentral.com/track/pdf/10.1186/s12938-018-0455-y"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/s12938-018-0455-y"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC5819676"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC5819676?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 91,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "Y",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCompletion": "2018-08-28",
+        "dateOfCreation": "2018-02-22",
+        "dateOfRevision": "2024-11-01",
+        "electronicPublicationDate": "2018-02-20",
+        "firstPublicationDate": "2018-02-20",
+        "firstIndexDate": "2018-02-22",
+        "fullTextReceivedDate": "2025-02-05",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "23585774",
+        "source": "MED",
+        "pmid": "23585774",
+        "pmcid": "PMC3621159",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC3621159"
+          ]
+        },
+        "doi": "10.1155/2013/505417",
+        "title": "Evaluation of a model-based hemodynamic monitoring method in a porcine study of septic shock.",
+        "authorString": "Revie JA, Stevenson D, Chase JG, Pretty CJ, Lambermont BC, Ghuysen A, Kolh P, Shaw GM, Desaive T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Revie JA",
+              "lastName": "Revie",
+              "firstName": "James A",
+              "initials": "JA",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Mechanical Engineering, Centre of Bioengineering, University of Canterbury, Private Bag 4800, Christchurch 8140, New Zealand. james.revie@hotmail.com"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Stevenson D",
+              "lastName": "Stevenson",
+              "firstName": "David",
+              "initials": "D"
+            },
+            {
+              "fullName": "Chase JG",
+              "lastName": "Chase",
+              "firstName": "J Geoffrey",
+              "initials": "JG",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9989-4849"
+              }
+            },
+            {
+              "fullName": "Pretty CJ",
+              "lastName": "Pretty",
+              "firstName": "Chris J",
+              "initials": "CJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2265-6065"
+              }
+            },
+            {
+              "fullName": "Lambermont BC",
+              "lastName": "Lambermont",
+              "firstName": "Bernard C",
+              "initials": "BC"
+            },
+            {
+              "fullName": "Ghuysen A",
+              "lastName": "Ghuysen",
+              "firstName": "Alexandre",
+              "initials": "A"
+            },
+            {
+              "fullName": "Kolh P",
+              "lastName": "Kolh",
+              "firstName": "Philippe",
+              "initials": "P"
+            },
+            {
+              "fullName": "Shaw GM",
+              "lastName": "Shaw",
+              "firstName": "Geoffrey M",
+              "initials": "GM"
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "Thomas",
+              "initials": "T"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9989-4849"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2265-6065"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "volume": "2013",
+          "journalIssueId": 2004960,
+          "dateOfPublication": "2013 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2013,
+          "journal": {
+            "medlineAbbreviation": "Comput Math Methods Med",
+            "title": "Computational and mathematical methods in medicine",
+            "essn": "1748-6718",
+            "issn": "1748-670X",
+            "nlmid": "101277751",
+            "isoabbreviation": "Comput Math Methods Med"
+          },
+          "printPublicationDate": "2013-01-01"
+        },
+        "pubYear": "2013",
+        "pageInfo": "505417",
+        "abstractText": "<h4>Introduction</h4>The accuracy and clinical applicability of an improved model-based system for tracking hemodynamic changes is assessed in an animal study on septic shock.<h4>Methods</h4>This study used cardiovascular measurements recorded during a porcine trial studying the efficacy of large-pore hemofiltration for treating septic shock. Four Pietrain pigs were instrumented and induced with septic shock. A subset of the measured data, representing clinically available measurements, was used to identify subject-specific cardiovascular models. These models were then validated against the remaining measurements.<h4>Results</h4>The system accurately matched independent measures of left and right ventricle end diastolic volumes and maximum left and right ventricular pressures to percentage errors less than 20% (except for the 95th percentile error in maximum right ventricular pressure) and all R(2) > 0.76. An average decrease of 42% in systemic resistance, a main cardiovascular consequence of septic shock, was observed 120 minutes after the infusion of the endotoxin, consistent with experimentally measured trends. Moreover, modelled temporal trends in right ventricular end systolic elastance and afterload tracked changes in corresponding experimentally derived metrics.<h4>Conclusions</h4>These results demonstrate that this model-based method can monitor disease-dependent changes in preload, afterload, and contractility in porcine study of septic shock.",
+        "affiliation": "Department of Mechanical Engineering, Centre of Bioengineering, University of Canterbury, Private Bag 4800, Christchurch 8140, New Zealand. james.revie@hotmail.com",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Evaluation Study",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Swine"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Shock, Septic",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Cardiac Output"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Models, Statistical"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Reproducibility of Results"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Vascular Resistance"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Myocardial Contraction"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Models, Cardiovascular"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Time Factors"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Computer Simulation"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Hemodynamics"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://downloads.hindawi.com/journals/cmmm/2013/505417.pdf"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1155/2013/505417"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3621159"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3621159?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 6,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "Y",
+        "hasData": "N",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2013-08-28",
+        "dateOfCreation": "2013-04-16",
+        "dateOfRevision": "2021-10-21",
+        "electronicPublicationDate": "2013-03-25",
+        "firstPublicationDate": "2013-03-25",
+        "firstIndexDate": "2013-04-16",
+        "fullTextReceivedDate": "2025-02-05",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "21942971",
+        "source": "MED",
+        "pmid": "21942971",
+        "pmcid": "PMC3271239",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC3271239"
+          ]
+        },
+        "doi": "10.1186/1475-925x-10-86",
+        "title": "Mathematical multi-scale model of the cardiovascular system including mitral valve dynamics. Application to ischemic mitral insufficiency.",
+        "authorString": "Paeme S, Moorhead KT, Chase JG, Lambermont B, Kolh P, D'orio V, Pierard L, Moonen M, Lancellotti P, Dauby PC, Desaive T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Paeme S",
+              "lastName": "Paeme",
+              "firstName": "Sabine",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Cardiovascular Research Center, University of Liege, Liege, Belgium. sabine.paeme@ulg.ac.be"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Moorhead KT",
+              "lastName": "Moorhead",
+              "firstName": "Katherine T",
+              "initials": "KT"
+            },
+            {
+              "fullName": "Chase JG",
+              "lastName": "Chase",
+              "firstName": "J Geoffrey",
+              "initials": "JG",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9989-4849"
+              }
+            },
+            {
+              "fullName": "Lambermont B",
+              "lastName": "Lambermont",
+              "firstName": "Bernard",
+              "initials": "B"
+            },
+            {
+              "fullName": "Kolh P",
+              "lastName": "Kolh",
+              "firstName": "Philippe",
+              "initials": "P"
+            },
+            {
+              "fullName": "D'orio V",
+              "lastName": "D'orio",
+              "firstName": "Vincent",
+              "initials": "V"
+            },
+            {
+              "fullName": "Pierard L",
+              "lastName": "Pierard",
+              "firstName": "Luc",
+              "initials": "L"
+            },
+            {
+              "fullName": "Moonen M",
+              "lastName": "Moonen",
+              "firstName": "Marie",
+              "initials": "M"
+            },
+            {
+              "fullName": "Lancellotti P",
+              "lastName": "Lancellotti",
+              "firstName": "Patrizio",
+              "initials": "P"
+            },
+            {
+              "fullName": "Dauby PC",
+              "lastName": "Dauby",
+              "firstName": "Pierre C",
+              "initials": "PC"
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "Thomas",
+              "initials": "T"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9989-4849"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "volume": "10",
+          "journalIssueId": 2470148,
+          "dateOfPublication": "2011 Sep",
+          "monthOfPublication": 9,
+          "yearOfPublication": 2011,
+          "journal": {
+            "medlineAbbreviation": "Biomed Eng Online",
+            "title": "Biomedical engineering online",
+            "essn": "1475-925X",
+            "issn": "1475-925X",
+            "nlmid": "101147518",
+            "isoabbreviation": "Biomed Eng Online"
+          },
+          "printPublicationDate": "2011-09-01"
+        },
+        "pubYear": "2011",
+        "pageInfo": "86",
+        "abstractText": "<h4>Background</h4>Valve dysfunction is a common cardiovascular pathology. Despite significant clinical research, there is little formal study of how valve dysfunction affects overall circulatory dynamics. Validated models would offer the ability to better understand these dynamics and thus optimize diagnosis, as well as surgical and other interventions.<h4>Methods</h4>A cardiovascular and circulatory system (CVS) model has already been validated in silico, and in several animal model studies. It accounts for valve dynamics using Heaviside functions to simulate a physiologically accurate \"open on pressure, close on flow\" law. However, it does not consider real-time valve opening dynamics and therefore does not fully capture valve dysfunction, particularly where the dysfunction involves partial closure. This research describes an updated version of this previous closed-loop CVS model that includes the progressive opening of the mitral valve, and is defined over the full cardiac cycle.<h4>Results</h4>Simulations of the cardiovascular system with healthy mitral valve are performed, and, the global hemodynamic behaviour is studied compared with previously validated results. The error between resulting pressure-volume (PV) loops of already validated CVS model and the new CVS model that includes the progressive opening of the mitral valve is assessed and remains within typical measurement error and variability. Simulations of ischemic mitral insufficiency are also performed. Pressure-Volume loops, transmitral flow evolution and mitral valve aperture area evolution follow reported measurements in shape, amplitude and trends.<h4>Conclusions</h4>The resulting cardiovascular system model including mitral valve dynamics provides a foundation for clinical validation and the study of valvular dysfunction in vivo. The overall models and results could readily be generalised to other cardiac valves.",
+        "affiliation": "Cardiovascular Research Center, University of Liege, Liege, Belgium. sabine.paeme@ulg.ac.be",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Research Support, Non-U.S. Gov't",
+            "research-article",
+            "Validation Study",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Cardiovascular System"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Mitral Valve",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Mitral Valve Insufficiency"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Models, Cardiovascular"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Hemodynamics"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://biomedical-engineering-online.biomedcentral.com/counter/pdf/10.1186/1475-925X-10-86"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/1475-925X-10-86"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3271239"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3271239?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 15,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "Y",
+        "hasData": "N",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2012-01-19",
+        "dateOfCreation": "2011-09-28",
+        "dateOfRevision": "2021-10-20",
+        "electronicPublicationDate": "2011-09-24",
+        "firstPublicationDate": "2011-09-24",
+        "firstIndexDate": "2011-10-06",
+        "fullTextReceivedDate": "2025-02-02",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "32328151",
+        "source": "MED",
+        "pmid": "32328151",
+        "pmcid": "PMC7165357",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC7165357"
+          ]
+        },
+        "doi": "10.1155/2020/4503919",
+        "title": "Model-Based Weaning Tests for VA-ECLS Therapy.",
+        "authorString": "Habran S, Desaive T, Morimont P, Lambermont B, Dauby PC.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Habran S",
+              "lastName": "Habran",
+              "firstName": "Simon",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-3565-3330"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liège, GIGA-In Silico Medicine, Belgium."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "Thomas",
+              "initials": "T",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-0011-6022"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liège, GIGA-In Silico Medicine, Belgium."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Morimont P",
+              "lastName": "Morimont",
+              "firstName": "Philippe",
+              "initials": "P",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-4796-6737"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liège, GIGA-In Silico Medicine, Belgium."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lambermont B",
+              "lastName": "Lambermont",
+              "firstName": "Bernard",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liège, GIGA-Cardiovascular Sciences, Belgium."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Dauby PC",
+              "lastName": "Dauby",
+              "firstName": "Pierre C",
+              "initials": "PC",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7003-0059"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liège, GIGA-In Silico Medicine, Belgium."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3565-3330"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7003-0059"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-0011-6022"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-4796-6737"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "volume": "2020",
+          "journalIssueId": 2914992,
+          "dateOfPublication": "2020 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2020,
+          "journal": {
+            "medlineAbbreviation": "Comput Math Methods Med",
+            "title": "Computational and mathematical methods in medicine",
+            "essn": "1748-6718",
+            "issn": "1748-670X",
+            "nlmid": "101277751",
+            "isoabbreviation": "Comput Math Methods Med"
+          },
+          "printPublicationDate": "2020-01-01"
+        },
+        "pubYear": "2020",
+        "pageInfo": "4503919",
+        "abstractText": "Venoarterial extracorporeal life support (VA-ECLS) is used in ICUs (intensive care units) for the most extreme presentations of acute and severe cardiogenic shock, and one of the main issues the clinicians have to deal with is the weaning from VA-ECLS. In this study, a patient-specific model of the cardiovascular system connected to a VA-ECLS is built to improve the understanding of this complex system. Pig experiments are performed to validate the model, and the results are quite promising since the mean difference between experimental data and simulation is smaller than 5% for all the hemodynamic quantities. It is also a major objective of this paper to provide a proof-of-concept analysis that model-based approaches could improve the weaning strategy for VA-ECLS therapy.",
+        "affiliation": "University of Liège, GIGA-In Silico Medicine, Belgium.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Validation Study",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "F.R.S-FNRS",
+              "grantId": "T.1058.14",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Sus scrofa"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Shock, Cardiogenic",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  },
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "TH",
+                    "qualifierName": "therapy"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Disease Models, Animal"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Critical Care"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Extracorporeal Membrane Oxygenation",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "MT",
+                    "qualifierName": "methods"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "SN",
+                    "qualifierName": "statistics & numerical data"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Computational Biology"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Models, Cardiovascular"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Computer Simulation"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Hemodynamics",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Mathematical Concepts"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://downloads.hindawi.com/journals/cmmm/2020/4503919.pdf"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1155/2020/4503919"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC7165357"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC7165357?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 1,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "Y",
+        "hasData": "N",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2021-03-22",
+        "dateOfCreation": "2020-04-25",
+        "dateOfRevision": "2021-03-22",
+        "electronicPublicationDate": "2020-04-06",
+        "firstPublicationDate": "2020-04-06",
+        "firstIndexDate": "2020-04-25",
+        "fullTextReceivedDate": "2025-02-03",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "PMC3363646",
+        "source": "PMC",
+        "pmcid": "PMC3363646",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC3363646"
+          ]
+        },
+        "doi": "10.1186/cc10835",
+        "title": "Computer-based monitoring of global cardiovascular dynamics during acute pulmonary embolism and septic shock in swine",
+        "authorString": "Revie J, Stevenson D, Chase J, Lambermont B, Ghuysen A, Kolh P, Shaw G, Desaive T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Revie J",
+              "lastName": "Revie",
+              "firstName": "JA",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Canterbury, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Stevenson D",
+              "lastName": "Stevenson",
+              "firstName": "DJ",
+              "initials": "D",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Canterbury, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chase J",
+              "lastName": "Chase",
+              "firstName": "JG",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Canterbury, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lambermont B",
+              "lastName": "Lambermont",
+              "firstName": "BC",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ghuysen A",
+              "lastName": "Ghuysen",
+              "firstName": "A",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kolh P",
+              "lastName": "Kolh",
+              "firstName": "P",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shaw G",
+              "lastName": "Shaw",
+              "firstName": "GM",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Christchurch Hospital, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "T",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "Suppl 1",
+          "volume": "16",
+          "journalIssueId": 3023016,
+          "dateOfPublication": "2012 Jan",
+          "monthOfPublication": 1,
+          "yearOfPublication": 2012,
+          "journal": {
+            "medlineAbbreviation": "Crit Care",
+            "title": "Critical care (London, England)",
+            "essn": "1466-609X",
+            "issn": "1364-8535",
+            "nlmid": "9801902",
+            "isoabbreviation": "Crit Care"
+          },
+          "printPublicationDate": "2012-01-01"
+        },
+        "pubYear": "2012",
+        "pageInfo": "P228-P228",
+        "affiliation": "University of Canterbury, Christchurch, New Zealand",
+        "language": "eng",
+        "pubModel": "Undetermined",
+        "pubTypeList": {
+          "pubType": [
+            "Abstract"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "doi",
+              "site": "Unpaywall",
+              "url": "https://doi.org/10.1186/cc10835"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/cc10835"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "html",
+              "site": "PubMedCentral",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3363646/?tool=EBI"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "pdf",
+              "site": "PubMedCentral",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3363646/pdf/?tool=EBI"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3363646"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3363646?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-02-02",
+        "dateOfRevision": "2026-08-29",
+        "electronicPublicationDate": "2012-01-01",
+        "firstPublicationDate": "2012-01-01",
+        "firstIndexDate": "2012-06-01",
+        "fullTextReceivedDate": "2025-02-02",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "21603091",
+        "source": "MED",
+        "pmid": "21603091",
+        "pmcid": "PMC3098554",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC3098554"
+          ]
+        },
+        "doi": "10.2174/1874431101004010149",
+        "title": "Model-based prediction of the patient-specific response to adrenaline.",
+        "authorString": "Chase JG, Starfinger C, Hann CE, Revie JA, Stevenson D, Shaw GM, Desaive T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Chase JG",
+              "lastName": "Chase",
+              "firstName": "J Geoffrey",
+              "initials": "JG",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Centre for Bioengineering, University of Canterbury, Christchurch, New Zealand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Starfinger C",
+              "lastName": "Starfinger",
+              "firstName": "Christina",
+              "initials": "C"
+            },
+            {
+              "fullName": "Hann CE",
+              "lastName": "Hann",
+              "firstName": "Christopher E",
+              "initials": "CE"
+            },
+            {
+              "fullName": "Revie JA",
+              "lastName": "Revie",
+              "firstName": "James A",
+              "initials": "JA"
+            },
+            {
+              "fullName": "Stevenson D",
+              "lastName": "Stevenson",
+              "firstName": "Dave",
+              "initials": "D"
+            },
+            {
+              "fullName": "Shaw GM",
+              "lastName": "Shaw",
+              "firstName": "Geoffrey M",
+              "initials": "GM"
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "Thomas",
+              "initials": "T"
+            }
+          ]
+        },
+        "journalInfo": {
+          "volume": "4",
+          "journalIssueId": 1733758,
+          "dateOfPublication": "2010 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2010,
+          "journal": {
+            "medlineAbbreviation": "Open Med Inform J",
+            "title": "The open medical informatics journal",
+            "essn": "1874-4311",
+            "issn": "1874-4311",
+            "nlmid": "101480483",
+            "isoabbreviation": "Open Med Inform J"
+          },
+          "printPublicationDate": "2010-01-01"
+        },
+        "pubYear": "2010",
+        "pageInfo": "149-163",
+        "abstractText": "[abstract omitted: publisher copyright; see DOI/PMID]",
+        "affiliation": "Centre for Bioengineering, University of Canterbury, Christchurch, New Zealand.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Epinephrine",
+            "Cardiovascular system",
+            "Adrenaline",
+            "Parameter identification",
+            "mathematical model",
+            "Cardiac Model",
+            "Integral Method",
+            "Simulation."
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "http://benthamopen.com/contents/pdf/TOMINFOJ/TOMINFOJ-4-149.pdf"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.2174/1874431101004010149"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3098554"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3098554?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 12,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "license": "cc by-nc",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2012-08-30",
+        "dateOfCreation": "2011-05-24",
+        "dateOfRevision": "2024-03-21",
+        "electronicPublicationDate": "2010-07-29",
+        "firstPublicationDate": "2010-07-29",
+        "firstIndexDate": "2011-05-24",
+        "fullTextReceivedDate": "2025-02-02",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "21906388",
+        "source": "MED",
+        "pmid": "21906388",
+        "pmcid": "PMC3224493",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC3224493"
+          ]
+        },
+        "doi": "10.1186/2110-5820-1-33",
+        "title": "Clinical detection and monitoring of acute pulmonary embolism: proof of concept of a computer-based method.",
+        "authorString": "Revie JA, Stevenson DJ, Chase JG, Hann CE, Lambermont BC, Ghuysen A, Kolh P, Morimont P, Shaw GM, Desaive T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Revie JA",
+              "lastName": "Revie",
+              "firstName": "James A",
+              "initials": "JA",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Cardiovascular Research Center, University of Liege, Belgium. tdesaive@ulg.ac.be."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Stevenson DJ",
+              "lastName": "Stevenson",
+              "firstName": "David J",
+              "initials": "DJ"
+            },
+            {
+              "fullName": "Chase JG",
+              "lastName": "Chase",
+              "firstName": "J Geoffrey",
+              "initials": "JG"
+            },
+            {
+              "fullName": "Hann CE",
+              "lastName": "Hann",
+              "firstName": "Christopher E",
+              "initials": "CE"
+            },
+            {
+              "fullName": "Lambermont BC",
+              "lastName": "Lambermont",
+              "firstName": "Bernard C",
+              "initials": "BC"
+            },
+            {
+              "fullName": "Ghuysen A",
+              "lastName": "Ghuysen",
+              "firstName": "Alexandre",
+              "initials": "A"
+            },
+            {
+              "fullName": "Kolh P",
+              "lastName": "Kolh",
+              "firstName": "Philippe",
+              "initials": "P"
+            },
+            {
+              "fullName": "Morimont P",
+              "lastName": "Morimont",
+              "firstName": "Philippe",
+              "initials": "P"
+            },
+            {
+              "fullName": "Shaw GM",
+              "lastName": "Shaw",
+              "firstName": "Geoffrey M",
+              "initials": "GM"
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "Thomas",
+              "initials": "T"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "1",
+          "journalIssueId": 1863754,
+          "dateOfPublication": "2011 Aug",
+          "monthOfPublication": 8,
+          "yearOfPublication": 2011,
+          "journal": {
+            "medlineAbbreviation": "Ann Intensive Care",
+            "title": "Annals of intensive care",
+            "essn": "2110-5820",
+            "issn": "2110-5820",
+            "nlmid": "101562873",
+            "isoabbreviation": "Ann Intensive Care"
+          },
+          "printPublicationDate": "2011-08-01"
+        },
+        "pubYear": "2011",
+        "pageInfo": "33",
+        "abstractText": "<h4>Background</h4>The diagnostic ability of computer-based methods for cardiovascular system (CVS) monitoring offers significant clinical potential. This research tests the clinical applicability of a newly improved computer-based method for the proof of concept case of tracking changes in important hemodynamic indices due to the influence acute pulmonary embolism (APE).<h4>Methods</h4>Hemodynamic measurements from a porcine model of APE were used to validate the method. Of these measurements, only those that are clinically available or inferable were used in to identify pig-specific computer models of the CVS, including the aortic and pulmonary artery pressure, stroke volume, heart rate, global end diastolic volume, and mitral and tricuspid valve closure times. Changes in the computer-derived parameters were analyzed and compared with experimental metrics and clinical indices to assess the clinical applicability of the technique and its ability to track the disease state.<h4>Results</h4>The subject-specific computer models accurately captured the increase in pulmonary resistance (Rpul), the main cardiovascular consequence of APE, in all five pigs trials, which related well (R2 = 0.81) with the experimentally derived pulmonary vascular resistance. An increase in right ventricular contractility was identified, as expected, consistent with known reflex responses to APE. Furthermore, the modeled right ventricular expansion index (the ratio of right to left ventricular end diastolic volumes) closely followed the trends seen in the measured data (R2 = 0.92) used for validation, with sharp increases seen in the metric for the two pigs in a near-death state. These results show that the pig-specific models are capable of tracking disease-dependent changes in pulmonary resistance (afterload), right ventricular contractility (inotropy), and ventricular loading (preload) during induced APE. Continuous, accurate estimation of these fundamental metrics of cardiovascular status can help to assist clinicians with diagnosis, monitoring, and therapy-based decisions in an intensive care environment. Furthermore, because the method only uses measurements already available in the ICU, it can be implemented with no added risk to the patient and little extra cost.<h4>Conclusions</h4>This computer-based monitoring method shows potential for real-time, continuous diagnosis and monitoring of acute CVS dysfunction in critically ill patients.",
+        "affiliation": "Cardiovascular Research Center, University of Liege, Belgium. tdesaive@ulg.ac.be.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://annalsofintensivecare.springeropen.com/counter/pdf/10.1186/2110-5820-1-33"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/2110-5820-1-33"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3224493"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3224493?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 9,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2011-11-10",
+        "dateOfCreation": "2011-09-13",
+        "dateOfRevision": "2026-03-29",
+        "electronicPublicationDate": "2011-08-11",
+        "firstPublicationDate": "2011-08-11",
+        "firstIndexDate": "2011-09-13",
+        "fullTextReceivedDate": "2025-02-02",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "PMC3061647",
+        "source": "PMC",
+        "pmcid": "PMC3061647",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC3061647"
+          ]
+        },
+        "doi": "10.1186/cc9437",
+        "title": "Model-based cardiovascular monitoring of acute pulmonary embolism in porcine trials",
+        "authorString": "Revie J, Stevenson D, Chase J, Hann C, Lambermont B, Ghuysen A, Kolh P, Shaw G, Desaive T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Revie J",
+              "lastName": "Revie",
+              "firstName": "JA",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Canterbury, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Stevenson D",
+              "lastName": "Stevenson",
+              "firstName": "DJ",
+              "initials": "D",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Canterbury, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chase J",
+              "lastName": "Chase",
+              "firstName": "JG",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Canterbury, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hann C",
+              "lastName": "Hann",
+              "firstName": "CE",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Canterbury, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lambermont B",
+              "lastName": "Lambermont",
+              "firstName": "BC",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ghuysen A",
+              "lastName": "Ghuysen",
+              "firstName": "A",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kolh P",
+              "lastName": "Kolh",
+              "firstName": "P",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shaw G",
+              "lastName": "Shaw",
+              "firstName": "GM",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Christchurch Hospital, Christchurch, New Zealand"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "T",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege, Belgium"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "Suppl 1",
+          "volume": "15",
+          "journalIssueId": 3022977,
+          "dateOfPublication": "2011 Jan",
+          "monthOfPublication": 1,
+          "yearOfPublication": 2011,
+          "journal": {
+            "medlineAbbreviation": "Crit Care",
+            "title": "Critical care (London, England)",
+            "essn": "1466-609X",
+            "issn": "1364-8535",
+            "nlmid": "9801902",
+            "isoabbreviation": "Crit Care"
+          },
+          "printPublicationDate": "2011-01-01"
+        },
+        "pubYear": "2011",
+        "pageInfo": "P17-P17",
+        "affiliation": "University of Canterbury, Christchurch, New Zealand",
+        "language": "eng",
+        "pubModel": "Undetermined",
+        "pubTypeList": {
+          "pubType": [
+            "Abstract"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/cc9437"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "html",
+              "site": "PubMedCentral",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3061647/?tool=EBI"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "pdf",
+              "site": "PubMedCentral",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3061647/pdf/?tool=EBI"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3061647"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3061647?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-02-02",
+        "dateOfRevision": "2026-08-28",
+        "electronicPublicationDate": "2011-01-01",
+        "firstPublicationDate": "2011-01-01",
+        "firstIndexDate": "2011-03-25",
+        "fullTextReceivedDate": "2025-02-02",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "23363818",
+        "source": "MED",
+        "pmid": "23363818",
+        "pmcid": "PMC3610305",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC3610305"
+          ]
+        },
+        "doi": "10.1186/1475-925x-12-8",
+        "title": "A multi-scale cardiovascular system model can account for the load-dependence of the end-systolic pressure-volume relationship.",
+        "authorString": "Pironet A, Desaive T, Kosta S, Lucas A, Paeme S, Collet A, Pretty CG, Kolh P, Dauby PC.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Pironet A",
+              "lastName": "Pironet",
+              "firstName": "Antoine",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Liege (ULg), GIGA-Cardiovascular Sciences, Liege, Belgium. a.pironet@ulg.ac.be"
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Desaive T",
+              "lastName": "Desaive",
+              "firstName": "Thomas",
+              "initials": "T"
+            },
+            {
+              "fullName": "Kosta S",
+              "lastName": "Kosta",
+              "firstName": "Sarah",
+              "initials": "S"
+            },
+            {
+              "fullName": "Lucas A",
+              "lastName": "Lucas",
+              "firstName": "Alexandra",
+              "initials": "A"
+            },
+            {
+              "fullName": "Paeme S",
+              "lastName": "Paeme",
+              "firstName": "Sabine",
+              "initials": "S"
+            },
+            {
+              "fullName": "Collet A",
+              "lastName": "Collet",
+              "firstName": "Arnaud",
+              "initials": "A"
+            },
+            {
+              "fullName": "Pretty CG",
+              "lastName": "Pretty",
+              "firstName": "Christopher G",
+              "initials": "CG",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2265-6065"
+              }
+            },
+            {
+              "fullName": "Kolh P",
+              "lastName": "Kolh",
+              "firstName": "Philippe",
+              "initials": "P"
+            },
+            {
+              "fullName": "Dauby PC",
+              "lastName": "Dauby",
+              "firstName": "Pierre C",
+              "initials": "PC"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2265-6065"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "volume": "12",
+          "journalIssueId": 2495216,
+          "dateOfPublication": "2013 Jan",
+          "monthOfPublication": 1,
+          "yearOfPublication": 2013,
+          "journal": {
+            "medlineAbbreviation": "Biomed Eng Online",
+            "title": "Biomedical engineering online",
+            "essn": "1475-925X",
+            "issn": "1475-925X",
+            "nlmid": "101147518",
+            "isoabbreviation": "Biomed Eng Online"
+          },
+          "printPublicationDate": "2013-01-01"
+        },
+        "pubYear": "2013",
+        "pageInfo": "8",
+        "abstractText": "<h4>Background</h4>The end-systolic pressure-volume relationship is often considered as a load-independent property of the heart and, for this reason, is widely used as an index of ventricular contractility. However, many criticisms have been expressed against this index and the underlying time-varying elastance theory: first, it does not consider the phenomena underlying contraction and second, the end-systolic pressure volume relationship has been experimentally shown to be load-dependent.<h4>Methods</h4>In place of the time-varying elastance theory, a microscopic model of sarcomere contraction is used to infer the pressure generated by the contraction of the left ventricle, considered as a spherical assembling of sarcomere units. The left ventricle model is inserted into a closed-loop model of the cardiovascular system. Finally, parameters of the modified cardiovascular system model are identified to reproduce the hemodynamics of a normal dog.<h4>Results</h4>Experiments that have proven the limitations of the time-varying elastance theory are reproduced with our model: (1) preload reductions, (2) afterload increases, (3) the same experiments with increased ventricular contractility, (4) isovolumic contractions and (5) flow-clamps. All experiments simulated with the model generate different end-systolic pressure-volume relationships, showing that this relationship is actually load-dependent. Furthermore, we show that the results of our simulations are in good agreement with experiments.<h4>Conclusions</h4>We implemented a multi-scale model of the cardiovascular system, in which ventricular contraction is described by a detailed sarcomere model. Using this model, we successfully reproduced a number of experiments that have shown the failing points of the time-varying elastance theory. In particular, the developed multi-scale model of the cardiovascular system can capture the load-dependence of the end-systolic pressure-volume relationship.",
+        "affiliation": "University of Liege (ULg), GIGA-Cardiovascular Sciences, Liege, Belgium. a.pironet@ulg.ac.be",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Research Support, Non-U.S. Gov't",
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Sarcomeres"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Heart",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Heart Ventricles"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Dogs"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Blood Pressure"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Myocardial Contraction",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Models, Cardiovascular"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Computer Simulation"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Hemodynamics"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://biomedical-engineering-online.biomedcentral.com/counter/pdf/10.1186/1475-925X-12-8"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/1475-925X-12-8"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3610305"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC3610305?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 17,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "Y",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2013-07-29",
+        "dateOfCreation": "2013-02-01",
+        "dateOfRevision": "2021-10-21",
+        "electronicPublicationDate": "2013-01-30",
+        "firstPublicationDate": "2013-01-30",
+        "firstIndexDate": "2013-02-01",
+        "fullTextReceivedDate": "2025-02-02",
+        "hasEvaluations": "N"
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "sha": "2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c",
+  "node_id": "C_kwDOBDqB-toAKDJhYTUxNDhlNmY1NWQzYmJlZjQ5ZGRmMTliODk5ZDhlODE3YTNkNGM",
+  "commit": {
+    "author": {
+      "name": "maxneal",
+      "email": "maxneal@localhost",
+      "date": "2022-12-16T21:58:50Z"
+    },
+    "committer": {
+      "name": "maxneal",
+      "email": "maxneal@localhost",
+      "date": "2022-12-16T21:58:50Z"
+    },
+    "message": "Changed Force-driven flow dependency to Resistive flow dependency.",
+    "tree": {
+      "sha": "96103087829a7c0bef63cc617ee14a389d034bf1",
+      "url": "https://api.github.com/repos/SemBioProcess/OPB/git/trees/96103087829a7c0bef63cc617ee14a389d034bf1"
+    },
+    "url": "https://api.github.com/repos/SemBioProcess/OPB/git/commits/2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/SemBioProcess/OPB/commits/2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c",
+  "html_url": "https://github.com/SemBioProcess/OPB/commit/2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c",
+  "comments_url": "https://api.github.com/repos/SemBioProcess/OPB/commits/2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c/comments",
+  "author": null,
+  "committer": null,
+  "parents": [
+    {
+      "sha": "6e95e0fe3638090c79183325e5003ec669dfc7a7",
+      "url": "https://api.github.com/repos/SemBioProcess/OPB/commits/6e95e0fe3638090c79183325e5003ec669dfc7a7",
+      "html_url": "https://github.com/SemBioProcess/OPB/commit/6e95e0fe3638090c79183325e5003ec669dfc7a7"
+    }
+  ],
+  "stats": {
+    "total": 2,
+    "additions": 1,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "efa5167de69c715637a33c928147f2bec8c33e38",
+      "filename": "OPB.owl",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/SemBioProcess/OPB/blob/2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c/OPB.owl",
+      "raw_url": "https://github.com/SemBioProcess/OPB/raw/2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c/OPB.owl",
+      "contents_url": "https://api.github.com/repos/SemBioProcess/OPB/contents/OPB.owl?ref=2aa5148e6f55d3bbef49ddf19b899d8e817a3d4c",
+      "patch": "@@ -10056,7 +10056,7 @@ In a biological membrane, the reversal potential (also known as the Nernst poten\n \n All resistive dependencies relate a force (or force differential) to a flow-rate property which is a generalization on Ohm&apos;s law discovered by Georg Ohm in the mid-1820&apos;s using recently discovered galvanometers. Ohm&apos;s law refers strictly to cases where the force-flow relation is, at least approximately, linear. Non-linear dependencies abound both in the fields of engineering (e.g., electrical diodes) and biology (e.g., turbulent fluid flow, membrane channel mediated ion flow)</OPB_01768>\n         <rdfs:comment>A constitutive flow dependency by which a flow rate of a process depends on the gradient of forces the participating entities.</rdfs:comment>\n-        <rdfs:label xml:lang=\"en\">Force-driven flow dependency</rdfs:label>\n+        <rdfs:label xml:lang=\"en\">Resistive flow dependency</rdfs:label>\n     </owl:Class>\n     \n "
+    }
+  ]
+}
