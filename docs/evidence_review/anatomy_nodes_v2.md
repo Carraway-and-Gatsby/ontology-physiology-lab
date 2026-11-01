@@ -1,6 +1,6 @@
 # Anatomical node specification v2 (2026-11-01)
 
-Established under the user's directive that nodes be built from the latest knowledge. This page is the current node list for the Smith 2004 semantic layer. Propagated on 2026-11-01 to the SHACL shapes, fixtures and the workspace 267 translation (`shacl/`, rules S7 and the v2 identifier check); the project registry still carries v1 identifiers. Machine-readable copy: `anatomy_nodes_v2.json`.
+Established under the user's directive that nodes be built from the latest knowledge. This page is the current node list for the Smith 2004 semantic layer. Propagated on 2026-11-01 to the SHACL shapes, fixtures and the workspace 267 translation (`shacl/`, rules S7 and the v2 identifier check); the project registry uses the v2 identifiers for the nodes it refers to (blood, heart, both ventricles and ventricular cavities, the four valves) and keeps its peripheral compartments local (`decisions.md`, "Node specification v2 applied to the registry"). Machine-readable copy: `anatomy_nodes_v2.json`.
 
 ## Principles and their sources
 
