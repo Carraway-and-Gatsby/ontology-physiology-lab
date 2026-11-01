@@ -104,8 +104,9 @@ No escalation was needed. No task was retried.
 - Decision approved by the user (2026-11-01): time stamps count as
   equal when |dt| <= 1e-9 s, applied to the time axis only. Raw CSVs stay
   unmodified (no rounding or interpolation). Fixed before looking at value
-  differences. See decisions.md: this 1e-9 s value was the assistant's own
-  choice; a derived bound is proposed and awaits confirmation.
+  differences. Superseded the same day (user-approved, see decisions.md):
+  1e-9 s was the assistant's own choice and is replaced by the derived bound
+  |dt| <= N_steps * eps * t_max.
 - 2026-11-01 value-comparison basis (PubMed, text read unless noted):
   Pathmanathan & Gray 2013 (doi 10.3389/fphys.2013.00358), Pathmanathan &
   Gray 2014 (10.1002/cnm.2615; abstract plus Wiley passages), Erdemir 2020
@@ -114,8 +115,9 @@ No escalation was needed. No task was retried.
   (10.1016/j.medengphy.2003.10.001), Hicks 2015 (10.1115/1.4029304). Not read
   (outside PubMed): Celik 2008, Roache, ASME V&V 20/40, FDA 2023 guidance.
   User decision: report-only, no pass/fail line.
-- Proposed, awaiting user confirmation: add a third step size, 2.5e-6 s (run
-  C), so an observed order of convergence can be computed (two sizes cannot);
+- User-approved (2026-11-01), run C not yet requested or run: add a third step
+  size, 2.5e-6 s (run C), so an observed order of convergence can be computed
+  (two sizes cannot);
   expect it below the RK4 order of 4 near valve switches. Quantities of
   interest fixed beforehand: P_lv, P_ao, Q_av, stroke volume, valve
   open/close times. The independent scipy re-implementation stays blind
