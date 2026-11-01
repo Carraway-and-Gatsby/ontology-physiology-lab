@@ -208,21 +208,25 @@ No escalation was needed. No task was retried.
   `translate_ws267.py` and `run_shacl.py` exit 0 with the same output as
   here (controls 0 / 13 / 12; ws267 22 Violations, 7 Warnings, 46 Info).
   `ws267_omex_form.ttl` regenerates byte for byte; `report_ws267.json`
-  differs only in its Python version line (3.11.15 here). The SHACL
-  results therefore do not depend on this Mac's environment. This is a
-  reproduction test, not a check that the shapes are correct. Full command
-  log reviewed (`REPORT (2).txt`, SHA-256 `707e08f1…3cc6`, not retained):
-  pip installed from PyPI, so the network was available; the venv was made
-  from the server project's `.venv` Python. The six dependencies that
-  `requirements-shacl.txt` does not pin resolved to the same versions as
-  the local environment (html5lib 1.1, packaging 26.3, prettytable 3.18.0,
-  six 1.17.0, wcwidth 0.9.4, webencodings 0.6.1; the local Python 3.11 venv
-  also has importlib_metadata 10.1.0 and zipp 4.1.2). Because only the
-  four direct packages are pinned, a later install may resolve
-  differently. The log does not show the fetch or `git worktree add`
-  commands; its `git rev-parse HEAD` confirms baf499e. The server's other
-  worktrees stay at older commits (main tree d19e3bc, smith-c11 4b2e181,
-  smith-prov-runs 63d3ac1).
+  differs only in its Python version line (3.11.15 here). The SHACL results
+  therefore do not depend on this Mac's environment. This is a reproduction
+  test, not a check that the shapes are correct. Full command log reviewed
+  (`REPORT (2).txt`, SHA-256 `707e08f1…3cc6`, not retained): pip installed
+  from PyPI, so the network was available; the venv was made from the server
+  project's `.venv` Python. The six dependencies that
+  `requirements-shacl.txt` did not pin at baf499e resolved to the same
+  versions as the local environment (html5lib 1.1, packaging 26.3,
+  prettytable 3.18.0, six 1.17.0, wcwidth 0.9.4, webencodings 0.6.1; the
+  local Python 3.11 venv also has importlib_metadata 10.1.0 and zipp 4.1.2).
+  Only the four direct packages were pinned, so all of these were then
+  pinned in `requirements-shacl.txt` (the two 3.11-only ones with pyshacl's
+  own `python_version < "3.12"` marker). Fresh pip installs from that file
+  on Python 3.11.15 and 3.12.13 here land exactly the pinned set (12 and 10
+  packages, `pip check` clean) and reproduce the results; on 3.12 the report
+  differs only in its Python version line. The log does not show the fetch
+  or `git worktree add` commands; its `git rev-parse HEAD` confirms baf499e.
+  The server's other worktrees stay at older commits (main tree d19e3bc,
+  smith-c11 4b2e181, smith-prov-runs 63d3ac1).
 
 ## Open questions
 
