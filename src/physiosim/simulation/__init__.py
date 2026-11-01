@@ -2,11 +2,12 @@
 from dataclasses import dataclass
 
 import numpy as np
-from scipy.integrate import solve_ivp, trapezoid
+from scipy.integrate import trapezoid
 
 from physiosim.models.cardiovascular import (
-    COMPARTMENTS, FLOW_NAMES, Parameters, flows, pressures, rhs,
+    COMPARTMENTS, FLOW_NAMES, Parameters, flows, pressures,
 )
+from ._hybrid import integrate
 
 
 @dataclass
@@ -108,16 +109,6 @@ class SimulationResult:
         return result
 
 
-def _rhs_with_cumulative_flows(
-    time: float, state: np.ndarray, parameters: Parameters,
-) -> np.ndarray:
-    """Rates for six volumes followed by six cumulative edge flows."""
-    volume = state[:6]
-    volume_rate = rhs(time, volume, parameters)
-    flow = flows(pressures(time, volume, parameters), parameters)
-    return np.concatenate((volume_rate, flow))
-
-
 def simulate(
     parameters: Parameters | None = None,
     cycles: int = 40,
@@ -131,22 +122,22 @@ def simulate(
     """Integrate volume states; optionally integrate six cumulative flows.
 
     Tolerances are relative (dimensionless) and absolute (mL), respectively.
-    When ``cumulative_flows=True``, the scalar ``atol`` in mL applies to all 12
-    states: six volumes and six cumulative edge-flow integrals, initialized at
-    zero. At matched tolerances, volume error control is looser than in the
-    six-state run (measured; likely because the large cumulative states dilute
-    scipy's RMS error norm; see docs/physiology.md). Output sampling does not
-    control solver step size. No renormalization or positivity projection is
-    applied to the trajectory.
+    The ideal-diode valves are integrated as smooth regimes separated by
+    terminal pressure-gap events; activation boundaries also split integration.
+    With ``cumulative_flows=True``, the same scalar ``atol`` in mL applies to
+    six volumes and six local flow integrals. Integrals restart at zero at each
+    regime and their offsets are accumulated, avoiding error scales that grow
+    with run length. Output sampling does not control solver step size. No
+    renormalization or positivity projection is applied to the trajectory.
 
     Runge-Kutta (and linear multistep) methods preserve linear invariants of
     an ODE; dV/dt and dC/dt are built from the same evaluated flow vector, and
-    DOP853 dense output is linear in the stage values, so the invariant also
-    holds at ``t_eval`` samples up to roundoff (~eps*|C|). Consequently,
+    dense output is linear in the stage values, so the invariant also
+    holds at output samples up to roundoff (~eps*|C|). Consequently,
     near-zero augmented local balance residuals verify incidence/sign wiring
     and roundoff only, not cumulative-flow quadrature accuracy. Establish the
-    latter separately through tolerance refinement. Dense-output samples of
-    valve cumulative flows can decrease slightly near ideal-diode kinks.
+    latter separately through tolerance refinement. Interpolants are used
+    only on one side of a valve transition, not across its ideal-diode kink.
     """
     p = parameters if parameters is not None else Parameters()
     if not isinstance(cumulative_flows, bool):
@@ -161,27 +152,10 @@ def simulate(
         if not np.isscalar(value) or not np.isfinite(value) or value <= 0:
             raise ValueError(f"{name} must be finite and positive")
     time = np.linspace(0.0, cycles * p.period, cycles * samples_per_cycle + 1)
-    if cumulative_flows:
-        initial_state = np.concatenate((p.initial_volumes, np.zeros(6)))
-        solution = solve_ivp(
-            _rhs_with_cumulative_flows, (0.0, time[-1]), initial_state, args=(p,),
-            t_eval=time, method=method, rtol=rtol, atol=atol,
-            max_step=p.period / 100.0 if max_step is None else max_step,
-        )
-    else:
-        solution = solve_ivp(
-            rhs, (0.0, time[-1]), p.initial_volumes, args=(p,),
-            t_eval=time, method=method, rtol=rtol, atol=atol,
-            max_step=p.period / 100.0 if max_step is None else max_step,
-        )
-    if not solution.success:
-        raise RuntimeError(f"Cardiovascular integration failed: {solution.message}")
-    if cumulative_flows:
-        volume = solution.y[:6].T
-        cumulative = solution.y[6:].T
-    else:
-        volume = solution.y.T
-        cumulative = None
+    volume, cumulative = integrate(
+        p, time, cycles, cumulative_flows, method, rtol, atol,
+        p.period / 100.0 if max_step is None else max_step,
+    )
     pressure = np.array([pressures(t, v, p) for t, v in zip(time, volume)])
     flow = np.array([flows(pr, p) for pr in pressure])
     return SimulationResult(
