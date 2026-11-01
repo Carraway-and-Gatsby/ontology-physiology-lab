@@ -1,6 +1,6 @@
 {
  "title": "Anatomical node specification v2 (2026-11-01)",
- "status": "Propagated on 2026-11-01 to the SHACL shapes, fixtures and the workspace 267 translation (shacl/); the project registry still carries v1 identifiers.",
+ "status": "Propagated on 2026-11-01 to the SHACL shapes, fixtures and the workspace 267 translation (shacl/); the project registry uses the v2 identifiers for the nodes it refers to (blood, heart, both ventricles and ventricular cavities, the four valves) and keeps its peripheral compartments local (decisions.md, \"Node specification v2 applied to the registry\").",
  "ontology_versions": {
   "uberon": "2026-10-01 (http://purl.obolibrary.org/obo/uberon/releases/2026-10-01/uberon.owl), CC BY 3.0, OBO active",
   "fma": "5.1.0 (2026-05-15, uw-sig/FMA), CC BY 4.0, OBO inactive"
