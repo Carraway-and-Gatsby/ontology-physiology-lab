@@ -191,6 +191,11 @@ No escalation was needed. No task was retried.
   (C11). The six CellML initial volumes sum to the paper's 1500 mL stressed
   volume, and the 0.75 s period matches its 80 beats/min. Agreement with the
   published waveform (Figure 7) is still not checked.
+- 2026-11-01 user decision (decisions.md, "C1 units and the R13 numeric
+  block"): the CellML numerals are read as mmHg-based and existing OpenCOR
+  outputs labelled kPa are read as mmHg, with no conversion factor; no file
+  is edited. Numeric comparison with the CellML is no longer blocked and
+  stays report-only.
 
 ## Open questions
 
