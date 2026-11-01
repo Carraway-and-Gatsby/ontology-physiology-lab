@@ -15,4 +15,6 @@
 - Integration review corrected SV annotation to the actual flow-integrated metric, added executable numeric bindings, and limited gauge-pressure references to pressure variables.
 - Synthetic benchmark deliberately retains a false acceptance: actual RV output with falsely assigned LV metadata. Metadata validation is not numerical provenance validation.
 - Package was built as a wheel, installed in a separate environment, and executed twice in isolated Python mode. Numerical CSV replay and parsed summaries matched exactly on this host; no cross-platform identity claim.
+- Smith 2004 OpenCOR reference run (2026-11-01, user-approved): fixed-step RK4 replaces CVODE only, because the default run failed with a KINSOL iteration-limit error. KINSOL, model, parameters and units are unchanged; results are labelled RK4 and do not explain the CVODE failure.
+- Smith 2004 run comparison (2026-11-01, user-approved): output times are treated as equal when |dt| <= 1e-9 s (far below the 5e-6 s smaller step). Applies to the time axis only; raw CSVs are not altered, and the tolerance was fixed before inspecting value differences.
 - Current numerical baseline is elevated-pressure and all default values remain exploratory; no tuning was performed to manufacture normality or positive findings.

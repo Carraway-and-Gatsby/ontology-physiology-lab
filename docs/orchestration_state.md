@@ -86,6 +86,29 @@ No escalation was needed. No task was retried.
 - Reference input switched to the canonical CellML (SHA-256 `8cca17e8…3e60`);
   the integrator downloaded and hash-verified it outside the sandbox
   (2026-10-31 14:25:29 UTC). Simulation status: PROPOSED.
+- 2026-11-01 default run (CVODE + KINSOL) loaded the model but
+  `simulation.run()` failed: `std::runtime_error: the maximum number of
+  iterations was reached before convergence`. That wording matches KINSOL
+  (septum algebraic equation), not CVODE. Cause not established; a scipy
+  re-implementation (not the reference) points at the discontinuous valve
+  law at Q=0 but that is a hypothesis only.
+- 2026-11-01 user-approved solver deviation: OpenCOR's built-in fixed-step
+  fourth-order Runge-Kutta replaces CVODE only. KINSOL, the model, parameters
+  and units are unchanged. Two step sizes (1e-5 s and 5e-6 s) are run for a
+  step-halving comparison. Outputs are labelled "OpenCOR RK4", never as the
+  OpenCOR default-solver result. This does not show why CVODE failed.
+- Result of the approved runs: A and B both completed 1.5 s and wrote CSVs;
+  no KINSOL convergence error. The existing comparator rejects the pair
+  because output times differ at floating-point level, so the aggregate
+  status is still failed (comparator condition, not a failed calculation).
+- Decision approved by the user (2026-11-01): time stamps count as
+  equal when |dt| <= 1e-9 s, applied to the time axis only. Raw CSVs stay
+  unmodified (no rounding or interpolation). Fixed before looking at value
+  differences. Criteria for P_lv/P_ao/Q_av step-halving agreement are not
+  yet set and must be fixed before that comparison.
+- Not yet verified: negative Q_av, original-unit plausibility (pressures
+  labelled kPa behave numerically as mmHg), agreement with the published
+  waveform.
 
 ## Open questions
 
