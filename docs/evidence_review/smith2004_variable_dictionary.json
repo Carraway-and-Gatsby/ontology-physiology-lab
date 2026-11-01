@@ -623,7 +623,8 @@
    "unit_plausibility": "declared unit consistent with equations",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
-    "Paeme 2011 eq (4)": "C_1 = 0.27 s, D_1 = 1 s, citing Smith 2005 Control Eng Pract (not Smith 2004); CellML C = 0.375 s, period 0.75 s"
+    "Paeme 2011 eq (4)": "C_1 = 0.27 s, D_1 = 1 s, citing Smith 2005 Control Eng Pract (not Smith 2004); CellML C = 0.375 s, period 0.75 s",
+    "Smith 2004 author manuscript (card S6P)": "Eq. (5): C=0.27 for the single-chamber profile of Figure 3; closed-loop C not stated (C7)"
    }
   },
   {
@@ -660,7 +661,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0 mmHg/ml (sic; CellML 0.6913)"
@@ -703,7 +704,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "2.8798 mmHg/ml"
@@ -743,7 +744,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.3690 mmHg/ml"
@@ -783,7 +784,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0073 mmHg/ml"
@@ -825,7 +826,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.5850 mmHg/ml"
@@ -865,7 +866,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "48.7540 mmHg/ml"
@@ -905,7 +906,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0059 mmHg/ml"
@@ -951,10 +952,11 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
-    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.2189e-4 mmHg s^2/ml"
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.2189e-4 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "inertance at this valve is in the manuscript (p. 9, Figure 1); unit system mmHg s^2/ml (p. 17); value not given"
    }
   },
   {
@@ -997,10 +999,11 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
-    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "7.6968e-5 mmHg s^2/ml"
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "7.6968e-5 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "CONFLICT C9: the manuscript includes inertia only at the aortic and pulmonary outflow (p. 9, p. 13, Figure 1); no source located for a mitral/tricuspid inertance"
    }
   },
   {
@@ -1043,10 +1046,11 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
-    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.4868e-4 mmHg s^2/ml"
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.4868e-4 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "inertance at this valve is in the manuscript (p. 9, Figure 1); unit system mmHg s^2/ml (p. 17); value not given"
    }
   },
   {
@@ -1089,10 +1093,11 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
-    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "8.0093e-5 mmHg s^2/ml"
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "8.0093e-5 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "CONFLICT C9: the manuscript includes inertia only at the aortic and pulmonary outflow (p. 9, p. 13, Figure 1); no source located for a mitral/tricuspid inertance"
    }
   },
   {
@@ -1126,7 +1131,7 @@
    "reference_point_or_external_pressure": "EDPVR scale parameter",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.1203 mmHg"
@@ -1161,7 +1166,7 @@
    "reference_point_or_external_pressure": "pericardium EDPVR scale parameter",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.5003 mmHg"
@@ -1198,7 +1203,7 @@
    "reference_point_or_external_pressure": "EDPVR scale parameter",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.2157 mmHg"
@@ -1233,7 +1238,7 @@
    "reference_point_or_external_pressure": "EDPVR scale parameter (septum)",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.1101 mmHg"
@@ -1479,7 +1484,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure in the left ventricle (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "P_lvf",
@@ -1516,7 +1522,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure across the left ventricular free wall (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "P_pa",
@@ -1558,7 +1565,7 @@
     ],
     "direct_definition": []
    },
-   "reference_point_or_external_pressure": "P_pa = E_es_pa*(V_pa-V_d_pa) + P_th; includes P_th (E19)",
+   "reference_point_or_external_pressure": "P_pa = E_es_pa*(V_pa-V_d_pa) + P_th; includes P_th (E19); CONFLICT C3: the manuscript adds P_th only via P_peri (Eq. 14); no peripheral P_th term",
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
@@ -1604,7 +1611,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure across the pericardium wall (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "P_peri",
@@ -1647,7 +1655,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure in the pericardium (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "P_pu",
@@ -1689,7 +1698,7 @@
     ],
     "direct_definition": []
    },
-   "reference_point_or_external_pressure": "P_pu = E_es_pu*(V_pu-V_d_pu) + P_th; includes P_th (E21)",
+   "reference_point_or_external_pressure": "P_pu = E_es_pu*(V_pu-V_d_pu) + P_th; includes P_th (E21); CONFLICT C3: the manuscript adds P_th only via P_peri (Eq. 14); no peripheral P_th term",
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
@@ -1738,7 +1747,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure in the right ventricle (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "P_rvf",
@@ -1775,7 +1785,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "UNKNOWN: CellML declares kPa-based units, but Smith 2004 abstract (PubMed, verified) reports thoracic pressure \"-4 to 0 mmHg\" and arterial pressure \"120/80 mmHg\"; P_th = -4 and the simulated P_ao range 79-116 (Hermes run C) match mmHg magnitudes. Original paper not read; see evidence_review.md conflict C1.",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure across the right ventricular free wall (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "P_th",
@@ -1809,11 +1820,12 @@
    "reference_point_or_external_pressure": "constant parameter; external (thoracic) pressure, value -4 labelled kPa",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "-4 mmHg"
-   }
+   },
+   "definition_in_source_paper": "Pressure in the thoracic cavity (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "P_vc",
@@ -2216,7 +2228,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0180 mmHg s/ml"
@@ -2264,7 +2276,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0158 mmHg s/ml"
@@ -2360,7 +2372,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0055 mmHg s/ml"
@@ -2456,7 +2468,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C1: CellML label kPa-based; Paeme 2011 tabulates the identical numeral with mmHg-based units; Smith 2004 abstract reports mmHg; original 2004 paper not read.",
+   "unit_plausibility": "CONFLICT C1: CellML label is kPa-based; the 2004 manuscript uses mmHg/ml/s throughout and never kPa, but tabulates no parameter values; Paeme 2011 gives the same numeral with mmHg-based units. The kPa label is unsupported; lifting the numeric block is a pending project decision.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0237 mmHg s/ml"
@@ -2924,7 +2936,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Left ventricle volume (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "V_lvf",
@@ -2966,7 +2979,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Left ventricular free wall volume; \"not physical volumes\" (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "V_pa",
@@ -3050,7 +3064,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pericardium volume; excludes the volume of the atria and the myocardium (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "V_pu",
@@ -3138,7 +3153,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Right ventricle volume (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "V_rvf",
@@ -3180,7 +3196,8 @@
    "direction": "n/a",
    "temporal_meaning": "instantaneous value at simulation time t",
    "unit_plausibility": "declared unit consistent with equations",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Right ventricular free wall volume; \"not physical volumes\" (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "V_spt",
@@ -3198,7 +3215,7 @@
     "septum"
    ],
    "initial_or_parameter_value": null,
-   "role": "algebraic state solved from implicit equation E18 (nonlinear algebraic, needs NLA solver)",
+   "role": "algebraic state solved from implicit equation E18 (nonlinear algebraic, needs NLA solver) (manuscript Eq. 20: \"zero finding solutions\")",
    "defining_equation": null,
    "equation_infix": null,
    "depends_on": null,
@@ -3221,7 +3238,8 @@
    "direction": "n/a",
    "temporal_meaning": "UNKNOWN",
    "unit_plausibility": "declared unit consistent with equations",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Septum free wall volume; \"not physical volumes\" (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)"
   },
   {
    "variable": "V_tot",
@@ -3252,7 +3270,7 @@
    "reference_point_or_external_pressure": "n/a",
    "direction": "n/a",
    "temporal_meaning": "constant over run",
-   "unit_plausibility": "CONFLICT C2: CellML declares 5.5 mL; Paeme 2011 Table 3 gives 5.5 l; V_tot is used by no equation (E1-E32).",
+   "unit_plausibility": "CONFLICT C2 resolved as annotation defect: the manuscript simulates a total stressed blood volume of 1500 mL, equal to the sum of the six CellML initial volumes; V_tot (5.5, labelled mL) is unused by E1-E32 and fits 5.5 l total blood volume mislabelled.",
    "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
    "published_value_and_unit_in_derivative_literature": {
     "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "5.5 l"
@@ -3523,7 +3541,10 @@
    "direction": "n/a",
    "temporal_meaning": "constant over run",
    "unit_plausibility": "declared unit consistent with equations",
-   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)"
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Smith 2004 author manuscript (card S6P)": "\"a fixed heart rate of 80 beats/minute\" (p. 17) = 0.75 s, matching the CellML"
+   }
   },
   {
    "variable": "tau",
@@ -3590,14 +3611,18 @@
   }
  ],
  "open_items": [
-  "C1 unit labels kPa vs mmHg (original paper needed)",
-  "V_tot 5.5 mL vs L and unused",
+  "C1 kPa labels unsupported by the 2004 manuscript (mmHg throughout, no parameter table); lifting the numeric block is a pending decision",
+  "C2 resolved: V_tot is an unused, mislabelled total blood volume; the simulated stressed volume is the 1500 mL sum of initial volumes",
+  "C3 peripheral P_th terms (E19, E21; Revie also on P_vc) are not in the manuscript; source UNKNOWN",
+  "C7 period 0.75 s confirmed (80 bpm); closed-loop delay C = 0.375 s has no located source",
+  "C9 L_mt, L_tc (E29, E31) not in the manuscript, which has inertia only at aortic and pulmonary outflow",
+  "C10 E18 omits V_d/V_0 offsets present in manuscript Eq. 20 (no effect at current zero values)",
+  "C11 valve law: manuscript removes Q from the state vector; CellML holds dQ/dt = 0, so a negative Q is frozen (matches Hermes run C)",
   "V_spt implicit equation E18 solved by NLA; V_spt initial value absent",
   "Driver function E1 covers only 13 periods explicitly (14 beats per PMR note)",
   "SemSim ws267 annotates V_lvf/V_rvf/V_spt with OPB_01061 (van't Hoff law), a dependency class, not a property: reference-annotation defect",
   "SemSim ws267 free text for P_peri reads \"Pericardial blood volume\" while the property is Fluid pressure of Portion of pericardial fluid: text/annotation conflict",
   "SemSim ws267 free text for Q_av/R_av/L_av says \"atrial valve\" while the process is named \"Blood flow through aortic valve\": naming defect",
-  "C3 P_vc thoracic-pressure term: CellML E25 has none; Revie 2013 (A.3) includes +P_th on P_vc (and on P_pu, P_pa, not P_ao)",
-  "Driver timing: Paeme 2011 gives C_1 = 0.27 s, D_1 = 1 s citing Smith 2005; CellML uses C = 0.375 s, period 0.75 s; which the 2004 paper used is UNKNOWN"
+  "C3 P_vc thoracic-pressure term: CellML E25 has none; Revie 2013 (A.3) includes +P_th on P_vc (and on P_pu, P_pa, not P_ao)"
  ]
 }

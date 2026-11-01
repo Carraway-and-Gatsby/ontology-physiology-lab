@@ -1,0 +1,214 @@
+# Generic shapes for OMEX metadata v1.2 composite annotations of fluid-mechanics variables.
+# Each shape cites the rule it encodes. They check annotation structure only: conformance says
+# nothing about physiological validity, numeric values or units (see evidence_review.md section 5).
+#
+# Sources: OMEX metadata v1.2 (evidence_cards.md S16), SemGen annotation protocol step 5 (S21),
+# Gennari 2011 composite-annotation grammar (S1), decisions.md entries "C5 bearer form" and
+# "Pressure reference" (2026-11-01). OPB class labels and parents checked against OPB master
+# (docs/evidence/d_opb_master_excerpt_and_version_diff.json); FMA labels against OLS FMA 5.1.0.
+
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix bqbiol: <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim: <http://bime.uw.edu/semsim/> .
+@prefix dc:     <http://purl.org/dc/terms/> .
+@prefix opb:    <https://identifiers.org/opb:> .
+@prefix fma:    <https://identifiers.org/FMA:> .
+@prefix ps:     <https://example.org/physiosim/shapes#> .
+
+ps:prefixes
+    sh:declare [ sh:prefix "bqbiol" ; sh:namespace "http://biomodels.net/biology-qualifiers/"^^xsd:anyURI ] ,
+               [ sh:prefix "semsim" ; sh:namespace "http://bime.uw.edu/semsim/"^^xsd:anyURI ] ,
+               [ sh:prefix "dc"     ; sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ] ,
+               [ sh:prefix "opb"    ; sh:namespace "https://identifiers.org/opb:"^^xsd:anyURI ] ,
+               [ sh:prefix "fma"    ; sh:namespace "https://identifiers.org/FMA:"^^xsd:anyURI ] ,
+               [ sh:prefix "ps"     ; sh:namespace "https://example.org/physiosim/shapes#"^^xsd:anyURI ] .
+
+# G1. The physical property of an annotated variable is exactly one OPB *property* class.
+# Allowed list (all under OPB_00147 Physics property in OPB master):
+#   OPB_00509 Fluid pressure (< Flow-driving potential)      OPB_00154 Fluid volume (< Spatial amount)
+#   OPB_00299 Fluid flow rate (< Flow rate property)          OPB_00160 Fluid flow resistance (< Resistance)
+#   OPB_00076 Fluid volumetric elastance (< Elastance proportionality)
+#   OPB_00104 Fluid inertance (< Inertance proportionality)   OPB_00331 Volumetric capacitance (< Capacitance proportionality)
+# The list is a project choice for lumped haemodynamic models; dependency classes (for example
+# OPB_01061 "van't Hoff law of osmosis", under Physics dependency) are not properties.
+ps:G1_PropertyClass
+    a sh:NodeShape ;
+    rdfs:label "G1 physical property is one allowed OPB property class" ;
+    sh:targetSubjectsOf bqbiol:isVersionOf ;
+    sh:property [
+        sh:path bqbiol:isVersionOf ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( opb:OPB_00509 opb:OPB_00154 opb:OPB_00299 opb:OPB_00160 opb:OPB_00076 opb:OPB_00104 opb:OPB_00331 ) ;
+        sh:message "G1: bqbiol:isVersionOf must be exactly one OPB physical-property class from the allowed list (S16 §2.3.7.1; OPB property branch)" ;
+    ] .
+
+# G0. Entity, process and energy-differential properties need a bearer (S16 §2.2.7: two parts).
+ps:G0_BearerPresent
+    a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    rdfs:label "G0 pressure, volume and flow rate have a bearer" ;
+    sh:targetSubjectsOf bqbiol:isVersionOf ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "G0: {?p} annotation has no bqbiol:isPropertyOf bearer, so the composite annotation is incomplete (S16 §2.2.7)" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this ?p WHERE {
+                $this bqbiol:isVersionOf ?p .
+                FILTER ( ?p IN ( opb:OPB_00509, opb:OPB_00154, opb:OPB_00299 ) )
+                FILTER NOT EXISTS { $this bqbiol:isPropertyOf ?b }
+            }""" ;
+    ] .
+
+# G2. A fluid volume is a property of a portion of body fluid that is part of a container (S16 §2.3.7.1; C5).
+ps:G2_FluidVolumeBearer
+    a sh:NodeShape ;
+    rdfs:label "G2 fluid volume bearer is a fluid portion inside a cavity or lumen" ;
+    sh:targetSubjectsOf bqbiol:isVersionOf ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "G2a: fluid volume bearer {?b} is not a portion of body fluid (expected bqbiol:is fma:9670 or fma:9887; C5)" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this ?b WHERE {
+                $this bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ?b .
+                FILTER NOT EXISTS { ?b bqbiol:is ?f . FILTER ( ?f IN ( fma:9670, fma:9887 ) ) }
+            }""" ;
+    ] , [
+        a sh:SPARQLConstraint ;
+        sh:message "G2b: fluid portion {?b} bearing a fluid volume has no bqbiol:isPartOf container (C5)" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this ?b WHERE {
+                $this bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ?b .
+                ?b bqbiol:is ?f . FILTER ( ?f IN ( fma:9670, fma:9887 ) )
+                FILTER NOT EXISTS { ?b bqbiol:isPartOf ?c }
+            }""" ;
+    ] .
+
+# G3. A fluid pressure is a property of an energy differential, not of an entity (S16 §2.3.7.3; S21;
+# decisions.md "Pressure reference"). An energy differential is recognised by its source participant.
+ps:G3_PressureIsEnergyDifferential
+    a sh:NodeShape ;
+    rdfs:label "G3 fluid pressure bearer is an energy differential" ;
+    sh:targetSubjectsOf bqbiol:isVersionOf ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "G3: fluid pressure bearer {?b} is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this ?b WHERE {
+                $this bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf ?b .
+                FILTER ( NOT EXISTS { ?b semsim:hasSourceParticipant ?s } || EXISTS { ?b bqbiol:is ?e } )
+            }""" ;
+    ] .
+
+# G4. An energy differential has one source, at most one sink, and no mediators or stoichiometry
+# (S16 §2.3.7.3: "Mediators and stoichiometries are only used for process annotations").
+ps:G4_EnergyDifferentialForm
+    a sh:NodeShape ;
+    rdfs:label "G4 energy differential has one source, at most one sink, no mediator" ;
+    sh:targetSubjectsOf bqbiol:isVersionOf ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "G4: energy differential {?b} has {?ns} sources, {?nk} sinks and {?nm} mediators; expected 1, at most 1 and 0 (S16 §2.3.7.3)" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this ?b (COUNT(DISTINCT ?s) AS ?ns) (COUNT(DISTINCT ?k) AS ?nk) (COUNT(DISTINCT ?m) AS ?nm) WHERE {
+                $this bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf ?b .
+                ?b semsim:hasSourceParticipant ?s0 .
+                OPTIONAL { ?b semsim:hasSourceParticipant ?s }
+                OPTIONAL { ?b semsim:hasSinkParticipant ?k }
+                OPTIONAL { ?b semsim:hasMediatorParticipant ?m }
+            } GROUP BY $this ?b
+            HAVING ( COUNT(DISTINCT ?s) != 1 || COUNT(DISTINCT ?k) > 1 || COUNT(DISTINCT ?m) > 0 )""" ;
+    ] .
+
+# G5. A fluid flow rate is a property of a process with at least one source and one sink (S16 §2.3.7.2).
+ps:G5_FlowIsProcess
+    a sh:NodeShape ;
+    rdfs:label "G5 fluid flow rate bearer is a process with source and sink" ;
+    sh:targetSubjectsOf bqbiol:isVersionOf ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "G5: fluid flow rate bearer {?b} is not a process with at least one source and one sink participant (S16 §2.3.7.2)" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this ?b WHERE {
+                $this bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf ?b .
+                FILTER ( NOT EXISTS { ?b semsim:hasSourceParticipant ?s } || NOT EXISTS { ?b semsim:hasSinkParticipant ?k } )
+            }""" ;
+    ] .
+
+# G6. Every participant references exactly one physical entity, which is a fluid portion inside one
+# container (S16 §2.3.7.2-3; C5). This is where a reversed or wrong entity first becomes visible.
+ps:G6_ParticipantEntity
+    a sh:NodeShape ;
+    rdfs:label "G6 participant references one fluid portion in one container" ;
+    sh:targetSubjectsOf semsim:hasPhysicalEntityReference ;
+    sh:property [
+        sh:path semsim:hasPhysicalEntityReference ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:node ps:FluidPortion ;
+        sh:message "G6: participant must reference exactly one fluid portion that is part of exactly one container (C5)" ;
+    ] .
+
+ps:FluidPortion
+    a sh:NodeShape ;
+    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( fma:9670 fma:9887 ) ] ,
+                [ sh:path bqbiol:isPartOf ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+# G7. Constitutive (dependency) properties carry the property only, with no bearer (S16 §2.3.7.4:
+# "we advise annotators to only indicate the represented physical property"). Advisory, so Warning.
+ps:G7_ConstitutiveHasNoBearer
+    a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    rdfs:label "G7 constitutive property has no bearer" ;
+    sh:targetSubjectsOf bqbiol:isVersionOf ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "G7: constitutive property {?p} has a bearer {?b}; S16 §2.3.7.4 advises the property only, with role players read from the equation" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this ?p ?b WHERE {
+                $this bqbiol:isVersionOf ?p ; bqbiol:isPropertyOf ?b .
+                FILTER ( ?p IN ( opb:OPB_00160, opb:OPB_00076, opb:OPB_00104, opb:OPB_00331 ) )
+            }""" ;
+    ] .
+
+# G8. Containers are drawn from the FMA terms label-checked in this review (OLS FMA 5.1.0):
+#   9466 Cavity of left ventricle, 9291 Cavity of right ventricle, 12239 Lumen of aorta,
+#   280059 Set of lumens of vena cava trunks, 14167 Lumen of pulmonary trunk,
+#   52449 Lumen of pulmonary arterial tree, 52455 Lumen of pulmonary venous tree organ,
+#   11350 Pericardial cavity. Anything else may be correct but has not been checked: Warning.
+ps:G8_CheckedContainer
+    a sh:NodeShape ;
+    rdfs:label "G8 container is a label-checked FMA term" ;
+    sh:targetSubjectsOf bqbiol:isPartOf ;
+    sh:property [
+        sh:path bqbiol:isPartOf ;
+        sh:in ( fma:9466 fma:9291 fma:12239 fma:280059 fma:14167 fma:52449 fma:52455 fma:11350 ) ;
+        sh:severity sh:Warning ;
+        sh:message "G8: container is not one of the FMA terms label-checked in this review" ;
+    ] .
+
+# G9. Coverage: a variable described in free text but with no structured annotation (Info only;
+# S5 protocol step 1 asks for free text first, structured terms after).
+ps:G9_FreeTextOnly
+    a sh:NodeShape ;
+    sh:severity sh:Info ;
+    rdfs:label "G9 variable has free text only" ;
+    sh:targetSubjectsOf dc:description ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "G9: described in free text only; no structured property annotation" ;
+        sh:prefixes ps:prefixes ;
+        sh:select """
+            SELECT $this WHERE {
+                FILTER NOT EXISTS { $this bqbiol:isVersionOf ?p }
+                FILTER NOT EXISTS { $this bqbiol:is ?x }
+                FILTER NOT EXISTS { ?z bqbiol:isPropertyOf $this }
+            }""" ;
+    ] .

@@ -1,0 +1,493 @@
+{
+ "data": "ws267_omex_form.ttl (translated from docs/evidence/a_smith_2004.cellml)",
+ "conforms": false,
+ "controls_pass": true,
+ "counts_by_rule": {
+  "G0": {
+   "Warning": 4
+  },
+  "G1": {
+   "Violation": 3
+  },
+  "G2a": {
+   "Violation": 1
+  },
+  "G3": {
+   "Violation": 7
+  },
+  "G9": {
+   "Info": 46
+  },
+  "S2": {
+   "Violation": 2
+  },
+  "S3": {
+   "Violation": 1
+  }
+ },
+ "results": [
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pcd",
+   "code": "G0",
+   "severity": "Warning",
+   "message": "G0: https://identifiers.org/opb:OPB_00509 annotation has no bqbiol:isPropertyOf bearer, so the composite annotation is incomplete (S16 §2.2.7)",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pcd"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_spt",
+   "code": "G0",
+   "severity": "Warning",
+   "message": "G0: https://identifiers.org/opb:OPB_00154 annotation has no bqbiol:isPropertyOf bearer, so the composite annotation is incomplete (S16 §2.2.7)",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_spt"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_pa",
+   "code": "G0",
+   "severity": "Warning",
+   "message": "G0: https://identifiers.org/opb:OPB_00154 annotation has no bqbiol:isPropertyOf bearer, so the composite annotation is incomplete (S16 §2.2.7)",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_pa"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_spt",
+   "code": "G0",
+   "severity": "Warning",
+   "message": "G0: https://identifiers.org/opb:OPB_00154 annotation has no bqbiol:isPropertyOf bearer, so the composite annotation is incomplete (S16 §2.2.7)",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_spt"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_lvf",
+   "code": "G1",
+   "severity": "Violation",
+   "message": "G1: bqbiol:isVersionOf must be exactly one OPB physical-property class from the allowed list (S16 §2.3.7.1; OPB property branch)",
+   "value": "https://identifiers.org/opb:OPB_01061"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_rvf",
+   "code": "G1",
+   "severity": "Violation",
+   "message": "G1: bqbiol:isVersionOf must be exactly one OPB physical-property class from the allowed list (S16 §2.3.7.1; OPB property branch)",
+   "value": "https://identifiers.org/opb:OPB_01061"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_spt",
+   "code": "G1",
+   "severity": "Violation",
+   "message": "G1: bqbiol:isVersionOf must be exactly one OPB physical-property class from the allowed list (S16 §2.3.7.1; OPB property branch)",
+   "value": "https://identifiers.org/opb:OPB_01061"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pcd",
+   "code": "G2a",
+   "severity": "Violation",
+   "message": "G2a: fluid volume bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9869 is not a portion of body fluid (expected bqbiol:is fma:9670 or fma:9887; C5)",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pcd"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ao",
+   "code": "G3",
+   "severity": "Violation",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_12239 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ao"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lv",
+   "code": "G3",
+   "severity": "Violation",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_9466 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lv"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa",
+   "code": "G3",
+   "severity": "Violation",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_14167 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_peri",
+   "code": "G3",
+   "severity": "Violation",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9887 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_peri"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pu",
+   "code": "G3",
+   "severity": "Violation",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_52455 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pu"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rv",
+   "code": "G3",
+   "severity": "Violation",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_9291 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rv"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_vc",
+   "code": "G3",
+   "severity": "Violation",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_280059 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_vc"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#A",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#A"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#B",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#B"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#C",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#C"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_ao",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_ao"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_pa",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_pa"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_pu",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_pu"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_spt",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_spt"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_vc",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#E_es_vc"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_av",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_av"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_mt",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_mt"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_pv",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_pv"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_tc",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#L_tc"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_pcd",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_pcd"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_spt",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_0_spt"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ed_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ed_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ed_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ed_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_es_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_es_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_es_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_es_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_th",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_th"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_av",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_av"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_mt",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_mt"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_pul",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_pul"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_pv",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_pv"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_sys",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_sys"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_tc",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#R_tc"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_pcd",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_pcd"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_0_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_ao",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_ao"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_vc",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_d_vc"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_tot",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_tot"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#e_t",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#e_t"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_lvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_lvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_pcd",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_pcd"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_rvf",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_rvf"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_spt",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#lambda_spt"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#period",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#period"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#tau",
+   "code": "G9",
+   "severity": "Info",
+   "message": "G9: described in free text only; no structured property annotation",
+   "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#tau"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lvf",
+   "code": "S2",
+   "severity": "Violation",
+   "message": "S2: transmural free-wall pressure must be an energy differential with exactly one sink (manuscript Table 1, Figure 4; S21)",
+   "value": null
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rvf",
+   "code": "S2",
+   "severity": "Violation",
+   "message": "S2: transmural free-wall pressure must be an energy differential with exactly one sink (manuscript Table 1, Figure 4; S21)",
+   "value": null
+  },
+  {
+   "focus": "https://example.org/physiosim/dependency#cap_pa",
+   "code": "S3",
+   "severity": "Violation",
+   "message": "S3: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa (container https://identifiers.org/FMA:14167) and http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pa (container https://identifiers.org/FMA:52449) are linked by E19 but annotated to different containers",
+   "value": "https://example.org/physiosim/dependency#cap_pa"
+  }
+ ],
+ "environment": {
+  "python": "3.11.15",
+  "pyshacl": "0.26.0",
+  "rdflib": "7.6.0"
+ },
+ "sha256": {
+  "shapes_omex_v1_2.ttl": "6dd6eaa3dec0d048fc659b7c3beb7ea349821c3de18352ce3b79629ffd9871dc",
+  "shapes_smith2004.ttl": "712e68182e32f203c4669a89d8f630cf7fcd3d238c5515fd62e7de4d290fe9ef",
+  "smith2004_dependencies.ttl": "af7dfbe485289091f3942d6e9e44b40de9b7502f12d28e7fe088e1ce24ddbe39",
+  "ws267_omex_form.ttl": "bc50132fadc70ee4b60f9b0fb6ca587273d8ddbd22842930f4c1b03592b4de1b",
+  "expected_results.json": "7e1872b0a2740d94c2c1c6a96732cbc2f16e6ed0502801376cb21f7b69f99afd",
+  "fixtures/conforming.ttl": "05361a65f1c128bf5ba1802f6c7400a022554b12cebcf44897909717868ede82",
+  "fixtures/generic_violations.ttl": "8419cb0029e78d38053f430a230f4498efc35f64cdb495dfc96da2907feb8851",
+  "fixtures/smith_violations.ttl": "1befd1374d36e5ae3bc79f12e3ee155679f5e31f4f67adc170a171cef3278516"
+ }
+}

@@ -1,0 +1,89 @@
+# Smith 2004-specific shapes. They need knowledge the annotation itself cannot carry: which
+# pressures are chamber pressures and which are transmural (Smith 2004 manuscript Table 1 and
+# Figure 4, card S6P; S21), and which variables an equation links (smith2004_dependencies.ttl,
+# taken from the canonical CellML equations E7-E32; OMEX v1.2 §2.3.7.4 says role players come
+# from the equations).
+# Not covered: P_pcd (its sink, the thoracic-cavity contents, has no selected FMA entity) and
+# P_th's own source entity; both stay UNKNOWN (S21).
+
+@prefix sh:        <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bqbiol:    <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim:    <http://bime.uw.edu/semsim/> .
+@prefix opb:       <https://identifiers.org/opb:> .
+@prefix ps:        <https://example.org/physiosim/shapes#> .
+@prefix dep:       <https://example.org/physiosim/dependency#> .
+@prefix OMEXmodel: <http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+
+ps:smithPrefixes
+    sh:declare [ sh:prefix "bqbiol" ; sh:namespace "http://biomodels.net/biology-qualifiers/"^^xsd:anyURI ] ,
+               [ sh:prefix "semsim" ; sh:namespace "http://bime.uw.edu/semsim/"^^xsd:anyURI ] ,
+               [ sh:prefix "dep"    ; sh:namespace "https://example.org/physiosim/dependency#"^^xsd:anyURI ] .
+
+# S1. Chamber pressures ("Pressure in the ..." in manuscript Table 1) have no sink: their reference
+# is the model's common ground (S21; decisions.md "Pressure reference").
+ps:S1_ChamberPressureNoSink
+    a sh:NodeShape ;
+    rdfs:label "S1 chamber pressure has no sink" ;
+    sh:targetNode OMEXmodel:P_lv , OMEXmodel:P_rv , OMEXmodel:P_ao , OMEXmodel:P_vc ,
+                  OMEXmodel:P_pa , OMEXmodel:P_pu , OMEXmodel:P_peri , OMEXmodel:P_th ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf semsim:hasSinkParticipant ) ;
+        sh:maxCount 0 ;
+        sh:message "S1: chamber pressure must have no sink; its reference is the common ground (S21, decisions.md)" ;
+    ] .
+
+# S2. Free-wall pressures ("Pressure across the ... free wall", Table 1; Figure 4) are transmural:
+# exactly one sink, the contents of the pericardial space. Absence of an annotation is reported.
+ps:S2_FreeWallPressureOneSink
+    a sh:NodeShape ;
+    rdfs:label "S2 free-wall pressure has exactly one sink" ;
+    sh:targetNode OMEXmodel:P_lvf , OMEXmodel:P_rvf ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf semsim:hasSinkParticipant ) ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "S2: transmural free-wall pressure must be an energy differential with exactly one sink (manuscript Table 1, Figure 4; S21)" ;
+    ] .
+
+# S3. A pressure and the volume its pressure law depends on describe the same blood: the pressure's
+# source entity and the volume's bearer share one container (capacitive dependencies, dependency file).
+# The path also follows an entity-form bearer, so pre-OMEX annotations are compared too.
+ps:S3_CapacitivePairSameContainer
+    a sh:NodeShape ;
+    rdfs:label "S3 pressure and its volume share a container" ;
+    sh:targetClass opb:OPB_01543 ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "S3: {?p} (container {?cp}) and {?v} (container {?cv}) are linked by {?eq} but annotated to different containers" ;
+        sh:prefixes ps:smithPrefixes ;
+        sh:select """
+            SELECT $this ?p ?v ?cp ?cv ?eq WHERE {
+                $this dep:pressure ?p ; dep:amount ?v ; dep:equation ?eq .
+                ?p bqbiol:isPropertyOf/(semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference)?/bqbiol:isPartOf ?cp .
+                ?v bqbiol:isPropertyOf/bqbiol:isPartOf ?cv .
+                FILTER ( ?cp != ?cv )
+            }""" ;
+    ] .
+
+# S4. Flow direction agrees with the driving pressure difference: the flow's source blood is in the
+# upstream pressure's container and its sink blood in the downstream one (E27-E32).
+ps:S4_FlowDirectionMatchesEquation
+    a sh:NodeShape ;
+    rdfs:label "S4 flow source and sink match the equation's pressure difference" ;
+    sh:targetClass opb:OPB_01541 , opb:OPB_01572 ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "S4: {?q} has source in {?cs} and sink in {?ck}, but {?eq} drives it from {?cu} to {?cd}" ;
+        sh:prefixes ps:smithPrefixes ;
+        sh:select """
+            SELECT $this ?q ?cs ?ck ?cu ?cd ?eq WHERE {
+                $this dep:flow ?q ; dep:upstreamPressure ?pu ; dep:downstreamPressure ?pd ; dep:equation ?eq .
+                ?q bqbiol:isPropertyOf ?proc .
+                ?proc semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference/bqbiol:isPartOf ?cs .
+                ?proc semsim:hasSinkParticipant/semsim:hasPhysicalEntityReference/bqbiol:isPartOf ?ck .
+                ?pu bqbiol:isPropertyOf/(semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference)?/bqbiol:isPartOf ?cu .
+                ?pd bqbiol:isPropertyOf/(semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference)?/bqbiol:isPartOf ?cd .
+                FILTER ( ?cs != ?cu || ?ck != ?cd )
+            }""" ;
+    ] .

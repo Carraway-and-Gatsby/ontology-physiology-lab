@@ -181,6 +181,16 @@ No escalation was needed. No task was retried.
 - Not yet verified: negative Q_av, original-unit plausibility (pressures
   labelled kPa behave numerically as mmHg), agreement with the published
   waveform.
+- 2026-11-01 update from the Smith 2004 author manuscript (card S6P in
+  docs/evidence_review/evidence_cards.md; quotations only, file not
+  retained): the paper uses mmHg, ml and s throughout and never kPa, but
+  has no parameter table (C1). Its valve law removes Q from the state
+  vector when Q turns negative, whereas the CellML holds dQ/dt = 0, so a
+  negative Q reached in one step is frozen; this is consistent with the run
+  C negative-Q_av observation being an artefact of the CellML encoding
+  (C11). The six CellML initial volumes sum to the paper's 1500 mL stressed
+  volume, and the 0.75 s period matches its 80 beats/min. Agreement with the
+  published waveform (Figure 7) is still not checked.
 
 ## Open questions
 

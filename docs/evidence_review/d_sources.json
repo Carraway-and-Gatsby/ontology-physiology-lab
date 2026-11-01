@@ -234,6 +234,13 @@
    "how": "curl of the landing page",
    "result": "paywalled: IOPscience login, IPEM member access, Article Galaxy, CCC RightFind, rent",
    "retained": "nothing"
+  },
+  {
+   "what": "Smith BW, Chase JG, Nokes RI, Shaw GM, Wake G, author manuscript of \"Minimal haemodynamic system model including ventricular interaction and valve dynamics\" (LaTeX, 36 pp., PDF CreationDate 2003-08-27)",
+   "how": "provided by the user as ~/Downloads/content.pdf on 2026-11-01; text extracted with pypdf 5.1.0, Figures 1 and 4 rendered with pypdfium2 4.30.0 in an isolated scratch environment",
+   "sha256": "e3e554d110e943b1814d379881c8c4227eb23e6729c46b2ebd37f9bb297213e3",
+   "license": "UNKNOWN; pre-acceptance manuscript of an article whose copyright belongs to the publisher; repository rights statement unreadable (Cloudflare)",
+   "retained": "quotations with page numbers in evidence_cards.md S6P only"
   }
  ],
  "sha256": {

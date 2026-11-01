@@ -1,0 +1,46 @@
+# Positive control: a correct OMEX v1.2 annotation of a subset of the Smith variables, following
+# decisions.md (C5 bearer form; pressure reference as energy-differential sink). Expected: no
+# Violation, Warning or Info results from either shapes file (with smith2004_dependencies.ttl loaded,
+# only the dependencies whose variables are present here can fire).
+@prefix bqbiol:    <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim:    <http://bime.uw.edu/semsim/> .
+@prefix dc:        <http://purl.org/dc/terms/> .
+@prefix opb:       <https://identifiers.org/opb:> .
+@prefix fma:       <https://identifiers.org/FMA:> .
+@prefix OMEXmodel: <http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#> .
+@prefix local:     <http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#> .
+
+local:blood_lv  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:9466 .
+local:blood_rv  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:9291 .
+local:blood_ao  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:12239 .
+local:pericardial_fluid bqbiol:is fma:9887 ; bqbiol:isPartOf fma:11350 .
+
+OMEXmodel:V_lv bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_lv ; dc:description "Left ventricle volume" .
+OMEXmodel:V_ao bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_ao .
+
+OMEXmodel:P_lv bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_lv .
+local:ed_P_lv semsim:hasSourceParticipant local:ed_P_lv_src .
+local:ed_P_lv_src semsim:hasPhysicalEntityReference local:blood_lv .
+
+OMEXmodel:P_ao bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_ao .
+local:ed_P_ao semsim:hasSourceParticipant local:ed_P_ao_src .
+local:ed_P_ao_src semsim:hasPhysicalEntityReference local:blood_ao .
+
+OMEXmodel:P_lvf bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_lvf .
+local:ed_P_lvf semsim:hasSourceParticipant local:ed_P_lvf_src ; semsim:hasSinkParticipant local:ed_P_lvf_snk .
+local:ed_P_lvf_src semsim:hasPhysicalEntityReference local:blood_lv .
+local:ed_P_lvf_snk semsim:hasPhysicalEntityReference local:pericardial_fluid .
+
+OMEXmodel:P_rvf bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_rvf .
+local:ed_P_rvf semsim:hasSourceParticipant local:ed_P_rvf_src ; semsim:hasSinkParticipant local:ed_P_rvf_snk .
+local:ed_P_rvf_src semsim:hasPhysicalEntityReference local:blood_rv .
+local:ed_P_rvf_snk semsim:hasPhysicalEntityReference local:pericardial_fluid .
+
+OMEXmodel:Q_av bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_av .
+local:proc_av semsim:hasSourceParticipant local:proc_av_src ; semsim:hasSinkParticipant local:proc_av_snk ;
+    dc:description "Blood flow through aortic valve" .
+local:proc_av_src semsim:hasPhysicalEntityReference local:blood_lv .
+local:proc_av_snk semsim:hasPhysicalEntityReference local:blood_ao .
+
+OMEXmodel:R_av bqbiol:isVersionOf opb:OPB_00160 ; dc:description "Aortic valve resistance" .
+OMEXmodel:L_av bqbiol:isVersionOf opb:OPB_00104 .

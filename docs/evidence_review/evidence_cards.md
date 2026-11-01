@@ -412,6 +412,39 @@ Our interpretation: canine, re-identified parameters, so no numerals match the C
 
 ---
 
+## S6P Smith, Chase, Nokes, Shaw, Wake — author manuscript of the 2004 article (primary text)
+
+- File: `content.pdf`, 36 pages, provided by the user 2026-11-01; PDF producer "pdfTeX-0.14d", creator "LaTeX with hyperref package", CreationDate 2003-08-27 09:05. SHA-256 `e3e554d110e943b1814d379881c8c4227eb23e6729c46b2ebd37f9bb297213e3`. The filename matches a University of Canterbury repository bitstream; the exact URL is UNKNOWN.
+- Version: a pre-acceptance author manuscript (the journal DOI 10.1016/j.medengphy.2003.10.001 dates from October 2003). Differences from the published version are UNKNOWN. Copyright of the published article belongs to its publisher; the repository rights statement could not be read (Cloudflare). Not retained in the repository; quotations only.
+- Access: text extracted with pypdf 5.1.0 and read in full; Figures 1 and 4 rendered with pypdfium2 4.30.0 and inspected. Page numbers below are the manuscript's printed page numbers.
+
+Quotations
+
+1. [p. 7, Eqs. 1-2] `Pes(V) = Ees(V − Vd)`; `Ped(V) = A(e^{λ(V−Vo)} − 1)`, "with elastance (E es) and the volume at zero pressure (Vd)" and "the parameters A, λ, and V0". → dictionary meanings of E_es, V_d, P_0 (called A here), λ, V_0.
+2. [p. 8, Eqs. 3-5] `P2(V,t) = e(t)Ees(V − Vd) + (1 − e(t))A(e^{λ(V−Vo)} − 1)`; driver `e(t) = Σ Ai e^{−Bi(t−Ci)^2}`; "To produce the proﬁle in Figure 3, A=1, B=80, C=0.27 and N=1 were used." → C7.
+3. [p. 9] "This model only includes inertial eﬀects where the velocity ﬂuctuations are signiﬁcant, such as in the aorta and the pulmonary artery. Elsewhere, Equation (6) is used." → C9.
+4. [p. 10] "The free wall volumes, V lvf, V rvf and V spt, are not physical volumes, but are deﬁned to capture the deﬂection of the cardiac free walls relative to the ventricle volumes." → R3, C6 (no fluid-volume bearer exists for these).
+5. [p. 11, Eqs. 11-14] `Vpcd = Vlv + Vrv = Vlvf + Vrvf`; "The total volume of the pericardium deﬁned excludes the volume of the atria and the myocardium"; `Plv = Plvf + Pperi`; `Prv = Prvf + Pperi`; `Pperi = Ppcd + Pth`. → R4; Q1 pressure composition.
+6. [p. 12, Eq. 18] "the pressure across the pericardium wall is deﬁned by the following non-linear PV relationship": `Ppcd(Vpcd) = P0,pcd(e^{λpcd(Vpcd−V0,pcd)} − 1)`.
+7. [p. 13] peripheral chambers: "the model employs the linear PV relationship in Equation (1), requiring only E es and V d. The eﬀects of inertia are not included in the peripheral resistances, (R sys and R pul) and the systemic and pulmonary veins (R pu and R vc)". → C3, C9.
+8. [pp. 14-15] valve law: "During ejection and ﬁlling, the state vector consists of the volume and a ﬂow rate out or in respectively. During isovolumetric contraction and relaxation, only the volume (V) is required." "When a ﬂow rate (Q) becomes negative, it is removed from the state vector to account for the valve closing in the absence of ﬂow. When a pressure gradient becomes negative, favouring forward ﬂow, the associated ﬂow rate is reincluded in the state vector". → C11.
+9. [p. 15, Eq. 20] septum balance with `(Vlv − Vspt − Vd,lvf)`, `(Vlv−Vspt−Vo,lvf)`, `(Vrv + Vspt − Vd,rvf)`, `(Vrv+Vspt−Vo,rvf)`; "Equation (20) can be used to determine V spt given V lv and V rv via zero ﬁnding solutions." → C10; matches the CellML's algebraic V_spt.
+10. [p. 17] "Simulations were also run with inertial eﬀects included where the inertance (L) has been set to a very small value (L = 10^−6 mmHg s^2/ml)." → C1 (unit system).
+11. [p. 17] "A ﬁxed heart rate of 80 beats/minute, and a total stressed blood volume of 1500 milli-litres are used to match normal human parameters". → C2, C7.
+12. [p. 17] "The return pressure entering the right heart (P vc) is typically around 0 mmHg, but can be negative since the average pressure in the thoracic cavity is generally about -4 mmHg." → C3 context; a statement about target physiology, not a model equation.
+13. [p. 36, Table 1] "Pperi Pressure in the pericardium"; "Pth Pressure in the thoracic cavity"; "Plvf Pressure across the left ventricular free wall"; "Ppcd Pressure across the pericardium wall"; "Vspt Septum free wall volume"; "Vpcd Pericardium volume". → Q1, S21.
+14. [Figure 1, p. 25] inductors drawn only as "L.av" and "L.pv"; nodes "P.ra" and "P.la" appear at the tricuspid and mitral inlets with no equation; no thoracic boundary is drawn. → C3, C9.
+15. [Figure 4, p. 28] P_lvf and P_rvf drawn across the free walls between the cavity and the pericardial space (P_peri); P_pcd drawn across the pericardium between P_peri and P_th; P_th outside the pericardium. → S21 reading of sources and sinks.
+
+Author claim / our interpretation / independent confirmation
+
+- Claim: a six-chamber model in mmHg, ml and s; P_th acts on the ventricles through the pericardium; inertia only at the aortic and pulmonary outflow; valves implemented by changing the state vector.
+- Our reading: the manuscript is the strongest evidence yet against the CellML's kPa labels (C1), shows V_tot is not the simulated volume (C2), and leaves three CellML features without a located source: peripheral P_th terms (C3), inflow inertances (C9) and the closed-loop driver delay (C7). Table 1 and Figure 4 confirm the S21 source/sink reading for P_lvf, P_rvf, P_pcd and P_peri.
+- Independent confirmation: the CellML initial volumes sum to 1500.0 mL, and the CellML period 0.75 s equals 80 beats/min (computed from `a_smith_2004_canonical.cellml`). The parameter numerals themselves are not in the manuscript; their mmHg reading still rests on Paeme 2011 (S17).
+- Limits: pre-acceptance version; no parameter table; Figure 7 waveforms were not digitised, so agreement with the Hermes runs is not checked.
+
+---
+
 ## S20 Smith BW 2004 — Minimal haemodynamic modelling of the heart & circulation for clinical application (PhD thesis, University of Canterbury)
 
 - Located 2026-11-01, not retrieved. Repository item: https://ir.canterbury.ac.nz/items/5857d987-bd44-4483-be63-4386a964d6d6. Bitstreams: https://ir.canterbury.ac.nz/server/api/core/bitstreams/fdab391f-f441-4288-a7c0-ca22d8624287/content (search-engine title "Minimal HaemodynaIllic Modelling of the Heart & Circulation for Clinical", an OCR-style rendering) and https://ir.canterbury.ac.nz/server/api/core/bitstreams/13666539-671d-46a9-8692-53ad68a1eaa8/content (content not identified).
