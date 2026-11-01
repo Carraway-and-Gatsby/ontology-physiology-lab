@@ -1,7 +1,9 @@
 """Validate Smith 2004 annotations with the SHACL shapes in this folder.
 
 1. Checks every entry of smith2004_dependencies.ttl against the equations in
-   ../smith2004_variable_dictionary.json (flow sign and capacitive chain).
+   ../smith2004_variable_dictionary.json (flow sign and capacitive chain), and checks that every
+   anatomical identifier used by the shapes and dependencies is a primary identifier of the node
+   specification v2 (../anatomy_nodes_v2.json).
 2. Runs the three control fixtures and requires exactly the results in expected_results.json.
 3. Validates ws267_omex_form.ttl (the translated SemSim annotation of PMR workspace 267) and writes
    report_ws267.json and report_ws267.md. Non-conformance of ws267 is a finding, not a failure.
@@ -81,6 +83,25 @@ def check_dependencies():
     return problems
 
 
+def check_v2_identifiers():
+    """Every UBERON/FMA identifier in the shapes and dependency file must be a v2 primary identifier."""
+    spec = json.loads((HERE.parent / 'anatomy_nodes_v2.json').read_text())
+    primary = {n['uberon'] if n['primary'] == 'UBERON' else n['fma'] for n in spec['nodes']}
+    primary = {('https://identifiers.org/' + c) for c in primary}
+    used = set()
+    for name in ('shapes_omex_v1_2.ttl', 'shapes_smith2004.ttl', 'smith2004_dependencies.ttl'):
+        g = load(name)
+        for term in g.all_nodes():
+            s = str(term)
+            if isinstance(term, URIRef) and re.match(r'https://identifiers\.org/(UBERON|FMA):', s):
+                used.add(s)
+            elif not isinstance(term, URIRef):  # SPARQL strings use prefixed names
+                for pfx, num in re.findall(r'\b(uberon|fma):(\d+)', s):
+                    used.add(f'https://identifiers.org/{pfx.upper()}:{num}')
+    stray = sorted(used - primary)
+    return [f'not a v2 primary identifier: {s}' for s in stray], len(used)
+
+
 def validate(data_files, shape_files, with_deps):
     data = load(*data_files, *(['smith2004_dependencies.ttl'] if with_deps else []))
     shapes = load(*shape_files)
@@ -108,6 +129,9 @@ def main():
     problems = check_dependencies()
     print('dependency check:', 'ok' if not problems else problems)
     ok &= not problems
+    v2_problems, n_used = check_v2_identifiers()
+    print(f'v2 identifier check ({n_used} anatomical identifiers):', 'ok' if not v2_problems else v2_problems)
+    ok &= not v2_problems
 
     expected = json.loads((HERE / 'expected_results.json').read_text())
     for fixture in ('conforming', 'generic_violations', 'smith_violations'):

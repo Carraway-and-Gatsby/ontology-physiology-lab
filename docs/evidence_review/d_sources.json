@@ -161,6 +161,20 @@
    "retrieved_at_utc": "2026-11-01T10:05:08Z",
    "license_or_terms": "EBI OLS term records",
    "note": "Label check of 20 heart structures: four valves, atria and their cavities, septa, walls, pericardium, pericardial and thoracic cavities, two lumens, three further heart valves."
+  },
+  "d_uberon_fma_map.json": {
+   "url": "https://www.ebi.ac.uk/ols4/api (Uberon 2026-10-01 label search plus term records)",
+   "retrieved_via": "urllib in an isolated script",
+   "retrieved_at_utc": "2026-11-01",
+   "license_or_terms": "EBI OLS records; Uberon CC BY 3.0",
+   "note": "30 inventory structures mapped to Uberon by FMA cross-reference (25 matched); ontology status of FMA and Uberon."
+  },
+  "d_fma_license_faq.html": {
+   "url": "http://sig.biostr.washington.edu/projects/fm/FMA_Release/license_faq.html",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01",
+   "license_or_terms": "UW page",
+   "note": "Custom licence of earlier UW FMA distributions; FMA 5.1.0 on GitHub uw-sig/FMA is CC BY 4.0."
   }
  },
  "retrievals_not_retained_as_files": [
@@ -255,6 +269,22 @@
    "sha256": "b2c044a7084d23b12b676e285113bdd4d95c9a5fc28445837d455eeb850161b2",
    "license": "not checked",
    "retained": "quotations in evidence_cards.md S22"
+  },
+  {
+   "what": "Research survey: current anatomical-identifier practice (card S23): SPARC, SCKAN, HRA, ApiNATOMY, Physiome, OBO registry, uw-sig/FMA, Uberon bridge",
+   "how": "research subagent (PubMed connector, Europe PMC, web); quotations spot-checked against downloaded texts",
+   "retained": "quotations in evidence_cards.md S23; downloads in the session scratchpad only"
+  },
+  {
+   "what": "Research survey: structures in 24 closed-loop circulation models and the minor heart valves (card S24)",
+   "how": "research subagent (Europe PMC full texts, PubMed, Wiley Scholar Gateway, arXiv)",
+   "retained": "quotations in evidence_cards.md S24; downloads in the session scratchpad only"
+  },
+  {
+   "what": "uw-sig/FMA GitHub release page and LICENSE",
+   "how": "curl (GitHub API rate-limited; public pages used)",
+   "result": "release 5.1.0 dated 2026-05-15; LICENSE CC BY 4.0",
+   "retained": "recorded in d_uberon_fma_map.json ontology_status"
   }
  ],
  "sha256": {
@@ -280,6 +310,8 @@
   "d_fulltext_PMC7756623_omex_metadata_v1_0.xml": "83a36a75e9743423a13e143ea2b687e67a0dd78d19d8a2780aa2f4517cf17a53",
   "d_omex_metadata_v1_2_published.pdf": "61c676f02747f2d523ea930eafa40b62217c72b8aa3c0f59cf070a7d0deb1ed2",
   "d_omex_metadata_v1_2_published_text.txt": "875c309246caa43c317af1ba35b559f4c4ce24a89dd2a491cc2a4bcb06ab5bf0",
-  "d_ols_fma_heart_structures.json": "13c6ba2984ae7ac3067db29e1b9da7a709baf01242d041e9689b8fbbab124755"
+  "d_ols_fma_heart_structures.json": "13c6ba2984ae7ac3067db29e1b9da7a709baf01242d041e9689b8fbbab124755",
+  "d_uberon_fma_map.json": "32c376a2a18675451183dbd8e24b68d2b5bda3a62333138240c565c8e74fbcf6",
+  "d_fma_license_faq.html": "b53f672bb76c18c0551902a0d75da07ea76d143c94c479aaf59301c4eb0d707c"
  }
 }

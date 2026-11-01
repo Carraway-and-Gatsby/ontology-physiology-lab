@@ -15,6 +15,9 @@
   "G3": {
    "Violation": 7
   },
+  "G8": {
+   "Warning": 3
+  },
   "G9": {
    "Info": 46
   },
@@ -28,6 +31,9 @@
    "Violation": 4
   },
   "S6": {
+   "Violation": 2
+  },
+  "S7": {
    "Violation": 2
   }
  },
@@ -85,57 +91,78 @@
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pcd",
    "code": "G2a",
    "severity": "Violation",
-   "message": "G2a: fluid volume bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9869 is not a portion of body fluid (expected bqbiol:is fma:9670 or fma:9887; C5)",
+   "message": "G2a: fluid volume bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0002407 is not a portion of body fluid (expected bqbiol:is uberon:0000178 blood or uberon:0002409 pericardial fluid; C5, node spec v2)",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pcd"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ao",
    "code": "G3",
    "severity": "Violation",
-   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_12239 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA12239 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_ao"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lv",
    "code": "G3",
    "severity": "Violation",
-   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_9466 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_UBERON0016514 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_lv"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa",
    "code": "G3",
    "severity": "Violation",
-   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_14167 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA14167 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_peri",
    "code": "G3",
    "severity": "Violation",
-   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9887 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0002409 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_peri"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pu",
    "code": "G3",
    "severity": "Violation",
-   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_52455 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA52455 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pu"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rv",
    "code": "G3",
    "severity": "Violation",
-   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_9291 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_UBERON0016509 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_rv"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_vc",
    "code": "G3",
    "severity": "Violation",
-   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_280059 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
+   "message": "G3: fluid pressure bearer http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA280059 is not an energy differential (it has no semsim:hasSourceParticipant, or it is itself a physical entity); S16 §2.3.7.3",
    "value": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_vc"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA12239",
+   "code": "G8",
+   "severity": "Warning",
+   "message": "G8: container is not a container node of the node specification v2",
+   "value": "https://identifiers.org/FMA:12239"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA14167",
+   "code": "G8",
+   "severity": "Warning",
+   "message": "G8: container is not a container node of the node specification v2",
+   "value": "https://identifiers.org/FMA:14167"
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA280059",
+   "code": "G8",
+   "severity": "Warning",
+   "message": "G8: container is not a container node of the node specification v2",
+   "value": "https://identifiers.org/FMA:280059"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#A",
@@ -477,49 +504,63 @@
    "focus": "https://example.org/physiosim/dependency#cap_pa",
    "code": "S3",
    "severity": "Violation",
-   "message": "S3: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa (blood http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_14167) and http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pa (blood http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_9670_in_52449) are linked by E19 but annotated to different entities",
+   "message": "S3: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#P_pa (blood http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA14167) and http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pa (blood http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#entity_UBERON0000178_in_FMA52449) are linked by E19 but annotated to different entities",
    "value": "https://example.org/physiosim/dependency#cap_pa"
   },
   {
    "focus": "https://example.org/physiosim/dependency#flow_av",
    "code": "S5",
    "severity": "Violation",
-   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_av is a flow through https://identifiers.org/FMA:7236 (E30) but its process is not bqbiol:occursIn that valve",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_av is a flow through https://identifiers.org/UBERON:0002137 (E30) but its process is not bqbiol:occursIn that valve",
    "value": "https://example.org/physiosim/dependency#flow_av"
   },
   {
    "focus": "https://example.org/physiosim/dependency#flow_mt",
    "code": "S5",
    "severity": "Violation",
-   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_mt is a flow through https://identifiers.org/FMA:7235 (E29) but its process is not bqbiol:occursIn that valve",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_mt is a flow through https://identifiers.org/UBERON:0002135 (E29) but its process is not bqbiol:occursIn that valve",
    "value": "https://example.org/physiosim/dependency#flow_mt"
   },
   {
    "focus": "https://example.org/physiosim/dependency#flow_pv",
    "code": "S5",
    "severity": "Violation",
-   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_pv is a flow through https://identifiers.org/FMA:7246 (E32) but its process is not bqbiol:occursIn that valve",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_pv is a flow through https://identifiers.org/UBERON:0002146 (E32) but its process is not bqbiol:occursIn that valve",
    "value": "https://example.org/physiosim/dependency#flow_pv"
   },
   {
    "focus": "https://example.org/physiosim/dependency#flow_tc",
    "code": "S5",
    "severity": "Violation",
-   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_tc is a flow through https://identifiers.org/FMA:7234 (E31) but its process is not bqbiol:occursIn that valve",
+   "message": "S5: http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#Q_tc is a flow through https://identifiers.org/UBERON:0002134 (E31) but its process is not bqbiol:occursIn that valve",
    "value": "https://example.org/physiosim/dependency#flow_tc"
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_pu",
    "code": "S6",
    "severity": "Violation",
-   "message": "S6: the blood bearing V_pu must include a part in Cavity of left atrium (fma9465); decisions.md \"Atria as separate nodes\"",
+   "message": "S6: the blood bearing V_pu must include a part in the left atrial cavity (UBERON:0016513); decisions.md \"Atria as separate nodes\"",
    "value": null
   },
   {
    "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_vc",
    "code": "S6",
    "severity": "Violation",
-   "message": "S6: the blood bearing V_vc must include a part in Cavity of right atrium (fma11359); decisions.md \"Atria as separate nodes\"",
+   "message": "S6: the blood bearing V_vc must include a part in the right atrial cavity (UBERON:0016522); decisions.md \"Atria as separate nodes\"",
+   "value": null
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_ao",
+   "code": "S7",
+   "severity": "Violation",
+   "message": "S7: the blood bearing V_ao must lie in the systemic arterial tree lumen (the 'aorta' compartment is the lumped systemic arteries, S6P pp. 12-13); node specification v2",
+   "value": null
+  },
+  {
+   "focus": "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_vc",
+   "code": "S7",
+   "severity": "Violation",
+   "message": "S7: the blood bearing V_vc must lie in the systemic venous tree lumen (the 'vena cava' compartment is the lumped systemic veins); node specification v2",
    "value": null
   }
  ],
@@ -529,13 +570,13 @@
   "rdflib": "7.6.0"
  },
  "sha256": {
-  "shapes_omex_v1_2.ttl": "2fee467d588e57a61bbd4544b1d818d466c6ef598a5c1e10d65fa270c7eb13fd",
-  "shapes_smith2004.ttl": "b3e190f0074dd9131cc690ad0e7c24a96ea401955babaf6a5a4aa92ee2166109",
-  "smith2004_dependencies.ttl": "c00fc7d9eaaf72ccbfb64f4cdec7c71b7500cd2f415df9d32591a32c8a63a972",
-  "ws267_omex_form.ttl": "bc50132fadc70ee4b60f9b0fb6ca587273d8ddbd22842930f4c1b03592b4de1b",
-  "expected_results.json": "5878ac68ec8f8d644c3f20ba6b4e938f0865f440eb8f17f2a95536d6c5863e78",
-  "fixtures/conforming.ttl": "3ba6c7e328db1abc2ca084e9b795fc3140b3a481302b0edce6b1c9f862e995e9",
-  "fixtures/generic_violations.ttl": "e560a8287007b3e29a50257d84abda5a7e1a83f7f926a3e06ae0e37302730fc3",
-  "fixtures/smith_violations.ttl": "01f7fc3c3c4a4ca230007c2f627b200f2d16942f2686307ef6423f503227ebb6"
+  "shapes_omex_v1_2.ttl": "1872b8393bb49b717d579286c1be1ced306a31c5e5fb365ad60b789c10b0ae4a",
+  "shapes_smith2004.ttl": "af52e1088639df96991fd08b3b03bf8c6e1eddc7d725a0f8c31f4bc23406124b",
+  "smith2004_dependencies.ttl": "a3741d26b658977441435d3b6ec2c86856cf5419a05010c8f32bd1185edbb65a",
+  "ws267_omex_form.ttl": "dc5c04661fdf68cf034b36bdb93ef1b91b57f26f524f131322198d912247d087",
+  "expected_results.json": "c15be248c0d8045c529dda10cf82cdc12c9671c5b77c0c0dee35950d7928ea04",
+  "fixtures/conforming.ttl": "3dc51f5b274e07fba2cd55f5b93b847ec6668e204703345d160fb60fa9e6f06c",
+  "fixtures/generic_violations.ttl": "8bcaeaefd35c5bf57899dbf78f2c393c163b816237fc754d37c1630932c50612",
+  "fixtures/smith_violations.ttl": "9a57d7e957d3af9069f934a5d73bf68833c60361a718cfa8eb3147f4fddeeac2"
  }
 }

@@ -1,69 +1,70 @@
-# Positive control: a correct OMEX v1.2 annotation of a subset of the Smith variables, following
-# decisions.md (C5 bearer form; pressure reference as energy-differential sink). Expected: no
-# Violation, Warning or Info results from either shapes file (with smith2004_dependencies.ttl loaded,
-# only the dependencies whose variables are present here can fire).
+# Positive control: a correct OMEX v1.2 annotation of a subset of the Smith variables in the identifiers
+# of the node specification v2 (../anatomy_nodes_v2.md), following decisions.md (C5 bearer form; pressure
+# reference as energy-differential sink; valves and atria as nodes; node specification v2).
+# Expected: no Violation, Warning or Info from either shapes file with smith2004_dependencies.ttl loaded.
 @prefix bqbiol:    <http://biomodels.net/biology-qualifiers/> .
 @prefix semsim:    <http://bime.uw.edu/semsim/> .
 @prefix dc:        <http://purl.org/dc/terms/> .
 @prefix opb:       <https://identifiers.org/opb:> .
 @prefix fma:       <https://identifiers.org/FMA:> .
+@prefix uberon:    <https://identifiers.org/UBERON:> .
 @prefix OMEXmodel: <http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#> .
 @prefix local:     <http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#> .
 
-local:blood_lv  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:9466 .
-local:blood_rv  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:9291 .
-local:blood_ao  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:12239 .
-local:pericardial_fluid bqbiol:is fma:9887 ; bqbiol:isPartOf fma:11350 .
+# Blood in each compartment (v2 containers)
+local:blood_lv bqbiol:is uberon:0000178 ; bqbiol:isPartOf uberon:0016514 .
+local:blood_rv bqbiol:is uberon:0000178 ; bqbiol:isPartOf uberon:0016509 .
+local:blood_sa bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:52448 .
+local:blood_pa bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:52449 .
+local:pericardial_fluid bqbiol:is uberon:0002409 ; bqbiol:isPartOf uberon:0001074 .
+# Lumped venous compartments: vessel lumen plus atrial cavity
+local:blood_pv_lumen  bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:52455 .
+local:blood_la_cavity bqbiol:is uberon:0000178 ; bqbiol:isPartOf uberon:0016513 .
+local:blood_pu_compartment bqbiol:is uberon:0000178 ; bqbiol:hasPart local:blood_pv_lumen , local:blood_la_cavity .
+local:blood_sv_lumen  bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:52454 .
+local:blood_ra_cavity bqbiol:is uberon:0000178 ; bqbiol:isPartOf uberon:0016522 .
+local:blood_sv_compartment bqbiol:is uberon:0000178 ; bqbiol:hasPart local:blood_sv_lumen , local:blood_ra_cavity .
 
+# Volumes
 OMEXmodel:V_lv bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_lv ; dc:description "Left ventricle volume" .
-OMEXmodel:V_ao bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_ao .
+OMEXmodel:V_rv bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_rv .
+OMEXmodel:V_ao bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_sa .
+OMEXmodel:V_pa bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_pa .
+OMEXmodel:V_pu bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_pu_compartment .
+OMEXmodel:V_vc bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_sv_compartment .
 
+# Chamber pressures (no sink) and free-wall pressures (pericardial sink)
 OMEXmodel:P_lv bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_lv .
 local:ed_P_lv semsim:hasSourceParticipant local:ed_P_lv_src .
 local:ed_P_lv_src semsim:hasPhysicalEntityReference local:blood_lv .
-
 OMEXmodel:P_ao bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_ao .
 local:ed_P_ao semsim:hasSourceParticipant local:ed_P_ao_src .
-local:ed_P_ao_src semsim:hasPhysicalEntityReference local:blood_ao .
-
+local:ed_P_ao_src semsim:hasPhysicalEntityReference local:blood_sa .
+OMEXmodel:P_pu bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_pu .
+local:ed_P_pu semsim:hasSourceParticipant local:ed_P_pu_src .
+local:ed_P_pu_src semsim:hasPhysicalEntityReference local:blood_pu_compartment .
 OMEXmodel:P_lvf bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_lvf .
 local:ed_P_lvf semsim:hasSourceParticipant local:ed_P_lvf_src ; semsim:hasSinkParticipant local:ed_P_lvf_snk .
 local:ed_P_lvf_src semsim:hasPhysicalEntityReference local:blood_lv .
 local:ed_P_lvf_snk semsim:hasPhysicalEntityReference local:pericardial_fluid .
-
 OMEXmodel:P_rvf bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_rvf .
 local:ed_P_rvf semsim:hasSourceParticipant local:ed_P_rvf_src ; semsim:hasSinkParticipant local:ed_P_rvf_snk .
 local:ed_P_rvf_src semsim:hasPhysicalEntityReference local:blood_rv .
 local:ed_P_rvf_snk semsim:hasPhysicalEntityReference local:pericardial_fluid .
 
+# Valve flows located at their valve nodes
 OMEXmodel:Q_av bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_av .
 local:proc_av semsim:hasSourceParticipant local:proc_av_src ; semsim:hasSinkParticipant local:proc_av_snk ;
-    bqbiol:occursIn fma:7236 ;
+    bqbiol:occursIn uberon:0002137 ;
     dc:description "Blood flow through aortic valve" .
 local:proc_av_src semsim:hasPhysicalEntityReference local:blood_lv .
-local:proc_av_snk semsim:hasPhysicalEntityReference local:blood_ao .
-
-OMEXmodel:R_av bqbiol:isVersionOf opb:OPB_00160 ; dc:description "Aortic valve resistance" .
-OMEXmodel:L_av bqbiol:isVersionOf opb:OPB_00104 .
-
-# Lumped venous compartments (decisions.md "Atria as separate nodes"): each compartment's blood has two
-# single parts, one in the vessel lumen and one in the atrial cavity.
-local:blood_pv_lumen  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:52455 .
-local:blood_la_cavity bqbiol:is fma:9670 ; bqbiol:isPartOf fma:9465 .
-local:blood_pu_compartment bqbiol:is fma:9670 ; bqbiol:hasPart local:blood_pv_lumen , local:blood_la_cavity .
-local:blood_vc_lumen  bqbiol:is fma:9670 ; bqbiol:isPartOf fma:280059 .
-local:blood_ra_cavity bqbiol:is fma:9670 ; bqbiol:isPartOf fma:11359 .
-local:blood_vc_compartment bqbiol:is fma:9670 ; bqbiol:hasPart local:blood_vc_lumen , local:blood_ra_cavity .
-
-OMEXmodel:V_pu bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_pu_compartment .
-OMEXmodel:V_vc bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_vc_compartment .
-
-OMEXmodel:P_pu bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_pu .
-local:ed_P_pu semsim:hasSourceParticipant local:ed_P_pu_src .
-local:ed_P_pu_src semsim:hasPhysicalEntityReference local:blood_pu_compartment .
-
+local:proc_av_snk semsim:hasPhysicalEntityReference local:blood_sa .
 OMEXmodel:Q_mt bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_mt .
 local:proc_mt semsim:hasSourceParticipant local:proc_mt_src ; semsim:hasSinkParticipant local:proc_mt_snk ;
-    bqbiol:occursIn fma:7235 .
+    bqbiol:occursIn uberon:0002135 .
 local:proc_mt_src semsim:hasPhysicalEntityReference local:blood_pu_compartment .
 local:proc_mt_snk semsim:hasPhysicalEntityReference local:blood_lv .
+
+# Constitutive properties: property only
+OMEXmodel:R_av bqbiol:isVersionOf opb:OPB_00160 ; dc:description "Aortic valve resistance" .
+OMEXmodel:L_av bqbiol:isVersionOf opb:OPB_00104 .

@@ -1,0 +1,724 @@
+{
+ "uberon_release": "2026-10-01",
+ "method": "OLS4 label search in uberon, accept only a term whose obo_xref lists the same FMA id",
+ "results": [
+  {
+   "inventory_label": "Cavity of left ventricle",
+   "fma": "FMA:9466",
+   "match": {
+    "uberon": "UBERON:0016514",
+    "uberon_label": "cavity of left ventricle",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+    "obsolete": false,
+    "definition": "Luminal space of the left ventricle of the heart.",
+    "fma_xrefs_on_uberon_term": [
+     "9466"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0016514",
+     "cavity of left ventricle",
+     [
+      "9466"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Cavity of right ventricle",
+   "fma": "FMA:9291",
+   "match": {
+    "uberon": "UBERON:0016509",
+    "uberon_label": "cavity of right ventricle",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0016509",
+    "obsolete": false,
+    "definition": "Luminal space of the right ventricle of the heart.",
+    "fma_xrefs_on_uberon_term": [
+     "9291"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0016509",
+     "cavity of right ventricle",
+     [
+      "9291"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Lumen of aorta",
+   "fma": "FMA:12239",
+   "match": null,
+   "candidates_checked": [
+    [
+     "UBERON:0004851",
+     "aorta endothelium",
+     []
+    ],
+    [
+     "UBERON:0003061",
+     "blood island",
+     []
+    ]
+   ],
+   "no_specific_uberon_term": {
+    "generic_lumen": "UBERON:0010161 lumen of blood vessel",
+    "vessel": "UBERON:0000947 aorta",
+    "note": "Uberon (2026-10-01) has no vessel-specific lumen term carrying this FMA xref; label searches for the lumen returned none."
+   }
+  },
+  {
+   "inventory_label": "Set of lumens of vena cava trunks",
+   "fma": "FMA:280059",
+   "match": null,
+   "candidates_checked": [],
+   "no_specific_uberon_term": {
+    "generic_lumen": "UBERON:0010161 lumen of blood vessel",
+    "vessel": "UBERON:0001072 / UBERON:0001585 inferior vena cava / anterior vena cava",
+    "note": "Uberon (2026-10-01) has no vessel-specific lumen term carrying this FMA xref; label searches for the lumen returned none."
+   }
+  },
+  {
+   "inventory_label": "Lumen of pulmonary trunk",
+   "fma": "FMA:14167",
+   "match": null,
+   "candidates_checked": [],
+   "no_specific_uberon_term": {
+    "generic_lumen": "UBERON:0010161 lumen of blood vessel",
+    "vessel": "UBERON:0002333 pulmonary trunk",
+    "note": "Uberon (2026-10-01) has no vessel-specific lumen term carrying this FMA xref; label searches for the lumen returned none."
+   }
+  },
+  {
+   "inventory_label": "Lumen of pulmonary arterial tree",
+   "fma": "FMA:52449",
+   "match": null,
+   "candidates_checked": [],
+   "no_specific_uberon_term": {
+    "generic_lumen": "UBERON:0010161 lumen of blood vessel",
+    "vessel": "UBERON:0002012 pulmonary artery",
+    "note": "Uberon (2026-10-01) has no vessel-specific lumen term carrying this FMA xref; label searches for the lumen returned none."
+   }
+  },
+  {
+   "inventory_label": "Lumen of pulmonary venous tree organ",
+   "fma": "FMA:52455",
+   "match": null,
+   "candidates_checked": [],
+   "no_specific_uberon_term": {
+    "generic_lumen": "UBERON:0010161 lumen of blood vessel",
+    "vessel": "UBERON:0002016 pulmonary vein",
+    "note": "Uberon (2026-10-01) has no vessel-specific lumen term carrying this FMA xref; label searches for the lumen returned none."
+   }
+  },
+  {
+   "inventory_label": "Mitral valve",
+   "fma": "FMA:7235",
+   "match": {
+    "uberon": "UBERON:0002135",
+    "uberon_label": "mitral valve",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+    "obsolete": false,
+    "definition": "An atrioventricular valve that is part of the outflow part of the left atrium.",
+    "fma_xrefs_on_uberon_term": [
+     "7235"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002135",
+     "mitral valve",
+     [
+      "7235"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Aortic valve",
+   "fma": "FMA:7236",
+   "match": {
+    "uberon": "UBERON:0002137",
+    "uberon_label": "aortic valve",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002137",
+    "obsolete": false,
+    "definition": "Human variation: It is normally tricuspid (with three leaflets), although in 1% of the population it is found to be congenitally bicuspid (two leaflets)",
+    "fma_xrefs_on_uberon_term": [
+     "7236"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002137",
+     "aortic valve",
+     [
+      "7236"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Tricuspid valve",
+   "fma": "FMA:7234",
+   "match": {
+    "uberon": "UBERON:0002134",
+    "uberon_label": "tricuspid valve",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002134",
+    "obsolete": false,
+    "definition": "An atrioventricular valve that is part of the outflow part of the right atrium.",
+    "fma_xrefs_on_uberon_term": [
+     "7234"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002134",
+     "tricuspid valve",
+     [
+      "7234"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Pulmonary valve",
+   "fma": "FMA:7246",
+   "match": {
+    "uberon": "UBERON:0002146",
+    "uberon_label": "pulmonary valve",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002146",
+    "obsolete": false,
+    "definition": "The semilunar valve of the heart that lies between the right ventricle and the pulmonary artery.",
+    "fma_xrefs_on_uberon_term": [
+     "7246"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002146",
+     "pulmonary valve",
+     [
+      "7246"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Wall of left ventricle",
+   "fma": "FMA:9556",
+   "match": {
+    "uberon": "UBERON:0036285",
+    "uberon_label": "wall of left ventricle",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0036285",
+    "obsolete": false,
+    "definition": "Wall of ventricle which is continuous with the wall of aorta.",
+    "fma_xrefs_on_uberon_term": [
+     "9556"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0036285",
+     "wall of left ventricle",
+     [
+      "9556"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Wall of right ventricle",
+   "fma": "FMA:9533",
+   "match": {
+    "uberon": "UBERON:0036286",
+    "uberon_label": "wall of right ventricle",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0036286",
+    "obsolete": false,
+    "definition": "Wall of ventricle which is continuous with the wall of pulmonary trunk.",
+    "fma_xrefs_on_uberon_term": [
+     "9533"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0036289",
+     "anterior wall of right ventricle",
+     [
+      "9553"
+     ]
+    ],
+    [
+     "UBERON:0036286",
+     "wall of right ventricle",
+     [
+      "9533"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Interventricular septum",
+   "fma": "FMA:7133",
+   "match": {
+    "uberon": "UBERON:0002094",
+    "uberon_label": "interventricular septum",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002094",
+    "obsolete": false,
+    "definition": "Cardiac septum which separates the right ventricle from the left ventricle.[FMA].",
+    "fma_xrefs_on_uberon_term": [
+     "7133"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002094",
+     "interventricular septum",
+     [
+      "7133"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Cardiac septum",
+   "fma": "FMA:7180",
+   "match": {
+    "uberon": "UBERON:0002099",
+    "uberon_label": "cardiac septum",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002099",
+    "obsolete": false,
+    "definition": "The thin membranous structure between parts of the heart, including the atria, ventricles, and outflow tract.",
+    "fma_xrefs_on_uberon_term": [
+     "7180"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002099",
+     "cardiac septum",
+     [
+      "7180"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Pericardium",
+   "fma": "FMA:9869",
+   "match": {
+    "uberon": "UBERON:0002407",
+    "uberon_label": "pericardium",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002407",
+    "obsolete": false,
+    "definition": "The combination of pericardial sac (a double-walled sac containing the heart and the roots of the great vessels) plus fibrous pericardium.",
+    "fma_xrefs_on_uberon_term": [
+     "9869"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002407",
+     "pericardium",
+     [
+      "9869"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Pericardial cavity",
+   "fma": "FMA:11350",
+   "match": {
+    "uberon": "UBERON:0001074",
+    "uberon_label": "pericardial cavity",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0001074",
+    "obsolete": false,
+    "definition": "A potential space between the visceral and parietal layers of the pericardium.",
+    "fma_xrefs_on_uberon_term": [
+     "11350"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0001074",
+     "pericardial cavity",
+     [
+      "11350"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Portion of pericardial fluid",
+   "fma": "FMA:9887",
+   "match": {
+    "uberon": "UBERON:0002409",
+    "uberon_label": "pericardial fluid",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002409",
+    "obsolete": false,
+    "definition": "Transudate contained in the pericardial cavity.[FMA].",
+    "fma_xrefs_on_uberon_term": [
+     "9887"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002409",
+     "pericardial fluid",
+     [
+      "9887"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Portion of blood",
+   "fma": "FMA:9670",
+   "match": {
+    "uberon": "UBERON:0000178",
+    "uberon_label": "blood",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+    "obsolete": false,
+    "definition": "A fluid that is composed of blood plasma and erythrocytes.",
+    "fma_xrefs_on_uberon_term": [
+     "9670"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0000178",
+     "blood",
+     [
+      "9670"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Thoracic cavity",
+   "fma": "FMA:7565",
+   "match": {
+    "uberon": "UBERON:0002224",
+    "uberon_label": "thoracic cavity",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002224",
+    "obsolete": false,
+    "definition": "The part of the coelemic cavity lumen that is enclosed by the walls of the thorax.",
+    "fma_xrefs_on_uberon_term": [
+     "7565"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002224",
+     "thoracic cavity",
+     [
+      "7565"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Left atrium",
+   "fma": "FMA:7097",
+   "match": {
+    "uberon": "UBERON:0002079",
+    "uberon_label": "left cardiac atrium",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002079",
+    "obsolete": false,
+    "definition": "A cardiac atrium that is in the left side of the heart. It receives oxygenated blood from the pulmonary veins, In mammals this is pumped into the left ventricle, via the Mitral valve.",
+    "fma_xrefs_on_uberon_term": [
+     "7097"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002079",
+     "left cardiac atrium",
+     [
+      "7097"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Cavity of left atrium",
+   "fma": "FMA:9465",
+   "match": {
+    "uberon": "UBERON:0016513",
+    "uberon_label": "cavity of left atrium",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+    "obsolete": false,
+    "definition": "Luminal space of the left atrium of the heart.",
+    "fma_xrefs_on_uberon_term": [
+     "9465"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0016513",
+     "cavity of left atrium",
+     [
+      "9465"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Right atrium",
+   "fma": "FMA:7096",
+   "match": {
+    "uberon": "UBERON:0002078",
+    "uberon_label": "right cardiac atrium",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002078",
+    "obsolete": false,
+    "definition": "A cardiac atrium that is in the right side of the heart. It receives deoxygenated blood. In mammals, this comes from the superior and inferior vena cava and the coronary sinus, and pumps it into the right ventricle through the tricuspid valve.",
+    "fma_xrefs_on_uberon_term": [
+     "7096"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002078",
+     "right cardiac atrium",
+     [
+      "7096"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Cavity of right atrium",
+   "fma": "FMA:11359",
+   "match": {
+    "uberon": "UBERON:0016522",
+    "uberon_label": "cavity of right atrium",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+    "obsolete": false,
+    "definition": "Luminal space of the right atrium of the heart.",
+    "fma_xrefs_on_uberon_term": [
+     "11359"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0016522",
+     "cavity of right atrium",
+     [
+      "11359"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Valve of inferior vena cava",
+   "fma": "FMA:9240",
+   "match": {
+    "uberon": "UBERON:0005485",
+    "uberon_label": "valve of inferior vena cava",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0005485",
+    "obsolete": false,
+    "definition": "The semicircular fold of endocardium located on the right atrium at the point of attachment of the inferior vena cava; during development this valve helps direct the flow of oxygen-rich blood through the right atrium into the left cardiac atrium via the foramen ovale (preventing blood flowing into t",
+    "fma_xrefs_on_uberon_term": [
+     "9240"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0005485",
+     "valve of inferior vena cava",
+     [
+      "9240"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Valve of coronary sinus",
+   "fma": "FMA:9242",
+   "match": {
+    "uberon": "UBERON:0004150",
+    "uberon_label": "coronary sinus valve",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0004150",
+    "obsolete": false,
+    "definition": "Vestigial cardiac valve which is continuous with the valve of the inferior vena cava[FMA].",
+    "fma_xrefs_on_uberon_term": [
+     "9242"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0004150",
+     "coronary sinus valve",
+     [
+      "9242"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Valve of foramen ovale",
+   "fma": "FMA:75348",
+   "match": {
+    "uberon": "UBERON:0035186",
+    "uberon_label": "valve of foramen ovale",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0035186",
+    "obsolete": false,
+    "definition": "",
+    "fma_xrefs_on_uberon_term": [
+     "75348"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0035186",
+     "valve of foramen ovale",
+     [
+      "75348"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Left ventricle",
+   "fma": "FMA:7101",
+   "match": {
+    "uberon": "UBERON:0002084",
+    "uberon_label": "heart left ventricle",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+    "obsolete": false,
+    "definition": "A cardiac ventricle that is in the left side of the heart.",
+    "fma_xrefs_on_uberon_term": [
+     "7101"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002084",
+     "heart left ventricle",
+     [
+      "7101"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Right ventricle",
+   "fma": "FMA:7098",
+   "match": {
+    "uberon": "UBERON:0002080",
+    "uberon_label": "heart right ventricle",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0002080",
+    "obsolete": false,
+    "definition": "A cardiac ventricle that is in the right side of the heart.",
+    "fma_xrefs_on_uberon_term": [
+     "7098"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0002080",
+     "heart right ventricle",
+     [
+      "7098"
+     ]
+    ]
+   ]
+  },
+  {
+   "inventory_label": "Heart",
+   "fma": "FMA:7088",
+   "match": {
+    "uberon": "UBERON:0000948",
+    "uberon_label": "heart",
+    "uberon_iri": "http://purl.obolibrary.org/obo/UBERON_0000948",
+    "obsolete": false,
+    "definition": "Taxon notes:\" the ascidian tube-like heart lacks chambers....The ascidian heart is formed after metamorphosis as a simple tube-like structure with a single-layered myoepithelium that is continuous with a single-layered pericar- dial wall. It lacks chambers and endocardium.... The innovation of the c",
+    "fma_xrefs_on_uberon_term": [
+     "7088"
+    ]
+   },
+   "candidates_checked": [
+    [
+     "UBERON:0000948",
+     "heart",
+     [
+      "7088"
+     ]
+    ]
+   ]
+  }
+ ],
+ "retrieved_at_utc": "2026-11-01",
+ "ontology_status": {
+  "uberon": {
+   "version_iri": "http://purl.obolibrary.org/obo/uberon/releases/2026-10-01/uberon.owl",
+   "licence": "CC BY 3.0 (OBO Foundry page)",
+   "terms_in_ols": 26735
+  },
+  "fma": {
+   "version_iri": "http://purl.org/sig/ont/fma_5.1.0.owl",
+   "release": "5.1.0, published 2026-05-15 on GitHub uw-sig/FMA (release page checked 2026-11-01); release notes per the research report: an update of 5.0.0 for consistency under EL reasoning. 5.0.0 is the 2019 release.",
+   "obo_foundry_status": "inactive (\"Inactive ontologies are no longer in development\", OBO registry schema)",
+   "licence": "CC BY 4.0 (uw-sig/FMA LICENSE file, SHA-256 7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661). The older UW FAQ (d_fma_license_faq.html) describes the custom licence of earlier UW distributions.",
+   "terms_in_ols": 104721
+  }
+ },
+ "additional_lookups_2026-11-01": {
+  "method": "OLS4 exact-label search (FMA) and Uberon term records with obo_xref; run interactively, results transcribed here",
+  "fma_lumens": {
+   "FMA:52448": "Lumen of systemic arterial tree",
+   "FMA:52454": "Lumen of systemic venous tree organ",
+   "FMA:52449": "Lumen of pulmonary arterial tree",
+   "FMA:52455": "Lumen of pulmonary venous tree organ",
+   "FMA:83085": "Set of lumens of systemic venous tree",
+   "FMA:14165": "Lumen of superior vena cava",
+   "FMA:14166": "Lumen of inferior vena cava"
+  },
+  "uberon_terms": {
+   "UBERON:0004571": [
+    "systemic arterial system",
+    "FMA:45623"
+   ],
+   "UBERON:0004581": [
+    "systemic venous system",
+    "FMA:45626"
+   ],
+   "UBERON:0013127": [
+    "pulmonary venous system",
+    "no FMA xref"
+   ],
+   "UBERON:0008886": [
+    "pulmonary vascular system",
+    "FMA:45621"
+   ],
+   "UBERON:0002012": [
+    "pulmonary artery",
+    "FMA:66326"
+   ],
+   "UBERON:0002016": [
+    "pulmonary vein",
+    "FMA:66643"
+   ],
+   "UBERON:0001585": [
+    "anterior vena cava",
+    "FMA:4720"
+   ],
+   "UBERON:0001072": [
+    "inferior vena cava",
+    "FMA:10951"
+   ],
+   "UBERON:0005438": [
+    "coronary sinus",
+    "FMA:4706"
+   ],
+   "UBERON:0010161": [
+    "lumen of blood vessel",
+    "FMA:312610"
+   ]
+  },
+  "note": "Uberon structure terms for the vessel compartments are related structures, not equivalents of the FMA lumen terms."
+ }
+}

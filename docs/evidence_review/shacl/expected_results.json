@@ -1,5 +1,5 @@
 {
-  "note": "Exact result sets the control fixtures must produce. Each entry is [focus node, rule code, severity]; the rule code is the prefix of sh:resultMessage before the colon.",
+  "note": "Exact result sets the control fixtures must produce. Each entry is [focus node, rule code, severity]; the rule code is the prefix of sh:resultMessage before the colon. Identifiers follow the node specification v2.",
   "conforming": {
     "shapes": [
       "shapes_omex_v1_2.ttl",
@@ -127,6 +127,26 @@
         "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_vc",
         "S6",
         "Violation"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_ao",
+        "S7",
+        "Violation"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#V_vc",
+        "S7",
+        "Violation"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#blood_ao_v1",
+        "G8",
+        "Warning"
+      ],
+      [
+        "http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#blood_pt",
+        "G8",
+        "Warning"
       ]
     ]
   }

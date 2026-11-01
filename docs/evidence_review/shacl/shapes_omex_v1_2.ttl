@@ -5,7 +5,9 @@
 # Sources: OMEX metadata v1.2 (evidence_cards.md S16), SemGen annotation protocol step 5 (S21),
 # Gennari 2011 composite-annotation grammar (S1), decisions.md entries "C5 bearer form" and
 # "Pressure reference" (2026-11-01). OPB class labels and parents checked against OPB master
-# (docs/evidence/d_opb_master_excerpt_and_version_diff.json); FMA labels against OLS FMA 5.1.0.
+# (docs/evidence/d_opb_master_excerpt_and_version_diff.json). Anatomical identifiers are the primary
+# identifiers of the node specification v2 (../anatomy_nodes_v2.json): Uberon where Uberon has the
+# structure, FMA for the vessel lumens; run_shacl.py checks every one against that file.
 
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
@@ -15,6 +17,7 @@
 @prefix dc:     <http://purl.org/dc/terms/> .
 @prefix opb:    <https://identifiers.org/opb:> .
 @prefix fma:    <https://identifiers.org/FMA:> .
+@prefix uberon: <https://identifiers.org/UBERON:> .
 @prefix ps:     <https://example.org/physiosim/shapes#> .
 
 ps:prefixes
@@ -23,6 +26,7 @@ ps:prefixes
                [ sh:prefix "dc"     ; sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ] ,
                [ sh:prefix "opb"    ; sh:namespace "https://identifiers.org/opb:"^^xsd:anyURI ] ,
                [ sh:prefix "fma"    ; sh:namespace "https://identifiers.org/FMA:"^^xsd:anyURI ] ,
+               [ sh:prefix "uberon" ; sh:namespace "https://identifiers.org/UBERON:"^^xsd:anyURI ] ,
                [ sh:prefix "ps"     ; sh:namespace "https://example.org/physiosim/shapes#"^^xsd:anyURI ] .
 
 # G1. The physical property of an annotated variable is exactly one OPB *property* class.
@@ -69,12 +73,12 @@ ps:G2_FluidVolumeBearer
     sh:targetSubjectsOf bqbiol:isVersionOf ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "G2a: fluid volume bearer {?b} is not a portion of body fluid (expected bqbiol:is fma:9670 or fma:9887; C5)" ;
+        sh:message "G2a: fluid volume bearer {?b} is not a portion of body fluid (expected bqbiol:is uberon:0000178 blood or uberon:0002409 pericardial fluid; C5, node spec v2)" ;
         sh:prefixes ps:prefixes ;
         sh:select """
             SELECT $this ?b WHERE {
                 $this bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ?b .
-                FILTER NOT EXISTS { ?b bqbiol:is ?f . FILTER ( ?f IN ( fma:9670, fma:9887 ) ) }
+                FILTER NOT EXISTS { ?b bqbiol:is ?f . FILTER ( ?f IN ( uberon:0000178, uberon:0002409 ) ) }
             }""" ;
     ] , [
         a sh:SPARQLConstraint ;
@@ -83,7 +87,7 @@ ps:G2_FluidVolumeBearer
         sh:select """
             SELECT $this ?b WHERE {
                 $this bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ?b .
-                ?b bqbiol:is ?f . FILTER ( ?f IN ( fma:9670, fma:9887 ) )
+                ?b bqbiol:is ?f . FILTER ( ?f IN ( uberon:0000178, uberon:0002409 ) )
                 FILTER NOT EXISTS { ?b bqbiol:isPartOf ?c }
                 FILTER NOT EXISTS { ?b bqbiol:hasPart/bqbiol:isPartOf ?c2 }
             }""" ;
@@ -161,13 +165,13 @@ ps:G6_ParticipantEntity
 # that include the atria, decisions.md "Atria as separate nodes").
 ps:SingleFluidPortion
     a sh:NodeShape ;
-    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( fma:9670 fma:9887 ) ] ,
+    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( uberon:0000178 uberon:0002409 ) ] ,
                 [ sh:path bqbiol:isPartOf ; sh:minCount 1 ; sh:maxCount 1 ] ,
                 [ sh:path bqbiol:hasPart ; sh:maxCount 0 ] .
 
 ps:LumpedFluidPortion
     a sh:NodeShape ;
-    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( fma:9670 fma:9887 ) ] ,
+    sh:property [ sh:path bqbiol:is ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( uberon:0000178 uberon:0002409 ) ] ,
                 [ sh:path bqbiol:isPartOf ; sh:maxCount 0 ] ,
                 [ sh:path bqbiol:hasPart ; sh:minCount 2 ; sh:node ps:SingleFluidPortion ] .
 
@@ -193,35 +197,34 @@ ps:G7_ConstitutiveHasNoBearer
             }""" ;
     ] .
 
-# G8. Containers are drawn from the FMA terms label-checked in this review (OLS FMA 5.1.0):
-#   9466 Cavity of left ventricle, 9291 Cavity of right ventricle, 12239 Lumen of aorta,
-#   280059 Set of lumens of vena cava trunks, 14167 Lumen of pulmonary trunk,
-#   52449 Lumen of pulmonary arterial tree, 52455 Lumen of pulmonary venous tree organ,
-#   11350 Pericardial cavity, 9465 Cavity of left atrium, 11359 Cavity of right atrium.
-#   Anything else may be correct but has not been checked: Warning.
+# G8. Containers are the container nodes of the node specification v2: Uberon cavities of the four
+#   chambers (0016514 LV, 0016509 RV, 0016513 LA, 0016522 RA) and of the pericardium (0001074), and
+#   the FMA vessel lumens (52448 systemic arterial tree, 52454 systemic venous tree organ,
+#   52449 pulmonary arterial tree, 52455 pulmonary venous tree organ). Anything else, including the
+#   v1 identifiers, is not a v2 container: Warning.
 ps:G8_CheckedContainer
     a sh:NodeShape ;
     rdfs:label "G8 container is a label-checked FMA term" ;
     sh:targetSubjectsOf bqbiol:isPartOf ;
     sh:property [
         sh:path bqbiol:isPartOf ;
-        sh:in ( fma:9466 fma:9291 fma:12239 fma:280059 fma:14167 fma:52449 fma:52455 fma:11350 fma:9465 fma:11359 ) ;
+        sh:in ( uberon:0016514 uberon:0016509 uberon:0016513 uberon:0016522 uberon:0001074 fma:52448 fma:52454 fma:52449 fma:52455 ) ;
         sh:severity sh:Warning ;
-        sh:message "G8: container is not one of the FMA terms label-checked in this review" ;
+        sh:message "G8: container is not a container node of the node specification v2" ;
     ] .
 
 # G10. A process location (bqbiol:occursIn, BioModels.net qualifiers 1.1, card S22) is one of the valve
-# terms label-checked in this review (OLS FMA 5.1.0): 7235 Mitral valve, 7236 Aortic valve,
-# 7234 Tricuspid valve, 7246 Pulmonary valve. Anything else may be correct but is unchecked: Warning.
+# nodes of the node specification v2: uberon 0002135 mitral, 0002137 aortic, 0002134 tricuspid,
+# 0002146 pulmonary valve. Anything else is not a v2 valve node: Warning.
 ps:G10_CheckedProcessLocation
     a sh:NodeShape ;
     rdfs:label "G10 process location is a label-checked valve" ;
     sh:targetSubjectsOf bqbiol:occursIn ;
     sh:property [
         sh:path bqbiol:occursIn ;
-        sh:in ( fma:7235 fma:7236 fma:7234 fma:7246 ) ;
+        sh:in ( uberon:0002135 uberon:0002137 uberon:0002134 uberon:0002146 ) ;
         sh:severity sh:Warning ;
-        sh:message "G10: process location is not one of the valve terms label-checked in this review" ;
+        sh:message "G10: process location is not a valve node of the node specification v2" ;
     ] .
 
 # G9. Coverage: a variable described in free text but with no structured annotation (Info only;

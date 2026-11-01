@@ -16,6 +16,7 @@
 @prefix OMEXmodel: <http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
 @prefix fma:       <https://identifiers.org/FMA:> .
+@prefix uberon:    <https://identifiers.org/UBERON:> .
 
 ps:smithPrefixes
     sh:declare [ sh:prefix "bqbiol" ; sh:namespace "http://biomodels.net/biology-qualifiers/"^^xsd:anyURI ] ,
@@ -114,16 +115,16 @@ ps:S5_ValveFlowAtValve
     ] .
 
 # S6. The Smith venous compartments include their atrium (decisions.md "Atria as separate nodes"):
-# the blood bearing V_pu has a part in Cavity of left atrium (fma9465), the blood bearing V_vc a part in
-# Cavity of right atrium (fma11359). The vessel lumens are checked through S3, S4 and G6.
+# the blood bearing V_pu has a part in the left atrial cavity (UBERON:0016513), the blood bearing V_vc a
+# part in the right atrial cavity (UBERON:0016522). The vessel lumens are checked by S7.
 ps:S6a_PulmonaryVenousCompartmentIncludesLeftAtrium
     a sh:NodeShape ;
     rdfs:label "S6 pulmonary venous compartment includes the left atrial cavity" ;
     sh:targetNode OMEXmodel:V_pu ;
     sh:property [
         sh:path ( bqbiol:isPropertyOf bqbiol:hasPart bqbiol:isPartOf ) ;
-        sh:hasValue fma:9465 ;
-        sh:message "S6: the blood bearing V_pu must include a part in Cavity of left atrium (fma9465); decisions.md \"Atria as separate nodes\"" ;
+        sh:hasValue uberon:0016513 ;
+        sh:message "S6: the blood bearing V_pu must include a part in the left atrial cavity (UBERON:0016513); decisions.md \"Atria as separate nodes\"" ;
     ] .
 
 ps:S6b_VenaCavaCompartmentIncludesRightAtrium
@@ -132,6 +133,70 @@ ps:S6b_VenaCavaCompartmentIncludesRightAtrium
     sh:targetNode OMEXmodel:V_vc ;
     sh:property [
         sh:path ( bqbiol:isPropertyOf bqbiol:hasPart bqbiol:isPartOf ) ;
-        sh:hasValue fma:11359 ;
-        sh:message "S6: the blood bearing V_vc must include a part in Cavity of right atrium (fma11359); decisions.md \"Atria as separate nodes\"" ;
+        sh:hasValue uberon:0016522 ;
+        sh:message "S6: the blood bearing V_vc must include a part in the right atrial cavity (UBERON:0016522); decisions.md \"Atria as separate nodes\"" ;
+    ] .
+
+# S7. Each Smith compartment's blood lies in the container named by the node specification v2
+# (../anatomy_nodes_v2.md): directly, or through a bqbiol:hasPart part for the lumped venous
+# compartments. Checked on the volume variables; S3 carries the result to the pressures.
+
+ps:S7_V_lv_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_lv lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_lv ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue uberon:0016514 ;
+        sh:message "S7: the blood bearing V_lv must lie in the left ventricular cavity; node specification v2" ;
+    ] .
+
+ps:S7_V_rv_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_rv lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_rv ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue uberon:0016509 ;
+        sh:message "S7: the blood bearing V_rv must lie in the right ventricular cavity; node specification v2" ;
+    ] .
+
+ps:S7_V_ao_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_ao lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_ao ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52448 ;
+        sh:message "S7: the blood bearing V_ao must lie in the systemic arterial tree lumen (the 'aorta' compartment is the lumped systemic arteries, S6P pp. 12-13); node specification v2" ;
+    ] .
+
+ps:S7_V_vc_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_vc lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_vc ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52454 ;
+        sh:message "S7: the blood bearing V_vc must lie in the systemic venous tree lumen (the 'vena cava' compartment is the lumped systemic veins); node specification v2" ;
+    ] .
+
+ps:S7_V_pa_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_pa lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_pa ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52449 ;
+        sh:message "S7: the blood bearing V_pa must lie in the pulmonary arterial tree lumen; node specification v2" ;
+    ] .
+
+ps:S7_V_pu_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_pu lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_pu ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52455 ;
+        sh:message "S7: the blood bearing V_pu must lie in the pulmonary venous tree lumen; node specification v2" ;
     ] .

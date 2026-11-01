@@ -258,6 +258,16 @@ Short bounded quotations in otherwise retained ledgers remain as audited. Re-fet
 | --- | ---: | --- | --- |
 | `edd4e7ae5d67d33081e0852435927bd8fc10d32103f97930de9024e1d1cc8b3a` | 53706 | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=(AUTH:"Chase JG" OR AUTH:"Desaive T") AND (septum OR "ventricular interaction" OR "minimal cardiovascular" OR "valve law") AND OPEN_ACCESS:y | 2026-11-01T06:40Z..06:55Z |
 
+## `docs/evidence/d_fma_license_faq.html`
+
+- Class: REMOVE; action: STUB; original version count: 1.
+
+- Licence: UW page text; no redistribution licence (describes the older custom FMA licence; FMA 5.1.0 is CC BY 4.0 elsewhere)
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `b53f672bb76c18c0551902a0d75da07ea76d143c94c479aaf59301c4eb0d707c` | 4278 | http://sig.biostr.washington.edu/projects/fm/FMA_Release/license_faq.html | 2026-11-01 |
+
 ## `docs/evidence/d_fma_release_page.html`
 
 - Class: REMOVE; action: STUB; original version count: 1.

@@ -250,6 +250,7 @@ Observations (ours; each is checkable in the parsed JSON)
 - OBO Foundry record: "The Foundational Model of Anatomy Ontology (FMA) is a reference ontology for the domain of human anatomy."; licence "CUSTOM" linking to the FMA_Release page; status "This ontology is inactive." (meaning the OBO translation); official file "can be obtained from" http://purl.org/sig/ont/fma.owl.
 - `fma.owl` header: `owl:versionInfo` "5.1.0", `owl:versionIRI` http://purl.org/sig/ont/fma_5.1.0.owl (`d_fma_owl_header_first6000bytes.txt`). EBI OLS loads this 5.1.0 file (104,721 terms, loaded 2026-10-31).
 - FMA_Release page (`d_fma_release_page.html`) offers "Read the Draft Open Source FMA License" with `FMA_License_DRAFT_10-18-06.doc`; the .doc was not retrieved. Web search finds third-party statements of CC BY 3.0 Unported (SciCrunch RRID:SCR_003379) but no first-party licence text was captured. Licence: UNKNOWN pending the UW document.
+- Update 2026-11-01 (later): FMA 5.1.0 was published on 2026-05-15 in the GitHub repository uw-sig/FMA, whose LICENSE file is CC BY 4.0 (checked on the release page and raw LICENSE). 5.1.0 is therefore a 2026 release; the 2019 date belongs to 5.0.0. The OBO Foundry record still marks FMA "inactive" (no longer in development). The UW licence FAQ (`d_fma_license_faq.html`) describes the custom licence of earlier UW distributions. See `d_uberon_fma_map.json` for the current status of FMA and Uberon.
 - Project identifiers fma7101, fma7098, fma7088, fma9670 and the 13 workspace-267 identifiers all resolve in OLS 5.1.0 with the expected labels, none obsolete.
 
 ---
@@ -495,4 +496,54 @@ Quotations
 4. hasSource / hasSink / hasMediator: "The biological process (e.g., a reaction) has inputs (sources) as listed by the referenced resource." (and the parallel definitions for sinks and mediators); hasPhysicalEntity "connects this participation link to the physical entity description of the participant."
 
 Our interpretation: `bqbiol:occursIn` is the standard relation for "this flow happens at that valve", so the four Smith valves become nodes without a project-local predicate (decisions.md "Anatomical structures as nodes"; rules G10, S5). Version 1.1 also places source, sink, mediator, multiplier and physical-entity links in the bqbiol namespace, whereas OMEX metadata v1.2 (S16) uses the SemSim namespace for them. The shapes still follow OMEX v1.2; whether to move to the 1.1 names is open.
+
+---
+
+## S23 Current practice for anatomical identifiers (research survey, 2026-11-01)
+
+Gathered by a research subagent; quotations below were checked against the downloaded open-access texts (scratchpad only, not retained). Licences as stated in the sources.
+
+| source | DOI / location | access, licence |
+|---|---|---|
+| Surles-Zeigler et al. 2022, Front Neuroinform 16:819198 (SPARC vocabulary) | 10.3389/fninf.2022.819198 | full, CC BY 4.0 |
+| Imam et al. 2025, Front Neuroinform 19:1541184 (SCKAN) | 10.3389/fninf.2025.1541184 | full, CC BY 4.0 |
+| SPARC Anatomical Working Group page (updated 2025-08-31) | docs.sparc.science/docs/sawg-sparc-anatomical-working-group | web page, no licence shown |
+| Boppana et al. 2023, Sci Data 10:452 (HRA blood vasculature) | 10.1038/s41597-023-02018-0 | full, CC BY 4.0 |
+| Herr et al. 2023, Sci Data 10:171 (HRA) | 10.1038/s41597-023-01993-8 | full, CC BY 4.0 |
+| de Bono et al. 2022, Front Physiol 13:795303 (ApiNATOMY routes) | 10.3389/fphys.2022.795303 | full, CC BY |
+| Gröne et al. 2024, J Integr Bioinform 21(3) | 10.1515/jib-2024-0023 | full, CC BY 4.0 |
+| Munarko et al. 2022, Front Physiol 13:820683 (Physiome repository) | 10.3389/fphys.2022.820683 | full, CC BY |
+| AnatomicMaps/BG-models annotations.ttl (2024-12-01) | GitHub, PMR workspace c3d | data, no licence declared |
+| OBO Foundry registry: fma.md, uberon.md; uw-sig/FMA release 5.1.0 | GitHub | registry data; FMA repo CC BY 4.0 |
+
+Quotations
+
+1. SPARC working group: "our core anatomical ontology is UBERON, a pan-species anatomical ontology. When possible, we will annotate anatomical structures to UBERON terms." → identifier rule.
+2. SCKAN 2025 §2.4.2: "the pan-species anatomy ontology UBERON (Mungall et al., 2012) forms the “backbone” of its anatomical terminology efforts. Species-specific ontologies such as FMA … are used to supplement as necessary." → identifier rule.
+3. Boppana 2023, Methods: the identifier "was based on the UBERON ID if possible. If the vessel was not in UBERON, we used an FMA ID if it existed." → the rule adopted in anatomy_nodes_v2.md.
+4. Boppana 2023, Background, on FMA: "the ontology is no longer being updated." Herr 2023: "HRA anatomical structures are linked to Uberon … (and FMA … as needed)".
+5. Surles-Zeigler 2022: the term "junction between pulmonary valve and right ventricle" is composed of "pulmonary valve" (UBERON:0002146, FMA:7246) and "heart right ventricle" (UBERON:0002080, FMA:7098). → valves as nodes carrying both identifiers.
+6. de Bono 2022: a route node "represents the boundary between the left ventricle and the aorta at the aortic valve". → valves as nodes at compartment boundaries.
+7. Counter-evidence: Munarko 2022: the ontologies "most commonly found in the PMR are Gene Ontology (GO), Ontology of Physics for Biology (OPB), Foundational Model of Anatomy (FMA), and Chemical Entities of Biological Interest (ChEBI)"; Gröne 2024: "The web-based ApiNATOMY platform utilises the FMA". OMEX metadata v1.2 §2.4.2 recommends FMA "for structures at the tissue scale or higher" and does not mention Uberon (S16).
+
+Our interpretation: the largest current physiology and anatomy infrastructures use Uberon first and FMA where Uberon lacks a structure; the COMBINE specifications have not been updated to say so. No 2022-2026 COMBINE or Physiome document naming a preferred anatomy ontology was found. Data checks (ours): 25 of 30 inventory structures have a Uberon term carrying the same FMA cross-reference; Uberon has no vessel-specific lumen terms (`d_uberon_fma_map.json`).
+
+---
+
+## S24 Structures in current closed-loop circulation models and the minor heart valves (research survey, 2026-11-01)
+
+Gathered by a research subagent from 24 model papers (2009-2026) and anatomy reviews; open-access quotations checked against the downloaded texts, other sources paraphrased.
+
+Quotations and findings
+
+1. Regazzoni et al. 2022 (10.1016/j.jcp.2022.111083, CC BY 4.0), §2.4: "The four chambers are modeled by time-varying elastance elements, whereas the four valves are represented as non-ideal diodes."
+2. van Osta et al. 2025, CircAdapt (10.1098/rsta.2024.0208, CC BY 4.0): "nvalve=6 … is the number of valves in the circulation including the two venous-atria connections"; the Bag module "simulates the effect of the pericardium". The venous-atrial "valves" are generic elements, not identified with anatomical valves.
+3. Müller et al. 2023, ADAVN (10.3389/fphys.2023.1162391, CC BY 4.0): "Coronary veins drain blood from the heart directly to the right atrium. There are 13 coronary veins, and the coronary sinus." Valve inertance and Bernoulli terms are used at all four valves (paraphrase).
+4. Smith-derived reductions (Colunga 2020, Jones 2021; paraphrase): the systemic and pulmonary arteries and veins are the compartments; septal interaction, valve inertance and the pericardium were removed for identifiability.
+5. Nawrot et al. 2025, Cardiol J (10.5603/cj.105139, CC BY-NC-ND): "After the foramen ovale closes, the valve becomes irrelevant and begins deteriorating." (Eustachian valve)
+6. Shanthini & Suma 2023, Cureus (10.7759/cureus.36534, CC BY 3.0): the Thebesian valve "is embryologically the caudal remnant of the right sinoatrial valve".
+7. Meng et al. 2026, MedComm (10.1002/mco2.70957, CC BY): "Generally, a PFO does not result in clinically significant blood shunting in terms of hemodynamics".
+8. Survey result (subagent synthesis, confirmed for the texts read): every general-purpose closed-loop model since 2018 represents four chambers and four valves; no adult model surveyed includes the Eustachian or Thebesian valve; the foramen ovale appears only in fetal and neonatal models (van Willigen 2024, 10.1002/cnm.3877) and a PFO only as an added inter-atrial branch (Tonini 2024, 10.1038/s41598-024-58849-3). No model paper maps its compartments to FMA or Uberon identifiers in the paper itself.
+
+Our interpretation: the atria and four valves are standard nodes in current models; the minor valves are named in TA2, FMA and Uberon but play no role in adult circulation models, so they are catalogue nodes in anatomy_nodes_v2.md.
 
