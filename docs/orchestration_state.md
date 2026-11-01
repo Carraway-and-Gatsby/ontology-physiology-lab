@@ -129,7 +129,33 @@ No escalation was needed. No task was retried.
   0.001 s output, compared by output index; scalar definitions and the
   decision not to add the negative-flow integral are in decisions.md. Hermes
   confirmed it will run C once with these rules and add no pass/fail wording.
-  Run C is not yet executed; A and B files unchanged.
+  A and B files unchanged.
+- 2026-11-01 run C result (Hermes report, report-only; recomputed from the
+  reported numbers, raw CSVs not seen here): C ran 05:48:23-05:48:27 UTC,
+  exit codes 0/0, empty stderr, no NaN/Inf, 1,501 rows, CSV SHA-256
+  `8d0943e5…b427`; report ZIP SHA-256 `b4ec9e79…2166`. Max time difference
+  at the same output index about 7e-18 s (bounds 5.0e-11 to 2.0e-10 s).
+  Max abs difference A-B / B-C: P_lv 0.00712 / 0.00365, P_ao 0.00495 /
+  0.00254 (labelled kPa), Q_av 1.928 / 0.964 mL/s. Observed order p (max
+  norm) 0.964, 0.960, 1.000; RMS norm gives the same picture. RK4's formal
+  order is 4; the cause of the lower order is not established. Stroke volume
+  per beat (A/B/C, mL): 65.8474 / 65.8479 / 65.8481 (p 2.29, GCI_fine
+  5.4e-7) and 65.7768 / 65.7769 / 65.7770 (p 1.00, GCI_fine 1.2e-6); this
+  GCI excludes the 1 ms sampling quadrature error, which is common to A, B
+  and C. Aortic valve sample times identical in A, B, C: open 0.247 / 0.997
+  s, close 0.384 / 1.134 s; p undefined (0/0). The requested check
+  GCI_AB / (2^p x GCI_BC) equals f_C / f_B by construction when p comes from
+  the same three values, so it carries no evidence; asking for it was the
+  assistant's error.
+- Blind comparison with the assistant's scipy re-implementation (not a
+  reference, not independent of the assistant), report-only: stroke volume
+  65.8 mL vs 65.848 mL (beat 1); aortic valve opening 0.247 s vs first
+  positive sample 0.247 s. P_lv, P_ao ranges and Q_av peak not compared:
+  the Hermes summary does not list them.
+- Not yet reviewed here: Hermes's comparator and runner changes
+  (`comparator.diff`, `runner.diff`), the ZIP contents and hash, and
+  `negative-q-intervals.csv`. Scientific checks (negative Q_av, units,
+  published waveform) remain open.
 - Not yet verified: negative Q_av, original-unit plausibility (pressures
   labelled kPa behave numerically as mmHg), agreement with the published
   waveform.
