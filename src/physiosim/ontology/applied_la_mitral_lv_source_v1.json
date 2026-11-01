@@ -1,0 +1,1112 @@
+{
+  "source_commit": "70784bcdb9c14fba5271ee73f3c62b5f94ccbcfb",
+  "source_repo": "[private repository]",
+  "catalog": [
+    {
+      "record": {
+        "profile": "heart",
+        "key": "organ",
+        "role": "Structure",
+        "base_id": "UBERON:0000948",
+        "base_label": "heart",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0000948",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/organ",
+        "context": null,
+        "relation": null,
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/0",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "lv",
+        "role": "Structure",
+        "base_id": "UBERON:0002084",
+        "base_label": "heart left ventricle",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/1",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "lv_cavity",
+        "role": "Space",
+        "base_id": "UBERON:0016514",
+        "base_label": "cavity of left ventricle",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/lv",
+        "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/2",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "lv_wall",
+        "role": "Wall",
+        "base_id": "UBERON:0036285",
+        "base_label": "wall of left ventricle",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0036285",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/lv",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/3",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "lv_blood",
+        "role": "Content",
+        "base_id": "UBERON:0000178",
+        "base_label": "blood",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_blood",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+        "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/4",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "la",
+        "role": "Structure",
+        "base_id": "UBERON:0002079",
+        "base_label": "left cardiac atrium",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0002079",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/9",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "la_cavity",
+        "role": "Space",
+        "base_id": "UBERON:0016513",
+        "base_label": "cavity of left atrium",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/la",
+        "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/10",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "la_blood",
+        "role": "Content",
+        "base_id": "UBERON:0000178",
+        "base_label": "blood",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_blood",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+        "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/11",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "lv_myocardium",
+        "role": "Tissue",
+        "base_id": "UBERON:0006566",
+        "base_label": "left ventricle myocardium",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0006566",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/lv_myocardium",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/18",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "mitral_valve",
+        "role": "Structure",
+        "base_id": "UBERON:0002135",
+        "base_label": "mitral valve",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/organ",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/26",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "la_wall",
+        "role": "Wall",
+        "base_id": "FMA:9531",
+        "base_label": "Wall of left atrium",
+        "base_iri": "http://purl.org/sig/ont/fma/fma9531",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/la",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/41",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "mitral_orifice",
+        "role": "Opening",
+        "base_id": "FMA:9335",
+        "base_label": "Orifice of left atrioventricular junction",
+        "base_iri": "http://purl.org/sig/ont/fma/fma9335",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice",
+        "context": null,
+        "relation": null,
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/47",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "la_myocardium",
+        "role": "Tissue",
+        "base_id": "UBERON:0003380",
+        "base_label": "cardiac muscle of left atrium",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0003380",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/la_myocardium",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/51",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    },
+    {
+      "record": {
+        "profile": "heart",
+        "key": "mitral_annulus",
+        "role": "Structure",
+        "base_id": "UBERON:0005995",
+        "base_label": "mitral valve anulus",
+        "base_iri": "http://purl.obolibrary.org/obo/UBERON_0005995",
+        "template_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+        "context": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "status": "KNOWLEDGE_TEMPLATE_REVIEW",
+        "observed_in_CT": false
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/contents_catalog.json",
+        "pointer": "#/65",
+        "full_file_sha256": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/organ",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "decision": "ACCEPT",
+        "anatomical_evidence_status": "SUPPORTED",
+        "formalization_decision": "ACCEPT",
+        "rationale": "방과 방벽·심이의 구조적 구성 관계로 유지한다. 내강 자체와 조직을 동일시하지 않는다.",
+        "source_ids": [
+          "CS_ATRIA2017"
+        ],
+        "evidence_locator": [
+          {
+            "source_id": "CS_ATRIA2017",
+            "locator": "pp 347–351; The right atrium; The atrial septum; The left atrium; Figs 1–3 captions"
+          }
+        ],
+        "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+        "reviewer": "agent:/root/cardiac_structure",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "bundle": "cardiac_structure",
+        "claim_id": "rel-2bf81398478e7827",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/20",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_blood",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+        "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+        "decision": "ACCEPT",
+        "rationale": "Accept the class-level cavity/content contextualization only. No measurement boundary or benchmark segmentation convention is imported; no specimen occupancy is asserted. MM-WHS는 분할 규약의 차이를 보여주는 참고 자료로만 사용한다.",
+        "source_ids": [
+          "ROOT_RO",
+          "ROOT_ATRIA"
+        ],
+        "evidence_locator": "Section 2.2, definitions 1–4; The right atrium; The left atrium; Figures 1–2; RO_0002571, RO_0002572; BFO_0000050 and RO_0001025 evidence caches",
+        "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+        "reviewer": "root (agent); no independent human adjudication",
+        "contextual_source_ids": [
+          "ROOT_MMWHS"
+        ],
+        "formalization_decision": "ACCEPT",
+        "bundle": "cardiac_spaces",
+        "claim_id": "rel-7e2dcb89ebc3f935",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/22",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_cavity",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la",
+        "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+        "decision": "ACCEPT",
+        "rationale": "Accept the class-level cavity/content contextualization only. No measurement boundary or benchmark segmentation convention is imported; no specimen occupancy is asserted. MM-WHS는 분할 규약의 차이를 보여주는 참고 자료로만 사용한다.",
+        "source_ids": [
+          "ROOT_RO",
+          "ROOT_ATRIA"
+        ],
+        "evidence_locator": "Section 2.2, definitions 1–4; The right atrium; The left atrium; Figures 1–2; RO_0002571, RO_0002572; BFO_0000050 and RO_0001025 evidence caches",
+        "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+        "reviewer": "root (agent); no independent human adjudication",
+        "contextual_source_ids": [
+          "ROOT_MMWHS"
+        ],
+        "formalization_decision": "ACCEPT",
+        "bundle": "cardiac_spaces",
+        "claim_id": "rel-7306eaacd0f3dbdc",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/23",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_myocardium",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "decision": "ACCEPT",
+        "anatomical_evidence_status": "SUPPORTED",
+        "formalization_decision": "ACCEPT",
+        "rationale": "해당 심방벽의 조직층으로 한정한 문맥 정의를 지지한다. 관측되지 않은 CT 내부 노드는 지식 템플릿으로 남긴다.",
+        "source_ids": [
+          "CS_HIPCT2024",
+          "CS_ATRIA2017"
+        ],
+        "evidence_locator": [
+          {
+            "source_id": "CS_HIPCT2024",
+            "locator": "p 3 Measurement of Atrial Wall Thickness; pp 4–6 Results; Figs 2–4 captions; Fig 3 ventricular section"
+          },
+          {
+            "source_id": "CS_ATRIA2017",
+            "locator": "pp 347–351; The right atrium; The atrial septum; The left atrium; Figs 1–3 captions"
+          }
+        ],
+        "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+        "reviewer": "agent:/root/cardiac_structure",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "bundle": "cardiac_structure",
+        "claim_id": "rel-d302b072c938390a",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/26",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/la_wall",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/la",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "decision": "ACCEPT",
+        "anatomical_evidence_status": "SUPPORTED",
+        "formalization_decision": "ACCEPT",
+        "rationale": "방과 방벽·심이의 구조적 구성 관계로 유지한다. 내강 자체와 조직을 동일시하지 않는다.",
+        "source_ids": [
+          "CS_ATRIA2017"
+        ],
+        "evidence_locator": [
+          {
+            "source_id": "CS_ATRIA2017",
+            "locator": "pp 347–351; The right atrium; The atrial septum; The left atrium; Figs 1–3 captions"
+          }
+        ],
+        "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+        "reviewer": "agent:/root/cardiac_structure",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "bundle": "cardiac_structure",
+        "claim_id": "rel-ae3c59503ebb0f46",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/27",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/organ",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "decision": "ACCEPT",
+        "anatomical_evidence_status": "SUPPORTED",
+        "formalization_decision": "ACCEPT",
+        "rationale": "사람 심장의 해당 구조를 한정한 구조적 부분 관계로 유지한다.",
+        "source_ids": [
+          "CS_LV2009"
+        ],
+        "evidence_locator": [
+          {
+            "source_id": "CS_LV2009",
+            "locator": "Anatomy of the left ventricle; Figs 1–3; The myocardium; Normal left ventricle"
+          }
+        ],
+        "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+        "reviewer": "agent:/root/cardiac_structure",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "bundle": "cardiac_structure",
+        "claim_id": "rel-a7c89e14ee4d9076",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/32",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_blood",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+        "relation": "http://purl.obolibrary.org/obo/RO_0001025",
+        "decision": "ACCEPT",
+        "rationale": "해부학적 심실 내강과 그 안의 혈액을 서로 다른 클래스 역할로 정의한다. 혈액 위치 제한식은 로컬 정의이며 원문이 특정 환자나 부피를 확인했다는 뜻은 아니다.",
+        "source_ids": [
+          "ROOT_LV",
+          "ROOT_RO"
+        ],
+        "evidence_locator": "LV: Anatomy of the left ventricle, Figures 1–2; RV: Section 3, ventricular cavity and semilunar hinge boundary discussion",
+        "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+        "reviewer": "root (agent); no independent human adjudication",
+        "evidence_interpretation": "LOCAL_CONTENT_CLASS_DEFINITION",
+        "formalization_decision": "ACCEPT",
+        "bundle": "cardiac_spaces",
+        "claim_id": "rel-6ae26ff7e2c1b0d1",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/33",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_cavity",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv",
+        "relation": "http://purl.obolibrary.org/obo/RO_0002572",
+        "decision": "ACCEPT",
+        "rationale": "해부학적 심실 내강과 그 안의 혈액을 서로 다른 클래스 역할로 정의한다. 혈액 위치 제한식은 로컬 정의이며 원문이 특정 환자나 부피를 확인했다는 뜻은 아니다.",
+        "source_ids": [
+          "ROOT_LV",
+          "ROOT_RO"
+        ],
+        "evidence_locator": "LV: Anatomy of the left ventricle, Figures 1–2; RV: Section 3, ventricular cavity and semilunar hinge boundary discussion",
+        "scope": "Human anatomical class template; no patient observation, functional parameter or precise image measurement boundary.",
+        "reviewer": "root (agent); no independent human adjudication",
+        "evidence_interpretation": "ANATOMICAL_SPACE_CONTEXT",
+        "formalization_decision": "ACCEPT",
+        "bundle": "cardiac_spaces",
+        "claim_id": "rel-71017ae81387a71c",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/34",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_myocardium",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "decision": "ACCEPT",
+        "anatomical_evidence_status": "SUPPORTED",
+        "formalization_decision": "ACCEPT",
+        "rationale": "해당 심실벽의 조직층 부분으로 유지한다. 심근 내 섬유 방향의 층을 별도 절단 가능한 조직층으로 해석하지 않는다.",
+        "source_ids": [
+          "CS_HIPCT2024",
+          "CS_NCI_WALL",
+          "CS_LV2009"
+        ],
+        "evidence_locator": [
+          {
+            "source_id": "CS_HIPCT2024",
+            "locator": "p 3 Measurement of Atrial Wall Thickness; pp 4–6 Results; Figs 2–4 captions; Fig 3 ventricular section"
+          },
+          {
+            "source_id": "CS_NCI_WALL",
+            "locator": "Layers of the Heart Wall; Chambers of the Heart"
+          },
+          {
+            "source_id": "CS_LV2009",
+            "locator": "Anatomy of the left ventricle; Figs 1–3; The myocardium; Normal left ventricle"
+          }
+        ],
+        "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+        "reviewer": "agent:/root/cardiac_structure",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "bundle": "cardiac_structure",
+        "claim_id": "rel-90b4c5951f5917ee",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/39",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv_wall",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/lv",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "decision": "ACCEPT",
+        "anatomical_evidence_status": "SUPPORTED",
+        "formalization_decision": "ACCEPT",
+        "rationale": "사람 심장의 해당 구조를 한정한 구조적 부분 관계로 유지한다.",
+        "source_ids": [
+          "CS_LV2009"
+        ],
+        "evidence_locator": [
+          {
+            "source_id": "CS_LV2009",
+            "locator": "Anatomy of the left ventricle; Figs 1–3; The myocardium; Normal left ventricle"
+          }
+        ],
+        "scope": "Human anatomical knowledge template; specimen/paper scope as specified in sources. No patient-specific observation or universal normality claim.",
+        "reviewer": "agent:/root/cardiac_structure",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "bundle": "cardiac_structure",
+        "claim_id": "rel-d4fc71cd7059c217",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#SourceReported"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/41",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "scope": "Human anatomical class template; typical unfused valve configuration; does not assert observed CT components or universal leaflet count.",
+        "reviewer": "agent:cardiac_boundaries",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#SourceReported",
+        "decision": "REVIEW",
+        "rationale": "part_of 방향 자체의 반증은 아니다. 표준 baseConcept의 fibrous ring과 현재 의도한 전체 해부학 부착영역/선이 같은 범위인지 확정 전이다.",
+        "source_ids": [
+          "CB01",
+          "CB02"
+        ],
+        "evidence_locator": "CB02 parietal junctions, Fig7; CB01 §3(a)(i)",
+        "formalization_decision": "REVIEW",
+        "proposed_change": "첨판 부착 조직, 부착 경계/영역 및 영상 측정면을 구분하고, UBERON 섬유륜 클래스가 표현하는 범위를 명시한 뒤 part_of를 재심사한다. ID 자동 대체 또는 owl:equivalentClass 추가 금지.",
+        "bundle": "cardiac_boundaries",
+        "claim_id": "rel-f295a18d9efb2c62"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/42",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "sourceTemplate": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+        "targetTemplate": "https://example.org/physiosim/anatomical-contents#heart/organ",
+        "relation": "http://purl.obolibrary.org/obo/BFO_0000050",
+        "scope": "Human anatomical class template; typical unfused valve configuration; does not assert observed CT components or universal leaflet count.",
+        "reviewer": "agent:cardiac_boundaries",
+        "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+        "original_relation_status": "https://example.org/physiosim/anatomical-contents#CuratedReview",
+        "decision": "ACCEPT",
+        "rationale": "인간 심장 구성요소로서의 부분 관계를 지지한다. 완전한 판막장치의 모든 세부가 동일 경계라는 주장은 포함하지 않는다.",
+        "source_ids": [
+          "CB01",
+          "CB02"
+        ],
+        "evidence_locator": "CB01 §1 Fig1/3 and valve-specific §§2–5; CB02 Figs1–4",
+        "formalization_decision": "ACCEPT",
+        "formalization_rationale": "선택된 클래스에 part_of some Heart를 부가하는 문맥 제한. 모든 심장이 동일한 정상 구성/개수를 가진다는 전칭 공리 아님.",
+        "bundle": "cardiac_boundaries",
+        "claim_id": "rel-aec067caf4c6add6"
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/claims/45",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    }
+  ],
+  "special_claims": [
+    {
+      "record": {
+        "key": "mitral_orifice_boundary_equivalence",
+        "component_key": "mitral_orifice",
+        "claim_type": "boundary_identity",
+        "decision": "REVIEW",
+        "rationale": "해당 판막과 개구부의 연관은 지지되지만 선택한 FMA 개구부의 정확한 경계와 판막의 해부학적 판구 경계가 동일하다는 공리는 이번 원문 근거만으로 확정하지 못했다.",
+        "source_ids": [
+          "CB02"
+        ],
+        "evidence_locator": {
+          "CB02": "What are the Atrioventricular Junctions, and How Should We Describe Them?; Figs1–4. Provides valve/orifice association, not an exact FMA boundary-equivalence assertion."
+        },
+        "proposed_change": "Keep associatedValve annotation; do not add equivalence/part_of or effective-orifice-area equality."
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/special_claims/6",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    },
+    {
+      "record": {
+        "key": "mitral_annulus_complete_fibrous_ring_interpretation",
+        "component_key": "mitral_annulus",
+        "claim_type": "anatomical_definition",
+        "decision": "REVISE",
+        "rationale": "섬유륜이라는 표준 명칭만으로 전체 판륜을 연속적인 원형 섬유조직 또는 평면으로 해석하지 않도록 정의를 구체화해야 한다.",
+        "source_ids": [
+          "CB01",
+          "CB02"
+        ],
+        "evidence_locator": {
+          "CB01": "§3(a)(i) Annulus and (b)(i) Annulus; annular attachment/transition zone.",
+          "CB02": "Parietal atrioventricular junction paragraphs, Fig7a; nonuniform fibrous cords around left AV junction."
+        },
+        "proposed_change": "Record definition boundary mismatch; distinguish fibrous tissue subregions, anatomical attachment loci and derived measurement planes. Do not infer a replacement ontology ID."
+      },
+      "provenance": {
+        "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+        "pointer": "#/special_claims/7",
+        "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+      }
+    }
+  ],
+  "boundaries": {
+    "version": "0.1.0",
+    "status": "DRAFT_MODEL_CONVENTION",
+    "proposals": [
+      {
+        "record": {
+          "proposal_id": "boundary-mitral_annulus-attachment-v1",
+          "target_key": "heart/mitral_annulus",
+          "target_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+          "current_base_iri": "http://purl.obolibrary.org/obo/UBERON_0005995",
+          "proposed_local_concept": "mitral_leaflet_attachment_boundary",
+          "concept_kind": "anatomical_attachment_boundary",
+          "topological_dimension": 1,
+          "definition_basis": "integrated",
+          "proposal_status": "PROPOSED",
+          "normative_status": "project operational definition; not new standard ontology equivalence",
+          "boundary_rule": "Follow the complete 3D leaflet-to-atrioventricular-junction hinge locus through the commissural attachments. Preserve its nonplanarity rather than replacing it with a flat circle.",
+          "functional_rationale": "Use the leaflet attachment locus as the reference supporting the valve apparatus, with closure and opening represented by distinct leaflet states.",
+          "includes": [
+            "leaflet attachment hinge locus",
+            "commissural attachment landmarks"
+          ],
+          "excludes": [
+            "leaflet free edges and coaptation line",
+            "homogeneous material ring of assumed thickness",
+            "a virtual projected or best-fit annular area",
+            "hemodynamic effective orifice area"
+          ],
+          "state_or_phase": "Contour is indexed by cardiac phase t if measured in a living heart; no default systolic/diastolic coordinates are assigned. In fixed specimens record fixation state.",
+          "assumptions": [
+            "A complete hinge locus is identifiable; incomplete or fused/variant configurations require a separately documented variant protocol.",
+            "No arbitrary mm-wide band or tissue thickness is introduced.",
+            "Geometry is not extracted from the existing coarse CT mask."
+          ],
+          "relation_to_anatomy": "The current UBERON material anulus term remains unchanged. This local boundary is a landmark of attachment tissue, not owl:sameAs or owl:equivalentClass to that tissue. Material support and its boundary are represented separately.",
+          "model_role": "leaflet-support reference; not itself a blood compartment or resistance parameter",
+          "new_local_predicates": [
+            "hasAttachmentBoundary",
+            "attachmentBoundaryOf"
+          ],
+          "source_refs": [
+            "BV01"
+          ],
+          "evidence_locator": "§3(a)(i), Fig14",
+          "evidence_urls": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/"
+          ],
+          "source_vs_proposal": "Literature motivates the anatomical distinctions; choosing this locus as the project boundary is our proposed modeling convention.",
+          "patient_geometry_status": "NOT_MEASURED",
+          "required_geometry_fields": [
+            "3D hinge contour in image world mm",
+            "coordinate reference and original image provenance",
+            "cardiac phase or fixation state",
+            "landmark selection method/version",
+            "missing-landmark/variant handling"
+          ],
+          "bundle": "boundary_valves",
+          "original_mapping_outcome": "REMAINS_REVIEW",
+          "target_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+          "anatomical_base_iri": "http://purl.obolibrary.org/obo/UBERON_0005995",
+          "anatomical_base_label": "mitral valve anulus",
+          "proposal_uri": "https://example.org/physiosim/boundary-proposals#heart/mitral_annulus",
+          "definition_status": "DRAFT_MODEL_CONVENTION",
+          "observed_geometry": false,
+          "measurement_performed": false,
+          "connection_intent": [
+            "hasAttachmentBoundary",
+            "attachmentBoundaryOf"
+          ]
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json",
+          "pointer": "#/proposals/5",
+          "full_file_sha256": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0"
+        }
+      },
+      {
+        "record": {
+          "proposal_id": "boundary-mitral_orifice-transfer-v1",
+          "target_key": "heart/mitral_orifice",
+          "target_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice",
+          "current_base_iri": "http://purl.org/sig/ont/fma/fma9335",
+          "proposed_local_concept": "mitral_transfer_interface",
+          "concept_kind": "functional_transfer_interface",
+          "topological_dimension": 2,
+          "definition_basis": "integrated",
+          "proposal_status": "PROPOSED",
+          "normative_status": "project operational control boundary; not asserted exact mapping to FMA ostium",
+          "boundary_rule": "Choose an oriented spanning control surface whose boundary is the full nonplanar atrioventricular hinge contour. A surface-construction algorithm and version must be supplied before geometry is instantiated because a contour does not determine a unique spanning surface. Preserve the 3D contour; a planar projection is a different derived representation.",
+          "functional_rationale": "Define the port across which net volume is transferred between LA and LV; orient the normal in the reference antegrade direction LA → LV. Reverse/regurgitant transfer is allowed to have negative signed flux.",
+          "includes": [
+            "a zero-thickness control interface",
+            "a declared boundary-construction rule",
+            "state-dependent reference orientation and signed transport"
+          ],
+          "excludes": [
+            "blood material volume",
+            "leaflet tissue or attachment tissue",
+            "leaflet free-edge geometric aperture",
+            "effective orifice area or vena-contracta cross-section",
+            "automatic equality to pressure-separating leaflet surface"
+          ],
+          "upstream_compartment": "LA",
+          "downstream_compartment": "LV",
+          "normal_direction": "LA -> LV",
+          "state_or_phase": "Phase-specific hinge contour and spanning surface must refer to the same cardiac state. Diastolic opening and systolic closure must not be collapsed into a timeless open area.",
+          "transport_definition": "For a moving interface use relative-to-surface velocity when defining net transport Q(t)=integral_S(t) (v-v_surface) dot n dA. This is a proposed measurement definition, not a computed flow result.",
+          "competence_assumption": "Only a declared normally competent closed-valve approximation may set cross-interface flow to zero; a closed-phase label alone does not exclude regurgitation or leakage.",
+          "assumptions": [
+            "The upstream/downstream control-volume partition is declared consistently and avoids overlap/gaps in a future mesh.",
+            "No patient-specific interface geometry, flow, effective area or pressure is inferred from the present CT.",
+            "If landmarks or the required surface construction are absent, this proposal remains symbolic and cannot yield a numerical area.",
+            "A nonplanar hinge contour has infinitely many spanning surfaces; the future construction method is part of the definition, not an anatomical fact."
+          ],
+          "relation_to_anatomy": "Keep the FMA anatomical opening and its current REVIEW boundary mapping. Link this functional interface with a local operationallyAssociatedWith annotation; do not add owl:sameAs, owl:equivalentClass or unverified standard relation IDs.",
+          "model_role": "transport port between declared control volumes; separate from anatomical ostium, actual open gap and functional area property",
+          "new_local_predicates": [
+            "operationallyAssociatedWith",
+            "separatesControlVolumes",
+            "hasBoundaryConstructionRule"
+          ],
+          "source_refs": [
+            "BV01"
+          ],
+          "evidence_locator": "§3(a)(i), Fig14",
+          "evidence_urls": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/"
+          ],
+          "source_vs_proposal": "The control-cut choice, flux orientation and required geometry algorithm are project proposals; the sources support anatomical landmarks and the need to distinguish anatomical, geometric and functional definitions.",
+          "patient_geometry_status": "NOT_MEASURED",
+          "required_geometry_fields": [
+            "interface mesh or planar region in image world mm",
+            "coordinate reference and original image provenance",
+            "phase/time and surface velocity if moving",
+            "landmark and lumen-boundary provenance",
+            "surface construction algorithm/version",
+            "orientation and mesh integrity checks"
+          ],
+          "bundle": "boundary_valves",
+          "original_mapping_outcome": "REMAINS_REVIEW",
+          "target_uri": "https://example.org/physiosim/anatomical-contents#heart/mitral_orifice",
+          "anatomical_base_iri": "http://purl.org/sig/ont/fma/fma9335",
+          "anatomical_base_label": "Orifice of left atrioventricular junction",
+          "proposal_uri": "https://example.org/physiosim/boundary-proposals#heart/mitral_orifice",
+          "definition_status": "DRAFT_MODEL_CONVENTION",
+          "observed_geometry": false,
+          "measurement_performed": false,
+          "connection_intent": [
+            "operationallyAssociatedWith",
+            "separatesControlVolumes",
+            "hasBoundaryConstructionRule"
+          ]
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json",
+          "pointer": "#/proposals/6",
+          "full_file_sha256": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0"
+        }
+      }
+    ]
+  },
+  "sources": {
+    "claims": [
+      {
+        "record": {
+          "id": "CB01",
+          "pmid": "17581807",
+          "pmcid": "PMC2440405",
+          "doi": "10.1098/rstb.2007.2125",
+          "title": "Heart valve macro- and microstructure",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/",
+          "access": "full_text_relevant_sections_read",
+          "evidence_locator": "§1 and Fig1/3; §2(a,b); §3(a)(i,ii); §4(a)(i,ii,vi), Fig19; §5(a)(i,ii)",
+          "summary": "각 판막의 구성과 첨판 명칭을 설명한다. 판륜의 구조는 판막마다 다르며 단순한 평면 고리와 구별해야 한다.",
+          "license": "©2007 The Royal Society; PMC accessible, no permissive reuse license verified; only metadata and original paraphrase saved.",
+          "study_type": "anatomical/histological review; not independent ground-truth validation",
+          "independent_source_group": "Misfeld-Sievers review; figures reuse McAlpine/Anderson-Becker sources"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/0",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "CB02",
+          "pmid": "10967539",
+          "doi": "10.1002/1097-0185(20000901)260:1<81::AID-AR90>3.0.CO;2-3",
+          "title": "Anatomy of the human atrioventricular junctions revisited",
+          "url": "https://anatomypubs.onlinelibrary.wiley.com/doi/full/10.1002/1097-0185%2820000901%29260%3A1%3C81%3A%3AAID-AR90%3E3.0.CO%3B2-3",
+          "access": "full_text_relevant_sections_read",
+          "evidence_locator": "What are the Atrioventricular Junctions, and How Should We Describe Them?; Figs1–7; paragraphs on parietal junctions and fibrous cords",
+          "summary": "방실접합부가 둘러싸는 판구와 판엽의 연결을 기술한다. 섬유조직이 접합부 전체에 균일하게 존재한다고 볼 수 없다.",
+          "license": "©2000 Wiley-Liss; Free Access, redistribution license not established; only metadata/paraphrase saved.",
+          "study_type": "anatomical review with dissections/histological illustrations",
+          "independent_source_group": "Anderson-Ho-Becker"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/1",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "CS_LV2009",
+          "pmid": "19889656",
+          "doi": "10.1093/ejechocard/jep159",
+          "title": "Anatomy and myoarchitecture of the left ventricular wall in normal and in disease",
+          "url": "https://academic.oup.com/ehjcimaging/article-pdf/10/8/iii3/7137761/jep159.pdf",
+          "access": "full_text_html_read_via_official_PDF_redirect",
+          "source_origin": "peer_reviewed_anatomical_review",
+          "evidence_locator": "Anatomy of the left ventricle; Figs 1–3; The myocardium; Normal left ventricle",
+          "summary": "Defines ventricular wall, septal and free-wall components; describes papillary muscles and attached cords. Myocardial strand layers are a continuum, not discrete cleavage planes.",
+          "license": "Publisher copyright; redistribution permission not established. No article or figures copied.",
+          "independent_source_group": "Ho_morphology_group"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/11",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "CS_ATRIA2017",
+          "pmid": "29101544",
+          "doi": "10.1007/s00399-017-0535-x",
+          "title": "Anatomy of the atria: A road map to the left atrial appendage",
+          "url": "https://link.springer.com/content/pdf/10.1007/s00399-017-0535-x.pdf",
+          "access": "official_full_text_PDF_read; PMC browser challenge avoided with publisher PDF",
+          "source_origin": "peer_reviewed_anatomical_review",
+          "evidence_locator": "pp 347–351; The right atrium; The atrial septum; The left atrium; Figs 1–3 captions",
+          "summary": "Both atria contain appendages and walls. The article describes myocardial atrial walls between inner and outer surfaces and distinguishes true septum from atrial infolding.",
+          "license": "CC BY 4.0; third-party figure permissions separate; no figures reproduced.",
+          "independent_source_group": "Ho_morphology_group"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/13",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "CS_HIPCT2024",
+          "pmid": "39012246",
+          "doi": "10.1148/radiol.232731",
+          "title": "Multidimensional Analysis of the Adult Human Heart in Health and Disease Using Hierarchical Phase-Contrast Tomography",
+          "url": "https://pubs.rsna.org/doi/pdf/10.1148/radiol.232731",
+          "access": "official_peer_reviewed_full_text_PDF_read",
+          "source_origin": "original_ex_vivo_human_imaging_study",
+          "evidence_locator": "p 3 Measurement of Atrial Wall Thickness; pp 4–6 Results; Figs 2–4 captions; Fig 3 ventricular section",
+          "summary": "Two adult donor hearts were imaged. Atrial endocardial, myocardial and epicardial sublayers were measured, and ventricular and conduction structures depicted. This validates structure existence in specimens, not prevalence or current CT segmentation.",
+          "license": "CC BY 4.0, explicitly stated on official published PDF page 1; no figures copied",
+          "independent_source_group": "Brunet_Cook_synchrotron_group",
+          "limitations": "n=2; one control and one diseased; formalin-fixed ex vivo. Replaces preprint PMC10592740; preprint is not counted as independent evidence."
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/14",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "CS_NCI_WALL",
+          "pmid": null,
+          "title": "Structure of the Heart — SEER Training",
+          "url": "https://training.seer.cancer.gov/anatomy/cardiovascular/heart/structure.html",
+          "access": "official_institutional_text_passages_read",
+          "source_origin": "official_anatomical_education_supplement_not_journal_article",
+          "evidence_locator": "Layers of the Heart Wall; Chambers of the Heart",
+          "summary": "Provides an institutional cross-check of four chambers and endocardial, myocardial, epicardial wall layers. It is supplementary rather than primary journal evidence.",
+          "license": "Not verified; own summary only.",
+          "independent_source_group": "NCI_SEER_editorial"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/19",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "ROOT_MMWHS",
+          "pmid": "31446280",
+          "title": "Evaluation of algorithms for Multi-Modality Whole Heart Segmentation: An open-access grand challenge",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6839613/",
+          "access": "full_text",
+          "license": "CC BY 4.0",
+          "study_type": "original segmentation benchmark",
+          "evidence_locator": "Section 2.2, definitions 1–4",
+          "summary": "Four chambers have blood-cavity annotations. Dataset cuts and inclusion of papillary muscles are protocol choices, not universal anatomical boundary definitions.",
+          "retrieved_at": "2026-11-01T14:02:24.062028+00:00"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/22",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "ROOT_ATRIA",
+          "pmid": "29101544",
+          "title": "Anatomy of the atria. A road map to the left atrial appendage",
+          "url": "https://link.springer.com/content/pdf/10.1007/s00399-017-0535-x.pdf",
+          "access": "full_text",
+          "license": "Open access; publisher attribution terms; no figure copying",
+          "study_type": "anatomical review",
+          "evidence_locator": "The right atrium; The left atrium; Figures 1–2",
+          "summary": "Both atria have internal endocardial surfaces and identifiable venous/valvar openings. Local cavity classes do not specify a segmentation truncation plane.",
+          "retrieved_at": "2026-11-01T14:02:24.062028+00:00"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/23",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "ROOT_RO",
+          "pmid": null,
+          "title": "RO official ontology, pinned relationship-definition snapshot",
+          "url": "https://raw.githubusercontent.com/oborel/obo-relations/1763baea8065348487ec30080f1fc320f1fe67cc/src/ontology/ro-edit.owl",
+          "access": "official_ontology",
+          "license": "CC0",
+          "study_type": "official ontology",
+          "evidence_locator": "RO_0002571, RO_0002572; BFO_0000050 and RO_0001025 evidence caches",
+          "summary": "Luminal space is an immaterial lumen. Anatomical support and formal expression checks are separate.",
+          "retrieved_at": "2026-11-01T14:02:24.062028+00:00"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/25",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      },
+      {
+        "record": {
+          "id": "ROOT_LV",
+          "pmid": "19889656",
+          "doi": "10.1093/ejechocard/jep159",
+          "title": "Anatomy and myoarchitecture of the left ventricular wall in normal and in disease",
+          "url": "https://academic.oup.com/ehjcimaging/article-pdf/10/8/iii3/7137761/jep159.pdf",
+          "access": "full_text_html_read_via_official_PDF_redirect",
+          "source_origin": "peer_reviewed_anatomical_review",
+          "evidence_locator": "Anatomy of the left ventricle; Figs 1–3; The myocardium; Normal left ventricle",
+          "summary": "Defines ventricular wall, septal and free-wall components; describes papillary muscles and attached cords. Myocardial strand layers are a continuum, not discrete cleavage planes.",
+          "license": "Publisher copyright; redistribution permission not established. No article or figures copied.",
+          "independent_source_group": "Ho_morphology_group"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json",
+          "pointer": "#/sources/26",
+          "full_file_sha256": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7"
+        }
+      }
+    ],
+    "boundaries": [
+      {
+        "record": {
+          "id": "BV01",
+          "pmid": "17581807",
+          "title": "Heart valve macro- and microstructure",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2440405/",
+          "access": "full_text_relevant_sections_read",
+          "evidence_locator": "§2(b)(i) and §2(b)(vi); §3(a)(i), Fig14; §4(a)(i), Fig19; §5(a)(i)",
+          "license": "Royal Society copyright; metadata and paraphrase only",
+          "summary": "Four valves differ in attachment anatomy; atrioventricular boundaries are dynamic and nonplanar; arterial attachments are crown shaped. No common homogeneous fibrous ring is presumed.",
+          "retrieved_at": "2026-11-01T14:17:46.772270+00:00",
+          "bundle": "boundary_valves"
+        },
+        "provenance": {
+          "path": "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json",
+          "pointer": "#/sources/0",
+          "full_file_sha256": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0"
+        }
+      }
+    ]
+  },
+  "full_files": {
+    "experiments/medmlx_anatomy_mapping/results/contents_catalog.json": "288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da",
+    "experiments/medmlx_anatomy_mapping/results/relation_literature_review.json": "fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7",
+    "experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json": "b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0"
+  },
+  "null_context_keys": [
+    "heart/organ",
+    "heart/mitral_orifice"
+  ],
+  "absent_claims": [],
+  "roles": "Knowledge templates only; no specimen observations.",
+  "third_party_notice": {
+    "source": "THIRD_PARTY_NOTICES.md:3-14",
+    "sha256": "e8867ce9111ff52423de7c1ecbebe715d1343281e43b9788880c4d2cb4c4d031",
+    "own_code": "No separate open-source license; owner-authorized internal use only; no relicensing or redistribution rights asserted.",
+    "Uberon": "CC BY 3.0",
+    "FMA": "CC BY 4.0",
+    "RO": "CC0",
+    "other_sources": "Original access/license metadata retained in sources; separate third-party terms remain applicable."
+  },
+  "subset_sha256": {
+    "catalog": "1b204803270c77a9313b55adce472bef0d07c96d61b4a012c159b75086adbcd6",
+    "claims": "1f7b2be65640bdb9bdbf4f992345a7890332c6fc7914785a0eeb580087105a5d",
+    "special_claims": "01be0588876f08d4d8ac13183dee5270a8b6c755a983634ba89bf4d70aa80c1e",
+    "boundaries": "c07a3c3bc0f19f954fba81a2a6f12078f03ed26095178e5880d25ca3fe5868d6",
+    "sources": "fd1b87d7974635112d39acd824f44176aa4209634ea8cb0f57ca1d2565a7ef6e"
+  }
+}
