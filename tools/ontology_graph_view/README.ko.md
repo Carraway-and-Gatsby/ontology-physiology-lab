@@ -8,9 +8,9 @@
 python build_graph.py --input-dir inputs --output-dir site
 ```
 
-입력은 `inputs/anatomy_nodes_v2.json`, `inputs/applied_sidecar.json`, `inputs/m1_manifest.json`, 영수증은 `input-sha256.json`이다. 프로젝트 원본 리비전은 `6f684b8a7210cf64322ec388b7fe12558b7636be`; 각 검사 항목에서 원본 레코드 및 JSON 위치를 확인할 수 있다. 이는 기존 기록의 읽기 전용 투영이며 새로운 매핑 검증이 아니다.
+입력은 `inputs/anatomy_nodes_v2.json`, `inputs/applied_sidecar.json`, `inputs/m1_manifest.json`, 영수증은 `input-sha256.json`이다. 프로젝트 원본 리비전은 `680bd29650d97957256dd05fd3281ee8403f6aed`; 각 검사 항목에서 원본 레코드 및 JSON 위치를 확인할 수 있다. 이는 기존 기록의 읽기 전용 투영이며 새로운 매핑 검증이 아니다.
 
-입력 생성: `anatomy_nodes_v2.json`은 `src/physiosim/ontology/anatomy_nodes_v2.json`의 복사본, `applied_sidecar.json`은 `build_applied_sidecar()` 결과(applied 데모의 `applied_sidecar.json`과 같은 직렬화), `m1_manifest.json`은 `scripts/run_four_chamber_m1.py` 출력의 `manifest.json`이다. 앞의 두 파일은 [redacted: host] 초안의 입력과 바이트 단위로 같다. `m1_manifest.json`의 `run` 부분은 실행 환경의 의존성 버전과 출력 해시를 담으므로 실행한 컴퓨터마다 다르며, 그래프가 쓰는 `semantic_contract`는 같은 리비전에서 결정적으로 생성된다.
+입력 생성: `anatomy_nodes_v2.json`은 `src/physiosim/ontology/anatomy_nodes_v2.json`의 복사본, `applied_sidecar.json`은 `build_applied_sidecar()` 결과(applied 데모의 `applied_sidecar.json`과 같은 직렬화), `m1_manifest.json`은 `scripts/run_four_chamber_m1.py` 출력의 `manifest.json`이다. [redacted: host] 초안은 `6f684b8` 기준 입력을 썼고, PR #4가 `anatomy_nodes_v2.json`의 `status` 문장을 고친 뒤 위 리비전에서 세 파일을 다시 생성했다(바뀐 것은 그 문장과 그에 따른 해시뿐이다). `m1_manifest.json`의 `run` 부분은 실행 환경의 의존성 버전과 출력 해시를 담으므로 실행한 컴퓨터마다 다르며, 그래프가 쓰는 `semantic_contract`는 같은 리비전에서 결정적으로 생성된다.
 
 배치: 간선의 대상 노드를 출발 노드보다 위에 두는 계층 배치다(전체 위에 부분, 의존 대상 위에 입력). 화면 정렬용일 뿐 새로운 관계나 순서를 뜻하지 않는다. 순환하는 의존성(예: `Q_mitral` → `V_la` → `P_la` → `Q_mitral`)은 배치 계산에서만 한 간선을 뒤집고, 화면에는 원래 방향으로 그린다. 여러 층을 건너는 간선은 각 층에 꺾임점을 두어 다른 노드를 피해 간다. 간선 레이블은 다른 노드와 레이블을 가리지 않는 위치에 놓고, 그런 위치가 없으면 숨겼다가 간선에 마우스를 올리거나 선택하면 보인다. 레이블은 predicate IRI의 마지막 부분을 그대로 쓴다(예: `BFO_0000050`); 프로젝트 문서가 `RO_0002572`를 해석 없이 IRI로 유지하므로 사람이 읽는 이름을 덧붙이지 않았다. 해당 보기에서 간선이 없는 노드는 그래프 아래 별도 묶음에 놓고, 카탈로그는 `node_class`별로 묶는다.
 

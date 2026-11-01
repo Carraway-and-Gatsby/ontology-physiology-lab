@@ -2152,7 +2152,7 @@
     "target_crosswalk_review": "PROPOSED"
   },
   "target_anatomy_source": {
-    "canonical_json_sha256": "87fc51a3fb94296167e5e016c9b9376280550c0063333635293c5f8717c1d941",
+    "canonical_json_sha256": "0e9296ffa439b7ff0e2f6eb51a04a231ea65a1b2b0640b1a0e10d838bdd7a841",
     "ontology_versions": {
       "fma": "5.1.0 (2026-05-15, uw-sig/FMA), CC BY 4.0, OBO inactive",
       "uberon": "2026-10-01 (http://purl.obolibrary.org/obo/uberon/releases/2026-10-01/uberon.owl), CC BY 3.0, OBO active"

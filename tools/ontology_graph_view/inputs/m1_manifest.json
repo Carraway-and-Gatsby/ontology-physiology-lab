@@ -127,7 +127,7 @@
       "experiments/four_chamber_m1_demo.py": "a69c4ab485bcec60d8110bd37ec1e07e607f1708b0242d6596c37cec5a913dcd",
       "models/cardiovascular.py": "41be222561d553b93510448630c091c642f999b5be8f01ba65160f3a10ec3492",
       "models/four_chamber_m1.py": "5d7d68818554a7bf66772f7ca89eaeba76ce5daa31bc2198ed373617ec63c381",
-      "ontology/anatomy_nodes_v2.json": "1539226fad5620d056ae02ccccc2f4a0ed44c532ba8830193ef47d1ba4c84fd1",
+      "ontology/anatomy_nodes_v2.json": "d5cdb5bbd883dc301493e2130399b199780c3f72faf640de1c70049464a879e0",
       "ontology/four_chamber_m1_manifest.py": "3f5ce12019c3680a52c5630efd0552cd3c166ce28fd244605ec2ef03b7190d8e",
       "simulation/_hybrid.py": "6c413537bbe91a2859bb612d488e54379d1462a023dfea2ca4eb319e3fb9cc77",
       "simulation/four_chamber_m1.py": "492c032ac03b6712db127a83e87b0b0109afdaa1c42c3c641f21793dcda9834c"
@@ -625,7 +625,7 @@
     },
     "pressure_reference": "model gauge pressure relative to one common fixed external pressure of 0 mmHg; no intrathoracic/pericardial pressure",
     "source": {
-      "canonical_json_sha256": "87fc51a3fb94296167e5e016c9b9376280550c0063333635293c5f8717c1d941",
+      "canonical_json_sha256": "0e9296ffa439b7ff0e2f6eb51a04a231ea65a1b2b0640b1a0e10d838bdd7a841",
       "ontology_versions": {
         "fma": "5.1.0 (2026-05-15, uw-sig/FMA), CC BY 4.0, OBO inactive",
         "uberon": "2026-10-01 (http://purl.obolibrary.org/obo/uberon/releases/2026-10-01/uberon.owl), CC BY 3.0, OBO active"
