@@ -1,0 +1,490 @@
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX e: <urn:smith2004:prov:>
+
+# Source: W3C PROV-O Recommendation 2013, sections 3.1, 3.2, 3.3 and 4.
+# Mapping direction: Activity used Entity; Entity wasGeneratedBy Activity;
+# derived Entity wasDerivedFrom source Entity; Activity qualifiedAssociation
+# Association; Association agent Agent and hadPlan Plan.
+# All local predicates are metadata, not additions to the PROV vocabulary.
+e:record a prov:Entity ;
+    rdfs:label "Smith 2004 completed-run traceability" ;
+    e:vocabularySource <https://www.w3.org/TR/2013/REC-prov-o-20130430/> ;
+    e:vocabularyVersion "W3C Recommendation 2013-04-30" ;
+    e:sourceLocation "prov-o.txt:458-516 (Entity, Activity, used, wasGeneratedBy, wasDerivedFrom); :5130-5140 (qualifiedAssociation); :5547-5583 (hadPlan)" ;
+    e:pinnedCommit "63d3ac1a1fe04c3a22bdb19309a20dbb699abc33" ;
+    e:primaryText e:prov-primary-text ;
+    rdfs:comment "Traceability only; no numerical or physiological validation. Verbatim evidence, extracted facts, interpretations and unresolved conflicts use distinct local predicates. No solver or comparator was invoked to author this record." ;
+    e:revisionNote "Drafted by Hermes under request [redacted: request id] (patch SHA-256 e47d5ba6dcefa3078a91c3ed6c8416db9faea2a17e65eb8b77c972c1cc9b2904). Revised in local review on 2026-11-01 before commit: (1) the 15 historical route events are e:RoutedModelEvent records instead of prov:Association, because route.model shows routing, not a completed call; (2) prov:wasAssociatedWith added beside every prov:qualifiedAssociation. File hashes, byte sizes, plans, times and the CVODE record are unchanged from the draft." .
+
+e:cellml a prov:Entity ;
+    rdfs:label "Canonical CellML input" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-resume/smith_chase_nokes_shaw_wake_2004.cellml" ;
+    e:sha256 "8cca17e89404daeef858fb3db67a16ce4200b7c2712ae6c1ccac83c68f813e60" ;
+    e:byteSize 75074 .
+
+e:archive a prov:Entity ;
+    rdfs:label "OpenCOR 0.8.3 archive" ;
+    e:serverPath "/opt/opencor/OpenCOR-0-8-3-Linux.tar.gz" ;
+    e:sha256 "513ad729265f68c50753dde6c83215b8f109113e03582328fb70a6bd539860ee" ;
+    e:byteSize 322810313 .
+
+e:report-zip a prov:Entity ;
+    rdfs:label "Existing comparison report and source ZIP" ;
+    e:serverPath "<server path>/artifacts/smith-rk4-abc-delivery/smith-rk4-abc-report-and-source.zip" ;
+    e:sha256 "b4ec9e79fc3cf9595be1a8d08e680f6834dbb07381217babb4a6d40c01062166" ;
+    e:byteSize 398672 .
+
+e:launcher a prov:Entity ;
+    rdfs:label "OpenCOR pythonshell executable" ;
+    e:serverPath "/opt/opencor/OpenCOR-0-8-3-Linux/pythonshell" ;
+    e:sha256 "9df6f1a2508fb0cd5cd9d2e741f0c0c9b8ccebc086e0fd04b8dd2cd0d3418488" ;
+    e:byteSize 151 .
+
+e:decisions a prov:Entity ;
+    rdfs:label "Pinned project decisions" ;
+    e:serverPath "<server path>/repo/.worktrees/smith-prov-runs/docs/decisions.md" ;
+    e:sha256 "2d3a3828f84ff778aa3f9e6fecb4fbb5bf2795005de0508a397ced6b3e103349" ;
+    e:byteSize 7890 .
+
+e:prov-primary-text a prov:Entity ;
+    rdfs:label "Retained W3C PROV-O primary text" ;
+    e:serverPath "<server path>/artifacts/ontology-literature-intake/prov-o.txt" ;
+    e:sha256 "849c16f9dafbc685e5083c6680fcc4925eb50b3e458f0d7625a2ef587452c263" ;
+    e:byteSize 196063 .
+
+e:runner-cvode a prov:Entity ;
+    rdfs:label "Default CVODE run script" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/run_smith.py" ;
+    e:sha256 "783b214a2dcae4ad55a9e3356dea1a0dc258968a412f5119154ab7c286e371ae" ;
+    e:byteSize 6215 .
+
+e:wrapper-cvode a prov:Entity ;
+    rdfs:label "Default-run wrapper source" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/execute_once.py" ;
+    e:sha256 "244034b6d83f7cce9ea142f4e187012504b932a25f2f92ca779158e36b5a1d27" ;
+    e:byteSize 8887 .
+
+e:runner-ab a prov:Entity ;
+    rdfs:label "A and B run script" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/run_rk4.py" ;
+    e:sha256 "04477f71b4e9d41223eb336f56d874d47ba7d27b89c091bbfde0ccc93ae3377d" ;
+    e:byteSize 10889 .
+
+e:wrapper-ab a prov:Entity ;
+    rdfs:label "A and B wrapper source" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/execute_experiment.py" ;
+    e:sha256 "8f78962b52a40c7e2ef5296ccc5f0023877a408da8e05ea05227872f942c3171" ;
+    e:byteSize 24073 .
+
+e:runner-c a prov:Entity ;
+    rdfs:label "C run script, distinct from A and B" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-abc-report/run_rk4.py" ;
+    e:sha256 "3b92973a15cc992bfcb0706a0165d0025457aff46ecfa4813965aa95159a71f0" ;
+    e:byteSize 10814 .
+
+e:wrapper-c a prov:Entity ;
+    rdfs:label "C and report workflow wrapper source" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-abc-report/execute_experiment.py" ;
+    e:sha256 "28d9bdb536bae7e4abe068d526bb40e8df50882bfe719f218daa2ee8a21b2128" ;
+    e:byteSize 11590 .
+
+e:comparator a prov:Entity ;
+    rdfs:label "Existing comparison source" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-abc-report/compare_abc.py" ;
+    e:sha256 "616d8fc06b72700c2b42a0927e3766d151984851b12d3ec233b5193998eeefe6" ;
+    e:byteSize 6698 .
+
+e:report-math a prov:Entity ;
+    rdfs:label "Existing report arithmetic source" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-abc-report/report_math.py" ;
+    e:sha256 "0e0a1bb666b1a9e8e29e4b67d0a2404258fcf6cb23606b2b0fa351f8fcb0089d" ;
+    e:byteSize 5382 .
+
+e:comparison-record a prov:Entity ;
+    rdfs:label "Existing comparison evidence" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-abc-report/comparison.json" ;
+    e:sha256 "ff10a7fe4bcc481199854f3d8ff3a7079531c9573d5ec3fa6593ce6fe15ccb22" ;
+    e:byteSize 16743 .
+
+e:run-summary a prov:Entity ;
+    rdfs:label "Existing run-summary evidence" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-abc-report/run-summary.json" ;
+    e:sha256 "804d478951d8504540ffaba5f315e2b34a4af20ebd4cfce1881f01845e0a96fd" ;
+    e:byteSize 13590 .
+
+e:report-generation a prov:Entity ;
+    rdfs:label "Report-only regeneration record" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-abc-report/report-generation.json" ;
+    e:sha256 "9dacc9fbf33270940e93681ee09f3ddf77ec82299125f984b024c739b044c008" ;
+    e:byteSize 266 .
+
+e:cvode-command a prov:Entity ;
+    rdfs:label "CVODE command.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/command.json" ;
+    e:sha256 "509c3d7174427e4ee14c1dd5e46e94e34dd360c3af0579a98073c286a3eb841f" ;
+    e:byteSize 1642 .
+
+e:cvode-result a prov:Entity ;
+    rdfs:label "CVODE result.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/result.json" ;
+    e:sha256 "9b1e2a4bf801817062f78e41c7a4f5ee70ba9f68c5b8cd310389591d6e74cd86" ;
+    e:byteSize 8734 .
+
+e:cvode-readback a prov:Entity ;
+    rdfs:label "CVODE script-report.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/script-report.json" ;
+    e:sha256 "377a93428d55421ba1cb626e67e146cf3490e336ea38bfd5d7305393cc3a5a73" ;
+    e:byteSize 4951 .
+
+e:a-command a prov:Entity ;
+    rdfs:label "A command.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h1e-5/command.json" ;
+    e:sha256 "a5801de67aa923ac3ebeea75e6cdcefacfccee6454971f0c15994129287fe711" ;
+    e:byteSize 2356 .
+
+e:a-result a prov:Entity ;
+    rdfs:label "A result.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h1e-5/result.json" ;
+    e:sha256 "83deb48f97c1305538f2319335d18a1603e70981e3c6d1d27018058a782812f4" ;
+    e:byteSize 4417 .
+
+e:a-readback a prov:Entity ;
+    rdfs:label "A script-report.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h1e-5/script-report.json" ;
+    e:sha256 "14d69bce9db6376cc8db06ca59db36d8758d955a45beb91cb54608d57c8dfee4" ;
+    e:byteSize 7254 .
+
+e:a-signals a prov:Entity ;
+    rdfs:label "A signals.csv" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h1e-5/signals.csv" ;
+    e:sha256 "8fb37cd902b7ea7a07447dc2f90e456370dea965a621cba6f644ef9dc1137c15" ;
+    e:byteSize 105581 ;
+    prov:wasGeneratedBy e:run-a ;
+    prov:wasDerivedFrom e:cellml .
+
+e:b-command a prov:Entity ;
+    rdfs:label "B command.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h5e-6/command.json" ;
+    e:sha256 "e4596e8698b8ee5fa5ce9b17fca84fa379adda47f2cf7f49832bf9f3ef4ea14a" ;
+    e:byteSize 2356 .
+
+e:b-result a prov:Entity ;
+    rdfs:label "B result.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h5e-6/result.json" ;
+    e:sha256 "4cdc33a1bc7d7ae7624a24c3041ed1a30f4eb17f120a39469122d13dcf8e6db9" ;
+    e:byteSize 4416 .
+
+e:b-readback a prov:Entity ;
+    rdfs:label "B script-report.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h5e-6/script-report.json" ;
+    e:sha256 "d0ad806922d5f2ac7dfa05cf1941113963396d26f343dfb86a358fea34053691" ;
+    e:byteSize 7254 .
+
+e:b-signals a prov:Entity ;
+    rdfs:label "B signals.csv" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h5e-6/signals.csv" ;
+    e:sha256 "402687a6032f2bddfc3a9535617805f7fe16c1a9a0b47282fcb19b9f227541b6" ;
+    e:byteSize 106256 ;
+    prov:wasGeneratedBy e:run-b ;
+    prov:wasDerivedFrom e:cellml .
+
+e:c-command a prov:Entity ;
+    rdfs:label "C command.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h2.5e-6/command.json" ;
+    e:sha256 "8469ade179668ad82ed167c4094ea84d60068999c11a9ce4d6bf5152b24e90f0" ;
+    e:byteSize 2431 .
+
+e:c-result a prov:Entity ;
+    rdfs:label "C result.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h2.5e-6/result.json" ;
+    e:sha256 "823e1f72c17bafcd06676c623cb0a25bdceec4e9f01cdd09b3a83833e15152cf" ;
+    e:byteSize 4817 .
+
+e:c-readback a prov:Entity ;
+    rdfs:label "C script-report.json" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h2.5e-6/script-report.json" ;
+    e:sha256 "a5f74f19be63b7359f9f627a44033ff8f3cefa96149f7e5b08af164d179ca48e" ;
+    e:byteSize 7180 .
+
+e:c-signals a prov:Entity ;
+    rdfs:label "C signals.csv" ;
+    e:serverPath "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h2.5e-6/signals.csv" ;
+    e:sha256 "8d0943e51d86270e257b91360f102791e1d092783e1f8bdb9383b714d033b427" ;
+    e:byteSize 107511 ;
+    prov:wasGeneratedBy e:run-c ;
+    prov:wasDerivedFrom e:cellml .
+
+e:audit-cvode a prov:Entity ;
+    rdfs:label "Historical workflow audit [redacted: request id]" ;
+    e:serverPath "<server path>/artifacts/router-v2/[redacted: request id].json" ;
+    e:sha256 "1a207083cde8c103438440e75b495de94fdc5a5598fa9eb7eb3d2689d67bed1a" ;
+    e:byteSize 8351 .
+
+e:audit-ab a prov:Entity ;
+    rdfs:label "Historical workflow audit [redacted: request id]" ;
+    e:serverPath "<server path>/artifacts/router-v2/[redacted: request id].json" ;
+    e:sha256 "fc8531597188fbff53acfc2198b948e3866059fc3a99b0fc792cd27406d5a6f0" ;
+    e:byteSize 8196 .
+
+e:audit-c a prov:Entity ;
+    rdfs:label "Historical workflow audit [redacted: request id]" ;
+    e:serverPath "<server path>/artifacts/router-v2/[redacted: request id].json" ;
+    e:sha256 "c477cb9fc12bc75c12e82f2dffcebbda38a3f1a1d064431d4b329de8fd9078d8" ;
+    e:byteSize 8603 .
+
+e:project-owner a prov:Person ; rdfs:label "project owner" .
+e:opencor a prov:SoftwareAgent ; rdfs:label "OpenCOR 0.8.3" ;
+    e:sourceLocation "command.json:$.argv[0] in CVODE and each A/B/C directory" ;
+    e:extractedFact "Executable is /opt/opencor/OpenCOR-0-8-3-Linux/pythonshell; archive filename records version 0.8.3." .
+e:hermes a prov:SoftwareAgent ; rdfs:label "Hermes" ;
+    e:versionStatus "UNKNOWN" ; e:executionEvidenceStatus "UNKNOWN" ;
+    e:sourceLocation "<server path>/artifacts/smith-prov-runs/mission.request.md:17" ;
+    e:interpretation "Owner-requested agent only; no matching run-log or historical audit evidence establishes its version or execution role. No numerical-execution association is asserted." .
+e:model-opus a prov:SoftwareAgent ; rdfs:label "claude-opus-5-5" ; e:callOutcomeStatus "UNKNOWN" ;
+    e:sourceLocation "Historical audits: $.events[0,2,4].route.model; route.task is plan, review, review respectively." .
+e:model-sol a prov:SoftwareAgent ; rdfs:label "gpt-6.1-sol" ; e:callOutcomeStatus "UNKNOWN" ;
+    e:sourceLocation "Historical audits: $.events[1,3].route.model; route.task is implement." .
+e:numericalExecution a prov:Role .
+e:approval a prov:Role .
+e:workflowPlanning a prov:Role .
+e:workflowImplementation a prov:Role .
+e:workflowReview a prov:Role .
+
+
+e:plan-reference a prov:Plan, prov:Entity ;
+    rdfs:label "Smith 2004 OpenCOR reference run" ;
+    prov:wasDerivedFrom e:decisions ;
+    e:sourceLocation "docs/decisions.md:18 at commit 63d3ac1a1fe04c3a22bdb19309a20dbb699abc33" ;
+    e:approvalEvidence "user-approved (source decision entry; not an execution timestamp)" ;
+    e:verbatimEvidence "Smith 2004 OpenCOR reference run (2026-11-01, user-approved): fixed-step RK4 replaces CVODE only, because the default run failed with a KINSOL iteration-limit error. KINSOL, model, parameters and units are unchanged; results are labelled RK4 and do not explain the CVODE failure." .
+
+e:plan-comparison a prov:Plan, prov:Entity ;
+    rdfs:label "Smith 2004 RK4 value comparison" ;
+    prov:wasDerivedFrom e:decisions ;
+    e:sourceLocation "docs/decisions.md:20 at commit 63d3ac1a1fe04c3a22bdb19309a20dbb699abc33" ;
+    e:approvalEvidence "user-approved (source decision entry; not an execution timestamp)" ;
+    e:verbatimEvidence "Smith 2004 RK4 value comparison (2026-11-01, user-approved): report-only, no pass/fail line. The literature read (Pathmanathan & Gray 2013 and 2014, Erdemir 2020, Santiago 2022, Mulugeta 2018) prescribes a verification procedure but no universal numeric acceptance threshold; the level is set by context of use, and this project is an exploratory prototype. Step-halving results (observed order and error per quantity of interest) are reported without being declared passed or failed. A passing result would still not establish scientific validity." .
+
+e:plan-tolerance a prov:Plan, prov:Entity ;
+    rdfs:label "Smith 2004 time-stamp tolerance" ;
+    prov:wasDerivedFrom e:decisions ;
+    e:sourceLocation "docs/decisions.md:21 at commit 63d3ac1a1fe04c3a22bdb19309a20dbb699abc33" ;
+    e:approvalEvidence "user-approved (source decision entry; not an execution timestamp)" ;
+    e:verbatimEvidence "Smith 2004 time-stamp tolerance (2026-11-01, user-approved, supersedes the 1e-9 s entry above): the 1e-9 s value was chosen by the assistant, not taken from literature. Output times count as equal when |dt| <= N_steps * eps(2.22e-16) * t_max (about 1.0e-10 s for 3.0e5 steps to 1.5 s). It rests on IEEE 754 double arithmetic, not on biomedical literature." .
+
+e:plan-steps a prov:Plan, prov:Entity ;
+    rdfs:label "Smith 2004 step sizes" ;
+    prov:wasDerivedFrom e:decisions ;
+    e:sourceLocation "docs/decisions.md:22 at commit 63d3ac1a1fe04c3a22bdb19309a20dbb699abc33" ;
+    e:approvalEvidence "user-approved (source decision entry; not an execution timestamp)" ;
+    e:verbatimEvidence "Smith 2004 step sizes (2026-11-01, user-approved): a third RK4 step size, 2.5e-6 s (run C), is added to 1e-5 s and 5e-6 s so an observed order of convergence can be computed; two sizes cannot give one." .
+
+e:plan-scalars a prov:Plan, prov:Entity ;
+    rdfs:label "Smith 2004 run C and scalar definitions" ;
+    prov:wasDerivedFrom e:decisions ;
+    e:sourceLocation "docs/decisions.md:23 at commit 63d3ac1a1fe04c3a22bdb19309a20dbb699abc33" ;
+    e:approvalEvidence "user-approved (source decision entry; not an execution timestamp)" ;
+    e:verbatimEvidence "Smith 2004 run C and scalar definitions (2026-11-01, user-approved, fixed before run C results exist): run C changes only the integration step (2.5e-6 s); the output interval stays 0.001 s as in A and B (1,501 rows each, not one row per integration step). A, B and C are compared by the same output index, with time-stamp equality checked by the derived bound above and N_steps = 1.5 / the run's integration step. Scalars: stroke volume per beat = trapezoidal integral of max(Q_av, 0) over the CSV samples; valve opening = first sample with Q_av > 0, closing = first later sample with Q_av <= 0, no interpolation; beats are 0-0.75 s and 0.75-1.5 s, with the 0.75 s sample in both. Valve times therefore have 1 ms resolution and are reported, not used as a convergence measure. The optional negative-flow integral (min(Q_av, 0)) was not adopted; negative Q_av values and their sample-time spans are only recorded. Adding it after run C results exist would no longer be fixed in advance." .
+
+e:plan-tolerance e:supersessionEvidence "docs/decisions.md:21 explicitly supersedes :19. The old time-stamp tolerance is not an active Plan and is not applied here." .
+
+# CVODE has no generated output Entity. The comment is the verbatim error only.
+e:run-cvode a prov:Activity ; rdfs:label "Failed default CVODE plus KINSOL invocation" ;
+    prov:used e:cellml, e:archive, e:launcher, e:runner-cvode ;
+    prov:qualifiedAssociation e:cvode-executor ;
+    prov:wasAssociatedWith e:opencor ;
+    e:evidence e:cvode-command, e:cvode-result, e:cvode-readback ;
+    e:wrapperSource e:wrapper-cvode ;
+    e:workflowContext e:workflow-cvode ;
+    e:outcome "failure" ; e:startStatus "UNKNOWN" ; e:endStatus "UNKNOWN" ;
+    rdfs:comment "std::runtime_error: the maximum number of iterations was reached before convergence" ;
+    e:sourceLocation "result.json:$.failure_reason (:4), $.finished_utc (:194), $.observation_limits.error_location (:206); script-report.json:$.default_solvers; command.json:$.argv[1], $.script_sha256" ;
+    e:extractedFact "result.json:$.finished_utc is result completion only, not an activity end. script-report.json:$.default_solvers records CVODE and KINSOL." ;
+    e:solverAttributionStatus "UNKNOWN" ;
+    e:unresolvedConflict "Raw exception does not distinguish CVODE from KINSOL; initialization versus integration is unresolved at result.json:206. docs/decisions.md:18 has stronger historical KINSOL prose; that prose is not measured causal evidence." .
+e:cvode-executor a prov:Association ; prov:agent e:opencor ; prov:hadRole e:numericalExecution .
+
+# A/B/C activities deliberately include the logged invocation and settings inspection.
+# Their readbacks are evidence used in that boundary, not causal configuration inputs.
+# No readback is asserted to be generated by these activities (no use/generation cycle).
+
+
+e:run-a a prov:Activity ; rdfs:label "RK4 run A: invocation plus settings-inspection record" ;
+    e:integrationMethod "RK4" ; e:stepSeconds "1e-5"^^xsd:double ;
+    prov:used e:cellml, e:archive, e:launcher, e:runner-ab, e:a-readback ;
+    prov:qualifiedAssociation e:a-executor, e:a-reference-approval ;
+    prov:wasAssociatedWith e:opencor, e:project-owner ;
+    e:evidence e:a-command, e:a-result ;
+    e:wrapperSource e:wrapper-ab ; e:workflowContext e:workflow-ab ;
+    e:sourceLocation "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h1e-5/command.json:$.argv[1], $.argv[3], $.script_sha256; script-report.json:$.settings_before, $.settings_after" ;
+    e:verbatimEvidence "\"name\": \"Runge-Kutta (4th order)\"", "\"Step\": 1e-05" ;
+    e:extractedFact "settings_before has CVODE and KINSOL; settings_after has RK4 and KINSOL. Step is in seconds. Runner path is taken from command.json argv, not the output directory name." ;
+    e:interpretation "Activity boundary is the logged invocation plus settings-inspection record. prov:used on readback denotes inspection evidence, not a runtime configuration file." ;
+
+    e:startStatus "UNKNOWN" ; e:endStatus "UNKNOWN" ;
+    rdfs:comment "No start/end UTC keys occur in the case command.json, result.json or script-report.json; no file mtime or later summary time is used." .
+
+e:a-executor a prov:Association ; prov:agent e:opencor ; prov:hadRole e:numericalExecution .
+
+e:a-reference-approval a prov:Association ; prov:agent e:project-owner ;
+    prov:hadRole e:approval ; prov:hadPlan e:plan-reference ;
+    e:interpretation "Mapping the user-approved decision to this run is a traceability interpretation of the decision scope; it does not date an approval event." .
+
+e:run-b a prov:Activity ; rdfs:label "RK4 run B: invocation plus settings-inspection record" ;
+    e:integrationMethod "RK4" ; e:stepSeconds "5e-6"^^xsd:double ;
+    prov:used e:cellml, e:archive, e:launcher, e:runner-ab, e:b-readback ;
+    prov:qualifiedAssociation e:b-executor, e:b-reference-approval ;
+    prov:wasAssociatedWith e:opencor, e:project-owner ;
+    e:evidence e:b-command, e:b-result ;
+    e:wrapperSource e:wrapper-ab ; e:workflowContext e:workflow-ab ;
+    e:sourceLocation "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h5e-6/command.json:$.argv[1], $.argv[3], $.script_sha256; script-report.json:$.settings_before, $.settings_after" ;
+    e:verbatimEvidence "\"name\": \"Runge-Kutta (4th order)\"", "\"Step\": 5e-06" ;
+    e:extractedFact "settings_before has CVODE and KINSOL; settings_after has RK4 and KINSOL. Step is in seconds. Runner path is taken from command.json argv, not the output directory name." ;
+    e:interpretation "Activity boundary is the logged invocation plus settings-inspection record. prov:used on readback denotes inspection evidence, not a runtime configuration file." ;
+
+    e:startStatus "UNKNOWN" ; e:endStatus "UNKNOWN" ;
+    rdfs:comment "No start/end UTC keys occur in the case command.json, result.json or script-report.json; no file mtime or later summary time is used." .
+
+e:b-executor a prov:Association ; prov:agent e:opencor ; prov:hadRole e:numericalExecution .
+
+e:b-reference-approval a prov:Association ; prov:agent e:project-owner ;
+    prov:hadRole e:approval ; prov:hadPlan e:plan-reference ;
+    e:interpretation "Mapping the user-approved decision to this run is a traceability interpretation of the decision scope; it does not date an approval event." .
+
+e:run-c a prov:Activity ; rdfs:label "RK4 run C: invocation plus settings-inspection record" ;
+    e:integrationMethod "RK4" ; e:stepSeconds "2.5e-6"^^xsd:double ;
+    prov:used e:cellml, e:archive, e:launcher, e:runner-c, e:c-readback ;
+    prov:qualifiedAssociation e:c-executor, e:c-reference-approval, e:c-steps-approval, e:c-scalars-approval ;
+    prov:wasAssociatedWith e:opencor, e:project-owner ;
+    e:evidence e:c-command, e:c-result ;
+    e:wrapperSource e:wrapper-c ; e:workflowContext e:workflow-c ;
+    e:sourceLocation "<server path>/artifacts/smith-canonical-opencor-run/rk4-runner-fix-r1/rk4_h2.5e-6/command.json:$.argv[1], $.argv[3], $.script_sha256; script-report.json:$.settings_before, $.settings_after" ;
+    e:verbatimEvidence "\"name\": \"Runge-Kutta (4th order)\"", "\"Step\": 2.5e-06" ;
+    e:extractedFact "settings_before has CVODE and KINSOL; settings_after has RK4 and KINSOL. Step is in seconds. Runner path is taken from command.json argv, not the output directory name." ;
+    e:interpretation "Activity boundary is the logged invocation plus settings-inspection record. prov:used on readback denotes inspection evidence, not a runtime configuration file." ;
+
+    prov:startedAtTime "2026-11-01T05:48:23.238049+00:00"^^xsd:dateTime ;
+    prov:endedAtTime "2026-11-01T05:48:26.974988+00:00"^^xsd:dateTime ;
+    e:scriptStartStatus "UNKNOWN" ;
+    rdfs:comment "Times are wrapper invocation boundaries only: command.json:$.utc_start (:17), $.utc_end (:18), repeated in result.json:$.utc_start/$.utc_end. execute_experiment.py:81-108 brackets the subprocess and wrapper handling. Internal script-report.json:$.utc_end (:285) is 2026-11-01T05:48:26.944159+00:00 and differs; it is not substituted for wrapper end." .
+
+e:c-executor a prov:Association ; prov:agent e:opencor ; prov:hadRole e:numericalExecution .
+
+e:c-reference-approval a prov:Association ; prov:agent e:project-owner ;
+    prov:hadRole e:approval ; prov:hadPlan e:plan-reference ;
+    e:interpretation "Mapping the user-approved decision to this run is a traceability interpretation of the decision scope; it does not date an approval event." .
+
+e:c-steps-approval a prov:Association ; prov:agent e:project-owner ;
+    prov:hadRole e:approval ; prov:hadPlan e:plan-steps ;
+    e:interpretation "Mapping the user-approved decision to this run is a traceability interpretation of the decision scope; it does not date an approval event." .
+
+e:c-scalars-approval a prov:Association ; prov:agent e:project-owner ;
+    prov:hadRole e:approval ; prov:hadPlan e:plan-scalars ;
+    e:interpretation "Mapping the user-approved decision to this run is a traceability interpretation of the decision scope; it does not date an approval event." .
+
+e:comparison-packaging a prov:Activity ; rdfs:label "A/B/C comparison and report packaging" ;
+    prov:used e:a-signals, e:b-signals, e:c-signals, e:comparator, e:report-math ;
+    prov:qualifiedAssociation e:comparison-approval, e:tolerance-approval, e:scalars-approval ;
+    prov:wasAssociatedWith e:project-owner ;
+    e:evidence e:comparison-record, e:run-summary, e:report-generation ;
+    e:workflowContext e:workflow-c ;
+    e:startStatus "UNKNOWN" ; e:endStatus "UNKNOWN" ;
+    e:sourceLocation "rk4-abc-report/comparison.json:$.csv_stats.A.path, $.csv_stats.B.path, $.csv_stats.C.path; run-summary.json:$.generated_utc; report-generation.json:$.utc, $.operation" ;
+    e:interpretation "This aggregate activity includes comparison and existing report/source packaging; wasGeneratedBy on the existing ZIP is scoped to that aggregate, not a claim that compare_abc.py alone created it." ;
+    rdfs:comment "Comparison/packaging start and end, and exact ZIP creation UTC, are UNKNOWN. run-summary.json:3 generated_utc and report-generation.json:3 utc mark report records, not these execution boundaries. No output values are recomputed." .
+e:report-zip prov:wasGeneratedBy e:comparison-packaging ;
+    prov:wasDerivedFrom e:a-signals, e:b-signals, e:c-signals ;
+    e:creationTimeStatus "UNKNOWN" .
+e:comparison-approval a prov:Association ; prov:agent e:project-owner ; prov:hadRole e:approval ; prov:hadPlan e:plan-comparison .
+e:tolerance-approval a prov:Association ; prov:agent e:project-owner ; prov:hadRole e:approval ; prov:hadPlan e:plan-tolerance .
+e:scalars-approval a prov:Association ; prov:agent e:project-owner ; prov:hadRole e:approval ; prov:hadPlan e:plan-scalars .
+e:comparison-packaging e:interpretation "Plan associations map decision scope to comparison/report packaging; no retrospective numerical approval is asserted." .
+
+# Correction to the first-pass handoff: launcher and wrapper are different files.
+e:launcher e:sourceLocation "All four command.json:$.argv[0] and $.launcher_sha256; execute_once.py:10,44; rk4-runner-fix-r1/execute_experiment.py:17,75; rk4-abc-report/execute_experiment.py:21,71" ;
+    e:extractedFact "Fresh executable SHA-256 matches every logged launcher_sha256. This field hashes pythonshell, not execute_once.py or execute_experiment.py." .
+e:wrapper-cvode e:interpretation "Wrapper-source attribution is based on execute_once.py:38-47 writing the command schema and argv. It is not based on launcher_sha256." .
+e:wrapper-ab e:interpretation "Wrapper-source attribution is based on execute_experiment.py:73-76 writing case command.json. It is not based on launcher_sha256." .
+e:wrapper-c e:interpretation "Wrapper-source attribution is based on execute_experiment.py:69-73,81-108 writing C command.json and wrapper UTC keys. It is not based on launcher_sha256." .
+
+
+# Routed model events (revision 1): route.model in the historical audits shows where a step was
+# routed, not that the call completed, so these are local e:RoutedModelEvent records with
+# e:routedModel and e:routedTask rather than prov:Association with prov:agent and prov:hadRole.
+# They can be upgraded to associations once a call-outcome field in each audit is cited.
+e:workflow-cvode a prov:Activity ; rdfs:label "Historical CVODE research workflow" ;
+    e:evidence e:audit-cvode ; e:startStatus "UNKNOWN" ; e:endStatus "UNKNOWN" ;
+    e:routedEvent e:workflow-cvode-event-0, e:workflow-cvode-event-1, e:workflow-cvode-event-2, e:workflow-cvode-event-3, e:workflow-cvode-event-4 ;
+    e:interpretation "Audit-to-run/report grouping follows audit task scope; this is a traceability interpretation. route.model records which model each step was routed to; whether each call completed is UNKNOWN because no call-outcome field was checked, so no prov:Association with a model is asserted. Routing applies to the research workflow, not numerical solver execution. No workflow clock boundaries are inferred from route events." .
+
+e:workflow-cvode-event-0 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowPlanning ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-cvode ;
+    e:sourceLocation "$.events[0].route.model and $.events[0].route.task in audit-cvode" .
+
+e:workflow-cvode-event-1 a e:RoutedModelEvent ;
+    e:routedModel e:model-sol ; e:routedTask e:workflowImplementation ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-cvode ;
+    e:sourceLocation "$.events[1].route.model and $.events[1].route.task in audit-cvode" .
+
+e:workflow-cvode-event-2 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowReview ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-cvode ;
+    e:sourceLocation "$.events[2].route.model and $.events[2].route.task in audit-cvode" .
+
+e:workflow-cvode-event-3 a e:RoutedModelEvent ;
+    e:routedModel e:model-sol ; e:routedTask e:workflowImplementation ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-cvode ;
+    e:sourceLocation "$.events[3].route.model and $.events[3].route.task in audit-cvode" .
+
+e:workflow-cvode-event-4 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowReview ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-cvode ;
+    e:sourceLocation "$.events[4].route.model and $.events[4].route.task in audit-cvode" .
+
+e:workflow-ab a prov:Activity ; rdfs:label "Historical AB research workflow" ;
+    e:evidence e:audit-ab ; e:startStatus "UNKNOWN" ; e:endStatus "UNKNOWN" ;
+    e:routedEvent e:workflow-ab-event-0, e:workflow-ab-event-1, e:workflow-ab-event-2, e:workflow-ab-event-3, e:workflow-ab-event-4 ;
+    e:interpretation "Audit-to-run/report grouping follows audit task scope; this is a traceability interpretation. route.model records which model each step was routed to; whether each call completed is UNKNOWN because no call-outcome field was checked, so no prov:Association with a model is asserted. Routing applies to the research workflow, not numerical solver execution. No workflow clock boundaries are inferred from route events." .
+
+e:workflow-ab-event-0 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowPlanning ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-ab ;
+    e:sourceLocation "$.events[0].route.model and $.events[0].route.task in audit-ab" .
+
+e:workflow-ab-event-1 a e:RoutedModelEvent ;
+    e:routedModel e:model-sol ; e:routedTask e:workflowImplementation ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-ab ;
+    e:sourceLocation "$.events[1].route.model and $.events[1].route.task in audit-ab" .
+
+e:workflow-ab-event-2 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowReview ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-ab ;
+    e:sourceLocation "$.events[2].route.model and $.events[2].route.task in audit-ab" .
+
+e:workflow-ab-event-3 a e:RoutedModelEvent ;
+    e:routedModel e:model-sol ; e:routedTask e:workflowImplementation ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-ab ;
+    e:sourceLocation "$.events[3].route.model and $.events[3].route.task in audit-ab" .
+
+e:workflow-ab-event-4 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowReview ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-ab ;
+    e:sourceLocation "$.events[4].route.model and $.events[4].route.task in audit-ab" .
+
+e:workflow-c a prov:Activity ; rdfs:label "Historical C research workflow" ;
+    e:evidence e:audit-c ; e:startStatus "UNKNOWN" ; e:endStatus "UNKNOWN" ;
+    e:routedEvent e:workflow-c-event-0, e:workflow-c-event-1, e:workflow-c-event-2, e:workflow-c-event-3, e:workflow-c-event-4 ;
+    e:interpretation "Audit-to-run/report grouping follows audit task scope; this is a traceability interpretation. route.model records which model each step was routed to; whether each call completed is UNKNOWN because no call-outcome field was checked, so no prov:Association with a model is asserted. Routing applies to the research workflow, not numerical solver execution. No workflow clock boundaries are inferred from route events." .
+
+e:workflow-c-event-0 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowPlanning ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-c ;
+    e:sourceLocation "$.events[0].route.model and $.events[0].route.task in audit-c" .
+
+e:workflow-c-event-1 a e:RoutedModelEvent ;
+    e:routedModel e:model-sol ; e:routedTask e:workflowImplementation ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-c ;
+    e:sourceLocation "$.events[1].route.model and $.events[1].route.task in audit-c" .
+
+e:workflow-c-event-2 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowReview ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-c ;
+    e:sourceLocation "$.events[2].route.model and $.events[2].route.task in audit-c" .
+
+e:workflow-c-event-3 a e:RoutedModelEvent ;
+    e:routedModel e:model-sol ; e:routedTask e:workflowImplementation ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-c ;
+    e:sourceLocation "$.events[3].route.model and $.events[3].route.task in audit-c" .
+
+e:workflow-c-event-4 a e:RoutedModelEvent ;
+    e:routedModel e:model-opus ; e:routedTask e:workflowReview ; e:callOutcomeStatus "UNKNOWN" ; e:evidence e:audit-c ;
+    e:sourceLocation "$.events[4].route.model and $.events[4].route.task in audit-c" .

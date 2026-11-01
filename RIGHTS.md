@@ -28,6 +28,16 @@ Short bounded quotations in otherwise retained ledgers remain as audited. Re-fet
 | --- | ---: | --- | --- |
 | `92d98dcc028e307b06d7931465951f0025f085663859cd126334dca40a260715` | 130247 | https://models.physiomeproject.org/workspace/267/rawfile/6ae217019bf59fc1e22e2dc5235751c6fcf6be24/Smith_2004.cellml | 2026-10-30 |
 
+## `docs/evidence/a_smith_2004_canonical.cellml`
+
+- Class: UNSURE; action: KEEP; original version count: 1.
+
+- Licence: CC BY 3.0 (PMR whole model; binding integrator decision)
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `8cca17e89404daeef858fb3db67a16ce4200b7c2712ae6c1ccac83c68f813e60` | 75074 | https://models.physiomeproject.org/workspace/smith_chase_nokes_shaw_wake_2004/rawfile/f7b732c9707abdba5a55d471c49baf7dee92b036/smith_chase_nokes_shaw_wake_2004.cellml | 2026-10-31T14:02:27Z |
+
 ## `docs/evidence/a_smith_overview.html`
 
 - Class: UNSURE; action: STUB; original version count: 1.
@@ -227,3 +237,53 @@ Short bounded quotations in otherwise retained ledgers remain as audited. Re-fet
 | Original SHA-256 | Bytes | Source | Retrieved |
 | --- | ---: | --- | --- |
 | `f48754228d5efc203c4bc62141398917127e721403d24cde68a6384486fe58f6` | 11505 | https://pubmed.ncbi.nlm.nih.gov/15036180/ | 2026-10-30T14:44:57.967989+00:00 |
+
+## `docs/evidence/d_epmc_bibliographic_core.json`
+
+- Class: REMOVE; action: REDACT_EPMC; original version count: 1.
+
+- Licence: Metadata = facts; BUT abstractText of the 4 non-open-access records is publisher text (PMIDs 30256901 OUP, 20601121 Elsevier, 15036180 Elsevier, 14759820 Elsevier)
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `714f30a530bc1c8ba7f02e0a16d0bf6ebec0af5f6f212ec7c7b29840d78ef451` | 89224 | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:... (13 PMIDs)&resultType=core | 2026-11-01T06:40Z..06:55Z |
+
+## `docs/evidence/d_epmc_search_chase_desaive_oa.json`
+
+- Class: UNSURE; action: REDACT_NC_ABSTRACT; original version count: 1.
+
+- Licence: Metadata = facts; 8 records are 'cc by', but PMC3098554 is 'cc by-nc' (abstract 2044 chars)
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `edd4e7ae5d67d33081e0852435927bd8fc10d32103f97930de9024e1d1cc8b3a` | 53706 | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=(AUTH:"Chase JG" OR AUTH:"Desaive T") AND (septum OR "ventricular interaction" OR "minimal cardiovascular" OR "valve law") AND OPEN_ACCESS:y | 2026-11-01T06:40Z..06:55Z |
+
+## `docs/evidence/d_fma_license_faq.html`
+
+- Class: REMOVE; action: STUB; original version count: 1.
+
+- Licence: UW page text; no redistribution licence (describes the older custom FMA licence; FMA 5.1.0 is CC BY 4.0 elsewhere)
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `b53f672bb76c18c0551902a0d75da07ea76d143c94c479aaf59301c4eb0d707c` | 4278 | http://sig.biostr.washington.edu/projects/fm/FMA_Release/license_faq.html | 2026-11-01 |
+
+## `docs/evidence/d_fma_release_page.html`
+
+- Class: REMOVE; action: STUB; original version count: 1.
+
+- Licence: UW page text; no redistribution licence (describes the older custom FMA licence; FMA 5.1.0 is CC BY 4.0 elsewhere)
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `23af20f5aabf815630d32922d43b2ab85958b30e83ec4a1a250ea90775485ec1` | 1296 | http://sig.biostr.washington.edu/projects/fm/FMA_Release/ | 2026-11-01T06:40Z..06:55Z |
+
+## `docs/evidence/d_opb_master_excerpt_and_version_diff.json`
+
+- Class: UNSURE; action: STUB; original version count: 1.
+
+- Licence: Unknown / no licence
+
+| Original SHA-256 | Bytes | Source | Retrieved |
+| --- | ---: | --- | --- |
+| `b0dc1638f72dc1184ac073074269670bb0dd1d1afb6aca2fa141bc2903a04f04` | 67784 | https://raw.githubusercontent.com/SemBioProcess/OPB/master/OPB.owl and https://raw.githubusercontent.com/SemBioProcess/SemGen/master/src/semsim/owl/OPBv1.07.owl | 2026-11-01T06:40Z..06:55Z |

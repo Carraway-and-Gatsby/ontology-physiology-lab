@@ -1,0 +1,17 @@
+# Validator environment for run_shacl.py. Every package is pinned, dependencies included.
+# Tested on Python 3.11.15 (macOS) and 3.12.3 (Linux, Hermes server). rdflib, pyparsing,
+# packaging and six match requirements.lock. Markers follow pyshacl 0.26.0's own metadata.
+pyshacl==0.26.0
+rdflib==7.6.0
+owlrl==6.0.2
+pyparsing==3.3.3
+# dependencies of pyshacl
+html5lib==1.1
+packaging==26.3
+prettytable==3.18.0
+importlib-metadata==10.1.0; python_version < "3.12"
+# dependencies of html5lib, prettytable and importlib-metadata
+six==1.17.0
+webencodings==0.6.1
+wcwidth==0.9.4
+zipp==4.1.2; python_version < "3.12"

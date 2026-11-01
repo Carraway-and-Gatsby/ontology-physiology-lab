@@ -1,0 +1,137 @@
+{
+ "source": "https://www.ebi.ac.uk/ols4/api/ontologies/fma/terms?iri=<purl.org/sig/ont/fma/fmaNNNN>",
+ "retrieved_at_utc": "2026-11-01T06:53:14Z",
+ "fma_version_loaded_in_ols": "5.1.0",
+ "terms": [
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma12239",
+   "label": "Lumen of aorta",
+   "obo_id": "fma12239",
+   "short_form": "fma12239",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma14167",
+   "label": "Lumen of pulmonary trunk",
+   "obo_id": "fma14167",
+   "short_form": "fma14167",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma280059",
+   "label": "Set of lumens of vena cava trunks",
+   "obo_id": "fma280059",
+   "short_form": "fma280059",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma52449",
+   "label": "Lumen of pulmonary arterial tree",
+   "obo_id": "fma52449",
+   "short_form": "fma52449",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma52455",
+   "label": "Lumen of pulmonary venous tree organ",
+   "obo_id": "fma52455",
+   "short_form": "fma52455",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma7180",
+   "label": "Cardiac septum",
+   "obo_id": "fma7180",
+   "short_form": "fma7180",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma9291",
+   "label": "Cavity of right ventricle",
+   "obo_id": "fma9291",
+   "short_form": "fma9291",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma9466",
+   "label": "Cavity of left ventricle",
+   "obo_id": "fma9466",
+   "short_form": "fma9466",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma9533",
+   "label": "Wall of right ventricle",
+   "obo_id": "fma9533",
+   "short_form": "fma9533",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma9556",
+   "label": "Wall of left ventricle",
+   "obo_id": "fma9556",
+   "short_form": "fma9556",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma9670",
+   "label": "Portion of blood",
+   "obo_id": "fma9670",
+   "short_form": "fma9670",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma9869",
+   "label": "Pericardium",
+   "obo_id": "fma9869",
+   "short_form": "fma9869",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  },
+  {
+   "iri": "http://purl.org/sig/ont/fma/fma9887",
+   "label": "Portion of pericardial fluid",
+   "obo_id": "fma9887",
+   "short_form": "fma9887",
+   "is_obsolete": false,
+   "ontology_iri": "http://purl.org/sig/ont/fma.owl",
+   "description": [],
+   "synonyms": []
+  }
+ ]
+}

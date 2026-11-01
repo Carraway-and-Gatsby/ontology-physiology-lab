@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/sig/ont/fma.owl#"
+     xml:base="http://purl.org/sig/ont/fma.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:fma="http://purl.org/sig/ont/fma/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://purl.org/sig/ont/fma.owl">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.1.0</owl:versionInfo>
+        <fma:technical_support>James F Brinkley MD PhD
+Linda Shapiro PhD
+Landon T Detwiler MS
+Kurt Rickard PhD
+</fma:technical_support>
+        <fma:contributing_author>Augusto V. Agoncillo MD</fma:contributing_author>
+        <fma:contributing_author>Salvacion Quimosing MD</fma:contributing_author>
+        <rdfs:comment>Object properties migrated from frames version retained the previously assigned FMAIDs. Newly introduced object properties post OWL-translation are no longer assigned FMAIDs.</rdfs:comment>
+        <fma:primary_author_and_curator>Jose Leonardo V. Mejino Jr. MD</fma:primary_author_and_curator>
+        <fma:contributing_author>Richard Martin PhD</fma:contributing_author>
+        <fma:creator>Cornelius Rosse, MD DSc</fma:creator>
+        <owl:versionIRI rdf:resource="http://purl.org/sig/ont/fma_5.1.0.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/AAL -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/AAL">
+        <rdfs:label xml:lang="en">AAL</rdfs:label>
+        <fma:FMAID>276388</fma:FMAID>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/AAL_ID -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/AAL_ID">
+        <rdfs:label xml:lang="en">AAL ID</rdfs:label>
+        <fma:FMAID>276390</fma:FMAID>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/CMA_label -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/CMA_label">
+        <rdfs:label xml:lang="en">CMA label</rdfs:label>
+        <fma:FMAID>276709</fma:FMAID>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/DK__Freesurfer_ -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/DK__Freesurfer_">
+        <rdfs:label xml:lang="en">DK  Freesurfer</rdfs:label>
+        <fma:FMAID>276395</fma:FMAID>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/Date_entered_modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/Date_entered_modified">
+        <rdfs:label xml:lang="en">date entered modified</rdfs:label>
+        <fma:FMAID>85826</fma:FMAID>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/English_equivalent -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/English_equivalent">
+        <rdfs:label xml:lang="en">English equivalent</rdfs:label>
+        <fma:FMAID>85951</fma:FMAID>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/Eponym -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/Eponym">
+        <rdfs:label xml:lang="en">Eponym</rdfs:label>
+        <fma:FMAID>85942</fma:FMAID>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/EuProstate16 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/EuProstate16">
+        <rdfs:label>PI-RADS v1 16 ID</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:Axiom>
+        <owl:annotatedTarget>PI-RADS v1 16 ID</owl:annotatedTarget>
+        <dc:contributor rdf:resource="http://purl.org/sig/ont/fma/David_Clunie"/>
+        <owl:annotatedSource rdf:resource="http://purl.org/sig/ont/fma/EuProstate16"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <dc:contributor rdf:resource="http://purl.org/sig/ont/fma/David_Clunie"/>
+        <owl:annotatedSource rdf:resource="http://purl.org/sig/ont/fma/EuProstate16"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/EuProstate27 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/sig/ont/fma/EuProstate27">
+        <rdfs:label>PI-RADS v1 27 ID</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:Axiom>
+        <dc:contributor rdf:resource="http://purl.org/sig/ont/fma/David_Clunie"/>
+        <owl:annotatedSource rdf:resource="http://purl.org/sig/ont/fma/EuProstate27"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedTarget>PI-RADS v1 27 ID</owl:annotatedTarget>
+        <dc:contributor rdf:resource="http://purl.org/sig/ont/fma/David_Clunie"/>
+        <owl:annotatedSource rdf:resource="http://purl.org/sig/ont/fma/EuProstate27"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.org/sig/ont/fma/FMAID -->
+
+    <owl:AnnotationProp

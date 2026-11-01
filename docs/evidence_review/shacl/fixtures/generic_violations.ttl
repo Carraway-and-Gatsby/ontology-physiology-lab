@@ -1,0 +1,59 @@
+# Negative control for shapes_omex_v1_2.ttl: each ex:vN violates one rule. The expected results are
+# listed in expected_results.json; any difference fails run_shacl.py.
+@prefix bqbiol: <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim: <http://bime.uw.edu/semsim/> .
+@prefix dc:     <http://purl.org/dc/terms/> .
+@prefix opb:    <https://identifiers.org/opb:> .
+@prefix fma:    <https://identifiers.org/FMA:> .
+@prefix uberon: <https://identifiers.org/UBERON:> .
+@prefix ex:     <http://example.org/fixture#> .
+
+ex:blood_lv bqbiol:is uberon:0000178 ; bqbiol:isPartOf uberon:0016514 .
+ex:blood_ao bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:52448 .
+
+# v1 (G1): dependency class used as a property (the workspace-267 V_lvf defect)
+ex:v1 bqbiol:isVersionOf opb:OPB_01061 .
+# v2 (G3): pressure borne by an entity, not an energy differential (pre-OMEX form)
+ex:v2 bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf ex:blood_lv .
+# v3 (G4): energy differential with two sinks
+ex:v3 bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf ex:ed3 .
+ex:ed3 semsim:hasSourceParticipant ex:ed3s ; semsim:hasSinkParticipant ex:ed3k1 , ex:ed3k2 .
+ex:ed3s semsim:hasPhysicalEntityReference ex:blood_lv .
+ex:ed3k1 semsim:hasPhysicalEntityReference ex:blood_ao .
+ex:ed3k2 semsim:hasPhysicalEntityReference ex:blood_ao .
+# v4 (G5): flow process without a sink
+ex:v4 bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf ex:proc4 .
+ex:proc4 semsim:hasSourceParticipant ex:proc4s .
+ex:proc4s semsim:hasPhysicalEntityReference ex:blood_lv .
+# v5 (G6): participant references an organ, not a fluid portion
+ex:v5 bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf ex:proc5 .
+ex:proc5 semsim:hasSourceParticipant ex:proc5s ; semsim:hasSinkParticipant ex:proc5k .
+ex:proc5s semsim:hasPhysicalEntityReference ex:organ_lv .
+ex:proc5k semsim:hasPhysicalEntityReference ex:blood_ao .
+ex:organ_lv bqbiol:is uberon:0002084 ; bqbiol:isPartOf uberon:0016514 .
+# v6 (G2a): fluid volume borne by a tissue (the workspace-267 V_pcd defect)
+ex:v6 bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ex:pericardium .
+ex:pericardium bqbiol:is uberon:0002407 .
+# v7 (G2b): blood with no container
+ex:v7 bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ex:blood_nowhere .
+ex:blood_nowhere bqbiol:is uberon:0000178 .
+# v8 (G7, Warning): resistance given a bearer
+ex:v8 bqbiol:isVersionOf opb:OPB_00160 ; bqbiol:isPropertyOf ex:blood_lv .
+# v9 (G8, Warning): container not label-checked here (OMEX v1.2 example: lumen of left coronary artery)
+ex:v9 bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf ex:blood_lca .
+ex:blood_lca bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:18228 .
+# v10 (G9, Info): free text only
+ex:v10 dc:description "Septal end systolic elastance" .
+# v11 (G0, Warning): pressure with no bearer
+ex:v11 bqbiol:isVersionOf opb:OPB_00509 .
+# v12 (G10, Warning): flow process located at a cavity, not a label-checked valve
+ex:v12 bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf ex:proc12 .
+ex:proc12 semsim:hasSourceParticipant ex:proc12s ; semsim:hasSinkParticipant ex:proc12k ; bqbiol:occursIn uberon:0016514 .
+ex:proc12s semsim:hasPhysicalEntityReference ex:blood_lv .
+ex:proc12k semsim:hasPhysicalEntityReference ex:blood_ao .
+# v13 (G6): a "lumped" portion with a single part is neither a single nor a valid lumped fluid portion
+ex:v13 bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf ex:proc13 .
+ex:proc13 semsim:hasSourceParticipant ex:proc13s ; semsim:hasSinkParticipant ex:proc13k .
+ex:proc13s semsim:hasPhysicalEntityReference ex:lumped_one_part .
+ex:proc13k semsim:hasPhysicalEntityReference ex:blood_ao .
+ex:lumped_one_part bqbiol:is uberon:0000178 ; bqbiol:hasPart ex:blood_lv .

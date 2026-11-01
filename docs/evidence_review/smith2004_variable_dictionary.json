@@ -1,0 +1,3708 @@
+{
+ "title": "Smith 2004 canonical CellML variable and equation dictionary",
+ "status": "evidence review draft 2026-11-01; equations transcribed mechanically from MathML; interpretation fields are ours and marked; nothing here changes the model",
+ "counts": {
+  "variables": 76,
+  "equations": 32,
+  "components": 14
+ },
+ "units_declared": {
+  "kPa": [
+   [
+    "pascal",
+    "kilo",
+    null
+   ]
+  ],
+  "mL": [
+   [
+    "liter",
+    "milli",
+    null
+   ]
+  ],
+  "per_mL": [
+   [
+    "liter",
+    "milli",
+    "-1"
+   ]
+  ],
+  "kPa_per_mL": [
+   [
+    "kPa",
+    null,
+    null
+   ],
+   [
+    "per_mL",
+    null,
+    null
+   ]
+  ],
+  "kPa_second_per_mL": [
+   [
+    "pascal",
+    "kilo",
+    null
+   ],
+   [
+    "second",
+    null,
+    null
+   ],
+   [
+    "mL",
+    null,
+    "-1"
+   ]
+  ],
+  "mL_per_second": [
+   [
+    "mL",
+    null,
+    null
+   ],
+   [
+    "second",
+    null,
+    "-1"
+   ]
+  ],
+  "mL_per_second2": [
+   [
+    "mL",
+    null,
+    null
+   ],
+   [
+    "second",
+    null,
+    "-2"
+   ]
+  ],
+  "per_second2": [
+   [
+    "second",
+    null,
+    "-2"
+   ]
+  ],
+  "kPa_second2_per_mL": [
+   [
+    "pascal",
+    "kilo",
+    null
+   ],
+   [
+    "second",
+    null,
+    "2"
+   ],
+   [
+    "mL",
+    null,
+    "-1"
+   ]
+  ]
+ },
+ "equations": [
+  {
+   "id": "E1",
+   "component": "driver_function",
+   "infix": "(tau = piecewise{ time if time<=period ; time-period if time<=2*period ; ... ; time-12*period if time<=13*period })  [14-beat explicit remainder, see CellML]",
+   "defines": "tau",
+   "is_ode": false,
+   "uses": [
+    "time",
+    "period"
+   ]
+  },
+  {
+   "id": "E2",
+   "component": "driver_function",
+   "infix": "(e_t = (A * exp(((-B) * ((tau - C) ^ 2[dimensionless])))))",
+   "defines": "e_t",
+   "is_ode": false,
+   "uses": [
+    "A",
+    "B",
+    "C",
+    "dimensionless",
+    "tau"
+   ]
+  },
+  {
+   "id": "E3",
+   "component": "pericardium",
+   "infix": "(V_pcd = (V_lv + V_rv))",
+   "defines": "V_pcd",
+   "is_ode": false,
+   "uses": [
+    "V_lv",
+    "V_rv"
+   ]
+  },
+  {
+   "id": "E4",
+   "component": "pericardium",
+   "infix": "(P_pcd = (P_0_pcd * (exp((lambda_pcd * (V_pcd - V_0_pcd))) - 1[dimensionless])))",
+   "defines": "P_pcd",
+   "is_ode": false,
+   "uses": [
+    "P_0_pcd",
+    "V_0_pcd",
+    "V_pcd",
+    "dimensionless",
+    "lambda_pcd"
+   ]
+  },
+  {
+   "id": "E5",
+   "component": "pericardium",
+   "infix": "(P_peri = (P_pcd + P_th))",
+   "defines": "P_peri",
+   "is_ode": false,
+   "uses": [
+    "P_pcd",
+    "P_th"
+   ]
+  },
+  {
+   "id": "E6",
+   "component": "left_ventricle",
+   "infix": "(V_lvf = (V_lv - V_spt))",
+   "defines": "V_lvf",
+   "is_ode": false,
+   "uses": [
+    "V_lv",
+    "V_spt"
+   ]
+  },
+  {
+   "id": "E7",
+   "component": "left_ventricle",
+   "infix": "(P_lvf = ((e_t * P_es_lvf) + ((1[dimensionless] - e_t) * P_ed_lvf)))",
+   "defines": "P_lvf",
+   "is_ode": false,
+   "uses": [
+    "P_ed_lvf",
+    "P_es_lvf",
+    "dimensionless",
+    "e_t"
+   ]
+  },
+  {
+   "id": "E8",
+   "component": "left_ventricle",
+   "infix": "(P_lv = (P_lvf + P_peri))",
+   "defines": "P_lv",
+   "is_ode": false,
+   "uses": [
+    "P_lvf",
+    "P_peri"
+   ]
+  },
+  {
+   "id": "E9",
+   "component": "left_ventricle",
+   "infix": "(d(V_lv)/dtime = piecewise{ 0[mL_per_second] if ((Q_mt < 0[mL_per_second]) and (Q_av < 0[mL_per_second])) ; (-Q_av) if (Q_mt < 0[mL_per_second]) ; Q_mt if (Q_av < 0[mL_per_second]) ; (Q_mt - Q_av) otherwise })",
+   "defines": "V_lv",
+   "is_ode": true,
+   "uses": [
+    "Q_av",
+    "Q_mt",
+    "V_lv",
+    "mL_per_second"
+   ]
+  },
+  {
+   "id": "E10",
+   "component": "lvf_calculator",
+   "infix": "(P_es_lvf = (E_es_lvf * (V_lvf - V_d_lvf)))",
+   "defines": "P_es_lvf",
+   "is_ode": false,
+   "uses": [
+    "E_es_lvf",
+    "V_d_lvf",
+    "V_lvf"
+   ]
+  },
+  {
+   "id": "E11",
+   "component": "lvf_calculator",
+   "infix": "(P_ed_lvf = (P_0_lvf * (exp((lambda_lvf * (V_lvf - V_0_lvf))) - 1[dimensionless])))",
+   "defines": "P_ed_lvf",
+   "is_ode": false,
+   "uses": [
+    "P_0_lvf",
+    "V_0_lvf",
+    "V_lvf",
+    "dimensionless",
+    "lambda_lvf"
+   ]
+  },
+  {
+   "id": "E12",
+   "component": "right_ventricle",
+   "infix": "(V_rvf = (V_rv + V_spt))",
+   "defines": "V_rvf",
+   "is_ode": false,
+   "uses": [
+    "V_rv",
+    "V_spt"
+   ]
+  },
+  {
+   "id": "E13",
+   "component": "right_ventricle",
+   "infix": "(P_rvf = ((e_t * P_es_rvf) + ((1[dimensionless] - e_t) * P_ed_rvf)))",
+   "defines": "P_rvf",
+   "is_ode": false,
+   "uses": [
+    "P_ed_rvf",
+    "P_es_rvf",
+    "dimensionless",
+    "e_t"
+   ]
+  },
+  {
+   "id": "E14",
+   "component": "right_ventricle",
+   "infix": "(P_rv = (P_rvf + P_peri))",
+   "defines": "P_rv",
+   "is_ode": false,
+   "uses": [
+    "P_peri",
+    "P_rvf"
+   ]
+  },
+  {
+   "id": "E15",
+   "component": "right_ventricle",
+   "infix": "(d(V_rv)/dtime = piecewise{ 0[mL_per_second] if ((Q_tc < 0[mL_per_second]) and (Q_pv < 0[mL_per_second])) ; (-Q_pv) if (Q_tc < 0[mL_per_second]) ; Q_tc if (Q_pv < 0[mL_per_second]) ; (Q_tc - Q_pv) otherwise })",
+   "defines": "V_rv",
+   "is_ode": true,
+   "uses": [
+    "Q_pv",
+    "Q_tc",
+    "V_rv",
+    "mL_per_second"
+   ]
+  },
+  {
+   "id": "E16",
+   "component": "rvf_calculator",
+   "infix": "(P_es_rvf = (E_es_rvf * (V_rvf - V_d_rvf)))",
+   "defines": "P_es_rvf",
+   "is_ode": false,
+   "uses": [
+    "E_es_rvf",
+    "V_d_rvf",
+    "V_rvf"
+   ]
+  },
+  {
+   "id": "E17",
+   "component": "rvf_calculator",
+   "infix": "(P_ed_rvf = (P_0_rvf * (exp((lambda_rvf * (V_rvf - V_0_rvf))) - 1[dimensionless])))",
+   "defines": "P_ed_rvf",
+   "is_ode": false,
+   "uses": [
+    "P_0_rvf",
+    "V_0_rvf",
+    "V_rvf",
+    "dimensionless",
+    "lambda_rvf"
+   ]
+  },
+  {
+   "id": "E18",
+   "component": "septum",
+   "infix": "(0[kPa] = (((((e_t * E_es_spt * (V_spt - V_d_spt)) + ((one - e_t) * P_0_spt * (exp((lambda_spt * (V_spt - V_0_spt))) - one))) - (e_t * E_es_lvf * (V_lv - V_spt))) - ((1[dimensionless] - e_t) * P_0_lvf * (exp((lambda_lvf * (V_lv - V_spt))) - 1[dimensionless]))) + (e_t * E_es_rvf * (V_rv + V_spt)) + ((1[dimensionless] - e_t) * P_0_rvf * (exp((lambda_rvf * (V_rv + V_spt))) - 1[dimensionless]))))",
+   "defines": "0[kPa]",
+   "is_ode": false,
+   "uses": [
+    "E_es_lvf",
+    "E_es_rvf",
+    "E_es_spt",
+    "P_0_lvf",
+    "P_0_rvf",
+    "P_0_spt",
+    "V_0_spt",
+    "V_d_spt",
+    "V_lv",
+    "V_rv",
+    "V_spt",
+    "dimensionless",
+    "e_t",
+    "kPa",
+    "lambda_lvf",
+    "lambda_rvf",
+    "lambda_spt",
+    "one"
+   ]
+  },
+  {
+   "id": "E19",
+   "component": "pulmonary_artery",
+   "infix": "(P_pa = ((E_es_pa * (V_pa - V_d_pa)) + P_th))",
+   "defines": "P_pa",
+   "is_ode": false,
+   "uses": [
+    "E_es_pa",
+    "P_th",
+    "V_d_pa",
+    "V_pa"
+   ]
+  },
+  {
+   "id": "E20",
+   "component": "pulmonary_artery",
+   "infix": "(d(V_pa)/dtime = piecewise{ (-Q_pul) if (Q_pv < 0[mL_per_second]) ; (Q_pv - Q_pul) otherwise })",
+   "defines": "V_pa",
+   "is_ode": true,
+   "uses": [
+    "Q_pul",
+    "Q_pv",
+    "V_pa",
+    "mL_per_second"
+   ]
+  },
+  {
+   "id": "E21",
+   "component": "pulmonary_vein",
+   "infix": "(P_pu = ((E_es_pu * (V_pu - V_d_pu)) + P_th))",
+   "defines": "P_pu",
+   "is_ode": false,
+   "uses": [
+    "E_es_pu",
+    "P_th",
+    "V_d_pu",
+    "V_pu"
+   ]
+  },
+  {
+   "id": "E22",
+   "component": "pulmonary_vein",
+   "infix": "(d(V_pu)/dtime = piecewise{ Q_pul if (Q_mt < 0[mL_per_second]) ; (Q_pul - Q_mt) otherwise })",
+   "defines": "V_pu",
+   "is_ode": true,
+   "uses": [
+    "Q_mt",
+    "Q_pul",
+    "V_pu",
+    "mL_per_second"
+   ]
+  },
+  {
+   "id": "E23",
+   "component": "aorta",
+   "infix": "(P_ao = (E_es_ao * (V_ao - V_d_ao)))",
+   "defines": "P_ao",
+   "is_ode": false,
+   "uses": [
+    "E_es_ao",
+    "V_ao",
+    "V_d_ao"
+   ]
+  },
+  {
+   "id": "E24",
+   "component": "aorta",
+   "infix": "(d(V_ao)/dtime = piecewise{ (-Q_sys) if (Q_av < 0[mL_per_second]) ; (Q_av - Q_sys) otherwise })",
+   "defines": "V_ao",
+   "is_ode": true,
+   "uses": [
+    "Q_av",
+    "Q_sys",
+    "V_ao",
+    "mL_per_second"
+   ]
+  },
+  {
+   "id": "E25",
+   "component": "vena_cava",
+   "infix": "(P_vc = (E_es_vc * (V_vc - V_d_vc)))",
+   "defines": "P_vc",
+   "is_ode": false,
+   "uses": [
+    "E_es_vc",
+    "V_d_vc",
+    "V_vc"
+   ]
+  },
+  {
+   "id": "E26",
+   "component": "vena_cava",
+   "infix": "(d(V_vc)/dtime = piecewise{ Q_sys if (Q_tc < 0[mL_per_second]) ; (Q_sys - Q_tc) otherwise })",
+   "defines": "V_vc",
+   "is_ode": true,
+   "uses": [
+    "Q_sys",
+    "Q_tc",
+    "V_vc",
+    "mL_per_second"
+   ]
+  },
+  {
+   "id": "E27",
+   "component": "flow",
+   "infix": "(Q_sys = ((P_ao - P_vc) / R_sys))",
+   "defines": "Q_sys",
+   "is_ode": false,
+   "uses": [
+    "P_ao",
+    "P_vc",
+    "R_sys"
+   ]
+  },
+  {
+   "id": "E28",
+   "component": "flow",
+   "infix": "(Q_pul = ((P_pa - P_pu) / R_pul))",
+   "defines": "Q_pul",
+   "is_ode": false,
+   "uses": [
+    "P_pa",
+    "P_pu",
+    "R_pul"
+   ]
+  },
+  {
+   "id": "E29",
+   "component": "flow",
+   "infix": "(d(Q_mt)/dtime = piecewise{ 0[mL_per_second2] if (((P_pu - P_lv) < 0[kPa]) and (Q_mt < 0[mL_per_second])) ; (((P_pu - P_lv) - (Q_mt * R_mt)) / L_mt) otherwise })",
+   "defines": "Q_mt",
+   "is_ode": true,
+   "uses": [
+    "L_mt",
+    "P_lv",
+    "P_pu",
+    "Q_mt",
+    "R_mt",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ]
+  },
+  {
+   "id": "E30",
+   "component": "flow",
+   "infix": "(d(Q_av)/dtime = piecewise{ 0[mL_per_second2] if (((P_lv - P_ao) < 0[kPa]) and (Q_av < 0[mL_per_second])) ; (((P_lv - P_ao) - (Q_av * R_av)) / L_av) otherwise })",
+   "defines": "Q_av",
+   "is_ode": true,
+   "uses": [
+    "L_av",
+    "P_ao",
+    "P_lv",
+    "Q_av",
+    "R_av",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ]
+  },
+  {
+   "id": "E31",
+   "component": "flow",
+   "infix": "(d(Q_tc)/dtime = piecewise{ 0[mL_per_second2] if (((P_vc - P_rv) < 0[kPa]) and (Q_tc < 0[mL_per_second])) ; (((P_vc - P_rv) - (Q_tc * R_tc)) / L_tc) otherwise })",
+   "defines": "Q_tc",
+   "is_ode": true,
+   "uses": [
+    "L_tc",
+    "P_rv",
+    "P_vc",
+    "Q_tc",
+    "R_tc",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ]
+  },
+  {
+   "id": "E32",
+   "component": "flow",
+   "infix": "(d(Q_pv)/dtime = piecewise{ 0[mL_per_second2] if (((P_rv - P_pa) < 0[kPa]) and (Q_pv < 0[mL_per_second])) ; (((P_rv - P_pa) - (Q_pv * R_pv)) / L_pv) otherwise })",
+   "defines": "Q_pv",
+   "is_ode": true,
+   "uses": [
+    "L_pv",
+    "P_pa",
+    "P_rv",
+    "Q_pv",
+    "R_pv",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ]
+  }
+ ],
+ "variables": [
+  {
+   "variable": "A",
+   "cellml_unit": "dimensionless",
+   "unit_definition": null,
+   "declared_in_components": [
+    "driver_function"
+   ],
+   "initial_or_parameter_value": "1",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Gaussian Curve Magnitude"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "dimensionless"
+  },
+  {
+   "variable": "B",
+   "cellml_unit": "per_second2",
+   "unit_definition": [
+    [
+     "second",
+     null,
+     "-2"
+    ]
+   ],
+   "declared_in_components": [
+    "driver_function"
+   ],
+   "initial_or_parameter_value": "80",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Gaussian Curve Width"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "per_second2"
+  },
+  {
+   "variable": "C",
+   "cellml_unit": "second",
+   "unit_definition": null,
+   "declared_in_components": [
+    "driver_function"
+   ],
+   "initial_or_parameter_value": "0.375",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Gaussian Curve Delay"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 eq (4)": "C_1 = 0.27 s, D_1 = 1 s, citing Smith 2005 Control Eng Pract (not Smith 2004); CellML C = 0.375 s, period 0.75 s",
+    "Smith 2004 author manuscript (card S6P)": "Eq. (5): C=0.27 for the single-chamber profile of Figure 3; closed-loop C not stated (C7)"
+   },
+   "unit_as_read": "second"
+  },
+  {
+   "variable": "E_es_ao",
+   "cellml_unit": "kPa_per_mL",
+   "unit_definition": [
+    [
+     "kPa",
+     null,
+     null
+    ],
+    [
+     "per_mL",
+     null,
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "aorta"
+   ],
+   "initial_or_parameter_value": "0.6913",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Aortic end systolic elastance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg/mL; the CellML label kPa_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0 mmHg/ml (sic; CellML 0.6913)"
+   },
+   "unit_as_read": "mmHg/mL"
+  },
+  {
+   "variable": "E_es_lvf",
+   "cellml_unit": "kPa_per_mL",
+   "unit_definition": [
+    [
+     "kPa",
+     null,
+     null
+    ],
+    [
+     "per_mL",
+     null,
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "lvf_calculator",
+    "septum"
+   ],
+   "initial_or_parameter_value": "2.8798",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Left ventricular free wall end systolic elastance",
+     "Left ventricular free wall end systolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg/mL; the CellML label kPa_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "2.8798 mmHg/ml"
+   },
+   "unit_as_read": "mmHg/mL"
+  },
+  {
+   "variable": "E_es_pa",
+   "cellml_unit": "kPa_per_mL",
+   "unit_definition": [
+    [
+     "kPa",
+     null,
+     null
+    ],
+    [
+     "per_mL",
+     null,
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pulmonary_artery"
+   ],
+   "initial_or_parameter_value": "0.369",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary arterial end systolic elastance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg/mL; the CellML label kPa_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.3690 mmHg/ml"
+   },
+   "unit_as_read": "mmHg/mL"
+  },
+  {
+   "variable": "E_es_pu",
+   "cellml_unit": "kPa_per_mL",
+   "unit_definition": [
+    [
+     "kPa",
+     null,
+     null
+    ],
+    [
+     "per_mL",
+     null,
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pulmonary_vein"
+   ],
+   "initial_or_parameter_value": "0.0073",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "End systolic pulmonary vein elastance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg/mL; the CellML label kPa_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0073 mmHg/ml"
+   },
+   "unit_as_read": "mmHg/mL"
+  },
+  {
+   "variable": "E_es_rvf",
+   "cellml_unit": "kPa_per_mL",
+   "unit_definition": [
+    [
+     "kPa",
+     null,
+     null
+    ],
+    [
+     "per_mL",
+     null,
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "rvf_calculator",
+    "septum"
+   ],
+   "initial_or_parameter_value": "0.585",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular free wall end systolic elastance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg/mL; the CellML label kPa_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.5850 mmHg/ml"
+   },
+   "unit_as_read": "mmHg/mL"
+  },
+  {
+   "variable": "E_es_spt",
+   "cellml_unit": "kPa_per_mL",
+   "unit_definition": [
+    [
+     "kPa",
+     null,
+     null
+    ],
+    [
+     "per_mL",
+     null,
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "septum"
+   ],
+   "initial_or_parameter_value": "48.754",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Septal end systolic elastance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg/mL; the CellML label kPa_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "48.7540 mmHg/ml"
+   },
+   "unit_as_read": "mmHg/mL"
+  },
+  {
+   "variable": "E_es_vc",
+   "cellml_unit": "kPa_per_mL",
+   "unit_definition": [
+    [
+     "kPa",
+     null,
+     null
+    ],
+    [
+     "per_mL",
+     null,
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "vena_cava"
+   ],
+   "initial_or_parameter_value": "0.0059",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Vena cava end systolic elastance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg/mL; the CellML label kPa_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0059 mmHg/ml"
+   },
+   "unit_as_read": "mmHg/mL"
+  },
+  {
+   "variable": "L_av",
+   "cellml_unit": "kPa_second2_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     "2"
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "flow"
+   ],
+   "initial_or_parameter_value": "1.2189e-4",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Atrial valve fluid inertance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s²/mL; the CellML label kPa_second2_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.2189e-4 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "inertance at this valve is in the manuscript (p. 9, Figure 1); unit system mmHg s^2/ml (p. 17); value not given"
+   },
+   "unit_as_read": "mmHg·s²/mL"
+  },
+  {
+   "variable": "L_mt",
+   "cellml_unit": "kPa_second2_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     "2"
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "flow"
+   ],
+   "initial_or_parameter_value": "7.6968e-5",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Mitrial valve fluid inertance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s²/mL; the CellML label kPa_second2_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "7.6968e-5 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "CONFLICT C9: the manuscript includes inertia only at the aortic and pulmonary outflow (p. 9, p. 13, Figure 1); no source located for a mitral/tricuspid inertance"
+   },
+   "unit_as_read": "mmHg·s²/mL"
+  },
+  {
+   "variable": "L_pv",
+   "cellml_unit": "kPa_second2_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     "2"
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "flow"
+   ],
+   "initial_or_parameter_value": "1.4868e-4",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary valve fluid inertance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s²/mL; the CellML label kPa_second2_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.4868e-4 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "inertance at this valve is in the manuscript (p. 9, Figure 1); unit system mmHg s^2/ml (p. 17); value not given"
+   },
+   "unit_as_read": "mmHg·s²/mL"
+  },
+  {
+   "variable": "L_tc",
+   "cellml_unit": "kPa_second2_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     "2"
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "flow"
+   ],
+   "initial_or_parameter_value": "8.0093e-5",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Tricuspid valve fluid inertance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s²/mL; the CellML label kPa_second2_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "8.0093e-5 mmHg s^2/ml",
+    "Smith 2004 author manuscript (card S6P)": "CONFLICT C9: the manuscript includes inertia only at the aortic and pulmonary outflow (p. 9, p. 13, Figure 1); no source located for a mitral/tricuspid inertance"
+   },
+   "unit_as_read": "mmHg·s²/mL"
+  },
+  {
+   "variable": "P_0_lvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "lvf_calculator",
+    "septum"
+   ],
+   "initial_or_parameter_value": "0.1203",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "End diastolic pressure across the left ventricular wall"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "EDPVR scale parameter",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.1203 mmHg"
+   },
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_0_pcd",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium"
+   ],
+   "initial_or_parameter_value": "0.5003",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "End diastolic pressure across the pericardium"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "pericardium EDPVR scale parameter",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.5003 mmHg"
+   },
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_0_rvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "rvf_calculator",
+    "septum"
+   ],
+   "initial_or_parameter_value": "0.2157",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular free wall end diastolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "EDPVR scale parameter",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.2157 mmHg"
+   },
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_0_spt",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "septum"
+   ],
+   "initial_or_parameter_value": "1.1101",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Septal wall end diastolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "EDPVR scale parameter (septum)",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "1.1101 mmHg"
+   },
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_ao",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "aorta",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E23",
+   "equation_infix": "(P_ao = (E_es_ao * (V_ao - V_d_ao)))",
+   "depends_on": [
+    "E_es_ao",
+    "V_ao",
+    "V_d_ao"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pressure in systemic arteries"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "P_ao = E_es_ao*(V_ao-V_d_ao); NO P_th term (E23)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_ed_lvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "lvf_calculator"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E11",
+   "equation_infix": "(P_ed_lvf = (P_0_lvf * (exp((lambda_lvf * (V_lvf - V_0_lvf))) - 1[dimensionless])))",
+   "depends_on": [
+    "P_0_lvf",
+    "V_0_lvf",
+    "V_lvf",
+    "dimensionless",
+    "lambda_lvf"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "End diastolic pressure across the left ventricular free wall"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "EDPVR pressure of LV free wall (E11)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_ed_rvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "rvf_calculator"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E17",
+   "equation_infix": "(P_ed_rvf = (P_0_rvf * (exp((lambda_rvf * (V_rvf - V_0_rvf))) - 1[dimensionless])))",
+   "depends_on": [
+    "P_0_rvf",
+    "V_0_rvf",
+    "V_rvf",
+    "dimensionless",
+    "lambda_rvf"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular free wall end diastolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "EDPVR pressure of RV free wall (E17)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_es_lvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "lvf_calculator"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E10",
+   "equation_infix": "(P_es_lvf = (E_es_lvf * (V_lvf - V_d_lvf)))",
+   "depends_on": [
+    "E_es_lvf",
+    "V_d_lvf",
+    "V_lvf"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Left ventricular freewall end systolic blood pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "ESPVR pressure of LV free wall (E10)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_es_rvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "rvf_calculator"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E16",
+   "equation_infix": "(P_es_rvf = (E_es_rvf * (V_rvf - V_d_rvf)))",
+   "depends_on": [
+    "E_es_rvf",
+    "V_d_rvf",
+    "V_rvf"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular free wall end systolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "ESPVR pressure of RV free wall (E16)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_lv",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "septum",
+    "pulmonary_vein",
+    "aorta",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E8",
+   "equation_infix": "(P_lv = (P_lvf + P_peri))",
+   "depends_on": [
+    "P_lvf",
+    "P_peri"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Left ventricular blood pressure"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "P_lv = P_lvf + P_peri; P_peri = P_pcd + P_th, so P_lv includes thoracic pressure (E8,E5)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure in the left ventricle (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_lvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E7",
+   "equation_infix": "(P_lvf = ((e_t * P_es_lvf) + ((1[dimensionless] - e_t) * P_ed_lvf)))",
+   "depends_on": [
+    "P_ed_lvf",
+    "P_es_lvf",
+    "dimensionless",
+    "e_t"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pressure across the left ventricular freewall"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "transmural-type pressure across LV free wall; excludes P_peri (E7)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure across the left ventricular free wall (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_pa",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "pulmonary_artery",
+    "pulmonary_vein",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E19",
+   "equation_infix": "(P_pa = ((E_es_pa * (V_pa - V_d_pa)) + P_th))",
+   "depends_on": [
+    "E_es_pa",
+    "P_th",
+    "V_d_pa",
+    "V_pa"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Blood pressure in the pulmonary artery"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_14167 (Lumen of pulmonary trunk)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "P_pa = E_es_pa*(V_pa-V_d_pa) + P_th; includes P_th (E19); CONFLICT C3: the manuscript adds P_th only via P_peri (Eq. 14); no peripheral P_th term",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_pcd",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E4",
+   "equation_infix": "(P_pcd = (P_0_pcd * (exp((lambda_pcd * (V_pcd - V_0_pcd))) - 1[dimensionless])))",
+   "depends_on": [
+    "P_0_pcd",
+    "V_0_pcd",
+    "V_pcd",
+    "dimensionless",
+    "lambda_pcd"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pressure across the pericardial wall"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "pressure generated by pericardium as function of V_pcd (E4)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure across the pericardium wall (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_peri",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium",
+    "left_ventricle",
+    "right_ventricle"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E5",
+   "equation_infix": "(P_peri = (P_pcd + P_th))",
+   "depends_on": [
+    "P_pcd",
+    "P_th"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pericardial blood volume"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9887 (Portion of pericardial fluid)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "P_pcd + P_th (E5)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure in the pericardium (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_pu",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "pulmonary_artery",
+    "pulmonary_vein",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E21",
+   "equation_infix": "(P_pu = ((E_es_pu * (V_pu - V_d_pu)) + P_th))",
+   "depends_on": [
+    "E_es_pu",
+    "P_th",
+    "V_d_pu",
+    "V_pu"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary venous blood pressure"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "P_pu = E_es_pu*(V_pu-V_d_pu) + P_th; includes P_th (E21); CONFLICT C3: the manuscript adds P_th only via P_peri (Eq. 14); no peripheral P_th term",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_rv",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "septum",
+    "pulmonary_artery",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E14",
+   "equation_infix": "(P_rv = (P_rvf + P_peri))",
+   "depends_on": [
+    "P_peri",
+    "P_rvf"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular blood pressure"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "P_rv = P_rvf + P_peri; includes P_th (E14,E5)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure in the right ventricle (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_rvf",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E13",
+   "equation_infix": "(P_rvf = ((e_t * P_es_rvf) + ((1[dimensionless] - e_t) * P_ed_rvf)))",
+   "depends_on": [
+    "P_ed_rvf",
+    "P_es_rvf",
+    "dimensionless",
+    "e_t"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pressure across the right ventricular free wall"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "transmural-type pressure across RV free wall; excludes P_peri (E13)",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pressure across the right ventricular free wall (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_th",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "pericardium",
+    "pulmonary_artery",
+    "pulmonary_vein"
+   ],
+   "initial_or_parameter_value": "-4",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Thoracic cavity pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "constant parameter; external (thoracic) pressure, value -4 labelled kPa",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "-4 mmHg"
+   },
+   "definition_in_source_paper": "Pressure in the thoracic cavity (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "P_vc",
+   "cellml_unit": "kPa",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "aorta",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E25",
+   "equation_infix": "(P_vc = (E_es_vc * (V_vc - V_d_vc)))",
+   "depends_on": [
+    "E_es_vc",
+    "V_d_vc",
+    "V_vc"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Blood Pressure in the Vena Cava"
+    ],
+    "opb_property": [
+     [
+      "OPB_00509 (Fluid pressure)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "P_vc = E_es_vc*(V_vc-V_d_vc); NO P_th term (E25); CONFLICT C3: Revie 2013 (A.3) writes P_vc = E_vc(V_vc - V_d,vc) + P_th",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg; the CellML label kPa is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mmHg"
+  },
+  {
+   "variable": "Q_av",
+   "cellml_unit": "mL_per_second",
+   "unit_definition": [
+    [
+     "mL",
+     null,
+     null
+    ],
+    [
+     "second",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "aorta",
+    "flow"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "ODE state variable",
+   "defining_equation": "E30",
+   "equation_infix": "(d(Q_av)/dtime = piecewise{ 0[mL_per_second2] if (((P_lv - P_ao) < 0[kPa]) and (Q_av < 0[mL_per_second])) ; (((P_lv - P_ao) - (Q_av * R_av)) / L_av) otherwise })",
+   "depends_on": [
+    "L_av",
+    "P_ao",
+    "P_lv",
+    "Q_av",
+    "R_av",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Blood flow through atrial valve"
+    ],
+    "opb_property": [
+     [
+      "OPB_00299 (Fluid flow rate)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: custom:Blood flow through aortic valve --hasSinkParticipant--> sink_5 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta) --hasSourceParticipant--> source_5 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "from P_lv side to P_ao side: LV -> aorta through aortic valve (E30); positive = forward; process occursIn Aortic valve UBERON:0002137 (FMA:7236)",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Aortic valve UBERON:0002137 (FMA:7236)"
+  },
+  {
+   "variable": "Q_mt",
+   "cellml_unit": "mL_per_second",
+   "unit_definition": [
+    [
+     "mL",
+     null,
+     null
+    ],
+    [
+     "second",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "pulmonary_vein",
+    "flow"
+   ],
+   "initial_or_parameter_value": "245.5813",
+   "role": "ODE state variable",
+   "defining_equation": "E29",
+   "equation_infix": "(d(Q_mt)/dtime = piecewise{ 0[mL_per_second2] if (((P_pu - P_lv) < 0[kPa]) and (Q_mt < 0[mL_per_second])) ; (((P_pu - P_lv) - (Q_mt * R_mt)) / L_mt) otherwise })",
+   "depends_on": [
+    "L_mt",
+    "P_lv",
+    "P_pu",
+    "Q_mt",
+    "R_mt",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Blood flow through mitrial valve"
+    ],
+    "opb_property": [
+     [
+      "OPB_00299 (Fluid flow rate)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: custom:Blood flow through mitral valve --hasSinkParticipant--> sink_3 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle) --hasSourceParticipant--> source_3 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "from P_pu side to P_lv side: pulmonary vein -> LV through mitral valve (E29); positive = forward; process occursIn Mitral valve UBERON:0002135 (FMA:7235)",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Mitral valve UBERON:0002135 (FMA:7235)"
+  },
+  {
+   "variable": "Q_pul",
+   "cellml_unit": "mL_per_second",
+   "unit_definition": [
+    [
+     "mL",
+     null,
+     null
+    ],
+    [
+     "second",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "pulmonary_artery",
+    "pulmonary_vein",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E28",
+   "equation_infix": "(Q_pul = ((P_pa - P_pu) / R_pul))",
+   "depends_on": [
+    "P_pa",
+    "P_pu",
+    "R_pul"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary blood flow"
+    ],
+    "opb_property": [
+     [
+      "OPB_00299 (Fluid flow rate)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: custom:Pulmonary circulatory blood flow --hasSinkParticipant--> sink_2 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ) --hasSourceParticipant--> source_2 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_14167 (Lumen of pulmonary trunk)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "from P_pa side to P_pu side: pulmonary artery -> pulmonary vein (E28); positive = forward",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL_per_second"
+  },
+  {
+   "variable": "Q_pv",
+   "cellml_unit": "mL_per_second",
+   "unit_definition": [
+    [
+     "mL",
+     null,
+     null
+    ],
+    [
+     "second",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "pulmonary_artery",
+    "flow"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "ODE state variable",
+   "defining_equation": "E32",
+   "equation_infix": "(d(Q_pv)/dtime = piecewise{ 0[mL_per_second2] if (((P_rv - P_pa) < 0[kPa]) and (Q_pv < 0[mL_per_second])) ; (((P_rv - P_pa) - (Q_pv * R_pv)) / L_pv) otherwise })",
+   "depends_on": [
+    "L_pv",
+    "P_pa",
+    "P_rv",
+    "Q_pv",
+    "R_pv",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Blood flow through pulmonary valve"
+    ],
+    "opb_property": [
+     [
+      "OPB_00299 (Fluid flow rate)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: custom:Blood flow through pulmonary valve --hasSinkParticipant--> sink_4 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_14167 (Lumen of pulmonary trunk) --hasSourceParticipant--> source_4 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "from P_rv side to P_pa side: RV -> pulmonary artery through pulmonary valve (E32); positive = forward; process occursIn Pulmonary valve UBERON:0002146 (FMA:7246)",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Pulmonary valve UBERON:0002146 (FMA:7246)"
+  },
+  {
+   "variable": "Q_sys",
+   "cellml_unit": "mL_per_second",
+   "unit_definition": [
+    [
+     "mL",
+     null,
+     null
+    ],
+    [
+     "second",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "aorta",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E27",
+   "equation_infix": "(Q_sys = ((P_ao - P_vc) / R_sys))",
+   "depends_on": [
+    "P_ao",
+    "P_vc",
+    "R_sys"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Systemic circulatory blood flow"
+    ],
+    "opb_property": [
+     [
+      "OPB_00299 (Fluid flow rate)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: custom:Systemic circulatory blood flow --hasSinkParticipant--> sink_1 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks) --hasSourceParticipant--> source_1 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "from P_ao side to P_vc side: aorta -> vena cava (E27); positive = forward",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL_per_second"
+  },
+  {
+   "variable": "Q_tc",
+   "cellml_unit": "mL_per_second",
+   "unit_definition": [
+    [
+     "mL",
+     null,
+     null
+    ],
+    [
+     "second",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": "190.0661",
+   "role": "ODE state variable",
+   "defining_equation": "E31",
+   "equation_infix": "(d(Q_tc)/dtime = piecewise{ 0[mL_per_second2] if (((P_vc - P_rv) < 0[kPa]) and (Q_tc < 0[mL_per_second])) ; (((P_vc - P_rv) - (Q_tc * R_tc)) / L_tc) otherwise })",
+   "depends_on": [
+    "L_tc",
+    "P_rv",
+    "P_vc",
+    "Q_tc",
+    "R_tc",
+    "kPa",
+    "mL_per_second",
+    "mL_per_second2"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Blood flow across tricuspid valve"
+    ],
+    "opb_property": [
+     [
+      "OPB_00299 (Fluid flow rate)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: custom:Blood flow through tricuspid valve --hasSinkParticipant--> sink_0 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle) --hasSourceParticipant--> source_0 --hasPhysicalEntityReference--> FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "from P_vc side to P_rv side: vena cava -> RV through tricuspid valve (E31); positive = forward; process occursIn Tricuspid valve UBERON:0002134 (FMA:7234)",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL_per_second",
+   "valve_node": "Tricuspid valve UBERON:0002134 (FMA:7234)"
+  },
+  {
+   "variable": "R_av",
+   "cellml_unit": "kPa_second_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     null
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "left_ventricle",
+    "aorta",
+    "flow"
+   ],
+   "initial_or_parameter_value": "0.0180",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Atrial valve fluid resistance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s/mL; the CellML label kPa_second_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0180 mmHg s/ml"
+   },
+   "unit_as_read": "mmHg·s/mL"
+  },
+  {
+   "variable": "R_mt",
+   "cellml_unit": "kPa_second_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     null
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "left_ventricle",
+    "pulmonary_vein",
+    "flow"
+   ],
+   "initial_or_parameter_value": "0.0158",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Mitrial valve fluid resistance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s/mL; the CellML label kPa_second_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0158 mmHg s/ml"
+   },
+   "unit_as_read": "mmHg·s/mL"
+  },
+  {
+   "variable": "R_pul",
+   "cellml_unit": "kPa_second_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     null
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "pulmonary_artery",
+    "pulmonary_vein",
+    "flow"
+   ],
+   "initial_or_parameter_value": "0.1552",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary circulatory fluid resistance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s/mL; the CellML label kPa_second_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "note": "not tabulated in Paeme 2011 or Revie 2013; Pironet 2013 gives re-identified canine values only"
+   },
+   "unit_as_read": "mmHg·s/mL"
+  },
+  {
+   "variable": "R_pv",
+   "cellml_unit": "kPa_second_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     null
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "right_ventricle",
+    "pulmonary_artery",
+    "flow"
+   ],
+   "initial_or_parameter_value": "0.0055",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary valve fluid resistance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s/mL; the CellML label kPa_second_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0055 mmHg s/ml"
+   },
+   "unit_as_read": "mmHg·s/mL"
+  },
+  {
+   "variable": "R_sys",
+   "cellml_unit": "kPa_second_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     null
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "aorta",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": "1.0889",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Systemic circulatory fluid resistance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s/mL; the CellML label kPa_second_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "note": "not tabulated in Paeme 2011 or Revie 2013; Pironet 2013 gives re-identified canine values only"
+   },
+   "unit_as_read": "mmHg·s/mL"
+  },
+  {
+   "variable": "R_tc",
+   "cellml_unit": "kPa_second_per_mL",
+   "unit_definition": [
+    [
+     "pascal",
+     "kilo",
+     null
+    ],
+    [
+     "second",
+     null,
+     null
+    ],
+    [
+     "mL",
+     null,
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters",
+    "right_ventricle",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": "0.0237",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Tricuspid valve fluid resistance"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "C1 decided 2026-11-01 (decisions.md, user): read as mmHg·s/mL; the CellML label kPa_second_per_mL is treated as a mislabel and no conversion factor is applied. The authors state no unit for this individual numeral.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.0237 mmHg s/ml"
+   },
+   "unit_as_read": "mmHg·s/mL"
+  },
+  {
+   "variable": "V_0_lvf",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "lvf_calculator"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Left ventricular free wall volume at end diastolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Pironet 2013: V_0,i = \"the end-diastolic volume at zero pressure\"; Paeme 2011: P_0, lambda, V_0 \"three parameters of the nonlinear relationship\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_0_pcd",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium"
+   ],
+   "initial_or_parameter_value": "200",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Pericardial volume at end diastolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "200.00 ml"
+   },
+   "meaning_from_literature": "Pironet 2013: V_0,i = \"the end-diastolic volume at zero pressure\"; Paeme 2011: P_0, lambda, V_0 \"three parameters of the nonlinear relationship\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_0_rvf",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "rvf_calculator"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular free wall volume at end diastolic pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Pironet 2013: V_0,i = \"the end-diastolic volume at zero pressure\"; Paeme 2011: P_0, lambda, V_0 \"three parameters of the nonlinear relationship\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_0_spt",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "septum"
+   ],
+   "initial_or_parameter_value": "2",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Septal wall volume at end diastolic pressure"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "2.00 ml"
+   },
+   "meaning_from_literature": "Pironet 2013: V_0,i = \"the end-diastolic volume at zero pressure\"; Paeme 2011: P_0, lambda, V_0 \"three parameters of the nonlinear relationship\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_ao",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "aorta"
+   ],
+   "initial_or_parameter_value": "133.3381",
+   "role": "ODE state variable",
+   "defining_equation": "E24",
+   "equation_infix": "(d(V_ao)/dtime = piecewise{ (-Q_sys) if (Q_av < 0[mL_per_second]) ; (Q_av - Q_sys) otherwise })",
+   "depends_on": [
+    "Q_av",
+    "Q_sys",
+    "V_ao",
+    "mL_per_second"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Volume of blood contained in aorta"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_12239 (Lumen of aorta)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_d_ao",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "aorta"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Aortic blood volume at zero pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Revie 2013: vessel V_d = \"unstressed volume\"; ventricular V_d = \"dead space volume\"; Pironet 2013: V_d,i = \"end-systolic volume at zero pressure\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_d_lvf",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "lvf_calculator"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Left ventricular free wall volume at end zero pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Revie 2013: vessel V_d = \"unstressed volume\"; ventricular V_d = \"dead space volume\"; Pironet 2013: V_d,i = \"end-systolic volume at zero pressure\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_d_pa",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pulmonary_artery"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary arterial blood volume at zero pressure"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Revie 2013: vessel V_d = \"unstressed volume\"; ventricular V_d = \"dead space volume\"; Pironet 2013: V_d,i = \"end-systolic volume at zero pressure\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_d_pu",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pulmonary_vein"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": "no SemSim annotation beyond free text in workspace 267",
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Revie 2013: vessel V_d = \"unstressed volume\"; ventricular V_d = \"dead space volume\"; Pironet 2013: V_d,i = \"end-systolic volume at zero pressure\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_d_rvf",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "rvf_calculator"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular free wall volume at zero pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Revie 2013: vessel V_d = \"unstressed volume\"; ventricular V_d = \"dead space volume\"; Pironet 2013: V_d,i = \"end-systolic volume at zero pressure\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_d_spt",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "septum"
+   ],
+   "initial_or_parameter_value": "2",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Septal wall volume at zero pressure"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "2.00 ml"
+   },
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_d_vc",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "vena_cava"
+   ],
+   "initial_or_parameter_value": "0",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Vena cava volume at zero pressure"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "meaning_from_literature": "Revie 2013: vessel V_d = \"unstressed volume\"; ventricular V_d = \"dead space volume\"; Pironet 2013: V_d,i = \"end-systolic volume at zero pressure\"",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_lv",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium",
+    "left_ventricle",
+    "septum"
+   ],
+   "initial_or_parameter_value": "94.6812",
+   "role": "ODE state variable",
+   "defining_equation": "E9",
+   "equation_infix": "(d(V_lv)/dtime = piecewise{ 0[mL_per_second] if ((Q_mt < 0[mL_per_second]) and (Q_av < 0[mL_per_second])) ; (-Q_av) if (Q_mt < 0[mL_per_second]) ; Q_mt if (Q_av < 0[mL_per_second]) ; (Q_mt - Q_av) otherwise })",
+   "depends_on": [
+    "Q_av",
+    "Q_mt",
+    "V_lv",
+    "mL_per_second"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Volume of blood contained in left ventricle"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9466 (Cavity of left ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Left ventricle volume (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_lvf",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "lvf_calculator"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E6",
+   "equation_infix": "(V_lvf = (V_lv - V_spt))",
+   "depends_on": [
+    "V_lv",
+    "V_spt"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Volume of the free wall of the left ventricle"
+    ],
+    "opb_property": [
+     [
+      "OPB_01061 (van't Hoff law of osmosis (master) / van't Hoff law (v1.07))"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9556 (Wall of left ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Left ventricular free wall volume; \"not physical volumes\" (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_pa",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pulmonary_artery"
+   ],
+   "initial_or_parameter_value": "43.0123",
+   "role": "ODE state variable",
+   "defining_equation": "E20",
+   "equation_infix": "(d(V_pa)/dtime = piecewise{ (-Q_pul) if (Q_pv < 0[mL_per_second]) ; (Q_pv - Q_pul) otherwise })",
+   "depends_on": [
+    "Q_pul",
+    "Q_pv",
+    "V_pa",
+    "mL_per_second"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary arterial blood volume"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_52449 (Lumen of pulmonary arterial tree)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_pcd",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E3",
+   "equation_infix": "(V_pcd = (V_lv + V_rv))",
+   "depends_on": [
+    "V_lv",
+    "V_rv"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Volume of the pericardium"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9869 (Pericardium)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Pericardium volume; excludes the volume of the atria and the myocardium (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_pu",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pulmonary_vein"
+   ],
+   "initial_or_parameter_value": "808.4579",
+   "role": "ODE state variable",
+   "defining_equation": "E22",
+   "equation_infix": "(d(V_pu)/dtime = piecewise{ Q_pul if (Q_mt < 0[mL_per_second]) ; (Q_pul - Q_mt) otherwise })",
+   "depends_on": [
+    "Q_mt",
+    "Q_pul",
+    "V_pu",
+    "mL_per_second"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Pulmonary venous blood volume"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_52455 (Lumen of pulmonary venous tree organ)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_rv",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium",
+    "right_ventricle",
+    "septum"
+   ],
+   "initial_or_parameter_value": "90.7302",
+   "role": "ODE state variable",
+   "defining_equation": "E15",
+   "equation_infix": "(d(V_rv)/dtime = piecewise{ 0[mL_per_second] if ((Q_tc < 0[mL_per_second]) and (Q_pv < 0[mL_per_second])) ; (-Q_pv) if (Q_tc < 0[mL_per_second]) ; Q_tc if (Q_pv < 0[mL_per_second]) ; (Q_tc - Q_pv) otherwise })",
+   "depends_on": [
+    "Q_pv",
+    "Q_tc",
+    "V_rv",
+    "mL_per_second"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricle blood volume"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_9291 (Cavity of right ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Right ventricle volume (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_rvf",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "rvf_calculator"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E12",
+   "equation_infix": "(V_rvf = (V_rv + V_spt))",
+   "depends_on": [
+    "V_rv",
+    "V_spt"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Right ventricular free wall volume"
+    ],
+    "opb_property": [
+     [
+      "OPB_01061 (van't Hoff law of osmosis (master) / van't Hoff law (v1.07))"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9533 (Wall of right ventricle)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Right ventricular free wall volume; \"not physical volumes\" (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_spt",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "right_ventricle",
+    "septum"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic state solved from implicit equation E18 (nonlinear algebraic, needs NLA solver) (manuscript Eq. 20: \"zero finding solutions\")",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Septal wall volume"
+    ],
+    "opb_property": [
+     [
+      "OPB_01061 (van't Hoff law of osmosis (master) / van't Hoff law (v1.07))"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_7180 (Cardiac septum)"
+    ],
+    "direct_definition": [],
+    "note": "Revie 2013: \"the blood volume displaced by the septum, V_spt\"; the SemSim free text \"Septal wall volume\" and property OPB_01061 do not match this meaning."
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "UNKNOWN",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "definition_in_source_paper": "Septum free wall volume; \"not physical volumes\" (Smith 2004 author manuscript (card S6P), Table 1 / pp. 10-11)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "V_tot",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "heart_parameters"
+   ],
+   "initial_or_parameter_value": "5.5",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Total blood volume in the body"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "CONFLICT C2 resolved as annotation defect: the manuscript simulates a total stressed blood volume of 1500 mL, equal to the sum of the six CellML initial volumes; V_tot (5.5, labelled mL) is unused by E1-E32 and fits 5.5 l total blood volume mislabelled.",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "5.5 l"
+   },
+   "unit_as_read": "UNKNOWN (5.5; fits litres; unused by E1-E32)"
+  },
+  {
+   "variable": "V_vc",
+   "cellml_unit": "mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     null
+    ]
+   ],
+   "declared_in_components": [
+    "vena_cava"
+   ],
+   "initial_or_parameter_value": "329.7803",
+   "role": "ODE state variable",
+   "defining_equation": "E26",
+   "equation_infix": "(d(V_vc)/dtime = piecewise{ Q_sys if (Q_tc < 0[mL_per_second]) ; (Q_sys - Q_tc) otherwise })",
+   "depends_on": [
+    "Q_sys",
+    "Q_tc",
+    "V_vc",
+    "mL_per_second"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Vena cava blood volume"
+    ],
+    "opb_property": [
+     [
+      "OPB_00154 (Fluid volume)"
+     ]
+    ],
+    "physical_entity_or_process": [
+     "physicalPropertyOf: FMA_9670 (Portion of blood) --part_of--> FMA_280059 (Set of lumens of vena cava trunks)"
+    ],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "mL"
+  },
+  {
+   "variable": "e_t",
+   "cellml_unit": "dimensionless",
+   "unit_definition": null,
+   "declared_in_components": [
+    "driver_function",
+    "left_ventricle",
+    "right_ventricle",
+    "septum"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E2",
+   "equation_infix": "(e_t = (A * exp(((-B) * ((tau - C) ^ 2[dimensionless])))))",
+   "depends_on": [
+    "A",
+    "B",
+    "C",
+    "dimensionless",
+    "tau"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Heart beat driver function"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "dimensionless"
+  },
+  {
+   "variable": "lambda_lvf",
+   "cellml_unit": "per_mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "left_ventricle",
+    "lvf_calculator",
+    "septum"
+   ],
+   "initial_or_parameter_value": "0.033",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Left Ventricular Freewall Diastolic Exponential Parameter"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.033 1/ml"
+   },
+   "unit_as_read": "per_mL"
+  },
+  {
+   "variable": "lambda_pcd",
+   "cellml_unit": "per_mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "pericardium"
+   ],
+   "initial_or_parameter_value": "0.03",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Pericardial Diastolic Exponential Parameter"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.030 1/ml"
+   },
+   "unit_as_read": "per_mL"
+  },
+  {
+   "variable": "lambda_rvf",
+   "cellml_unit": "per_mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "right_ventricle",
+    "rvf_calculator",
+    "septum"
+   ],
+   "initial_or_parameter_value": "0.023",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Right Ventricular Freewall Diastolic Exponential Parameter"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.023 1/ml"
+   },
+   "unit_as_read": "per_mL"
+  },
+  {
+   "variable": "lambda_spt",
+   "cellml_unit": "per_mL",
+   "unit_definition": [
+    [
+     "liter",
+     "milli",
+     "-1"
+    ]
+   ],
+   "declared_in_components": [
+    "septum"
+   ],
+   "initial_or_parameter_value": "0.435",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Septal Wall Diastolic Exponential Parameter"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Paeme 2011 Tables 1-3 (CC BY, docs/evidence/d_fulltext_PMC3271239_paeme2011.xml)": "0.435 1/ml"
+   },
+   "unit_as_read": "per_mL"
+  },
+  {
+   "variable": "one",
+   "cellml_unit": "dimensionless",
+   "unit_definition": null,
+   "declared_in_components": [
+    "septum"
+   ],
+   "initial_or_parameter_value": "1",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": "no SemSim annotation beyond free text in workspace 267",
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "dimensionless"
+  },
+  {
+   "variable": "period",
+   "cellml_unit": "second",
+   "unit_definition": null,
+   "declared_in_components": [
+    "driver_function"
+   ],
+   "initial_or_parameter_value": "0.75",
+   "role": "parameter (constant) or ODE initial condition",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [
+     "Length of Heart Contraction"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "constant over run",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "published_value_and_unit_in_derivative_literature": {
+    "Smith 2004 author manuscript (card S6P)": "\"a fixed heart rate of 80 beats/minute\" (p. 17) = 0.75 s, matching the CellML"
+   },
+   "unit_as_read": "second"
+  },
+  {
+   "variable": "tau",
+   "cellml_unit": "second",
+   "unit_definition": null,
+   "declared_in_components": [
+    "driver_function"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "algebraic (explicitly computed)",
+   "defining_equation": "E1",
+   "equation_infix": "(tau = piecewise{ time if time<=period ; time-period if time<=2*period ; ... ; time-12*period if time<=13*period })  [14-beat explicit remainder, see CellML]",
+   "depends_on": [
+    "time",
+    "period"
+   ],
+   "semsim_ws267": {
+    "free_text": [
+     "Contraction Time Elapsed"
+    ],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": []
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "second"
+  },
+  {
+   "variable": "time",
+   "cellml_unit": "second",
+   "unit_definition": null,
+   "declared_in_components": [
+    "environment",
+    "driver_function",
+    "left_ventricle",
+    "right_ventricle",
+    "pulmonary_artery",
+    "pulmonary_vein",
+    "aorta",
+    "vena_cava",
+    "flow"
+   ],
+   "initial_or_parameter_value": null,
+   "role": "free variable (independent)",
+   "defining_equation": null,
+   "equation_infix": null,
+   "depends_on": null,
+   "semsim_ws267": {
+    "free_text": [],
+    "opb_property": [],
+    "physical_entity_or_process": [],
+    "direct_definition": [
+     "OPB_01023"
+    ]
+   },
+   "reference_point_or_external_pressure": "n/a",
+   "direction": "n/a",
+   "temporal_meaning": "instantaneous value at simulation time t",
+   "unit_plausibility": "declared unit consistent with equations",
+   "source": "docs/evidence/a_smith_2004_canonical.cellml (PMR workspace smith_chase_nokes_shaw_wake_2004 @f7b732c9, CC BY 3.0); SemSim annotations from docs/evidence/a_smith_2004.cellml (PMR workspace 267 @6ae21701, CC BY 3.0, annotator Chris Thompson)",
+   "unit_as_read": "second"
+  }
+ ],
+ "open_items": [
+  "C1 decided 2026-11-01: CellML numerals read as mmHg-based, no conversion; R13 lifted (decisions.md)",
+  "C2 resolved: V_tot is an unused, mislabelled total blood volume; the simulated stressed volume is the 1500 mL sum of initial volumes",
+  "C3 peripheral P_th terms (E19, E21; Revie also on P_vc) are not in the manuscript; source UNKNOWN",
+  "C7 period 0.75 s confirmed (80 bpm); closed-loop delay C = 0.375 s has no located source",
+  "C9 L_mt, L_tc (E29, E31) not in the manuscript, which has inertia only at aortic and pulmonary outflow",
+  "C10 E18 omits V_d/V_0 offsets present in manuscript Eq. 20 (no effect at current zero values)",
+  "C11 valve law: manuscript removes Q from the state vector; CellML holds dQ/dt = 0, so a negative Q is frozen (matches Hermes run C)",
+  "V_spt implicit equation E18 solved by NLA; V_spt initial value absent",
+  "Driver function E1 covers only 13 periods explicitly (14 beats per PMR note)",
+  "SemSim ws267 annotates V_lvf/V_rvf/V_spt with OPB_01061 (van't Hoff law), a dependency class, not a property: reference-annotation defect",
+  "SemSim ws267 free text for P_peri reads \"Pericardial blood volume\" while the property is Fluid pressure of Portion of pericardial fluid: text/annotation conflict",
+  "SemSim ws267 free text for Q_av/R_av/L_av says \"atrial valve\" while the process is named \"Blood flow through aortic valve\": naming defect",
+  "C3 P_vc thoracic-pressure term: CellML E25 has none; Revie 2013 (A.3) includes +P_th on P_vc (and on P_pu, P_pa, not P_ao)"
+ ]
+}

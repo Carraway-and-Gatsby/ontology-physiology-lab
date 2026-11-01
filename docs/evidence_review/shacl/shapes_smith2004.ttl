@@ -1,0 +1,202 @@
+# Smith 2004-specific shapes. They need knowledge the annotation itself cannot carry: which
+# pressures are chamber pressures and which are transmural (Smith 2004 manuscript Table 1 and
+# Figure 4, card S6P; S21), and which variables an equation links (smith2004_dependencies.ttl,
+# taken from the canonical CellML equations E7-E32; OMEX v1.2 §2.3.7.4 says role players come
+# from the equations).
+# Not covered: P_pcd (its sink, the thoracic-cavity contents, has no selected FMA entity) and
+# P_th's own source entity; both stay UNKNOWN (S21).
+
+@prefix sh:        <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bqbiol:    <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim:    <http://bime.uw.edu/semsim/> .
+@prefix opb:       <https://identifiers.org/opb:> .
+@prefix ps:        <https://example.org/physiosim/shapes#> .
+@prefix dep:       <https://example.org/physiosim/dependency#> .
+@prefix OMEXmodel: <http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+@prefix fma:       <https://identifiers.org/FMA:> .
+@prefix uberon:    <https://identifiers.org/UBERON:> .
+
+ps:smithPrefixes
+    sh:declare [ sh:prefix "bqbiol" ; sh:namespace "http://biomodels.net/biology-qualifiers/"^^xsd:anyURI ] ,
+               [ sh:prefix "semsim" ; sh:namespace "http://bime.uw.edu/semsim/"^^xsd:anyURI ] ,
+               [ sh:prefix "dep"    ; sh:namespace "https://example.org/physiosim/dependency#"^^xsd:anyURI ] .
+
+# S1. Chamber pressures ("Pressure in the ..." in manuscript Table 1) have no sink: their reference
+# is the model's common ground (S21; decisions.md "Pressure reference").
+ps:S1_ChamberPressureNoSink
+    a sh:NodeShape ;
+    rdfs:label "S1 chamber pressure has no sink" ;
+    sh:targetNode OMEXmodel:P_lv , OMEXmodel:P_rv , OMEXmodel:P_ao , OMEXmodel:P_vc ,
+                  OMEXmodel:P_pa , OMEXmodel:P_pu , OMEXmodel:P_peri , OMEXmodel:P_th ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf semsim:hasSinkParticipant ) ;
+        sh:maxCount 0 ;
+        sh:message "S1: chamber pressure must have no sink; its reference is the common ground (S21, decisions.md)" ;
+    ] .
+
+# S2. Free-wall pressures ("Pressure across the ... free wall", Table 1; Figure 4) are transmural:
+# exactly one sink, the contents of the pericardial space. Absence of an annotation is reported.
+ps:S2_FreeWallPressureOneSink
+    a sh:NodeShape ;
+    rdfs:label "S2 free-wall pressure has exactly one sink" ;
+    sh:targetNode OMEXmodel:P_lvf , OMEXmodel:P_rvf ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf semsim:hasSinkParticipant ) ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "S2: transmural free-wall pressure must be an energy differential with exactly one sink (manuscript Table 1, Figure 4; S21)" ;
+    ] .
+
+# S3. A pressure and the volume its pressure law depends on describe the same blood: the pressure's
+# source entity and the volume's bearer are the same entity node (capacitive dependencies, dependency
+# file). Comparing entity nodes rather than containers also covers lumped compartments with two
+# containers. The path also follows an entity-form bearer, so pre-OMEX annotations are compared too.
+ps:S3_CapacitivePairSameContainer
+    a sh:NodeShape ;
+    rdfs:label "S3 pressure and its volume share a container" ;
+    sh:targetClass opb:OPB_01543 ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "S3: {?p} (blood {?ep}) and {?v} (blood {?ev}) are linked by {?eq} but annotated to different entities" ;
+        sh:prefixes ps:smithPrefixes ;
+        sh:select """
+            SELECT $this ?p ?v ?ep ?ev ?eq WHERE {
+                $this dep:pressure ?p ; dep:amount ?v ; dep:equation ?eq .
+                ?p bqbiol:isPropertyOf/(semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference)? ?ep .
+                ?ep bqbiol:is ?f1 .
+                ?v bqbiol:isPropertyOf ?ev .
+                ?ev bqbiol:is ?f2 .
+                FILTER ( ?ep != ?ev )
+            }""" ;
+    ] .
+
+# S4. Flow direction agrees with the driving pressure difference: the flow's source entity is the
+# upstream pressure's blood and its sink entity the downstream pressure's blood (E27-E32).
+ps:S4_FlowDirectionMatchesEquation
+    a sh:NodeShape ;
+    rdfs:label "S4 flow source and sink match the equation's pressure difference" ;
+    sh:targetClass opb:OPB_01541 , opb:OPB_01572 ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "S4: {?q} runs from {?es} to {?ek}, but {?eq} drives it from {?eu} to {?ed}" ;
+        sh:prefixes ps:smithPrefixes ;
+        sh:select """
+            SELECT $this ?q ?es ?ek ?eu ?ed ?eq WHERE {
+                $this dep:flow ?q ; dep:upstreamPressure ?pu ; dep:downstreamPressure ?pd ; dep:equation ?eq .
+                ?q bqbiol:isPropertyOf ?proc .
+                ?proc semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference ?es .
+                ?proc semsim:hasSinkParticipant/semsim:hasPhysicalEntityReference ?ek .
+                ?pu bqbiol:isPropertyOf/(semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference)? ?eu .
+                ?eu bqbiol:is ?f1 .
+                ?pd bqbiol:isPropertyOf/(semsim:hasSourceParticipant/semsim:hasPhysicalEntityReference)? ?ed .
+                ?ed bqbiol:is ?f2 .
+                FILTER ( ?es != ?eu || ?ek != ?ed )
+            }""" ;
+    ] .
+
+# S5. Each annotated valve-flow process is located at its valve: bqbiol:occursIn the valve named for that
+# flow in smith2004_dependencies.ttl (decisions.md "Anatomical structures as nodes"). Flows with no
+# process annotation are left to G9; a missing or different location is reported.
+ps:S5_ValveFlowAtValve
+    a sh:NodeShape ;
+    rdfs:label "S5 valve flow occurs in its valve" ;
+    sh:targetClass opb:OPB_01541 ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "S5: {?q} is a flow through {?v} ({?eq}) but its process is not bqbiol:occursIn that valve" ;
+        sh:prefixes ps:smithPrefixes ;
+        sh:select """
+            SELECT $this ?q ?v ?eq WHERE {
+                $this dep:flow ?q ; dep:valve ?v ; dep:equation ?eq .
+                ?q bqbiol:isPropertyOf ?proc .
+                FILTER NOT EXISTS { ?proc bqbiol:occursIn ?v }
+            }""" ;
+    ] .
+
+# S6. The Smith venous compartments include their atrium (decisions.md "Atria as separate nodes"):
+# the blood bearing V_pu has a part in the left atrial cavity (UBERON:0016513), the blood bearing V_vc a
+# part in the right atrial cavity (UBERON:0016522). The vessel lumens are checked by S7.
+ps:S6a_PulmonaryVenousCompartmentIncludesLeftAtrium
+    a sh:NodeShape ;
+    rdfs:label "S6 pulmonary venous compartment includes the left atrial cavity" ;
+    sh:targetNode OMEXmodel:V_pu ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf bqbiol:hasPart bqbiol:isPartOf ) ;
+        sh:hasValue uberon:0016513 ;
+        sh:message "S6: the blood bearing V_pu must include a part in the left atrial cavity (UBERON:0016513); decisions.md \"Atria as separate nodes\"" ;
+    ] .
+
+ps:S6b_VenaCavaCompartmentIncludesRightAtrium
+    a sh:NodeShape ;
+    rdfs:label "S6 vena cava compartment includes the right atrial cavity" ;
+    sh:targetNode OMEXmodel:V_vc ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf bqbiol:hasPart bqbiol:isPartOf ) ;
+        sh:hasValue uberon:0016522 ;
+        sh:message "S6: the blood bearing V_vc must include a part in the right atrial cavity (UBERON:0016522); decisions.md \"Atria as separate nodes\"" ;
+    ] .
+
+# S7. Each Smith compartment's blood lies in the container named by the node specification v2
+# (../anatomy_nodes_v2.md): directly, or through a bqbiol:hasPart part for the lumped venous
+# compartments. Checked on the volume variables; S3 carries the result to the pressures.
+
+ps:S7_V_lv_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_lv lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_lv ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue uberon:0016514 ;
+        sh:message "S7: the blood bearing V_lv must lie in the left ventricular cavity; node specification v2" ;
+    ] .
+
+ps:S7_V_rv_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_rv lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_rv ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue uberon:0016509 ;
+        sh:message "S7: the blood bearing V_rv must lie in the right ventricular cavity; node specification v2" ;
+    ] .
+
+ps:S7_V_ao_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_ao lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_ao ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52448 ;
+        sh:message "S7: the blood bearing V_ao must lie in the systemic arterial tree lumen (the 'aorta' compartment is the lumped systemic arteries, S6P pp. 12-13); node specification v2" ;
+    ] .
+
+ps:S7_V_vc_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_vc lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_vc ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52454 ;
+        sh:message "S7: the blood bearing V_vc must lie in the systemic venous tree lumen (the 'vena cava' compartment is the lumped systemic veins); node specification v2" ;
+    ] .
+
+ps:S7_V_pa_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_pa lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_pa ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52449 ;
+        sh:message "S7: the blood bearing V_pa must lie in the pulmonary arterial tree lumen; node specification v2" ;
+    ] .
+
+ps:S7_V_pu_Container
+    a sh:NodeShape ;
+    rdfs:label "S7 V_pu lies in its v2 container" ;
+    sh:targetNode OMEXmodel:V_pu ;
+    sh:property [
+        sh:path ( bqbiol:isPropertyOf [ sh:zeroOrOnePath bqbiol:hasPart ] bqbiol:isPartOf ) ;
+        sh:hasValue fma:52455 ;
+        sh:message "S7: the blood bearing V_pu must lie in the pulmonary venous tree lumen; node specification v2" ;
+    ] .

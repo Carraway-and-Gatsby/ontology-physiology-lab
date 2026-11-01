@@ -1,0 +1,1260 @@
+{
+ "0": {
+  "descriptions": [
+   "Blood flow from the vena cava through the tricuspid valve to the right ventricle."
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "process_0"
+  ]
+ },
+ "1": {
+  "descriptions": [
+   "Blood flow from the aorta through systemic system to the vena cava."
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "process_1"
+  ]
+ },
+ "2": {
+  "descriptions": [
+   "Blood flow from the pulmonary artery through the pulmonary circulatory system to the pulmonary vein."
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "process_2"
+  ]
+ },
+ "3": {
+  "descriptions": [
+   "Blood flow from the pulmonary vein through the mitral valve to the left ventricle."
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "process_3"
+  ]
+ },
+ "4": {
+  "descriptions": [
+   "Blood flow from the right ventricle through the pulmonary valve to the pulmonary artery."
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "process_4"
+  ]
+ },
+ "5": {
+  "descriptions": [
+   "Blood flow from the left ventricle through the atrial valve to the aorta."
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "process_5"
+  ]
+ },
+ "A": {
+  "descriptions": [
+   "Gaussian Curve Magnitude"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "driver_function.A"
+  ]
+ },
+ "B": {
+  "descriptions": [
+   "Gaussian Curve Width"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "driver_function.B"
+  ]
+ },
+ "C": {
+  "descriptions": [
+   "Gaussian Curve Delay"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "driver_function.C"
+  ]
+ },
+ "E_es_ao": {
+  "descriptions": [
+   "Aortic end systolic elastance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "aorta.E_es_ao"
+  ]
+ },
+ "E_es_lvf": {
+  "descriptions": [
+   "Left ventricular free wall end systolic elastance",
+   "Left ventricular free wall end systolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.E_es_lvf",
+   "left_ventricle.E_es_lvf",
+   "septum.E_es_lvf"
+  ]
+ },
+ "E_es_pa": {
+  "descriptions": [
+   "Pulmonary arterial end systolic elastance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_artery.E_es_pa"
+  ]
+ },
+ "E_es_pu": {
+  "descriptions": [
+   "End systolic pulmonary vein elastance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_vein.E_es_pu"
+  ]
+ },
+ "E_es_rvf": {
+  "descriptions": [
+   "Right ventricular free wall end systolic elastance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.E_es_rvf",
+   "right_ventricle.E_es_rvf",
+   "rvf_calculator.E_es_rvf"
+  ]
+ },
+ "E_es_spt": {
+  "descriptions": [
+   "Septal end systolic elastance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.E_es_spt"
+  ]
+ },
+ "E_es_vc": {
+  "descriptions": [
+   "Vena cava end systolic elastance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "vena_cava.E_es_vc"
+  ]
+ },
+ "L_av": {
+  "descriptions": [
+   "Atrial valve fluid inertance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "flow.L_av",
+   "heart_parameters.L_av"
+  ]
+ },
+ "L_mt": {
+  "descriptions": [
+   "Mitrial valve fluid inertance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters.L_mt",
+   "flow.L_mt"
+  ]
+ },
+ "L_pv": {
+  "descriptions": [
+   "Pulmonary valve fluid inertance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "flow.L_pv",
+   "heart_parameters.L_pv"
+  ]
+ },
+ "L_tc": {
+  "descriptions": [
+   "Tricuspid valve fluid inertance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters.L_tc",
+   "flow.L_tc"
+  ]
+ },
+ "P_0_lvf": {
+  "descriptions": [
+   "End diastolic pressure across the left ventricular wall"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.P_0_lvf",
+   "left_ventricle.P_0_lvf",
+   "septum.P_0_lvf"
+  ]
+ },
+ "P_0_pcd": {
+  "descriptions": [
+   "End diastolic pressure across the pericardium"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pericardium.P_0_pcd"
+  ]
+ },
+ "P_0_rvf": {
+  "descriptions": [
+   "Right ventricular free wall end diastolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "rvf_calculator.P_0_rvf",
+   "right_ventricle.P_0_rvf",
+   "septum.P_0_rvf"
+  ]
+ },
+ "P_0_spt": {
+  "descriptions": [
+   "Septal wall end diastolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.P_0_spt"
+  ]
+ },
+ "P_ao": {
+  "descriptions": [
+   "Pressure in systemic arteries"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_12239"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "aorta_P_ao",
+   "flow.P_ao",
+   "left_ventricle.P_ao",
+   "vena_cava.P_ao"
+  ]
+ },
+ "P_ed_lvf": {
+  "descriptions": [
+   "End diastolic pressure across the left ventricular free wall"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.P_ed_lvf",
+   "left_ventricle.P_ed_lvf"
+  ]
+ },
+ "P_ed_rvf": {
+  "descriptions": [
+   "Right ventricular free wall end diastolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "rvf_calculator.P_ed_rvf",
+   "right_ventricle.P_ed_rvf"
+  ]
+ },
+ "P_es_lvf": {
+  "descriptions": [
+   "Left ventricular freewall end systolic blood pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.P_es_lvf",
+   "left_ventricle.P_es_lvf"
+  ]
+ },
+ "P_es_rvf": {
+  "descriptions": [
+   "Right ventricular free wall end systolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "right_ventricle.P_es_rvf",
+   "rvf_calculator.P_es_rvf"
+  ]
+ },
+ "P_lv": {
+  "descriptions": [
+   "Left ventricular blood pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9466"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "aorta.P_lv",
+   "flow.P_lv",
+   "septum.P_lv",
+   "pulmonary_vein.P_lv"
+  ]
+ },
+ "P_lvf": {
+  "descriptions": [
+   "Pressure across the left ventricular freewall"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "left_ventricle.P_lvf"
+  ]
+ },
+ "P_pa": {
+  "descriptions": [
+   "Blood pressure in the pulmonary artery"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_14167"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_vein.P_pa",
+   "pulmonary_artery.P_pa",
+   "flow.P_pa",
+   "right_ventricle.P_pa"
+  ]
+ },
+ "P_pcd": {
+  "descriptions": [
+   "Pressure across the pericardial wall"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pericardium.P_pcd"
+  ]
+ },
+ "P_peri": {
+  "descriptions": [
+   "Pericardial blood volume"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9887"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "pericardium.P_peri",
+   "right_ventricle.P_peri",
+   "left_ventricle.P_peri"
+  ]
+ },
+ "P_pu": {
+  "descriptions": [
+   "Pulmonary venous blood pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_52455"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "left_ventricle.P_pu",
+   "pulmonary_vein.P_pu",
+   "pulmonary_artery.P_pu",
+   "flow.P_pu"
+  ]
+ },
+ "P_rv": {
+  "descriptions": [
+   "Right ventricular blood pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9291"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "vena_cava.P_rv",
+   "pulmonary_artery.P_rv",
+   "flow.P_rv",
+   "septum.P_rv"
+  ]
+ },
+ "P_rvf": {
+  "descriptions": [
+   "Pressure across the right ventricular free wall"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "right_ventricle.P_rvf"
+  ]
+ },
+ "P_th": {
+  "descriptions": [
+   "Thoracic cavity pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters.P_th",
+   "pulmonary_vein.P_th",
+   "pulmonary_artery.P_th",
+   "pericardium.P_th"
+  ]
+ },
+ "P_vc": {
+  "descriptions": [
+   "Blood Pressure in the Vena Cava"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_280059"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "flow.P_vc",
+   "right_ventricle.P_vc",
+   "aorta.P_vc"
+  ]
+ },
+ "Q_av": {
+  "descriptions": [
+   "Blood flow through atrial valve"
+  ],
+  "properties": [
+   [
+    "OPB_00299"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: custom:Blood flow through aortic valve --hasSinkParticipant--> sink_5 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_12239 --hasSourceParticipant--> source_5 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_9466"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "aorta.Q_av",
+   "flow.Q_av",
+   "left_ventricle.Q_av"
+  ]
+ },
+ "Q_mt": {
+  "descriptions": [
+   "Blood flow through mitrial valve"
+  ],
+  "properties": [
+   [
+    "OPB_00299"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: custom:Blood flow through mitral valve --hasSinkParticipant--> sink_3 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_9466 --hasSourceParticipant--> source_3 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_52455"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "left_ventricle.Q_mt",
+   "pulmonary_vein.Q_mt",
+   "flow.Q_mt"
+  ]
+ },
+ "Q_pul": {
+  "descriptions": [
+   "Pulmonary blood flow"
+  ],
+  "properties": [
+   [
+    "OPB_00299"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: custom:Pulmonary circulatory blood flow --hasSinkParticipant--> sink_2 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_52455 --hasSourceParticipant--> source_2 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_14167"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "flow.Q_pul",
+   "pulmonary_vein.Q_pul",
+   "pulmonary_artery.Q_pul"
+  ]
+ },
+ "Q_pv": {
+  "descriptions": [
+   "Blood flow through pulmonary valve"
+  ],
+  "properties": [
+   [
+    "OPB_00299"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: custom:Blood flow through pulmonary valve --hasSinkParticipant--> sink_4 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_14167 --hasSourceParticipant--> source_4 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_9291"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_artery.Q_pv",
+   "flow.Q_pv",
+   "right_ventricle.Q_pv"
+  ]
+ },
+ "Q_sys": {
+  "descriptions": [
+   "Systemic circulatory blood flow"
+  ],
+  "properties": [
+   [
+    "OPB_00299"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: custom:Systemic circulatory blood flow --hasSinkParticipant--> sink_1 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_280059 --hasSourceParticipant--> source_1 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_12239"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "aorta.Q_sys",
+   "vena_cava.Q_sys",
+   "flow.Q_sys"
+  ]
+ },
+ "Q_tc": {
+  "descriptions": [
+   "Blood flow across tricuspid valve"
+  ],
+  "properties": [
+   [
+    "OPB_00299"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: custom:Blood flow through tricuspid valve --hasSinkParticipant--> sink_0 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_9291 --hasSourceParticipant--> source_0 --hasPhysicalEntityReference--> FMA_9670 --part_of--> FMA_280059"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "flow.Q_tc",
+   "right_ventricle.Q_tc",
+   "vena_cava.Q_tc"
+  ]
+ },
+ "R_av": {
+  "descriptions": [
+   "Atrial valve fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "left_ventricle.R_av",
+   "aorta.R_av",
+   "flow.R_av"
+  ]
+ },
+ "R_mt": {
+  "descriptions": [
+   "Mitrial valve fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters.R_mt",
+   "pulmonary_vein.R_mt",
+   "left_ventricle.R_mt",
+   "flow.R_mt"
+  ]
+ },
+ "R_pul": {
+  "descriptions": [
+   "Pulmonary circulatory fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "flow.R_pul",
+   "pulmonary_artery.R_pul",
+   "pulmonary_vein.R_pul"
+  ]
+ },
+ "R_pv": {
+  "descriptions": [
+   "Pulmonary valve fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_artery.R_pv",
+   "flow.R_pv",
+   "right_ventricle.R_pv"
+  ]
+ },
+ "R_sys": {
+  "descriptions": [
+   "Systemic circulatory fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "flow.R_sys",
+   "vena_cava.R_sys",
+   "aorta.R_sys"
+  ]
+ },
+ "R_tc": {
+  "descriptions": [
+   "Tricuspid valve fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "vena_cava.R_tc",
+   "right_ventricle.R_tc",
+   "flow.R_tc"
+  ]
+ },
+ "V_0_lvf": {
+  "descriptions": [
+   "Left ventricular free wall volume at end diastolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.V_0_lvf"
+  ]
+ },
+ "V_0_pcd": {
+  "descriptions": [
+   "Pericardial volume at end diastolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pericardium.V_0_pcd"
+  ]
+ },
+ "V_0_rvf": {
+  "descriptions": [
+   "Right ventricular free wall volume at end diastolic pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "rvf_calculator.V_0_rvf"
+  ]
+ },
+ "V_0_spt": {
+  "descriptions": [
+   "Septal wall volume at end diastolic pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.V_0_spt"
+  ]
+ },
+ "V_ao": {
+  "descriptions": [
+   "Volume of blood contained in aorta"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_12239"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "aorta_V_ao"
+  ]
+ },
+ "V_d_ao": {
+  "descriptions": [
+   "Aortic blood volume at zero pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "aorta.V_d_ao"
+  ]
+ },
+ "V_d_lvf": {
+  "descriptions": [
+   "Left ventricular free wall volume at end zero pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.V_d_lvf"
+  ]
+ },
+ "V_d_pa": {
+  "descriptions": [
+   "Pulmonary arterial blood volume at zero pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_artery.V_d_pa"
+  ]
+ },
+ "V_d_rvf": {
+  "descriptions": [
+   "Right ventricular free wall volume at zero pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "rvf_calculator.V_d_rvf"
+  ]
+ },
+ "V_d_spt": {
+  "descriptions": [
+   "Septal wall volume at zero pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.V_d_spt"
+  ]
+ },
+ "V_d_vc": {
+  "descriptions": [
+   "Vena cava volume at zero pressure"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "vena_cava.V_d_vc"
+  ]
+ },
+ "V_lv": {
+  "descriptions": [
+   "Volume of blood contained in left ventricle"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9466"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.V_lv",
+   "pericardium.V_lv"
+  ]
+ },
+ "V_lvf": {
+  "descriptions": [
+   "Volume of the free wall of the left ventricle"
+  ],
+  "properties": [
+   [
+    "OPB_01061"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9556"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.V_lvf",
+   "left_ventricle.V_lvf"
+  ]
+ },
+ "V_pcd": {
+  "descriptions": [
+   "Volume of the pericardium"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9869"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "pericardium.V_pcd"
+  ]
+ },
+ "V_rv": {
+  "descriptions": [
+   "Right ventricle blood volume"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9291"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.V_rv",
+   "pericardium.V_rv"
+  ]
+ },
+ "V_rvf": {
+  "descriptions": [
+   "Right ventricular free wall volume"
+  ],
+  "properties": [
+   [
+    "OPB_01061"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9533"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "rvf_calculator.V_rvf",
+   "right_ventricle.V_rvf"
+  ]
+ },
+ "V_spt": {
+  "descriptions": [
+   "Septal wall volume"
+  ],
+  "properties": [
+   [
+    "OPB_01061"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_7180"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "right_ventricle.V_spt",
+   "septum.V_spt",
+   "left_ventricle.V_spt"
+  ]
+ },
+ "V_tot": {
+  "descriptions": [
+   "Total blood volume in the body"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters.V_tot"
+  ]
+ },
+ "artery_V_pa": {
+  "descriptions": [
+   "Pulmonary arterial blood volume"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_52449"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_artery_V_pa"
+  ]
+ },
+ "cava_P_vc": {
+  "descriptions": [
+   "Blood Pressure in the Vena Cava"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_280059"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "vena_cava_P_vc"
+  ]
+ },
+ "cava_V_vc": {
+  "descriptions": [
+   "Vena cava blood volume"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_280059"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "vena_cava_V_vc"
+  ]
+ },
+ "e_t": {
+  "descriptions": [
+   "Heart beat driver function"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "driver_function.e_t",
+   "left_ventricle.e_t",
+   "right_ventricle.e_t",
+   "septum.e_t"
+  ]
+ },
+ "lambda_lvf": {
+  "descriptions": [
+   "Left Ventricular Freewall Diastolic Exponential Parameter"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "lvf_calculator.lambda_lvf",
+   "left_ventricle.lambda_lvf",
+   "septum.lambda_lvf"
+  ]
+ },
+ "lambda_pcd": {
+  "descriptions": [
+   "Pericardial Diastolic Exponential Parameter"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "pericardium.lambda_pcd"
+  ]
+ },
+ "lambda_rvf": {
+  "descriptions": [
+   "Right Ventricular Freewall Diastolic Exponential Parameter"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "rvf_calculator.lambda_rvf",
+   "right_ventricle.lambda_rvf",
+   "septum.lambda_rvf"
+  ]
+ },
+ "lambda_spt": {
+  "descriptions": [
+   "Septal Wall Diastolic Exponential Parameter"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "septum.lambda_spt"
+  ]
+ },
+ "parameters_R_av": {
+  "descriptions": [
+   "Atrial valve fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters_R_av"
+  ]
+ },
+ "parameters_R_pul": {
+  "descriptions": [
+   "Pulmonary circulatory fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters_R_pul"
+  ]
+ },
+ "parameters_R_pv": {
+  "descriptions": [
+   "Pulmonary valve fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters_R_pv"
+  ]
+ },
+ "parameters_R_sys": {
+  "descriptions": [
+   "Systemic circulatory fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters_R_sys"
+  ]
+ },
+ "parameters_R_tc": {
+  "descriptions": [
+   "Tricuspid valve fluid resistance"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "heart_parameters_R_tc"
+  ]
+ },
+ "period": {
+  "descriptions": [
+   "Length of Heart Contraction"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "driver_function.period"
+  ]
+ },
+ "tau": {
+  "descriptions": [
+   "Contraction Time Elapsed"
+  ],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [],
+  "subjects": [
+   "driver_function.tau"
+  ]
+ },
+ "time": {
+  "descriptions": [],
+  "properties": [],
+  "entities_or_processes": [],
+  "direct_definitions": [
+   "OPB_01023"
+  ],
+  "subjects": [
+   "driver_function.time",
+   "flow.time",
+   "aorta.time",
+   "right_ventricle.time",
+   "left_ventricle.time",
+   "vena_cava.time",
+   "pulmonary_vein.time",
+   "pulmonary_artery.time"
+  ]
+ },
+ "vein_V_pu": {
+  "descriptions": [
+   "Pulmonary venous blood volume"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_52455"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "pulmonary_vein_V_pu"
+  ]
+ },
+ "ventricle_P_lv": {
+  "descriptions": [
+   "Left ventricular blood pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9466"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "left_ventricle_P_lv"
+  ]
+ },
+ "ventricle_P_rv": {
+  "descriptions": [
+   "Right ventricular blood pressure"
+  ],
+  "properties": [
+   [
+    "OPB_00509"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9291"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "right_ventricle_P_rv"
+  ]
+ },
+ "ventricle_V_lv": {
+  "descriptions": [
+   "Volume of blood contained in left ventricle"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9466"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "left_ventricle_V_lv"
+  ]
+ },
+ "ventricle_V_rv": {
+  "descriptions": [
+   "Right ventricle blood volume"
+  ],
+  "properties": [
+   [
+    "OPB_00154"
+   ]
+  ],
+  "entities_or_processes": [
+   "physicalPropertyOf: FMA_9670 --part_of--> FMA_9291"
+  ],
+  "direct_definitions": [],
+  "subjects": [
+   "right_ventricle_V_rv"
+  ]
+ }
+}

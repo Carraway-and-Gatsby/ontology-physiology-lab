@@ -1,0 +1,61 @@
+# Negative control for shapes_smith2004.ttl (validated with both shape files and smith2004_dependencies.ttl).
+# Each fault targets one Smith rule; two v1 identifiers (Lumen of aorta fma:12239, Lumen of pulmonary
+# trunk fma:14167) are kept on purpose so S7 and G8 must catch them. Expected results: expected_results.json.
+@prefix bqbiol:    <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim:    <http://bime.uw.edu/semsim/> .
+@prefix opb:       <https://identifiers.org/opb:> .
+@prefix fma:       <https://identifiers.org/FMA:> .
+@prefix uberon:    <https://identifiers.org/UBERON:> .
+@prefix OMEXmodel: <http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#> .
+@prefix local:     <http://omex-library.org/smith2004_ws267.omex/Smith_2004.rdf#> .
+
+local:blood_lv    bqbiol:is uberon:0000178 ; bqbiol:isPartOf uberon:0016514 .
+local:blood_rv    bqbiol:is uberon:0000178 ; bqbiol:isPartOf uberon:0016509 .
+local:blood_ao_v1 bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:12239 .
+local:blood_pt    bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:14167 .
+local:blood_pat   bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:52449 .
+local:blood_pv    bqbiol:is uberon:0000178 ; bqbiol:isPartOf fma:52455 .
+local:pericardial_fluid bqbiol:is uberon:0002409 ; bqbiol:isPartOf uberon:0001074 .
+
+# S1: chamber pressure P_lv given a sink
+OMEXmodel:P_lv bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_lv .
+local:ed_P_lv semsim:hasSourceParticipant local:ed_P_lv_src ; semsim:hasSinkParticipant local:ed_P_lv_snk .
+local:ed_P_lv_src semsim:hasPhysicalEntityReference local:blood_lv .
+local:ed_P_lv_snk semsim:hasPhysicalEntityReference local:pericardial_fluid .
+OMEXmodel:P_ao bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_ao .
+local:ed_P_ao semsim:hasSourceParticipant local:ed_P_ao_src .
+local:ed_P_ao_src semsim:hasPhysicalEntityReference local:blood_ao_v1 .
+
+# S2: free-wall pressure P_lvf without a sink; P_rvf absent altogether
+OMEXmodel:P_lvf bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_lvf .
+local:ed_P_lvf semsim:hasSourceParticipant local:ed_P_lvf_src .
+local:ed_P_lvf_src semsim:hasPhysicalEntityReference local:blood_lv .
+
+# S3: P_pa and V_pa borne by different blood (the workspace-267 trunk / tree split)
+OMEXmodel:P_pa bqbiol:isVersionOf opb:OPB_00509 ; bqbiol:isPropertyOf local:ed_P_pa .
+local:ed_P_pa semsim:hasSourceParticipant local:ed_P_pa_src .
+local:ed_P_pa_src semsim:hasPhysicalEntityReference local:blood_pt .
+OMEXmodel:V_pa bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_pat .
+
+# S4: Q_av annotated in the reverse direction (aorta -> LV) while E30 drives it LV -> aorta
+OMEXmodel:Q_av bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_av .
+local:proc_av semsim:hasSourceParticipant local:proc_av_src ; semsim:hasSinkParticipant local:proc_av_snk ;
+    bqbiol:occursIn uberon:0002137 .
+local:proc_av_src semsim:hasPhysicalEntityReference local:blood_ao_v1 .
+local:proc_av_snk semsim:hasPhysicalEntityReference local:blood_lv .
+
+# S5: Q_mt located at the tricuspid valve instead of the mitral valve (E29)
+OMEXmodel:Q_mt bqbiol:isVersionOf opb:OPB_00299 ; bqbiol:isPropertyOf local:proc_mt .
+local:proc_mt semsim:hasSourceParticipant local:proc_mt_src ; semsim:hasSinkParticipant local:proc_mt_snk ;
+    bqbiol:occursIn uberon:0002134 .
+local:proc_mt_src semsim:hasPhysicalEntityReference local:blood_pv .
+local:proc_mt_snk semsim:hasPhysicalEntityReference local:blood_lv .
+
+# S6: V_pu borne by blood in the pulmonary venous lumen only (no left-atrial part); V_vc absent (S6, S7)
+OMEXmodel:V_pu bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_pv .
+
+# S7: V_ao in the v1 container "Lumen of aorta" instead of the systemic arterial tree lumen;
+# V_lv and V_rv in their v2 containers (no result)
+OMEXmodel:V_ao bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_ao_v1 .
+OMEXmodel:V_lv bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_lv .
+OMEXmodel:V_rv bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:blood_rv .

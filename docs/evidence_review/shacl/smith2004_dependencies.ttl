@@ -1,0 +1,27 @@
+# Dependencies of the canonical Smith 2004 CellML (docs/evidence/a_smith_2004_canonical.cellml),
+# written out so SHACL can compare annotations across an equation. Equation ids are those of
+# smith2004_variable_dictionary.md; run_shacl.py re-checks every entry against that file.
+# Classes are OPB dependency classes (OPB master; card S10). The predicates are project-local.
+
+@prefix dep:       <https://example.org/physiosim/dependency#> .
+@prefix opb:       <https://identifiers.org/opb:> .
+@prefix OMEXmodel: <http://omex-library.org/smith2004_ws267.omex/Smith_2004.cellml#> .
+@prefix uberon:    <https://identifiers.org/UBERON:> .
+
+# Fluid capacitive dependency (OPB_01543): pressure computed from the volume of the same blood.
+dep:cap_lv a opb:OPB_01543 ; dep:pressure OMEXmodel:P_lv ; dep:amount OMEXmodel:V_lv ; dep:equation "E6, E10, E11, E7, E8" .
+dep:cap_rv a opb:OPB_01543 ; dep:pressure OMEXmodel:P_rv ; dep:amount OMEXmodel:V_rv ; dep:equation "E12, E16, E17, E13, E14" .
+dep:cap_pa a opb:OPB_01543 ; dep:pressure OMEXmodel:P_pa ; dep:amount OMEXmodel:V_pa ; dep:equation "E19" .
+dep:cap_pu a opb:OPB_01543 ; dep:pressure OMEXmodel:P_pu ; dep:amount OMEXmodel:V_pu ; dep:equation "E21" .
+dep:cap_ao a opb:OPB_01543 ; dep:pressure OMEXmodel:P_ao ; dep:amount OMEXmodel:V_ao ; dep:equation "E23" .
+dep:cap_vc a opb:OPB_01543 ; dep:pressure OMEXmodel:P_vc ; dep:amount OMEXmodel:V_vc ; dep:equation "E25" .
+
+# Resistive flow dependency (OPB_01572), E27-E28; fluid inductive dependency (OPB_01541), E29-E32.
+# dep:valve names the valve each valve flow passes (manuscript Figure 1: R.mt, R.av/L.av, R.tc, R.pv/L.pv;
+# identifiers from the node specification v2); Q_sys and Q_pul pass vascular beds, not valves.
+dep:flow_sys a opb:OPB_01572 ; dep:flow OMEXmodel:Q_sys ; dep:upstreamPressure OMEXmodel:P_ao ; dep:downstreamPressure OMEXmodel:P_vc ; dep:equation "E27" .
+dep:flow_pul a opb:OPB_01572 ; dep:flow OMEXmodel:Q_pul ; dep:upstreamPressure OMEXmodel:P_pa ; dep:downstreamPressure OMEXmodel:P_pu ; dep:equation "E28" .
+dep:flow_mt  a opb:OPB_01541 ; dep:flow OMEXmodel:Q_mt  ; dep:upstreamPressure OMEXmodel:P_pu ; dep:downstreamPressure OMEXmodel:P_lv ; dep:valve uberon:0002135 ; dep:equation "E29" .
+dep:flow_av  a opb:OPB_01541 ; dep:flow OMEXmodel:Q_av  ; dep:upstreamPressure OMEXmodel:P_lv ; dep:downstreamPressure OMEXmodel:P_ao ; dep:valve uberon:0002137 ; dep:equation "E30" .
+dep:flow_tc  a opb:OPB_01541 ; dep:flow OMEXmodel:Q_tc  ; dep:upstreamPressure OMEXmodel:P_vc ; dep:downstreamPressure OMEXmodel:P_rv ; dep:valve uberon:0002134 ; dep:equation "E31" .
+dep:flow_pv  a opb:OPB_01541 ; dep:flow OMEXmodel:Q_pv  ; dep:upstreamPressure OMEXmodel:P_rv ; dep:downstreamPressure OMEXmodel:P_pa ; dep:valve uberon:0002146 ; dep:equation "E32" .
