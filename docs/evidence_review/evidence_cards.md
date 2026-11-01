@@ -322,15 +322,34 @@ Our interpretation: this is the only source with a measured outcome: automatic o
 
 ## S15 Neal, Gennari, Waltemath, Nickerson, König 2020 — OMEX metadata specification version 1.0; S16 Gennari, König, Misirli, Neal, Nickerson, Waltemath 2021 — OMEX metadata specification (version 1.2)
 
-- J Integr Bioinform 2020;17(2-3):20200020, DOI [10.1515/jib-2020-0020](https://doi.org/10.1515/jib-2020-0020), PMID 32589606, PMCID PMC7756623; J Integr Bioinform 2021;18(3):20210020, DOI [10.1515/jib-2021-0020](https://doi.org/10.1515/jib-2021-0020), PMID 34668356, PMCID PMC8560343. Both CC BY 4.0 (article statements).
-- Access: Europe PMC XML is abstract-only for both (no body). The normative text was therefore not captured from PMC; see the addendum below for what was fetched from the publisher page.
+- J Integr Bioinform 2020;17(2-3):20200020, DOI [10.1515/jib-2020-0020](https://doi.org/10.1515/jib-2020-0020), PMID 32589606, PMCID PMC7756623; J Integr Bioinform 2021;18(3):20210020, DOI [10.1515/jib-2021-0020](https://doi.org/10.1515/jib-2021-0020), PMID 34668356, PMCID PMC8560343. Both CC BY 4.0 ("Open Access. © 2021 John H. Gennari et al., published by De Gruyter. This work is licensed under the Creative Commons Attribution 4.0 International License.").
+- Access (updated 2026-11-01): v1.2 published PDF, 16 pages, obtained from the Humboldt University repository (edoc.hu-berlin.de, record https://edoc.hu-berlin.de/18452/33406, "(CC BY 4.0) Attribution 4.0 International"); retained as `docs/evidence/d_omex_metadata_v1_2_published.pdf` with extracted text `d_omex_metadata_v1_2_published_text.txt`. v1.0 full text not obtained: Europe PMC XML is abstract-only, and the PMC PDF link returned a "Preparing to download" interstitial that was not pursued. v1.2 states that it "builds on version 1.0", so v1.2 is used as the normative text. An editors' draft dated 6 August 2021 (reproduciblebiomodels.org) was also downloaded but is not retained or cited; its licence is not stated.
 
-Quotations (abstracts)
+Quotations (v1.2, section numbers as printed)
 
-1. v1.0: "we have developed a specification for encoding annotations in Open Modeling and EXchange (OMEX)-formatted archives. Distributing modeling projects within these archives is a best practice established by COMBINE".
-2. v1.2: "this version includes a set of initial model-level annotations (whereas v 1.0 described exclusively annotations at a smaller scale)."; "introduces omex-library.org as a common root for all annotations."
+1. [§2.2.5] "The model component must be identiﬁable via a metadata identiﬁer (metaid, see below) in the source code." → Q4 (how an annotation is tied to a variable).
+2. [§2.2.7] composite annotations "have two primary elements: the physical property represented by the annotated item (e.g., chemical concentration, ﬂuid volume) and the physical entity, process, energy diﬀerential, or dependency that bears the property (e.g., a pool of ATP in the cytoplasm, blood in a cardiac cavity, the glucokinase reaction)." → Q1 (four bearer kinds; "blood in a cardiac cavity" is the spec's own example).
+3. [§2.3.2] "We recommend using separate RDF ﬁles to store all annotations associated with model and simulation protocol ﬁles within a COMBINE archive." and "Storing annotations in a separate ﬁle requires keeping them synchronized." → Q4.
+4. [§2.3.3] "The subjects of RDF triples used for annotation should include the name of the ﬁle to be annotated, and the metadata ID of the annotated element within the ﬁle as the URI fragment." → Q4.
+5. [§2.3.3] "SemSim qualiﬁers are primarily used to indicate physical entity participation in a physical process or energy diﬀerential as well as the stoichiometry of a process's participants." → Q1, Q2.
+6. [§2.3.4] required model-level annotations include `dc:creator`, `dc:contributor`, `dc:created`, `dc:description`, `bqmodel:isDescribedBy` ("The publication associated with the model"), `bqmodel:isDerivedFrom` ("Provenance information"), `bqbiol:hasTaxon`. → Q4 (minimal provenance inside the spec).
+7. [§2.3.7.1] "This ﬂuid volume is a property of blood in the lumen of the left coronary artery … We link these two FMA terms using the isPartOf BioModels.net qualiﬁer to produce a composite physical entity. Thus, the composite annotation links the model element being annotated to the physical property it represents (via the isVersionOf BioModels.net qualiﬁer) as well as to the composite physical entity that bears the property (via the isPropertyOf BioModels.net qualiﬁer)." Serialized as `OMEXmodel:VLV bqbiol:isVersionOf opb:OPB_00154 ; bqbiol:isPropertyOf local:entity_0 . local:entity_0 bqbiol:is fma:9670 ; bqbiol:isPartOf fma:18228 .` → Q1, C5 (the blood-in-lumen bearer form is the normative example).
+8. [§2.3.7.2] "It is critical to note that reactions are processes, whereas reaction ﬂow rates are properties of those processes." Processes take `semsim:hasSourceParticipant`, `semsim:hasSinkParticipant`, `semsim:hasMediatorParticipant`; "source amounts are consumed by the process, sink amounts are produced, and mediator amounts remain unchanged." → Q1, Q3 (flow direction).
+9. [§2.3.7.3] "Composite annotations can also be used to represent the properties of energy diﬀerentials. These include, for example, membrane potentials, chemical potentials and ﬂuid pressures." … "we use a local resource in the RDF with its energetic sources and sinks speciﬁed. (Mediators and stoichiometries are only used for process annotations.)" → Q1 (pressure reference is expressed through the sink).
+10. [§2.3.7.4] dependency properties "characterize the mathematical relationship between two or more physical properties." "Currently, we advise annotators to only indicate the represented physical property for model elements that quantify these types of properties." "software libraries should be able to examine the equation solving for the constitutive property and then identify which physical role players are involved in the dependency based on the identiﬁers used in the equation." → Q2 (role players come from the equations, not from the annotation).
+11. [§2.3.8] "we recommend that libraries support annotating individual columns within tabular data ﬁles using the column header as a surrogate metadata ID". → Q4 (a CSV column can carry the same composite annotation as the variable that produced it).
+12. [§2.3.9] "Currently, the COMBINE community does not have a consensus, cross-format approach for annotating the meaning of physical units declared in models or for indicating the physical units on experimental data values." → Q4 (units sit outside the semantic annotation).
+13. [§2.1] namespace prefixes include `@prefix obp: <https://identifiers.org/opb:>` (sic, "obp"), `@prefix fma: <https://identifiers.org/FMA:>` and `@prefix semsim: <http://bime.uw.edu/semsim/>`; "URIs with this base will not resolve (omex-library.org is an empty website)". → C4.
 
-Our interpretation: these are the normative successors of S3 and the natural target format if the project ever exports annotations for other tools; nothing in them was verified beyond the abstracts at this stage.
+Author claim / our interpretation / independent confirmation
+
+- Claim: OMEX metadata is RDF in a separate file, keyed by file name plus metaid, using `bqbiol:isVersionOf` for the property, `bqbiol:isPropertyOf` for the bearer, `bqbiol:isPartOf` within composite entities, and SemSim qualifiers for process and energy-differential participants; units and validity are out of scope.
+- Our reading, three consequences:
+  - Pressure reference has a standard encoding: a fluid pressure is a property of an energy differential with a source and a sink (item 9). The SemGen protocol step 5 (S21) states how a sink is chosen for chamber versus transmural pressures. A project-specific reference vocabulary is therefore not needed for the reference itself.
+  - The SemSim RDF in PMR workspace 267 (S9) predates this form. It uses `http://www.bhi.washington.edu/SemSim#` with `hasPhysicalDefinition`, `physicalPropertyOf` and `ro:part_of`. The specification uses `http://bime.uw.edu/semsim/` with `bqbiol:isVersionOf`, `bqbiol:isPropertyOf` and `bqbiol:isPartOf`. Workspace 267 also annotates pressures as properties of entities, not of energy differentials. It is not OMEX-v1.2 conformant, which adds to C4 and C6.
+  - Item 10 is the normative statement of the Q2 separation: a dependency parameter is annotated with its property only, and role players are recovered from the equation.
+- Independent confirmation: item 7's identifiers (OPB_00154, fma9670) are the ones the SemSim-annotated Smith model uses; item 12 agrees with Neal 2015 (S14 quote 11), where unit conversion was left to the simulator.
+- Limits/unknowns: the specification gives no worked example of a fluid-pressure energy differential and does not say how a ground is named in RDF; the SemGen protocol (S21) supplies the convention but is an informal wiki document.
 
 ---
 
@@ -390,3 +409,41 @@ Quotations
 7. [Discussion] "The biggest assumption of the time-varying elastance theory is that the ESPVR is load-independent." → limitation.
 
 Our interpretation: canine, re-identified parameters, so no numerals match the CellML; useful for symbol meanings, for the thesis pointer, and as a third independent mmHg-based restatement.
+
+---
+
+## S20 Smith BW 2004 — Minimal haemodynamic modelling of the heart & circulation for clinical application (PhD thesis, University of Canterbury)
+
+- Located 2026-11-01, not retrieved. Repository item: https://ir.canterbury.ac.nz/items/5857d987-bd44-4483-be63-4386a964d6d6. Bitstreams: https://ir.canterbury.ac.nz/server/api/core/bitstreams/fdab391f-f441-4288-a7c0-ca22d8624287/content (search-engine title "Minimal HaemodynaIllic Modelling of the Heart & Circulation for Clinical", an OCR-style rendering) and https://ir.canterbury.ac.nz/server/api/core/bitstreams/13666539-671d-46a9-8692-53ad68a1eaa8/content (content not identified).
+- Every request from this machine (item metadata, both bitstreams) returned the Cloudflare page "Attention Required! | Cloudflare". The bot check was not circumvented. The file needs to be downloaded in an ordinary browser by the user. Licence and rights statement: UNKNOWN until the item record can be read.
+- Search snippets (not verified against the document) give the degree as "Doctor of Philosophy in Mechanical Engineering" and two dates, 26 September 2003 and 19 January 2004. Pironet 2013 (S19) cites it as the source of a total blood volume of 1500 ml.
+- Expected use: equations, parameter table and units of the model that the 2004 paper summarizes; candidate primary source for C1, C2, C3 and C7. It is the author's thesis, not the journal article. Agreement between the two must be checked, not assumed.
+
+## S6 addendum — access to the 2004 article
+
+- The article is now served at IOPscience (https://iopscience.iop.org/article/10.1016/j.medengphy.2003.10.001). Access offered on 2026-11-01: "IOPscience login", "IPEM member access", "Purchase from Article Galaxy", "CCC RightFind", "Rent". No open copy was found.
+
+## S21 SemGen annotation protocol, step 5 — properties of physical energy differentials
+
+- Source: SemGen wiki "Annotation protocol", retained as `docs/evidence/c_semgen_protocol.txt` (captured 2026-10-30; SemGen custom non-commercial licence, see `c_semgen_readme.txt`). An informal community document, not a specification.
+
+Quotations
+
+1. "Conventionally, instances of energy differentials are not given unique names, so they are always anonymous in SemSim models. Examples of properties of energy differentials include voltages, chemical potentials, fluid pressures, and temperatures". → Q1.
+2. "If a sink is unspecified, the sink is considered to be whatever 'ground' is applicable, given the OPB property term used in the composite annotation." → Q1.
+3. "In the case of a transmural fluid pressure that is formulated as the chamber pressure inside a blood vessel minus the external pressure, then the blood inside the vessel is the source and the fluid external to the vessel is the sink. For chamber pressures, the source is the blood inside the vessel and the sink is left unspecified. The sink is therefore assumed to be the common 'ground' for all fluid pressures in the model." → Q1, Q3.
+
+Our interpretation, applied to the Smith equations. This is a reading, not an author statement:
+
+| variable | source | sink | equation basis |
+|---|---|---|---|
+| P_lv, P_rv | blood in cavity of left / right ventricle | unspecified (common ground) | E8, E14 |
+| P_ao, P_vc, P_pa, P_pu | blood in the named lumen | unspecified (common ground) | E19, E21, E23, E25 |
+| P_lvf, P_rvf | blood in cavity of left / right ventricle | contents of the pericardial space | E7, E8, E13, E14; Revie (A.4) "free wall pressures" |
+| P_pcd | contents of the pericardial space | contents of the thoracic cavity | E4, E5 |
+| P_peri | contents of the pericardial space | unspecified (common ground) | E5 |
+| P_th | contents of the thoracic cavity | unspecified (common ground) | parameter |
+| P_es_lvf, P_ed_lvf, P_es_rvf, P_ed_rvf | UNKNOWN: components of the free-wall pressure law, not separate differentials | — | E10, E11, E16, E17 |
+
+Consequence: under this convention the six chamber pressures share one reference, the model's common ground. Treating P_th as gauge relative to atmosphere is the physiological convention, but the CellML does not state it, so it stays UNKNOWN. What differs between compartments is which external pressures enter each pressure law: P_th for P_pa and P_pu, P_peri = P_pcd + P_th for P_lv and P_rv, and none for P_ao and P_vc. That is dependency information (Q2), not a reference point. The FMA entities for "contents of the pericardial space" and "contents of the thoracic cavity" were not selected; fma9887 "Portion of pericardial fluid" is the candidate used in S9.
+

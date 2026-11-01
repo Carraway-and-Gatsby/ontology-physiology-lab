@@ -140,6 +140,20 @@
    "retrieved_at_utc": "2026-11-01T06:40Z..06:55Z",
    "license_or_terms": "CC BY 3.0 Unported (PMR)",
    "note": "Every SemSim composite annotation and free-text description in the annotated Smith CellML, grouped by variable name."
+  },
+  "d_omex_metadata_v1_2_published.pdf": {
+   "url": "https://edoc.hu-berlin.de/bitstreams/bf2b5b01-3256-4abf-801d-76d5b556777b/download (record https://edoc.hu-berlin.de/18452/33406)",
+   "retrieved_via": "curl",
+   "retrieved_at_utc": "2026-11-01T07:20Z..07:40Z",
+   "license_or_terms": "CC BY 4.0 (PDF page 1 and repository dc.rights \"(CC BY 4.0) Attribution 4.0 International\")",
+   "note": "Published version, J Integr Bioinform 2021;18(3):20210020, 16 pages; PDF metadata title \"OMEX metadata specification (version 1.2)\"."
+  },
+  "d_omex_metadata_v1_2_published_text.txt": {
+   "url": "derived from d_omex_metadata_v1_2_published.pdf",
+   "retrieved_via": "pypdf 5.1.0 text extraction in an isolated scratch environment",
+   "retrieved_at_utc": "2026-11-01T07:20Z..07:40Z",
+   "license_or_terms": "CC BY 4.0 (derived text)",
+   "note": "Ligatures and some word spacing are lost in extraction; quote from the PDF when exact typography matters."
   }
  },
  "retrievals_not_retained_as_files": [
@@ -190,6 +204,36 @@
    "how": "WebFetch github.com (README page) and raw wiki; also already retained as c_semgen_readme.txt / c_semgen_protocol.txt",
    "license": "custom SemGen license, non-commercial; see c_semgen_readme.txt",
    "retained": "existing c_ files"
+  },
+  {
+   "what": "Smith BW, Minimal haemodynamic modelling of the heart & circulation for clinical application, PhD thesis, University of Canterbury (item 5857d987-bd44-4483-be63-4386a964d6d6; bitstreams fdab391f-f441-4288-a7c0-ca22d8624287 and 13666539-671d-46a9-8692-53ad68a1eaa8)",
+   "how": "curl to the DSpace item API and both bitstream URLs",
+   "result": "HTTP 403 Cloudflare \"Attention Required!\" on every request; the bot check was not circumvented",
+   "retained": "nothing; card S20 records the location"
+  },
+  {
+   "what": "OMEX metadata v1.2 at Keele repository (https://keele-repository.worktribe.com/OutputFile/456846)",
+   "how": "curl",
+   "result": "HTTP 403 Cloudflare \"Just a moment...\" challenge; not pursued (the HU Berlin copy was used)",
+   "retained": "nothing"
+  },
+  {
+   "what": "OMEX metadata v1.0 full text (PMC PDF https://pmc.ncbi.nlm.nih.gov/articles/PMC7756623/pdf/jib-2-3-20200020.pdf; De Gruyter /pdf)",
+   "how": "curl; PubMed MCP full-text call",
+   "result": "PMC returned a \"Preparing to download\" interstitial; De Gruyter returned HTTP 202 with an empty body; PubMed MCP full_text empty",
+   "retained": "nothing; v1.2 is used as the normative text"
+  },
+  {
+   "what": "OMEX metadata v1.2 editors draft dated 2021-08-06 (https://reproduciblebiomodels.org/wp-content/uploads/2022/07/OMEX_Metadata_Spec-1.2-Aug6.pdf, SHA-256 e464b262c6d6cbf186486c0d9b9cd323f9470b3cdfa61f6315edda5a485f8c21)",
+   "how": "curl",
+   "result": "downloaded (19 pages); licence not stated in the file metadata",
+   "retained": "session scratchpad only; superseded by the published version"
+  },
+  {
+   "what": "Smith et al. 2004 at IOPscience (https://iopscience.iop.org/article/10.1016/j.medengphy.2003.10.001)",
+   "how": "curl of the landing page",
+   "result": "paywalled: IOPscience login, IPEM member access, Article Galaxy, CCC RightFind, rent",
+   "retained": "nothing"
   }
  ],
  "sha256": {
@@ -212,6 +256,8 @@
   "d_fulltext_PMC4696653_neal2015_cardiomyocyte.xml": "d113db797823cac63bedb2fbc504393701b0634d73cc506131559628f27692fe",
   "d_epmc_search_chase_desaive_oa.json": "edd4e7ae5d67d33081e0852435927bd8fc10d32103f97930de9024e1d1cc8b3a",
   "d_github_opb_master_commit.json": "6bbb3c88df11c4f71897a5d4bfc27d0b5df9c09949e6e0760cb9451942f34c5f",
-  "d_fulltext_PMC7756623_omex_metadata_v1_0.xml": "83a36a75e9743423a13e143ea2b687e67a0dd78d19d8a2780aa2f4517cf17a53"
+  "d_fulltext_PMC7756623_omex_metadata_v1_0.xml": "83a36a75e9743423a13e143ea2b687e67a0dd78d19d8a2780aa2f4517cf17a53",
+  "d_omex_metadata_v1_2_published.pdf": "61c676f02747f2d523ea930eafa40b62217c72b8aa3c0f59cf070a7d0deb1ed2",
+  "d_omex_metadata_v1_2_published_text.txt": "875c309246caa43c317af1ba35b559f4c4ce24a89dd2a491cc2a4bcb06ab5bf0"
  }
 }
