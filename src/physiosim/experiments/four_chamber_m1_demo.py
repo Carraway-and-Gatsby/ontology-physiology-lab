@@ -3,6 +3,8 @@ import argparse
 from dataclasses import asdict
 from hashlib import sha256
 from html import escape
+from importlib import import_module
+from importlib.resources import files
 from importlib.metadata import version
 from io import BytesIO, StringIO
 import json
@@ -38,15 +40,57 @@ def _json(data):
     return (json.dumps(data,sort_keys=True,indent=2,allow_nan=False)+'\n').encode()
 
 
-def _private_write(path,data):
-    flags=os.O_WRONLY|os.O_CREAT|os.O_EXCL|getattr(os,'O_NOFOLLOW',0)
-    with os.fdopen(os.open(path,flags,0o600),'wb') as stream:
-        stream.write(data)
+def _publish(output, payloads):
+    """Publish prepared bytes exclusively through a no-follow directory fd.
+
+    Roll back only entries created by this call; leave existing results untouched.
+    """
+    output.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+    parent_fd = os.open(output.parent, os.O_RDONLY | os.O_DIRECTORY)
+    directory_fd = None
+    created_identity = None
+    written = []
+    try:
+        try:
+            os.mkdir(output.name, mode=0o700, dir_fd=parent_fd)
+            created = os.stat(output.name, dir_fd=parent_fd, follow_symlinks=False)
+            created_identity = (created.st_dev, created.st_ino)
+        except FileExistsError:
+            pass
+        directory_fd = os.open(output.name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW,
+                               dir_fd=parent_fd)
+        if os.listdir(directory_fd):
+            raise FileExistsError('output must be a new or empty private directory')
+        os.fchmod(directory_fd, 0o700)
+        for name, data in payloads.items():
+            fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+                         0o600, dir_fd=directory_fd)
+            written.append(name)
+            try:
+                stream = os.fdopen(fd, 'wb')
+            except BaseException:
+                os.close(fd)
+                raise
+            with stream:
+                stream.write(data)
+    except BaseException:
+        if directory_fd is not None:
+            for name in reversed(written):
+                os.unlink(name, dir_fd=directory_fd)
+        if created_identity is not None:
+            current = os.stat(output.name, dir_fd=parent_fd, follow_symlinks=False)
+            if (current.st_dev, current.st_ino) == created_identity:
+                os.rmdir(output.name, dir_fd=parent_fd)
+        raise
+    finally:
+        if directory_fd is not None:
+            os.close(directory_fd)
+        os.close(parent_fd)
 
 
-def _figure(result,output):
-    # Keep any first-import matplotlib cache private and inside the caller's dir.
-    with TemporaryDirectory(prefix='.mpl-',dir=output) as cache:
+def _figure(result):
+    # Prepare the figure with a private cache before publishing any output.
+    with TemporaryDirectory(prefix='physiosim-mpl-') as cache:
         previous=os.environ.get('MPLCONFIGDIR')
         os.environ['MPLCONFIGDIR']=cache
         try:
@@ -104,35 +148,38 @@ def run_demo(output, *, parameters=None, cycles=30, samples_per_cycle=400, setti
     # A controlled umask covers matplotlib's temporary cache as well as outputs.
     previous_umask=os.umask(0o077)
     try:
-        output.mkdir(mode=0o700,parents=True,exist_ok=True); output.chmod(0o700)
         columns=['time_s']+['V_'+c+'_ml' for c in COMPARTMENTS]+['P_'+c+'_mmhg' for c in COMPARTMENTS]+[
             'Q_'+e+'_ml_s' for e in EDGE_NAMES]+['Qcum_'+e+'_ml' for e in EDGE_NAMES]
         table=StringIO()
         np.savetxt(table,np.column_stack((result.time,result.volumes,result.pressures,result.flows,result.cumulative_flows)),
             delimiter=',',header=','.join(columns),comments='',fmt='%.17g')
-        _private_write(output/'trajectories.csv',table.getvalue().encode())
-        _private_write(output/'summary.json',_json(summary))
-        _private_write(output/'figure.png',_figure(result,output))
+        payloads = {'trajectories.csv': table.getvalue().encode(),
+                    'summary.json': _json(summary), 'figure.png': _figure(result)}
         html=('<!doctype html><html lang="en"><meta charset="utf-8"><title>Synthetic M1</title>'
             '<style>body{font:16px system-ui;max-width:1100px;margin:auto;padding:24px}img{width:100%}pre{white-space:pre-wrap}</style>'
             '<h1>SYNTHETIC/EXPLORATORY four_chamber_m1</h1><p>'+escape(LIMITATIONS)+'</p>'
             '<img src="figure.png" alt="Final beat pressures, volumes, PV loops and flows">'
             '<p><a href="trajectories.csv">Trajectories</a> · <a href="summary.json">Summary</a> · '
             '<a href="manifest.json">Semantic contract and provenance</a></p><pre>'+escape(_json(summary).decode())+'</pre></html>')
-        _private_write(output/'index.html',html.encode())
-        root=Path(__file__).resolve().parents[3]
-        paths=['src/physiosim/models/four_chamber_m1.py','src/physiosim/simulation/four_chamber_m1.py',
-            'src/physiosim/ontology/four_chamber_m1_manifest.py','src/physiosim/experiments/four_chamber_m1_demo.py',
-            'src/physiosim/models/cardiovascular.py','src/physiosim/simulation/_hybrid.py',
-            'scripts/run_four_chamber_m1.py','docs/evidence_review/anatomy_nodes_v2.json']
+        payloads['index.html'] = html.encode()
+        modules = ('models.four_chamber_m1', 'simulation.four_chamber_m1',
+            'ontology.four_chamber_m1_manifest', 'experiments.four_chamber_m1_demo',
+            'models.cardiovascular', 'simulation._hybrid')
+        source_hashes = {name.replace('.', '/')+'.py':
+            sha256(Path(import_module('physiosim.'+name).__file__).read_bytes()).hexdigest()
+            for name in modules}
+        source_hashes['ontology/anatomy_nodes_v2.json'] = sha256(
+            files('physiosim.ontology').joinpath('anatomy_nodes_v2.json').read_bytes()).hexdigest()
         run={'parameters':asdict(p),'settings':effective,'simulation':config['simulation'],
             'config':config,'config_sha256':sha256(_json(config)).hexdigest(),
-            'source_sha256':{path:sha256((root/path).read_bytes()).hexdigest() for path in paths},
+            'source_sha256':source_hashes,
+            'source_hash_scope':'Package-relative observed runtime bytes; not proof of semantic or physiological validity.',
             'python':platform.python_version(),'dependencies':{name:version(name) for name in ('numpy','scipy','matplotlib','pint')},
-            'output_sha256':{path.name:sha256(path.read_bytes()).hexdigest() for path in sorted(output.iterdir()) if path.is_file()},
+            'output_sha256':{name:sha256(data).hexdigest() for name,data in payloads.items()},
             'hash_scope':'All four output files other than manifest.json; manifest excludes its own hash.',
             'replay_scope':'Same implementation and environment; no timestamps or stochastic input.'}
-        _private_write(output/'manifest.json',_json({'semantic_contract':manifest,'run':run}))
+        payloads['manifest.json'] = _json({'semantic_contract':manifest,'run':run})
+        _publish(output.absolute(), payloads)
     finally:
         os.umask(previous_umask)
     return summary

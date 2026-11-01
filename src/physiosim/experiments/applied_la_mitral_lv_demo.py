@@ -34,8 +34,8 @@ def _json(value):
 
 def _output_directory(output):
     path = Path(output).absolute()
-    if any(p.is_symlink() for p in (path, *path.parents)):
-        raise ValueError('output path must not contain symlinks')
+    if path.is_symlink():
+        raise ValueError('output final component must not be a symlink')
     if path.exists():
         if not path.is_dir() or any(path.iterdir()):
             raise ValueError('output must be a new or empty directory')

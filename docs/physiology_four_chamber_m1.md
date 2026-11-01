@@ -173,8 +173,10 @@ units with pint but requires the exact exported units (no implicit conversion).
 Cumulative flow is **run-integrated volume**, SV **beat-integrated volume**, CO
 **beat-mean flow**, and P/V/Q **instantaneous**. Machine-readable parameter units
 and state order accompany the contract. Existing registry/bindings are untouched.
-In an installation without repository docs, an explicit v2 file path is required
-for the loader; it never downloads missing resources.
+The default loader uses the bundled `physiosim.ontology` anatomy JSON through
+`importlib.resources`; an explicit local path override remains available. Checkout
+tests compare its exact bytes with the documentation original, including when
+testing an installed wheel. No network fallback exists.
 
 ## Synthetic fixture and execution
 
@@ -190,7 +192,7 @@ integration. The engine does not prescribe any total-volume default.
 From the repository with existing dependencies (no install/network required):
 
 ```sh
-.venv/bin/python scripts/run_four_chamber_m1.py --output <server path>/artifacts/m1-passive-atria-v1/demo
+.venv/bin/python scripts/run_four_chamber_m1.py --output results/m1-demo
 .venv/bin/python -m pytest tests/test_four_chamber_m1_model.py tests/test_four_chamber_m1_simulation.py tests/test_four_chamber_m1_semantics.py tests/test_four_chamber_m1_demo.py -q
 ```
 
@@ -219,11 +221,20 @@ columns, at requested sample times rather than native adaptive nodes. CSV Qcum
 columns correspond to the manifest's `Q_cum_*` variables. `summary.json` contains
 all parameters, effective numerical settings and metrics; `manifest.json` contains
 the checked semantic contract, full config, source/config/output hashes and
-Python/dependency versions. Manifest output hashes omit the manifest itself.
+Python/dependency versions. Source hashes describe the imported runtime modules
+and bundled anatomy resource with package-relative keys; they do not require
+repository docs or scripts and are not proof of semantic or physiological
+validity. Manifest output hashes omit the manifest itself.
 `figure.png` and local `index.html` display the synthetic label and limitations.
 There are no timestamps; byte replay is tested in the same environment, without
 claiming bit identity across platforms. Files are mode 600 and output directory
-mode 700, including transient plotting cache files; failures never reuse old data.
+mode 700. All payloads, including the figure, hashes, dependency metadata and
+serialized manifest, are prepared before publication. Plotting uses a separate
+private temporary cache and restores `MPLCONFIGDIR`. Generation failure leaves a
+new destination absent or an existing empty destination empty. Publication uses
+exclusive no-follow writes relative to the output directory fd and rolls back
+this call's files on write failure. Nonempty outputs and final symlinks are
+refused; symlinked ancestors are accepted.
 
 ## Scope limits and verification handoff
 

@@ -6,6 +6,7 @@ fresh external ontology/source validation or anatomical equivalence.
 from dataclasses import fields
 from hashlib import sha256
 import json
+from importlib.resources import files
 from pathlib import Path
 import pint
 from physiosim.models.four_chamber_m1 import (
@@ -23,8 +24,8 @@ _UNITS = pint.UnitRegistry()
 
 
 def load_anatomy_v2(path=None):
-    """Repository resource or explicit local path; absence fails without network."""
-    path = Path(path) if path is not None else Path(__file__).resolve().parents[3]/SOURCE_PATH
+    """Bundled project resource or explicit local path; no network fallback."""
+    path = Path(path) if path is not None else files("physiosim.ontology").joinpath("anatomy_nodes_v2.json")
     document=json.loads(path.read_text())
     keys=[n['key'] for n in document['nodes']]
     if len(keys)!=len(set(keys)) or not document.get('ontology_versions'):

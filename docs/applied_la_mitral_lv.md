@@ -140,7 +140,7 @@ SV_lv/CO_lv belong to the aortic edge and are intentionally rejected here.
 `E_lv(t)` is a separate constitutive-law node, never a manifest variable. Its
 activation inputs are heart_rate and systolic_fraction; the implementation refers
 to `physiosim.models.cardiovascular.elastance`. Verbatim target equation anchors
-and exact line/hash references are retained from
+and declared line/section references remain traceable to
 `docs/physiology_four_chamber_m1.md:62–70`:
 activation, E_v(t), P_v, P_a, ideal-diode q_e and cumulative integral. These are
 references to existing model equations, not adopted anatomical axioms.
@@ -159,7 +159,12 @@ From `physiosim.ontology.applied_la_mitral_lv`:
 `gate_report(sidecar)`, `request_numeric_binding(*args, **kwargs)`.
 Validation returns None on success and raises ValueError for contract defects.
 Missing local resources fail locally; no network fallback exists. Expected source
-and target-file hashes are code pins. The existing M1 manifest remains closed.
+hashes are code pins. The M1-specific law/version contract checks the model ID,
+version, common pressure reference, LA/LV state order, mitral LA → LV diode and
+required parameter fields. This declaration does not prove arbitrary numerical
+implementation integrity. Runtime file hashes are separate observed provenance;
+checkout tests check the law anchors against documentation. The existing M1
+manifest remains closed.
 
 From `physiosim.experiments.applied_la_mitral_lv_demo`:
 `result_fingerprint(result)`, `run_applied_demo(output)`, `main(argv=None)`.
@@ -172,12 +177,12 @@ not steady-state or physiological validation.
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$PWD/src" \
-<server path>/repo/.venv/bin/python \
-scripts/run_applied_la_mitral_lv.py --output /path/to/new-or-empty/private-directory
+.venv/bin/python \
+scripts/run_applied_la_mitral_lv.py --output results/applied-demo
 ```
 
-`--output` is required. Existing nonempty directories and symlink components are
-rejected. umask 077 is restored afterward; the output directory is mode 0700 and
+`--output` is required. Existing nonempty directories and final-component symlinks are
+rejected; symlinked ancestors (such as macOS `/tmp`) are accepted. umask 077 is restored afterward; the output directory is mode 0700 and
 all six files are mode 0600 with exclusive, no-follow writes. Files:
 `applied_sidecar.json`, `gate_report.json`, `source_receipt.json`,
 `trace_la_mitral_lv.csv`, `index.html`, `run_receipt.json`.
@@ -188,38 +193,32 @@ No output paths or timestamps enter deterministic file contents.
 
 ## Execution evidence and review boundary
 
-Chronological per-node commands, actual exits and RED/GREEN logs are under the
-private task artifact directory `tdd/index.jsonl`. Fifteen vertical behaviors
-were added one at a time. The initial GREEN import attempt failed because the
-claimed workspace PYTHONPATH was actually unset. The runner now explicitly pins
-workspace src and disables bytecode writes. A temporary-directory setup error
-was also retained, followed by the real tamper-test behavioral RED. Neither failed
-attempt was erased or represented as GREEN. Subsequent nodes were not started
-until the current behavior passed. The import probe was an assertion, not a
-collection-time ImportError. The original 149 tests are unmodified and are not
-claimed rerun here. Full pytest, scope guard and git diff validation are the
-router's separate stage; fresh independent review remains required.
+For the PR #5 portability repair, chronological focused commands, actual exit
+codes and RED/GREEN logs are retained in the private task artifacts under
+`pr5-wheel-portability-v1/tdd/index.jsonl`. The initial wheel evidence reproduced
+two failures; it is not evidence for all 30 reported CI failures. The router runs
+both complete source and freshly installed wheel suites separately. These
+software checks do not approve mappings or physiological validity. Inherited M1
+batch-TDD history remains UNREVIEWED.
 
-The review reproduced an import-path defect in the router environment: without
-explicit `PYTHONPATH`, the editable installation imports the original checkout.
-Run focused tests from this worktree with:
+Run focused source tests from this checkout with:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 \
 PYTHONPATH="$PWD/src" \
-<server path>/repo/.venv/bin/python -m pytest \
+.venv/bin/python -m pytest \
 tests/test_applied_la_mitral_lv.py -q -p no:cacheprovider -o addopts= \
---basetemp=<server path>/artifacts/applied-validation-fix-v1/focused-new-temp
+-o pythonpath="$PWD/src" --basetemp=.pytest_tmp/focused
 ```
 
-The router must also set that explicit `PYTHONPATH` for its separate full-suite
-run. `test_physiosim_imports_from_this_worktree` asserts that `physiosim.__file__`
-resolves under this test file's worktree `src`, with a corrective message on
-failure. Revision evidence in `tdd/16-import-path-red.log` and
-`tdd/16-import-path-green.log` records the same node without and with this
-environment correction. This is an environment regression check, not a new
-production behavior or a reconstruction of earlier TDD history. The original
-149 tests and inherited UNREVIEWED M1 review limitation remain unchanged.
+`test_physiosim_package_matches_checkout_source` compares complete imported
+package file hashes against this checkout, accepting an identical installed wheel
+and rejecting changed submodules, missing files and extra files. Wheel tests use
+`python -I -m pytest` without source-path redirection. A byte-exact check compares
+the bundled runtime anatomy JSON with `docs/evidence_review/anatomy_nodes_v2.json`
+in both modes, so a later documentation-source change requires an explicit
+resource update. This preserves source provenance without requiring repository
+docs at runtime.
 
 Law and port metadata explicitly retain unit, temporal meaning, sign, reference and
 aggregation. `time_contract` fixes seconds elapsed from run start and the periodic

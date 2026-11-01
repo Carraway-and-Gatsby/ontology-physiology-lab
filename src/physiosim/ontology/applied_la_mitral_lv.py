@@ -147,7 +147,7 @@ def build_applied_sidecar():
             'Inherited M1 batch-TDD review limitation remains unresolved; baseline snapshot is UNREVIEWED.']}
     return {'time_contract': time_contract, 'parameter_roles': parameter_roles,
             'target_anatomy_source': deepcopy(manifest['source']), 'status_axes': status_axes, 'evidence': evidence, 'laws': laws, 'dependencies': dependencies,
-            'model_source': {'files': deepcopy(PINNED_MODEL_FILES), 'baseline_snapshot': '456abc8c77134cd8909d603a1d96ed1384bad41f', 'review': 'UNREVIEWED; inherited M1 batch-TDD limitation remains unresolved'},
+            'model_source': {'declared_contract': M1_LAW_CONTRACT, 'integrity_scope': LAW_INTEGRITY_SCOPE, 'baseline_snapshot': '456abc8c77134cd8909d603a1d96ed1384bad41f', 'review': 'UNREVIEWED; inherited M1 batch-TDD limitation remains unresolved'},
             'variables': variables, 'roles': roles, 'parameters': parameters,
             'volume_references': volume_references, 'ports': ports, 'mitral': mitral, 'anatomy_roles': anatomy_roles, 'sidecar_version': '1.0.0', 'model_id': manifest['model_id'],
             'model_version': manifest['model_version'], 'source': source, 'crosswalk': crosswalk}
@@ -170,7 +170,11 @@ def validate_applied_sidecar(sidecar):
     return None
 
 
-PINNED_MODEL_FILES = {'docs/physiology_four_chamber_m1.md': '6d924c8469a831d79f87941328a9e919dc7df08a45ef80144637a456ba8da0d7', 'src/physiosim/models/cardiovascular.py': '41be222561d553b93510448630c091c642f999b5be8f01ba65160f3a10ec3492', 'src/physiosim/models/four_chamber_m1.py': '5d7d68818554a7bf66772f7ca89eaeba76ce5daa31bc2198ed373617ec63c381', 'src/physiosim/simulation/four_chamber_m1.py': '492c032ac03b6712db127a83e87b0b0109afdaa1c42c3c641f21793dcda9834c', 'src/physiosim/ontology/four_chamber_m1_manifest.py': '9a2b4a11ce0cd2f5405b4b4d4a3de1e89ce4658767670e58fbed6ef95869fcc8'}
+M1_LAW_CONTRACT = 'four_chamber_m1@1.0.0:la-mitral-lv-laws-v1'
+LAW_DOC_LINES = {'activation': 62, 'E_lv(t)': 63, 'P_lv': 64, 'P_la': 65,
+                 'Q_mitral': 68, 'Q_cum_mitral': 70}
+LAW_INTEGRITY_SCOPE = ('Declared M1 law/version contract only; does not prove numerical '
+    'implementation integrity. Observed runtime file hashes are separate provenance.')
 LAW_ANCHORS = {
     'activation': 'a(phi) = (1-cos(2*pi*phi/s))/2, if phi < s; 0 otherwise',
     'E_lv(t)': 'E_v(t) = Emin_v + (Emax_v-Emin_v)*a(phi), v in {lv,rv}',
@@ -181,24 +185,31 @@ LAW_ANCHORS = {
 
 
 def _law_contract():
-    root = Path(__file__).resolve().parents[3]
-    for path, expected in PINNED_MODEL_FILES.items():
-        if sha256((root/path).read_bytes()).hexdigest() != expected:
-            raise ValueError('model source integrity mismatch: '+path)
+    from dataclasses import fields, is_dataclass
+    from physiosim.models import four_chamber_m1 as model
+    required = {'heart_rate', 'systolic_fraction', 'emin_lv', 'emax_lv',
+                'elastance_la', 'resistance_mitral', 'unstressed_volumes', 'initial_volumes'}
+    pressure_reference = ('model gauge pressure relative to one common fixed external pressure of 0 mmHg; '
+                          'no intrathoracic/pericardial pressure')
+    if (model.MODEL_ID != 'four_chamber_m1' or model.MODEL_VERSION != '1.0.0'
+            or model.PRESSURE_REFERENCE != pressure_reference
+            or model.COMPARTMENTS != ('lv', 'sa', 'sv', 'ra', 'rv', 'pa', 'pv', 'la')
+            or [(e.source, e.target, e.kind) for e in model.EDGES if e.name == 'mitral']
+                != [('la', 'lv', 'diode')]
+            or not is_dataclass(model.FourChamberM1Parameters)
+            or not required.issubset({f.name for f in fields(model.FourChamberM1Parameters)})):
+        raise ValueError('M1 law contract differs from four_chamber_m1@1.0.0')
     path = 'docs/physiology_four_chamber_m1.md'
-    text = (root/path).read_text()
     laws = {}
     inputs = {'activation': ['heart_rate','systolic_fraction'],
         'E_lv(t)': ['emin_lv','emax_lv','activation'], 'P_lv': ['E_lv(t)','V_lv','V0_lv'],
         'P_la': ['elastance_la','V_la','V0_la'],
         'Q_mitral': ['P_la','P_lv','resistance_mitral'], 'Q_cum_mitral': ['Q_mitral','time_s']}
     for name, anchor in LAW_ANCHORS.items():
-        if anchor not in text:
-            raise ValueError('missing constitutive law anchor: '+name)
         laws[name] = {'kind': 'constitutive_law' if name != 'Q_cum_mitral' else 'integral_definition',
             'path': path, 'section': '#equations-and-contract', 'anchor': anchor,
-            'line': text[:text.index(anchor)].count('\n')+1,
-            'source_sha256': PINNED_MODEL_FILES[path], 'inputs': inputs[name],
+            'declared_contract': M1_LAW_CONTRACT, 'line': LAW_DOC_LINES[name], 'inputs': inputs[name],
+            'integrity_scope': LAW_INTEGRITY_SCOPE,
             'scope': 'Existing M1 equation reference restricted to LA/LV/mitral; not an adopted ontology axiom.'}
     for name, law in laws.items():
         law['unit'] = {'activation': 'dimensionless', 'E_lv(t)': 'mmHg/mL',

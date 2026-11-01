@@ -6,15 +6,36 @@ from pathlib import Path
 import pytest
 
 
-def test_physiosim_imports_from_this_worktree():
-    import physiosim
+def _assert_package_matches(actual, expected):
+    from hashlib import sha256
+    def hashes(root):
+        return {p.relative_to(root).as_posix(): sha256(p.read_bytes()).hexdigest()
+                for p in root.rglob('*') if p.is_file()
+                and '__pycache__' not in p.parts and p.suffix != '.pyc'}
+    assert hashes(actual) == hashes(expected), 'imported package differs from checkout'
 
-    workspace_src = Path(__file__).resolve().parents[1] / 'src'
-    actual = Path(physiosim.__file__).resolve()
-    assert actual.is_relative_to(workspace_src), (
-        f'physiosim imported from {actual}; expected this worktree under '
-        f'{workspace_src}. Run pytest with PYTHONPATH={workspace_src}'
-    )
+
+def test_physiosim_package_matches_checkout_source(tmp_path):
+    import physiosim
+    import shutil
+    expected = Path(__file__).resolve().parents[1] / 'src/physiosim'
+    _assert_package_matches(Path(physiosim.__file__).resolve().parent, expected)
+    relocated = tmp_path/'physiosim'
+    shutil.copytree(expected, relocated, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+    _assert_package_matches(relocated, expected)
+    for kind in ('changed_submodule', 'extra', 'missing'):
+        target = relocated/'models/four_chamber_m1.py'
+        original = target.read_bytes()
+        if kind == 'changed_submodule':
+            target.write_bytes(original+b'\n# stale synthetic copy\n')
+        elif kind == 'extra':
+            (relocated/'extra.json').write_text('{}')
+        else:
+            target.unlink()
+        with pytest.raises(AssertionError):
+            _assert_package_matches(relocated, expected)
+        target.write_bytes(original)
+        (relocated/'extra.json').unlink(missing_ok=True)
 
 
 def test_module_importable():
@@ -148,8 +169,11 @@ def test_activation_law_doc_anchored_not_manifest_variable():
     assert s['laws']['activation']['inputs'] == ['heart_rate','systolic_fraction']
     root = Path(__file__).resolve().parents[1]
     for law in s['laws'].values():
-        assert law['anchor'] in (root/law['path']).read_text()
-        assert law['source_sha256'] == a.sha256((root/law['path']).read_bytes()).hexdigest()
+        lines = (root/law['path']).read_text().splitlines()
+        assert law.get('line') in range(1, len(lines)+1)
+        assert law['anchor'] == lines[law['line']-1]
+        assert law['declared_contract'] == 'four_chamber_m1@1.0.0:la-mitral-lv-laws-v1'
+        assert 'does not prove numerical implementation integrity' in law['integrity_scope']
     assert {d['kind'] for d in s['dependencies']} == {'constitutive','conservation','definition'}
     assert all(d['kind'] != 'value_equivalence' for d in s['dependencies'])
     b = copy.deepcopy(s); b['laws']['E_lv(t)']['anchor'] = 'invented equation'
@@ -243,7 +267,8 @@ def test_demo_private_deterministic_and_refuses_nonempty(tmp_path):
     assert saved == {p.name:p.read_bytes() for p in one.iterdir()}
     link = tmp_path/'link'; link.symlink_to(two, target_is_directory=True)
     with pytest.raises(ValueError): demo.run_applied_demo(link)
-    with pytest.raises(ValueError): demo.run_applied_demo(link/'nested')
+    demo.run_applied_demo(link/'nested')
+    assert (two/'nested/index.html').is_file()
     empty = tmp_path/'empty'; empty.mkdir(); demo.run_applied_demo(empty)
 
 
@@ -285,3 +310,20 @@ def test_law_port_parameter_time_metadata_explicit_and_closed():
     for field in ('laws','ports','time_contract','parameter_roles','target_anatomy_source'):
         bad = copy.deepcopy(s); bad[field]['unexpected'] = 'external value equivalence'
         with pytest.raises(ValueError): a.validate_applied_sidecar(bad)
+
+
+def test_applied_demo_accepts_symlink_ancestor_rejects_final_symlink(tmp_path):
+    from physiosim.experiments import applied_la_mitral_lv_demo as demo
+    real = tmp_path/'real'; real.mkdir()
+    ancestor = tmp_path/'ancestor'; ancestor.symlink_to(real, target_is_directory=True)
+    demo.run_applied_demo(ancestor/'new')
+    assert (real/'new/index.html').is_file()
+    empty = real/'empty'; empty.mkdir()
+    final = tmp_path/'final'; final.symlink_to(empty, target_is_directory=True)
+    with pytest.raises(ValueError, match='symlink'):
+        demo.run_applied_demo(final)
+    assert final.is_symlink() and list(empty.iterdir()) == []
+    dangling = tmp_path/'dangling'; dangling.symlink_to(real/'absent', target_is_directory=True)
+    with pytest.raises(ValueError, match='symlink'):
+        demo.run_applied_demo(dangling)
+    assert not (real/'absent').exists()
