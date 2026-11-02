@@ -2,7 +2,7 @@
 
 Ontology-Physiology Lab is a research tool for running small in-silico cardiovascular experiments from a plain-language model hypothesis. A deterministic closed-loop ODE engine (a six-compartment Phase 1 model and an eight-volume four-chamber model, "M1") is annotated with ontology concepts (Uberon, FMA, OBO Relations Ontology, a Smith et al. 2004 CellML evidence/SHACL layer). On top of it, an experiment agent lets a language model map a hypothesis such as "triple mitral resistance in M1" to engine parameters, call the real engine through tools, and choose which runs and metrics to report. The report itself is built by code from tool receipts and checked against them; the model's free prose is discarded. Each session leaves a W3C PROV-O record.
 
-> **Safety.** All data are synthetic. Nothing here is clinically validated, patient-specific, or medical advice. Parameter defaults are exploratory, not fitted to literature; the Phase 1 baseline is elevated-pressure and must not be described as a healthy adult reference. The agent refuses personal-health, diagnosis, treatment, drug and dosing questions (an English/Korean rule table plus an LLM scope classifier; neither is proof against every paraphrase). **Not for diagnosis, treatment selection or patient-specific prediction.**
+> **Safety.** All experimental inputs and results are synthetic (the repository also keeps cited third-party evidence and ontology data, listed in NOTICE.md). Nothing here is clinically validated, patient-specific, or medical advice. Parameter defaults are exploratory, not fitted to literature; the Phase 1 baseline is elevated-pressure and must not be described as a healthy adult reference. The agent refuses personal-health, diagnosis, treatment, drug and dosing questions (an English/Korean rule table plus an LLM scope classifier; neither is proof against every paraphrase). **Not for diagnosis, treatment selection or patient-specific prediction.**
 
 Public research site: <https://medical-ontology-research.pages.dev/> — ontology graph viewer (`/graph/`), in-browser simulation (`/simulate/`), `/methodology/`, `/references/`, demos, and `/lab/`, which re-runs the recorded experiments in the browser and re-verifies every claim. Author: Sungyeob Lim, College of Medicine, Soonchunhyang University.
 
@@ -10,7 +10,7 @@ Public research site: <https://medical-ontology-research.pages.dev/> — ontolog
 
 Event period: 2026-10-26 to 2026-11-04. The GitHub repository was created on 2026-10-30. The first commit is dated 2026-10-31 and the most recent commit at the time of writing is dated 2026-11-02; **every commit in the history is dated inside the event period** (history preserved from the original private repository; sensitive strings and some third-party text redacted, see [REDACTIONS.md](REDACTIONS.md) and [RIGHTS.md](RIGHTS.md)). Commit hashes changed because of the redaction.
 
-**Nothing in this repository predates the event except the third-party inputs listed in [NOTICE.md](NOTICE.md).** The one related earlier project, CardioLab ([Carraway-and-Gatsby/cardiac-simulator](https://github.com/Carraway-and-Gatsby/cardiac-simulator), created 2026-10-23, MIT), was reviewed only and not incorporated ([docs/ecosystem.md](docs/ecosystem.md)).
+**Nothing in this repository predates the event except the third-party inputs listed in [NOTICE.md](NOTICE.md).** The one related earlier project, CardioLab ([Carraway-and-Gatsby/cardiac-simulator](https://github.com/Carraway-and-Gatsby/cardiac-simulator), created 2026-10-23, MIT), was reviewed only; none of its code, model or data is incorporated into the engine or the agent ([docs/ecosystem.md](docs/ecosystem.md)). Captures of its public README/API made during the review are kept as cited evidence.
 
 | Date (commit dates, as recorded) | What was built | Where |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Live runs, 2026-11-02, on commit `e1f289c` (same agent code as this branch), rep
 | Provider / model | Date | Cases (in / out of scope) | Passed all checks | Parameter mapping | Tool use | Verifier | Guard | Classifier | Sign agreement (in-scope) | Tokens (total; mean per in-scope case) | Latency (total; mean per in-scope case) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | openai / gpt-6.1-terra | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 316,796; 24,369 | 108.0 s; 8.3 s |
-| anthropic / claude-sonnet-5-5 | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 556,263; 42,789 | 125.7 s; 9.6 s |
+| anthropic / claude-sonnet-5-5 | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 556,263; 42,789 | 125.7 s; 9.7 s |
 | meta / muse-spark-1.3 | not run | — | — | — | — | — | — | — | — | — | — |
 
 How to read it:
