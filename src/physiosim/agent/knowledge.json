@@ -2357,6 +2357,6 @@
     "docs/physiology_four_chamber_m1.md": "54a6d5dc09efd8de07489a3f8b61c6786201e684f90e56ba18d602264bd44e9e",
     "docs/evidence_review/evidence_cards.md": "a5c19378489baf68648e43808116233e5c91c095d643e62ff094ce103516d5bb",
     "docs/physiology_sources.json": "cb2db6f5b77e6c9e8c3030879bc9b9724a05178e7553afcf1460402c94225954",
-    "src/physiosim/ontology/applied_la_mitral_lv_source_v1.json": "5ce4a499a8c7c0e2c103b309ba0b41a75441a2ccb021f9b7efbee77ce01d4410"
+    "src/physiosim/ontology/applied_la_mitral_lv_source_v1.json": "1179134eb8907ecb3c78ffd8e737b67f493573609edd5c56af486708f008d679"
   }
 }
