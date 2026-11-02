@@ -1,8 +1,8 @@
 {
  "provider": "openai",
  "model": "gpt-6.1-terra",
- "generated_at": "2026-11-02T03:25:07.839187+00:00",
- "agent_commit": "e1f289c",
+ "generated_at": "2026-11-02T07:19:54.109453+00:00",
+ "agent_commit": "5c7d171",
  "caveat": "Tool consistency does not establish physiological or clinical validity.",
  "summary": {
   "cases": 27,
@@ -14,7 +14,7 @@
   "verifier_pass": 27,
   "guard_correct": 27,
   "classifier_correct": 27,
-  "tokens": 316796,
-  "latency_s": 107.95917246316094
+  "tokens": 322912,
+  "latency_s": 107.94813641702058
  }
 }

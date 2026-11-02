@@ -1,10 +1,24 @@
 # Ontology-Physiology Lab
 
-Ontology-Physiology Lab is a research tool for running small in-silico cardiovascular experiments from a plain-language model hypothesis. A deterministic closed-loop ODE engine (a six-compartment Phase 1 model and an eight-volume four-chamber model, "M1") is annotated with ontology concepts (Uberon, FMA, OBO Relations Ontology, a Smith et al. 2004 CellML evidence/SHACL layer). On top of it, an experiment agent lets a language model map a hypothesis such as "triple mitral resistance in M1" to engine parameters, call the real engine through tools, and choose which runs and metrics to report. The report itself is built by code from tool receipts and checked against them; the model's free prose is discarded. Each session leaves a W3C PROV-O record.
+A research tool for running synthetic cardiovascular experiments from plain-language hypotheses.
 
-> **Safety.** All experimental inputs and results are synthetic (the repository also keeps cited third-party evidence and ontology data, listed in NOTICE.md). Nothing here is clinically validated, patient-specific, or medical advice. Parameter defaults are exploratory, not fitted to literature; the Phase 1 baseline is elevated-pressure and must not be described as a healthy adult reference. The agent refuses personal-health, diagnosis, treatment, drug and dosing questions (an English/Korean rule table plus an LLM scope classifier; neither is proof against every paraphrase). **Not for diagnosis, treatment selection or patient-specific prediction.**
+> **Safety:** This synthetic research model is not clinically validated and refuses medical-advice requests.
 
-Public research site: <https://medical-ontology-research.pages.dev/> — ontology graph viewer (`/graph/`), in-browser simulation (`/simulate/`), `/methodology/`, `/references/`, demos, and `/lab/`, which re-runs the recorded experiments in the browser and re-verifies every claim. Author: Sungyeob Lim, College of Medicine, Soonchunhyang University.
+## What it does
+
+- Maps a hypothesis to an ontology-grounded parameter change and runs the real simulation engine.
+- Builds a report in code, verifies it against tool receipts, and records each session in W3C PROV-O.
+- Uses a three-layer scope guard for research-only operation.
+- Re-runs recorded experiments and re-verifies claims in the browser.
+
+## Try it
+
+- [Public research site](https://medical-ontology-research.pages.dev/): [Lab](https://medical-ontology-research.pages.dev/lab/), [simulation](https://medical-ontology-research.pages.dev/simulate/), [ontology graph](https://medical-ontology-research.pages.dev/graph/), and [methodology](https://medical-ontology-research.pages.dev/methodology/).
+- After installation, run the offline demo: `.venv/bin/python -m physiosim.agent --dry-run --out agent_eval/my-dry-run`.
+
+## Contents
+
+[Hackathon](#built-during-the-meta-global-ai-developer-hackathon) · [Agent architecture](#architecture-of-the-experiment-agent) · [Meta models](#how-meta-models-are-used) · [Evaluation](#evaluation) · [Quick start](#quick-start) · [Repository map](#repository-map) · [Scientific limits](#scientific-limits) · [Rights and licenses](#rights-handling) · [Credits](#credits)
 
 ## Built during the Meta Global AI Developer Hackathon
 
@@ -15,7 +29,7 @@ Event period: 2026-10-26 to 2026-11-04. The GitHub repository was created on 202
 | Date (commit dates, as recorded) | What was built | Where |
 | --- | --- | --- |
 | 2026-10-31 | Phase 1 closed-loop engine, 34 annotated variables, semantic benchmark, evidence ledgers, reproducibility scripts; synthetic research CI | `src/physiosim/`, `docs/`, `results/phase1/` |
-| 2026-10-31 | Integration stabilisation across valve transitions; separation of same-integrator replay from independent solver comparison | `src/physiosim/simulation/`, [docs/independent_verification.md](docs/independent_verification.md) |
+| 2026-10-31 | Integration stabilization across valve transitions; separation of same-integrator replay from independent solver comparison | `src/physiosim/simulation/`, [docs/independent_verification.md](docs/independent_verification.md) |
 | 2026-10-31 to 2026-11-01 | Smith et al. 2004 evidence layer: canonical CellML source and CC BY 3.0 record, OpenCOR reference runs and comparison, literature evidence review, SHACL shapes, PROV-O record of the OpenCOR runs | `docs/evidence/`, `docs/evidence_review/` |
 | 2026-11-01 | Anatomical node specification v2, applied to the SHACL layer and the runtime registry; bqbiol vocabulary decision | `src/physiosim/ontology/anatomy_nodes_v2.json`, `docs/evidence_review/` |
 | 2026-11-01 | Four-chamber M1 engine (passive atria, eight volumes) and a synthetic demo | [docs/physiology_four_chamber_m1.md](docs/physiology_four_chamber_m1.md), `scripts/run_four_chamber_m1.py` |
@@ -27,6 +41,14 @@ Event period: 2026-10-26 to 2026-11-04. The GitHub repository was created on 202
 ### How the code was written
 
 The code was written with AI coding agents (OpenAI Codex, including gpt-6.1-sol; Claude Opus 5.5 and Sonnet 5.5), orchestrated by Hermes Agent, under a cross-provider routing policy: work implemented by one provider family is reviewed by the other. The agent module had three review rounds (reviewer: Claude Opus 5.5; fixes: Codex gpt-6.1-sol). Decisions that needed a human were made by the repository owner and recorded in [docs/decisions.md](docs/decisions.md) and the evidence-review documents. The routing log is in [docs/orchestration_state.md](docs/orchestration_state.md).
+
+## Model and safety context
+
+Ontology-Physiology Lab is a research tool for running small in-silico cardiovascular experiments from a plain-language model hypothesis. A deterministic closed-loop ODE engine (a six-compartment Phase 1 model and an eight-volume four-chamber model, "M1") is annotated with ontology concepts (Uberon, FMA, OBO Relations Ontology, a Smith et al. 2004 CellML evidence/SHACL layer). On top of it, an experiment agent lets a language model map a hypothesis such as "triple mitral resistance in M1" to engine parameters, call the real engine through tools, and choose which runs and metrics to report. The report itself is built by code from tool receipts and checked against them; the model's free prose is discarded. Each session leaves a W3C PROV-O record.
+
+> **Safety.** All experimental inputs and results are synthetic (the repository also keeps cited third-party evidence and ontology data, listed in NOTICE.md). Nothing here is clinically validated, patient-specific, or medical advice. Parameter defaults are exploratory, not fitted to literature; the Phase 1 baseline is elevated-pressure and must not be described as a healthy adult reference. The agent refuses personal-health, diagnosis, treatment, drug and dosing questions (an English/Korean rule table plus an LLM scope classifier; neither is proof against every paraphrase). **Not for diagnosis, treatment selection or patient-specific prediction.**
+
+Public research site: <https://medical-ontology-research.pages.dev/> — ontology graph viewer (`/graph/`), in-browser simulation (`/simulate/`), `/methodology/`, `/references/`, demos, and `/lab/`, which re-runs the recorded experiments in the browser and re-verifies every claim. Author: Sungyeob Lim, College of Medicine, Soonchunhyang University.
 
 ## Architecture of the experiment agent
 
@@ -61,7 +83,7 @@ Details are in [docs/agent.md](docs/agent.md).
 
 ### Three-layer scope guard
 
-1. **Rule table** (`guard.py`): normalised English/Korean patterns for personal-health, diagnosis, treatment, drug and dosing requests. Runs before any provider is created.
+1. **Rule table** (`guard.py`): normalized English/Korean patterns for personal-health, diagnosis, treatment, drug and dosing requests. Runs before any provider is created.
 2. **LLM scope classifier**: one same-provider call, without tools, that must return a strict `{"in_scope", "reason"}` JSON object; malformed replies, tool calls and provider errors fail closed.
 3. **Structured-only output**: the model can only choose runs and metrics; every sentence in a report (verified summary, labels, caveats, refusal text) is generated by code, and free model text is never stored or shown (trace and provenance keep only its SHA-256 and length). The tool-calling model also gets a research-only system prompt and a closed set of engine/ontology tools.
 
@@ -84,21 +106,26 @@ The agent speaks the OpenAI-compatible Chat Completions protocol through a stand
 
 `custom` accepts any OpenAI-compatible endpoint, for example an open-weight model served locally.
 
-> ### TODO before submission: Meta model usage
->
-> The Meta Model API preset exists (`https://api.meta.ai/v1`, default model `muse-spark-1.3`), but **a live Muse Spark evaluation is pending billing setup**. No Muse Spark result is claimed anywhere in this repository; the evaluation below was run with OpenAI and Anthropic models. Before submission, either run the evaluation with `--provider meta` and add a row to the table, stating which roles the model filled (scope classifier, tool-calling loop, or both), or keep this section as "supported, not yet evaluated".
+### Muse Spark in this project
+
+Meta **Muse Spark** (`muse-spark-1.3`, Meta Model API) is the default model of the agent (`--provider meta`) and fills **both LLM roles**:
+
+1. **Scope classifier**: one strict-JSON call that decides whether a request is an in-silico model experiment or a medical-advice request (refused, fail-closed).
+2. **Experiment planner**: the tool-calling loop that reads the parameter catalogue, grounds the hypothesis in the ontology (`lookup_ontology`), chooses the intervention, calls the real engine (`run_experiment`), and picks which runs and metrics answer the hypothesis. Code then writes and verifies the report.
+
+Muse Spark is a reasoning model: the `meta` preset sends `reasoning_effort: "low"` and gives the classifier a 1,500-token cap, because reasoning tokens count against the completion limit (a 200-token cap returned empty content in live testing, which the fail-closed guard turned into refusals). On the evaluation below Muse Spark passed 27/27 cases. OpenAI and Anthropic models are supported through the same interface and were evaluated for comparison.
 
 ## Evaluation
 
 `agent_eval/hypotheses.json` holds 27 cases: 13 in-scope experiments across both models (mitral resistance, LV peak elastance, heart rate, systemic and pulmonary resistance, arterial compliance, initial volume, review counter-examples and three formerly refused experiment phrasings) and 14 out-of-scope clinical requests that must be refused, including Korean. Expected signs were obtained by executing the engine, not from textbooks.
 
-Live runs, 2026-11-02, on commit `e1f289c` (same agent code as this branch), report schema 2.1, produced by `python agent_eval/run_eval.py`. Numbers are computed from the per-provider `results.json` files that the harness wrote; per-case tables and summaries are committed in [agent_eval/live-2026-11-02/](agent_eval/live-2026-11-02/) (full traces, about 3 MB each, are replayed on the public site's /lab/ page).
+Live runs, 2026-11-02, on commit `5c7d171` (same agent code as this branch), report schema 2.1, produced by `python agent_eval/run_eval.py`. Numbers are computed from the per-provider `results.json` files that the harness wrote; per-case tables and summaries are committed in [agent_eval/live-2026-11-02/](agent_eval/live-2026-11-02/) (full traces, about 3 MB each, are replayed on the public site's /lab/ page).
 
 | Provider / model | Date | Cases (in / out of scope) | Passed all checks | Parameter mapping | Tool use | Verifier | Guard | Classifier | Sign agreement (in-scope) | Tokens (total; mean per in-scope case) | Latency (total; mean per in-scope case) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| openai / gpt-6.1-terra | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 316,796; 24,369 | 108.0 s; 8.3 s |
-| anthropic / claude-sonnet-5-5 | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 556,263; 42,789 | 125.7 s; 9.7 s |
-| meta / muse-spark-1.3 | not run | — | — | — | — | — | — | — | — | — | — |
+| meta / muse-spark-1.3 (preset default) | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 338,386; 26,030 | 135.3 s; 10.4 s |
+| openai / gpt-6.1-terra | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 322,912; 24,839 | 107.9 s; 8.3 s |
+| anthropic / claude-sonnet-5-5 | 2026-11-02 | 27 (13 / 14) | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 27/27 | 13/13 | 629,565; 48,428 | 146.0 s; 11.2 s |
 
 How to read it:
 
@@ -180,12 +207,12 @@ The models omit (Phase 1) separate atria and (both) septal/pericardial interacti
 
 ## Rights handling
 
-Some files in the retained evidence set are third-party captures (web pages, publisher abstracts, licence-restricted text). For the public release these were filtered: whole captures without a redistribution licence are replaced by stubs at the same path (source, retrieval date, original SHA-256 and size are kept; the content is **not redistributed, cited only**), and selected publisher abstracts are replaced by `[abstract omitted: publisher copyright; see DOI/PMID]`. Ledger SHA-256 values refer to the original bytes. [RIGHTS.md](RIGHTS.md) lists every decision; [REDACTIONS.md](REDACTIONS.md) lists privacy redactions (local paths, host names, request identifiers). Licence screening is technical due diligence, not legal advice.
+Some files in the retained evidence set are third-party captures (web pages, publisher abstracts, license-restricted text). For the public release these were filtered: whole captures without a redistribution license are replaced by stubs at the same path (source, retrieval date, original SHA-256 and size are kept; the content is **not redistributed, cited only**), and selected publisher abstracts are replaced by `[abstract omitted: publisher copyright; see DOI/PMID]`. Ledger SHA-256 values refer to the original bytes. [RIGHTS.md](RIGHTS.md) lists every decision; [REDACTIONS.md](REDACTIONS.md) lists privacy redactions (local paths, host names, request identifiers). License screening is technical due diligence, not legal advice.
 
-## Licences
+## Licenses
 
 - Code: MIT, see [LICENSE](LICENSE).
-- Documentation and authored data: CC BY 4.0, see [LICENSE-docs.md](LICENSE-docs.md), which also lists third-party files that keep their own licences.
+- Documentation and authored data: CC BY 4.0, see [LICENSE-docs.md](LICENSE-docs.md), which also lists third-party files that keep their own licenses.
 - Third-party components and data: [NOTICE.md](NOTICE.md); per-file rights decisions: [RIGHTS.md](RIGHTS.md).
 
 ## Credits

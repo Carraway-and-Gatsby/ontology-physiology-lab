@@ -1,8 +1,8 @@
 {
  "provider": "anthropic",
  "model": "claude-sonnet-5-5",
- "generated_at": "2026-11-02T03:27:40.013232+00:00",
- "agent_commit": "e1f289c",
+ "generated_at": "2026-11-02T07:22:46.856496+00:00",
+ "agent_commit": "5c7d171",
  "caveat": "Tool consistency does not establish physiological or clinical validity.",
  "summary": {
   "cases": 27,
@@ -14,7 +14,7 @@
   "verifier_pass": 27,
   "guard_correct": 27,
   "classifier_correct": 27,
-  "tokens": 556263,
-  "latency_s": 125.65990470495308
+  "tokens": 629565,
+  "latency_s": 145.97252883587498
  }
 }
