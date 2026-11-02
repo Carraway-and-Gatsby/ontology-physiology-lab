@@ -1,0 +1,165 @@
+{
+  "audit": "ONTO-AUDIT-01",
+  "decision": "2026-11-02 owner approval: 모두 그렇게 해라",
+  "models": {
+    "phase1": {
+      "version": "phase1-f7d9cd1",
+      "version_scope": "Contract release pin; Phase 1 engine has no MODEL_VERSION.",
+      "categories": {
+        "physical_state": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "auxiliary_state": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "algebraic_output": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "parameter": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "parameter_component": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "scalar_parameter_port": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "metric": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "cumulative_metric": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "diagnostic_metric": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "agent_metric": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "independent_variable": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "derived_timing": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "internal_law_quantity": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "derivative": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "binding_observable": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        }
+      }
+    },
+    "four_chamber_m1": {
+      "version": "1.0.0",
+      "version_scope": "Engine MODEL_VERSION.",
+      "categories": {
+        "physical_state": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "auxiliary_state": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "algebraic_output": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "parameter": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "parameter_component": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "scalar_parameter_port": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "metric": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "cumulative_metric": {
+          "disposition": "excluded",
+          "reason": "No separate M1 cumulative_metrics() or Phase 1 binding convenience API; M1 integrated metrics and manifest aliases are included under metric."
+        },
+        "diagnostic_metric": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "agent_metric": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "independent_variable": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "derived_timing": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "internal_law_quantity": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "derivative": {
+          "disposition": "included",
+          "reason": "A07: every executable quantity/report port requires a typed contract; numerical policies classified nonphysical."
+        },
+        "binding_observable": {
+          "disposition": "excluded",
+          "reason": "No separate M1 cumulative_metrics() or Phase 1 binding convenience API; M1 integrated metrics and manifest aliases are included under metric."
+        }
+      }
+    }
+  },
+  "ontology_versions": {
+    "OPB": "1.07",
+    "anatomy": "v2 (2026-11-01)"
+  },
+  "applied_sidecar": {
+    "scope": "LEFT-side partial",
+    "reason": "A15: optional evidence overlay; right heart covered by main contracts."
+  },
+  "exclusions": {
+    "body_wide_anatomy": {
+      "disposition": "excluded",
+      "reason": "A07: bounded to the two executable cardiovascular models."
+    },
+    "clinical_validation": {
+      "disposition": "excluded",
+      "reason": "A26: synthetic software verification is not biological or clinical validation."
+    },
+    "new_resistance_evidence": {
+      "disposition": "excluded",
+      "reason": "D-RES: new segment-specific evidence requires a later evidence task; no network in ONTO-R1."
+    }
+  },
+  "later_rounds": [
+    "named_graph_RDF",
+    "project_SHACL",
+    "deterministic_full_snapshot_regeneration"
+  ]
+}

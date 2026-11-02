@@ -34,3 +34,58 @@
 - Node specification v2 propagated (2026-11-01, user-approved): the SHACL shapes, fixtures and dependency file use the v2 primary identifiers; a new rule S7 checks each Smith compartment volume against its v2 container; the ws267 translation rewrites FMA identifiers to Uberon only where the Uberon term carries the same FMA cross-reference and keeps all others; the runner rejects any anatomical identifier that is not a v2 primary identifier. The registry is unchanged.
 - Node specification v2 applied to the registry (2026-11-01, user decisions: apply only the changes the recorded sources cover, "A1–A9만 먼저"; use the standard bqbiol predicates, "표준 bqbiol 사용"): `src/physiosim/ontology` now uses the v2 identifiers (Uberon primary, FMA cross-reference kept as `Concept.xref`) for every node it refers to: blood UBERON:0000178 (FMA:9670), heart UBERON:0000948 (FMA:7088), heart left/right ventricle UBERON:0002084/0002080 (FMA:7101/7098), cavity of left/right ventricle UBERON:0016514/0016509 (FMA:9466/9291), and the aortic, mitral, tricuspid and pulmonary valves UBERON:0002137/0002135/0002134/0002146 (FMA:7236/7235/7234/7246), all from `docs/evidence_review/anatomy_nodes_v2.json`. Following C5, V_lv, P_lv, V_rv and P_rv are properties of blood that is `bqbiol:isPartOf` the ventricular cavity, and the cavities are the LV and RV flow endpoints. Following "Anatomical structures as nodes", Q_aortic, Q_mitral, Q_tricuspid and Q_pulmonary_valve carry `bqbiol:occursIn` their valve, and the connection validator compares that location. E_lv, E_rv, CO and SV keep the organ-level ventricle and HR the heart, with v2 identifiers only. C1 needs no change: registry units are already mmHg-based and no conversion factor is added. Not decided and left unchanged: (G1) whether the project's local `sa`, `sv`, `pa`, `pv` compartments map to the v2 vessel-lumen nodes, which describe the Smith compartments (`evidence_review.md` R6, R8 require a human-asserted mapping); (G2) whether the project's venous compartments include the atria, which conflicts with `independent_verification.md` and `tests/test_independent_verification.py` (P_pv local, not atrial); (G3) whether E_lv/E_rv belong on the v2 ventricular-wall nodes, which are Smith's free walls, and which node bears the vessel compliances C_sa..C_pv (v2 has no vessel-wall node); (G4) whether the valve resistances are located at their valve; (G5) the systemic and pulmonary bed flows and resistances and V_total, which have no v2 node and stay local; (G6) the pressure `reference` string, still "model gauge pressure; fixed external pressure zero", since the energy-differential entry above leaves the registry string unchanged and whether the common ground is atmospheric is UNKNOWN. Decided (G7, RDF vocabulary): the standard `bqbiol:isPartOf` and `bqbiol:occursIn` are used for these two relations, all other relations stay project-local, and no conformance to the qualifier vocabulary as a whole is claimed. The committed `results/phase1/` and `results/replay/` exports were not regenerated and still show v1 identifiers. Physical equations, parameters, solver settings and test tolerances are unchanged.
 - M1 passive atria (2026-11-01, owner-authorized software milestone): add versioned `four_chamber_m1` with separate LA/RA blood volumes and constant positive atrial elastances. An explicit named eight-edge incidence matrix connects four ideal diodes and four signed resistors. Reuse the legacy ventricular activation without changing the six-compartment implementation or existing identities. All atrial/venous-inflow inputs and eight initial/unstressed volumes are mandatory; new fixture values are synthetic test-design choices, not literature-derived physiology. Total volume is declared by caller initialization, never normalized. All pressures use one fixed external-zero mathematical gauge; no atmospheric-reference assertion. The offline v2 anatomy nodes are checked under a new model-specific contract with cavity containment, vascular context and valve-location relations; the v2 Smith lumped-atria interpretation is recorded as a source/model difference, and the old registry is untouched. Cumulative flows are run-integrated volumes, SV is beat-integrated, CO is beat-mean. Event-aware integration and preregistered software bounds are documented in `docs/physiology_four_chamber_m1.md`. No active atria/AV delay, inertance, FSI, regurgitation, calibration or clinical-validation claim is introduced.
+
+## 2026-11-02 — ONTO-R1 owner decisions
+
+Source: ONTO-AUDIT-01 (`audit.json`, `audit.md`) and the owner decision receipt
+`owner_decisions.md` dated 2026-11-02. Approval: "모두 그렇게 해라".
+These decisions apply to Phase 1 at engine base f7d9cd1 (contract version
+`phase1-f7d9cd1`; the engine has no explicit version) and
+`four_chamber_m1` version `1.0.0`, unless scoped below. The machine-readable
+A07 boundary is `src/physiosim/ontology/acceptance_matrix.json`.
+
+- **A07, A08–A11, A16–A19, A22–A25, A27:** all executable states, optional auxiliary
+  states, input fields/components/scalar ports, algebraic and internal law
+  quantities, time/period, core/cumulative/agent metrics and numerical diagnostics
+  are included. Named-graph RDF, own-model SHACL with positive/negative fixtures,
+  deterministic projections and independent release/source checks remain the
+  multi-round completion boundary; ONTO-R1 implements WP01–WP08 and G4 only.
+  Numerical controls/flags/text are nonphysical policy metadata. Whole-body
+  anatomy, clinical validity and a healthy-baseline claim are excluded (A26).
+- **D-G1 / G1:** "혈관 구획을 해부학 노드에 연결하고". Both models' vascular blood
+  compartments retain model-local identity and gain non-identity v2 lumen context.
+  FMA-primary lumen nodes retain Uberon only as related structure. No sameAs,
+  equivalence or inferred value equality. **G2:** Phase 1 has no atrial states;
+  atrial filling is lumped into venous reservoirs. M1 has separate LA/RA states;
+  the Smith source's lumped-atria interpretation is not transferred as identity.
+- **D-G3 / G3:** "심실 수축 성질은 '구조'가 아니니까 좀 다른 차원에서 얘기를 해야할 것 같고".
+  Ventricular elastance is OPB volumetric elastance borne by the organ-level LV/RV,
+  with the retained GO heart-contraction process context and separate activation
+  construct e(t). It is never a wall material property or cavity identity.
+  Compliance and passive atrial mechanics retain explicit local model context;
+  dimensional similarity alone cannot select a mechanical anatomy mapping (G5).
+- **D-G4 / G4:** '저항을 지닌 것은 "흐름 경로"로 가자.' Every resistance belongs to
+  a model flow path. Traversed anatomy is recorded separately: Phase 1 mitral
+  pv→lv includes pulmonary venous lumen, lumped LA and mitral valve; M1 la→lv
+  includes mitral valve. Other paths follow their model topology. Missing v2
+  structures stay local/unknown without external identifiers. Flow processes
+  keep `bqbiol:occursIn` valve; resistance is not located at the valve.
+- **D-RES:** "다만 저항이 유독 심한 곳은 좀 더 자세히 들여다 봐야겠다". Annotation
+  only; later segment-specific evidence must be cited before adding claims. No
+  path is split, and no equation/default/tolerance changes. The engine retains
+  one resistance per path. New evidence retrieval is outside this offline round.
+- **G6, A12:** one shared mathematical model gauge with fixed external zero;
+  relation to atmospheric pressure stays UNKNOWN. Each model compartment has
+  one model-scoped blood entity shared by its volume, pressure and flow
+  participation, with distinct quantity nodes and no value-equivalence claim.
+- **A13, A14:** model-qualified IDs, generic evidenced OPB base property (v1.07
+  pinned) plus mandatory kind/aggregation, explicit tested alias conversions.
+  Local legacy descriptors are retained without equivalence. IRI spelling
+  adapters and unresolved-IRI status must be explicit, never guessed.
+- **A15, A18, A21:** applied source overlay stays **LEFT-side partial**; right
+  heart belongs to the main contracts. Retain all 31 anatomy nodes with per-model
+  used/context/catalogue-only status; presence is not model use. Unsupported
+  candidates stay proposed local template keys without new external IDs.
+- **A20, A26:** preserve independent source/formalization/expert/numeric review
+  axes and UNREVIEWED/synthetic status. Annotation coverage and software checks
+  do not establish physiological validity or permit external numeric binding.

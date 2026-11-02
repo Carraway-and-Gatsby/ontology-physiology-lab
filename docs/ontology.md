@@ -116,3 +116,39 @@ Run offline tests with `PYTHONPATH=src .venv/bin/python -m pytest tests/test_ont
 [7] https://www.ebi.ac.uk/ols4/api/search?q=heart+contraction&ontology=go&exact=true&rows=10 — EBI OLS4: heart contraction
 [8] https://www.ebi.ac.uk/ols4/api/search?q=congestive+heart+failure&ontology=doid&exact=true&rows=10 — EBI OLS4: congestive heart failure
 [9] https://www.cellml.org/specifications/metadata — CellML Metadata 1.0 Specification
+
+## ONTO-R1 shared quantity contracts (2026-11-02)
+
+`physiosim.ontology.contracts.build_contract_bundle()` builds the model-scoped
+Phase 1 (`phase1-f7d9cd1`, an annotation release pin) and four-chamber M1
+(`1.0.0`) contracts without executing either solver. The typed contracts cover
+input fields and scalar components, volume and cumulative states, P/Q/E outputs,
+time/period/activation/volume derivatives, core and agent metrics, and numerical
+policy diagnostics. Generic retained OPB v1.07 properties are combined with
+explicit kind, aggregation and numerical policy; local/nonphysical classifications
+are explicit. Alias conversion factors are validated and tested. Homonymous
+quantities keep distinct model-qualified IDs.
+
+The finite owner-approved boundary and exclusions are in
+`src/physiosim/ontology/acceptance_matrix.json`; the dated decision record in
+`docs/decisions.md` supersedes earlier undecided anatomy/bearer policy above.
+`quantity_contracts.json` is a generated review snapshot, not a new engine input.
+Regenerate offline with `PYTHONPATH=src python tools/generate_ontology_contracts.py`;
+add `--check` for a read-only parity check. The same generator projects canonical
+D-G4 paths into the lightweight agent's bundled `knowledge.json`.
+
+Resistance belongs to a model-local **flow path**, with traversed anatomical
+structures separate from its bearer. The legacy registry's resistance descriptors
+and RDF now carry that same path contract; valve flow processes retain
+`bqbiol:occursIn`. Phase 1 mitral pv→lv traverses pulmonary venous lumen, lumped
+left atrium and mitral valve; M1 la→lv traverses only the mitral valve. Unrepresented
+microvascular segments stay local/unknown without invented external IDs. Context
+IDs in agent reports refer to traversed structures, never to path identity.
+
+The canonical contracts use one blood entity per model compartment, organ-level
+ventricular elastance, non-identity vascular lumen context, and a common
+mathematical gauge whose relationship to atmosphere is UNKNOWN. Existing registry,
+binding and M1 manifest functions remain compatibility APIs; their full blood,
+reference and dependency/RDF unification is scheduled in subsequent work packages.
+R1 does not provide the later own-model SHACL validator, full named-graph export,
+or full viewer regeneration, and does not establish physiological validity.

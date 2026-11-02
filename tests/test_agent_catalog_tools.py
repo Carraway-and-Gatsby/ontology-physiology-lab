@@ -84,8 +84,8 @@ def test_lookup_preserves_source_relations_and_null_bindings():
     assert any(r['label'] == 'located_in' for e in blood for r in e['relations'])
     phase1 = {p['name']:p for p in catalog.catalogue('phase1')}
     assert phase1['compliance_sa']['binding'] is None
-    assert phase1['resistance_systemic']['binding'] is None
-    assert phase1['resistance_mitral']['binding']['primary_id'] == 'UBERON:0002135'
+    assert phase1['resistance_systemic']['binding']['key'] == 'phase1:path:systemic'
+    assert phase1['resistance_mitral']['binding']['key'] == 'phase1:path:mitral'
 
 
 @pytest.mark.parametrize('args',[

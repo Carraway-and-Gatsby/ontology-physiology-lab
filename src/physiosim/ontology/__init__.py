@@ -94,6 +94,7 @@ class VariableAnnotation:
     biological_context: tuple[str, ...] = ('circulation',)
     bearer: str = 'blood'  # blood, compartment wall, flow process, or heart process
     occurs_in: Concept | None = None  # location of a flow process (valve flows only)
+    flow_path: dict | None = None  # D-G4 canonical model-local resistance bearer
 
     @property
     def uri(self):
@@ -102,6 +103,8 @@ class VariableAnnotation:
 
 def cardiovascular_registry() -> dict[str, VariableAnnotation]:
     """Return a fresh registry; names deliberately match the model's compartment codes."""
+    from .contracts import _phase1_builder
+    paths = _phase1_builder().paths
     registry = {}
 
     def add(name, anatomy, prop, unit, equation, role, **kwargs):
@@ -134,7 +137,7 @@ def cardiovascular_registry() -> dict[str, VariableAnnotation]:
             orientation=orientation, depends_on=('P_' + origin, 'P_' + target, 'R_' + edge), bearer='flow process',
             occurs_in=VALVES.get(edge))
         add('R_' + edge, anatomy, 'resistance', 'mmHg*s/mL', 'R = pressure_drop / flow',
-            'parameter', orientation=orientation, bearer='flow process')
+            'parameter', orientation=orientation, bearer='flow path', flow_path=paths[edge])
     add('HR', NODES['heart'], 'frequency', '1/min', 'T_seconds = 60 / HR_per_minute',
         'parameter', biological_context=('contraction',), bearer='heart process')
     add('CO', NODES['lv'], 'cardiac_output', 'mL/s', 'CO = integral(Q_aortic, complete_beat)/T',
@@ -287,6 +290,15 @@ def build_graph(registry=None):
                 model.add((URIRef(c.uri), RDFS.label, Literal(c.label)))
                 model.add((URIRef(c.uri), ns.mappingStatus, Literal('local extension' if c.local else 'unverified caller concept')))
         bearer = URIRef(BASE + 'bearer/' + key)
+        if v.flow_path:
+            bearer = URIRef(BASE + v.flow_path['id'].replace(':', '/'))
+            for context in v.flow_path['traverses']:
+                target = URIRef(BASE + 'anatomy-context/' + context['key'])
+                model.add((bearer, ns.traverses, target))
+                model.add((target, ns.anatomyKey, Literal(context['key'])))
+                model.add((target, ns.mappingStatus, Literal(context['status'])))
+                if context['note']:
+                    model.add((target, ns.usageNote, Literal(context['note'])))
         model.add((subject, ns.propertyOf, bearer))
         if v.bearer == 'blood' and not v.anatomy.local:
             # C5 bearer form: the portion of blood is part of its cavity or lumen.

@@ -2358,5 +2358,759 @@
     "docs/evidence_review/evidence_cards.md": "a5c19378489baf68648e43808116233e5c91c095d643e62ff094ce103516d5bb",
     "docs/physiology_sources.json": "cb2db6f5b77e6c9e8c3030879bc9b9724a05178e7553afcf1460402c94225954",
     "src/physiosim/ontology/applied_la_mitral_lv_source_v1.json": "1179134eb8907ecb3c78ffd8e737b67f493573609edd5c56af486708f008d679"
+  },
+  "flow_paths": {
+    "phase1": {
+      "aortic": {
+        "key": "phase1:path:aortic",
+        "label": "Model flow path lv to sa",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002137",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002137",
+            "label": "aortic valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "aortic_valve"
+          },
+          {
+            "id": "FMA:7236",
+            "iri": null,
+            "label": "Aortic valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "aortic_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#phase1:path:aortic",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "lv",
+        "target_compartment": "sa",
+        "traverses": [
+          {
+            "key": "aortic_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "systemic": {
+        "key": "phase1:path:systemic",
+        "label": "Model flow path sa to sv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0004571",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+            "label": "systemic arterial system (structure; Uberon has no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_arterial_lumen"
+          },
+          {
+            "id": "FMA:52448",
+            "iri": null,
+            "label": "Lumen of systemic arterial tree",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_arterial_lumen"
+          },
+          {
+            "id": "UBERON:0004581",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+            "label": "systemic venous system (structure; no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          },
+          {
+            "id": "FMA:52454",
+            "iri": null,
+            "label": "Lumen of systemic venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#phase1:path:systemic",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "sa",
+        "target_compartment": "sv",
+        "traverses": [
+          {
+            "key": "systemic_arterial_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "local:systemic_microvascular_bed",
+            "relation": "traverses",
+            "status": "unknown",
+            "note": "No dedicated v2 node; model-local path segment, no adopted external identifier."
+          },
+          {
+            "key": "systemic_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "tricuspid": {
+        "key": "phase1:path:tricuspid",
+        "label": "Model flow path sv to rv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0004581",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+            "label": "systemic venous system (structure; no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          },
+          {
+            "id": "FMA:52454",
+            "iri": null,
+            "label": "Lumen of systemic venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          },
+          {
+            "id": "UBERON:0002078",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002078",
+            "label": "right cardiac atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "ra"
+          },
+          {
+            "id": "FMA:7096",
+            "iri": null,
+            "label": "Right atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "ra"
+          },
+          {
+            "id": "UBERON:0002134",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002134",
+            "label": "tricuspid valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "tricuspid_valve"
+          },
+          {
+            "id": "FMA:7234",
+            "iri": null,
+            "label": "Tricuspid valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "tricuspid_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#phase1:path:tricuspid",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "sv",
+        "target_compartment": "rv",
+        "traverses": [
+          {
+            "key": "systemic_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "ra",
+            "relation": "traverses",
+            "status": "context",
+            "note": "Lumped atrial filling in venous reservoir; no separate atrial state or identity."
+          },
+          {
+            "key": "tricuspid_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "pulmonary_valve": {
+        "key": "phase1:path:pulmonary_valve",
+        "label": "Model flow path rv to pa",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002146",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002146",
+            "label": "pulmonary valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_valve"
+          },
+          {
+            "id": "FMA:7246",
+            "iri": null,
+            "label": "Pulmonary valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#phase1:path:pulmonary_valve",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "rv",
+        "target_compartment": "pa",
+        "traverses": [
+          {
+            "key": "pulmonary_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "pulmonary": {
+        "key": "phase1:path:pulmonary",
+        "label": "Model flow path pa to pv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002012",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+            "label": "pulmonary artery (structure; no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_arterial_lumen"
+          },
+          {
+            "id": "FMA:52449",
+            "iri": null,
+            "label": "Lumen of pulmonary arterial tree",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_arterial_lumen"
+          },
+          {
+            "id": "UBERON:0013127",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+            "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          },
+          {
+            "id": "FMA:52455",
+            "iri": null,
+            "label": "Lumen of pulmonary venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#phase1:path:pulmonary",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "pa",
+        "target_compartment": "pv",
+        "traverses": [
+          {
+            "key": "pulmonary_arterial_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "local:pulmonary_microvascular_bed",
+            "relation": "traverses",
+            "status": "unknown",
+            "note": "No dedicated v2 node; model-local path segment, no adopted external identifier."
+          },
+          {
+            "key": "pulmonary_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "mitral": {
+        "key": "phase1:path:mitral",
+        "label": "Model flow path pv to lv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0013127",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+            "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          },
+          {
+            "id": "FMA:52455",
+            "iri": null,
+            "label": "Lumen of pulmonary venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          },
+          {
+            "id": "UBERON:0002079",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002079",
+            "label": "left cardiac atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "la"
+          },
+          {
+            "id": "FMA:7097",
+            "iri": null,
+            "label": "Left atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "la"
+          },
+          {
+            "id": "UBERON:0002135",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+            "label": "mitral valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "mitral_valve"
+          },
+          {
+            "id": "FMA:7235",
+            "iri": null,
+            "label": "Mitral valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "mitral_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#phase1:path:mitral",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "pv",
+        "target_compartment": "lv",
+        "traverses": [
+          {
+            "key": "pulmonary_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "la",
+            "relation": "traverses",
+            "status": "context",
+            "note": "Lumped atrial filling in venous reservoir; no separate atrial state or identity."
+          },
+          {
+            "key": "mitral_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      }
+    },
+    "m1": {
+      "aortic": {
+        "key": "four_chamber_m1:path:aortic",
+        "label": "Model flow path lv to sa",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002137",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002137",
+            "label": "aortic valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "aortic_valve"
+          },
+          {
+            "id": "FMA:7236",
+            "iri": null,
+            "label": "Aortic valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "aortic_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:aortic",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "lv",
+        "target_compartment": "sa",
+        "traverses": [
+          {
+            "key": "aortic_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "systemic": {
+        "key": "four_chamber_m1:path:systemic",
+        "label": "Model flow path sa to sv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0004571",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+            "label": "systemic arterial system (structure; Uberon has no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_arterial_lumen"
+          },
+          {
+            "id": "FMA:52448",
+            "iri": null,
+            "label": "Lumen of systemic arterial tree",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_arterial_lumen"
+          },
+          {
+            "id": "UBERON:0004581",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+            "label": "systemic venous system (structure; no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          },
+          {
+            "id": "FMA:52454",
+            "iri": null,
+            "label": "Lumen of systemic venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:systemic",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "sa",
+        "target_compartment": "sv",
+        "traverses": [
+          {
+            "key": "systemic_arterial_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "local:systemic_microvascular_bed",
+            "relation": "traverses",
+            "status": "unknown",
+            "note": "No dedicated v2 node; model-local path segment, no adopted external identifier."
+          },
+          {
+            "key": "systemic_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "venous_return": {
+        "key": "four_chamber_m1:path:venous_return",
+        "label": "Model flow path sv to ra",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0004581",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+            "label": "systemic venous system (structure; no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          },
+          {
+            "id": "FMA:52454",
+            "iri": null,
+            "label": "Lumen of systemic venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "systemic_venous_lumen"
+          },
+          {
+            "id": "UBERON:0016522",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+            "label": "cavity of right atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "ra_cavity"
+          },
+          {
+            "id": "FMA:11359",
+            "iri": null,
+            "label": "Cavity of right atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "ra_cavity"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:venous_return",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "sv",
+        "target_compartment": "ra",
+        "traverses": [
+          {
+            "key": "systemic_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "ra_cavity",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "tricuspid": {
+        "key": "four_chamber_m1:path:tricuspid",
+        "label": "Model flow path ra to rv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002134",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002134",
+            "label": "tricuspid valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "tricuspid_valve"
+          },
+          {
+            "id": "FMA:7234",
+            "iri": null,
+            "label": "Tricuspid valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "tricuspid_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:tricuspid",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "ra",
+        "target_compartment": "rv",
+        "traverses": [
+          {
+            "key": "tricuspid_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "pulmonary_valve": {
+        "key": "four_chamber_m1:path:pulmonary_valve",
+        "label": "Model flow path rv to pa",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002146",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002146",
+            "label": "pulmonary valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_valve"
+          },
+          {
+            "id": "FMA:7246",
+            "iri": null,
+            "label": "Pulmonary valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:pulmonary_valve",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "rv",
+        "target_compartment": "pa",
+        "traverses": [
+          {
+            "key": "pulmonary_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "pulmonary": {
+        "key": "four_chamber_m1:path:pulmonary",
+        "label": "Model flow path pa to pv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002012",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+            "label": "pulmonary artery (structure; no lumen term)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_arterial_lumen"
+          },
+          {
+            "id": "FMA:52449",
+            "iri": null,
+            "label": "Lumen of pulmonary arterial tree",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_arterial_lumen"
+          },
+          {
+            "id": "UBERON:0013127",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+            "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          },
+          {
+            "id": "FMA:52455",
+            "iri": null,
+            "label": "Lumen of pulmonary venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:pulmonary",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "pa",
+        "target_compartment": "pv",
+        "traverses": [
+          {
+            "key": "pulmonary_arterial_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "local:pulmonary_microvascular_bed",
+            "relation": "traverses",
+            "status": "unknown",
+            "note": "No dedicated v2 node; model-local path segment, no adopted external identifier."
+          },
+          {
+            "key": "pulmonary_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "pulmonary_venous": {
+        "key": "four_chamber_m1:path:pulmonary_venous",
+        "label": "Model flow path pv to la",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0013127",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+            "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+            "relation": "related_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          },
+          {
+            "id": "FMA:52455",
+            "iri": null,
+            "label": "Lumen of pulmonary venous tree organ",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "pulmonary_venous_lumen"
+          },
+          {
+            "id": "UBERON:0016513",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+            "label": "cavity of left atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "la_cavity"
+          },
+          {
+            "id": "FMA:9465",
+            "iri": null,
+            "label": "Cavity of left atrium",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "la_cavity"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:pulmonary_venous",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "pv",
+        "target_compartment": "la",
+        "traverses": [
+          {
+            "key": "pulmonary_venous_lumen",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          },
+          {
+            "key": "la_cavity",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      },
+      "mitral": {
+        "key": "four_chamber_m1:path:mitral",
+        "label": "Model flow path la to lv",
+        "relation": "property_of_flow_path",
+        "ids": [
+          {
+            "id": "UBERON:0002135",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+            "label": "mitral valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "mitral_valve"
+          },
+          {
+            "id": "FMA:7235",
+            "iri": null,
+            "label": "Mitral valve",
+            "relation": "traversed_structure",
+            "context_relation": "traverses",
+            "anatomy_key": "mitral_valve"
+          }
+        ],
+        "primary_id": null,
+        "source": "src/physiosim/ontology/contracts.py#four_chamber_m1:path:mitral",
+        "scope": "D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.",
+        "source_compartment": "la",
+        "target_compartment": "lv",
+        "traverses": [
+          {
+            "key": "mitral_valve",
+            "relation": "traverses",
+            "status": "context",
+            "note": ""
+          }
+        ]
+      }
+    }
   }
 }

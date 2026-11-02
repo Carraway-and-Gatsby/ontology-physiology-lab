@@ -39,6 +39,8 @@ def relevant_evidence(receipts, runs, ontology_receipts=(), *, parameter=None):
         b = p['binding']
         if b:
             queries.update((b['key'],b['label']))
+            # D-G4 keeps anatomical evidence relevant through path traversal.
+            queries.update(a['key'] for a in b.get('traverses',[]))
             queries.update(v for item in b['ids'] for v in (item['id'],item['iri']) if v)
     for receipt in ontology_receipts:
         for entity in receipt.get('entities',[]):

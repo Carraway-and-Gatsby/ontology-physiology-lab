@@ -102,8 +102,9 @@ Interventions use absolute numeric values or `{"scale": factor}` relative to the
 actual baseline after overrides. Baseline overrides accept absolute numbers only.
 Volume tuples become scalar ports such as `initial_volumes.lv` and
 `unstressed_volumes.la`; original compartment order is retained on reconstruction.
-There are 28 Phase 1 ports and 36 M1 ports. Forty-four model-specific entries have
-an anatomical binding (13 Phase 1, 31 M1).
+There are 28 Phase 1 ports and 36 M1 ports. Fifty model-specific entries have
+a binding (15 Phase 1, 35 M1), including model-local flow paths with separate
+traversed anatomy.
 
 Ranges are default ×0.1 through ×5, intersected with positive finite engine
 requirements, systolic fraction capped at 0.95, and individual Emax/Emin bounds.
@@ -120,9 +121,13 @@ a cavity context without selecting a wall/myocardium mechanical bearer. Existing
 Phase 1 peripheral compartments remain project-local, so their bindings are null.
 M1 vascular lumen context is not identity with an entire lumped vascular bed;
 FMA-primary nodes retain Uberon as a related structure. An FMA IRI is returned
-only where recorded by the source, otherwise its existing CURIE suffices. There
-is no dedicated anatomical path binding for systemic, pulmonary or venous inflow
-resistances, nor one for systolic fraction. No ID is minted to fill a gap.
+only where recorded by the source, otherwise its existing CURIE suffices. D-G4 resistance bindings are model-local flow paths generated from
+`physiosim.ontology.contracts` into bundled knowledge. Their IDs describe traversed
+structures as context, not the bearer: Phase 1 mitral includes pulmonary venous
+lumen, lumped LA and mitral valve; M1 mitral includes the valve alone. Systemic,
+pulmonary and venous inflow resistances likewise keep explicit paths. Missing v2
+segments remain local/unknown. Systolic fraction retains a null anatomy binding;
+no external ID is minted to fill a gap.
 
 Source `part_of`/`located_in` relations retain contextual template endpoints,
 review decisions and the statement that source claims are not engine axioms.

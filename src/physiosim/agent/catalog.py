@@ -67,6 +67,10 @@ def known_ids():
 
 def _binding(model, name):
     base, _, component = name.partition('.')
+    if base.startswith('resistance_'):
+        # Generated from the canonical model contracts; keep runtime lightweight.
+        from copy import deepcopy
+        return deepcopy(knowledge()['flow_paths'][model][base[11:]])
     key = None
     relation = 'parameter_context'
     if component:
@@ -87,10 +91,6 @@ def _binding(model, name):
         key = {'sa': 'systemic_arterial_lumen', 'sv': 'systemic_venous_lumen',
                'pa': 'pulmonary_arterial_lumen', 'pv': 'pulmonary_venous_lumen'}[component]
         relation = 'lumped_compartment_context'
-    elif name.startswith('resistance_'):
-        key = {'aortic': 'aortic_valve', 'mitral': 'mitral_valve',
-               'tricuspid': 'tricuspid_valve', 'pulmonary_valve': 'pulmonary_valve'}.get(name[11:])
-        relation = 'flow_location'
     # Phase1 peripheral compartments are explicitly project-local in the registry.
     if model == 'phase1' and component in ('sa', 'sv', 'pa', 'pv'):
         return None

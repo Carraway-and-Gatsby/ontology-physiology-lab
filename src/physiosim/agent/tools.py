@@ -93,7 +93,8 @@ def list_parameters(model):
 
 def _related(key):
     return [{'model': m, 'parameter': p['name']} for m in MODELS for p in catalogue(m)
-            if p['binding'] and p['binding']['key'] == key]
+            if p['binding'] and (p['binding']['key'] == key or
+                any(a['key'] == key for a in p['binding'].get('traverses',[])))]
 
 
 def lookup_ontology(query):
@@ -162,6 +163,7 @@ def get_evidence(entity_or_param):
                 keys.add(query.split('.')[0])
                 if p['binding']:
                     keys.add(p['binding']['key']); anatomy = True
+                    keys.update(a['key'] for a in p['binding'].get('traverses',[]))
     for n in knowledge()['anatomy']['nodes']:
         if query in (n['key'], n['uberon'], n['fma'], iri(n['uberon']), iri(n['fma']), n['structure']):
             keys.add(n['key']); anatomy = True
