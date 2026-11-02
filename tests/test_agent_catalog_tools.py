@@ -200,6 +200,8 @@ def forbidden(*a,**k): raise AssertionError('network forbidden')
 socket.create_connection=forbidden
 socket.socket.connect=forbidden
 from physiosim.agent.tools import run_experiment, lookup_ontology, get_evidence
+from physiosim.agent import verify, narrative
+assert 'physiosim.agent.budget' not in sys.modules
 for model in ('phase1','m1'):
  r=run_experiment(model,{'resistance_mitral':{'scale':3}},cycles=2)
  assert 'run_id' in r,r

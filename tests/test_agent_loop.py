@@ -16,7 +16,13 @@ from physiosim.agent.llm import (FakeProvider, ChatProvider, ProviderConfig, Pro
 from physiosim.agent.loop import run_agent, report_from_run, TOOL_SCHEMAS
 from physiosim.agent.provenance import build_provenance, serialize
 from physiosim.agent.tools import run_experiment, get_evidence
-from physiosim.agent.verify import verify_report, SUMMARY_RULE, SUMMARY_EXAMPLE
+from physiosim.agent.verify import verify_report as _verify_report, SUMMARY_RULE, SUMMARY_EXAMPLE
+from physiosim.agent.narrative import prepare_report
+
+
+def verify_report(report,runs,**kwargs):
+    kwargs.setdefault("evidence_receipts",get_evidence("resistance_mitral"))
+    return _verify_report(report,runs,**kwargs)
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -76,59 +82,22 @@ def test_verifier_accepts_real_tool_numbers_and_zero_relative_null_policy(receip
     assert run['delta']['rel']['mitral_backward_volume_ml'] is None
 
 
-@pytest.mark.parametrize('summary',[
+@pytest.mark.parametrize('commentary',[
     SUMMARY_EXAMPLE,
-    'Phase 1 and M1 are synthetic model names; the four-chamber model was used.',
-    'The parameter catalogue contains resistance_mitral and initial_volumes.lv.',
-    'First inspect Section 1, then the 2nd section and Table two for context.',
-    'The resistance_mitral was tripled in the paired synthetic M1 experiment.',
-    'The experiment used triple the mitral resistance; inspect the findings.',
-    'The experiment tripled the mitral flow-path resistance; inspect the findings.',
+    'Raising resistance_mitral diminished left atrial pressure and roughly halved it, a threefold effect.',
+    'Raising resistance_mitral elevated left atrial pressure; 좌심방 압력이 상승했고 박출량은 줄어들었다.',
+    'The periodicity check was satisfied and the system reached steady state.',
+    'Mean pressure was eight, or 8 mmHg, a fabricated run-123abc.',
 ])
-def test_summary_allows_identifiers_and_receipt_backed_tripling(receipt,summary):
+def test_commentary_never_enters_verified_narrative(receipt,commentary):
     run,report=receipt
-    changed=deepcopy(report);changed['summary']=summary
+    changed=deepcopy(report);changed['model_commentary']=commentary
     result=verify_report(changed,{run['run_id']:run})
-    assert result['passed'],result
-
-
-def test_summary_allows_report_ontology_ids_and_session_run_ids(receipt):
-    run,report=receipt
-    changed=deepcopy(report)
-    changed['summary']=f"M1 run {run['run_id']} cites {report['ontology_ids'][0]} for context."
-    assert verify_report(changed,{run['run_id']:run})['passed']
-
-
-@pytest.mark.parametrize('summary',[
-    'Mean LA pressure rose to 8.1 mmHg in M1',
-    'Mean LA pressure rose in M1.',
-    'Stroke volume fell in Phase 1.',
-    'Pressure was unchanged in M1.',
-    'Mean LA pressure was eight.',
-    'Pressure changed by 50% in M1.',
-    'The resistance_mitral was changed by 3x.',
-    'Pressure tripled in M1.',
-    'The resistance_mitral was tripled and pressure rose.',
-    'The heart_rate was tripled in M1.',
-    'The initial_volumes.lv was tripled in M1.',
-    'The pressure unit is mmHg.',
-    'The model used UBERON:9999999.',
-    'A fabricated run-123abc was used.',
-    'The ejection fraction was half.',
-])
-def test_summary_rejects_quantities_metric_directions_and_unmatched_changes(receipt,summary):
-    run,report=receipt
-    changed=deepcopy(report);changed['summary']=summary
-    result=verify_report(changed,{run['run_id']:run})
-    assert {'path':'summary','reason':SUMMARY_RULE} in result['failures']
-
-
-def test_summary_tripling_must_match_trusted_change_not_fabricated_report(receipt):
-    run,report=deepcopy(receipt)
-    run['parameter_changes'][0]['intervention']=.02
-    report['summary']='The resistance_mitral was tripled in M1.'
-    result=verify_report(report,{run['run_id']:run})
-    assert any(f['path']=='summary' for f in result['failures'])
+    assert not result['passed']
+    clean=prepare_report(changed,{run['run_id']:run})
+    assert 'model_commentary' not in clean
+    assert verify_report(clean,{run['run_id']:run})['passed']
+    assert clean['verified_summary']==report['verified_summary']
 
 
 @pytest.mark.parametrize('mutation',[
@@ -144,10 +113,10 @@ def test_summary_tripling_must_match_trusted_change_not_fabricated_report(receip
     lambda r:r['findings'][0].update(label='Pressure rises by 4 mmHg'),
     lambda r:r['findings'][0].update(extra_number=9),
     lambda r:r['findings'][1].update(id='finding-0'),
-    lambda r:r.update(summary='Pressure increased by 8 mmHg'),
-    lambda r:r.update(summary='Pressure is higher'),
-    lambda r:r.update(summary='Mean pressure was eighty'),
-    lambda r:r.update(summary='You should take aspirin'),
+    lambda r:r.update(verified_summary='Pressure increased by 8 mmHg'),
+    lambda r:r.update(verified_summary='Pressure is higher'),
+    lambda r:r.update(verified_summary='Mean pressure was eighty'),
+    lambda r:r.update(verified_summary='You should take aspirin'),
     lambda r:r.update(hidden_claim=7),
     lambda r:r['parameter_changes'][0].update(intervention=.04),
     lambda r:r['parameter_changes'][0].update(run_id=[]),
@@ -181,7 +150,7 @@ def test_loop_offline_end_to_end_preserves_full_receipts_and_prov():
     r=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
     assert r['verification']['passed'],r['verification']
     assert not r['verification']['repair_attempted']
-    assert r['usage']['model_calls'] == 3
+    assert r['usage']['model_calls'] == 4
     assert r['usage']['total_tokens'] == 0
     tools=[x for x in r['trace'] if x.get('tool_name')]
     assert [x['tool_name'] for x in tools] == ['list_parameters','lookup_ontology','get_evidence','run_experiment']
@@ -192,7 +161,7 @@ def test_loop_offline_end_to_end_preserves_full_receipts_and_prov():
     for type in ('Activity','Agent','Entity'):
         assert list(graph.subjects(RDF.type,URIRef('http://www.w3.org/ns/prov#'+type)))
     raw=json.loads(serialize(r['provenance']))
-    assert len([n for n in raw['@graph'] if n.get('@type') == 'prov:Activity']) == len(tools)+1
+    assert len([n for n in raw['@graph'] if n.get('@type') == 'prov:Activity']) == len(r['trace'])+1
     assert serialize(r['provenance']) == serialize(raw)
     config=[n for n in raw['@graph'] if n.get('lab:configuration',{}).get('@value',{}).get('solver_settings')][0]
     assert config['lab:configuration']['@value']['intervention_parameters']['resistance_mitral'] == .03
@@ -213,33 +182,27 @@ def test_loop_repairs_once_then_verifies():
     fake=_repair_provider(fix=True)
     r=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
     assert r['verification']['passed'],r['verification']
-    assert r['verification']['repair_attempted'] and fake.calls == 4
+    assert r['verification']['repair_attempted'] and fake.calls == 5
     assert len([x for x in r['trace'] if x['kind']=='repair']) == 1
 
 
-def test_summary_repair_quotes_exact_rule_and_allowed_examples():
+def test_repair_quotes_exact_receipt_failures():
     script=list(FakeProvider.for_experiment(cycles=2,metric='la_pressure_mean_mmhg').responses)
     valid=script[-1]
     def broken(messages):
         answer=valid(messages);report=json.loads(answer['content'])
-        report['summary']='Mean LA pressure rose to 8.1 mmHg in M1'
+        report['parameter_changes'][0]['intervention']=99
         answer['content']=json.dumps(report)
         return answer
     def repair(messages):
         prompt=messages[-1]['content']
-        assert SUMMARY_RULE in prompt and SUMMARY_EXAMPLE in prompt
         guidance=json.loads(prompt[prompt.index('{'):])
-        assert guidance['failing_rules']==[{'path':'summary','reason':SUMMARY_RULE}]
-        example=guidance['allowed_finding_example']
-        run=next(json.loads(m['content']) for m in messages if m.get('name')=='run_experiment')
-        assert example['value']==round(run['baseline']['metrics'][example['metric_path'].split('.')[-1]],6)
-        answer=valid(messages);report=json.loads(answer['content']);report['summary']=SUMMARY_EXAMPLE
-        answer['content']=json.dumps(report)
-        return answer
+        assert any(f['path']=='parameter_changes' for f in guidance['failing_rules'])
+        return valid(messages)
     fake=FakeProvider(script[:-1]+[broken,repair])
     result=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
     assert result['verification']['passed'],result['verification']
-    assert result['verification']['repair_attempted'] and fake.calls==4
+    assert result['verification']['repair_attempted'] and fake.calls==5
 
 
 def test_loop_failed_repair_marks_remaining_claims_unverified():
@@ -247,8 +210,10 @@ def test_loop_failed_repair_marks_remaining_claims_unverified():
     r=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
     assert not r['verification']['passed']
     assert r['report']['status'] == 'unverified'
-    assert r['report']['findings'][0]['verification_status'] == 'UNVERIFIED'
-    assert fake.calls == 4
+    assert 'findings' not in r['report']
+    assert r['report']['response_hash']['stored'] is False
+    assert r['report']['note']=='Final structured report could not be verified.'
+    assert fake.calls == 5
 
 
 def test_loop_timeseries_tool_also_gets_provenance_without_engine_config():
@@ -261,16 +226,16 @@ def test_loop_timeseries_tool_also_gets_provenance_without_engine_config():
     r=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
     assert r['verification']['passed'],r['verification']
     assert any(s.get('tool_name') == 'get_timeseries' for s in r['trace'])
-    assert any(n.get('prov:label') == 'get_timeseries' for n in r['provenance']['@graph'])
+    assert any(n.get('rdfs:label') == 'get_timeseries' for n in r['provenance']['@graph'])
 
 
 def test_loop_step_limit_and_fabricated_final_without_tools_fail_closed():
     fake=FakeProvider.for_experiment(cycles=1)
     r=run_agent('synthetic hypothesis',provider=fake,max_steps=1,commit='0'*40)
-    assert not r['verification']['passed'] and fake.calls == 1
+    assert not r['verification']['passed'] and fake.calls == 2
     fake=FakeProvider([{'content':'{}'},{'content':'{}'}])
     r=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
-    assert not r['verification']['passed'] and fake.calls == 2
+    assert not r['verification']['passed'] and fake.calls == 3
     fake=FakeProvider([{'content':'{"status":"completed","status":"refused"}'},{'content':'NaN'}])
     r=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
     assert not r['verification']['passed']
@@ -405,14 +370,14 @@ runpy.run_module('physiosim.agent',run_name='__main__')
     assert json.loads((out/'provenance.jsonld').read_text())['@graph']
 
 
-def test_fake_eval_all_fourteen_cases_offline():
+def test_fake_eval_all_cases_offline():
     import importlib.util
     spec=importlib.util.spec_from_file_location('agent_run_eval',ROOT/'agent_eval/run_eval.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     cases=json.loads((ROOT/'agent_eval/hypotheses.json').read_text())['cases']
-    assert len(cases) == 14 and sum(c['in_scope'] for c in cases) == 10
+    assert len(cases) >= 25 and sum(c['in_scope'] for c in cases) == 13
     result=module.evaluate(cases)
-    assert result['summary']['passed'] == 14,[(r['id'],r['verification_failures']) for r in result['cases'] if not r['passed']]
+    assert result['summary']['passed'] == len(cases),[(r['id'],r['verification_failures']) for r in result['cases'] if not r['passed']]
     assert result['summary']['tokens'] == 0
     assert 'not LLM' in result['caveat']
     assert '| m1_mitral | pass' in module.markdown(result)

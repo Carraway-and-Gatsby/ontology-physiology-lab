@@ -115,17 +115,36 @@ class ChatProvider:
         self._opener = opener if opener is not None else request.build_opener(_NoRedirect()).open
         self._sleep = sleeper
 
-    def complete(self, messages, tools):
+    def complete(self, messages, tools, *, deadline=None):
         config = self.config
-        payload = json.dumps({'model':config.model,'messages':messages,'tools':tools,'tool_choice':'auto',
-                              **config.extra},allow_nan=False).encode()
+        fields = {**config.extra,'model':config.model,'messages':messages}
+        token_field = 'max_completion_tokens' if config.provider == 'openai' else 'max_tokens'
+        other_field = 'max_tokens' if token_field == 'max_completion_tokens' else 'max_completion_tokens'
+        if other_field in fields:
+            fields.setdefault(token_field,fields.pop(other_field))
+        if tools:
+            fields.update(tools=tools,tool_choice='auto')
+        else:
+            # Separate no-tool classifier request; strict schema also checked locally.
+            fields.update(response_format={'type':'json_schema','json_schema':{'name':'scope_decision','strict':True,
+                'schema':{'type':'object','properties':{'in_scope':{'type':'boolean'},'reason':{'type':'string'}},
+                          'required':['in_scope','reason'],'additionalProperties':False}}})
+            fields.pop('max_tokens',None); fields.pop('max_completion_tokens',None)
+            fields[token_field] = 200
+            fields.pop('tools',None); fields.pop('tool_choice',None)
         headers = {'Content-Type':'application/json','Accept':'application/json'}
         if config.api_key:
             headers['Authorization'] = 'Bearer '+config.api_key
-        req = request.Request(config.base_url+'/chat/completions',data=payload,headers=headers,method='POST')
-        for attempt in range(config.retries+1):
+        format_retry = False
+        token_retry = False
+        attempt = 0
+        while True:
+            if deadline is not None:
+                deadline.check()
+            req = request.Request(config.base_url+'/chat/completions',
+                data=json.dumps(fields,allow_nan=False).encode(),headers=headers,method='POST')
             try:
-                with self._opener(req,timeout=config.timeout) as response:
+                with self._opener(req,timeout=config.timeout if deadline is None else deadline.timeout(config.timeout)) as response:
                     raw = response.read(8*1024*1024+1)
                 if len(raw) > 8*1024*1024:
                     raise ProviderError('provider response exceeded size limit')
@@ -140,13 +159,29 @@ class ChatProvider:
                     excerpt = _error_excerpt(exc,config.api_key)
                 finally:
                     exc.close()
+                if status == 400 and not token_retry and any(
+                        field in excerpt.casefold() for field in ('max_tokens','max_completion_tokens')):
+                    current = next((field for field in ('max_tokens','max_completion_tokens') if field in fields),None)
+                    if current is not None:
+                        other = 'max_completion_tokens' if current == 'max_tokens' else 'max_tokens'
+                        fields[other] = fields.pop(current)
+                        token_retry = True
+                        continue
+                if not tools and not format_retry and status in (400,422) and 'response_format' in excerpt.casefold() and any(
+                        word in excerpt.casefold() for word in ('unsupported','not supported','unrecognized','unknown','not allowed')):
+                    fields.pop('response_format',None)
+                    format_retry = True
+                    continue
                 if (status == 429 or 500 <= status < 600) and attempt < config.retries:
-                    self._sleep(min(2**attempt,8))
+                    self._sleep(min(2**attempt,8) if deadline is None else min(2**attempt,8,deadline.remaining()))
+                    attempt += 1
                     continue
                 raise ProviderError(f'provider HTTP {status}: {excerpt}') from None
             except (error.URLError, TimeoutError, OSError):
                 if attempt < config.retries:
-                    self._sleep(min(2**attempt,8)); continue
+                    self._sleep(min(2**attempt,8) if deadline is None else min(2**attempt,8,deadline.remaining()))
+                    attempt += 1
+                    continue
                 raise ProviderError('provider transport error or timeout; Authorization: [REDACTED]') from None
             except (ValueError, KeyError, IndexError, TypeError):
                 raise ProviderError('invalid provider JSON response; Authorization: [REDACTED]') from None
@@ -161,12 +196,27 @@ class FakeProvider:
     provider = 'fake'
     model = 'scripted-offline'
 
-    def __init__(self, responses):
+    def __init__(self, responses, *, classifier_answers=None):
         self.responses = iter(responses)
+        self.classifier_answers = iter(classifier_answers) if classifier_answers is not None else None
         self.calls = 0
+        self.classifier_calls = 0
 
-    def complete(self, messages, tools):
+    def complete(self, messages, tools, *, deadline=None):
         self.calls += 1
+        if not tools and messages and messages[0].get('content','').startswith('SCOPE_CLASSIFIER.'):
+            from .guard import check_scope, classifier_hypothesis
+            self.classifier_calls += 1
+            try:
+                item = next(self.classifier_answers) if self.classifier_answers is not None else {
+                    'in_scope':check_scope(classifier_hypothesis(messages))['allowed'],'reason':'offline scripted scope decision'}
+            except StopIteration:
+                raise ProviderError('FakeProvider classifier script exhausted') from None
+            if isinstance(item,Exception):
+                raise item
+            item = item(messages) if callable(item) else item
+            message = item if isinstance(item,dict) and 'content' in item else {'role':'assistant','content':json.dumps(item)}
+            return {'message':message,'usage':{}}
         try:
             item = next(self.responses)
         except StopIteration:
@@ -192,6 +242,7 @@ class FakeProvider:
         def final(messages):
             from .loop import report_from_run
             results = [json.loads(m['content']) for m in messages if m.get('role') == 'tool' and m.get('name') == 'run_experiment']
+            results = [r for r in results if 'run_id' in r]
             if not results or 'run_id' not in results[-1]:
                 raise ProviderError('offline experiment script received an engine error')
             hypothesis = next(m['content'] for m in messages if m['role'] == 'user')

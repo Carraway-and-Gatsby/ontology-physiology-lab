@@ -1,158 +1,679 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Verified synthetic experiment report",
-  "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "schema_version",
-    "status",
-    "hypothesis",
-    "model",
-    "summary",
-    "parameter_changes",
-    "ontology_ids",
-    "evidence",
-    "findings",
-    "limitations"
+  "title": "Synthetic experiment report v2 envelopes",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/completed"
+    },
+    {
+      "$ref": "#/$defs/unverified"
+    },
+    {
+      "$ref": "#/$defs/refused"
+    },
+    {
+      "$ref": "#/$defs/error"
+    },
+    {
+      "$ref": "#/$defs/stopped_budget"
+    }
   ],
-  "properties": {
-    "schema_version": {
-      "const": "1.0"
-    },
-    "status": {
-      "const": "completed"
-    },
-    "hypothesis": {
-      "type": "string"
-    },
-    "model": {
-      "enum": [
-        "phase1",
-        "m1"
-      ]
-    },
-    "summary": {
-      "type": "string",
-      "minLength": 1
-    },
-    "parameter_changes": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "run_id",
-          "parameter",
-          "baseline",
-          "intervention"
-        ],
-        "properties": {
-          "run_id": {
+  "$defs": {
+    "completed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "status",
+        "hypothesis",
+        "model",
+        "parameter_changes",
+        "ontology_ids",
+        "evidence",
+        "findings",
+        "limitations",
+        "verified_summary",
+        "runs"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "2.0"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "completed_with_warnings"
+          ]
+        },
+        "hypothesis": {
+          "type": "string"
+        },
+        "model": {
+          "enum": [
+            "phase1",
+            "m1"
+          ]
+        },
+        "parameter_changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "run_id",
+              "parameter",
+              "baseline",
+              "intervention"
+            ],
+            "properties": {
+              "run_id": {
+                "type": "string"
+              },
+              "parameter": {
+                "type": "string"
+              },
+              "baseline": {
+                "type": "number"
+              },
+              "intervention": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "ontology_ids": {
+          "type": "array",
+          "items": {
             "type": "string"
-          },
-          "parameter": {
-            "type": "string"
-          },
-          "baseline": {
-            "type": "number"
-          },
-          "intervention": {
-            "type": "number"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "line",
+              "anchor",
+              "excerpt",
+              "scope"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "anchor": {
+                "type": "string"
+              },
+              "excerpt": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "line": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        },
+        "findings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "run_id",
+              "metric_path",
+              "value",
+              "decimals",
+              "direction",
+              "unit"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^finding-[0-9]+$"
+              },
+              "label": {
+                "type": "string"
+              },
+              "run_id": {
+                "type": "string"
+              },
+              "metric_path": {
+                "type": "string",
+                "pattern": "^(?:(?:baseline|intervention)\\.metrics|delta\\.(?:abs|rel))\\.[a-z][a-z0-9_]*$"
+              },
+              "value": {
+                "type": "number"
+              },
+              "decimals": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 15,
+                "description": "Null means exact receipt value; otherwise >=3 significant figures, never nonzero rounded to zero."
+              },
+              "direction": {
+                "enum": [
+                  "increase",
+                  "decrease",
+                  "unchanged",
+                  null
+                ]
+              },
+              "unit": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "limitations": {
+          "const": [
+            "Synthetic exploratory parameters; not clinically validated or patient specific.",
+            "No medical advice, diagnosis, treatment, medication or emergency guidance.",
+            "Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.",
+            "Fixed duration and a periodicity check do not prove steady state or biological validity.",
+            "Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review."
+          ]
+        },
+        "verified_summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Generated by code from session receipts; exact equality verified."
+        },
+        "runs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "run_id",
+              "baseline_overrides",
+              "diagnostics"
+            ],
+            "properties": {
+              "run_id": {
+                "type": "string"
+              },
+              "baseline_overrides": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number"
+                }
+              },
+              "diagnostics": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "cycles",
+                  "baseline",
+                  "intervention",
+                  "warnings"
+                ],
+                "properties": {
+                  "cycles": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 80
+                  },
+                  "baseline": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "available",
+                      "periodic",
+                      "threshold",
+                      "comparisons",
+                      "max_relative_change",
+                      "definition"
+                    ],
+                    "properties": {
+                      "available": {
+                        "type": "boolean"
+                      },
+                      "periodic": {
+                        "type": "boolean"
+                      },
+                      "threshold": {
+                        "type": "number"
+                      },
+                      "comparisons": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "max_relative_change": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "definition": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "intervention": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "available",
+                      "periodic",
+                      "threshold",
+                      "comparisons",
+                      "max_relative_change",
+                      "definition"
+                    ],
+                    "properties": {
+                      "available": {
+                        "type": "boolean"
+                      },
+                      "periodic": {
+                        "type": "boolean"
+                      },
+                      "threshold": {
+                        "type": "number"
+                      },
+                      "comparisons": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "max_relative_change": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "definition": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
-    "ontology_ids": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "evidence": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "path",
-          "line",
-          "anchor",
-          "excerpt",
-          "scope"
-        ],
-        "properties": {
-          "path": {
-            "type": "string"
-          },
-          "anchor": {
-            "type": "string"
-          },
-          "excerpt": {
-            "type": "string"
-          },
-          "scope": {
-            "type": "string"
-          },
-          "line": {
-            "type": "integer",
-            "minimum": 1
-          }
+    "unverified": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "status",
+        "limitations",
+        "note"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "2.0"
+        },
+        "limitations": {
+          "const": [
+            "Synthetic exploratory parameters; not clinically validated or patient specific.",
+            "No medical advice, diagnosis, treatment, medication or emergency guidance.",
+            "Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.",
+            "Fixed duration and a periodicity check do not prove steady state or biological validity.",
+            "Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review."
+          ]
+        },
+        "status": {
+          "const": "unverified"
+        },
+        "note": {
+          "const": "Final structured report could not be verified."
+        },
+        "response_hash": {
+          "$ref": "#/$defs/textHash"
         }
       }
     },
-    "findings": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "label",
-          "run_id",
-          "metric_path",
-          "value",
-          "decimals",
-          "direction"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "run_id": {
-            "type": "string"
-          },
-          "metric_path": {
-            "type": "string",
-            "pattern": "^(?:(?:baseline|intervention)\\.metrics|delta\\.(?:abs|rel))\\.[a-z][a-z0-9_]*$"
-          },
-          "value": {
-            "type": "number"
-          },
-          "decimals": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 12
-          },
-          "direction": {
-            "enum": [
-              "increase",
-              "decrease",
-              "unchanged",
-              null
-            ]
-          }
+    "refused": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "status",
+        "limitations",
+        "refusal"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "2.0"
+        },
+        "limitations": {
+          "const": [
+            "Synthetic exploratory parameters; not clinically validated or patient specific.",
+            "No medical advice, diagnosis, treatment, medication or emergency guidance.",
+            "Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.",
+            "Fixed duration and a periodicity check do not prove steady state or biological validity.",
+            "Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review."
+          ]
+        },
+        "status": {
+          "const": "refused"
+        },
+        "refusal": {
+          "const": "This agent only runs synthetic, unvalidated research models and cannot provide medical advice, diagnosis, dosing, treatment or personal health guidance. Please rephrase as a model experiment with synthetic parameters and model outputs, without patient or personal-health details."
+        },
+        "guard_note": {
+          "enum": [
+            "Scope classifier unavailable.",
+            "Scope classifier refused or was unavailable."
+          ]
         }
       }
     },
-    "limitations": {
-      "type": "array",
-      "items": {
-        "type": "string"
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "status",
+        "limitations",
+        "error"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "2.0"
+        },
+        "limitations": {
+          "const": [
+            "Synthetic exploratory parameters; not clinically validated or patient specific.",
+            "No medical advice, diagnosis, treatment, medication or emergency guidance.",
+            "Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.",
+            "Fixed duration and a periodicity check do not prove steady state or biological validity.",
+            "Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review."
+          ]
+        },
+        "status": {
+          "const": "error"
+        },
+        "error": {
+          "enum": [
+            "Provider unavailable.",
+            "Session failed."
+          ]
+        }
+      }
+    },
+    "stopped_budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "status",
+        "limitations",
+        "note",
+        "runs",
+        "findings",
+        "parameter_changes"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "2.0"
+        },
+        "limitations": {
+          "const": [
+            "Synthetic exploratory parameters; not clinically validated or patient specific.",
+            "No medical advice, diagnosis, treatment, medication or emergency guidance.",
+            "Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.",
+            "Fixed duration and a periodicity check do not prove steady state or biological validity.",
+            "Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review."
+          ]
+        },
+        "status": {
+          "const": "stopped_budget"
+        },
+        "note": {
+          "const": "Session wall-clock budget exhausted."
+        },
+        "runs": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "run_id",
+              "baseline_overrides",
+              "diagnostics"
+            ],
+            "properties": {
+              "run_id": {
+                "type": "string"
+              },
+              "baseline_overrides": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number"
+                }
+              },
+              "diagnostics": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "cycles",
+                  "baseline",
+                  "intervention",
+                  "warnings"
+                ],
+                "properties": {
+                  "cycles": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 80
+                  },
+                  "baseline": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "available",
+                      "periodic",
+                      "threshold",
+                      "comparisons",
+                      "max_relative_change",
+                      "definition"
+                    ],
+                    "properties": {
+                      "available": {
+                        "type": "boolean"
+                      },
+                      "periodic": {
+                        "type": "boolean"
+                      },
+                      "threshold": {
+                        "type": "number"
+                      },
+                      "comparisons": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "max_relative_change": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "definition": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "intervention": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "available",
+                      "periodic",
+                      "threshold",
+                      "comparisons",
+                      "max_relative_change",
+                      "definition"
+                    ],
+                    "properties": {
+                      "available": {
+                        "type": "boolean"
+                      },
+                      "periodic": {
+                        "type": "boolean"
+                      },
+                      "threshold": {
+                        "type": "number"
+                      },
+                      "comparisons": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "max_relative_change": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "definition": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "findings": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "run_id",
+              "metric_path",
+              "value",
+              "decimals",
+              "direction",
+              "unit"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^finding-[0-9]+$"
+              },
+              "label": {
+                "type": "string"
+              },
+              "run_id": {
+                "type": "string"
+              },
+              "metric_path": {
+                "type": "string",
+                "pattern": "^(?:(?:baseline|intervention)\\.metrics|delta\\.(?:abs|rel))\\.[a-z][a-z0-9_]*$"
+              },
+              "value": {
+                "type": "number"
+              },
+              "decimals": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 15,
+                "description": "Null means exact receipt value; otherwise >=3 significant figures, never nonzero rounded to zero."
+              },
+              "direction": {
+                "enum": [
+                  "increase",
+                  "decrease",
+                  "unchanged",
+                  null
+                ]
+              },
+              "unit": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "parameter_changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "run_id",
+              "parameter",
+              "baseline",
+              "intervention"
+            ],
+            "properties": {
+              "run_id": {
+                "type": "string"
+              },
+              "parameter": {
+                "type": "string"
+              },
+              "baseline": {
+                "type": "number"
+              },
+              "intervention": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "verified_summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "textHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sha256",
+        "chars",
+        "stored"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "chars": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stored": {
+          "const": false
+        }
       }
     }
   }

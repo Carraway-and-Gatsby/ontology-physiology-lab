@@ -12,6 +12,8 @@ import json
 import math
 from pathlib import Path
 import time
+import sys
+from threading import RLock
 
 import numpy as np
 from scipy.integrate import trapezoid
@@ -25,9 +27,42 @@ DEFAULT_CYCLES = 12
 SAMPLES_PER_CYCLE = 400
 MAX_CYCLES = 80
 MAX_RUNS = 16
+MAX_STORE_BYTES = 64 * 1024 * 1024
 MAX_SERIES_POINTS = 601
 PERIODICITY_THRESHOLD = 1e-3
 _STORE = OrderedDict()
+_STORE_LOCK = RLock()
+FIXED_CAVEATS = [
+    'SYNTHETIC research model; not clinically validated. No medical advice.',
+    'Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation.',
+]
+
+
+def _size_bytes(value):
+    # Arrays own their buffers; getsizeof includes the float64 buffer plus header.
+    size = sys.getsizeof(value)
+    if isinstance(value,dict):
+        size += sum(_size_bytes(k)+_size_bytes(v) for k,v in value.items())
+    elif isinstance(value,(list,tuple)):
+        size += sum(_size_bytes(v) for v in value)
+    return size
+
+
+def store_bytes():
+    with _STORE_LOCK:
+        return (sys.getsizeof(_STORE) + sum(_size_bytes(rid)+entry['stored_bytes']
+                for rid,entry in _STORE.items())) if _STORE else 0
+
+
+def _store_run(run_id, output, series):
+    entry = {'result':deepcopy(output), 'series':series, 'stored_bytes':0}
+    entry['stored_bytes'] = _size_bytes(entry)
+    with _STORE_LOCK:
+        _STORE[run_id] = entry
+        _STORE.move_to_end(run_id)
+        while _STORE and (len(_STORE) > MAX_RUNS or store_bytes() > MAX_STORE_BYTES):
+            _STORE.popitem(last=False)
+
 
 
 def _error(code, message):
@@ -193,16 +228,23 @@ def _metrics(result, model):
 
 
 def _series(result, model):
-    start = max(0, len(result.time)-3*result.samples_per_cycle-1)
-    indices = np.unique(np.linspace(start, len(result.time)-1, min(MAX_SERIES_POINTS,len(result.time)-start), dtype=int))
-    data = {'time_s': result.time[indices].tolist()}
-    for i, c in enumerate(result.compartment_names):
-        data['pressure.'+c] = result.pressures[indices,i].tolist()
-        data['volume.'+c] = result.volumes[indices,i].tolist()
+    # Copy only the last three complete beats: no view can retain a full solve.
+    start = max(0,len(result.time)-3*result.samples_per_cycle-1)
+    data = {'time_s':np.array(result.time[start:],dtype=np.float64,copy=True)}
+    for i,c in enumerate(result.compartment_names):
+        data['pressure.'+c] = np.array(result.pressures[start:,i],dtype=np.float64,copy=True)
+        data['volume.'+c] = np.array(result.volumes[start:,i],dtype=np.float64,copy=True)
     edges = result.flow_names if model == 'phase1' else result.edge_names
-    for i, e in enumerate(edges):
-        data['flow.'+e] = result.flows[indices,i].tolist()
-    return data
+    for i,e in enumerate(edges):
+        data['flow.'+e] = np.array(result.flows[start:,i],dtype=np.float64,copy=True)
+    length = len(data['time_s'])
+    indices = np.unique(np.linspace(0,length-1,min(MAX_SERIES_POINTS,length),dtype=int))
+    stats = {n:{'min':float(v.min()),'max':float(v.max()),'mean':float(np.mean(v))} for n,v in data.items()}
+    digest = sha256()
+    for n,v in data.items():
+        digest.update(n.encode()); digest.update(v.tobytes())
+    return {'full':data, 'view':{n:v[indices].copy() for n,v in data.items()},
+            'statistics':stats, 'sha256':digest.hexdigest()}
 
 
 def run_experiment(model, intervention, baseline_overrides=None, cycles=None):
@@ -250,22 +292,18 @@ def run_experiment(model, intervention, baseline_overrides=None, cycles=None):
             after = results['intervention']['metrics'][key]
             absolute[key] = None if before is None or after is None else after-before
             relative[key] = None if before in (None,0) or after is None else (after-before)/abs(before)
-        warnings = ['SYNTHETIC research model; not clinically validated. No medical advice.']
+        warnings = []
         if cycles < (40 if model == 'phase1' else 30):
             warnings.append('Shorter than the documented demo duration; transient effects may remain.')
         for condition in results:
             if not results[condition]['periodicity']['periodic']:
                 warnings.append(condition+': final beats do not meet the stated periodicity threshold (or comparison unavailable).')
-        warnings.append('Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation.')
         output = _clean({'run_id':run_id, 'model':model, 'settings':settings,
                          **results, 'parameter_changes':changes, 'baseline_overrides':baseline_overrides,
                          'requested_intervention':intervention, 'delta':{'abs':absolute,'rel':relative},
-                         'engine_source_sha256':engine_identity(), 'warnings':warnings,
+                         'engine_source_sha256':engine_identity(), 'warnings':warnings, 'caveats':list(FIXED_CAVEATS),
                          'timings':{**timings,'total_s':time.perf_counter()-started}})
-        _STORE[run_id] = {'result':deepcopy(output), 'series':series}
-        _STORE.move_to_end(run_id)
-        while len(_STORE) > MAX_RUNS:
-            _STORE.popitem(last=False)
+        _store_run(run_id,output,series)
         return output
     except (ValueError, TypeError, KeyError, OverflowError) as exc:
         return _error('invalid_request', exc)
@@ -273,26 +311,55 @@ def run_experiment(model, intervention, baseline_overrides=None, cycles=None):
         return _error('engine_failure', type(exc).__name__+': '+str(exc))
 
 
-def get_timeseries(run_id, names=None):
+def _selected_series(run_id, names):
     if not isinstance(run_id,str) or run_id not in _STORE:
-        return _error('unknown_run', 'run unavailable or evicted from bounded memory')
+        return None, _error('unknown_run','run unavailable or evicted from bounded memory')
+    _STORE.move_to_end(run_id)
     stored = _STORE[run_id]['series']
     if names is None:
-        names = list(stored['baseline'])
-    if not isinstance(names,list) or any(not isinstance(n,str) or n not in stored['baseline'] for n in names):
-        return _error('invalid_names', 'names must be a list of available pressure.<compartment>, volume.<compartment>, flow.<edge> or time_s')
-    names = list(dict.fromkeys(['time_s']+names))
-    return {'run_id':run_id, 'downsampled':True, 'max_points':MAX_SERIES_POINTS,
-            'baseline':{n:deepcopy(stored['baseline'][n]) for n in names},
-            'intervention':{n:deepcopy(stored['intervention'][n]) for n in names},
-            'note':'Up to last three beats, uniformly indexed samples; not the data used to compute metrics.'}
+        names = list(stored['baseline']['full'])
+    if not isinstance(names,list) or any(not isinstance(n,str) or n not in stored['baseline']['full'] for n in names):
+        return None, _error('invalid_names','names must be available pressure, volume, flow or time series')
+    return stored,list(dict.fromkeys(['time_s']+names))
+
+
+def get_timeseries(run_id, names=None, *, full=False):
+    """JSON UI view; full means the stored final three beats, never all cycles."""
+    with _STORE_LOCK:
+        stored,names = _selected_series(run_id,names)
+        if stored is None:
+            return names
+        key = 'full' if full else 'view'
+        length = len(stored['baseline'][key]['time_s'])
+        return {'run_id':run_id,'downsampled':not full,'max_points':length if full else MAX_SERIES_POINTS,
+                **{c:{n:stored[c][key][n].tolist() for n in names} for c in ('baseline','intervention')},
+                'note':'Final three beats only; uniformly sampled UI view; metrics use the final complete beat.'}
+
+
+def compact_timeseries(run_id, names=None):
+    with _STORE_LOCK:
+        stored,names = _selected_series(run_id,names)
+        if stored is None:
+            return names
+        source_hash = sha256(''.join(stored[c]['sha256'] for c in ('baseline','intervention')).encode()).hexdigest()
+        result = {'run_id':run_id,'max_points':60,'source_sha256':source_hash,
+                  'note':'Cached statistics of the stored final three beats; up to 60 uniformly selected LLM points.'}
+        for c in ('baseline','intervention'):
+            result[c] = {}
+            for n in names:
+                values = stored[c]['full'][n]
+                indices = np.unique(np.linspace(0,len(values)-1,min(60,len(values)),dtype=int))
+                result[c][n] = {**stored[c]['statistics'][n],'points':values[indices].tolist()}
+        return result
 
 
 def get_run(run_id):
     """Trusted local receipt for consumers; agent verification uses session receipts."""
-    if not isinstance(run_id,str) or run_id not in _STORE:
-        return _error('unknown_run','run unavailable or evicted')
-    return deepcopy(_STORE[run_id]['result'])
+    with _STORE_LOCK:
+        if not isinstance(run_id,str) or run_id not in _STORE:
+            return _error('unknown_run','run unavailable or evicted')
+        _STORE.move_to_end(run_id)
+        return deepcopy(_STORE[run_id]['result'])
 
 
 TOOL_FUNCTIONS = {f.__name__:f for f in (list_parameters,lookup_ontology,run_experiment,get_evidence,get_timeseries)}

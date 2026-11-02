@@ -14,19 +14,38 @@ compatibility with any live service.
 ## Architecture and entry points
 
 `physiosim.agent.loop.run_agent(hypothesis, provider=..., provider_name='meta',
-model=None, extra=None, max_steps=8, commit=None)` returns:
+model=None, extra=None, max_steps=8, commit=None, wall_clock_s=180,
+max_experiments=6, no_classifier=False)` returns:
 
 ```text
-{report, verification, trace, provenance, usage}
+{report, verification, trace, provenance, usage, classifier}
 ```
 
-The loop runs the deterministic guard before creating a live provider. Otherwise,
-it sends the repository-specific research system prompt and JSON Schema tools to
+The loop runs the deterministic guard before creating a live provider. An allowed
+request then receives a separate no-tool scope classifier call using that same
+provider. Either layer can refuse. After both checks pass, it sends the repository-specific research system prompt and JSON Schema tools to
 an OpenAI-compatible Chat Completions provider. Successful experiment receipts
 are retained by the session independently of the bounded UI store. Final JSON is
 verified, failures are fed back once for a report-only repair, and remaining
 failures make the report `unverified`. There are at most eight ordinary model
-calls by default plus one repair call; a message may call at most sixteen tools.
+calls by default plus one classifier and one repair call; a message may call at
+most sixteen tools. Each session allows at most six `run_experiment` attempts and
+180 seconds including provider retries, classification, solvers and repair. The
+portable cooperative deadline uses `time.monotonic()` before every model/tool
+call and after each returns, except final assistant replies: those proceed to local
+verification even if the deadline expires during their call. Expiry before a classifier
+decision returns a refusal with `Scope classifier unavailable.` Every HTTP attempt, including retries and classifier
+format fallback, gets `min(configured_timeout, remaining_seconds)`; retry backoff
+also fits the remaining budget. No signals or process timers are imported or
+changed, so sessions work in threads, ASGI workers and Pyodide. A synchronous
+solver or custom provider finishes its current call before the next deadline
+check; this is not a hard interrupt. Solver cycles remain capped at 80. Python
+callers may use `wall_clock_s=None` to disable the session deadline; configured
+HTTP timeouts still apply. Expiry returns `stopped_budget` with the completed
+receipts and code-generated verified values retained. Further experiment calls
+beyond `max_experiments` return `{"error":"budget_exhausted"}` as tool results,
+allowing the model to finish from existing receipts.
+CLI overrides are `--wall-clock-s`, `--max-experiments` and `--max-steps`.
 Exhaustion and provider failures produce an explicit unsuccessful result, never
 invented findings. Only one model is supported within a final report.
 
@@ -36,10 +55,13 @@ Modules:
 | --- | --- |
 | `catalog.py` | Dataclass-derived scalar ports, conservative ranges, existing anatomical contexts |
 | `tools.py` | Paired simulation, ontology/evidence lookup, metrics and bounded UI traces |
-| `guard.py` | English/Korean scope prefilter and fixed refusal |
+| `guard.py` | Normalized English/Korean table-driven screen, classifier policy and fixed refusal |
 | `verify.py` | Closed-schema checks against trusted session receipts |
+| `narrative.py` | Receipt-only labels, units, diagnostics and narrative |
+| `budget.py` | Cooperative monotonic session deadline |
 | `llm.py` | urllib client, presets, redaction, retries, scripted FakeProvider |
-| `loop.py` | Tool protocol, session receipts, one repair and usage/trace |
+| `tool_protocol.py` | Shared tool schemas and strict JSON/argument validation |
+| `loop.py` | Session receipts, one repair and usage/trace |
 | `provenance.py` | Local-context PROV-O JSON-LD with runtime source hashes |
 | `__main__.py` | CLI and output artifacts |
 
@@ -68,7 +90,7 @@ a fixed implementation/runtime, not guaranteed bit-identical across platforms.
 | `lookup_ontology` | `query: string` | Matching local entities, original IDs/labels, synonyms if recorded, parameters and directed source relations |
 | `run_experiment` | `model`, `intervention`, optional `baseline_overrides`, `cycles` | Run ID, common settings, both parameter/metric receipts, periodicity, deltas, warnings and timings |
 | `get_evidence` | `entity_or_param: string` | Real repository path, one-based line, anchor, exact line excerpt and scope; unknown queries return `[]` |
-| `get_timeseries` | `run_id`, optional `names` | Baseline/intervention time and selected downsampled named arrays |
+| `get_timeseries` | `run_id`, optional `names` | UI: selected arrays; LLM: min/max/mean and at most 60 points per series |
 
 Interventions use absolute numeric values or `{"scale": factor}` relative to the
 actual baseline after overrides. Baseline overrides accept absolute numbers only.
@@ -151,116 +173,151 @@ warning; every shortened run gets a duration warning. This modest relative
 settling diagnostic is not the repository's stricter multi-beat absolute-volume
 validation criterion, a convergence proof, or evidence of biological validity.
 
-The UI store retains at most sixteen run pairs. Each series contains at most 601
-uniformly indexed samples from up to the final three beats. Names are `time_s`,
-`pressure.lv`, `volume.la`, `flow.mitral`, etc. Data returned to callers is copied.
-Eviction produces `unknown_run`. Numeric verification uses full session receipts,
-not the downsampled store. Run IDs hash model, full baseline/intervention values,
-solver settings and observed engine source hashes. Timing changes do not alter IDs.
+The process-local LRU store has a **64 MiB total byte cap** (`MAX_STORE_BYTES`)
+and an additional sixteen-run cap. Access refreshes LRU order. Retained values
+include the receipt, owned NumPy float64 arrays for at most the final three
+complete beats (1,201 points), a cached UI view with at most 601 points per
+series, cached min/max/arithmetic means and source hashes. Byte accounting
+includes array buffers and Python metadata; oversize runs are evicted. A real
+80-cycle M1 regression checks that one stored run stays below 8 MiB. Temporary
+solver trajectories are released after the run and are not held by array views.
 
-## Final report schema and verification
+`get_timeseries(..., full=True)` returns the retained final three beats, not the
+entire solve. The default uses the cached 601-point UI view. The model receives
+cached statistics over those final three beats and at most 60 uniformly selected
+points. Statistics and source hashes are computed once during the run, without
+repeated full-trajectory copying or JSON serialization. Full arrays never enter
+model messages or provenance. Names include `time_s`, `pressure.lv`, `volume.la`
+and `flow.mitral`. Returned JSON arrays are copies; eviction returns `unknown_run`.
+Numeric verification retains full session metric receipts independently of the
+trajectory store. Run IDs hash model, full baseline/intervention values, settings
+and engine source hashes; timings do not alter IDs.
 
-The machine schema is `src/physiosim/agent/report.schema.json`; runtime validation
-is implemented without a JSON Schema dependency. A successful report has exactly
-these keys (example placeholders are illustrative, not experimental findings):
+## Final report schema v2 and verification
 
-```json
-{
-  "schema_version": "1.0",
-  "status": "completed",
-  "hypothesis": "exact original user prompt",
-  "model": "m1",
-  "summary": "The paired synthetic experiment completed; inspect the cited metrics.",
-  "parameter_changes": [
-    {"run_id": "actual-run-id", "parameter": "resistance_mitral", "baseline": 0.01, "intervention": 0.03}
-  ],
-  "ontology_ids": ["UBERON:0002135"],
-  "evidence": [
-    {"path": "actual repository path", "line": 1, "anchor": "L1", "excerpt": "exact source line", "scope": "exact receipt scope"}
-  ],
-  "findings": [
-    {"id": "finding-a", "label": "Mean left atrial pressure", "run_id": "actual-run-id",
-     "metric_path": "intervention.metrics.la_pressure_mean_mmhg", "value": 0.0, "decimals": 6, "direction": null}
-  ],
-  "limitations": ["copy all canonical LIMITATIONS strings verbatim"]
-}
-```
+`src/physiosim/agent/report.schema.json` uses `oneOf` for all v2 report envelopes:
+`completed`/`completed_with_warnings`, `unverified`, `refused`, `error`, and
+`stopped_budget`. Each has closed properties and `schema_version: "2.0"`.
+Successful reports have `status`, `hypothesis`, `model`, `verified_summary`, `runs`,
+`parameter_changes`, `ontology_ids`, `evidence`, `findings` and fixed `limitations`.
+Runtime checks have no JSON Schema dependency. Tests validate every FakeProvider
+eval report, CLI dry-run output and a synthetic example of every envelope, using
+jsonschema if installed or the in-repository test validator for this subset.
 
-Every finding must resolve against a successful tool output from **this session**
-and equal `round(actual_tool_value, decimals)` exactly. Precision is an integer
-from zero through twelve; there is no loose relative-error tolerance. Metric paths
-are limited to `baseline.metrics.KEY`, `intervention.metrics.KEY`, `delta.abs.KEY`
-and `delta.rel.KEY`. Null metrics cannot become numeric findings. Direction is
-null or `increase`/`decrease`/`unchanged`, checked against the unrounded absolute
-delta for that metric, even when a rounded value becomes zero.
+Code owns every verified display field. `narrative.py` derives labels and units
+from metric paths and its metric/compartment tables; model labels are dropped.
+`verified_summary` is a deterministic receipt template that reports:
 
-All explicit parameter change receipts from every successful run must be copied,
-including scaled values resolved against baseline overrides. Every ID must exist
-in offline repository data; a changed bound parameter must cite at least one of
-its existing anatomical context IDs. Evidence must exactly match actual
-`get_evidence` receipts. Hypothesis must echo user input, not become a container
-for new model claims. Summary prose permits model identifiers (`Phase 1`, `M1`,
-`four-chamber`), catalogue parameter names (`resistance_mitral`,
-`initial_volumes.lv`), known ontology IDs listed in the report, session run IDs,
-and section/ordinal references. An introduction such as "One paired synthetic M1
-run" is also allowed. Quantitative values, percentages, units, multipliers such
-as `3x`, and metric direction/magnitude claims (including "rose", "fell" and
-"unchanged") belong in cited findings. The narrow exception is `triple`/`tripled`
-directly attached to a named parameter, such as "resistance_mitral was tripled"
-or "tripled the mitral resistance": every session change for that parameter must
-be a tripling and must be copied exactly into `parameter_changes`. Tripling a
-metric or a parameter without matching receipts fails. Finding labels continue
-to prohibit digits and quantity/direction words. Clinical output text is
-also scope-checked. Unknown fields, fabricated paths, mismatched numbers/changes,
-missing limitations and uncited runs fail. Run metadata and source-locator numbers
-are machine-matched metadata, rather than numeric experimental findings.
+- Every baseline override, including its catalogue default and unit, and every intervention.
+- Each selected metric's baseline, intervention, absolute delta, percentage and direction.
+- Cycles, periodic flags, maximum relative beat-to-beat changes and all warnings.
 
-The verifier does **not** decide whether the selected parameter accurately
-represents the natural-language hypothesis or whether its physiology is valid.
-It can detect a report misdescribing the actual chosen intervention. A fully
-consistent but conceptually mistaken LLM mapping remains possible and needs
-researcher review. High fake-provider scores make no claim about that risk.
+For example, a sentence's form is `Mean left atrial pressure
+(la_pressure_mean_mmhg): <before> → <after> mmHg (<delta>, <percent>); <direction>.`
+Only real receipt values fill those placeholders. Per-run `runs` records contain
+`run_id`, `baseline_overrides` and a `diagnostics` block with `cycles`, complete
+`baseline`/`intervention` periodicity records and `warnings`. The verifier checks
+these fields and the generated narrative exactly against every session receipt.
+Run-specific warnings or a non-periodic condition yield
+`completed_with_warnings`; otherwise the status is `completed`. Always-present
+synthetic-model and sampled-quadrature caveats are separate receipt `caveats`,
+not `warnings`. No verified summary is emitted without a successful run.
 
-For example, "One paired synthetic M1 run compared the default mitral flow-path
-resistance with a modified setting and reported mean left atrial pressure and
-left ventricular stroke volume. All quantitative results and their directions
-are in the findings. The periodicity check was satisfied, but that does not
-establish physiological validity." passes the summary rule. "Mean LA pressure
-rose to 8.1 mmHg in M1" fails it. The summary check is lexical, not a general
-natural-language claim verifier.
+A finding has `id`, `label`, `unit`, `run_id`, `metric_path`, `value`, `decimals`
+and `direction`. Paths resolve only in `baseline.metrics`, `intervention.metrics`,
+`delta.abs` or `delta.rel`; null/nonfinite metrics cannot be numeric findings.
+Values must equal exact Python rounding with at least three significant figures,
+or use `decimals: null` and the exact receipt value. Code fills low-precision model
+values directly from receipts. Nonzero metrics never display as zero. Directions
+use a declared noise tolerance `10 * (solver_atol + solver_rtol * metric_scale)`,
+where scale is the larger absolute baseline/intervention value. Inside that
+threshold the structured direction is `unchanged` and prose says **no meaningful
+change**. This is a numerical display convention, not a physiological threshold.
 
-The loop gives verifier failures back once, quoting each exact failing rule and
-including an allowed summary and, when available, a receipt-backed finding example.
-Repair may only return a final report;
-new tool calls are rejected. Remaining failures make status `unverified` and mark
-failed findings `UNVERIFIED`; individually matching values in a structurally failed
-report are `VERIFIED_VALUE_ONLY`. The verification result lists all failures.
-Guarded requests have a separate minimal `refused` envelope and no numeric claims;
-provider/step failures have explicit `error`/`unverified` envelopes. These failure
-envelopes are intentionally outside the successful-report schema.
+The model's final message is parsed only for structured fields. Free model
+prose, legacy summaries, commentary and unknown top-level fields are discarded;
+there is no commentary UI, screen, flag or CLI output. Labels, units, finding IDs,
+limitations and the verified narrative are generated by code. Other strings in a
+successful report must exactly match the user hypothesis or trusted structured
+receipts (parameter names, ontology IDs, evidence records and metric paths).
+Fabricated structured values still fail verification.
+
+Parameter changes must exactly match all session receipts, and each successful
+run must be cited. IDs must come from this session's `lookup_ontology` results or
+catalogue bindings of changed/overridden parameters. Each bound parameter needs
+its context ID. Evidence must match an actual `get_evidence` call for a changed
+parameter, override or related entity; unrelated calls do not qualify. Unknown
+top-level and finding keys are discarded before verification; finding
+IDs, labels, units and directions are code-generated. Fabricated values, altered
+diagnostics and missing required structured fields fail.
+The fixed hypothesis is echoed exactly. Semantic hypothesis-to-parameter mapping
+and biological validity still require researcher review.
+
+A failed check receives one report-only repair with exact failure paths and a
+receipt-backed example. Further failure yields the minimal `unverified` envelope:
+a fixed note, canonical limitations, and a `response_hash` receipt containing
+`sha256`, `chars` and `stored: false` when a final message was received. It never
+contains raw responses or rejected findings. Completed engine receipts remain in
+the trace. An unavailable repair also retains this unverified outcome. Refusals
+contain a fixed refusal and optional fixed guard note; errors contain a fixed
+failure label. `stopped_budget` includes completed run diagnostics, exact parameter
+changes and code-generated findings, plus a verified receipt narrative when any
+run succeeded. Budget findings use valid metrics from the last model findings, or
+recognized metric names/labels in the hypothesis (including LA pressure, stroke
+volume and cardiac output). If no requested metric is known, the documented
+default is `stroke_volume_ml`. Values always come from completed run receipts.
+Its overall verification remains false because the session stopped.
 
 ## Scope guard
 
-English/Korean regular expressions reject personal/patient requests, diagnosis,
-treatment, dosing, medications, symptoms, emergencies and "should I" wording,
-including prompts that also mention a model. The fixed refusal explains that this
-is a synthetic unvalidated research model and asks for a synthetic experiment
-rephrasing. The system prompt enforces the same scope independently. Model-only
-requests such as "increase systemic resistance by 50%" pass.
+Before any tool use, two independent layers can veto a prompt:
 
-This lexical guard is conservative, not a multilingual intent classifier or a
-proof against all adversarial paraphrases. It can over-refuse clinical terms used
-in abstract research and can miss unfamiliar wording. This system is only offered
-as synthetic research tooling and must not be used for clinical decisions.
+1. `guard.py` applies NFKC normalization, removes Unicode format/zero-width
+   characters, maps common English homoglyphs and case-folds. Auditable `TERMS`
+   and `RULES` tables cover person plus condition/measurements, relatives in
+   English/Korean, drugs/medications, dosing in context, diagnosis/treatment,
+   personal health questions and symptoms/emergencies. It also covers third-person
+   condition requests, clinician recommendations, surgery/valvotomy, drug classes
+   (beta blocker, calcium channel blocker, nitrate, ACE inhibitor, diuretic,
+   anticoagulant, rate control) and Korean
+   counterparts, plus spaced/hyphenated/underscore patient and dosing obfuscations.
+   Korean 약 is anchored to drug contexts, allowing 약간 and 요약. Solver phrases
+   `safe for convergence` and `numerically safe` remain allowed; clinical risk
+   words such as harmful/concerning still trigger the health-context rule. `should we expect`, model
+   parameter `dose-response`, `treat X as the intervention`, `emergence` and
+   explicit Korean non-diagnostic disclaimers are accepted.
+2. One same-provider LLM call, without tools, must return exactly
+   `{"in_scope": bool, "reason": str}` under a short scope policy and strict JSON
+   schema. The hypothesis is JSON-encoded inside explicit untrusted delimiters;
+   the policy forbids following embedded instructions. Requests cap the classifier
+   at 200 tokens and ask for a reason of at most
+   12 words. OpenAI uses `max_completion_tokens`; other presets use `max_tokens`.
+   An HTTP 400 naming either token field permits one retry with the other field.
+   An unsupported `response_format` HTTP error separately retries once without that
+   field; strict duplicate-key/type/extra-key local JSON checks still apply.
+   Malformed replies, tool calls and provider errors fail closed. `--no-classifier`
+   explicitly disables this layer while retaining the deterministic veto.
+
+`FakeProvider` has independent
+scripted `classifier_answers`, including errors, without consuming tool scripts.
+The guard is still not a proof against every language or adversarial paraphrase.
+The application is synthetic research tooling only.
 
 ## Provenance and traces
 
 Each session has an LLM `prov:SoftwareAgent`, a software `prov:SoftwareAgent`, a
-session `prov:Activity`, and a `prov:Activity` per tool call. Each call uses a
+session `prov:Activity`, and separate activities for tools, classifier and model calls. Each call uses a
 configuration `prov:Entity` and generates a result `prov:Entity`; associations,
-attribution and timestamps use PROV-O predicates. JSON literals preserve exact
-arguments, baseline/intervention parameters, solver settings and output receipts.
-Activities record engine commit (passed or local `git rev-parse HEAD` if available),
+attribution and timestamps use PROV-O predicates. JSON literals preserve validated
+numeric configuration, baseline/intervention parameters, solver settings and output
+receipts; free string arguments and echoed queries/errors use text digests.
+Every tool, classifier, model and repair activity links to the session and
+preceding activity with `prov:wasInformedBy`. Assistant result entities are
+attributed to the LLM agent, which records provider and model; only tool receipts
+are attributed to the software agent. The final report
+is a `prov:Entity`, generated by the session and derived from cited run result
+entities. Labels use `rdfs:label`; the local context declares JSON-LD `@version: 1.1`.
+Timeseries provenance contains hashes rather than arrays. Activities record engine commit (passed or local `git rev-parse HEAD` if available),
 package version, provider and model. Runtime engine SHA-256 hashes capture observed
 source bytes; a checkout commit alone cannot identify uncommitted edits. Result
 entities hash deterministic JSON serialization of the actual receipt, including
@@ -268,14 +325,24 @@ observational timing fields. Identical fixed inputs/timestamps serialize identic
 fresh wall-clock timestamps/timings make fresh session documents different.
 
 The JSON-LD context is local and needs no network or rdflib at runtime. Trace
-entries contain model message/intent, tool name/arguments, full receipt and concise
-result summary, timing and timestamps. Tokens from provider usage are aggregated;
+entries contain assistant tool calls (function name and arguments), tool receipts
+(compact statistics/points for timeseries), summaries, timing and timestamps.
+Every assistant free-text content, including valid final JSON, classifier and
+repair messages, is replaced in both trace and provenance by only
+`{"sha256": "...", "chars": N, "stored": false}`. No free model prose or raw
+assistant JSON is persisted. Tool names persist only when registered; unknown names become `unknown_tool`.
+Arguments persist only after strict JSON-object and tool-schema validation;
+invalid arguments and free string argument values persist as text digests.
+Echoed ontology queries and tool error messages are also hashed in stored receipts.
+Trusted engine receipts remain structured data. Classifier reasons are replaced by fixed code-generated labels. Tokens from provider usage are aggregated;
 fake-provider token counts are zero, not a token estimate. Authorization/known
 credentials are redacted and are never printed or put in provenance. HTTP errors
 include the status and at most 600 characters of the response body, preferring
 JSON `error.message` when present. The body passes through `redact()` with the
 API key before truncation; request/response headers, URL and HTTP reason are not
-included. Redirects are refused to avoid
+included. Classifier/model call failures retain a redacted cause of at most
+200 characters in the trace; invalid classifier JSON receives a fixed cause.
+Redirects are refused to avoid
 forwarding credentials. Retry backoff covers 429/5xx and transport failures with
 bounded attempts and per-request timeout.
 
@@ -333,7 +400,8 @@ after the standard fields. `provider_config(..., extra={...})` and
 `run_agent(..., extra={...})` supply the last override layer, used by CLI
 `--extra-json`. Both `LAB_LLM_EXTRA_JSON` and `--extra-json` require a JSON object
 with finite values. Merging is shallow and later keys replace earlier values;
-extensions can also override standard payload keys, so select them deliberately.
+model/messages/tool protocol fields and the classifier response schema remain
+controlled by the client; request extensions cannot replace them.
 The OpenAI preset defaults to `{"reasoning_effort":"none"}`: OpenAI requires this
 setting for GPT-6.x function-tool use on Chat Completions. Users can override it
 for other compatible model configurations. Meta, Anthropic and custom presets
@@ -347,8 +415,8 @@ Use a new output directory per run. CLI returns nonzero on verification failure.
 
 ## Evaluation and observed evidence
 
-`agent_eval/hypotheses.json` contains ten in-scope cases across both models and four
-clinical refusals including Korean. Each scientific case has expected parameter
+`agent_eval/hypotheses.json` contains thirteen in-scope cases across both models
+and fourteen clinical refusals including Korean. Each scientific case has expected parameter
 ports, metric sign and freshly engine-derived baseline/intervention values.
 `agent_eval/reference_runs.json` retains full paired receipts at the documented
 demo durations. Cases cover mitral resistance, LV peak elastance, rate, systemic
@@ -371,3 +439,15 @@ validation, ideal no-reverse-flow valves, synchronous ventricles, passive M1 atr
 no reflex/drug/renal/FSI/pericardial/septal coupling, no clinical targets and no
 patient data. Periodicity is a numerical diagnostic with a declared threshold;
 source evidence supports context and model structure, not these numerical values.
+
+### Evaluation updates for v2
+
+`agent_eval/run_eval.py --provider fake` now covers the original cases, ten review
+clinical counter-examples, and three formerly refused experiment phrasings. The
+classifier has a separate correctness column/score; deterministic refusals get an
+independent classifier-only evaluation. Fake classification is scripted and does
+not measure a real provider's safety or interpretation. For sign scoring, alias
+groups are derived programmatically by comparing every available metric across
+all baseline/intervention reference runs for each model (`rel_tol=1e-12`, no
+absolute tolerance). No alias pairs are hard-coded; groups and scores are saved
+in evaluation results. Real provider runs remain the integrator's responsibility.
