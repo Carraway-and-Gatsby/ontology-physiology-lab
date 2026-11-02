@@ -59,3 +59,12 @@ def test_parameter_units_are_explicit_in_machine_contract():
     assert 'explicit caller input' in manifest['parameter_contract']['elastance_ra']['provenance']
     bad=deepcopy(manifest); bad['parameter_contract']['elastance_ra']['unit']='mL/mmHg'
     with pytest.raises(ValueError): a.validate_m1_manifest(bad)
+
+
+@pytest.mark.parametrize('unit', ['mL', 'Pa', 'not_a_unit', None])
+def test_unit_changes_rejected_by_exact_manifest_contract(unit):
+    from physiosim.ontology.four_chamber_m1_manifest import build_m1_manifest, validate_m1_manifest
+    manifest = build_m1_manifest()
+    manifest['variables']['P_la']['unit'] = unit
+    with pytest.raises(ValueError, match='M1 semantic contract mismatch: variables'):
+        validate_m1_manifest(manifest)

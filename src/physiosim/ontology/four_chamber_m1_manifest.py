@@ -8,7 +8,6 @@ from hashlib import sha256
 import json
 from importlib.resources import files
 from pathlib import Path
-import pint
 from physiosim.models.four_chamber_m1 import (
     MODEL_ID, MODEL_VERSION, PRESSURE_REFERENCE, COMPARTMENTS, EDGES, FourChamberM1Parameters,
 )
@@ -20,7 +19,6 @@ _VESSELS = {'sa':'systemic_arterial_lumen','sv':'systemic_venous_lumen',
             'pa':'pulmonary_arterial_lumen','pv':'pulmonary_venous_lumen'}
 _VALVES = {'aortic':'aortic_valve','mitral':'mitral_valve',
            'tricuspid':'tricuspid_valve','pulmonary_valve':'pulmonary_valve'}
-_UNITS = pint.UnitRegistry()
 
 
 def load_anatomy_v2(path=None):
@@ -140,20 +138,16 @@ def validate_m1_manifest(manifest,nodes=None):
     """Reject any change to M1 endpoints, source IDs, roles or variable contract.
 
     A focused closed contract intentionally accepts no ad-hoc alternate mapping.
-    Unit parsing also checks dimensional consistency; exact units remain fixed
-    because the exported numeric fields have no automatic unit conversion.
+    Exact units remain fixed because the exported numeric fields have no
+    automatic unit conversion.
     """
     expected=build_m1_manifest(nodes)
     if not isinstance(manifest,dict): raise ValueError('manifest must be an object')
     try:
-        for name,target in expected['variables'].items():
-            candidate=manifest['variables'][name]
-            if not _UNITS(candidate['unit']).is_compatible_with(_UNITS(target['unit'])):
-                raise ValueError('dimension mismatch: '+name)
         for field,value in expected.items():
             if manifest.get(field)!=value:
                 raise ValueError('M1 semantic contract mismatch: '+field)
         if set(manifest)!=set(expected): raise ValueError('unexpected manifest fields')
-    except (KeyError,TypeError,pint.errors.PintError) as error:
+    except (KeyError,TypeError) as error:
         raise ValueError('invalid M1 semantic contract') from error
     return None

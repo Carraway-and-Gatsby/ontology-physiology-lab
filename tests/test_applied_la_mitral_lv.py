@@ -327,3 +327,15 @@ def test_applied_demo_accepts_symlink_ancestor_rejects_final_symlink(tmp_path):
     with pytest.raises(ValueError, match='symlink'):
         demo.run_applied_demo(dangling)
     assert not (real/'absent').exists()
+
+
+def test_demo_builds_sidecar_only_for_creation_and_independent_validation(tmp_path, monkeypatch):
+    from unittest.mock import Mock
+    from physiosim.experiments import applied_la_mitral_lv_demo as demo
+
+    from physiosim.ontology import applied_la_mitral_lv as a
+    build = Mock(wraps=a.build_applied_sidecar)
+    monkeypatch.setattr(a, 'build_applied_sidecar', build)
+    monkeypatch.setattr(demo, 'build_applied_sidecar', build)
+    demo.run_applied_demo(tmp_path/'counted')
+    assert build.call_count == 2
