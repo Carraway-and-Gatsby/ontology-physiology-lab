@@ -2,6 +2,13 @@
 
 A research tool for running synthetic cardiovascular experiments from plain-language hypotheses.
 
+> **Meta Global AI Developer Hackathon entry (Indie track).** This repository is a submission to the Meta Global AI
+> Developer Hackathon (event period 2026-10-26 to 2026-11-04). Its experiment agent runs on Meta Muse Spark
+> (`muse-spark-1.3`, Meta Model API) by default. It is an independent project, not affiliated with or endorsed by Meta.
+>
+> **Open source.** Code is released under the [MIT License](LICENSE); documentation and data under
+> [CC BY 4.0](LICENSE-docs.md). Third-party material keeps its own terms, listed in [NOTICE.md](NOTICE.md).
+
 > **Safety:** This synthetic research model is not clinically validated and refuses medical-advice requests.
 
 ## What it does
