@@ -24,7 +24,7 @@ from physiosim.experiments.four_chamber_m1_demo import synthetic_fixture, FIXTUR
 from physiosim.simulation.four_chamber_m1 import simulate_m1, SolverSettings
 from physiosim.ontology.four_chamber_m1_manifest import build_m1_manifest
 from physiosim.ontology.applied_la_mitral_lv import (
-    build_applied_sidecar, validate_applied_sidecar, gate_report, digest, PINNED_DOCUMENT,
+    build_applied_sidecar, gate_report, digest, PINNED_DOCUMENT,
 )
 
 
@@ -94,13 +94,12 @@ def run_applied_demo(output):
         first = simulate_m1(parameters, **invocation)
         before = result_fingerprint(first)
         sidecar = build_applied_sidecar()
-        validate_applied_sidecar(sidecar)
+        report = gate_report(sidecar)
         second = simulate_m1(parameters, **invocation)
         after = result_fingerprint(second)
         manifest_after = digest(build_m1_manifest())
         if before != result_fingerprint(first) or before != after or manifest_before != manifest_after:
             raise RuntimeError('sidecar numerical or manifest invariance failed')
-        report = gate_report(sidecar)
         report['G2'] = {'status': 'PASS', 'executed': True,
                         'scope': 'Two identical existing synthetic M1 invocations; exact array/config hashes match.'}
         la, lv = (first.compartment_names.index(c) for c in ('la','lv'))

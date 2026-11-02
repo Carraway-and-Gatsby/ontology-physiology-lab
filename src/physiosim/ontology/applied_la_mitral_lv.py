@@ -6,7 +6,7 @@ from pathlib import Path
 SOURCE_COMMIT = '70784bcdb9c14fba5271ee73f3c62b5f94ccbcfb'
 PINNED_FULL_FILES = {'experiments/medmlx_anatomy_mapping/results/contents_catalog.json': '288cadbe573f8a5488abc135560a66a3c793f48e32984228a7a791cbdcce24da', 'experiments/medmlx_anatomy_mapping/results/relation_literature_review.json': 'fda0520dc9d0fef3caef227c733b80f0b464925abf8878e7b05f6486c5b445f7', 'experiments/medmlx_anatomy_mapping/ontology/boundary_definitions.json': 'b118f238247486818e16016fd3b17c5bac3e5541477503bbc53ba2ee8ffb82f0'}
 PINNED_SUBSETS = {'catalog': '1b204803270c77a9313b55adce472bef0d07c96d61b4a012c159b75086adbcd6', 'claims': '1f7b2be65640bdb9bdbf4f992345a7890332c6fc7914785a0eeb580087105a5d', 'special_claims': '01be0588876f08d4d8ac13183dee5270a8b6c755a983634ba89bf4d70aa80c1e', 'boundaries': 'c07a3c3bc0f19f954fba81a2a6f12078f03ed26095178e5880d25ca3fe5868d6', 'sources': 'fd1b87d7974635112d39acd824f44176aa4209634ea8cb0f57ca1d2565a7ef6e'}
-PINNED_DOCUMENT = 'fe512725a086eb1d92d65e274463b23aa321e76d71df31e852565207683bdf5a'
+PINNED_DOCUMENT = '5223a5d950bb8a5a561457836e851a4f930cd377e4db64842618ee34952a1db8'
 
 def digest(value):
     return sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()

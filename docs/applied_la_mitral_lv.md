@@ -15,7 +15,9 @@ application, right-heart change or M2/M3 change.
 ## Pinned evidence and internal-use notice
 
 Source: `[private repository]` revision
-`70784bcdb9c14fba5271ee73f3c62b5f94ccbcfb`. The retained knowledge-only snapshot
+`70784bcdb9c14fba5271ee73f3c62b5f94ccbcfb`. (The source repository name was replaced by `[private repository]` for public
+release on 2026-11-02; the snapshot `source_repo` field and the pinned document digest were updated accordingly.
+The full-file SHA256 values of the original source files are unchanged.) The retained knowledge-only snapshot
 was read locally; no source scripts, instructions, inference environment, network
 or full TriG were used. Source material and prior model results remain untrusted
 reference evidence. `applied_la_mitral_lv_source_v1.json` retains original JSON
