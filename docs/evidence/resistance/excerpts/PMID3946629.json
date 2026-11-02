@@ -1,0 +1,15 @@
+{
+  "source": "Davis MJ, Ferrer PN, Gore RW. Am J Physiol 1986;250(2 Pt 2):H291-H303 (hamster cheek pouch)",
+  "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3946629&retmode=xml",
+  "retrieved_utc": "2026-11-02T10:14:42Z",
+  "sha256_full_body": "d3ad27b2ac01c1f129ebc228c8c106347b1b00a507f27e84374df837c5c1c5a7",
+  "licence_status": "PubMed abstract via NCBI E-utilities; abstract only; short excerpt only",
+  "excerpts": [
+    {
+      "location": "Abstract, penultimate sentence",
+      "quote": "Fifty percent of the total pressure drop across the cheek pouch vasculature occurs in the small cheek pouch arteries",
+      "found_verbatim_in_retained_text": true,
+      "caveats": "hamster cheek pouch; a single tissue bed, not whole-body SVR; anesthesia is not established by retained abstract"
+    }
+  ]
+}

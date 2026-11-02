@@ -18,7 +18,7 @@ All external identifiers used in the built-in catalog are label-checked against 
 
 The namespace `https://example.org/physiosim/` intentionally identifies project-local concepts. It is not advertised as a resolvable external ontology. `Concept.local` marks local extensions.
 
-The lumped systemic/pulmonary arterial and venous compartments, whole six-compartment circulation, six modeled flow paths, volume compliance, cardiac output, and stroke volume are local concepts. No unverified external identifiers are used for these concepts. Their local status does not imply external terms do not exist; exact suitable mappings were not established in this bounded research task. Aggregate compartments are not equated to a single named artery, vein, or organ. The v2 vessel-lumen nodes describe the Smith 2004 compartments; no recorded decision maps this model's `sa`, `sv`, `pa` or `pv` to them, so they stay local.
+The lumped systemic/pulmonary arterial and venous compartments, whole six-compartment circulation, six modeled flow paths, volume compliance, cardiac output, and stroke volume are local concepts. No unverified external identifiers are used for these concepts. Their local status does not imply external terms do not exist; exact suitable mappings were not established in this bounded research task. Aggregate compartments are not equated to a single named artery, vein, or organ. D-G1 now connects each model's `sa`, `sv`, `pa` and `pv` blood to the corresponding v2 lumen as non-identity context. The compartments themselves remain local; a lumen is not the whole lumped vascular bed.
 
 Cardiac output is explicitly **complete-beat mean aortic outflow**, not instantaneous aortic flow. Stroke volume is **the integral of forward aortic flow over a complete beat**, matching the executable `stroke_volume_ml` metric; it is not total ventricular volume. The separately reported volume-extrema ejection fraction uses `(EDV-ESV)/EDV`, and sampled `EDV-ESV` can differ from flow-integrated SV. Their properties remain distinct even when dimensions coincide. Heart rate uses OPB event frequency with heart-contraction process context.
 
@@ -44,7 +44,7 @@ print(pressure.property.uri, pressure.anatomy.uri, pressure.unit)
 | `SV` | `mL` | Forward aortic flow integrated over a full beat |
 | `V_total` | `mL` | Sum of six compartment volumes |
 
-LV and RV volume and pressure are properties of blood that is part of the ventricular cavity (C5); `E_lv`, `E_rv`, `CO` and `SV` keep the organ-level ventricle and `HR` the heart. The four valve flows carry `occurs_in`, the valve where the flow process takes place; the systemic and pulmonary bed flows and all resistances have none. Orientation codes are `lv→sa→sv→rv→pa→pv→lv`; their flow endpoints are the compartment containers. Venous reservoirs subsume atrial filling in this simplified model; the tricuspid and mitral paths do not assert a literal direct anatomical vein-to-ventricle connection. All pressures use the same explicitly recorded model-gauge reference, with fixed external pressure zero. Local equation strings describe the intended model relationships; `V0`, activation, and extrema are equation placeholders, not separately registered variables.
+LV and RV volume and pressure are properties of blood that is part of the ventricular cavity (C5); `E_lv`, `E_rv`, `CO` and `SV` keep the organ-level ventricle and `HR` the heart. The four valve flows carry `occurs_in`, the valve where the flow process takes place; the systemic and pulmonary bed flows and all resistances have none. Orientation codes are `lv→sa→sv→rv→pa→pv→lv`; their flow endpoints are the compartment containers. Venous reservoirs subsume atrial filling in this simplified model; the tricuspid and mitral paths do not assert a literal direct anatomical vein-to-ventricle connection. All pressures use the same explicitly recorded model-gauge reference, with fixed external pressure zero. The compatibility registry retains compact equation strings. Canonical contracts separately declare unstressed-volume components, activation and metric extrema, with complete law inputs and signed conservation wiring.
 
 ## Connection API: explicit rescaling, never silent equivalence
 
@@ -79,7 +79,7 @@ Path('annotations.trig').write_text(text)
 Three graph identifiers are used:
 
 - `…/graph/verified-labels`: verified external labels, source links and the FMA cross-reference of each v2 node, not ontology entailments.
-- `…/graph/model-assertions`: project variable annotations, composite bearers (`bqbiol:isPartOf` a v2 cavity, otherwise `sim:locatedIn`), valve-flow locations (`bqbiol:occursIn`), local concepts, equations, dependencies, process context and directed flow endpoints.
+- `…/graph/model-assertions`: project variable annotations, shared model-compartment blood bearers (`bqbiol:isPartOf` a v2 cavity, otherwise local `sim:locatedIn` plus non-identity `sim:lumpedCompartmentContext`), valve-flow locations (`bqbiol:occursIn`), local concepts, equations, dependencies, process context and directed flow endpoints.
 - `…/graph/provenance`: explicit graph status and the non-diagnostic disease-context note.
 
 No `owl:sameAs`, `owl:equivalentClass`, `rdfs:subClassOf`, disease diagnoses, or ontology-derived causal edges are manufactured. Caller-provided unrecognized concepts stay in model assertions and are marked unverified. Turtle and other flattening formats are rejected by `export_graph` so graph boundaries cannot silently disappear. TriG serialization and reparsing are tested; current RDFLib emits dependency-internal deprecation warnings during that operation.
@@ -141,14 +141,77 @@ Resistance belongs to a model-local **flow path**, with traversed anatomical
 structures separate from its bearer. The legacy registry's resistance descriptors
 and RDF now carry that same path contract; valve flow processes retain
 `bqbiol:occursIn`. Phase 1 mitral pv→lv traverses pulmonary venous lumen, lumped
-left atrium and mitral valve; M1 la→lv traverses only the mitral valve. Unrepresented
-microvascular segments stay local/unknown without invented external IDs. Context
+left atrium and mitral valve; M1 la→lv traverses only the mitral valve. The ONTO-R2 resistance annotations below supply retained segment context; unsupported
+small-artery identifiers stay local/unknown without invented external IDs. Context
 IDs in agent reports refer to traversed structures, never to path identity.
 
 The canonical contracts use one blood entity per model compartment, organ-level
 ventricular elastance, non-identity vascular lumen context, and a common
-mathematical gauge whose relationship to atmosphere is UNKNOWN. Existing registry,
-binding and M1 manifest functions remain compatibility APIs; their full blood,
-reference and dependency/RDF unification is scheduled in subsequent work packages.
+mathematical gauge whose relationship to atmosphere is UNKNOWN. Registry, binding and M1 manifest functions remain compatibility APIs. ONTO-R2
+adds shared blood/reference adapters and the full descriptive law graphs below.
 R1 does not provide the later own-model SHACL validator, full named-graph export,
 or full viewer regeneration, and does not establish physiological validity.
+
+
+## ONTO-R2 connected contexts and law graphs (2026-11-02)
+
+The canonical contracts now record one model-scoped blood entity per compartment
+(6 Phase 1; 8 M1). `V_c` and `P_c` have the same bearer; path flow participants
+refer to those entities. Quantity nodes remain distinct. Vascular blood has
+`lumped_compartment_context` to systemic arterial/venous and pulmonary
+arterial/venous lumens. This is an owner-authored, non-identity mapping, not
+`owl:sameAs`, class equivalence, a volume split, or anatomical identity.
+The legacy Phase 1 registry keeps its local vascular `anatomy` and adds the same
+context separately; the RDF uses shared `phase1/blood/c` bearers. Phase 1 venous
+quantity notes say atrial filling is lumped there; no LA/RA states are introduced.
+M1 keeps separate LA/RA blood and cavities. Every one of the 31 catalogue nodes
+retains an explicit used/context/catalogue-only status per model. Ventricular
+elastance is an organ property with contraction context and a separate activation
+construct; vascular compliance remains a local compartment property, with no
+invented vessel-wall identity.
+
+`representation.pressure_reference()` is the shared **model gauge (mathematical
+zero), fixed external pressure zero**. Its sink is one shared mathematical zero,
+not atmospheric pressure; `atmosphere_relation` is `UNKNOWN`. Each pressure
+contract has a separate differential adapter whose source is the compartment
+blood and whose sink/reference is this zero. No omitted pericardial, intrathoracic
+or transmural mechanics are imported. The M1 compatibility manifest preserves
+the engine's descriptive reference string, while `reference_id`,
+`pressure_reference_contract` and pressure-differential fields resolve to the
+same canonical representation as Phase 1. Positive and negative fixtures test
+missing/wrong reference, source, sink and blood, plus cavity/lumen substitutions.
+
+Each model's `dependency_graph` in `quantity_contracts.json` has separate law
+nodes for parameter-component extraction, initial conditions, cycle duration,
+sampled final-beat duration, cosine activation, ventricular elastance, pressure
+laws (including unstressed volume and passive atrial elastance), diode/resistor
+flows, cumulative integrals, volume evolution, signed conservation and metric
+and diagnostic definitions. Graph inputs resolve to quantity contracts. Four
+ideal diodes and two Phase 1/four M1 resistors remain exactly as in the engine.
+Phase 1 topology comes from `COMPARTMENTS`, `FLOW_NAMES`, `VALVE_INDICES` and the
+ring difference; M1 uses `EDGES` and `INCIDENCE`. Tests compare engine topology
+and signs, reject mass-balanced endpoint swaps and omitted constitutive inputs,
+and preserve the applied sidecar's LA -1 / LV +1 mitral contributions. The
+compatibility registry resolves dependencies through canonical quantities; its
+RDF includes Phase 1 law nodes and signed contributions. The M1 full law graph
+is in the canonical contract; full two-model named-graph/SHACL/viewer integration
+remains for WP13 onward. Dependencies are model equations, not ontology-derived
+causation or value equivalence. Solver controls remain nonphysical inputs;
+reported policy defaults describe current code, not new tolerances.
+
+The systemic and pulmonary paths carry D-RES `resistance_detail` with ordered
+`traverses` segment context, exact retained Uberon labels/IDs and FMA xrefs where
+present. The 31-node library is not expanded or replaced by these segment terms.
+Small arteries retain a local unknown key: a muscular artery is not asserted to
+be the same class. The approved ONTO-RES-02 findings section 3 notes are preserved
+verbatim in `docs/evidence/resistance/approved_notes.json`, including preparation,
+species, pressure-drop versus resistance, equal-flow assumptions and denominator
+caveats. Source pointers contain source ID, URL, full-response SHA-256 and bounded
+excerpt filename. `docs/evidence/resistance/` retains only bounded excerpts and
+ledgers, with no full article bodies. `ontology_sources.json` and
+`evidence/b_citations.json` include the sources. The packaged bounded resource
+`resistance_evidence.json` supports offline installed-package use; it matches
+the retained ledgers. No per-segment number is bound to either model; resistance
+continues to belong to the model path. Whole-human segment fractions, source
+licences and long-term identifier stability remain unestablished. These notes
+do not establish physiological or clinical validation.

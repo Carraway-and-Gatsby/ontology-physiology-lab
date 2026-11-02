@@ -173,9 +173,10 @@ def test_valve_flows_occur_in_their_valve_and_blood_is_part_of_its_cavity():
     located = {str(s).rsplit('/', 1)[1]: str(o) for s, o in model.subject_objects(occurs_in)}
     assert located == {'Q_' + edge: api.NODES[key].uri for edge, key in valves.items()}
     part_of = URIRef(api.BQBIOL + 'isPartOf')
-    assert (URIRef(api.BASE + 'bearer/V_lv'), part_of, URIRef(api.NODES['lv_cavity'].uri)) in model
-    assert (URIRef(api.BASE + 'bearer/V_sa'), URIRef(api.BASE + 'locatedIn'), URIRef(api.ANATOMY['sa'].uri)) in model
-    assert not list(model.triples((URIRef(api.BASE + 'bearer/V_sa'), part_of, None)))
+    # ONTO-R2 A12: pressure/volume/flow share model-compartment blood, not per-variable bearers.
+    assert (URIRef(api.BASE + 'phase1/blood/lv'), part_of, URIRef(api.NODES['lv_cavity'].uri)) in model
+    assert (URIRef(api.BASE + 'phase1/blood/sa'), URIRef(api.BASE + 'locatedIn'), URIRef(api.ANATOMY['sa'].uri)) in model
+    assert not list(model.triples((URIRef(api.BASE + 'phase1/blood/sa'), part_of, None)))
     assert (URIRef(api.BLOOD.uri), URIRef(api.OBO_XREF), Literal('FMA:9670')) in labels
     q = r['Q_mitral']
     with pytest.raises(api.SemanticConnectionError, match='occurs_in'):

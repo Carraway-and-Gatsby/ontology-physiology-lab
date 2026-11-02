@@ -5,7 +5,8 @@ from physiosim.ontology import cardiovascular_registry
 def test_stroke_volume_annotation_matches_forward_flow_metric():
     annotation = cardiovascular_registry()['SV']
     assert annotation.equation == 'SV = integral(Q_aortic, complete_beat)'
-    assert annotation.depends_on == ('Q_aortic',)
+    # ONTO-R2: sampled complete-beat definition also resolves time and beat selection.
+    assert annotation.depends_on == ('Q_aortic', 'time', 'solver.samples_per_cycle')
     assert annotation.bearer == 'flow process'
 
 

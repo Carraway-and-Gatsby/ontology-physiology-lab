@@ -2459,7 +2459,130 @@
             "status": "context",
             "note": ""
           }
-        ]
+        ],
+        "resistance_detail": {
+          "relation": "traverses",
+          "numeric_binding": "NONE",
+          "note": "The systemic arterial-to-venous path spans arteries, small arteries, arterioles, capillaries, venules and veins. The sources give pressure-drop shares, not measured resistance shares: a review reports the muscular small arteries and arterioles account for 70% of the pressure drop, and capillaries and veins 7% and 19% (systemic data attributed there to mesenteric and skeletal-muscle beds), and a hamster cheek-pouch study reports 50% of the total pressure drop across that bed in small cheek pouch arteries. Equating pressure-drop shares with resistance shares requires equal flow through segments in series; this is an assumption, not a measurement, and does not give a whole-system or human resistance fraction across parallel beds. Annotation only; the model does not resolve these segments.",
+          "segments": [
+            {
+              "key": "UBERON:0004573",
+              "term_id": "UBERON:0004573",
+              "label": "systemic artery",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0004573",
+              "fma_xrefs": [
+                "FMA:66464"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0004573",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0004573",
+                "sha256": "fdaa242abdd8117f906cd193b70daba9c49fe9b3b414c87b38c01c53b900cd0e",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "local:small_arteries",
+              "term_id": null,
+              "label": "small arteries",
+              "iri": null,
+              "fma_xrefs": [],
+              "status": "unknown",
+              "relation": "traverses",
+              "note": "No exact identifier established; muscular artery is not asserted equivalent."
+            },
+            {
+              "key": "UBERON:0001980",
+              "term_id": "UBERON:0001980",
+              "label": "arteriole",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0001980",
+              "fma_xrefs": [
+                "FMA:63182"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0001980",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001980",
+                "sha256": "19189037bb731831dc934e77aff9dc14dafe8cacafc88909d1b456282296b667",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0001982",
+              "term_id": "UBERON:0001982",
+              "label": "capillary",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0001982",
+              "fma_xrefs": [
+                "FMA:63194"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0001982",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001982",
+                "sha256": "b1b68a965976919c7bc7198362abf69558d30e89b9ab12ee4301ec817cd0c33b",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0001979",
+              "term_id": "UBERON:0001979",
+              "label": "venule",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0001979",
+              "fma_xrefs": [
+                "FMA:63130"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0001979",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001979",
+                "sha256": "eb6e1862436002313a1a7f4764f7ca5a15c215de819c263ee14b9fbd213dc810",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0013140",
+              "term_id": "UBERON:0013140",
+              "label": "systemic vein",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0013140",
+              "fma_xrefs": [
+                "FMA:66644"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0013140",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0013140",
+                "sha256": "87dc328c338488e8a0d069b51b8e9b0da47e8a8f4dcca74ce861ad7af3a0f68e",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            }
+          ],
+          "evidence": [
+            {
+              "source_id": "ONTO-RES:PMC6039797",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6039797/",
+              "sha256": "d13969b89ff26a7e3ac16f88d0e4fa10e3e416cddc9a9fd124fbe65d0ad3351a",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC6039797.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMC10110735",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+              "sha256": "cd7d9c3aa126753a8d3a3a10a7d0bbe0bae11a46a980543efa4203636e5b46af",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC10110735.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMID3946629",
+              "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3946629&retmode=xml",
+              "sha256": "d3ad27b2ac01c1f129ebc228c8c106347b1b00a507f27e84374df837c5c1c5a7",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMID3946629.json"
+            }
+          ],
+          "scope": "Annotation only; the path retains one model resistance, not segment-specific values."
+        }
       },
       "tricuspid": {
         "key": "phase1:path:tricuspid",
@@ -2639,7 +2762,118 @@
             "status": "context",
             "note": ""
           }
-        ]
+        ],
+        "resistance_detail": {
+          "relation": "traverses",
+          "numeric_binding": "NONE",
+          "note": "The pulmonary arterial-to-venous path spans pulmonary arteries, arterioles, capillaries, venules and veins. In isolated dog lung lobes, arteries, capillaries and veins accounted for 46/34/20% of total lobar vascular resistance, and pulmonary arteries for approximately 50% of resistance upstream of the sluice point when alveolar pressure exceeded venous pressure; a review reports preparation-dependent pressure-drop shares of 30±7/17±3/39±13% (sum 86%, remainder unexplained). These cited preparations and conditions do not show resistance concentrated in one segment, but they do not establish the distribution generally, in vivo, or in humans. Annotation only; the model does not resolve these segments.",
+          "segments": [
+            {
+              "key": "UBERON:0002012",
+              "term_id": "UBERON:0002012",
+              "label": "pulmonary artery",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+              "fma_xrefs": [
+                "FMA:66326"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0002012",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002012",
+                "sha256": "1654be6c37006d2c0709e15cadeafcda82b6d2df6526a96b2b6dd2ea2eee2225",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:8600077",
+              "term_id": "UBERON:8600077",
+              "label": "pulmonary arteriole",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_8600077",
+              "fma_xrefs": [
+                "FMA:279896"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:8600077",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600077",
+                "sha256": "12a6daf1947c244eb7eabc5733d51ddf1b2bde1daa54a2da3866c6cf1feac41b",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0016405",
+              "term_id": "UBERON:0016405",
+              "label": "pulmonary capillary",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0016405",
+              "fma_xrefs": [
+                "FMA:14121"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0016405",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0016405",
+                "sha256": "a49a95d8c84db472da7e1b579ba275f59f578cdba8dd3785a312a44988b84ff3",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:8600024",
+              "term_id": "UBERON:8600024",
+              "label": "pulmonary venule",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_8600024",
+              "fma_xrefs": [],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:8600024",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600024",
+                "sha256": "43f9cabb0c7b8099685d8f8640a75f4d5ace413e409e1c695fffe40f6ac147d9",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0002016",
+              "term_id": "UBERON:0002016",
+              "label": "pulmonary vein",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0002016",
+              "fma_xrefs": [
+                "FMA:66643"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0002016",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002016",
+                "sha256": "ddfb72bd68545d923ba86d735d88b50a4e6182145e57cc5f54d108dac752f591",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            }
+          ],
+          "evidence": [
+            {
+              "source_id": "ONTO-RES:PMC297229",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC297229/",
+              "sha256": "6246fb86e12966de50549039b2b0d089782fecafb682b1b6193ecc6f8ea18a40",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC297229.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMC6039797",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6039797/",
+              "sha256": "d13969b89ff26a7e3ac16f88d0e4fa10e3e416cddc9a9fd124fbe65d0ad3351a",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC6039797.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMC10110735",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+              "sha256": "cd7d9c3aa126753a8d3a3a10a7d0bbe0bae11a46a980543efa4203636e5b46af",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC10110735.json"
+            }
+          ],
+          "scope": "Annotation only; the path retains one model resistance, not segment-specific values."
+        }
       },
       "mitral": {
         "key": "phase1:path:mitral",
@@ -2821,7 +3055,130 @@
             "status": "context",
             "note": ""
           }
-        ]
+        ],
+        "resistance_detail": {
+          "relation": "traverses",
+          "numeric_binding": "NONE",
+          "note": "The systemic arterial-to-venous path spans arteries, small arteries, arterioles, capillaries, venules and veins. The sources give pressure-drop shares, not measured resistance shares: a review reports the muscular small arteries and arterioles account for 70% of the pressure drop, and capillaries and veins 7% and 19% (systemic data attributed there to mesenteric and skeletal-muscle beds), and a hamster cheek-pouch study reports 50% of the total pressure drop across that bed in small cheek pouch arteries. Equating pressure-drop shares with resistance shares requires equal flow through segments in series; this is an assumption, not a measurement, and does not give a whole-system or human resistance fraction across parallel beds. Annotation only; the model does not resolve these segments.",
+          "segments": [
+            {
+              "key": "UBERON:0004573",
+              "term_id": "UBERON:0004573",
+              "label": "systemic artery",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0004573",
+              "fma_xrefs": [
+                "FMA:66464"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0004573",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0004573",
+                "sha256": "fdaa242abdd8117f906cd193b70daba9c49fe9b3b414c87b38c01c53b900cd0e",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "local:small_arteries",
+              "term_id": null,
+              "label": "small arteries",
+              "iri": null,
+              "fma_xrefs": [],
+              "status": "unknown",
+              "relation": "traverses",
+              "note": "No exact identifier established; muscular artery is not asserted equivalent."
+            },
+            {
+              "key": "UBERON:0001980",
+              "term_id": "UBERON:0001980",
+              "label": "arteriole",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0001980",
+              "fma_xrefs": [
+                "FMA:63182"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0001980",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001980",
+                "sha256": "19189037bb731831dc934e77aff9dc14dafe8cacafc88909d1b456282296b667",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0001982",
+              "term_id": "UBERON:0001982",
+              "label": "capillary",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0001982",
+              "fma_xrefs": [
+                "FMA:63194"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0001982",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001982",
+                "sha256": "b1b68a965976919c7bc7198362abf69558d30e89b9ab12ee4301ec817cd0c33b",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0001979",
+              "term_id": "UBERON:0001979",
+              "label": "venule",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0001979",
+              "fma_xrefs": [
+                "FMA:63130"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0001979",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001979",
+                "sha256": "eb6e1862436002313a1a7f4764f7ca5a15c215de819c263ee14b9fbd213dc810",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0013140",
+              "term_id": "UBERON:0013140",
+              "label": "systemic vein",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0013140",
+              "fma_xrefs": [
+                "FMA:66644"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0013140",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0013140",
+                "sha256": "87dc328c338488e8a0d069b51b8e9b0da47e8a8f4dcca74ce861ad7af3a0f68e",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            }
+          ],
+          "evidence": [
+            {
+              "source_id": "ONTO-RES:PMC6039797",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6039797/",
+              "sha256": "d13969b89ff26a7e3ac16f88d0e4fa10e3e416cddc9a9fd124fbe65d0ad3351a",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC6039797.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMC10110735",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+              "sha256": "cd7d9c3aa126753a8d3a3a10a7d0bbe0bae11a46a980543efa4203636e5b46af",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC10110735.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMID3946629",
+              "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3946629&retmode=xml",
+              "sha256": "d3ad27b2ac01c1f129ebc228c8c106347b1b00a507f27e84374df837c5c1c5a7",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMID3946629.json"
+            }
+          ],
+          "scope": "Annotation only; the path retains one model resistance, not segment-specific values."
+        }
       },
       "venous_return": {
         "key": "four_chamber_m1:path:venous_return",
@@ -3015,7 +3372,118 @@
             "status": "context",
             "note": ""
           }
-        ]
+        ],
+        "resistance_detail": {
+          "relation": "traverses",
+          "numeric_binding": "NONE",
+          "note": "The pulmonary arterial-to-venous path spans pulmonary arteries, arterioles, capillaries, venules and veins. In isolated dog lung lobes, arteries, capillaries and veins accounted for 46/34/20% of total lobar vascular resistance, and pulmonary arteries for approximately 50% of resistance upstream of the sluice point when alveolar pressure exceeded venous pressure; a review reports preparation-dependent pressure-drop shares of 30±7/17±3/39±13% (sum 86%, remainder unexplained). These cited preparations and conditions do not show resistance concentrated in one segment, but they do not establish the distribution generally, in vivo, or in humans. Annotation only; the model does not resolve these segments.",
+          "segments": [
+            {
+              "key": "UBERON:0002012",
+              "term_id": "UBERON:0002012",
+              "label": "pulmonary artery",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+              "fma_xrefs": [
+                "FMA:66326"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0002012",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002012",
+                "sha256": "1654be6c37006d2c0709e15cadeafcda82b6d2df6526a96b2b6dd2ea2eee2225",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:8600077",
+              "term_id": "UBERON:8600077",
+              "label": "pulmonary arteriole",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_8600077",
+              "fma_xrefs": [
+                "FMA:279896"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:8600077",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600077",
+                "sha256": "12a6daf1947c244eb7eabc5733d51ddf1b2bde1daa54a2da3866c6cf1feac41b",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0016405",
+              "term_id": "UBERON:0016405",
+              "label": "pulmonary capillary",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0016405",
+              "fma_xrefs": [
+                "FMA:14121"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0016405",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0016405",
+                "sha256": "a49a95d8c84db472da7e1b579ba275f59f578cdba8dd3785a312a44988b84ff3",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:8600024",
+              "term_id": "UBERON:8600024",
+              "label": "pulmonary venule",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_8600024",
+              "fma_xrefs": [],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:8600024",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600024",
+                "sha256": "43f9cabb0c7b8099685d8f8640a75f4d5ace413e409e1c695fffe40f6ac147d9",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            },
+            {
+              "key": "UBERON:0002016",
+              "term_id": "UBERON:0002016",
+              "label": "pulmonary vein",
+              "iri": "http://purl.obolibrary.org/obo/UBERON_0002016",
+              "fma_xrefs": [
+                "FMA:66643"
+              ],
+              "status": "context",
+              "relation": "traverses",
+              "evidence": {
+                "source_id": "ONTO-RES:UBERON:0002016",
+                "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002016",
+                "sha256": "ddfb72bd68545d923ba86d735d88b50a4e6182145e57cc5f54d108dac752f591",
+                "excerpt_file": "docs/evidence/resistance/terms.json"
+              }
+            }
+          ],
+          "evidence": [
+            {
+              "source_id": "ONTO-RES:PMC297229",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC297229/",
+              "sha256": "6246fb86e12966de50549039b2b0d089782fecafb682b1b6193ecc6f8ea18a40",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC297229.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMC6039797",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6039797/",
+              "sha256": "d13969b89ff26a7e3ac16f88d0e4fa10e3e416cddc9a9fd124fbe65d0ad3351a",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC6039797.json"
+            },
+            {
+              "source_id": "ONTO-RES:PMC10110735",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+              "sha256": "cd7d9c3aa126753a8d3a3a10a7d0bbe0bae11a46a980543efa4203636e5b46af",
+              "excerpt_file": "docs/evidence/resistance/excerpts/PMC10110735.json"
+            }
+          ],
+          "scope": "Annotation only; the path retains one model resistance, not segment-specific values."
+        }
       },
       "pulmonary_venous": {
         "key": "four_chamber_m1:path:pulmonary_venous",

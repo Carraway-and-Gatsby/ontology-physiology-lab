@@ -108,6 +108,243 @@
           "added": "2026-10-30"
         }
       ]
+    },
+    {
+      "id": 10,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001637",
+      "title": "artery",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0001637",
+      "quotes": [
+        {
+          "text": "artery",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001638",
+      "title": "vein",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0001638",
+      "quotes": [
+        {
+          "text": "vein",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001979",
+      "title": "venule",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0001979",
+      "quotes": [
+        {
+          "text": "venule",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001980",
+      "title": "arteriole",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0001980",
+      "quotes": [
+        {
+          "text": "arteriole",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001982",
+      "title": "capillary",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0001982",
+      "quotes": [
+        {
+          "text": "capillary",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002012",
+      "title": "pulmonary artery",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0002012",
+      "quotes": [
+        {
+          "text": "pulmonary artery",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002016",
+      "title": "pulmonary vein",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0002016",
+      "quotes": [
+        {
+          "text": "pulmonary vein",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0004573",
+      "title": "systemic artery",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0004573",
+      "quotes": [
+        {
+          "text": "systemic artery",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0013140",
+      "title": "systemic vein",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0013140",
+      "quotes": [
+        {
+          "text": "systemic vein",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0016405",
+      "title": "pulmonary capillary",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:0016405",
+      "quotes": [
+        {
+          "text": "pulmonary capillary",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_3010489",
+      "title": "muscular artery",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:3010489",
+      "quotes": [
+        {
+          "text": "muscular artery",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600024",
+      "title": "pulmonary venule",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:8600024",
+      "quotes": [
+        {
+          "text": "pulmonary venule",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600077",
+      "title": "pulmonary arteriole",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:UBERON:8600077",
+      "quotes": [
+        {
+          "text": "pulmonary arteriole",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC297229/",
+      "title": "Brody JS, Stemmler EJ, DuBois AB. J Clin Invest 1968;47(4):783-799. doi:10.1172/JCI105773",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:PMC297229",
+      "quotes": [
+        {
+          "text": "The pulmonary arteries were responsible for 46% of total lobar vascular resistance, whereas the pulmonary capillaries and veins accounted for 34 and 20% of total lobar vascular resistance respectively.",
+          "added": "2026-11-02"
+        },
+        {
+          "text": "The pulmonary arteries accounted for approximately 50% of vascular resistance upstream from the sluice point when alveolar pressure exceeded venous pressure.",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6039797/",
+      "title": "Chamarthy MR, Kalva SP. Cardiovasc Diagn Ther 2018;8(3):208-213. doi:10.21037/cdt.2018.01.08",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:PMC6039797",
+      "quotes": [
+        {
+          "text": "Distribution of resistance Equal across arteries, capillaries and veins Predominantly muscular arterioles",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+      "title": "Balistrieri A, ..., Yuan JX-J. Physiol Rev 2023;103(3):1827-1897. doi:10.1152/physrev.00030.2021",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:PMC10110735",
+      "quotes": [
+        {
+          "text": "In the systemic circulatory system, the muscular small arteries and arterioles (or resistance arteries) account for 70% of the pressure drop.",
+          "added": "2026-11-02"
+        },
+        {
+          "text": "The systemic capillaries and veins only account for 7% and 19% of the pressure drop, respectively",
+          "added": "2026-11-02"
+        },
+        {
+          "text": "In the pulmonary circulation system, however, the pressure drop is evenly distributed among the pulmonary arteries and veins.",
+          "added": "2026-11-02"
+        },
+        {
+          "text": "the pulmonary artery accounts for 30 ± 7% of the total pressure drop, whereas the pressure drop in the capillary and vein accounts for 17 ± 3% and 39 ± 13%, respectively.",
+          "added": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3946629&retmode=xml",
+      "title": "Davis MJ, Ferrer PN, Gore RW. Am J Physiol 1986;250(2 Pt 2):H291-H303 (hamster cheek pouch)",
+      "accessed": "2026-11-02",
+      "source_id": "ONTO-RES:PMID3946629",
+      "quotes": [
+        {
+          "text": "Fifty percent of the total pressure drop across the cheek pouch vasculature occurs in the small cheek pouch arteries",
+          "added": "2026-11-02"
+        }
+      ]
     }
   ]
 }

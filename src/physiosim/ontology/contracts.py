@@ -25,7 +25,7 @@ AGGREGATIONS = {'instantaneous', 'initial', 'constant_parameter', 'beat_mean',
                 'ratio', 'count', 'run_max', 'beat_pair_max', 'policy', 'sum'}
 RELATIONS = {'blood_contained_in', 'lumped_compartment_context', 'organ_bearer',
              'traverses', 'bqbiol:occursIn', 'model_context', 'catalogue_presence'}
-GAUGE = 'model_gauge_fixed_external_zero'
+from .representation import GAUGE, pressure_reference
 # Only retained v1.07 base properties; local concepts are classifications instead.
 _PROPERTY_UNITS = {PROPERTIES[k].uri: u for k, u in {
     'pressure': {'mmHg'}, 'volume': {'mL', 'L'}, 'flow': {'mL/s', 'L/min', 'm^3/s'},
@@ -124,8 +124,13 @@ class QuantityContract:
         if self.property_id == PROPERTIES['elastance'].uri and self.compartment in ('lv','rv'):
             if self.bearer != self.model_id+':organ:'+self.compartment:
                 raise ValueError('ventricular elastance requires organ bearer, never wall/cavity')
-        if self.compartment in _VESSELS and any(a.relation=='blood_contained_in' for a in self.anatomy):
-            raise ValueError('lumped vascular compartment cannot be identified with atrial/anatomical cavity')
+        if self.compartment in _VESSELS and any(
+                a.key != _VESSELS[self.compartment] or a.relation != 'lumped_compartment_context'
+                for a in self.anatomy):
+            raise ValueError('vascular blood requires non-identity lumen context, never atrial identity')
+        if self.compartment and self.property_id in (PROPERTIES['volume'].uri, PROPERTIES['pressure'].uri):
+            if self.bearer != self.model_id+':blood:'+self.compartment:
+                raise ValueError('compartment pressure/volume must describe the same local blood entity')
         if self.model_id=='phase1' and self.compartment in ('la','ra'):
             raise ValueError('Phase 1 has no separate atrial quantity')
         if self.property_id == PROPERTIES['elastance'].uri and self.compartment in ('lv','rv'):
@@ -150,6 +155,9 @@ class ModelContract:
     paths: dict = field(default_factory=dict)
     anatomy_usage: dict[str, str] = field(default_factory=dict)
     policies: dict = field(default_factory=dict)
+    blood_entities: dict = field(default_factory=dict)
+    pressure_differentials: dict = field(default_factory=dict)
+    dependency_graph: dict = field(default_factory=dict)
 
     def __post_init__(self):
         names = []
@@ -162,6 +170,14 @@ class ModelContract:
         for category, members in self.inventory.items():
             if len(members) != len(set(members)) or not set(members) <= set(names):
                 raise ValueError('unresolved/duplicate inventory: '+category)
+
+        if self.paths or self.blood_entities or self.pressure_differentials:
+            from .representation import validate_representation
+            validate_representation(self)
+
+        if self.paths or self.dependency_graph:
+            from .dependencies import validate_dependency_graph
+            validate_dependency_graph(self,self.dependency_graph)
 
     def quantity(self, name):
         for q in self.quantities:
@@ -222,6 +238,8 @@ def _compartment_context(c):
 
 
 def _paths(model_id, compartments, edges):
+    from .resistance import resistance_details
+    details = resistance_details()
     paths = {}
     for name, source, target, kind in edges:
         keys = [_VALVES[name]] if name in _VALVES else []
@@ -245,6 +263,8 @@ def _paths(model_id, compartments, edges):
                        'traverses':[asdict(c) for c in contexts],
                        'process_location':_VALVES.get(name),
                        'evidence':['docs/decisions.md#2026-11-02', 'docs/physiology'+('_four_chamber_m1' if model_id!='phase1' else '')+'.md']}
+        if name in details:
+            paths[name]['resistance_detail'] = details[name]
     return paths
 
 
@@ -260,6 +280,8 @@ class _Builder:
     def add(self, name, kind, prop, unit, aggregation='instantaneous', *, category=None,
             c=None, edge=None, bearer=None, anatomy=None, aliases=(), policy='not_applicable',
             unavailable='not_applicable', order=(), note=''):
+        if self.model_id == 'phase1' and c in ('sv', 'pv'):
+            note = (note+' Phase 1 atrial filling is lumped in this venous compartment; no separate atrial state or identity.').strip()
         property_id = PROPERTIES[prop].uri if prop in PROPERTIES and not PROPERTIES[prop].local else None
         classification = None if property_id else prop
         if classification and not classification.startswith(('local:', 'nonphysical:')):
@@ -337,8 +359,18 @@ class _Builder:
         context = {a['key'] for p in self.paths.values() for a in p['traverses']}
         context |= {a.key for q in self.quantities.values() for a in q.anatomy if a.status=='context'}
         usage = {n['key']:'used' if n['key'] in used else 'context' if n['key'] in context else 'catalogue-only' for n in nodes}
-        return ModelContract(self.model_id,self.version,tuple(self.quantities.values()),
-                             {k:tuple(v) for k,v in self.inventory.items()},self.paths,usage,_policies())
+        from types import SimpleNamespace
+        from .representation import build_representation
+        from .dependencies import build_dependency_graph
+        data = dict(model_id=self.model_id,model_version=self.version,quantities=tuple(self.quantities.values()),
+                    inventory={k:tuple(v) for k,v in self.inventory.items()},paths=self.paths,
+                    anatomy_usage=usage,policies=_policies())
+        # Construct derived metadata before the immutable, fully validated contract.
+        view = SimpleNamespace(**data)
+        view.quantity = lambda name: ModelContract.quantity(view,name)
+        blood, pressure = build_representation(view)
+        return ModelContract(**data,blood_entities=blood,pressure_differentials=pressure,
+                             dependency_graph=build_dependency_graph(view))
 
 
 def _phase1_builder():
@@ -375,6 +407,8 @@ def _dynamics(b):
               bearer='organ:'+c,anatomy=(AnatomyContext(c,'organ_bearer','used'),))
     b.add('time','time','nonphysical:independent_time','s',category='independent_variable')
     b.add('period','time','local:cycle_duration','s','constant_parameter',category='derived_timing')
+    b.add('beat_duration','time','local:cycle_duration','s',category='derived_timing',
+          note='Actual final sampled beat endpoint duration used by metric code.')
     b.add('activation','law_quantity','local:activation_fraction','dimensionless',category='internal_law_quantity',
           bearer='activation_construct',note='Synchronous cosine e(t); model construct, not a structure.')
 
@@ -536,7 +570,7 @@ def _policies():
         'strict_periodicity':{'tolerance_ml':1e-4,'comparison':'less_than_or_equal',
             'default_beats':3,'unit':'mL','definition':'absolute max waveform difference over phases and compartments per beat pair',
             'unavailable':'raw max_residual_ml NaN; strict JSON projection null; available=false'},
-        'pressure_reference':{'id':GAUGE,'external_pressure_mmhg':0.,'atmosphere_relation':'UNKNOWN'},
+        'pressure_reference':pressure_reference(),
         'review':{'physiology':'UNREVIEWED','numeric_inputs':'synthetic/exploratory','external_numeric_permission':'NONE'},
     }
 
@@ -585,6 +619,8 @@ def agent_path_projection(model):
                   'scope':'D-G4: model-local resistance bearer; IDs describe traversed anatomy, never the bearer.',
                   'source_compartment':path['source'], 'target_compartment':path['target'],
                   'traverses':path['traverses']}
+        if 'resistance_detail' in path:
+            result[name]['resistance_detail'] = path['resistance_detail']
     return result
 
 

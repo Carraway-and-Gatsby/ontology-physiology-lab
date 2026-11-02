@@ -1,0 +1,21 @@
+{
+  "source": "Brody JS, Stemmler EJ, DuBois AB. J Clin Invest 1968;47(4):783-799. doi:10.1172/JCI105773",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC297229/",
+  "retrieved_utc": "2026-11-02T10:13:12Z",
+  "sha256_full_body": "6246fb86e12966de50549039b2b0d089782fecafb682b1b6193ecc6f8ea18a40",
+  "licence_status": "PMC full text; PMC copyright notice, no CC licence seen on page. Not CC-confirmed on retrieved page; quote short excerpts only",
+  "excerpts": [
+    {
+      "location": "Abstract, sentence 5",
+      "quote": "The pulmonary arteries were responsible for 46% of total lobar vascular resistance, whereas the pulmonary capillaries and veins accounted for 34 and 20% of total lobar vascular resistance respectively.",
+      "found_verbatim_in_retained_text": true,
+      "caveats": "dog isolated lung lobes, constant flow, donor-dog blood; resistance via pressure decrease after a bolus of low-viscosity liquid; 'arteries' = lobar arterial tree to capillary"
+    },
+    {
+      "location": "Abstract",
+      "quote": "The pulmonary arteries accounted for approximately 50% of vascular resistance upstream from the sluice point when alveolar pressure exceeded venous pressure.",
+      "found_verbatim_in_retained_text": true,
+      "caveats": "same preparation; condition: alveolar pressure > venous pressure; denominator is vascular resistance upstream from the sluice point, NOT total lobar resistance (cf. 46% quote)"
+    }
+  ]
+}

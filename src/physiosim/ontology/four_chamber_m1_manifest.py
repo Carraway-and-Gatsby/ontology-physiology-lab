@@ -12,6 +12,7 @@ from physiosim.models.four_chamber_m1 import (
     MODEL_ID, MODEL_VERSION, PRESSURE_REFERENCE, COMPARTMENTS, EDGES, FourChamberM1Parameters,
 )
 from . import PROPERTIES, BASE
+from .representation import GAUGE, pressure_reference
 
 SOURCE_PATH = 'docs/evidence_review/anatomy_nodes_v2.json'
 _CAVITIES = {'lv':'lv_cavity','rv':'rv_cavity','la':'la_cavity','ra':'ra_cavity'}
@@ -50,6 +51,8 @@ def build_m1_manifest(nodes=None):
                 'provenance':SOURCE_PATH+'#/nodes/'+str(nodes['nodes'].index(n)),
                 'source_role_in_smith':n['role_in_smith']}
 
+    from .contracts import _paths
+    paths = _paths(MODEL_ID,COMPARTMENTS,tuple((e.name,e.source,e.target,e.kind) for e in EDGES))
     compartments={}
     for c in COMPARTMENTS:
         chamber=c in _CAVITIES
@@ -74,6 +77,11 @@ def build_m1_manifest(nodes=None):
             'temporal':temporal,'direction':direction,'compartment':compartment,'edge':edge,
             'bearer':'flow_process' if direction else 'blood',
             'reference':PRESSURE_REFERENCE if prop=='pressure' else 'not applicable',
+            'reference_id':GAUGE if prop=='pressure' else None,
+            'pressure_differential':{'source':MODEL_ID+':blood:'+compartment,
+                'sink':pressure_reference()['sink'],'reference':GAUGE} if prop=='pressure' else None,
+            'blood_entity':MODEL_ID+':blood:'+compartment if compartment and prop in ('volume','pressure') else None,
+            'participants':[MODEL_ID+':blood:'+c for c in direction] if direction else [],
             'provenance':'docs/physiology_four_chamber_m1.md#equations-and-contract'}
 
     for c in COMPARTMENTS:
@@ -121,7 +129,12 @@ def build_m1_manifest(nodes=None):
             'provenance':'Required explicit caller input; no literature-derived default or calibration.',
             'temporal':'initial' if name=='initial_volumes' else 'constant_parameter',
             'order':list(COMPARTMENTS) if name.endswith('volumes') else None}
+    for name,path in paths.items():
+        parameters['resistance_'+name].update(bearer=path['id'],traverses=path['traverses'])
+        if 'resistance_detail' in path:
+            parameters['resistance_'+name]['resistance_detail'] = path['resistance_detail']
     return {'model_id':MODEL_ID,'model_version':MODEL_VERSION,'pressure_reference':PRESSURE_REFERENCE,
+        'pressure_reference_contract':pressure_reference(),
         'source':source,'compartments':compartments,'edges':edges,'variables':variables,
         'parameter_contract':parameters,
         'metric_aliases':{**{c+'_stroke_volume_ml':'SV_'+c for c in ('lv','rv')},

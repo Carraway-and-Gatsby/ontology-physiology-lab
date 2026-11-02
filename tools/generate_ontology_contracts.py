@@ -1,4 +1,4 @@
-"""Deterministic offline ONTO-R1 snapshots; invoke with PYTHONPATH=src."""
+"""Deterministic offline ONTO-R1/R2 snapshots; invoke with PYTHONPATH=src."""
 import argparse
 import json
 from pathlib import Path

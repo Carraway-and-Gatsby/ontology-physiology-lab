@@ -89,3 +89,44 @@ A07 boundary is `src/physiosim/ontology/acceptance_matrix.json`.
 - **A20, A26:** preserve independent source/formalization/expert/numeric review
   axes and UNREVIEWED/synthetic status. Annotation coverage and software checks
   do not establish physiological validity or permit external numeric binding.
+
+
+## 2026-11-02 — ONTO-R2 owner decisions applied (WP09–WP12, D-RES)
+
+This entry applies the same approved owner decisions as ONTO-R1, including
+“모두 그렇게 해라”. It supersedes older statements that these mappings were
+undecided; the original decision history remains intact.
+
+- D-G1: "혈관 구획을 해부학 노드에 연결하고". Both models' vascular blood has
+  non-identity v2 lumen context; compartment identities stay local. Decision 2
+  keeps Phase 1 atria absent, with an atrial-filling note on venous compartments;
+  M1 has separate LA/RA. All 31 nodes retain per-model usage statuses (decision 7).
+- D-G3: "심실 수축 성질은 '구조'가 아니니까 좀 다른 차원에서 얘기를 해야할 것 같고".
+  Ventricular elastance stays on organ-level ventricles, separate from wall,
+  blood, activation and contraction process; the compatibility bearer now agrees.
+- Decision 3 / G6: one mathematical model gauge and fixed external zero, with
+  atmospheric relation UNKNOWN. Decision 4 / A12: one model-scoped blood entity
+  per compartment, shared by volume, pressure and flow participation. Explicit
+  pressure differentials record source blood and shared zero sink; quantity
+  identities remain distinct. Compatibility APIs expose canonical reference IDs.
+- A22 / WP11–WP12: separate complete constitutive/definition/conservation law
+  nodes derived from current code/docs, including V0, activation/extrema inputs,
+  metrics, initial conditions and signed topology. Tests use the engine topology
+  and incidence, not a second manually written endpoint list. The LEFT-side
+  source sidecar remains partial (decision 6); both sides are in main contracts.
+- D-G4: '저항을 지닌 것은 "흐름 경로"로 가자.' D-RES:
+  "다만 저항이 유독 심한 곳은 좀 더 자세히 들여다 봐야겠다". The systemic and
+  pulmonary paths now carry source-attributed segment context, exact retained
+  Uberon/FMA identifiers, and verbatim approved ONTO-RES-02 section-3 note wording.
+  Terms are traversed anatomy, never resistance bearers. One number remains per
+  path; there is no segment numeric binding or model split. Bounded excerpts,
+  ledgers and licence/measurement caveats are retained under
+  `docs/evidence/resistance/`; full non-CC-confirmed bodies are not redistributed.
+- Decisions 5/8 remain: generic OPB v1.07 properties plus aggregation and model
+  scope; no adoption of unevidenced candidate identifiers. Evidence confirms
+  labels/xrefs, not model equivalence, general human resistance fractions, source
+  licensing or clinical validity. Existing UNREVIEWED/synthetic axes remain.
+- Hard boundary: no changes to model/simulation code, equations, numerical
+  settings or tolerances. Later unified RDF/SHACL/viewer release gates remain
+  outside ONTO-R2. Existing assertions changed only for shared blood URIs and
+  complete SV time/beat-selection dependencies; see the ONTO-R2 receipt.

@@ -1,0 +1,417 @@
+{
+  "notes": {
+    "systemic": "The systemic arterial-to-venous path spans arteries, small arteries, arterioles, capillaries, venules and veins. The sources give pressure-drop shares, not measured resistance shares: a review reports the muscular small arteries and arterioles account for 70% of the pressure drop, and capillaries and veins 7% and 19% (systemic data attributed there to mesenteric and skeletal-muscle beds), and a hamster cheek-pouch study reports 50% of the total pressure drop across that bed in small cheek pouch arteries. Equating pressure-drop shares with resistance shares requires equal flow through segments in series; this is an assumption, not a measurement, and does not give a whole-system or human resistance fraction across parallel beds. Annotation only; the model does not resolve these segments.",
+    "pulmonary": "The pulmonary arterial-to-venous path spans pulmonary arteries, arterioles, capillaries, venules and veins. In isolated dog lung lobes, arteries, capillaries and veins accounted for 46/34/20% of total lobar vascular resistance, and pulmonary arteries for approximately 50% of resistance upstream of the sluice point when alveolar pressure exceeded venous pressure; a review reports preparation-dependent pressure-drop shares of 30±7/17±3/39±13% (sum 86%, remainder unexplained). These cited preparations and conditions do not show resistance concentrated in one segment, but they do not establish the distribution generally, in vivo, or in humans. Annotation only; the model does not resolve these segments."
+  },
+  "terms": {
+    "UBERON:0001637": {
+      "id": "UBERON:0001637",
+      "label": "artery",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0001637",
+      "fma_xrefs": [
+        "FMA:50720"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0001637",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001637",
+      "sha256": "1a92cbede2b035f3f74a0d61a62a197a27ffef0823ccfba496bf122e0fce049b"
+    },
+    "UBERON:0001638": {
+      "id": "UBERON:0001638",
+      "label": "vein",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0001638",
+      "fma_xrefs": [
+        "FMA:50723"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0001638",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001638",
+      "sha256": "d0d450fd210e468efb8d4e8186184648131f0e9eab5d700253ed0aff016146c9"
+    },
+    "UBERON:0001979": {
+      "id": "UBERON:0001979",
+      "label": "venule",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0001979",
+      "fma_xrefs": [
+        "FMA:63130"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0001979",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001979",
+      "sha256": "eb6e1862436002313a1a7f4764f7ca5a15c215de819c263ee14b9fbd213dc810"
+    },
+    "UBERON:0001980": {
+      "id": "UBERON:0001980",
+      "label": "arteriole",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0001980",
+      "fma_xrefs": [
+        "FMA:63182"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0001980",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001980",
+      "sha256": "19189037bb731831dc934e77aff9dc14dafe8cacafc88909d1b456282296b667"
+    },
+    "UBERON:0001982": {
+      "id": "UBERON:0001982",
+      "label": "capillary",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0001982",
+      "fma_xrefs": [
+        "FMA:63194"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0001982",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001982",
+      "sha256": "b1b68a965976919c7bc7198362abf69558d30e89b9ab12ee4301ec817cd0c33b"
+    },
+    "UBERON:0002012": {
+      "id": "UBERON:0002012",
+      "label": "pulmonary artery",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+      "fma_xrefs": [
+        "FMA:66326"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0002012",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002012",
+      "sha256": "1654be6c37006d2c0709e15cadeafcda82b6d2df6526a96b2b6dd2ea2eee2225"
+    },
+    "UBERON:0002016": {
+      "id": "UBERON:0002016",
+      "label": "pulmonary vein",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0002016",
+      "fma_xrefs": [
+        "FMA:66643"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0002016",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002016",
+      "sha256": "ddfb72bd68545d923ba86d735d88b50a4e6182145e57cc5f54d108dac752f591"
+    },
+    "UBERON:0004573": {
+      "id": "UBERON:0004573",
+      "label": "systemic artery",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0004573",
+      "fma_xrefs": [
+        "FMA:66464"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0004573",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0004573",
+      "sha256": "fdaa242abdd8117f906cd193b70daba9c49fe9b3b414c87b38c01c53b900cd0e"
+    },
+    "UBERON:0013140": {
+      "id": "UBERON:0013140",
+      "label": "systemic vein",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0013140",
+      "fma_xrefs": [
+        "FMA:66644"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0013140",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0013140",
+      "sha256": "87dc328c338488e8a0d069b51b8e9b0da47e8a8f4dcca74ce861ad7af3a0f68e"
+    },
+    "UBERON:0016405": {
+      "id": "UBERON:0016405",
+      "label": "pulmonary capillary",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_0016405",
+      "fma_xrefs": [
+        "FMA:14121"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:0016405",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0016405",
+      "sha256": "a49a95d8c84db472da7e1b579ba275f59f578cdba8dd3785a312a44988b84ff3"
+    },
+    "UBERON:3010489": {
+      "id": "UBERON:3010489",
+      "label": "muscular artery",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_3010489",
+      "fma_xrefs": [],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:3010489",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_3010489",
+      "sha256": "f9b9c761d91cefdc04571ce5094e1e22ddeb2cba86e76553d6b52c76bc474c51"
+    },
+    "UBERON:8600024": {
+      "id": "UBERON:8600024",
+      "label": "pulmonary venule",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_8600024",
+      "fma_xrefs": [],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:8600024",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600024",
+      "sha256": "43f9cabb0c7b8099685d8f8640a75f4d5ace413e409e1c695fffe40f6ac147d9"
+    },
+    "UBERON:8600077": {
+      "id": "UBERON:8600077",
+      "label": "pulmonary arteriole",
+      "iri": "http://purl.obolibrary.org/obo/UBERON_8600077",
+      "fma_xrefs": [
+        "FMA:279896"
+      ],
+      "is_obsolete": false,
+      "is_defining_ontology": true,
+      "source_id": "ONTO-RES:UBERON:8600077",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600077",
+      "sha256": "12a6daf1947c244eb7eabc5733d51ddf1b2bde1daa54a2da3866c6cf1feac41b"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "ONTO-RES:UBERON:0001637",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001637",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001637",
+      "retrieved_at": "2026-11-02T10:12:19Z",
+      "http_status": 200,
+      "sha256": "1a92cbede2b035f3f74a0d61a62a197a27ffef0823ccfba496bf122e0fce049b",
+      "bytes": 8470,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "artery",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0001637",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0001638",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001638",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001638",
+      "retrieved_at": "2026-11-02T10:12:25Z",
+      "http_status": 200,
+      "sha256": "d0d450fd210e468efb8d4e8186184648131f0e9eab5d700253ed0aff016146c9",
+      "bytes": 8694,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "vein",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0001638",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0001979",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001979",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001979",
+      "retrieved_at": "2026-11-02T10:12:24Z",
+      "http_status": 200,
+      "sha256": "eb6e1862436002313a1a7f4764f7ca5a15c215de819c263ee14b9fbd213dc810",
+      "bytes": 6199,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "venule",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0001979",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0001980",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001980",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001980",
+      "retrieved_at": "2026-11-02T10:12:22Z",
+      "http_status": 200,
+      "sha256": "19189037bb731831dc934e77aff9dc14dafe8cacafc88909d1b456282296b667",
+      "bytes": 6317,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "arteriole",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0001980",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0001982",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001982",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0001982",
+      "retrieved_at": "2026-11-02T10:12:23Z",
+      "http_status": 200,
+      "sha256": "b1b68a965976919c7bc7198362abf69558d30e89b9ab12ee4301ec817cd0c33b",
+      "bytes": 7268,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "capillary",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0001982",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0002012",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002012",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002012",
+      "retrieved_at": "2026-11-02T10:12:28Z",
+      "http_status": 200,
+      "sha256": "1654be6c37006d2c0709e15cadeafcda82b6d2df6526a96b2b6dd2ea2eee2225",
+      "bytes": 10106,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "pulmonary artery",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0002016",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002016",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002016",
+      "retrieved_at": "2026-11-02T10:12:32Z",
+      "http_status": 200,
+      "sha256": "ddfb72bd68545d923ba86d735d88b50a4e6182145e57cc5f54d108dac752f591",
+      "bytes": 8267,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "pulmonary vein",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0002016",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0004573",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0004573",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0004573",
+      "retrieved_at": "2026-11-02T10:12:26Z",
+      "http_status": 200,
+      "sha256": "fdaa242abdd8117f906cd193b70daba9c49fe9b3b414c87b38c01c53b900cd0e",
+      "bytes": 4494,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "systemic artery",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0004573",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0013140",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0013140",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0013140",
+      "retrieved_at": "2026-11-02T10:12:27Z",
+      "http_status": 200,
+      "sha256": "87dc328c338488e8a0d069b51b8e9b0da47e8a8f4dcca74ce861ad7af3a0f68e",
+      "bytes": 4269,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "systemic vein",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0013140",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:0016405",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0016405",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0016405",
+      "retrieved_at": "2026-11-02T10:12:30Z",
+      "http_status": 200,
+      "sha256": "a49a95d8c84db472da7e1b579ba275f59f578cdba8dd3785a312a44988b84ff3",
+      "bytes": 3635,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "pulmonary capillary",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0016405",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:3010489",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_3010489",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_3010489",
+      "retrieved_at": "2026-11-02T10:12:33Z",
+      "http_status": 200,
+      "sha256": "f9b9c761d91cefdc04571ce5094e1e22ddeb2cba86e76553d6b52c76bc474c51",
+      "bytes": 2990,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "muscular artery",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_3010489",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:8600024",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600024",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600024",
+      "retrieved_at": "2026-11-02T10:12:31Z",
+      "http_status": 200,
+      "sha256": "43f9cabb0c7b8099685d8f8640a75f4d5ace413e409e1c695fffe40f6ac147d9",
+      "bytes": 4240,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "pulmonary venule",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_8600024",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:UBERON:8600077",
+      "url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600077",
+      "resolved_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_8600077",
+      "retrieved_at": "2026-11-02T10:12:29Z",
+      "http_status": 200,
+      "sha256": "12a6daf1947c244eb7eabc5733d51ddf1b2bde1daa54a2da3866c6cf1feac41b",
+      "bytes": 3838,
+      "evidence_file": "docs/evidence/resistance/terms.json",
+      "label": "pulmonary arteriole",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_8600077",
+      "verification": "Bounded exact OLS term record fields; FMA xrefs copied, not equivalence to model path.",
+      "licence_status": "Ontology licence metadata not independently verified."
+    },
+    {
+      "source_id": "ONTO-RES:PMC297229",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC297229/",
+      "resolved_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC297229/",
+      "retrieved_at": "2026-11-02T10:13:12Z",
+      "http_status": 200,
+      "sha256": "6246fb86e12966de50549039b2b0d089782fecafb682b1b6193ecc6f8ea18a40",
+      "bytes": 136425,
+      "evidence_file": "docs/evidence/resistance/excerpts/PMC297229.json",
+      "excerpt_file": "docs/evidence/resistance/excerpts/PMC297229.json",
+      "label": "Brody JS, Stemmler EJ, DuBois AB. J Clin Invest 1968;47(4):783-799. doi:10.1172/JCI105773",
+      "verification": "Verbatim bounded excerpts from independently reviewed ONTO-RES-02 evidence.",
+      "licence_status": "PMC full text; PMC copyright notice, no CC licence seen on page. Not CC-confirmed on retrieved page; quote short excerpts only",
+      "retained_excerpt_sha256": "e14b01be9b38629da0fae5c7449a254a2c91a180a2439d3eb5ec39191933359e"
+    },
+    {
+      "source_id": "ONTO-RES:PMC6039797",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6039797/",
+      "resolved_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6039797/",
+      "retrieved_at": "2026-11-02T10:13:14Z",
+      "http_status": 200,
+      "sha256": "d13969b89ff26a7e3ac16f88d0e4fa10e3e416cddc9a9fd124fbe65d0ad3351a",
+      "bytes": 126802,
+      "evidence_file": "docs/evidence/resistance/excerpts/PMC6039797.json",
+      "excerpt_file": "docs/evidence/resistance/excerpts/PMC6039797.json",
+      "label": "Chamarthy MR, Kalva SP. Cardiovasc Diagn Ther 2018;8(3):208-213. doi:10.21037/cdt.2018.01.08",
+      "verification": "Verbatim bounded excerpts from independently reviewed ONTO-RES-02 evidence.",
+      "licence_status": "No licence text found in retrieved page. Not CC-confirmed on retrieved page; quote short excerpts only",
+      "retained_excerpt_sha256": "7b159b241362852b9783434ffe788346c220619393d2cda02f60b87a5ad4187c"
+    },
+    {
+      "source_id": "ONTO-RES:PMC10110735",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+      "resolved_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+      "retrieved_at": "2026-11-02T10:14:03Z",
+      "http_status": 200,
+      "sha256": "cd7d9c3aa126753a8d3a3a10a7d0bbe0bae11a46a980543efa4203636e5b46af",
+      "bytes": 1089247,
+      "evidence_file": "docs/evidence/resistance/excerpts/PMC10110735.json",
+      "excerpt_file": "docs/evidence/resistance/excerpts/PMC10110735.json",
+      "label": "Balistrieri A, ..., Yuan JX-J. Physiol Rev 2023;103(3):1827-1897. doi:10.1152/physrev.00030.2021",
+      "verification": "Verbatim bounded excerpts from independently reviewed ONTO-RES-02 evidence.",
+      "licence_status": "(c) 2023 American Physiological Society (PMC author manuscript); no CC licence seen. Not CC-confirmed on retrieved page; quote short excerpts only",
+      "retained_excerpt_sha256": "e89099cdc4c43554d3acdf78292051c9f5b94ecd32dc024609ffd62e0c5937fd"
+    },
+    {
+      "source_id": "ONTO-RES:PMID3946629",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3946629&retmode=xml",
+      "resolved_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3946629&retmode=xml",
+      "retrieved_at": "2026-11-02T10:14:42Z",
+      "http_status": 200,
+      "sha256": "d3ad27b2ac01c1f129ebc228c8c106347b1b00a507f27e84374df837c5c1c5a7",
+      "bytes": 6158,
+      "evidence_file": "docs/evidence/resistance/excerpts/PMID3946629.json",
+      "excerpt_file": "docs/evidence/resistance/excerpts/PMID3946629.json",
+      "label": "Davis MJ, Ferrer PN, Gore RW. Am J Physiol 1986;250(2 Pt 2):H291-H303 (hamster cheek pouch)",
+      "verification": "Verbatim bounded excerpts from independently reviewed ONTO-RES-02 evidence.",
+      "licence_status": "PubMed abstract via NCBI E-utilities; abstract only; short excerpt only",
+      "retained_excerpt_sha256": "9052a508d2df404c6df50d371598fd6df0b12effd4ca8dc4c7da6a58ba1a8341"
+    }
+  ]
+}

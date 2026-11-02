@@ -1,0 +1,33 @@
+{
+  "source": "Balistrieri A, ..., Yuan JX-J. Physiol Rev 2023;103(3):1827-1897. doi:10.1152/physrev.00030.2021",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10110735/",
+  "retrieved_utc": "2026-11-02T10:14:03Z",
+  "sha256_full_body": "cd7d9c3aa126753a8d3a3a10a7d0bbe0bae11a46a980543efa4203636e5b46af",
+  "licence_status": "(c) 2023 American Physiological Society (PMC author manuscript); no CC licence seen. Not CC-confirmed on retrieved page; quote short excerpts only",
+  "excerpts": [
+    {
+      "location": "Section on pressure distribution (text preceding Figure 2), sentence 3",
+      "quote": "In the systemic circulatory system, the muscular small arteries and arterioles (or resistance arteries) account for 70% of the pressure drop.",
+      "found_verbatim_in_retained_text": true,
+      "caveats": "review statement; systemic data per figure legend from Fronek & Zweifach 1974 (mesenteric, skeletal muscle; species not stated in the text read)"
+    },
+    {
+      "location": "same paragraph, sentences 4-5",
+      "quote": "The systemic capillaries and veins only account for 7% and 19% of the pressure drop, respectively",
+      "found_verbatim_in_retained_text": true,
+      "caveats": "70+7+19 = 96%, remainder (large arteries) not stated"
+    },
+    {
+      "location": "same paragraph, sentence 6",
+      "quote": "In the pulmonary circulation system, however, the pressure drop is evenly distributed among the pulmonary arteries and veins.",
+      "found_verbatim_in_retained_text": true,
+      "caveats": "review qualitative statement"
+    },
+    {
+      "location": "Figure 2 legend",
+      "quote": "the pulmonary artery accounts for 30 ± 7% of the total pressure drop, whereas the pressure drop in the capillary and vein accounts for 17 ± 3% and 39 ± 13%, respectively.",
+      "found_verbatim_in_retained_text": true,
+      "caveats": "Figure 2 legend; 30+17+39 = 86%; data per Refs 8-10 incl. Brody 1968, Hakim 1982; pressure drop, not resistance"
+    }
+  ]
+}

@@ -92,8 +92,11 @@ class VariableAnnotation:
     applicable_contexts: tuple[str, ...] = ('baseline', 'reduced_contractility', 'partial_contractility_restoration')
     depends_on: tuple[str, ...] = ()
     biological_context: tuple[str, ...] = ('circulation',)
-    bearer: str = 'blood'  # blood, compartment wall, flow process, or heart process
+    bearer: str = 'blood'  # blood, organ, compartment, flow process/path, or heart process
     occurs_in: Concept | None = None  # location of a flow process (valve flows only)
+    blood_entity: str | None = None
+    pressure_differential: dict | None = None
+    anatomy_context: dict | None = None  # Non-identity vascular lumen context; local anatomy retained.
     flow_path: dict | None = None  # D-G4 canonical model-local resistance bearer
 
     @property
@@ -103,11 +106,22 @@ class VariableAnnotation:
 
 def cardiovascular_registry() -> dict[str, VariableAnnotation]:
     """Return a fresh registry; names deliberately match the model's compartment codes."""
-    from .contracts import _phase1_builder
-    paths = _phase1_builder().paths
+    from .contracts import build_phase1_contract, _compartment_context, _VESSELS
+    from dataclasses import asdict
+    from .representation import GAUGE, pressure_reference
+    canonical = build_phase1_contract()
+    paths = canonical.paths
     registry = {}
 
     def add(name, anatomy, prop, unit, equation, role, **kwargs):
+        c = name[2:] if name.startswith(('V_', 'P_', 'C_')) else None
+        if c in ANATOMY and prop in ('pressure','volume'):
+            kwargs['blood_entity'] = 'phase1:blood:'+c
+        if prop == 'pressure':
+            kwargs['pressure_differential'] = {'source':'phase1:blood:'+c,
+                'sink':pressure_reference()['sink'], 'reference':GAUGE}
+        if c in _VESSELS:
+            kwargs['anatomy_context'] = asdict(_compartment_context(c))
         registry[name] = VariableAnnotation(name, anatomy, PROPERTIES[prop], unit, equation, role, **kwargs)
 
     for compartment in ('lv', 'rv', 'sa', 'sv', 'pa', 'pv'):
@@ -116,16 +130,16 @@ def cardiovascular_registry() -> dict[str, VariableAnnotation]:
         chamber = compartment in ('lv', 'rv')
         add('P_' + compartment, anatomy, 'pressure', 'mmHg',
             'P = E(t)*(V - V0)' if chamber else 'P = (V - V0)/C', 'algebraic',
-            reference='model gauge pressure; fixed external pressure zero',
+            reference=GAUGE,
             depends_on=('V_' + compartment, ('E_' if chamber else 'C_') + compartment))
         if chamber:
-            # Organ-level v2 reference; whether the wall node fits a whole-chamber elastance is undecided.
+            # D-G3: whole-chamber elastance has an organ bearer, not a wall material bearer.
             add('E_' + compartment, NODES[compartment], 'elastance', 'mmHg/mL',
                 'E(t) = Emin + (Emax-Emin)*activation(t,HR)', 'time-varying parameter',
-                depends_on=('HR',), biological_context=('contraction',), bearer='compartment wall')
+                depends_on=('HR',), biological_context=('contraction',), bearer='organ')
         else:
             add('C_' + compartment, anatomy, 'compliance', 'mL/mmHg',
-                'C = dV/dP; constant linear reservoir compliance', 'parameter', bearer='compartment wall')
+                'C = dV/dP; constant linear reservoir compliance', 'parameter', bearer='compartment')
     edges = [('aortic', 'lv', 'sa', True), ('systemic', 'sa', 'sv', False),
              ('tricuspid', 'sv', 'rv', True), ('pulmonary_valve', 'rv', 'pa', True),
              ('pulmonary', 'pa', 'pv', False), ('mitral', 'pv', 'lv', True)]
@@ -136,7 +150,7 @@ def cardiovascular_registry() -> dict[str, VariableAnnotation]:
             'Q = max(P_up-P_down,0)/R' if valve else 'Q = (P_up-P_down)/R', 'algebraic',
             orientation=orientation, depends_on=('P_' + origin, 'P_' + target, 'R_' + edge), bearer='flow process',
             occurs_in=VALVES.get(edge))
-        add('R_' + edge, anatomy, 'resistance', 'mmHg*s/mL', 'R = pressure_drop / flow',
+        add('R_' + edge, anatomy, 'resistance', 'mmHg*s/mL', 'R = supplied constant of model flow path',
             'parameter', orientation=orientation, bearer='flow path', flow_path=paths[edge])
     add('HR', NODES['heart'], 'frequency', '1/min', 'T_seconds = 60 / HR_per_minute',
         'parameter', biological_context=('contraction',), bearer='heart process')
@@ -146,6 +160,13 @@ def cardiovascular_registry() -> dict[str, VariableAnnotation]:
         'observable', temporal_context='complete beat', depends_on=('Q_aortic',), bearer='flow process')
     add('V_total', ANATOMY['circulation'], 'volume', 'mL', 'V_total = sum(V_i)',
         'observable', depends_on=tuple('V_' + x for x in ('lv', 'rv', 'sa', 'sv', 'pa', 'pv')))
+    from dataclasses import replace
+    for name,v in registry.items():
+        q = canonical.quantity(name)
+        kind = 'state_evolution' if q.kind == 'state' else 'definition' if q.kind == 'metric' else 'constitutive'
+        law = next((l for l in canonical.dependency_graph['laws'] if q.name in l['outputs'] and l['kind']==kind),None)
+        if law:
+            registry[name] = replace(v,depends_on=tuple(law['inputs']))
     return registry
 
 
@@ -210,6 +231,14 @@ def validate_connection(source: VariableAnnotation, target: VariableAnnotation,
     for field in ('orientation', 'temporal_context', 'reference', 'bearer', 'biological_context'):
         if getattr(source, field) != getattr(target, field):
             raise SemanticConnectionError(f'{field} mismatch')
+    for endpoint in (source,target):
+        if endpoint.property.uri == PROPERTIES['pressure'].uri:
+            from .representation import GAUGE, pressure_reference
+            compartment = next((c for c,a in ANATOMY.items() if a.uri==endpoint.anatomy.uri),None)
+            expected_blood = 'phase1:blood:'+compartment if compartment else None
+            expected = {'source':expected_blood,'sink':pressure_reference()['sink'],'reference':GAUGE}
+            if endpoint.reference != GAUGE or endpoint.blood_entity != expected_blood or endpoint.pressure_differential != expected:
+                raise SemanticConnectionError('pressure reference/source/sink/blood mismatch')
     units = pint.UnitRegistry()
     canonical_units = {'pressure': 'mmHg', 'volume': 'mL', 'flow': 'mL/s',
                        'resistance': 'mmHg*s/mL', 'compliance': 'mL/mmHg',
@@ -290,6 +319,8 @@ def build_graph(registry=None):
                 model.add((URIRef(c.uri), RDFS.label, Literal(c.label)))
                 model.add((URIRef(c.uri), ns.mappingStatus, Literal('local extension' if c.local else 'unverified caller concept')))
         bearer = URIRef(BASE + 'bearer/' + key)
+        if v.blood_entity:
+            bearer = URIRef(BASE + v.blood_entity.replace(':','/'))
         if v.flow_path:
             bearer = URIRef(BASE + v.flow_path['id'].replace(':', '/'))
             for context in v.flow_path['traverses']:
@@ -304,19 +335,64 @@ def build_graph(registry=None):
             # C5 bearer form: the portion of blood is part of its cavity or lumen.
             model.add((bearer, URIRef(BQBIOL + 'isPartOf'), URIRef(v.anatomy.uri)))
         else:
-            # Non-blood bearers and local compartments keep the project relation (no lumen mapping decided).
+            # Local compartments retain identity; non-identity lumen context is recorded separately below.
             model.add((bearer, ns.locatedIn, URIRef(v.anatomy.uri)))
         if v.bearer == 'blood':
             model.add((bearer, ns.entityType, URIRef(BLOOD.uri)))
+        if v.anatomy_context:
+            from .four_chamber_m1_manifest import load_anatomy_v2
+            node = next(n for n in load_anatomy_v2()['nodes'] if n['key'] == v.anatomy_context['key'])
+            target = URIRef('http://purl.org/sig/ont/fma/fma'+node['fma'].split(':')[1])
+            model.add((bearer, ns.lumpedCompartmentContext, target))
+            model.add((target, ns.anatomyKey, Literal(node['key'])))
+        if v.pressure_differential:
+            from .representation import pressure_reference
+            ref = pressure_reference()
+            differential = URIRef(BASE+'phase1/pressure_differential/'+key)
+            model.add((subject, ns.pressureDifferential, differential))
+            model.add((differential, ns.hasSourceParticipant, bearer))
+            sink = URIRef(BASE+ref['sink'].replace(':','/'))
+            model.add((differential, ns.hasSinkParticipant, sink))
+            model.add((differential, ns.pressureReference, URIRef(BASE+'reference/'+ref['id'])))
+            model.add((sink, ns.pressureMmhg, Literal(0.)))
+            model.add((sink, ns.atmosphereRelation, Literal('UNKNOWN')))
+        if v.orientation and v.bearer == 'flow process':
+            for predicate, c in zip((ns.hasSourceParticipant,ns.hasTargetParticipant),v.orientation):
+                model.add((bearer, predicate, URIRef(BASE+'phase1/blood/'+c)))
         if v.occurs_in:
             model.add((bearer, URIRef(BQBIOL + 'occursIn'), URIRef(v.occurs_in.uri)))
         if v.orientation:
             model.add((subject, ns.flowSource, URIRef(ANATOMY[v.orientation[0]].uri)))
             model.add((subject, ns.flowSink, URIRef(ANATOMY[v.orientation[1]].uri)))
         for dependency in v.depends_on:
-            model.add((subject, ns.dependsOn, URIRef(BASE + 'variable/' + dependency)))
+            model.add((subject, ns.dependsOn, URIRef(BASE + 'phase1/quantity/' + dependency)))
         for context in v.biological_context:
             model.add((subject, ns.processContext, URIRef(CONTEXTS[context].uri)))
+    # Complete Phase 1 law nodes coexist with the legacy variable projection.
+    # M1 is available through the canonical model contract; unified RDF follows in WP13.
+    from .contracts import build_phase1_contract
+    canonical = build_phase1_contract()
+    for q in canonical.quantities:
+        target = URIRef(BASE+'phase1/quantity/'+q.name)
+        model.add((target, RDF.type, ns.QuantityContract))
+        model.add((target, RDFS.label, Literal(q.name)))
+    for law in canonical.dependency_graph['laws']:
+        target = URIRef(BASE+law['id'].replace(':','/'))
+        model.add((target, RDF.type, ns.ModelLaw))
+        model.add((target, ns.lawKind, Literal(law['kind'])))
+        model.add((target, ns.equation, Literal(law['equation'])))
+        model.add((target, ns.temporalDefinition, Literal(law['temporal'])))
+        for name in law['inputs']:
+            model.add((target, ns.hasInput, URIRef(BASE+'phase1/quantity/'+name)))
+        for name in law['outputs']:
+            model.add((target, ns.hasOutput, URIRef(BASE+'phase1/quantity/'+name)))
+        for name,coefficient in law['coefficients'].items():
+            contribution = URIRef(str(target)+'/contribution/'+name)
+            model.add((target, ns.signedContribution, contribution))
+            model.add((contribution, ns.quantity, URIRef(BASE+'phase1/quantity/'+name)))
+            model.add((contribution, ns.coefficient, Literal(coefficient)))
+        for source in law['evidence']:
+            model.add((target, DCTERMS.source, Literal(source)))
     # Disease concepts are vocabulary context only: no assertion of disease in baseline.
     provenance.add((URIRef(CONTEXTS['heart_failure'].uri), ns.usageNote,
                     Literal('Disease context vocabulary only; does not diagnose simulated baseline')))
