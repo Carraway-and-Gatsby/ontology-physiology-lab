@@ -11,6 +11,7 @@ import json
 import os
 from pathlib import Path
 import platform
+# Retained for the pre-existing portability test's monkeypatch target.
 from tempfile import TemporaryDirectory
 import numpy as np
 from physiosim.models.cardiovascular import Parameters as LegacyParameters
@@ -89,34 +90,27 @@ def _publish(output, payloads):
 
 
 def _figure(result):
-    # Prepare the figure with a private cache before publishing any output.
-    with TemporaryDirectory(prefix='physiosim-mpl-') as cache:
-        previous=os.environ.get('MPLCONFIGDIR')
-        os.environ['MPLCONFIGDIR']=cache
-        try:
-            from matplotlib.figure import Figure
-            from matplotlib.backends.backend_agg import FigureCanvasAgg
-            fig=Figure(figsize=(11,8)); FigureCanvasAgg(fig)
-            axes=fig.subplots(2,2); beat=result.final_beat; time=result.time[beat]
-            for c in ('lv','rv','la','ra'):
-                i=COMPARTMENTS.index(c)
-                axes[0,0].plot(time,result.pressures[beat,i],label=c)
-                axes[0,1].plot(time,result.volumes[beat,i],label=c)
-                axes[1,0].plot(result.volumes[beat,i],result.pressures[beat,i],label=c)
-            for edge in ('aortic','pulmonary_valve','mitral','tricuspid'):
-                axes[1,1].plot(time,result.flow(edge)[beat],label=edge)
-            for ax,x,y in [(axes[0,0],'time (s)','pressure (mmHg)'),
-                           (axes[0,1],'time (s)','volume (mL)'),
-                           (axes[1,0],'volume (mL)','pressure (mmHg)'),
-                           (axes[1,1],'time (s)','flow (mL/s)')]:
-                ax.set(xlabel=x,ylabel=y); ax.legend(fontsize=8)
-            fig.suptitle('SYNTHETIC/EXPLORATORY M1 — not clinically validated (final beat)')
-            fig.tight_layout(rect=(0,0,1,.95))
-            buffer=BytesIO(); fig.savefig(buffer,format='png',dpi=120,metadata={'Software':'physiosim four_chamber_m1'})
-            return buffer.getvalue()
-        finally:
-            if previous is None: os.environ.pop('MPLCONFIGDIR',None)
-            else: os.environ['MPLCONFIGDIR']=previous
+    # Render in-process before publication; leave matplotlib configuration alone.
+    from matplotlib.figure import Figure
+    from matplotlib.backends.backend_agg import FigureCanvasAgg
+    fig=Figure(figsize=(11,8)); FigureCanvasAgg(fig)
+    axes=fig.subplots(2,2); beat=result.final_beat; time=result.time[beat]
+    for c in ('lv','rv','la','ra'):
+        i=COMPARTMENTS.index(c)
+        axes[0,0].plot(time,result.pressures[beat,i],label=c)
+        axes[0,1].plot(time,result.volumes[beat,i],label=c)
+        axes[1,0].plot(result.volumes[beat,i],result.pressures[beat,i],label=c)
+    for edge in ('aortic','pulmonary_valve','mitral','tricuspid'):
+        axes[1,1].plot(time,result.flow(edge)[beat],label=edge)
+    for ax,x,y in [(axes[0,0],'time (s)','pressure (mmHg)'),
+                   (axes[0,1],'time (s)','volume (mL)'),
+                   (axes[1,0],'volume (mL)','pressure (mmHg)'),
+                   (axes[1,1],'time (s)','flow (mL/s)')]:
+        ax.set(xlabel=x,ylabel=y); ax.legend(fontsize=8)
+    fig.suptitle('SYNTHETIC/EXPLORATORY M1 — not clinically validated (final beat)')
+    fig.tight_layout(rect=(0,0,1,.95))
+    buffer=BytesIO(); fig.savefig(buffer,format='png',dpi=120,metadata={'Software':'physiosim four_chamber_m1'})
+    return buffer.getvalue()
 
 
 def run_demo(output, *, parameters=None, cycles=30, samples_per_cycle=400, settings=None):

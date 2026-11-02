@@ -121,3 +121,24 @@ def test_validation_and_volume_failure(monkeypatch):
         return SimpleNamespace(success=False,message='synthetic solver failure')
     monkeypatch.setattr(s,'solve_ivp',failed)
     with pytest.raises(RuntimeError,match='synthetic solver failure'): run()
+
+
+def test_internal_pressure_path_skips_public_validation_and_matches_scalar(monkeypatch):
+    from unittest.mock import Mock
+    from physiosim.models.four_chamber_m1 import pressures, edge_flows
+    from physiosim.simulation import four_chamber_m1 as simulation
+
+    public = Mock(wraps=pressures)
+    monkeypatch.setattr(simulation, 'pressures', public, raising=False)
+    from physiosim.experiments.four_chamber_m1_demo import synthetic_fixture
+    p = synthetic_fixture()
+    result = simulation.simulate_m1(p, cycles=2, samples_per_cycle=50,
+        settings=simulation.SolverSettings(max_step=p.period/200))
+    assert public.call_count == 0
+    expected = np.array([pressures(t, v, p) for t, v in zip(result.time, result.volumes)])
+    assert np.array_equal(result.pressures, expected)
+    assert np.array_equal(result.flows, np.array([edge_flows(pr, p) for pr in expected]))
+    for time, volumes in [(float('nan'), p.initial_volumes), (0., [1.]),
+                          (True, p.initial_volumes), (0., [float('inf')]*8)]:
+        with pytest.raises(ValueError):
+            pressures(time, volumes, p)

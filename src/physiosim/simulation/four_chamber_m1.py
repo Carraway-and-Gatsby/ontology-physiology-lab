@@ -8,8 +8,10 @@ import numpy as np
 from scipy.integrate import solve_ivp, trapezoid
 from physiosim.models.four_chamber_m1 import (
     COMPARTMENTS, EDGE_NAMES, INCIDENCE, SOURCE, TARGET, VALVE_INDICES,
-    FourChamberM1Parameters, positive_scalar, pressures, edge_flows, resistances,
+    FourChamberM1Parameters, positive_scalar, edge_flows, resistances,
 )
+
+from physiosim.models.cardiovascular import elastance
 
 
 @dataclass(frozen=True)
@@ -112,13 +114,32 @@ class FourChamberM1Result:
         return result
 
 
+def _pressures(time, volumes, p):
+    """Internal solver states only; arithmetic matches public model pressures."""
+    elv, erv = elastance(time, p)
+    coefficient = np.array([elv, 1/p.compliance_sa, 1/p.compliance_sv, p.elastance_ra,
+                            erv, 1/p.compliance_pa, 1/p.compliance_pv, p.elastance_la])
+    return coefficient*(volumes-p.unstressed_volumes)
+
+
+def _sample_pressures(times, volumes, p):
+    # Keep scalar math.cos activation for bit identity with the public model.
+    ventricular = np.array([elastance(t, p) for t in times])
+    coefficient = np.empty_like(volumes)
+    coefficient[:, 0] = ventricular[:, 0]
+    coefficient[:, 4] = ventricular[:, 1]
+    coefficient[:, [1, 2, 3, 5, 6, 7]] = [1/p.compliance_sa, 1/p.compliance_sv,
+        p.elastance_ra, 1/p.compliance_pa, 1/p.compliance_pv, p.elastance_la]
+    return coefficient*(volumes-p.unstressed_volumes)
+
+
 def _gaps(time,volume,p):
-    pressure=pressures(time,volume,p)
+    pressure=_pressures(time,volume,p)
     return pressure[SOURCE[VALVE_INDICES]]-pressure[TARGET[VALVE_INDICES]]
 
 
 def _right_hand_modes(time,volume,p,modes,boundary):
-    pressure=pressures(time,volume,p)
+    pressure=_pressures(time,volume,p)
     gaps=pressure[SOURCE[VALVE_INDICES]]-pressure[TARGET[VALVE_INDICES]]
     eps=np.finfo(float).eps
     resolution=np.full(4,64*eps*max(1.,float(np.max(np.abs(pressure)))))
@@ -154,7 +175,7 @@ def _integrate(p,times,cycles,settings):
             regime=modes.copy()
 
             def derivative(time,state):
-                pressure=pressures(time,state[:8],p)
+                pressure=_pressures(time,state[:8],p)
                 q=(pressure[SOURCE]-pressure[TARGET])/resistance
                 q[VALVE_INDICES[~regime]]=0.
                 return np.concatenate((INCIDENCE@q,q))
@@ -162,7 +183,7 @@ def _integrate(p,times,cycles,settings):
             events=[]
             for edge,opened in zip(VALVE_INDICES,regime):
                 def event(time,state,edge=int(edge),opened=bool(opened)):
-                    pressure=pressures(time,state[:8],p)
+                    pressure=_pressures(time,state[:8],p)
                     gap=float(pressure[SOURCE[edge]]-pressure[TARGET[edge]])
                     return gap if gap != 0 else (np.finfo(float).eps if opened else -np.finfo(float).eps)
                 event.terminal=True
@@ -224,6 +245,9 @@ def simulate_m1(parameters, cycles=30, samples_per_cycle=400, settings=None):
     times=np.linspace(0.,duration,cycles*samples_per_cycle+1)
     if not np.all(np.diff(times)>0): raise ValueError('sample times must advance')
     volumes,cumulative=_integrate(parameters,times,cycles,settings)
-    pressure=np.array([pressures(t,v,parameters) for t,v in zip(times,volumes)])
-    flow=np.array([edge_flows(pr,parameters) for pr in pressure])
+    pressure=_sample_pressures(times,volumes,parameters)
+    if not np.isfinite(pressure).all():
+        raise ValueError('pressure must contain eight finite real numbers')
+    flow=(pressure[:,SOURCE]-pressure[:,TARGET])/resistances(parameters)
+    flow[:,VALVE_INDICES]=np.maximum(flow[:,VALVE_INDICES],0.)
     return FourChamberM1Result(times,volumes,pressure,flow,cumulative,parameters,settings,cycles,samples_per_cycle)

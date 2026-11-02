@@ -3,7 +3,6 @@ from dataclasses import asdict
 import csv
 import json
 from pathlib import Path
-import subprocess
 import numpy as np
 import pytest
 from physiosim.experiments.four_chamber_m1_demo import run_demo, synthetic_fixture, main
@@ -47,3 +46,53 @@ def test_cli_config_and_failure(tmp_path):
     config.write_text('{"unexpected":1}')
     with pytest.raises(ValueError): main(['--output',str(tmp_path/'bad'),'--config',str(config)])
     with pytest.raises(SystemExit): main([])
+
+
+@pytest.mark.parametrize('caller_config', [False, True])
+def test_figure_preserves_environment_and_live_matplotlib_config(monkeypatch, tmp_path, caller_config):
+    import os
+    from physiosim.experiments.four_chamber_m1_demo import _figure
+    from physiosim.simulation.four_chamber_m1 import simulate_m1
+
+    import matplotlib
+    from matplotlib.figure import Figure
+    configdir = matplotlib.get_configdir()
+    cachedir = matplotlib.get_cachedir()
+    if caller_config:
+        monkeypatch.setenv('MPLCONFIGDIR', str(tmp_path/'caller-cache'))
+    else:
+        monkeypatch.delenv('MPLCONFIGDIR', raising=False)
+    changes = []
+    original = dict(os.environ)
+    renders = []
+    savefig = Figure.savefig
+
+    def record_savefig(figure, *args, **kwargs):
+        renders.append((matplotlib.get_configdir(), matplotlib.get_cachedir(), dict(os.environ)))
+        return savefig(figure, *args, **kwargs)
+
+    monkeypatch.setattr(Figure, 'savefig', record_savefig)
+
+    class Environment(dict):
+        def __setitem__(self, key, value):
+            changes.append(key)
+            super().__setitem__(key, value)
+
+        def pop(self, key, *default):
+            changes.append(key)
+            return super().pop(key, *default)
+
+        def __delitem__(self, key):
+            changes.append(key)
+            super().__delitem__(key)
+
+    monkeypatch.setattr(os, 'environ', Environment(original))
+    result = simulate_m1(synthetic_fixture(), cycles=1, samples_per_cycle=4)
+    assert _figure(result).startswith(b'\x89PNG')
+    assert renders == [(configdir, cachedir, original)]
+    assert matplotlib.get_configdir() == configdir
+    assert matplotlib.get_cachedir() == cachedir
+    assert 'MPLCONFIGDIR' not in changes
+    assert dict(os.environ) == original
+    assert Path(matplotlib.get_configdir()).is_dir()
+    assert Path(matplotlib.get_cachedir()).is_dir()
