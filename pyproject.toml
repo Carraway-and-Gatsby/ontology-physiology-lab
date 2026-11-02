@@ -20,6 +20,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 "physiosim.ontology" = ["*.json", "*.ttl"]
+"physiosim.agent" = ["*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

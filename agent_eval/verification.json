@@ -1,0 +1,43 @@
+{
+  "request_id": "AGENT-CORE-01",
+  "python": ".venv/bin/python",
+  "environment": "PYTHONPATH=src required because shared venv editable installation points at the parent checkout.",
+  "baseline": {
+    "command": "PYTHONPATH=src .venv/bin/python -m pytest -q -p no:cacheprovider",
+    "passed": 178,
+    "warnings": 5,
+    "duration_s": 81.63,
+    "initial_unqualified_run": "4 collection errors from stale parent-checkout imports; no source failure after selecting this worktree."
+  },
+  "final": {
+    "command": "PYTHONPATH=src .venv/bin/python -m pytest -q -p no:cacheprovider",
+    "passed": 265,
+    "warnings": 6,
+    "duration_s": 98.04
+  },
+  "pyodide_import_boundary": {
+    "passed": 1,
+    "duration_s": 0.56,
+    "note": "Fresh subprocess blocked rdflib, pint, matplotlib and network connections; both real engines executed. No new real-browser Pyodide run."
+  },
+  "cli_dry_run": {
+    "passed": true,
+    "out": "agent_eval/dry-run",
+    "note": "Scripted M1 mapping with actual local engine; no provider calls."
+  },
+  "fake_eval": {
+    "passed": 14,
+    "cases": 14,
+    "out": "agent_eval/fake-eval",
+    "tokens": 0,
+    "note": "Infrastructure test with supplied expected mappings, not LLM quality."
+  },
+  "catalogue": {
+    "phase1": 28,
+    "m1": 36,
+    "with_ontology_binding": 44
+  },
+  "write_scope": "Only physiosim.agent, test_agent_*.py, agent_eval, docs/agent.md and one package-data line in pyproject.toml changed.",
+  "git_commit_or_push_performed": false,
+  "live_provider_calls_performed": false
+}

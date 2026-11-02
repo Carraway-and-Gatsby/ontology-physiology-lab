@@ -1,0 +1,200 @@
+"""Minimal OpenAI-compatible tool-calling client using urllib only.
+
+No credential discovery/network activity happens at import or in FakeProvider.
+"""
+from dataclasses import dataclass, field
+import json
+import os
+import re
+import time
+from urllib import request, error, parse
+
+
+class ProviderError(RuntimeError):
+    pass
+
+
+def redact(text, secrets=()):
+    text = str(text)
+    for secret in secrets:
+        if secret:
+            text = text.replace(secret,'[REDACTED]')
+    text = re.sub(r'(?i)(authorization\s*[:=]\s*)(?:bearer\s+)?[^\s,;"}]+',r'\1[REDACTED]',text)
+    return text
+
+
+@dataclass(frozen=True, repr=False)
+class ProviderConfig:
+    provider: str
+    base_url: str
+    api_key: str
+    model: str
+    timeout: float = 60.
+    retries: int = 2
+    extra: dict = field(default_factory=dict)
+
+    def __repr__(self):
+        return f'ProviderConfig(provider={self.provider!r}, model={self.model!r}, api_key=[REDACTED])'
+
+
+def parse_extra_json(value):
+    """Parse request extensions without reflecting possibly sensitive input."""
+    try:
+        parsed = json.loads(value)
+        if not isinstance(parsed, dict):
+            raise ValueError('object required')
+        json.dumps(parsed, allow_nan=False)
+    except (ValueError, TypeError):
+        raise ProviderError('extra request fields must be a finite JSON object') from None
+    return parsed
+
+
+def provider_config(provider='meta', model=None, environ=None, *, extra=None):
+    env = os.environ if environ is None else environ
+    presets = {'meta':('https://api.meta.ai/v1','MODEL_API_KEY','muse-spark-1.3'),
+               'openai':('https://api.openai.com/v1','OPENAI_API_KEY',None),
+               'anthropic':('https://api.anthropic.com/v1','ANTHROPIC_API_KEY',None),
+               'custom':(env.get('LAB_LLM_BASE_URL',''),'LAB_LLM_API_KEY',None)}
+    if provider not in presets:
+        raise ProviderError('provider must be meta, openai, anthropic or custom')
+    base, key_env, default_model = presets[provider]
+    selected = model or (default_model if provider == 'meta' else env.get('LAB_LLM_MODEL'))
+    if not selected:
+        raise ProviderError('set --model or LAB_LLM_MODEL for this provider')
+    key = env.get(key_env,'')
+    if not key and provider != 'custom':
+        raise ProviderError('missing credential environment variable '+key_env)
+    parsed = parse.urlsplit(base)
+    if parsed.scheme not in ('https','http') or not parsed.hostname or parsed.username or parsed.password or parsed.query or parsed.fragment:
+        raise ProviderError('base URL must be an http(s) endpoint without credentials, query or fragment')
+    if parsed.scheme == 'http' and parsed.hostname not in ('localhost','127.0.0.1','::1'):
+        raise ProviderError('plain HTTP is supported only for loopback custom providers')
+    fields = {'reasoning_effort':'none'} if provider == 'openai' else {}
+    if 'LAB_LLM_EXTRA_JSON' in env:
+        fields.update(parse_extra_json(env['LAB_LLM_EXTRA_JSON']))
+    if extra is not None:
+        if not isinstance(extra,dict):
+            raise ProviderError('extra request fields must be a finite JSON object')
+        try:
+            fields.update(parse_extra_json(json.dumps(extra,allow_nan=False)))
+        except (ValueError,TypeError):
+            raise ProviderError('extra request fields must be a finite JSON object') from None
+    return ProviderConfig(provider,base.rstrip('/'),key,selected,extra=fields)
+
+
+def _error_excerpt(response, api_key):
+    """Use only the body, redact before clipping, and bound both reads and output."""
+    try:
+        raw = response.read(8*1024*1024+1)
+        if len(raw) > 8*1024*1024:
+            return 'error response exceeded size limit'
+        body = raw.decode('utf-8',errors='replace')
+        try:
+            data = json.loads(body)
+            message = data.get('error',{}).get('message') if isinstance(data,dict) else None
+            if isinstance(message,str):
+                body = message
+        except (ValueError,AttributeError):
+            pass
+        return redact(body,(api_key,))[:600]
+    except (OSError,ValueError):
+        return 'error response body unavailable'
+
+
+class _NoRedirect(request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        # Do not forward bearer credentials to an unexpected host.
+        return None
+
+
+class ChatProvider:
+    def __init__(self, config, *, opener=None, sleeper=time.sleep):
+        self.config = config
+        self.provider = config.provider
+        self.model = config.model
+        self._opener = opener if opener is not None else request.build_opener(_NoRedirect()).open
+        self._sleep = sleeper
+
+    def complete(self, messages, tools):
+        config = self.config
+        payload = json.dumps({'model':config.model,'messages':messages,'tools':tools,'tool_choice':'auto',
+                              **config.extra},allow_nan=False).encode()
+        headers = {'Content-Type':'application/json','Accept':'application/json'}
+        if config.api_key:
+            headers['Authorization'] = 'Bearer '+config.api_key
+        req = request.Request(config.base_url+'/chat/completions',data=payload,headers=headers,method='POST')
+        for attempt in range(config.retries+1):
+            try:
+                with self._opener(req,timeout=config.timeout) as response:
+                    raw = response.read(8*1024*1024+1)
+                if len(raw) > 8*1024*1024:
+                    raise ProviderError('provider response exceeded size limit')
+                data = json.loads(raw)
+                message = data['choices'][0]['message']
+                if not isinstance(message,dict):
+                    raise ValueError('invalid assistant message')
+                return {'message':message,'usage':data.get('usage') or {}}
+            except error.HTTPError as exc:
+                status = exc.code
+                try:
+                    excerpt = _error_excerpt(exc,config.api_key)
+                finally:
+                    exc.close()
+                if (status == 429 or 500 <= status < 600) and attempt < config.retries:
+                    self._sleep(min(2**attempt,8))
+                    continue
+                raise ProviderError(f'provider HTTP {status}: {excerpt}') from None
+            except (error.URLError, TimeoutError, OSError):
+                if attempt < config.retries:
+                    self._sleep(min(2**attempt,8)); continue
+                raise ProviderError('provider transport error or timeout; Authorization: [REDACTED]') from None
+            except (ValueError, KeyError, IndexError, TypeError):
+                raise ProviderError('invalid provider JSON response; Authorization: [REDACTED]') from None
+
+
+class FakeProvider:
+    """Scripted test provider. Each response is a message or a callable(messages).
+
+    FakeProvider.for_experiment() demonstrates tools with actual engine outputs;
+    its parameter mapping is supplied explicitly, never used to score LLM quality.
+    """
+    provider = 'fake'
+    model = 'scripted-offline'
+
+    def __init__(self, responses):
+        self.responses = iter(responses)
+        self.calls = 0
+
+    def complete(self, messages, tools):
+        self.calls += 1
+        try:
+            item = next(self.responses)
+        except StopIteration:
+            raise ProviderError('FakeProvider script exhausted') from None
+        message = item(messages) if callable(item) else item
+        return {'message':message,'usage':{'prompt_tokens':0,'completion_tokens':0,'total_tokens':0}}
+
+    @classmethod
+    def for_experiment(cls, model='m1', intervention=None, *, metric='stroke_volume_ml', cycles=None):
+        intervention = {'resistance_mitral':{'scale':3}} if intervention is None else intervention
+        parameter = next(iter(intervention), 'heart_rate')
+        def call(name,args,index):
+            return {'id':'fake-tool-'+str(index),'type':'function','function':{'name':name,'arguments':json.dumps(args)}}
+        first = {'role':'assistant','content':'Inspect the local parameter and evidence contracts.',
+                 'tool_calls':[call('list_parameters',{'model':model},0),
+                               call('lookup_ontology',{'query':parameter},1),
+                               call('get_evidence',{'entity_or_param':parameter},2)]}
+        arguments = {'model':model,'intervention':intervention}
+        if cycles is not None:
+            arguments['cycles'] = cycles
+        second = {'role':'assistant','content':'Compare synthetic baseline and intervention using the real engine.',
+                  'tool_calls':[call('run_experiment',arguments,3)]}
+        def final(messages):
+            from .loop import report_from_run
+            results = [json.loads(m['content']) for m in messages if m.get('role') == 'tool' and m.get('name') == 'run_experiment']
+            if not results or 'run_id' not in results[-1]:
+                raise ProviderError('offline experiment script received an engine error')
+            hypothesis = next(m['content'] for m in messages if m['role'] == 'user')
+            evidence = [e for m in messages if m.get('role') == 'tool' and m.get('name') == 'get_evidence' for e in json.loads(m['content'])]
+            return {'role':'assistant','content':json.dumps(report_from_run(hypothesis,results[-1],metric=metric,evidence=evidence))}
+        return cls([first,second,final])

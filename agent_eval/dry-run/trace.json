@@ -1,0 +1,3397 @@
+[
+  {
+    "ended_at": "2026-11-02T01:48:29.686317+00:00",
+    "intent": "Inspect the local parameter and evidence contracts.",
+    "kind": "model",
+    "model_message": {
+      "content": "Inspect the local parameter and evidence contracts.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"model\": \"m1\"}",
+            "name": "list_parameters"
+          },
+          "id": "fake-tool-0",
+          "type": "function"
+        },
+        {
+          "function": {
+            "arguments": "{\"query\": \"resistance_mitral\"}",
+            "name": "lookup_ontology"
+          },
+          "id": "fake-tool-1",
+          "type": "function"
+        },
+        {
+          "function": {
+            "arguments": "{\"entity_or_param\": \"resistance_mitral\"}",
+            "name": "get_evidence"
+          },
+          "id": "fake-tool-2",
+          "type": "function"
+        }
+      ]
+    },
+    "started_at": "2026-11-02T01:48:29.685987+00:00",
+    "step": 0,
+    "timing_s": 0.0003251250018365681,
+    "tool_name": null,
+    "usage": {
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "total_tokens": 0
+    }
+  },
+  {
+    "args": {
+      "model": "m1"
+    },
+    "ended_at": "2026-11-02T01:48:29.688537+00:00",
+    "intent": "Inspect the local parameter and evidence contracts.",
+    "kind": "tool",
+    "model_message": null,
+    "result": {
+      "limits": "Conservative exploration range only; joint engine validation still applies. All inputs are synthetic.",
+      "model": "m1",
+      "parameters": [
+        {
+          "allowed": [
+            7.5,
+            375.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0000948",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0000948",
+                "label": "heart",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7088",
+                "iri": null,
+                "label": "Heart",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "heart",
+            "label": "Heart",
+            "primary_id": "UBERON:0000948",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/26"
+          },
+          "binding_note": null,
+          "default": 75.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Imposed pacing rate; no reflex regulation.",
+          "models": [
+            "m1"
+          ],
+          "name": "heart_rate",
+          "unit": "beat/min"
+        },
+        {
+          "allowed": [
+            0.04000000000000001,
+            0.95
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.4,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Synchronous ventricular activation pulse width as a fraction of the cycle.",
+          "models": [
+            "m1"
+          ],
+          "name": "systolic_fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "allowed": [
+            0.006,
+            0.3
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002084",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+                "label": "heart left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7101",
+                "iri": null,
+                "label": "Left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv",
+            "label": "Left ventricle",
+            "primary_id": "UBERON:0002084",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/27"
+          },
+          "binding_note": null,
+          "default": 0.06,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Passive minimum elastance of lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emin_lv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.25,
+            12.5
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002084",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+                "label": "heart left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7101",
+                "iri": null,
+                "label": "Left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv",
+            "label": "Left ventricle",
+            "primary_id": "UBERON:0002084",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/27"
+          },
+          "binding_note": null,
+          "default": 2.5,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Peak elastance of lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emax_lv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.003,
+            0.15
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002080",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002080",
+                "label": "heart right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7098",
+                "iri": null,
+                "label": "Right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv",
+            "label": "Right ventricle",
+            "primary_id": "UBERON:0002080",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/28"
+          },
+          "binding_note": null,
+          "default": 0.03,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Passive minimum elastance of rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emin_rv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.08000000000000002,
+            4.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002080",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002080",
+                "label": "heart right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7098",
+                "iri": null,
+                "label": "Right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv",
+            "label": "Right ventricle",
+            "primary_id": "UBERON:0002080",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/28"
+          },
+          "binding_note": null,
+          "default": 0.8,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Peak elastance of rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emax_rv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.015,
+            0.75
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016513",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+                "label": "cavity of left atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9465",
+                "iri": null,
+                "label": "Cavity of left atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "la_cavity",
+            "label": "Cavity of left atrium",
+            "primary_id": "UBERON:0016513",
+            "relation": "chamber_context_not_selected_mechanical_bearer",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/4"
+          },
+          "binding_note": null,
+          "default": 0.15,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Constant passive atrial elastance of la.",
+          "models": [
+            "m1"
+          ],
+          "name": "elastance_la",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.010000000000000002,
+            0.5
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016522",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+                "label": "cavity of right atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:11359",
+                "iri": null,
+                "label": "Cavity of right atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "ra_cavity",
+            "label": "Cavity of right atrium",
+            "primary_id": "UBERON:0016522",
+            "relation": "chamber_context_not_selected_mechanical_bearer",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/5"
+          },
+          "binding_note": null,
+          "default": 0.1,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Constant passive atrial elastance of ra.",
+          "models": [
+            "m1"
+          ],
+          "name": "elastance_ra",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.15000000000000002,
+            7.5
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004571",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+                "label": "systemic arterial system (structure; Uberon has no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52448",
+                "iri": null,
+                "label": "Lumen of systemic arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_arterial_lumen",
+            "label": "Lumen of systemic arterial tree",
+            "primary_id": "FMA:52448",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/16"
+          },
+          "binding_note": null,
+          "default": 1.5,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in sa.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_sa",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            10.0,
+            500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004581",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+                "label": "systemic venous system (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52454",
+                "iri": null,
+                "label": "Lumen of systemic venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_venous_lumen",
+            "label": "Lumen of systemic venous tree organ",
+            "primary_id": "FMA:52454",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/17"
+          },
+          "binding_note": null,
+          "default": 100.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in sv.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_sv",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            0.5,
+            25.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002012",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+                "label": "pulmonary artery (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52449",
+                "iri": null,
+                "label": "Lumen of pulmonary arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_arterial_lumen",
+            "label": "Lumen of pulmonary arterial tree",
+            "primary_id": "FMA:52449",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/18"
+          },
+          "binding_note": null,
+          "default": 5.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in pa.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_pa",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            2.0,
+            100.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0013127",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+                "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52455",
+                "iri": null,
+                "label": "Lumen of pulmonary venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_venous_lumen",
+            "label": "Lumen of pulmonary venous tree organ",
+            "primary_id": "FMA:52455",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/19"
+          },
+          "binding_note": null,
+          "default": 20.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in pv.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_pv",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002137",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002137",
+                "label": "aortic valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7236",
+                "iri": null,
+                "label": "Aortic valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "aortic_valve",
+            "label": "Aortic valve",
+            "primary_id": "UBERON:0002137",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/7"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the aortic flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_aortic",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.1,
+            5.0
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 1.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the systemic flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_systemic",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.005000000000000001,
+            0.25
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.05,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the venous return flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_venous_return",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002134",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002134",
+                "label": "tricuspid valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7234",
+                "iri": null,
+                "label": "Tricuspid valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "tricuspid_valve",
+            "label": "Tricuspid valve",
+            "primary_id": "UBERON:0002134",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/8"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the tricuspid flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_tricuspid",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002146",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002146",
+                "label": "pulmonary valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7246",
+                "iri": null,
+                "label": "Pulmonary valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_valve",
+            "label": "Pulmonary valve",
+            "primary_id": "UBERON:0002146",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/9"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the pulmonary valve flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_pulmonary_valve",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.010000000000000002,
+            0.5
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.1,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the pulmonary flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_pulmonary",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.005000000000000001,
+            0.25
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.05,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the pulmonary venous flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_pulmonary_venous",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002135",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+                "label": "mitral valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7235",
+                "iri": null,
+                "label": "Mitral valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "mitral_valve",
+            "label": "Mitral valve",
+            "primary_id": "UBERON:0002135",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/6"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the mitral flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_mitral",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            1.0,
+            50.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016514",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+                "label": "cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9466",
+                "iri": null,
+                "label": "Cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv_cavity",
+            "label": "Cavity of left ventricle",
+            "primary_id": "UBERON:0016514",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/2"
+          },
+          "binding_note": null,
+          "default": 10.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.lv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            70.0,
+            3500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004571",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+                "label": "systemic arterial system (structure; Uberon has no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52448",
+                "iri": null,
+                "label": "Lumen of systemic arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_arterial_lumen",
+            "label": "Lumen of systemic arterial tree",
+            "primary_id": "FMA:52448",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/16"
+          },
+          "binding_note": null,
+          "default": 700.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in sa.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.sa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            250.0,
+            12500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004581",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+                "label": "systemic venous system (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52454",
+                "iri": null,
+                "label": "Lumen of systemic venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_venous_lumen",
+            "label": "Lumen of systemic venous tree organ",
+            "primary_id": "FMA:52454",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/17"
+          },
+          "binding_note": null,
+          "default": 2500.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in sv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.sv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            2.0,
+            100.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016522",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+                "label": "cavity of right atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:11359",
+                "iri": null,
+                "label": "Cavity of right atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "ra_cavity",
+            "label": "Cavity of right atrium",
+            "primary_id": "UBERON:0016522",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/5"
+          },
+          "binding_note": null,
+          "default": 20.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in ra.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.ra",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            1.0,
+            50.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016509",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016509",
+                "label": "cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9291",
+                "iri": null,
+                "label": "Cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv_cavity",
+            "label": "Cavity of right ventricle",
+            "primary_id": "UBERON:0016509",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/3"
+          },
+          "binding_note": null,
+          "default": 10.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.rv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            10.0,
+            500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002012",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+                "label": "pulmonary artery (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52449",
+                "iri": null,
+                "label": "Lumen of pulmonary arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_arterial_lumen",
+            "label": "Lumen of pulmonary arterial tree",
+            "primary_id": "FMA:52449",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/18"
+          },
+          "binding_note": null,
+          "default": 100.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in pa.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.pa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            40.0,
+            2000.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0013127",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+                "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52455",
+                "iri": null,
+                "label": "Lumen of pulmonary venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_venous_lumen",
+            "label": "Lumen of pulmonary venous tree organ",
+            "primary_id": "FMA:52455",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/19"
+          },
+          "binding_note": null,
+          "default": 400.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in pv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.pv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            2.0,
+            100.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016513",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+                "label": "cavity of left atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9465",
+                "iri": null,
+                "label": "Cavity of left atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "la_cavity",
+            "label": "Cavity of left atrium",
+            "primary_id": "UBERON:0016513",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/4"
+          },
+          "binding_note": null,
+          "default": 20.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in la.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.la",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            14.0,
+            700.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016514",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+                "label": "cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9466",
+                "iri": null,
+                "label": "Cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv_cavity",
+            "label": "Cavity of left ventricle",
+            "primary_id": "UBERON:0016514",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/2"
+          },
+          "binding_note": null,
+          "default": 140.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.lv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            85.0,
+            4250.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004571",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+                "label": "systemic arterial system (structure; Uberon has no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52448",
+                "iri": null,
+                "label": "Lumen of systemic arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_arterial_lumen",
+            "label": "Lumen of systemic arterial tree",
+            "primary_id": "FMA:52448",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/16"
+          },
+          "binding_note": null,
+          "default": 850.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in sa.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.sa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            320.0,
+            16000.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004581",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+                "label": "systemic venous system (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52454",
+                "iri": null,
+                "label": "Lumen of systemic venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_venous_lumen",
+            "label": "Lumen of systemic venous tree organ",
+            "primary_id": "FMA:52454",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/17"
+          },
+          "binding_note": null,
+          "default": 3200.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in sv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.sv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            6.0,
+            300.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016522",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+                "label": "cavity of right atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:11359",
+                "iri": null,
+                "label": "Cavity of right atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "ra_cavity",
+            "label": "Cavity of right atrium",
+            "primary_id": "UBERON:0016522",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/5"
+          },
+          "binding_note": null,
+          "default": 60.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in ra.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.ra",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            14.0,
+            700.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016509",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016509",
+                "label": "cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9291",
+                "iri": null,
+                "label": "Cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv_cavity",
+            "label": "Cavity of right ventricle",
+            "primary_id": "UBERON:0016509",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/3"
+          },
+          "binding_note": null,
+          "default": 140.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.rv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            18.0,
+            900.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002012",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+                "label": "pulmonary artery (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52449",
+                "iri": null,
+                "label": "Lumen of pulmonary arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_arterial_lumen",
+            "label": "Lumen of pulmonary arterial tree",
+            "primary_id": "FMA:52449",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/18"
+          },
+          "binding_note": null,
+          "default": 180.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in pa.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.pa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            49.0,
+            2450.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0013127",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+                "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52455",
+                "iri": null,
+                "label": "Lumen of pulmonary venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_venous_lumen",
+            "label": "Lumen of pulmonary venous tree organ",
+            "primary_id": "FMA:52455",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/19"
+          },
+          "binding_note": null,
+          "default": 490.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in pv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.pv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            6.0,
+            300.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016513",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+                "label": "cavity of left atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9465",
+                "iri": null,
+                "label": "Cavity of left atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "la_cavity",
+            "label": "Cavity of left atrium",
+            "primary_id": "UBERON:0016513",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/4"
+          },
+          "binding_note": null,
+          "default": 60.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in la.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.la",
+          "unit": "mL"
+        }
+      ]
+    },
+    "result_summary": {
+      "limits": "Conservative exploration range only; joint engine validation still applies. All inputs are synthetic.",
+      "model": "m1",
+      "parameters": [
+        {
+          "allowed": [
+            7.5,
+            375.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0000948",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0000948",
+                "label": "heart",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7088",
+                "iri": null,
+                "label": "Heart",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "heart",
+            "label": "Heart",
+            "primary_id": "UBERON:0000948",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/26"
+          },
+          "binding_note": null,
+          "default": 75.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Imposed pacing rate; no reflex regulation.",
+          "models": [
+            "m1"
+          ],
+          "name": "heart_rate",
+          "unit": "beat/min"
+        },
+        {
+          "allowed": [
+            0.04000000000000001,
+            0.95
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.4,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Synchronous ventricular activation pulse width as a fraction of the cycle.",
+          "models": [
+            "m1"
+          ],
+          "name": "systolic_fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "allowed": [
+            0.006,
+            0.3
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002084",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+                "label": "heart left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7101",
+                "iri": null,
+                "label": "Left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv",
+            "label": "Left ventricle",
+            "primary_id": "UBERON:0002084",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/27"
+          },
+          "binding_note": null,
+          "default": 0.06,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Passive minimum elastance of lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emin_lv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.25,
+            12.5
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002084",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002084",
+                "label": "heart left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7101",
+                "iri": null,
+                "label": "Left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv",
+            "label": "Left ventricle",
+            "primary_id": "UBERON:0002084",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/27"
+          },
+          "binding_note": null,
+          "default": 2.5,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Peak elastance of lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emax_lv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.003,
+            0.15
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002080",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002080",
+                "label": "heart right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7098",
+                "iri": null,
+                "label": "Right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv",
+            "label": "Right ventricle",
+            "primary_id": "UBERON:0002080",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/28"
+          },
+          "binding_note": null,
+          "default": 0.03,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Passive minimum elastance of rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emin_rv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.08000000000000002,
+            4.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002080",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002080",
+                "label": "heart right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7098",
+                "iri": null,
+                "label": "Right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv",
+            "label": "Right ventricle",
+            "primary_id": "UBERON:0002080",
+            "relation": "parameter_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/28"
+          },
+          "binding_note": null,
+          "default": 0.8,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Peak elastance of rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "emax_rv",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.015,
+            0.75
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016513",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+                "label": "cavity of left atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9465",
+                "iri": null,
+                "label": "Cavity of left atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "la_cavity",
+            "label": "Cavity of left atrium",
+            "primary_id": "UBERON:0016513",
+            "relation": "chamber_context_not_selected_mechanical_bearer",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/4"
+          },
+          "binding_note": null,
+          "default": 0.15,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Constant passive atrial elastance of la.",
+          "models": [
+            "m1"
+          ],
+          "name": "elastance_la",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.010000000000000002,
+            0.5
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016522",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+                "label": "cavity of right atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:11359",
+                "iri": null,
+                "label": "Cavity of right atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "ra_cavity",
+            "label": "Cavity of right atrium",
+            "primary_id": "UBERON:0016522",
+            "relation": "chamber_context_not_selected_mechanical_bearer",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/5"
+          },
+          "binding_note": null,
+          "default": 0.1,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Constant passive atrial elastance of ra.",
+          "models": [
+            "m1"
+          ],
+          "name": "elastance_ra",
+          "unit": "mmHg/mL"
+        },
+        {
+          "allowed": [
+            0.15000000000000002,
+            7.5
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004571",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+                "label": "systemic arterial system (structure; Uberon has no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52448",
+                "iri": null,
+                "label": "Lumen of systemic arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_arterial_lumen",
+            "label": "Lumen of systemic arterial tree",
+            "primary_id": "FMA:52448",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/16"
+          },
+          "binding_note": null,
+          "default": 1.5,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in sa.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_sa",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            10.0,
+            500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004581",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+                "label": "systemic venous system (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52454",
+                "iri": null,
+                "label": "Lumen of systemic venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_venous_lumen",
+            "label": "Lumen of systemic venous tree organ",
+            "primary_id": "FMA:52454",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/17"
+          },
+          "binding_note": null,
+          "default": 100.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in sv.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_sv",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            0.5,
+            25.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002012",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+                "label": "pulmonary artery (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52449",
+                "iri": null,
+                "label": "Lumen of pulmonary arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_arterial_lumen",
+            "label": "Lumen of pulmonary arterial tree",
+            "primary_id": "FMA:52449",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/18"
+          },
+          "binding_note": null,
+          "default": 5.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in pa.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_pa",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            2.0,
+            100.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0013127",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+                "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52455",
+                "iri": null,
+                "label": "Lumen of pulmonary venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_venous_lumen",
+            "label": "Lumen of pulmonary venous tree organ",
+            "primary_id": "FMA:52455",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/19"
+          },
+          "binding_note": null,
+          "default": 20.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Linear reservoir compliance in pv.",
+          "models": [
+            "m1"
+          ],
+          "name": "compliance_pv",
+          "unit": "mL/mmHg"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002137",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002137",
+                "label": "aortic valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7236",
+                "iri": null,
+                "label": "Aortic valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "aortic_valve",
+            "label": "Aortic valve",
+            "primary_id": "UBERON:0002137",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/7"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the aortic flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_aortic",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.1,
+            5.0
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 1.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the systemic flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_systemic",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.005000000000000001,
+            0.25
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.05,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the venous return flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_venous_return",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002134",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002134",
+                "label": "tricuspid valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7234",
+                "iri": null,
+                "label": "Tricuspid valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "tricuspid_valve",
+            "label": "Tricuspid valve",
+            "primary_id": "UBERON:0002134",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/8"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the tricuspid flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_tricuspid",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002146",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002146",
+                "label": "pulmonary valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7246",
+                "iri": null,
+                "label": "Pulmonary valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_valve",
+            "label": "Pulmonary valve",
+            "primary_id": "UBERON:0002146",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/9"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the pulmonary valve flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_pulmonary_valve",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.010000000000000002,
+            0.5
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.1,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the pulmonary flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_pulmonary",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.005000000000000001,
+            0.25
+          ],
+          "binding": null,
+          "binding_note": "No anatomical ontology binding in the existing model contract; project-local parameter/context.",
+          "default": 0.05,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the pulmonary venous flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_pulmonary_venous",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            0.001,
+            0.05
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002135",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+                "label": "mitral valve",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:7235",
+                "iri": null,
+                "label": "Mitral valve",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "mitral_valve",
+            "label": "Mitral valve",
+            "primary_id": "UBERON:0002135",
+            "relation": "flow_location",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/6"
+          },
+          "binding_note": null,
+          "default": 0.01,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Resistance of the mitral flow path; not valve area or drug effect.",
+          "models": [
+            "m1"
+          ],
+          "name": "resistance_mitral",
+          "unit": "mmHg*s/mL"
+        },
+        {
+          "allowed": [
+            1.0,
+            50.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016514",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+                "label": "cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9466",
+                "iri": null,
+                "label": "Cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv_cavity",
+            "label": "Cavity of left ventricle",
+            "primary_id": "UBERON:0016514",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/2"
+          },
+          "binding_note": null,
+          "default": 10.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.lv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            70.0,
+            3500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004571",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+                "label": "systemic arterial system (structure; Uberon has no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52448",
+                "iri": null,
+                "label": "Lumen of systemic arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_arterial_lumen",
+            "label": "Lumen of systemic arterial tree",
+            "primary_id": "FMA:52448",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/16"
+          },
+          "binding_note": null,
+          "default": 700.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in sa.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.sa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            250.0,
+            12500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004581",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+                "label": "systemic venous system (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52454",
+                "iri": null,
+                "label": "Lumen of systemic venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_venous_lumen",
+            "label": "Lumen of systemic venous tree organ",
+            "primary_id": "FMA:52454",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/17"
+          },
+          "binding_note": null,
+          "default": 2500.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in sv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.sv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            2.0,
+            100.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016522",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+                "label": "cavity of right atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:11359",
+                "iri": null,
+                "label": "Cavity of right atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "ra_cavity",
+            "label": "Cavity of right atrium",
+            "primary_id": "UBERON:0016522",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/5"
+          },
+          "binding_note": null,
+          "default": 20.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in ra.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.ra",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            1.0,
+            50.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016509",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016509",
+                "label": "cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9291",
+                "iri": null,
+                "label": "Cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv_cavity",
+            "label": "Cavity of right ventricle",
+            "primary_id": "UBERON:0016509",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/3"
+          },
+          "binding_note": null,
+          "default": 10.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.rv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            10.0,
+            500.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002012",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+                "label": "pulmonary artery (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52449",
+                "iri": null,
+                "label": "Lumen of pulmonary arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_arterial_lumen",
+            "label": "Lumen of pulmonary arterial tree",
+            "primary_id": "FMA:52449",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/18"
+          },
+          "binding_note": null,
+          "default": 100.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in pa.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.pa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            40.0,
+            2000.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0013127",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+                "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52455",
+                "iri": null,
+                "label": "Lumen of pulmonary venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_venous_lumen",
+            "label": "Lumen of pulmonary venous tree organ",
+            "primary_id": "FMA:52455",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/19"
+          },
+          "binding_note": null,
+          "default": 400.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in pv.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.pv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            2.0,
+            100.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016513",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+                "label": "cavity of left atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9465",
+                "iri": null,
+                "label": "Cavity of left atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "la_cavity",
+            "label": "Cavity of left atrium",
+            "primary_id": "UBERON:0016513",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/4"
+          },
+          "binding_note": null,
+          "default": 20.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Unstressed reference volume in la.",
+          "models": [
+            "m1"
+          ],
+          "name": "unstressed_volumes.la",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            14.0,
+            700.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016514",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016514",
+                "label": "cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9466",
+                "iri": null,
+                "label": "Cavity of left ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "lv_cavity",
+            "label": "Cavity of left ventricle",
+            "primary_id": "UBERON:0016514",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/2"
+          },
+          "binding_note": null,
+          "default": 140.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in lv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.lv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            85.0,
+            4250.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004571",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004571",
+                "label": "systemic arterial system (structure; Uberon has no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52448",
+                "iri": null,
+                "label": "Lumen of systemic arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_arterial_lumen",
+            "label": "Lumen of systemic arterial tree",
+            "primary_id": "FMA:52448",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/16"
+          },
+          "binding_note": null,
+          "default": 850.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in sa.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.sa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            320.0,
+            16000.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0004581",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0004581",
+                "label": "systemic venous system (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52454",
+                "iri": null,
+                "label": "Lumen of systemic venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "systemic_venous_lumen",
+            "label": "Lumen of systemic venous tree organ",
+            "primary_id": "FMA:52454",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/17"
+          },
+          "binding_note": null,
+          "default": 3200.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in sv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.sv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            6.0,
+            300.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016522",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016522",
+                "label": "cavity of right atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:11359",
+                "iri": null,
+                "label": "Cavity of right atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "ra_cavity",
+            "label": "Cavity of right atrium",
+            "primary_id": "UBERON:0016522",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/5"
+          },
+          "binding_note": null,
+          "default": 60.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in ra.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.ra",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            14.0,
+            700.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016509",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016509",
+                "label": "cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9291",
+                "iri": null,
+                "label": "Cavity of right ventricle",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "rv_cavity",
+            "label": "Cavity of right ventricle",
+            "primary_id": "UBERON:0016509",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/3"
+          },
+          "binding_note": null,
+          "default": 140.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in rv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.rv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            18.0,
+            900.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0002012",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0002012",
+                "label": "pulmonary artery (structure; no lumen term)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52449",
+                "iri": null,
+                "label": "Lumen of pulmonary arterial tree",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_arterial_lumen",
+            "label": "Lumen of pulmonary arterial tree",
+            "primary_id": "FMA:52449",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/18"
+          },
+          "binding_note": null,
+          "default": 180.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in pa.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.pa",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            49.0,
+            2450.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0013127",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0013127",
+                "label": "pulmonary venous system (structure; no lumen term, no FMA xref)",
+                "relation": "related_structure"
+              },
+              {
+                "id": "FMA:52455",
+                "iri": null,
+                "label": "Lumen of pulmonary venous tree organ",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "pulmonary_venous_lumen",
+            "label": "Lumen of pulmonary venous tree organ",
+            "primary_id": "FMA:52455",
+            "relation": "lumped_compartment_context",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/19"
+          },
+          "binding_note": null,
+          "default": 490.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in pv.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.pv",
+          "unit": "mL"
+        },
+        {
+          "allowed": [
+            6.0,
+            300.0
+          ],
+          "binding": {
+            "ids": [
+              {
+                "id": "UBERON:0016513",
+                "iri": "http://purl.obolibrary.org/obo/UBERON_0016513",
+                "label": "cavity of left atrium",
+                "relation": "source_v2_identifier"
+              },
+              {
+                "id": "FMA:9465",
+                "iri": null,
+                "label": "Cavity of left atrium",
+                "relation": "source_v2_identifier"
+              }
+            ],
+            "key": "la_cavity",
+            "label": "Cavity of left atrium",
+            "primary_id": "UBERON:0016513",
+            "relation": "blood_contained_in",
+            "scope": "Existing project anatomical context; no identity, calibration or external revalidation asserted.",
+            "source": "src/physiosim/ontology/anatomy_nodes_v2.json#/nodes/4"
+          },
+          "binding_note": null,
+          "default": 60.0,
+          "default_provenance": "synthetic_fixture() explicit synthetic test input",
+          "description": "Initial total blood volume in la.",
+          "models": [
+            "m1"
+          ],
+          "name": "initial_volumes.la",
+          "unit": "mL"
+        }
+      ]
+    },
+    "started_at": "2026-11-02T01:48:29.686328+00:00",
+    "step": 1,
+    "timing_s": 0.002212291001342237,
+    "tool_name": "list_parameters"
+  },
+  {
+    "args": {
+      "query": "resistance_mitral"
+    },
+    "ended_at": "2026-11-02T01:48:29.694935+00:00",
+    "intent": "Inspect the local parameter and evidence contracts.",
+    "kind": "tool",
+    "model_message": null,
+    "result": {
+      "entities": [
+        {
+          "id": "UBERON:0002135",
+          "identifiers": [
+            "UBERON:0002135",
+            "FMA:7235"
+          ],
+          "iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+          "key": "mitral_valve",
+          "label": "Mitral valve",
+          "related_parameters": [
+            {
+              "model": "phase1",
+              "parameter": "resistance_mitral"
+            },
+            {
+              "model": "m1",
+              "parameter": "resistance_mitral"
+            }
+          ],
+          "relations": [
+            {
+              "decision": "REVIEW",
+              "evidence": {
+                "anchor": "/claims/10",
+                "path": "src/physiosim/ontology/applied_la_mitral_lv_source_v1.json"
+              },
+              "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+              "formalization_decision": "REVIEW",
+              "label": "part_of",
+              "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+              "scope": "Source knowledge claim; not an adopted engine axiom or numerical binding.",
+              "source": "UBERON:0005995",
+              "source_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+              "target": "UBERON:0002135",
+              "target_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve"
+            },
+            {
+              "decision": "ACCEPT",
+              "evidence": {
+                "anchor": "/claims/11",
+                "path": "src/physiosim/ontology/applied_la_mitral_lv_source_v1.json"
+              },
+              "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+              "formalization_decision": "ACCEPT",
+              "label": "part_of",
+              "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+              "scope": "Source knowledge claim; not an adopted engine axiom or numerical binding.",
+              "source": "UBERON:0002135",
+              "source_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+              "target": "UBERON:0000948",
+              "target_template": "https://example.org/physiosim/anatomical-contents#heart/organ"
+            }
+          ],
+          "scope": "V2 context only; FMA-primary vessel/lumen mappings retain Uberon as related structure.",
+          "source": {
+            "anchor": "/nodes/6",
+            "path": "src/physiosim/ontology/anatomy_nodes_v2.json"
+          },
+          "source_labels": {
+            "fma": "Mitral valve",
+            "uberon": "mitral valve"
+          },
+          "synonyms": []
+        }
+      ],
+      "query": "resistance_mitral"
+    },
+    "result_summary": {
+      "entities": [
+        {
+          "id": "UBERON:0002135",
+          "identifiers": [
+            "UBERON:0002135",
+            "FMA:7235"
+          ],
+          "iri": "http://purl.obolibrary.org/obo/UBERON_0002135",
+          "key": "mitral_valve",
+          "label": "Mitral valve",
+          "related_parameters": [
+            {
+              "model": "phase1",
+              "parameter": "resistance_mitral"
+            },
+            {
+              "model": "m1",
+              "parameter": "resistance_mitral"
+            }
+          ],
+          "relations": [
+            {
+              "decision": "REVIEW",
+              "evidence": {
+                "anchor": "/claims/10",
+                "path": "src/physiosim/ontology/applied_la_mitral_lv_source_v1.json"
+              },
+              "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+              "formalization_decision": "REVIEW",
+              "label": "part_of",
+              "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+              "scope": "Source knowledge claim; not an adopted engine axiom or numerical binding.",
+              "source": "UBERON:0005995",
+              "source_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_annulus",
+              "target": "UBERON:0002135",
+              "target_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve"
+            },
+            {
+              "decision": "ACCEPT",
+              "evidence": {
+                "anchor": "/claims/11",
+                "path": "src/physiosim/ontology/applied_la_mitral_lv_source_v1.json"
+              },
+              "expert_review_status": "NOT_INDEPENDENTLY_EXPERT_REVIEWED",
+              "formalization_decision": "ACCEPT",
+              "label": "part_of",
+              "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+              "scope": "Source knowledge claim; not an adopted engine axiom or numerical binding.",
+              "source": "UBERON:0002135",
+              "source_template": "https://example.org/physiosim/anatomical-contents#heart/mitral_valve",
+              "target": "UBERON:0000948",
+              "target_template": "https://example.org/physiosim/anatomical-contents#heart/organ"
+            }
+          ],
+          "scope": "V2 context only; FMA-primary vessel/lumen mappings retain Uberon as related structure.",
+          "source": {
+            "anchor": "/nodes/6",
+            "path": "src/physiosim/ontology/anatomy_nodes_v2.json"
+          },
+          "source_labels": {
+            "fma": "Mitral valve",
+            "uberon": "mitral valve"
+          },
+          "synonyms": []
+        }
+      ],
+      "query": "resistance_mitral"
+    },
+    "started_at": "2026-11-02T01:48:29.688682+00:00",
+    "step": 2,
+    "timing_s": 0.00625487498473376,
+    "tool_name": "lookup_ontology"
+  },
+  {
+    "args": {
+      "entity_or_param": "resistance_mitral"
+    },
+    "ended_at": "2026-11-02T01:48:29.695379+00:00",
+    "intent": "Inspect the local parameter and evidence contracts.",
+    "kind": "tool",
+    "model_message": null,
+    "result": [
+      {
+        "anchor": "L37",
+        "excerpt": "    resistance_mitral: float = 0.01",
+        "line": 37,
+        "path": "src/physiosim/models/cardiovascular.py",
+        "scope": "Synthetic implementation definition; no calibration evidence."
+      },
+      {
+        "anchor": "L102",
+        "excerpt": "    resistance_mitral: float",
+        "line": 102,
+        "path": "src/physiosim/models/four_chamber_m1.py",
+        "scope": "Synthetic implementation definition; no calibration evidence."
+      },
+      {
+        "anchor": "L84",
+        "excerpt": "   \"key\": \"mitral_valve\",",
+        "line": 84,
+        "path": "src/physiosim/ontology/anatomy_nodes_v2.json",
+        "scope": "Offline anatomical context, not numerical parameter evidence."
+      },
+      {
+        "anchor": "L120",
+        "excerpt": "## Complete default parameter provenance",
+        "line": 120,
+        "path": "docs/physiology.md",
+        "scope": "Exploratory parameter provenance, not literature-derived values."
+      },
+      {
+        "anchor": "L181",
+        "excerpt": "## Synthetic fixture and execution",
+        "line": 181,
+        "path": "docs/physiology_four_chamber_m1.md",
+        "scope": "Explicit synthetic fixture, not clinical calibration."
+      },
+      {
+        "anchor": "L502",
+        "excerpt": "## S23 Current practice for anatomical identifiers (research survey, 2026-11-01)",
+        "line": 502,
+        "path": "docs/evidence_review/evidence_cards.md",
+        "scope": "Anatomical identifier practice; no numeric binding."
+      },
+      {
+        "anchor": "L533",
+        "excerpt": "## S24 Structures in current closed-loop circulation models and the minor heart valves (research survey, 2026-11-01)",
+        "line": 533,
+        "path": "docs/evidence_review/evidence_cards.md",
+        "scope": "Circulation model survey; no numeric binding."
+      },
+      {
+        "anchor": "L3",
+        "excerpt": "  \"sources\": [",
+        "line": 3,
+        "path": "docs/physiology_sources.json",
+        "scope": "Source ledger for equation background, not parameter values."
+      }
+    ],
+    "result_summary": [
+      {
+        "anchor": "L37",
+        "excerpt": "    resistance_mitral: float = 0.01",
+        "line": 37,
+        "path": "src/physiosim/models/cardiovascular.py",
+        "scope": "Synthetic implementation definition; no calibration evidence."
+      },
+      {
+        "anchor": "L102",
+        "excerpt": "    resistance_mitral: float",
+        "line": 102,
+        "path": "src/physiosim/models/four_chamber_m1.py",
+        "scope": "Synthetic implementation definition; no calibration evidence."
+      },
+      {
+        "anchor": "L84",
+        "excerpt": "   \"key\": \"mitral_valve\",",
+        "line": 84,
+        "path": "src/physiosim/ontology/anatomy_nodes_v2.json",
+        "scope": "Offline anatomical context, not numerical parameter evidence."
+      },
+      {
+        "anchor": "L120",
+        "excerpt": "## Complete default parameter provenance",
+        "line": 120,
+        "path": "docs/physiology.md",
+        "scope": "Exploratory parameter provenance, not literature-derived values."
+      },
+      {
+        "anchor": "L181",
+        "excerpt": "## Synthetic fixture and execution",
+        "line": 181,
+        "path": "docs/physiology_four_chamber_m1.md",
+        "scope": "Explicit synthetic fixture, not clinical calibration."
+      },
+      {
+        "anchor": "L502",
+        "excerpt": "## S23 Current practice for anatomical identifiers (research survey, 2026-11-01)",
+        "line": 502,
+        "path": "docs/evidence_review/evidence_cards.md",
+        "scope": "Anatomical identifier practice; no numeric binding."
+      },
+      {
+        "anchor": "L533",
+        "excerpt": "## S24 Structures in current closed-loop circulation models and the minor heart valves (research survey, 2026-11-01)",
+        "line": 533,
+        "path": "docs/evidence_review/evidence_cards.md",
+        "scope": "Circulation model survey; no numeric binding."
+      },
+      {
+        "anchor": "L3",
+        "excerpt": "  \"sources\": [",
+        "line": 3,
+        "path": "docs/physiology_sources.json",
+        "scope": "Source ledger for equation background, not parameter values."
+      }
+    ],
+    "started_at": "2026-11-02T01:48:29.694949+00:00",
+    "step": 3,
+    "timing_s": 0.0004327499773353338,
+    "tool_name": "get_evidence"
+  },
+  {
+    "ended_at": "2026-11-02T01:48:29.695429+00:00",
+    "intent": "Compare synthetic baseline and intervention using the real engine.",
+    "kind": "model",
+    "model_message": {
+      "content": "Compare synthetic baseline and intervention using the real engine.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"model\": \"m1\", \"intervention\": {\"resistance_mitral\": {\"scale\": 3}}}",
+            "name": "run_experiment"
+          },
+          "id": "fake-tool-3",
+          "type": "function"
+        }
+      ]
+    },
+    "started_at": "2026-11-02T01:48:29.695394+00:00",
+    "step": 4,
+    "timing_s": 3.4167023841291666e-05,
+    "tool_name": null,
+    "usage": {
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "total_tokens": 0
+    }
+  },
+  {
+    "args": {
+      "intervention": {
+        "resistance_mitral": {
+          "scale": 3
+        }
+      },
+      "model": "m1"
+    },
+    "ended_at": "2026-11-02T01:48:31.098240+00:00",
+    "intent": "Compare synthetic baseline and intervention using the real engine.",
+    "kind": "tool",
+    "model_message": null,
+    "result": {
+      "baseline": {
+        "analysis_window_s": [
+          8.800000000000002,
+          9.600000000000001
+        ],
+        "duration_s": 9.600000000000001,
+        "metrics": {
+          "aortic_backward_volume_ml": 0.0,
+          "aortic_forward_volume_ml": 59.31629390087693,
+          "aortic_mean_flow_ml_s": 74.14536737609626,
+          "cardiac_output_l_min": 4.447885422337811,
+          "la_pressure_max_mmhg": 8.6765458159629,
+          "la_pressure_mean_mmhg": 6.636991906404394,
+          "la_pressure_min_mmhg": 5.443705962772382,
+          "la_volume_max_ml": 77.843638773086,
+          "la_volume_mean_ml": 64.24661270936264,
+          "la_volume_min_ml": 56.29137308514922,
+          "lv_cardiac_output_l_min": 4.447885422337811,
+          "lv_cardiac_output_ml_s": 74.13142370563018,
+          "lv_edv_sample_ml": 108.5675648697793,
+          "lv_ejection_fraction": 0.5462509823779993,
+          "lv_ejection_fraction_sample": 0.5462509823779993,
+          "lv_esv_sample_ml": 49.262425905275194,
+          "lv_pressure_max_mmhg": 99.67993860253533,
+          "lv_pressure_mean_mmhg": 27.301134642771007,
+          "lv_pressure_min_mmhg": 2.893982289376536,
+          "lv_stroke_volume_ml": 59.30513896450407,
+          "lv_volume_max_ml": 108.5675648697793,
+          "lv_volume_mean_ml": 81.21051558026835,
+          "lv_volume_min_ml": 49.262425905275194,
+          "mitral_backward_volume_ml": 0.0,
+          "mitral_forward_volume_ml": 59.440338222524026,
+          "mitral_mean_flow_ml_s": 74.30042277815514,
+          "pa_pressure_max_mmhg": 23.217086149828333,
+          "pa_pressure_mean_mmhg": 17.813579056957494,
+          "pa_pressure_min_mmhg": 13.644667456981916,
+          "pa_volume_max_ml": 216.08543074914166,
+          "pa_volume_mean_ml": 189.06789528478748,
+          "pa_volume_min_ml": 168.22333728490958,
+          "pulmonary_backward_volume_ml": 0.0,
+          "pulmonary_forward_volume_ml": 59.66822514320595,
+          "pulmonary_mean_flow_ml_s": 74.58528142900754,
+          "pulmonary_valve_backward_volume_ml": 0.0,
+          "pulmonary_valve_forward_volume_ml": 59.68661643550057,
+          "pulmonary_valve_mean_flow_ml_s": 74.60827054437581,
+          "pulmonary_venous_backward_volume_ml": 0.0,
+          "pulmonary_venous_forward_volume_ml": 59.488944122437374,
+          "pulmonary_venous_mean_flow_ml_s": 74.36118015304682,
+          "pv_pressure_max_mmhg": 10.739691316015593,
+          "pv_pressure_mean_mmhg": 10.355050914056736,
+          "pv_pressure_min_mmhg": 9.935636742292019,
+          "pv_volume_max_ml": 614.7938263203118,
+          "pv_volume_mean_ml": 607.1010182811347,
+          "pv_volume_min_ml": 598.7127348458404,
+          "ra_pressure_max_mmhg": 4.965453689303956,
+          "ra_pressure_mean_mmhg": 3.5758922630870846,
+          "ra_pressure_min_mmhg": 2.8987919048104787,
+          "ra_volume_max_ml": 69.65453689303956,
+          "ra_volume_mean_ml": 55.75892263087084,
+          "ra_volume_min_ml": 48.987919048104786,
+          "rv_cardiac_output_l_min": 4.477523231717214,
+          "rv_cardiac_output_ml_s": 74.6253871952869,
+          "rv_edv_sample_ml": 99.01177751378755,
+          "rv_ejection_fraction_sample": 0.60296170067158,
+          "rv_esv_sample_ml": 39.311467757558106,
+          "rv_pressure_max_mmhg": 27.687887191433024,
+          "rv_pressure_mean_mmhg": 7.693392946480708,
+          "rv_pressure_min_mmhg": 1.1715999729171813,
+          "rv_stroke_volume_ml": 59.700309756229444,
+          "rv_volume_max_ml": 99.01177751378755,
+          "rv_volume_mean_ml": 70.69234110303488,
+          "rv_volume_min_ml": 39.311467757558106,
+          "sa_pressure_max_mmhg": 98.23578232351261,
+          "sa_pressure_mean_mmhg": 81.16342548028737,
+          "sa_pressure_min_mmhg": 64.44663592913146,
+          "sa_volume_max_ml": 847.3536734852689,
+          "sa_volume_mean_ml": 821.745138220431,
+          "sa_volume_min_ml": 796.6699538936972,
+          "stroke_volume_ml": 59.30513896450407,
+          "sv_pressure_max_mmhg": 7.338229398431895,
+          "sv_pressure_mean_mmhg": 7.3017755619010245,
+          "sv_pressure_min_mmhg": 7.261773199157447,
+          "sv_volume_max_ml": 3233.8229398431895,
+          "sv_volume_mean_ml": 3230.177556190102,
+          "sv_volume_min_ml": 3226.1773199157446,
+          "systemic_backward_volume_ml": 0.0,
+          "systemic_forward_volume_ml": 59.08931993470898,
+          "systemic_mean_flow_ml_s": 73.86164991838632,
+          "tricuspid_backward_volume_ml": 0.0,
+          "tricuspid_forward_volume_ml": 59.63618861199228,
+          "tricuspid_mean_flow_ml_s": 74.54523576499045,
+          "venous_return_backward_volume_ml": 0.0,
+          "venous_return_forward_volume_ml": 59.61413278102295,
+          "venous_return_mean_flow_ml_s": 74.51766597627879
+        },
+        "parameters": {
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "elastance_la": 0.15,
+          "elastance_ra": 0.1,
+          "emax_lv": 2.5,
+          "emax_rv": 0.8,
+          "emin_lv": 0.06,
+          "emin_rv": 0.03,
+          "heart_rate": 75.0,
+          "initial_volumes.la": 60.0,
+          "initial_volumes.lv": 140.0,
+          "initial_volumes.pa": 180.0,
+          "initial_volumes.pv": 490.0,
+          "initial_volumes.ra": 60.0,
+          "initial_volumes.rv": 140.0,
+          "initial_volumes.sa": 850.0,
+          "initial_volumes.sv": 3200.0,
+          "resistance_aortic": 0.01,
+          "resistance_mitral": 0.01,
+          "resistance_pulmonary": 0.1,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary_venous": 0.05,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_venous_return": 0.05,
+          "systolic_fraction": 0.4,
+          "unstressed_volumes.la": 20.0,
+          "unstressed_volumes.lv": 10.0,
+          "unstressed_volumes.pa": 100.0,
+          "unstressed_volumes.pv": 400.0,
+          "unstressed_volumes.ra": 20.0,
+          "unstressed_volumes.rv": 10.0,
+          "unstressed_volumes.sa": 700.0,
+          "unstressed_volumes.sv": 2500.0
+        },
+        "periodicity": {
+          "available": true,
+          "comparisons": 3,
+          "definition": "max compartment waveform difference / max(prior-beat max absolute compartment volume, 1 mL), across up to last three successive beat pairs",
+          "max_relative_change": 0.003122715158328739,
+          "periodic": false,
+          "threshold": 0.001
+        }
+      },
+      "baseline_overrides": {},
+      "delta": {
+        "abs": {
+          "aortic_backward_volume_ml": 0.0,
+          "aortic_forward_volume_ml": -3.156845209584901,
+          "aortic_mean_flow_ml_s": -3.9460565119811264,
+          "cardiac_output_l_min": -0.23592562529372074,
+          "la_pressure_max_mmhg": 1.1118038984087075,
+          "la_pressure_mean_mmhg": 1.4311118294188203,
+          "la_pressure_min_mmhg": 1.8066367296795747,
+          "la_volume_max_ml": 7.412025989391381,
+          "la_volume_mean_ml": 9.540745529458789,
+          "la_volume_min_ml": 12.044244864530498,
+          "lv_cardiac_output_l_min": -0.23592562529372074,
+          "lv_cardiac_output_ml_s": -3.932093754895334,
+          "lv_edv_sample_ml": -5.324468023885004,
+          "lv_ejection_fraction": -0.0022972878814647713,
+          "lv_ejection_fraction_sample": -0.0022972878814647713,
+          "lv_esv_sample_ml": -2.1787930199686087,
+          "lv_pressure_max_mmhg": -5.534321240878995,
+          "lv_pressure_mean_mmhg": -1.6677146506715204,
+          "lv_pressure_min_mmhg": -0.38882649241848943,
+          "lv_stroke_volume_ml": -3.145675003916267,
+          "lv_volume_max_ml": -5.324468023885004,
+          "lv_volume_mean_ml": -6.525557117184633,
+          "lv_volume_min_ml": -2.1787930199686087,
+          "mitral_backward_volume_ml": 0.0,
+          "mitral_forward_volume_ml": -2.9814361166651864,
+          "mitral_mean_flow_ml_s": -3.7267951458314883,
+          "pa_pressure_max_mmhg": 0.7304889338863916,
+          "pa_pressure_mean_mmhg": 0.9286103613931687,
+          "pa_pressure_min_mmhg": 1.1028539567950197,
+          "pa_volume_max_ml": 3.652444669431958,
+          "pa_volume_mean_ml": 4.643051806965815,
+          "pa_volume_min_ml": 5.514269783975095,
+          "pulmonary_backward_volume_ml": 0.0,
+          "pulmonary_forward_volume_ml": -2.5751513597178857,
+          "pulmonary_mean_flow_ml_s": -3.218939199647366,
+          "pulmonary_valve_backward_volume_ml": 0.0,
+          "pulmonary_valve_forward_volume_ml": -2.494642853836737,
+          "pulmonary_valve_mean_flow_ml_s": -3.118303567295925,
+          "pulmonary_venous_backward_volume_ml": 0.0,
+          "pulmonary_venous_forward_volume_ml": -2.889720768974591,
+          "pulmonary_venous_mean_flow_ml_s": -3.612150961218248,
+          "pv_pressure_max_mmhg": 1.20223741578892,
+          "pv_pressure_mean_mmhg": 1.250504281357907,
+          "pv_pressure_min_mmhg": 1.2372550938421742,
+          "pv_volume_max_ml": 24.044748315778406,
+          "pv_volume_mean_ml": 25.01008562715822,
+          "pv_volume_min_ml": 24.745101876843478,
+          "ra_pressure_max_mmhg": -0.13743142816323584,
+          "ra_pressure_mean_mmhg": -0.08339888867854706,
+          "ra_pressure_min_mmhg": -0.0572888276090735,
+          "ra_volume_max_ml": -1.3743142816323655,
+          "ra_volume_mean_ml": -0.8339888867854626,
+          "ra_volume_min_ml": -0.5728882760907368,
+          "rv_cardiac_output_l_min": -0.18841114547630244,
+          "rv_cardiac_output_ml_s": -3.140185757938383,
+          "rv_edv_sample_ml": -1.5700394608891202,
+          "rv_ejection_fraction_sample": -0.01606575348688566,
+          "rv_esv_sample_ml": 0.9421091454616359,
+          "rv_pressure_max_mmhg": 0.6117398915621699,
+          "rv_pressure_mean_mmhg": 0.12772420503734683,
+          "rv_pressure_min_mmhg": 0.008251916563894346,
+          "rv_stroke_volume_ml": -2.5121486063507064,
+          "rv_volume_max_ml": -1.5700394608891202,
+          "rv_volume_mean_ml": -0.32717429983796364,
+          "rv_volume_min_ml": 0.9421091454616359,
+          "sa_pressure_max_mmhg": -5.452279898350753,
+          "sa_pressure_mean_mmhg": -4.489663671439885,
+          "sa_pressure_min_mmhg": -3.6858992795987433,
+          "sa_volume_max_ml": -8.17841984752613,
+          "sa_volume_mean_ml": -6.734495507159863,
+          "sa_volume_min_ml": -5.528848919398115,
+          "stroke_volume_ml": -3.145675003916267,
+          "sv_pressure_max_mmhg": -0.2490321962627693,
+          "sv_pressure_mean_mmhg": -0.24772667152615035,
+          "sv_pressure_min_mmhg": -0.24397524298982276,
+          "sv_volume_max_ml": -24.90321962627695,
+          "sv_volume_mean_ml": -24.77266715261476,
+          "sv_volume_min_ml": -24.397524298982262,
+          "systemic_backward_volume_ml": 0.0,
+          "systemic_forward_volume_ml": -3.3935495999309637,
+          "systemic_mean_flow_ml_s": -4.241936999913705,
+          "tricuspid_backward_volume_ml": 0.0,
+          "tricuspid_forward_volume_ml": -2.59493688175516,
+          "tricuspid_mean_flow_ml_s": -3.2436711021939573,
+          "venous_return_backward_volume_ml": 0.0,
+          "venous_return_forward_volume_ml": -2.6292445255616457,
+          "venous_return_mean_flow_ml_s": -3.2865556569520606
+        },
+        "rel": {
+          "aortic_backward_volume_ml": null,
+          "aortic_forward_volume_ml": -0.05322054029303119,
+          "aortic_mean_flow_ml_s": -0.053220540293031124,
+          "cardiac_output_l_min": -0.05304219935812063,
+          "la_pressure_max_mmhg": 0.12813899931966446,
+          "la_pressure_mean_mmhg": 0.21562657444826214,
+          "la_pressure_min_mmhg": 0.3318762515893652,
+          "la_volume_max_ml": 0.09521684888083684,
+          "la_volume_mean_ml": 0.1485019229359063,
+          "la_volume_min_ml": 0.21396253465538592,
+          "lv_cardiac_output_l_min": -0.05304219935812063,
+          "lv_cardiac_output_ml_s": -0.05304219935812047,
+          "lv_edv_sample_ml": -0.04904289812773644,
+          "lv_ejection_fraction": -0.00420555377578264,
+          "lv_ejection_fraction_sample": -0.00420555377578264,
+          "lv_esv_sample_ml": -0.04422829326672067,
+          "lv_pressure_max_mmhg": -0.05552091342016769,
+          "lv_pressure_mean_mmhg": -0.06108590988957706,
+          "lv_pressure_min_mmhg": -0.13435690116205104,
+          "lv_stroke_volume_ml": -0.05304219935812054,
+          "lv_volume_max_ml": -0.04904289812773644,
+          "lv_volume_mean_ml": -0.08035359793689256,
+          "lv_volume_min_ml": -0.04422829326672067,
+          "mitral_backward_volume_ml": null,
+          "mitral_forward_volume_ml": -0.05015846487117423,
+          "mitral_mean_flow_ml_s": -0.05015846487117423,
+          "pa_pressure_max_mmhg": 0.03146342005074538,
+          "pa_pressure_mean_mmhg": 0.05212935359166237,
+          "pa_pressure_min_mmhg": 0.08082673764472686,
+          "pa_volume_max_ml": 0.016902780797249405,
+          "pa_volume_mean_ml": 0.024557589748233674,
+          "pa_volume_min_ml": 0.0327794577909004,
+          "pulmonary_backward_volume_ml": null,
+          "pulmonary_forward_volume_ml": -0.04315783406557556,
+          "pulmonary_mean_flow_ml_s": -0.04315783406557562,
+          "pulmonary_valve_backward_volume_ml": null,
+          "pulmonary_valve_forward_volume_ml": -0.0417956822285702,
+          "pulmonary_valve_mean_flow_ml_s": -0.04179568222857019,
+          "pulmonary_venous_backward_volume_ml": null,
+          "pulmonary_venous_forward_volume_ml": -0.048575761624329764,
+          "pulmonary_venous_mean_flow_ml_s": -0.04857576162432982,
+          "pv_pressure_max_mmhg": 0.11194338649157265,
+          "pv_pressure_mean_mmhg": 0.12076273615037247,
+          "pv_pressure_min_mmhg": 0.12452700576055441,
+          "pv_volume_max_ml": 0.03911026312624507,
+          "pv_volume_mean_ml": 0.04119592106428755,
+          "pv_volume_min_ml": 0.041330508667424576,
+          "ra_pressure_max_mmhg": -0.027677516851939584,
+          "ra_pressure_mean_mmhg": -0.023322539534943485,
+          "ra_pressure_min_mmhg": -0.019763001101943196,
+          "ra_volume_max_ml": -0.019730434555077746,
+          "ra_volume_mean_ml": -0.014957048081910498,
+          "ra_volume_min_ml": -0.01169448074591975,
+          "rv_cardiac_output_l_min": -0.042079322814377276,
+          "rv_cardiac_output_ml_s": -0.042079322814377394,
+          "rv_edv_sample_ml": -0.0158570980171575,
+          "rv_ejection_fraction_sample": -0.026644732939076547,
+          "rv_esv_sample_ml": 0.0239652498164611,
+          "rv_pressure_max_mmhg": 0.022094134064207318,
+          "rv_pressure_mean_mmhg": 0.016601804421776403,
+          "rv_pressure_min_mmhg": 0.0070432884556558975,
+          "rv_stroke_volume_ml": -0.04207932281437745,
+          "rv_volume_max_ml": -0.0158570980171575,
+          "rv_volume_mean_ml": -0.004628143512196087,
+          "rv_volume_min_ml": 0.0239652498164611,
+          "sa_pressure_max_mmhg": -0.055501974630742634,
+          "sa_pressure_mean_mmhg": -0.05531634039436046,
+          "sa_pressure_min_mmhg": -0.05719304392632582,
+          "sa_volume_max_ml": -0.009651719351008762,
+          "sa_volume_mean_ml": -0.008195357896176992,
+          "sa_volume_min_ml": -0.006939949087292742,
+          "stroke_volume_ml": -0.05304219935812054,
+          "sv_pressure_max_mmhg": -0.033936278459213196,
+          "sv_pressure_mean_mmhg": -0.033926908520542705,
+          "sv_pressure_min_mmhg": -0.0335971995129413,
+          "sv_volume_max_ml": -0.007700860588082947,
+          "sv_volume_mean_ml": -0.007669134814320665,
+          "sv_volume_min_ml": -0.0075623630940469914,
+          "systemic_backward_volume_ml": null,
+          "systemic_forward_volume_ml": -0.05743084543333181,
+          "systemic_mean_flow_ml_s": -0.05743084543333174,
+          "tricuspid_backward_volume_ml": null,
+          "tricuspid_forward_volume_ml": -0.04351278883093046,
+          "tricuspid_mean_flow_ml_s": -0.0435127888309305,
+          "venous_return_backward_volume_ml": null,
+          "venous_return_forward_volume_ml": -0.0441043826842117,
+          "venous_return_mean_flow_ml_s": -0.044104382684211685
+        }
+      },
+      "engine_source_sha256": {
+        "physiosim.models.cardiovascular": "41be222561d553b93510448630c091c642f999b5be8f01ba65160f3a10ec3492",
+        "physiosim.models.four_chamber_m1": "5d7d68818554a7bf66772f7ca89eaeba76ce5daa31bc2198ed373617ec63c381",
+        "physiosim.simulation": "615a83da231ac4a2b59be7ecbf3e880693bf297fa636ad54de38c491b4667e62",
+        "physiosim.simulation._hybrid": "6c413537bbe91a2859bb612d488e54379d1462a023dfea2ca4eb319e3fb9cc77",
+        "physiosim.simulation.four_chamber_m1": "492c032ac03b6712db127a83e87b0b0109afdaa1c42c3c641f21793dcda9834c"
+      },
+      "intervention": {
+        "analysis_window_s": [
+          8.800000000000002,
+          9.600000000000001
+        ],
+        "duration_s": 9.600000000000001,
+        "metrics": {
+          "aortic_backward_volume_ml": 0.0,
+          "aortic_forward_volume_ml": 56.15944869129203,
+          "aortic_mean_flow_ml_s": 70.19931086411513,
+          "cardiac_output_l_min": 4.2119597970440905,
+          "la_pressure_max_mmhg": 9.788349714371607,
+          "la_pressure_mean_mmhg": 8.068103735823215,
+          "la_pressure_min_mmhg": 7.250342692451957,
+          "la_volume_max_ml": 85.25566476247738,
+          "la_volume_mean_ml": 73.78735823882143,
+          "la_volume_min_ml": 68.33561794967972,
+          "lv_cardiac_output_l_min": 4.2119597970440905,
+          "lv_cardiac_output_ml_s": 70.19932995073485,
+          "lv_edv_sample_ml": 103.2430968458943,
+          "lv_ejection_fraction": 0.5439536944965345,
+          "lv_ejection_fraction_sample": 0.5439536944965345,
+          "lv_esv_sample_ml": 47.083632885306585,
+          "lv_pressure_max_mmhg": 94.14561736165633,
+          "lv_pressure_mean_mmhg": 25.633419992099487,
+          "lv_pressure_min_mmhg": 2.5051557969580465,
+          "lv_stroke_volume_ml": 56.1594639605878,
+          "lv_volume_max_ml": 103.2430968458943,
+          "lv_volume_mean_ml": 74.68495846308372,
+          "lv_volume_min_ml": 47.083632885306585,
+          "mitral_backward_volume_ml": 0.0,
+          "mitral_forward_volume_ml": 56.45890210585884,
+          "mitral_mean_flow_ml_s": 70.57362763232365,
+          "pa_pressure_max_mmhg": 23.947575083714725,
+          "pa_pressure_mean_mmhg": 18.742189418350662,
+          "pa_pressure_min_mmhg": 14.747521413776935,
+          "pa_volume_max_ml": 219.73787541857362,
+          "pa_volume_mean_ml": 193.7109470917533,
+          "pa_volume_min_ml": 173.73760706888467,
+          "pulmonary_backward_volume_ml": 0.0,
+          "pulmonary_forward_volume_ml": 57.093073783488066,
+          "pulmonary_mean_flow_ml_s": 71.36634222936017,
+          "pulmonary_valve_backward_volume_ml": 0.0,
+          "pulmonary_valve_forward_volume_ml": 57.19197358166383,
+          "pulmonary_valve_mean_flow_ml_s": 71.48996697707989,
+          "pulmonary_venous_backward_volume_ml": 0.0,
+          "pulmonary_venous_forward_volume_ml": 56.59922335346278,
+          "pulmonary_venous_mean_flow_ml_s": 70.74902919182857,
+          "pv_pressure_max_mmhg": 11.941928731804513,
+          "pv_pressure_mean_mmhg": 11.605555195414643,
+          "pv_pressure_min_mmhg": 11.172891836134193,
+          "pv_volume_max_ml": 638.8385746360902,
+          "pv_volume_mean_ml": 632.1111039082929,
+          "pv_volume_min_ml": 623.4578367226839,
+          "ra_pressure_max_mmhg": 4.82802226114072,
+          "ra_pressure_mean_mmhg": 3.4924933744085376,
+          "ra_pressure_min_mmhg": 2.841503077201405,
+          "ra_volume_max_ml": 68.2802226114072,
+          "ra_volume_mean_ml": 54.92493374408538,
+          "ra_volume_min_ml": 48.41503077201405,
+          "rv_cardiac_output_l_min": 4.289112086240912,
+          "rv_cardiac_output_ml_s": 71.48520143734852,
+          "rv_edv_sample_ml": 97.44173805289843,
+          "rv_ejection_fraction_sample": 0.5868959471846943,
+          "rv_esv_sample_ml": 40.25357690301974,
+          "rv_pressure_max_mmhg": 28.299627082995194,
+          "rv_pressure_mean_mmhg": 7.821117151518055,
+          "rv_pressure_min_mmhg": 1.1798518894810757,
+          "rv_stroke_volume_ml": 57.18816114987874,
+          "rv_volume_max_ml": 97.44173805289843,
+          "rv_volume_mean_ml": 70.36516680319691,
+          "rv_volume_min_ml": 40.25357690301974,
+          "sa_pressure_max_mmhg": 92.78350242516186,
+          "sa_pressure_mean_mmhg": 76.67376180884749,
+          "sa_pressure_min_mmhg": 60.76073664953272,
+          "sa_volume_max_ml": 839.1752536377428,
+          "sa_volume_mean_ml": 815.0106427132712,
+          "sa_volume_min_ml": 791.1411049742991,
+          "stroke_volume_ml": 56.1594639605878,
+          "sv_pressure_max_mmhg": 7.089197202169125,
+          "sv_pressure_mean_mmhg": 7.054048890374874,
+          "sv_pressure_min_mmhg": 7.017797956167624,
+          "sv_volume_max_ml": 3208.9197202169125,
+          "sv_volume_mean_ml": 3205.4048890374875,
+          "sv_volume_min_ml": 3201.7797956167624,
+          "systemic_backward_volume_ml": 0.0,
+          "systemic_forward_volume_ml": 55.69577033477802,
+          "systemic_mean_flow_ml_s": 69.61971291847262,
+          "tricuspid_backward_volume_ml": 0.0,
+          "tricuspid_forward_volume_ml": 57.04125173023712,
+          "tricuspid_mean_flow_ml_s": 71.3015646627965,
+          "venous_return_backward_volume_ml": 0.0,
+          "venous_return_forward_volume_ml": 56.98488825546131,
+          "venous_return_mean_flow_ml_s": 71.23111031932673
+        },
+        "parameters": {
+          "compliance_pa": 5.0,
+          "compliance_pv": 20.0,
+          "compliance_sa": 1.5,
+          "compliance_sv": 100.0,
+          "elastance_la": 0.15,
+          "elastance_ra": 0.1,
+          "emax_lv": 2.5,
+          "emax_rv": 0.8,
+          "emin_lv": 0.06,
+          "emin_rv": 0.03,
+          "heart_rate": 75.0,
+          "initial_volumes.la": 60.0,
+          "initial_volumes.lv": 140.0,
+          "initial_volumes.pa": 180.0,
+          "initial_volumes.pv": 490.0,
+          "initial_volumes.ra": 60.0,
+          "initial_volumes.rv": 140.0,
+          "initial_volumes.sa": 850.0,
+          "initial_volumes.sv": 3200.0,
+          "resistance_aortic": 0.01,
+          "resistance_mitral": 0.03,
+          "resistance_pulmonary": 0.1,
+          "resistance_pulmonary_valve": 0.01,
+          "resistance_pulmonary_venous": 0.05,
+          "resistance_systemic": 1.0,
+          "resistance_tricuspid": 0.01,
+          "resistance_venous_return": 0.05,
+          "systolic_fraction": 0.4,
+          "unstressed_volumes.la": 20.0,
+          "unstressed_volumes.lv": 10.0,
+          "unstressed_volumes.pa": 100.0,
+          "unstressed_volumes.pv": 400.0,
+          "unstressed_volumes.ra": 20.0,
+          "unstressed_volumes.rv": 10.0,
+          "unstressed_volumes.sa": 700.0,
+          "unstressed_volumes.sv": 2500.0
+        },
+        "periodicity": {
+          "available": true,
+          "comparisons": 3,
+          "definition": "max compartment waveform difference / max(prior-beat max absolute compartment volume, 1 mL), across up to last three successive beat pairs",
+          "max_relative_change": 0.006887479097819453,
+          "periodic": false,
+          "threshold": 0.001
+        }
+      },
+      "model": "m1",
+      "parameter_changes": [
+        {
+          "baseline": 0.01,
+          "intervention": 0.03,
+          "parameter": "resistance_mitral"
+        }
+      ],
+      "requested_intervention": {
+        "resistance_mitral": {
+          "scale": 3
+        }
+      },
+      "run_id": "run-41c40d3737ab6580fa00bd7a",
+      "settings": {
+        "analysed_beats": 1,
+        "atol": 1e-10,
+        "cycles": 12,
+        "max_step": 0.004,
+        "max_step_rule": "min(baseline period, intervention period)/200",
+        "method": "DOP853",
+        "rtol": 1e-09,
+        "samples_per_cycle": 400
+      },
+      "timings": {
+        "baseline_s": 0.505261291982606,
+        "intervention_s": 0.8948946660384536,
+        "total_s": 1.4016247920226306
+      },
+      "warnings": [
+        "SYNTHETIC research model; not clinically validated. No medical advice.",
+        "Shorter than the documented demo duration; transient effects may remain.",
+        "baseline: final beats do not meet the stated periodicity threshold (or comparison unavailable).",
+        "intervention: final beats do not meet the stated periodicity threshold (or comparison unavailable).",
+        "Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation."
+      ]
+    },
+    "result_summary": {
+      "model": "m1",
+      "parameter_changes": [
+        {
+          "baseline": 0.01,
+          "intervention": 0.03,
+          "parameter": "resistance_mitral"
+        }
+      ],
+      "run_id": "run-41c40d3737ab6580fa00bd7a",
+      "warnings": [
+        "SYNTHETIC research model; not clinically validated. No medical advice.",
+        "Shorter than the documented demo duration; transient effects may remain.",
+        "baseline: final beats do not meet the stated periodicity threshold (or comparison unavailable).",
+        "intervention: final beats do not meet the stated periodicity threshold (or comparison unavailable).",
+        "Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation."
+      ]
+    },
+    "started_at": "2026-11-02T01:48:29.695432+00:00",
+    "step": 5,
+    "timing_s": 1.402824042015709,
+    "tool_name": "run_experiment"
+  },
+  {
+    "ended_at": "2026-11-02T01:48:31.099150+00:00",
+    "intent": "{\"schema_version\": \"1.0\", \"status\": \"completed\", \"hypothesis\": \"If mitral valve resistance triples, what happens to left atrial pressure in the M1 model?\", \"model\": \"m1\", \"summary\": \"The paired synthetic experiment completed; inspect the cited metrics and settling warnings.\", \"parameter_changes\": [{\"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"parameter\": \"resistance_mitral\", \"baseline\": 0.01, \"intervention\": 0.03}], \"ontology_ids\": [\"UBERON:0002135\"], \"evidence\": [{\"path\": \"src/physiosim/models/cardiovascular.py\", \"line\": 37, \"anchor\": \"L37\", \"excerpt\": \"    resistance_mitral: float = 0.01\", \"scope\": \"Synthetic implementation definition; no calibration evidence.\"}, {\"path\": \"src/physiosim/models/four_chamber_m1.py\", \"line\": 102, \"anchor\": \"L102\", \"excerpt\": \"    resistance_mitral: float\", \"scope\": \"Synthetic implementation definition; no calibration evidence.\"}, {\"path\": \"src/physiosim/ontology/anatomy_nodes_v2.json\", \"line\": 84, \"anchor\": \"L84\", \"excerpt\": \"   \\\"key\\\": \\\"mitral_valve\\\",\", \"scope\": \"Offline anatomical context, not numerical parameter evidence.\"}, {\"path\": \"docs/physiology.md\", \"line\": 120, \"anchor\": \"L120\", \"excerpt\": \"## Complete default parameter provenance\", \"scope\": \"Exploratory parameter provenance, not literature-derived values.\"}, {\"path\": \"docs/physiology_four_chamber_m1.md\", \"line\": 181, \"anchor\": \"L181\", \"excerpt\": \"## Synthetic fixture and execution\", \"scope\": \"Explicit synthetic fixture, not clinical calibration.\"}, {\"path\": \"docs/evidence_review/evidence_cards.md\", \"line\": 502, \"anchor\": \"L502\", \"excerpt\": \"## S23 Current practice for anatomical identifiers (research survey, 2026-11-01)\", \"scope\": \"Anatomical identifier practice; no numeric binding.\"}, {\"path\": \"docs/evidence_review/evidence_cards.md\", \"line\": 533, \"anchor\": \"L533\", \"excerpt\": \"## S24 Structures in current closed-loop circulation models and the minor heart valves (research survey, 2026-11-01)\", \"scope\": \"Circulation model survey; no numeric binding.\"}, {\"path\": \"docs/physiology_sources.json\", \"line\": 3, \"anchor\": \"L3\", \"excerpt\": \"  \\\"sources\\\": [\", \"scope\": \"Source ledger for equation background, not parameter values.\"}], \"findings\": [{\"id\": \"finding-0\", \"label\": \"la pressure mean mmhg\", \"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"metric_path\": \"baseline.metrics.la_pressure_mean_mmhg\", \"value\": 6.636992, \"decimals\": 6, \"direction\": null}, {\"id\": \"finding-1\", \"label\": \"la pressure mean mmhg\", \"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"metric_path\": \"intervention.metrics.la_pressure_mean_mmhg\", \"value\": 8.068104, \"decimals\": 6, \"direction\": null}, {\"id\": \"finding-2\", \"label\": \"la pressure mean mmhg\", \"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"metric_path\": \"delta.abs.la_pressure_mean_mmhg\", \"value\": 1.431112, \"decimals\": 6, \"direction\": \"increase\"}], \"limitations\": [\"Synthetic exploratory parameters; not clinically validated or patient specific.\", \"No medical advice, diagnosis, treatment, medication or emergency guidance.\", \"Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.\", \"Fixed duration and a periodicity check do not prove steady state or biological validity.\", \"Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review.\"]}",
+    "kind": "model",
+    "model_message": {
+      "content": "{\"schema_version\": \"1.0\", \"status\": \"completed\", \"hypothesis\": \"If mitral valve resistance triples, what happens to left atrial pressure in the M1 model?\", \"model\": \"m1\", \"summary\": \"The paired synthetic experiment completed; inspect the cited metrics and settling warnings.\", \"parameter_changes\": [{\"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"parameter\": \"resistance_mitral\", \"baseline\": 0.01, \"intervention\": 0.03}], \"ontology_ids\": [\"UBERON:0002135\"], \"evidence\": [{\"path\": \"src/physiosim/models/cardiovascular.py\", \"line\": 37, \"anchor\": \"L37\", \"excerpt\": \"    resistance_mitral: float = 0.01\", \"scope\": \"Synthetic implementation definition; no calibration evidence.\"}, {\"path\": \"src/physiosim/models/four_chamber_m1.py\", \"line\": 102, \"anchor\": \"L102\", \"excerpt\": \"    resistance_mitral: float\", \"scope\": \"Synthetic implementation definition; no calibration evidence.\"}, {\"path\": \"src/physiosim/ontology/anatomy_nodes_v2.json\", \"line\": 84, \"anchor\": \"L84\", \"excerpt\": \"   \\\"key\\\": \\\"mitral_valve\\\",\", \"scope\": \"Offline anatomical context, not numerical parameter evidence.\"}, {\"path\": \"docs/physiology.md\", \"line\": 120, \"anchor\": \"L120\", \"excerpt\": \"## Complete default parameter provenance\", \"scope\": \"Exploratory parameter provenance, not literature-derived values.\"}, {\"path\": \"docs/physiology_four_chamber_m1.md\", \"line\": 181, \"anchor\": \"L181\", \"excerpt\": \"## Synthetic fixture and execution\", \"scope\": \"Explicit synthetic fixture, not clinical calibration.\"}, {\"path\": \"docs/evidence_review/evidence_cards.md\", \"line\": 502, \"anchor\": \"L502\", \"excerpt\": \"## S23 Current practice for anatomical identifiers (research survey, 2026-11-01)\", \"scope\": \"Anatomical identifier practice; no numeric binding.\"}, {\"path\": \"docs/evidence_review/evidence_cards.md\", \"line\": 533, \"anchor\": \"L533\", \"excerpt\": \"## S24 Structures in current closed-loop circulation models and the minor heart valves (research survey, 2026-11-01)\", \"scope\": \"Circulation model survey; no numeric binding.\"}, {\"path\": \"docs/physiology_sources.json\", \"line\": 3, \"anchor\": \"L3\", \"excerpt\": \"  \\\"sources\\\": [\", \"scope\": \"Source ledger for equation background, not parameter values.\"}], \"findings\": [{\"id\": \"finding-0\", \"label\": \"la pressure mean mmhg\", \"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"metric_path\": \"baseline.metrics.la_pressure_mean_mmhg\", \"value\": 6.636992, \"decimals\": 6, \"direction\": null}, {\"id\": \"finding-1\", \"label\": \"la pressure mean mmhg\", \"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"metric_path\": \"intervention.metrics.la_pressure_mean_mmhg\", \"value\": 8.068104, \"decimals\": 6, \"direction\": null}, {\"id\": \"finding-2\", \"label\": \"la pressure mean mmhg\", \"run_id\": \"run-41c40d3737ab6580fa00bd7a\", \"metric_path\": \"delta.abs.la_pressure_mean_mmhg\", \"value\": 1.431112, \"decimals\": 6, \"direction\": \"increase\"}], \"limitations\": [\"Synthetic exploratory parameters; not clinically validated or patient specific.\", \"No medical advice, diagnosis, treatment, medication or emergency guidance.\", \"Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.\", \"Fixed duration and a periodicity check do not prove steady state or biological validity.\", \"Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review.\"]}",
+      "role": "assistant"
+    },
+    "started_at": "2026-11-02T01:48:31.098480+00:00",
+    "step": 6,
+    "timing_s": 0.0006702910177409649,
+    "tool_name": null,
+    "usage": {
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "total_tokens": 0
+    }
+  }
+]

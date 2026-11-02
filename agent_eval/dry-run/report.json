@@ -1,0 +1,133 @@
+{
+  "report": {
+    "evidence": [
+      {
+        "anchor": "L37",
+        "excerpt": "    resistance_mitral: float = 0.01",
+        "line": 37,
+        "path": "src/physiosim/models/cardiovascular.py",
+        "scope": "Synthetic implementation definition; no calibration evidence."
+      },
+      {
+        "anchor": "L102",
+        "excerpt": "    resistance_mitral: float",
+        "line": 102,
+        "path": "src/physiosim/models/four_chamber_m1.py",
+        "scope": "Synthetic implementation definition; no calibration evidence."
+      },
+      {
+        "anchor": "L84",
+        "excerpt": "   \"key\": \"mitral_valve\",",
+        "line": 84,
+        "path": "src/physiosim/ontology/anatomy_nodes_v2.json",
+        "scope": "Offline anatomical context, not numerical parameter evidence."
+      },
+      {
+        "anchor": "L120",
+        "excerpt": "## Complete default parameter provenance",
+        "line": 120,
+        "path": "docs/physiology.md",
+        "scope": "Exploratory parameter provenance, not literature-derived values."
+      },
+      {
+        "anchor": "L181",
+        "excerpt": "## Synthetic fixture and execution",
+        "line": 181,
+        "path": "docs/physiology_four_chamber_m1.md",
+        "scope": "Explicit synthetic fixture, not clinical calibration."
+      },
+      {
+        "anchor": "L502",
+        "excerpt": "## S23 Current practice for anatomical identifiers (research survey, 2026-11-01)",
+        "line": 502,
+        "path": "docs/evidence_review/evidence_cards.md",
+        "scope": "Anatomical identifier practice; no numeric binding."
+      },
+      {
+        "anchor": "L533",
+        "excerpt": "## S24 Structures in current closed-loop circulation models and the minor heart valves (research survey, 2026-11-01)",
+        "line": 533,
+        "path": "docs/evidence_review/evidence_cards.md",
+        "scope": "Circulation model survey; no numeric binding."
+      },
+      {
+        "anchor": "L3",
+        "excerpt": "  \"sources\": [",
+        "line": 3,
+        "path": "docs/physiology_sources.json",
+        "scope": "Source ledger for equation background, not parameter values."
+      }
+    ],
+    "findings": [
+      {
+        "decimals": 6,
+        "direction": null,
+        "id": "finding-0",
+        "label": "la pressure mean mmhg",
+        "metric_path": "baseline.metrics.la_pressure_mean_mmhg",
+        "run_id": "run-41c40d3737ab6580fa00bd7a",
+        "value": 6.636992
+      },
+      {
+        "decimals": 6,
+        "direction": null,
+        "id": "finding-1",
+        "label": "la pressure mean mmhg",
+        "metric_path": "intervention.metrics.la_pressure_mean_mmhg",
+        "run_id": "run-41c40d3737ab6580fa00bd7a",
+        "value": 8.068104
+      },
+      {
+        "decimals": 6,
+        "direction": "increase",
+        "id": "finding-2",
+        "label": "la pressure mean mmhg",
+        "metric_path": "delta.abs.la_pressure_mean_mmhg",
+        "run_id": "run-41c40d3737ab6580fa00bd7a",
+        "value": 1.431112
+      }
+    ],
+    "hypothesis": "If mitral valve resistance triples, what happens to left atrial pressure in the M1 model?",
+    "limitations": [
+      "Synthetic exploratory parameters; not clinically validated or patient specific.",
+      "No medical advice, diagnosis, treatment, medication or emergency guidance.",
+      "Ideal diode valves, passive atria in M1, no reflexes, drug model or calibrated physiology.",
+      "Fixed duration and a periodicity check do not prove steady state or biological validity.",
+      "Ontology context is not anatomical identity or numerical calibration; mapping needs researcher review."
+    ],
+    "model": "m1",
+    "ontology_ids": [
+      "UBERON:0002135"
+    ],
+    "parameter_changes": [
+      {
+        "baseline": 0.01,
+        "intervention": 0.03,
+        "parameter": "resistance_mitral",
+        "run_id": "run-41c40d3737ab6580fa00bd7a"
+      }
+    ],
+    "schema_version": "1.0",
+    "status": "completed",
+    "summary": "The paired synthetic experiment completed; inspect the cited metrics and settling warnings."
+  },
+  "usage": {
+    "completion_tokens": 0,
+    "latency_s": 1.4295687910052948,
+    "model_calls": 3,
+    "prompt_tokens": 0,
+    "total_tokens": 0
+  },
+  "verification": {
+    "failures": [],
+    "passed": true,
+    "repair_attempted": false,
+    "scope": "Checks tool consistency and source membership, not biological validity or hypothesis-to-parameter semantic correctness.",
+    "unverified_claims": [],
+    "verified_claims": [
+      "finding-0",
+      "finding-1",
+      "finding-2"
+    ]
+  }
+}

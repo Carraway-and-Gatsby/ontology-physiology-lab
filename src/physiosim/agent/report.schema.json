@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Verified synthetic experiment report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "hypothesis",
+    "model",
+    "summary",
+    "parameter_changes",
+    "ontology_ids",
+    "evidence",
+    "findings",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "status": {
+      "const": "completed"
+    },
+    "hypothesis": {
+      "type": "string"
+    },
+    "model": {
+      "enum": [
+        "phase1",
+        "m1"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parameter_changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "run_id",
+          "parameter",
+          "baseline",
+          "intervention"
+        ],
+        "properties": {
+          "run_id": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": "string"
+          },
+          "baseline": {
+            "type": "number"
+          },
+          "intervention": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "ontology_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "line",
+          "anchor",
+          "excerpt",
+          "scope"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          },
+          "excerpt": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "line": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "run_id",
+          "metric_path",
+          "value",
+          "decimals",
+          "direction"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          },
+          "metric_path": {
+            "type": "string",
+            "pattern": "^(?:(?:baseline|intervention)\\.metrics|delta\\.(?:abs|rel))\\.[a-z][a-z0-9_]*$"
+          },
+          "value": {
+            "type": "number"
+          },
+          "decimals": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 12
+          },
+          "direction": {
+            "enum": [
+              "increase",
+              "decrease",
+              "unchanged",
+              null
+            ]
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
