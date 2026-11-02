@@ -49,6 +49,9 @@ def parse_extra_json(value):
     return parsed
 
 
+CLASSIFIER_MAX_TOKENS = {'meta': 1500}
+
+
 def provider_config(provider='meta', model=None, environ=None, *, extra=None):
     env = os.environ if environ is None else environ
     presets = {'meta':('https://api.meta.ai/v1','MODEL_API_KEY','muse-spark-1.3'),
@@ -69,7 +72,9 @@ def provider_config(provider='meta', model=None, environ=None, *, extra=None):
         raise ProviderError('base URL must be an http(s) endpoint without credentials, query or fragment')
     if parsed.scheme == 'http' and parsed.hostname not in ('localhost','127.0.0.1','::1'):
         raise ProviderError('plain HTTP is supported only for loopback custom providers')
-    fields = {'reasoning_effort':'none'} if provider == 'openai' else {}
+    # OpenAI GPT-6.x needs reasoning_effort none for chat-completions tool use; Meta Muse Spark does not accept
+    # 'none' (minimal..xhigh) and spends completion tokens on reasoning, so default it to 'low'.
+    fields = {'reasoning_effort':'none'} if provider == 'openai' else {'reasoning_effort':'low'} if provider == 'meta' else {}
     if 'LAB_LLM_EXTRA_JSON' in env:
         fields.update(parse_extra_json(env['LAB_LLM_EXTRA_JSON']))
     if extra is not None:
@@ -130,7 +135,9 @@ class ChatProvider:
                 'schema':{'type':'object','properties':{'in_scope':{'type':'boolean'},'reason':{'type':'string'}},
                           'required':['in_scope','reason'],'additionalProperties':False}}})
             fields.pop('max_tokens',None); fields.pop('max_completion_tokens',None)
-            fields[token_field] = 200
+            # Reasoning models (Meta Muse Spark) count reasoning tokens against this cap: measured 380-440
+            # reasoning tokens at effort 'low' for one classifier call, so 200 truncates to empty content.
+            fields[token_field] = CLASSIFIER_MAX_TOKENS.get(config.provider, 200)
             fields.pop('tools',None); fields.pop('tool_choice',None)
         else:
             # Forced final/repair calls retain the normal completion budget.

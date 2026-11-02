@@ -270,7 +270,8 @@ def test_extra_request_fields_merge_preset_then_environment_then_cli():
     assert provider_config('openai','gpt-6.1-terra',{'OPENAI_API_KEY':'test-key'}).extra=={'reasoning_effort':'none'}
     assert provider_config('openai','gpt-6.1-terra',{'OPENAI_API_KEY':'test-key'},
                            extra={'reasoning_effort':'minimal'}).extra=={'reasoning_effort':'minimal'}
-    assert provider_config('meta',environ={'MODEL_API_KEY':'test-key'}).extra=={}
+    # Muse Spark rejects reasoning_effort 'none'; the meta preset defaults to 'low' (live-checked 2026-11-02).
+    assert provider_config('meta',environ={'MODEL_API_KEY':'test-key'}).extra=={'reasoning_effort':'low'}
     assert provider_config('anthropic','claude-sonnet-5-5',{'ANTHROPIC_API_KEY':'test-key'}).extra=={}
     assert provider_config('meta',environ=env,extra={'seed':5}).extra['seed']==5
     # A fresh dict per config prevents one caller mutating a later preset.

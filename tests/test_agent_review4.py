@@ -46,7 +46,9 @@ def test_provider_classifier_cap_and_short_reason_policy(preset):
     payload=requests[0]
     expected='max_completion_tokens' if preset=='openai' else 'max_tokens'
     other='max_tokens' if expected=='max_completion_tokens' else 'max_completion_tokens'
-    assert payload[expected]==200 and other not in payload
+    # Reasoning models spend completion tokens on reasoning: Muse Spark needed 380-440 at effort 'low' (live
+    # check 2026-11-02), so the meta classifier cap is larger; the cap is still fixed by code, not by extra fields.
+    assert payload[expected]==(1500 if preset=='meta' else 200) and other not in payload
     assert 'at most 12 words' in payload['messages'][0]['content']
     assert not payload.get('tools')
 
