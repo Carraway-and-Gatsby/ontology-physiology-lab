@@ -160,8 +160,9 @@ def test_valid_tool_arguments_and_echoed_query_are_hashed_but_numeric_config_rem
     steps=[s for s in result['trace'] if s['kind']=='tool']
     assert steps[0]['args']['query']['stored'] is False
     assert steps[0]['result']['query']['stored'] is False
-    assert steps[-1]['args']=={'model':'m1','intervention':{'resistance_mitral':{'scale':3}},'cycles':1}
-    assert steps[-1]['result']['run_id']
+    run_step=next(s for s in steps if s['tool_name']=='run_experiment')
+    assert run_step['args']=={'model':'m1','intervention':{'resistance_mitral':{'scale':3}},'cycles':1}
+    assert run_step['result']['run_id']
 
 
 @pytest.mark.parametrize('prompt',[
@@ -217,7 +218,7 @@ def test_final_message_past_deadline_still_verified(monkeypatch,repair):
     def slow(messages):
         result=final(messages);clock[0]=11;return result
     def invalid(messages):
-        result=final(messages);report=json.loads(result['content']);report['findings'][0]['value']+=999
+        result=final(messages);report=json.loads(result['content']);report['findings'][0]['metric_path']='settings.cycles'
         result['content']=json.dumps(report);return result
     p=FakeProvider(script[:-1]+([invalid,slow] if repair else [slow]))
     result=run_agent(H,provider=p,wall_clock_s=10,commit='0'*40)

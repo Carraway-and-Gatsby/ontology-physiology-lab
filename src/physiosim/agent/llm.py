@@ -115,23 +115,35 @@ class ChatProvider:
         self._opener = opener if opener is not None else request.build_opener(_NoRedirect()).open
         self._sleep = sleeper
 
-    def complete(self, messages, tools, *, deadline=None):
+    def complete(self, messages, tools, *, deadline=None, tool_choice='auto'):
         config = self.config
         fields = {**config.extra,'model':config.model,'messages':messages}
         token_field = 'max_completion_tokens' if config.provider == 'openai' else 'max_tokens'
         other_field = 'max_tokens' if token_field == 'max_completion_tokens' else 'max_completion_tokens'
         if other_field in fields:
             fields.setdefault(token_field,fields.pop(other_field))
-        if tools:
+        if tools and tool_choice != 'none':
             fields.update(tools=tools,tool_choice='auto')
-        else:
-            # Separate no-tool classifier request; strict schema also checked locally.
+        elif messages and messages[0].get('content','').startswith('SCOPE_CLASSIFIER.'):
+            # Scope calls alone receive the classifier schema and short token cap.
             fields.update(response_format={'type':'json_schema','json_schema':{'name':'scope_decision','strict':True,
                 'schema':{'type':'object','properties':{'in_scope':{'type':'boolean'},'reason':{'type':'string'}},
                           'required':['in_scope','reason'],'additionalProperties':False}}})
             fields.pop('max_tokens',None); fields.pop('max_completion_tokens',None)
             fields[token_field] = 200
             fields.pop('tools',None); fields.pop('tool_choice',None)
+        else:
+            # Forced final/repair calls retain the normal completion budget.
+            fields.update(response_format={'type':'json_schema','json_schema':{'name':'final_message','strict':True,
+                'schema':{'type':'object','properties':{'model':{'type':'string','enum':['phase1','m1']},
+                    'findings':{'type':'array','items':{'type':'object','properties':{
+                        'run_id':{'type':'string'},'metric_path':{'type':'string'}},
+                        'required':['run_id','metric_path'],'additionalProperties':False}}},
+                    'required':['model','findings'],'additionalProperties':False}}})
+            fields.pop('tools',None); fields.pop('tool_choice',None)
+        if tools:
+            # Tool history requires schemas even when further calls are disabled.
+            fields.update(tools=tools,tool_choice=tool_choice)
         headers = {'Content-Type':'application/json','Accept':'application/json'}
         if config.api_key:
             headers['Authorization'] = 'Bearer '+config.api_key
@@ -167,7 +179,7 @@ class ChatProvider:
                         fields[other] = fields.pop(current)
                         token_retry = True
                         continue
-                if not tools and not format_retry and status in (400,422) and 'response_format' in excerpt.casefold() and any(
+                if 'response_format' in fields and not format_retry and status in (400,422) and 'response_format' in excerpt.casefold() and any(
                         word in excerpt.casefold() for word in ('unsupported','not supported','unrecognized','unknown','not allowed')):
                     fields.pop('response_format',None)
                     format_retry = True
@@ -201,8 +213,11 @@ class FakeProvider:
         self.classifier_answers = iter(classifier_answers) if classifier_answers is not None else None
         self.calls = 0
         self.classifier_calls = 0
+        self.requests = []
 
-    def complete(self, messages, tools, *, deadline=None):
+    def complete(self, messages, tools, *, deadline=None, tool_choice='auto'):
+        from copy import deepcopy
+        self.requests.append(deepcopy({'messages':messages,'tools':tools,'tool_choice':tool_choice}))
         self.calls += 1
         if not tools and messages and messages[0].get('content','').startswith('SCOPE_CLASSIFIER.'):
             from .guard import check_scope, classifier_hypothesis
@@ -221,6 +236,8 @@ class FakeProvider:
             item = next(self.responses)
         except StopIteration:
             raise ProviderError('FakeProvider script exhausted') from None
+        if isinstance(item,Exception):
+            raise item
         message = item(messages) if callable(item) else item
         return {'message':message,'usage':{'prompt_tokens':0,'completion_tokens':0,'total_tokens':0}}
 
@@ -240,12 +257,12 @@ class FakeProvider:
         second = {'role':'assistant','content':'Compare synthetic baseline and intervention using the real engine.',
                   'tool_calls':[call('run_experiment',arguments,3)]}
         def final(messages):
-            from .loop import report_from_run
             results = [json.loads(m['content']) for m in messages if m.get('role') == 'tool' and m.get('name') == 'run_experiment']
             results = [r for r in results if 'run_id' in r]
-            if not results or 'run_id' not in results[-1]:
+            if not results:
                 raise ProviderError('offline experiment script received an engine error')
-            hypothesis = next(m['content'] for m in messages if m['role'] == 'user')
-            evidence = [e for m in messages if m.get('role') == 'tool' and m.get('name') == 'get_evidence' for e in json.loads(m['content'])]
-            return {'role':'assistant','content':json.dumps(report_from_run(hypothesis,results[-1],metric=metric,evidence=evidence))}
+            return {'role':'assistant','content':json.dumps({'model':model,'findings':[
+                {'run_id':r['run_id'],'metric_path':prefix+metric} for r in results
+                for prefix in ('baseline.metrics.','intervention.metrics.','delta.abs.')]})}
+
         return cls([first,second,final])

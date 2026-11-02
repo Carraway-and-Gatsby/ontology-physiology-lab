@@ -93,7 +93,7 @@ def test_labels_and_units_cannot_be_model_claims(receipt):
     r=report(receipt)
     bad=deepcopy(r);bad['findings'][2]['label']='Left ventricular stroke volume elevation';bad['findings'][2]['unit']='mL'
     assert not verify(bad,receipt)['passed']
-    clean=prepare_report(bad,{receipt['run_id']:receipt})
+    clean=prepare_report(bad,{receipt['run_id']:receipt},hypothesis='synthetic hypothesis',evidence_receipts=get_evidence('resistance_mitral'))
     assert clean['findings'][2]['label']=='Mean left atrial pressure'
     assert clean['findings'][2]['unit']=='mmHg'
     assert verify(clean,receipt)['passed']
@@ -107,7 +107,7 @@ def test_labels_and_units_cannot_be_model_claims(receipt):
 ])
 def test_free_summary_discarded_and_never_verified(receipt,prose):
     r=report(receipt);original=r['verified_summary'];r['summary']=prose
-    clean=prepare_report(r,{receipt['run_id']:receipt})
+    clean=prepare_report(r,{receipt['run_id']:receipt},hypothesis='synthetic hypothesis',evidence_receipts=get_evidence('resistance_mitral'))
     assert 'summary' not in clean
     assert clean['verified_summary']==original
     assert 'model_commentary' not in clean
@@ -123,7 +123,7 @@ def test_override_diagnostics_and_warning_status_exact(receipt):
     details=r['runs'][0]
     assert details['baseline_overrides']=={'heart_rate':150.}
     assert details['diagnostics']=={'cycles':2,'baseline':receipt['baseline']['periodicity'],
-         'intervention':receipt['intervention']['periodicity'],'warnings':receipt['warnings']}
+         'intervention':receipt['intervention']['periodicity'],'warnings':receipt['warnings'],'caveats':receipt['caveats']}
     assert 'Baseline override heart_rate: 75.000 → 150.000 beat/min.' in r['verified_summary']
     assert 'periodic=false' in r['verified_summary']
     assert 'completed_with_warnings' in r['verified_summary']
@@ -144,7 +144,7 @@ def test_minimum_precision_and_nonzero_never_zero(receipt):
     f.update(metric_path='delta.rel.la_pressure_mean_mmhg',decimals=0,value=0.)
     f['label'],f['unit']=metric_display(f['metric_path'])
     assert not verify(r,receipt)['passed']
-    clean=prepare_report(r,{receipt['run_id']:receipt})
+    clean=prepare_report(r,{receipt['run_id']:receipt},hypothesis='synthetic hypothesis',evidence_receipts=get_evidence('resistance_mitral'))
     assert clean['findings'][2]['value']==receipt['delta']['rel']['la_pressure_mean_mmhg']!=0
     assert clean['findings'][2]['decimals'] is None
     assert verify(clean,receipt)['passed']
@@ -176,7 +176,12 @@ def test_ontology_and_evidence_must_be_session_related(receipt):
     assert other not in r['ontology_ids']
     r['ontology_ids'].append(other)
     assert not verify(r,receipt)['passed']
-    assert verify(r,receipt,ontology_receipts=[aortic])['passed']
+    assert not verify(r,receipt,ontology_receipts=[aortic])['passed']  # Unrelated lookup IDs are excluded in v2.1.
+    r.pop('finding_selection');r['schema_version']='2.0'
+    r['runs'][0]['diagnostics'].pop('caveats')
+    from physiosim.agent.narrative import verified_summary
+    r['verified_summary']=verified_summary(r,{receipt['run_id']:receipt})
+    assert verify(r,receipt,ontology_receipts=[aortic])['passed']  # Historical v2.0 behavior.
     runs={receipt['run_id']:receipt}
     unrelated=relevant_evidence([('resistance_aortic',get_evidence('resistance_aortic'))],runs)
     assert unrelated==[]

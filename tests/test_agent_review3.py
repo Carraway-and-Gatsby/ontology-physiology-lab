@@ -339,7 +339,7 @@ def test_fixed_caveats_do_not_turn_periodic_success_into_warning(long_run):
 def test_model_and_classifier_provenance_activity_chain_and_attribution():
     p=FakeProvider.for_experiment(cycles=1);script=list(p.responses);valid=script[-1]
     def broken(messages):
-        r=valid(messages);report=json.loads(r['content']);report['findings'][0]['value']+=999
+        r=valid(messages);report=json.loads(r['content']);report['findings'][0]['metric_path']='settings.cycles'
         r['content']=json.dumps(report);return r
     r=run_agent('synthetic experiment',provider=FakeProvider(script[:-1]+[broken,valid]),commit='0'*40)
     assert r['verification']['passed']

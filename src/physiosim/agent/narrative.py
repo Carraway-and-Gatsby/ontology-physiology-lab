@@ -74,12 +74,13 @@ def sufficient_precision(value, decimals):
                                 and round(value,decimals) != 0)))
 
 
-def run_details(runs):
+def run_details(runs, *, include_caveats=True):
     return [{'run_id':rid,'baseline_overrides':deepcopy(run['baseline_overrides']),
              'diagnostics':{'cycles':run['settings']['cycles'],
                  'baseline':deepcopy(run['baseline']['periodicity']),
                  'intervention':deepcopy(run['intervention']['periodicity']),
-                 'warnings':deepcopy(run['warnings'])}} for rid,run in runs.items()]
+                 'warnings':deepcopy(run['warnings']),
+                 **({'caveats':deepcopy(run['caveats'])} if include_caveats else {})}} for rid,run in runs.items()]
 
 
 def completion_status(runs):
@@ -101,6 +102,10 @@ def verified_summary(report, runs):
     if not runs:
         return None
     lines = ['Status: '+report.get('status',completion_status(runs))+'. Synthetic model outputs only.']
+    if report.get('finding_selection') in ('code_hypothesis_terms','code_default_set'):
+        basis = ('hypothesis terms (with the default set for runs without usable matches)'
+                 if report['finding_selection'] == 'code_hypothesis_terms' else 'the default set')
+        lines.append('Findings were selected by code from '+basis+'.')
     for rid,run in runs.items():
         ports = {p['name']:p for p in catalogue(run['model'])}
         lines.append('Run '+rid+' ('+run['model']+').')
@@ -112,7 +117,7 @@ def verified_summary(report, runs):
         for change in run['parameter_changes']:
             name = change['parameter']
             lines.append(f"Parameter {name}: {fmt(change['baseline'])} → {fmt(change['intervention'])} {ports[name]['unit']}.")
-        metrics = dict.fromkeys(f['metric_path'].split('.')[-1] for f in report.get('findings',[])
+        metrics = dict.fromkeys(f['metric_path'].split('.')[-1] for f in (report.get('findings') if isinstance(report.get('findings'),list) else [])
                                 if isinstance(f,dict) and f.get('run_id') == rid and isinstance(f.get('metric_path'),str))
         for metric in metrics:
             try:
@@ -133,37 +138,41 @@ def verified_summary(report, runs):
             change = 'unavailable' if p['max_relative_change'] is None else fmt(p['max_relative_change'])
             lines.append(f"{c}: periodic={str(p['periodic']).lower()}, max relative beat-to-beat change={change}.")
         lines.extend('Warning: '+w for w in run['warnings'])
+        if report.get('schema_version') == '2.1':
+            lines.extend('Caveat: '+c for c in run['caveats'])
     return '\n'.join(lines)
 
 
-def prepare_report(report, runs):
-    """Drop model display claims; derive code-owned fields before verification.
-
-    Numeric fabrication with adequate precision is left for the verifier to reject.
-    Low-precision model values are filled with the exact receipt value instead.
-    """
+def prepare_report(report, runs, *, hypothesis='', evidence_receipts=(), ontology_receipts=(), finding_selection='model'):
+    """Author v2.1 from receipts; the model chooses only model/run/metric references."""
+    from .verify import grounding_ids, unique_evidence
     if not isinstance(report,dict):
         return report
-    # Parse only structured fields. Free prose and unknown fields are discarded.
-    keys = {'schema_version','status','hypothesis','model','parameter_changes',
-            'ontology_ids','evidence','findings','limitations'}
-    result = {k:deepcopy(v) for k,v in report.items() if k in keys}
-    result['limitations'] = list(LIMITATIONS)
-    result['schema_version'] = '2.0'
-    result['status'] = completion_status(runs)
-    result['runs'] = run_details(runs)
-    for i,f in enumerate(result.get('findings',[]) if isinstance(result.get('findings'),list) else []):
+    result = {
+        'schema_version':'2.1',
+        'status':completion_status(runs),
+        'finding_selection':finding_selection,
+        'hypothesis':hypothesis,
+        'model':deepcopy(report.get('model')),
+        'parameter_changes':[{'run_id':rid,**deepcopy(c)} for rid,r in runs.items() for c in r['parameter_changes']],
+        'ontology_ids':sorted(grounding_ids(runs,ontology_receipts,related_only=True)),
+        'evidence':unique_evidence(evidence_receipts),
+        'findings':deepcopy(report.get('findings')),
+        'limitations':list(LIMITATIONS),
+        'runs':run_details(runs),
+    }
+    for i,f in enumerate(result['findings'] if isinstance(result['findings'],list) else []):
         if not isinstance(f,dict):
             continue
-        f = {key:deepcopy(f[key]) for key in FINDING_KEYS & {'run_id','metric_path','value','decimals'} if key in f}
+        f = {key:deepcopy(f[key]) for key in ('run_id','metric_path') if key in f}
         result['findings'][i] = f
         f['id'] = 'finding-'+str(i)
         try:
             run = runs[f['run_id']]; actual = metric_value(run,f['metric_path'])
             f['label'],f['unit'] = metric_display(f['metric_path'])
             f['direction'] = metric_direction(run,f['metric_path'].split('.')[-1]) if f['metric_path'].startswith('delta.') else None
-            if not sufficient_precision(actual,f.get('decimals')):
-                f['value'] = actual; f['decimals'] = None
+            f['value'] = actual
+            f['decimals'] = None
         except (KeyError,ValueError,TypeError):
             pass
     if runs:

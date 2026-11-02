@@ -46,8 +46,13 @@ receipts and code-generated verified values retained. Further experiment calls
 beyond `max_experiments` return `{"error":"budget_exhausted"}` as tool results,
 allowing the model to finish from existing receipts.
 CLI overrides are `--wall-clock-s`, `--max-experiments` and `--max-steps`.
-Exhaustion and provider failures produce an explicit unsuccessful result, never
-invented findings. Only one model is supported within a final report.
+Step exhaustion with a successful run produces a verified code-selected report;
+without a run it is unsuccessful. Status always reflects receipt warnings and
+periodicity (`completed` or `completed_with_warnings`). The separate
+`finding_selection` field is `model`, `code_hypothesis_terms` or `code_default_set`.
+Provider errors during forced-final nudge/repair turns also recover through code
+selection when runs exist; other provider errors and wall-clock exhaustion remain
+explicit unsuccessful outcomes. Only one model is supported per report.
 
 Modules:
 
@@ -61,7 +66,8 @@ Modules:
 | `budget.py` | Cooperative monotonic session deadline |
 | `llm.py` | urllib client, presets, redaction, retries, scripted FakeProvider |
 | `tool_protocol.py` | Shared tool schemas and strict JSON/argument validation |
-| `loop.py` | Session receipts, one repair and usage/trace |
+| `loop.py` | Session receipts, context-loop nudge, one repair and usage/trace |
+| `selection.py` | EN/KO metric aliases and topology-based automatic finding selection |
 | `provenance.py` | Local-context PROV-O JSON-LD with runtime source hashes |
 | `__main__.py` | CLI and output artifacts |
 
@@ -193,80 +199,88 @@ Numeric verification retains full session metric receipts independently of the
 trajectory store. Run IDs hash model, full baseline/intervention values, settings
 and engine source hashes; timings do not alter IDs.
 
-## Final report schema v2 and verification
+## Final report schema v2.1 and verification
 
-`src/physiosim/agent/report.schema.json` uses `oneOf` for all v2 report envelopes:
-`completed`/`completed_with_warnings`, `unverified`, `refused`, `error`, and
-`stopped_budget`. Each has closed properties and `schema_version: "2.0"`.
-Successful reports have `status`, `hypothesis`, `model`, `verified_summary`, `runs`,
-`parameter_changes`, `ontology_ids`, `evidence`, `findings` and fixed `limitations`.
-Runtime checks have no JSON Schema dependency. Tests validate every FakeProvider
-eval report, CLI dry-run output and a synthetic example of every envelope, using
-jsonschema if installed or the in-repository test validator for this subset.
+The model authors only `{"model":"phase1|m1","findings":[{"run_id":"...",
+"metric_path":"..."}]}`. Findings choose finite metric paths in `baseline.metrics`,
+`intervention.metrics`, `delta.abs` or `delta.rel`. Every successful session run
+must have a finding. Unknown runs, missing metrics and mixed models fail verification
+and receive one report-only repair, with no tools, exact failure paths and a valid
+run/path example. Further failure produces the minimal `unverified` envelope.
 
-Code owns every verified display field. `narrative.py` derives labels and units
-from metric paths and its metric/compartment tables; model labels are dropped.
-`verified_summary` is a deterministic receipt template that reports:
+Code supplies the original hypothesis, every run's parameter changes, baseline
+overrides, diagnostics, warnings and caveats, anatomical binding IDs, relevant IDs
+from this session's ontology lookups, and relevant evidence receipts. Unrelated
+ontology lookups are excluded. Evidence is deduplicated without changing records.
+If there are no relevant evidence receipts (including when the model never called
+`get_evidence`), code calls the local tool for each changed or overridden parameter;
+these calls are recorded in trace/provenance with `initiated_by: "code"`.
+Model-supplied copies of these fields, finding IDs, numbers, precision, labels,
+units, directions, limitations and summary are discarded, even when fabricated.
+`model`, `run_id` and `metric_path` remain model choices and are checked.
 
-- Every baseline override, including its catalogue default and unit, and every intervention.
-- Each selected metric's baseline, intervention, absolute delta, percentage and direction.
-- Cycles, periodic flags, maximum relative beat-to-beat changes and all warnings.
+Every code-filled field is independently verified against session receipts,
+including exact evidence/ontology sets, changes for all runs, run diagnostics and
+caveats. Findings contain exact engine values with `decimals: null`; nonzero values
+cannot disappear through rounding. Labels and units use the metric/compartment
+tables. Directions use `10 * (solver_atol + solver_rtol * metric_scale)`, with scale
+the larger absolute baseline/intervention value. Within this numerical tolerance,
+structured direction is `unchanged` and summary text says **no meaningful change**.
 
-For example, a sentence's form is `Mean left atrial pressure
-(la_pressure_mean_mmhg): <before> → <after> mmHg (<delta>, <percent>); <direction>.`
-Only real receipt values fill those placeholders. Per-run `runs` records contain
-`run_id`, `baseline_overrides` and a `diagnostics` block with `cycles`, complete
-`baseline`/`intervention` periodicity records and `warnings`. The verifier checks
-these fields and the generated narrative exactly against every session receipt.
-Run-specific warnings or a non-periodic condition yield
-`completed_with_warnings`; otherwise the status is `completed`. Always-present
-synthetic-model and sampled-quadrature caveats are separate receipt `caveats`,
-not `warnings`. No verified summary is emitted without a successful run.
+`verified_summary` deterministically reports baseline overrides, interventions,
+each selected metric's baseline/intervention/absolute and relative changes,
+directions, cycles, periodicity, warnings and caveats. A normal verified report is
+`completed_with_warnings` if any run warns or fails periodicity, otherwise
+`completed`. Fixed synthetic-model caveats do not themselves cause warning status.
+The verifier checks exact narrative equality; model prose is never persisted.
 
-A finding has `id`, `label`, `unit`, `run_id`, `metric_path`, `value`, `decimals`
-and `direction`. Paths resolve only in `baseline.metrics`, `intervention.metrics`,
-`delta.abs` or `delta.rel`; null/nonfinite metrics cannot be numeric findings.
-Values must equal exact Python rounding with at least three significant figures,
-or use `decimals: null` and the exact receipt value. Code fills low-precision model
-values directly from receipts. Nonzero metrics never display as zero. Directions
-use a declared noise tolerance `10 * (solver_atol + solver_rtol * metric_scale)`,
-where scale is the larger absolute baseline/intervention value. Inside that
-threshold the structured direction is `unchanged` and prose says **no meaningful
-change**. This is a numerical display convention, not a physiological threshold.
+After a successful run, two consecutive model turns using only
+`list_parameters`, `lookup_ontology`, `get_evidence` or `get_timeseries` trigger
+exactly one fixed user nudge:
+`You have the run results. Reply now with the final JSON: {model, findings[{run_id, metric_path}]}.`
+Nudge and repair turns retain the tool schemas for existing tool-call history,
+with `tool_choice: "none"`. These forced-final HTTP requests use the small
+final-message schema and retain the normal completion budget; only classifier
+calls use the scope schema and 200-token cap. A new run attempt resets the
+context-turn counter.
+If a provider nevertheless returns tool calls on a forced-final turn, those calls
+are not executed; nudge continuations return disabled-tool stubs and keep
+`tool_choice: "none"` until final JSON or exhaustion. If the step budget is
+exhausted, or a forced-final provider call fails, code selects findings from
+successful runs. Code-selected reports skip model repair; failed verification
+goes directly to `unverified`. Without a run, exhaustion stays unverified.
 
-The model's final message is parsed only for structured fields. Free model
-prose, legacy summaries, commentary and unknown top-level fields are discarded;
-there is no commentary UI, screen, flag or CLI output. Labels, units, finding IDs,
-limitations and the verified narrative are generated by code. Other strings in a
-successful report must exactly match the user hypothesis or trusted structured
-receipts (parameter names, ontology IDs, evidence records and metric paths).
-Fabricated structured values still fail verification.
+Automatic selection matches metric names, labels and explicit EN/KO aliases in
+`selection.py` (cardiac output/심박출량, stroke volume/일회 박출량 and compartment
+pressures). Bare `sv`, `co` and `map` are not aliases. Metrics that directly echo
+a changed or overridden parameter (such as heart rate) are excluded. Without a
+usable match, including when only input echoes match, both models use cardiac
+output, stroke volume and mean pressures in affected compartments: valve/resistance edge endpoints use the
+actual model topology (phase1 mitral: PV/LV; M1 mitral: LA/LV), local chamber or
+reservoir ports use that compartment, global heart-rate/activation ports use all
+compartments. Each metric has baseline, intervention and absolute-delta findings;
+null/nonfinite metrics are excluded. The summary explicitly states that findings
+were selected by code and names the basis: hypothesis terms or the default set.
+`finding_selection` records that basis separately from warning-aware status. In
+multi-run selection, runs without usable matches receive the default set.
+Code obtains local evidence for each changed or overridden parameter lacking a
+related receipt, even when another parameter already has evidence.
 
-Parameter changes must exactly match all session receipts, and each successful
-run must be cited. IDs must come from this session's `lookup_ontology` results or
-catalogue bindings of changed/overridden parameters. Each bound parameter needs
-its context ID. Evidence must match an actual `get_evidence` call for a changed
-parameter, override or related entity; unrelated calls do not qualify. Unknown
-top-level and finding keys are discarded before verification; finding
-IDs, labels, units and directions are code-generated. Fabricated values, altered
-diagnostics and missing required structured fields fail.
-The fixed hypothesis is echoed exactly. Semantic hypothesis-to-parameter mapping
-and biological validity still require researcher review.
+`report.schema.json` defines closed v2.1 output envelopes: normal completion,
+`unverified`, `refused`, `error`, and `stopped_budget`, plus a
+`final_message` definition for the small model input. Historical `2.0` envelopes
+remain readable by the schema and verifier with their original rounding, lookup
+and run-detail rules; new reports use `2.1`. There is no runtime JSON Schema
+dependency; offline tests use jsonschema or the in-repository subset validator.
 
-A failed check receives one report-only repair with exact failure paths and a
-receipt-backed example. Further failure yields the minimal `unverified` envelope:
-a fixed note, canonical limitations, and a `response_hash` receipt containing
-`sha256`, `chars` and `stored: false` when a final message was received. It never
-contains raw responses or rejected findings. Completed engine receipts remain in
-the trace. An unavailable repair also retains this unverified outcome. Refusals
-contain a fixed refusal and optional fixed guard note; errors contain a fixed
-failure label. `stopped_budget` includes completed run diagnostics, exact parameter
-changes and code-generated findings, plus a verified receipt narrative when any
-run succeeded. Budget findings use valid metrics from the last model findings, or
-recognized metric names/labels in the hypothesis (including LA pressure, stroke
-volume and cardiac output). If no requested metric is known, the documented
-default is `stroke_volume_ml`. Values always come from completed run receipts.
-Its overall verification remains false because the session stopped.
+Unverified reports retain only a fixed note, limitations and a response hash,
+never rejected findings or raw text. Completed engine receipts remain in trace.
+Wall-clock exhaustion retains the separate `stopped_budget` envelope and overall
+verification false, with completed run diagnostics and exact code-filled findings.
+Budget findings retain valid last-model selections or recognized EN metric labels
+and the historical stroke-volume default. No summary is emitted without a run.
+Semantic hypothesis-to-parameter mapping and biological validity still require
+researcher review.
 
 ## Scope guard
 
@@ -440,7 +454,7 @@ no reflex/drug/renal/FSI/pericardial/septal coupling, no clinical targets and no
 patient data. Periodicity is a numerical diagnostic with a declared threshold;
 source evidence supports context and model structure, not these numerical values.
 
-### Evaluation updates for v2
+### Evaluation updates for v2.1
 
 `agent_eval/run_eval.py --provider fake` now covers the original cases, ten review
 clinical counter-examples, and three formerly refused experiment phrasings. The
@@ -451,3 +465,12 @@ groups are derived programmatically by comparing every available metric across
 all baseline/intervention reference runs for each model (`rel_tol=1e-12`, no
 absolute tolerance). No alias pairs are hard-coded; groups and scores are saved
 in evaluation results. Real provider runs remain the integrator's responsibility.
+
+Evaluation derives code selection from `finding_selection`, independently of
+completion status, and shows both fields in the evaluation table. It retains the
+`completed_auto` counter and its mapping/tool/verifier subtotal for compatibility.
+Auto completion can pass those three infrastructure checks but cannot
+receive overall model-success or model-authored sign credit (`sign_correct: null`).
+The CLI evaluator returns nonzero if any case lacks overall model success, even
+when code recovered a verified report. FakeProvider scripts author only model/run/
+metric references and still receive the expected parameter mapping explicitly.

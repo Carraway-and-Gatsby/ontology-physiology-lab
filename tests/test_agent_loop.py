@@ -94,7 +94,7 @@ def test_commentary_never_enters_verified_narrative(receipt,commentary):
     changed=deepcopy(report);changed['model_commentary']=commentary
     result=verify_report(changed,{run['run_id']:run})
     assert not result['passed']
-    clean=prepare_report(changed,{run['run_id']:run})
+    clean=prepare_report(changed,{run['run_id']:run},hypothesis='synthetic hypothesis',evidence_receipts=get_evidence('resistance_mitral'))
     assert 'model_commentary' not in clean
     assert verify_report(clean,{run['run_id']:run})['passed']
     assert clean['verified_summary']==report['verified_summary']
@@ -139,7 +139,11 @@ def test_verifier_rejects_fabrication_wrong_direction_and_untracked_numbers(rece
 def test_rounding_is_exact_not_loose_relative_tolerance(receipt):
     run,report=receipt
     value=run['baseline']['metrics']['la_pressure_mean_mmhg']
-    report=deepcopy(report);report['findings'][0].update(decimals=2,value=round(value,2))
+    report=deepcopy(report);report.pop('finding_selection');report['schema_version']='2.0'  # Recorded v2.0 rounding remains readable.
+    report['runs'][0]['diagnostics'].pop('caveats')
+    from physiosim.agent.narrative import verified_summary
+    report['verified_summary']=verified_summary(report,{run['run_id']:run})
+    report['findings'][0].update(decimals=2,value=round(value,2))
     assert verify_report(report,{run['run_id']:run})['passed']
     report['findings'][0]['value'] += 1e-10
     assert not verify_report(report,{run['run_id']:run})['passed']
@@ -172,7 +176,7 @@ def _repair_provider(*,fix):
     script=list(fake.responses)
     valid=script[-1]
     def broken(messages):
-        answer=valid(messages);data=json.loads(answer['content']);data['findings'][0]['value'] += 100
+        answer=valid(messages);data=json.loads(answer['content']);data['findings'][0]['run_id'] = 'invented'
         answer['content']=json.dumps(data)
         return answer
     return FakeProvider(script[:-1]+[broken,valid if fix else broken])
@@ -191,13 +195,13 @@ def test_repair_quotes_exact_receipt_failures():
     valid=script[-1]
     def broken(messages):
         answer=valid(messages);report=json.loads(answer['content'])
-        report['parameter_changes'][0]['intervention']=99
+        report['findings'][0]['metric_path']='settings.cycles'
         answer['content']=json.dumps(report)
         return answer
     def repair(messages):
         prompt=messages[-1]['content']
         guidance=json.loads(prompt[prompt.index('{'):])
-        assert any(f['path']=='parameter_changes' for f in guidance['failing_rules'])
+        assert any(f['path'].startswith('findings.0') for f in guidance['failing_rules'])
         return valid(messages)
     fake=FakeProvider(script[:-1]+[broken,repair])
     result=run_agent('synthetic hypothesis',provider=fake,commit='0'*40)
@@ -380,7 +384,7 @@ def test_fake_eval_all_cases_offline():
     assert result['summary']['passed'] == len(cases),[(r['id'],r['verification_failures']) for r in result['cases'] if not r['passed']]
     assert result['summary']['tokens'] == 0
     assert 'not LLM' in result['caveat']
-    assert '| m1_mitral | pass' in module.markdown(result)
+    assert '| m1_mitral | completed' in module.markdown(result)
     for case,row in zip(cases,result['cases']):
         if case['in_scope']:
             r=next(s['result'] for s in row['result']['trace'] if s.get('tool_name') == 'run_experiment')
