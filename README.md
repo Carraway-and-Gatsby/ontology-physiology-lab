@@ -1,5 +1,7 @@
 # Ontology-Physiology Lab
 
+[![Synthetic research checks](https://github.com/Carraway-and-Gatsby/ontology-physiology-lab/actions/workflows/research-ci.yml/badge.svg?branch=hackathon/experiment-agent)](https://github.com/Carraway-and-Gatsby/ontology-physiology-lab/actions/workflows/research-ci.yml?query=branch%3Ahackathon%2Fexperiment-agent)
+
 A research tool for running synthetic cardiovascular experiments from plain-language hypotheses.
 
 > **Meta Global AI Developer Hackathon entry (Indie track).** This repository is a submission to the Meta Global AI
