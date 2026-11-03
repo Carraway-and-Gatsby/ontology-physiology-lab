@@ -58,33 +58,37 @@
         "scope": "Source ledger for equation background, not parameter values."
       }
     ],
+    "finding_selection": "model",
     "findings": [
       {
-        "decimals": 6,
+        "decimals": null,
         "direction": null,
         "id": "finding-0",
-        "label": "la pressure mean mmhg",
+        "label": "Mean left atrial pressure",
         "metric_path": "baseline.metrics.la_pressure_mean_mmhg",
-        "run_id": "run-41c40d3737ab6580fa00bd7a",
-        "value": 6.636992
+        "run_id": "run-1f0d92f699a20d518b6b7f3e",
+        "unit": "mmHg",
+        "value": 6.636991906404394
       },
       {
-        "decimals": 6,
+        "decimals": null,
         "direction": null,
         "id": "finding-1",
-        "label": "la pressure mean mmhg",
+        "label": "Mean left atrial pressure",
         "metric_path": "intervention.metrics.la_pressure_mean_mmhg",
-        "run_id": "run-41c40d3737ab6580fa00bd7a",
-        "value": 8.068104
+        "run_id": "run-1f0d92f699a20d518b6b7f3e",
+        "unit": "mmHg",
+        "value": 8.068103735823215
       },
       {
-        "decimals": 6,
+        "decimals": null,
         "direction": "increase",
         "id": "finding-2",
-        "label": "la pressure mean mmhg",
+        "label": "Mean left atrial pressure",
         "metric_path": "delta.abs.la_pressure_mean_mmhg",
-        "run_id": "run-41c40d3737ab6580fa00bd7a",
-        "value": 1.431112
+        "run_id": "run-1f0d92f699a20d518b6b7f3e",
+        "unit": "mmHg",
+        "value": 1.4311118294188203
       }
     ],
     "hypothesis": "If mitral valve resistance triples, what happens to left atrial pressure in the M1 model?",
@@ -97,24 +101,60 @@
     ],
     "model": "m1",
     "ontology_ids": [
-      "UBERON:0002135"
+      "FMA:7235",
+      "UBERON:0002135",
+      "http://purl.obolibrary.org/obo/UBERON_0002135"
     ],
     "parameter_changes": [
       {
         "baseline": 0.01,
         "intervention": 0.03,
         "parameter": "resistance_mitral",
-        "run_id": "run-41c40d3737ab6580fa00bd7a"
+        "run_id": "run-1f0d92f699a20d518b6b7f3e"
       }
     ],
-    "schema_version": "1.0",
-    "status": "completed",
-    "summary": "The paired synthetic experiment completed; inspect the cited metrics and settling warnings."
+    "runs": [
+      {
+        "baseline_overrides": {},
+        "diagnostics": {
+          "baseline": {
+            "available": true,
+            "comparisons": 3,
+            "definition": "max compartment waveform difference / max(prior-beat max absolute compartment volume, 1 mL), across up to last three successive beat pairs",
+            "max_relative_change": 0.003122715158328739,
+            "periodic": false,
+            "threshold": 0.001
+          },
+          "caveats": [
+            "SYNTHETIC research model; not clinically validated. No medical advice.",
+            "Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation."
+          ],
+          "cycles": 12,
+          "intervention": {
+            "available": true,
+            "comparisons": 3,
+            "definition": "max compartment waveform difference / max(prior-beat max absolute compartment volume, 1 mL), across up to last three successive beat pairs",
+            "max_relative_change": 0.006887479097819453,
+            "periodic": false,
+            "threshold": 0.001
+          },
+          "warnings": [
+            "Shorter than the documented demo duration; transient effects may remain.",
+            "baseline: final beats do not meet the stated periodicity threshold (or comparison unavailable).",
+            "intervention: final beats do not meet the stated periodicity threshold (or comparison unavailable)."
+          ]
+        },
+        "run_id": "run-1f0d92f699a20d518b6b7f3e"
+      }
+    ],
+    "schema_version": "2.1",
+    "status": "completed_with_warnings",
+    "verified_summary": "Status: completed_with_warnings. Synthetic model outputs only.\nRun run-1f0d92f699a20d518b6b7f3e (m1).\nBaseline overrides: none (catalogue defaults).\nParameter resistance_mitral: 0.0100000 → 0.0300000 mmHg*s/mL.\nMean left atrial pressure (la_pressure_mean_mmhg): 6.637 → 8.068 mmHg (+1.431, +21.563%); increase.\nDiagnostics: cycles=12.\nbaseline: periodic=false, max relative beat-to-beat change=0.00312272.\nintervention: periodic=false, max relative beat-to-beat change=0.00688748.\nWarning: Shorter than the documented demo duration; transient effects may remain.\nWarning: baseline: final beats do not meet the stated periodicity threshold (or comparison unavailable).\nWarning: intervention: final beats do not meet the stated periodicity threshold (or comparison unavailable).\nCaveat: SYNTHETIC research model; not clinically validated. No medical advice.\nCaveat: Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation."
   },
   "usage": {
     "completion_tokens": 0,
-    "latency_s": 1.4295687910052948,
-    "model_calls": 3,
+    "latency_s": 0.5306494999676943,
+    "model_calls": 4,
     "prompt_tokens": 0,
     "total_tokens": 0
   },
@@ -122,7 +162,7 @@
     "failures": [],
     "passed": true,
     "repair_attempted": false,
-    "scope": "Checks tool consistency and source membership, not biological validity or hypothesis-to-parameter semantic correctness.",
+    "scope": "Receipt consistency only; biological validity and semantic mapping require researcher review.",
     "unverified_claims": [],
     "verified_claims": [
       "finding-0",

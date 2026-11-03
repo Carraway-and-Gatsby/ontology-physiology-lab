@@ -1,6 +1,6 @@
 # Research Gate 1: independent evidence and model feasibility (2026-11-03, read-only)
 
-Baseline `main@7b9e2e8`. Verdict: Track A can become a falsifiable study only if the central question is asked honestly; today's validator is itself a hard-coded rule set, so the "ontology advantage" arm does not yet exist. Track B is BLOCKED at the reference-model stage: the Smith reference is not accepted against its paper, and the Korakianitis–Shi CellML is a simplified encoding whose valve dynamics differ from the paper. Superseding order of work (decided the same day): run the model verification methodology (`docs/verification/`) before either track.
+Baseline `main@a0a1ef2` (`7b9e2e8` in the private repository). Verdict: Track A can become a falsifiable study only if the central question is asked honestly; today's validator is itself a hard-coded rule set, so the "ontology advantage" arm does not yet exist. Track B is BLOCKED at the reference-model stage: the Smith reference is not accepted against its paper, and the Korakianitis–Shi CellML is a simplified encoding whose valve dynamics differ from the paper. Superseding order of work (decided the same day): run the model verification methodology (`docs/verification/`) before either track.
 
 ## A. Independent benchmark specification (Track A)
 

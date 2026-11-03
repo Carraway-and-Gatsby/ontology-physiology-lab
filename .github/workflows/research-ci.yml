@@ -3,7 +3,7 @@ name: Synthetic research checks
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, hackathon/experiment-agent]
   workflow_dispatch:
 
 permissions:

@@ -1,6 +1,6 @@
 # Dual-track research baseline and evidence framework: first report (2026-11-03)
 
-Read-only audit of `main@7b9e2e8` plus unmerged branches. Nothing was modified, committed, pushed or published to produce this report. Literature section: see [novelty_and_prior_work.md](novelty_and_prior_work.md).
+Read-only audit of `main@a0a1ef2` (`7b9e2e8` in the private repository) plus unmerged branches. Nothing was modified, committed, pushed or published to produce this report. Literature section: see [novelty_and_prior_work.md](novelty_and_prior_work.md).
 
 ## 1. Current research baseline
 

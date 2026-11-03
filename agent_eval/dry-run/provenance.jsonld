@@ -1,5 +1,6 @@
 {
   "@context": {
+    "@version": 1.1,
     "lab": "urn:physiosim:agent:",
     "prov": "http://www.w3.org/ns/prov#",
     "prov:endedAtTime": {
@@ -17,48 +18,190 @@
     "prov:wasAttributedTo": {
       "@type": "@id"
     },
+    "prov:wasDerivedFrom": {
+      "@type": "@id"
+    },
     "prov:wasGeneratedBy": {
       "@type": "@id"
     },
+    "prov:wasInformedBy": {
+      "@type": "@id"
+    },
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
       "@type": [
         "prov:Agent",
         "prov:SoftwareAgent"
       ],
       "lab:commitCaveat": "Commit identifies checkout HEAD; observed source hashes record runtime bytes and may include uncommitted changes.",
-      "lab:engineCommit": "e3d560ed2bad14958b6ff35dff135782468441ca",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
       "lab:packageVersion": "0.1.0",
-      "prov:label": "physiosim synthetic experiment agent"
+      "rdfs:label": "physiosim synthetic experiment agent"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:llm",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm",
       "@type": [
         "prov:Agent",
         "prov:SoftwareAgent"
       ],
       "lab:model": "scripted-offline",
       "lab:provider": "fake",
-      "prov:label": "scripted-offline"
+      "rdfs:label": "scripted-offline"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:session",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
       "@type": "prov:Activity",
       "lab:hypothesis": "If mitral valve resistance triples, what happens to left atrial pressure in the M1 model?",
       "lab:scope": "Synthetic, exploratory, not clinically validated. No medical advice.",
-      "prov:endedAtTime": "2026-11-02T01:48:31.101697+00:00",
-      "prov:label": "synthetic research session",
-      "prov:startedAtTime": "2026-11-02T01:48:29.672130+00:00",
+      "prov:endedAtTime": "2026-11-03T06:49:17.747906+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.217245+00:00",
       "prov:wasAssociatedWith": [
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:llm"
-      ]
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "rdfs:label": "synthetic research session"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-1:input",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:classifier-0:input",
+      "@type": "prov:Entity",
+      "lab:configuration": {
+        "@type": "@json",
+        "@value": {
+          "arguments": {}
+        }
+      },
+      "rdfs:label": "model call configuration"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:classifier-0",
+      "@type": "prov:Activity",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
+      "lab:llmModel": "scripted-offline",
+      "lab:llmProvider": "fake",
+      "lab:packageVersion": "0.1.0",
+      "prov:endedAtTime": "2026-11-03T06:49:17.241700+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.241444+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:classifier-0:input",
+      "prov:wasAssociatedWith": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session"
+      ],
+      "rdfs:label": "classifier"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:classifier-0:result",
+      "@type": "prov:Entity",
+      "lab:result": {
+        "@type": "@json",
+        "@value": {
+          "content": {
+            "chars": 63,
+            "sha256": "86c04285ed2dfe4700241a301e29c0c192e8ca8a98408e4c9892b7ee5f28bf45",
+            "stored": false
+          },
+          "role": "assistant"
+        }
+      },
+      "lab:runId": "not-an-engine-run",
+      "lab:sha256": "565190ba6b91cf1cfd80eda6bc67a7a3ce786a37c51fb782ee3580e5a3751408",
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:classifier-0",
+      "rdfs:label": "assistant message digest"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-1:input",
+      "@type": "prov:Entity",
+      "lab:configuration": {
+        "@type": "@json",
+        "@value": {
+          "arguments": {}
+        }
+      },
+      "rdfs:label": "model call configuration"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-1",
+      "@type": "prov:Activity",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
+      "lab:llmModel": "scripted-offline",
+      "lab:llmProvider": "fake",
+      "lab:packageVersion": "0.1.0",
+      "prov:endedAtTime": "2026-11-03T06:49:17.242012+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.241731+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-1:input",
+      "prov:wasAssociatedWith": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:classifier-0"
+      ],
+      "rdfs:label": "model"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-1:result",
+      "@type": "prov:Entity",
+      "lab:result": {
+        "@type": "@json",
+        "@value": {
+          "content": {
+            "chars": 51,
+            "sha256": "e1f101aa0add6dc9aca054ce70d2c7cb7b2ff1365601d424112cc34f19280e56",
+            "stored": false
+          },
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": {
+                  "model": "m1"
+                },
+                "name": "list_parameters"
+              }
+            },
+            {
+              "function": {
+                "arguments": {
+                  "query": {
+                    "chars": 17,
+                    "sha256": "631a64fe4cbefb7ebdd00a97bd2505cb633f0d10f4f4249719b2d97c2c9a1bec",
+                    "stored": false
+                  }
+                },
+                "name": "lookup_ontology"
+              }
+            },
+            {
+              "function": {
+                "arguments": {
+                  "entity_or_param": {
+                    "chars": 17,
+                    "sha256": "631a64fe4cbefb7ebdd00a97bd2505cb633f0d10f4f4249719b2d97c2c9a1bec",
+                    "stored": false
+                  }
+                },
+                "name": "get_evidence"
+              }
+            }
+          ]
+        }
+      },
+      "lab:runId": "not-an-engine-run",
+      "lab:sha256": "6d32931f3e25c188ad9f59c85bd343e7c04d22e1c18cfccd753aff24c495f4df",
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-1",
+      "rdfs:label": "assistant message digest"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-2:input",
       "@type": "prov:Entity",
       "lab:configuration": {
         "@type": "@json",
@@ -68,26 +211,30 @@
           }
         }
       },
-      "prov:label": "tool input configuration"
+      "rdfs:label": "tool input configuration"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-1",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-2",
       "@type": "prov:Activity",
-      "lab:engineCommit": "e3d560ed2bad14958b6ff35dff135782468441ca",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
       "lab:llmModel": "scripted-offline",
       "lab:llmProvider": "fake",
       "lab:packageVersion": "0.1.0",
-      "prov:endedAtTime": "2026-11-02T01:48:29.688537+00:00",
-      "prov:label": "list_parameters",
-      "prov:startedAtTime": "2026-11-02T01:48:29.686328+00:00",
-      "prov:used": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-1:input",
+      "prov:endedAtTime": "2026-11-03T06:49:17.244304+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.242034+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-2:input",
       "prov:wasAssociatedWith": [
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:llm"
-      ]
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-1"
+      ],
+      "rdfs:label": "list_parameters"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-1:result",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-2:result",
       "@type": "prov:Entity",
       "lab:result": {
         "@type": "@json",
@@ -1327,41 +1474,49 @@
       },
       "lab:runId": "not-an-engine-run",
       "lab:sha256": "439eecd9073102156ef0d3358ddee663a8588ddf83260207bfa804db0d0e1409",
-      "prov:label": "tool output receipt",
-      "prov:wasAttributedTo": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-      "prov:wasGeneratedBy": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-1"
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-2",
+      "rdfs:label": "tool output receipt"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-2:input",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-3:input",
       "@type": "prov:Entity",
       "lab:configuration": {
         "@type": "@json",
         "@value": {
           "arguments": {
-            "query": "resistance_mitral"
+            "query": {
+              "chars": 17,
+              "sha256": "631a64fe4cbefb7ebdd00a97bd2505cb633f0d10f4f4249719b2d97c2c9a1bec",
+              "stored": false
+            }
           }
         }
       },
-      "prov:label": "tool input configuration"
+      "rdfs:label": "tool input configuration"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-2",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-3",
       "@type": "prov:Activity",
-      "lab:engineCommit": "e3d560ed2bad14958b6ff35dff135782468441ca",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
       "lab:llmModel": "scripted-offline",
       "lab:llmProvider": "fake",
       "lab:packageVersion": "0.1.0",
-      "prov:endedAtTime": "2026-11-02T01:48:29.694935+00:00",
-      "prov:label": "lookup_ontology",
-      "prov:startedAtTime": "2026-11-02T01:48:29.688682+00:00",
-      "prov:used": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-2:input",
+      "prov:endedAtTime": "2026-11-03T06:49:17.249229+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.244419+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-3:input",
       "prov:wasAssociatedWith": [
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:llm"
-      ]
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-2"
+      ],
+      "rdfs:label": "lookup_ontology"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-2:result",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-3:result",
       "@type": "prov:Entity",
       "lab:result": {
         "@type": "@json",
@@ -1432,46 +1587,58 @@
               "synonyms": []
             }
           ],
-          "query": "resistance_mitral"
+          "query": {
+            "chars": 17,
+            "sha256": "631a64fe4cbefb7ebdd00a97bd2505cb633f0d10f4f4249719b2d97c2c9a1bec",
+            "stored": false
+          }
         }
       },
       "lab:runId": "not-an-engine-run",
-      "lab:sha256": "bc4ab6e518f76ee0f4e23b768d828dc8f154c833a95e38caef8cf41dca0bbfd9",
-      "prov:label": "tool output receipt",
-      "prov:wasAttributedTo": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-      "prov:wasGeneratedBy": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-2"
+      "lab:sha256": "7a32fd0772a67d8dc3ca3c4061c0b21733b7f3f32c18db2cd2c24afbe6f6793a",
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-3",
+      "rdfs:label": "tool output receipt"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-3:input",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-4:input",
       "@type": "prov:Entity",
       "lab:configuration": {
         "@type": "@json",
         "@value": {
           "arguments": {
-            "entity_or_param": "resistance_mitral"
+            "entity_or_param": {
+              "chars": 17,
+              "sha256": "631a64fe4cbefb7ebdd00a97bd2505cb633f0d10f4f4249719b2d97c2c9a1bec",
+              "stored": false
+            }
           }
         }
       },
-      "prov:label": "tool input configuration"
+      "rdfs:label": "tool input configuration"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-3",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-4",
       "@type": "prov:Activity",
-      "lab:engineCommit": "e3d560ed2bad14958b6ff35dff135782468441ca",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
       "lab:llmModel": "scripted-offline",
       "lab:llmProvider": "fake",
       "lab:packageVersion": "0.1.0",
-      "prov:endedAtTime": "2026-11-02T01:48:29.695379+00:00",
-      "prov:label": "get_evidence",
-      "prov:startedAtTime": "2026-11-02T01:48:29.694949+00:00",
-      "prov:used": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-3:input",
+      "prov:endedAtTime": "2026-11-03T06:49:17.249655+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.249246+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-4:input",
       "prov:wasAssociatedWith": [
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:llm"
-      ]
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-3"
+      ],
+      "rdfs:label": "get_evidence"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-3:result",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-4:result",
       "@type": "prov:Entity",
       "lab:result": {
         "@type": "@json",
@@ -1536,12 +1703,78 @@
       },
       "lab:runId": "not-an-engine-run",
       "lab:sha256": "306576e4aef9be09fe22e810912090457c62c8b799e508feadd36a5e8bdd1a03",
-      "prov:label": "tool output receipt",
-      "prov:wasAttributedTo": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-      "prov:wasGeneratedBy": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-3"
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-4",
+      "rdfs:label": "tool output receipt"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-5:input",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-5:input",
+      "@type": "prov:Entity",
+      "lab:configuration": {
+        "@type": "@json",
+        "@value": {
+          "arguments": {}
+        }
+      },
+      "rdfs:label": "model call configuration"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-5",
+      "@type": "prov:Activity",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
+      "lab:llmModel": "scripted-offline",
+      "lab:llmProvider": "fake",
+      "lab:packageVersion": "0.1.0",
+      "prov:endedAtTime": "2026-11-03T06:49:17.249753+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.249668+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-5:input",
+      "prov:wasAssociatedWith": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-4"
+      ],
+      "rdfs:label": "model"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-5:result",
+      "@type": "prov:Entity",
+      "lab:result": {
+        "@type": "@json",
+        "@value": {
+          "content": {
+            "chars": 66,
+            "sha256": "d1aea5bc6c161d39aec1ae6f88a612f9854f5d9e5d5444ab54395dc54a232db7",
+            "stored": false
+          },
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": {
+                  "intervention": {
+                    "resistance_mitral": {
+                      "scale": 3
+                    }
+                  },
+                  "model": "m1"
+                },
+                "name": "run_experiment"
+              }
+            }
+          ]
+        }
+      },
+      "lab:runId": "not-an-engine-run",
+      "lab:sha256": "6a033811c3fee9caefa337365e82a01e3f085d214a033f40f4dfdff5f434095c",
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-5",
+      "rdfs:label": "assistant message digest"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-6:input",
       "@type": "prov:Entity",
       "lab:configuration": {
         "@type": "@json",
@@ -1597,7 +1830,7 @@
             "physiosim.models.four_chamber_m1": "5d7d68818554a7bf66772f7ca89eaeba76ce5daa31bc2198ed373617ec63c381",
             "physiosim.simulation": "615a83da231ac4a2b59be7ecbf3e880693bf297fa636ad54de38c491b4667e62",
             "physiosim.simulation._hybrid": "6c413537bbe91a2859bb612d488e54379d1462a023dfea2ca4eb319e3fb9cc77",
-            "physiosim.simulation.four_chamber_m1": "492c032ac03b6712db127a83e87b0b0109afdaa1c42c3c641f21793dcda9834c"
+            "physiosim.simulation.four_chamber_m1": "3dea465bc933b2e1f8329499b7ce77c7e446b25e5c37b6f6cad1ccfd9ba1f3ea"
           },
           "intervention_parameters": {
             "compliance_pa": 5.0,
@@ -1650,26 +1883,30 @@
           }
         }
       },
-      "prov:label": "tool input configuration"
+      "rdfs:label": "tool input configuration"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-5",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-6",
       "@type": "prov:Activity",
-      "lab:engineCommit": "e3d560ed2bad14958b6ff35dff135782468441ca",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
       "lab:llmModel": "scripted-offline",
       "lab:llmProvider": "fake",
       "lab:packageVersion": "0.1.0",
-      "prov:endedAtTime": "2026-11-02T01:48:31.098240+00:00",
-      "prov:label": "run_experiment",
-      "prov:startedAtTime": "2026-11-02T01:48:29.695432+00:00",
-      "prov:used": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-5:input",
+      "prov:endedAtTime": "2026-11-03T06:49:17.746168+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.249764+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-6:input",
       "prov:wasAssociatedWith": [
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-        "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:llm"
-      ]
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-5"
+      ],
+      "rdfs:label": "run_experiment"
     },
     {
-      "@id": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-5:result",
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-6:result",
       "@type": "prov:Entity",
       "lab:result": {
         "@type": "@json",
@@ -1817,6 +2054,10 @@
             }
           },
           "baseline_overrides": {},
+          "caveats": [
+            "SYNTHETIC research model; not clinically validated. No medical advice.",
+            "Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation."
+          ],
           "delta": {
             "abs": {
               "aortic_backward_volume_ml": 0.0,
@@ -2002,7 +2243,7 @@
             "physiosim.models.four_chamber_m1": "5d7d68818554a7bf66772f7ca89eaeba76ce5daa31bc2198ed373617ec63c381",
             "physiosim.simulation": "615a83da231ac4a2b59be7ecbf3e880693bf297fa636ad54de38c491b4667e62",
             "physiosim.simulation._hybrid": "6c413537bbe91a2859bb612d488e54379d1462a023dfea2ca4eb319e3fb9cc77",
-            "physiosim.simulation.four_chamber_m1": "492c032ac03b6712db127a83e87b0b0109afdaa1c42c3c641f21793dcda9834c"
+            "physiosim.simulation.four_chamber_m1": "3dea465bc933b2e1f8329499b7ce77c7e446b25e5c37b6f6cad1ccfd9ba1f3ea"
           },
           "intervention": {
             "analysis_window_s": [
@@ -2159,7 +2400,7 @@
               "scale": 3
             }
           },
-          "run_id": "run-41c40d3737ab6580fa00bd7a",
+          "run_id": "run-1f0d92f699a20d518b6b7f3e",
           "settings": {
             "analysed_beats": 1,
             "atol": 1e-10,
@@ -2171,24 +2412,83 @@
             "samples_per_cycle": 400
           },
           "timings": {
-            "baseline_s": 0.505261291982606,
-            "intervention_s": 0.8948946660384536,
-            "total_s": 1.4016247920226306
+            "baseline_s": 0.2516145829576999,
+            "intervention_s": 0.2426668331027031,
+            "total_s": 0.49553037504665554
           },
           "warnings": [
-            "SYNTHETIC research model; not clinically validated. No medical advice.",
             "Shorter than the documented demo duration; transient effects may remain.",
             "baseline: final beats do not meet the stated periodicity threshold (or comparison unavailable).",
-            "intervention: final beats do not meet the stated periodicity threshold (or comparison unavailable).",
-            "Forward/backward flow summaries use sampled trapezoidal quadrature; ideal diode valves have no regurgitation."
+            "intervention: final beats do not meet the stated periodicity threshold (or comparison unavailable)."
           ]
         }
       },
-      "lab:runId": "run-41c40d3737ab6580fa00bd7a",
-      "lab:sha256": "3bfe0b5935794946d5448f3888017e63c99a34c036b0b8f5bd5a786260c98214",
-      "prov:label": "tool output receipt",
-      "prov:wasAttributedTo": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:software",
-      "prov:wasGeneratedBy": "urn:physiosim:session:ac1928cb7a184b5ccaeeecd2:tool-5"
+      "lab:runId": "run-1f0d92f699a20d518b6b7f3e",
+      "lab:sha256": "843312a47f2f0779692dd6b60430cb3bb08497387ac65ce67f14a03b505fc59e",
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-6",
+      "rdfs:label": "tool output receipt"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-7:input",
+      "@type": "prov:Entity",
+      "lab:configuration": {
+        "@type": "@json",
+        "@value": {
+          "arguments": {}
+        }
+      },
+      "rdfs:label": "model call configuration"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-7",
+      "@type": "prov:Activity",
+      "lab:engineCommit": "323ce6881b581beca9151d2320a166257480770d",
+      "lab:llmModel": "scripted-offline",
+      "lab:llmProvider": "fake",
+      "lab:packageVersion": "0.1.0",
+      "prov:endedAtTime": "2026-11-03T06:49:17.746515+00:00",
+      "prov:startedAtTime": "2026-11-03T06:49:17.746327+00:00",
+      "prov:used": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-7:input",
+      "prov:wasAssociatedWith": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:software",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm"
+      ],
+      "prov:wasInformedBy": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-6"
+      ],
+      "rdfs:label": "model"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-7:result",
+      "@type": "prov:Entity",
+      "lab:result": {
+        "@type": "@json",
+        "@value": {
+          "content": {
+            "chars": 329,
+            "sha256": "b44910ac7904e1d6b157224cf287246d635d466ed7c7360bfc8b3ffac58764d6",
+            "stored": false
+          },
+          "role": "assistant"
+        }
+      },
+      "lab:runId": "not-an-engine-run",
+      "lab:sha256": "b1c367787175e87174ec9ab68bb28868cb7353ff24ca11c550a02aa95057d86e",
+      "prov:wasAttributedTo": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:llm",
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:model-7",
+      "rdfs:label": "assistant message digest"
+    },
+    {
+      "@id": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:report",
+      "@type": "prov:Entity",
+      "lab:sha256": "37b2336a640ddc31affa15b5e42658cf39b1bde672a57f1581b4cd3e2c6ea241",
+      "prov:wasDerivedFrom": [
+        "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:tool-6:result"
+      ],
+      "prov:wasGeneratedBy": "urn:physiosim:session:7f2d9faf9fb2a8d5bc99827d:session",
+      "rdfs:label": "session report"
     }
   ]
 }
