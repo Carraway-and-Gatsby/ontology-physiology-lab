@@ -292,7 +292,7 @@ uv pip install --python .clean-venv/bin/python -r requirements.lock dist/ontolog
 | `docs/` | Physiology, ontology, ecosystem review, verification protocol, agent documentation, decisions, evidence ledgers |
 | `docs/evidence/`, `docs/evidence_review/` | Retained retrieval evidence (some captures are stubs, see [RIGHTS.md](RIGHTS.md)) and the Smith 2004 evidence/SHACL/PROV-O review |
 | `docs/verification/`, `docs/validation/`, `docs/research_strategy/` | Design-only methodologies of 2026-11-03: model verification (equations solved correctly), physiological validation (predictions against measured data), and the dual-track research strategy audit, Research Gate 1 and evidence registers. Nothing in them is executed or claimed as passed |
-| `results/` | Canonical Phase 1 outputs and reproducibility records |
+| `results/` | Phase 1 outputs recorded by the initial commit (2026-10-31; the current code gives slightly different trajectories, see [results/phase1/CURRENT_CODE_COMPARISON.md](results/phase1/CURRENT_CODE_COMPARISON.md)) and reproducibility records |
 | `tests/` | Numerical, dimensional, semantic, agent, wheel-portability tests |
 | [REDACTIONS.md](REDACTIONS.md) | What was redacted for the public release |
 | [RIGHTS.md](RIGHTS.md) | Third-party rights decisions: which captures are stubs and why |

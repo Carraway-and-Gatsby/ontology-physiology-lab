@@ -62,7 +62,7 @@ jobs:
           mkdir -p .ci-artifacts
           .ci-venv/bin/python scripts/verify_independent.py
           cp results/independent/c_verify_results.json .ci-artifacts/independent.json
-      - name: Retain private research evidence
+      - name: Retain CI evidence (synthetic checks; runner metadata only)
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
