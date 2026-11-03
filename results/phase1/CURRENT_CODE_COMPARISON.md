@@ -3,9 +3,11 @@
 The files in this folder were produced by the initial commit of 2026-10-31. They are kept unchanged as the recorded
 result of that run. The engine changed afterwards the same day (event-based integration across valve transitions,
 `src/physiosim/simulation/_hybrid.py`), and the ontology annotations moved to the node specification v2 on 2026-11-01
-(`docs/decisions.md`). Running `python -m physiosim --config experiments/phase1.json` with the current code therefore
-gives slightly different trajectories and different annotations. Comparison on 2026-11-03 (macOS, Python 3.11.15, NumPy
-2.4.6, SciPy 1.17.1; the regenerated files are not committed):
+(`docs/decisions.md`). Running `python -m physiosim --config experiments/phase1.json` with the current code gives
+slightly different trajectories and different annotations. These code changes are the relevant provenance; the
+comparison changes code and environment together and is not a controlled experiment that isolates either change.
+Comparison on 2026-11-03 of the 2026-10-31 files with a current-code run (macOS, Python 3.11.15, NumPy 2.4.6, SciPy
+1.17.1; the regenerated files are not committed):
 
 | File | Committed vs current code |
 | --- | --- |
@@ -16,6 +18,7 @@ gives slightly different trajectories and different annotations. Comparison on 2
 | `variables.json`, `annotations.trig` | annotations follow the v2 node specification (for example Uberon instead of FMA as the primary anatomy IRI, added `xref` and `occurs_in`) |
 | `manifest.json` | source hashes differ for the changed modules; `_hybrid.py` and the agent, M1 and applied-demo modules did not exist at the time of this run |
 
-Byte-identical reproduction is a same-host property (`results/reproducibility.json`): the same command produced three
-different `baseline.csv` byte streams on 2026-11-03 (committed file `1820f3a3...`, current code on macOS `77209d70...`,
-current code on the Linux CI runner `96c2e194...`), while two runs on the same host were byte-identical.
+Byte-identical reproduction is a property of the same host with fixed code and dependencies
+(`results/reproducibility.json`). Three `baseline.csv` byte streams exist: the 2026-10-31 snapshot (`1820f3a3...`) and
+two current-code outputs of 2026-11-03, on macOS (`77209d70...`) and on the Linux CI runner (`96c2e194...`); two runs on
+the same host with the same code were byte-identical.
