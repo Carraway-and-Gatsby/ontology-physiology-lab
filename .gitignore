@@ -10,3 +10,6 @@ __pycache__/
 build/
 dist/
 .DS_Store
+
+# Local pytest JUnit output (contains the host name of the machine that ran it); regenerate, do not commit.
+results/tests.xml
