@@ -153,3 +153,11 @@ about the earlier three-branch snapshot describe that earlier privacy-only run.
 The pipeline includes public documentation within each rewritten commit. Each
 historical rights record lists only versions in that commit’s ancestry, so source
 growth does not backfill future hashes into older commits. No network service or push is involved.
+
+## 2026-11-03: `results/tests.xml` removed from the current tree
+
+`results/tests.xml` (a pytest JUnit report from the initial commit) contained the host name of the machine that ran
+the tests. It was removed from the current tree of every public branch and added to `.gitignore`. **The file, including
+the host name, remains in the earlier history of this repository**; the history was not rewritten. The test count it
+recorded is cited in `docs/independent_verification.md`; to regenerate the report locally run
+`python -m pytest -q --junitxml=results/tests.xml`.
