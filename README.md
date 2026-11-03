@@ -21,15 +21,103 @@ A research tool for running synthetic cardiovascular experiments from plain-lang
 ## Try it
 
 - [Public research site](https://medical-ontology-research.pages.dev/): [Lab](https://medical-ontology-research.pages.dev/lab/), [simulation](https://medical-ontology-research.pages.dev/simulate/), [ontology graph](https://medical-ontology-research.pages.dev/graph/), and [methodology](https://medical-ontology-research.pages.dev/methodology/).
+- Read the [five questions](#five-questions) first: the problem, the ontology, what Meta Muse Spark does, how results are verified, and how this differs from plain LLM report generation. Public-site version: [Five questions](https://medical-ontology-research.pages.dev/overview/).
 - After installation, run the offline demo: `.venv/bin/python -m physiosim.agent --dry-run --out agent_eval/my-dry-run`.
 
 ## Contents
 
-[Hackathon](#built-during-the-meta-global-ai-developer-hackathon) · [Agent architecture](#architecture-of-the-experiment-agent) · [Meta models](#how-meta-models-are-used) · [Evaluation](#evaluation) · [Quick start](#quick-start) · [Repository map](#repository-map) · [Scientific limits](#scientific-limits) · [Rights and licenses](#rights-handling) · [Credits](#credits)
+[Five questions](#five-questions) · [Hackathon](#built-during-the-meta-global-ai-developer-hackathon) · [Agent architecture](#architecture-of-the-experiment-agent) · [Meta models](#how-meta-models-are-used) · [Evaluation](#evaluation) · [Quick start](#quick-start) · [Repository map](#repository-map) · [Scientific limits](#scientific-limits) · [Rights and licenses](#rights-handling) · [Credits](#credits)
+
+<!-- five-questions:start -->
+## Five questions
+
+> **Synthetic research model.** Nothing here is clinically validated, patient-specific or medical advice. Not for diagnosis, treatment selection or patient-specific prediction.
+
+### 1. What problem does it solve?
+
+**It lets a researcher turn a plain-language "what if" about a small cardiovascular model into a documented, repeatable engine run, without hand-editing parameters or trusting an unchecked report.**
+
+- A researcher writes a hypothesis such as "In phase1, double the heart rate and compare cardiac output."
+- The hypothesis is mapped to named engine parameters that carry units and anatomical context, so the same change can be repeated and inspected.
+- The engine is a deterministic closed-loop ODE model: a six-compartment Phase 1 model and an eight-volume four-chamber model, `four_chamber_m1`. Baseline and intervention runs use identical solver settings.
+- Every session leaves a report, a trace and a W3C PROV-O provenance record.
+- The target is exploring how a small model behaves, not describing a patient.
+
+**Evidence:** [README](README.md), [Phase 1 model](docs/physiology.md), [four-chamber M1 model](docs/physiology_four_chamber_m1.md), [agent documentation](docs/agent.md).
+
+**Limits:** All parameters are synthetic and exploratory, not fitted to measured data. The Phase 1 baseline is elevated-pressure and is not a healthy reference. The models omit, among other things, reflexes, renal regulation, respiration and pharmacology, and valves are ideal diodes.
+
+### 2. Why is an ontology needed?
+
+**A variable name alone does not say what a number means; the ontology attaches a physical property, an anatomical location and a unit to each quantity, so that mismatches can be caught by machine and the model's choice of parameter is grounded in stated concepts.**
+
+- Physical properties come from the Ontology of Physics for Biology (OPB); anatomy uses Uberon as the primary identifier with the cross-referenced FMA term kept; Gene Ontology (GO) terms give process context.
+- The connection validator rejects a pressure linked to a flow, left-ventricular pressure linked to right-ventricular pressure, and a link between different units without an explicit conversion.
+- The model can only change parameters listed in the engine's parameter catalogue. On this branch 13 of 28 Phase 1 ports and 31 of 36 M1 ports carry ontology bindings (the `hackathon/ontology-completion` branch adds typed contracts for every engine quantity). The model may call `lookup_ontology` and `get_evidence` when useful (they are optional); after the runs, code attaches the evidence relevant to the changed parameters.
+- Status: ontology completion work is on the branch `hackathon/ontology-completion`: typed contracts for every engine quantity of both models, vascular contexts, shared blood entities, a dependency graph and resistance-path evidence. Rounds 1 and 2 were reviewed by Claude Opus (an AI model reviewer; the review records are not part of this repository) with the verdict PASS_WITH_NOTES. A unified two-model RDF export and project-specific SHACL shapes are still in progress (round 3). The ontology layer is not complete.
+
+**Evidence:** [ontology documentation](docs/ontology.md), [ontology tests](tests/test_ontology.py), [ontology source](src/physiosim/ontology/).
+
+**Limits:** Source evidence verifies identifiers and labels, not that the project's variable mappings or equations are authoritative ontology entailments. There is no reasoner. The validator checks direct variable equivalence, not biological causation.
+
+### 3. What does Meta Muse Spark actually do?
+
+**Muse Spark (`muse-spark-1.3`, Meta Model API) fills two roles, scope classifier and tool-calling experiment planner; it does not compute any number and it does not write the report.**
+
+- Classifier: one strict-JSON call, without tools, decides whether a request is an in-silico experiment or a medical-advice request. Malformed replies and provider errors are treated as refusals.
+- Planner: a tool-calling loop over `list_parameters`, `lookup_ontology`, `get_evidence`, `run_experiment` and `get_timeseries`. The model chooses the model, the intervention, and which runs and metric paths to report.
+- Code then builds the report from tool receipts and checks it. Free model text is discarded; only a SHA-256 and a length are kept.
+- The Meta preset sends `reasoning_effort: "low"` and gives the classifier a 1,500-token cap, because reasoning tokens count against the completion limit.
+- One live session on 2026-11-02, "In phase1, double the heart rate and compare cardiac output.", used 4 model calls (one classifier call, three planner calls) and about 8.8 s of model-call time (about 9.4 s including tool execution). Left-ventricular cardiac output went from 7.704 to 10.047 L/min (+30.418%). The status was `completed_with_warnings` and verification passed. This session is not stored in the repository.
+
+**Evidence:** [README, "How Meta models are used"](README.md#how-meta-models-are-used), [LLM client and presets](src/physiosim/agent/llm.py), [Muse Spark evaluation table](agent_eval/live-2026-11-02/meta.md) and [summary](agent_eval/live-2026-11-02/meta_summary.json).
+
+**Limits:** The evaluation has 27 author-written cases (13 in-scope experiments, 14 out-of-scope requests), one run per provider, on commit `5c7d171`. Meta, OpenAI `gpt-6.1-terra` and Anthropic `claude-sonnet-5-5` each passed 27/27, so this evaluation does not rank them. Through the agent path, the deterministic rule table (layer 1) stopped all 14 out-of-scope requests for every provider before any agent model call (0 steps, 0 agent tokens), so the LLM classifier's refusal performance was not evaluated through that path. The evaluation harness also calls the classifier on its own for every case: it refused 14/14 out-of-scope and accepted 13/13 in-scope requests for each provider, but these are the same 14 requests the rule table already catches; no case tests a request that evades the rule table. The suite is small and author-designed, not a generalization benchmark. Mapping a hypothesis to parameters still needs researcher review.
+
+### 4. How are the results verified?
+
+**Reported numbers are checked against the engine's own receipts, recorded sessions are re-run in the browser, and the engine is covered by automated tests; this establishes consistency, not physiological truth.**
+
+- Every code-filled field of a report is checked against the session receipts, and the summary text by exact equality. A failed check gets one repair turn, then an `unverified` report.
+- The public `/lab/` page holds 81 recorded sessions (27 cases × 3 providers): 39 with engine runs and 42 refusals. The 42 refusals are the same 14 out-of-scope cases recorded once per provider, not 42 independent questions. In the browser (Pyodide), 61 of 61 findings were re-verified and the regenerated summaries matched exactly or within the stated floating-point tolerance; the largest absolute difference was 5.8e-11. Exact-equality checks are relaxed to 1e-8 relative where a different floating-point runtime is not bit-identical. A native re-check found identical summaries and a largest absolute difference of 0.0.
+- 36 of those 39 sessions carry the warning `completed_with_warnings`, because the default 12 cycles do not pass the periodicity check.
+- The test suite has 523 tests on `hackathon/experiment-agent` (commit `1487d73`) and 539 on `hackathon/ontology-completion` at round 2 (commit `85ede60`, 2026-11-02); the ontology branch count grows as later rounds add tests.
+- Each session records a PROV-O provenance file.
+
+**Evidence:** [verifier](src/physiosim/agent/verify.py), [report schema](src/physiosim/agent/report.schema.json), [evaluation results](agent_eval/live-2026-11-02/), [independent verification](docs/independent_verification.md), [verification protocol](docs/verification_protocol.md), [public /lab/ page](https://medical-ontology-research.pages.dev/lab/).
+
+**Limits:** A passing check means the report agrees with what the engine computed. It does not check that the hypothesis was mapped to the right parameter, or that the biology is right. Periodicity checks are numerical diagnostics, not convergence proofs. The 27-case evaluation is small.
+
+### 5. How is this different from plain LLM report generation?
+
+**In plain generation the model writes both the numbers and the prose; here the model only chooses which runs and metrics to report, the engine computes the numbers, and code writes and verifies every sentence.**
+
+| | Plain LLM report | This project |
+| --- | --- | --- |
+| Numbers | Written by the model | Computed by the engine, returned as tool receipts |
+| Report sentences | Written by the model | Written by code from receipts; free model text is discarded |
+| Check | None unless a person reads it | Receipts compared with the report; exact equality for the summary |
+| Repeating it | Depends on the prompt and the model | Recorded sessions re-run in the browser; the engine is deterministic |
+| Scope control | Prompt instructions | Rule table, LLM classifier, structured-only output |
+| Provenance | Usually none | PROV-O record per session |
+| Physiological accuracy | Not verified | Not verified |
+
+**Evidence:** [README, "Report schema v2.1"](README.md#report-schema-v21-the-report-is-authored-by-code), [agent documentation](docs/agent.md), [verifier](src/physiosim/agent/verify.py), [provenance writer](src/physiosim/agent/provenance.py).
+
+**Limits:** No head-to-head experiment against plain LLM generation was run. The table describes design differences, not a measured accuracy gain. The last row is the point: this design makes a report consistent with the engine, not correct about physiology.
+
+### Three kinds of checking, kept separate
+
+- **Semantic consistency.** Meaning, identifiers, units and relations are consistent and machine-checked. It says nothing about whether the physiology is right.
+- **Numerical verification.** Reported numbers equal what the engine computed, and the engine solves its equations reproducibly. It says nothing about whether the equations or parameters describe real physiology.
+- **Physiological validation.** Comparison with measured human or animal data for a stated context of use. **This has not been done.** All parameters are synthetic and exploratory, and the Phase 1 baseline is elevated-pressure and is not a healthy reference.
+
+Passing the first two checks does not imply the third.
+<!-- five-questions:end -->
 
 ## Built during the Meta Global AI Developer Hackathon
 
-Event period: 2026-10-26 to 2026-11-04. The GitHub repository was created on 2026-10-30. The first commit is dated 2026-10-31 and the most recent commit at the time of writing is dated 2026-11-02; **every commit in the history is dated inside the event period** (history preserved from the original private repository; sensitive strings and some third-party text redacted, see [REDACTIONS.md](REDACTIONS.md) and [RIGHTS.md](RIGHTS.md)). Commit hashes changed because of the redaction.
+Event period: 2026-10-26 to 2026-11-04. This public, filtered repository was created on 2026-11-02 (GitHub `created_at` 2026-11-02T10:43:26Z). The first commit is dated 2026-10-31; **every commit in the history is dated inside the event period** (history preserved from the original private repository; sensitive strings and some third-party text redacted, see [REDACTIONS.md](REDACTIONS.md) and [RIGHTS.md](RIGHTS.md)). Commit hashes changed because of the redaction.
 
 **Nothing in this repository predates the event except the third-party inputs listed in [NOTICE.md](NOTICE.md).** The one related earlier project, CardioLab ([Carraway-and-Gatsby/cardiac-simulator](https://github.com/Carraway-and-Gatsby/cardiac-simulator), created 2026-10-23, MIT), was reviewed only; none of its code, model or data is incorporated into the engine or the agent ([docs/ecosystem.md](docs/ecosystem.md)). Captures of its public README/API made during the review are kept as cited evidence.
 
