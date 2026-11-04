@@ -1,0 +1,291 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Shi et~al.(2011)Shi, Lawford, and Hose]{shi2011lumped}
+Yubing Shi, Patricia Lawford, and Rodney Hose.
+\newblock Review of zero-{D} and 1-{D} models of blood flow in the
+  cardiovascular system.
+\newblock \emph{BioMedical Engineering OnLine}, 10:\penalty0 33, 2011.
+\newblock \doi{10.1186/1475-925X-10-33}.
+
+\bibitem[Smith et~al.(2004)Smith, Chase, Nokes, Shaw, and
+  Wake]{smith2004minimal}
+Bram~W. Smith, J.~Geoffrey Chase, Roger~I. Nokes, Geoffrey~M. Shaw, and Graeme
+  Wake.
+\newblock Minimal haemodynamic system model including ventricular interaction
+  and valve dynamics.
+\newblock \emph{Medical Engineering \& Physics}, 26\penalty0 (2):\penalty0
+  131--139, 2004.
+\newblock \doi{10.1016/j.medengphy.2003.10.001}.
+
+\bibitem[Gennari et~al.(2011)Gennari, Neal, Galdzicki, and
+  Cook]{gennari2011composite}
+John~H. Gennari, Maxwell~L. Neal, Michal Galdzicki, and Daniel~L. Cook.
+\newblock Multiple ontologies in action: composite annotations for
+  biosimulation models.
+\newblock \emph{Journal of Biomedical Informatics}, 44\penalty0 (1):\penalty0
+  146--154, 2011.
+\newblock \doi{10.1016/j.jbi.2010.06.007}.
+
+\bibitem[Cook et~al.(2013)Cook, Neal, Bookstein, and Gennari]{cook2013opb}
+Daniel~L. Cook, Maxwell~L. Neal, Fred~L. Bookstein, and John~H. Gennari.
+\newblock Ontology of physics for biology: representing physical dependencies
+  as a basis for biological processes.
+\newblock \emph{Journal of Biomedical Semantics}, 4:\penalty0 41, 2013.
+\newblock \doi{10.1186/2041-1480-4-41}.
+
+\bibitem[Neal et~al.(2014)Neal, Cooling, Smith, Thompson, Sauro, Carlson, Cook,
+  and Gennari]{neal2014reappraisal}
+Maxwell~L. Neal, Michael~T. Cooling, Lucian~P. Smith, Christopher~T. Thompson,
+  Herbert~M. Sauro, Brian~E. Carlson, Daniel~L. Cook, and John~H. Gennari.
+\newblock A reappraisal of how to build modular, reusable models of biological
+  systems.
+\newblock \emph{PLoS Computational Biology}, 10\penalty0 (10):\penalty0
+  e1003849, 2014.
+\newblock \doi{10.1371/journal.pcbi.1003849}.
+
+\bibitem[Neal et~al.(2015)Neal, Carlson, Thompson, James, Kim, Tran, Crampin,
+  Cook, and Gennari]{neal2015cardiomyocyte}
+Maxwell~L. Neal, Brian~E. Carlson, Christopher~T. Thompson, Ryan~C. James,
+  Karam~G. Kim, Kenneth Tran, Edmund~J. Crampin, Daniel~L. Cook, and John~H.
+  Gennari.
+\newblock Semantics-based composition of integrated cardiomyocyte models
+  motivated by real-world use cases.
+\newblock \emph{PLoS ONE}, 10\penalty0 (12):\penalty0 e0145621, 2015.
+\newblock \doi{10.1371/journal.pone.0145621}.
+
+\bibitem[Neal et~al.(2019{\natexlab{a}})Neal, Thompson, Kim, James, Cook,
+  Carlson, and Gennari]{neal2019semgen}
+Maxwell~L. Neal, Christopher~T. Thompson, Karam~G. Kim, Ryan~C. James,
+  Daniel~L. Cook, Brian~E. Carlson, and John~H. Gennari.
+\newblock {SemGen}: a tool for semantics-based annotation and composition of
+  biosimulation models.
+\newblock \emph{Bioinformatics}, 35\penalty0 (9):\penalty0 1600--1602,
+  2019{\natexlab{a}}.
+\newblock \doi{10.1093/bioinformatics/bty829}.
+
+\bibitem[Neal et~al.(2020)Neal, Gennari, Waltemath, Nickerson, and
+  K{\"o}nig]{neal2020omex}
+Maxwell~L. Neal, John~H. Gennari, Dagmar Waltemath, David~P. Nickerson, and
+  Matthias K{\"o}nig.
+\newblock Open modeling and exchange ({OMEX}) metadata specification version
+  1.0.
+\newblock \emph{Journal of Integrative Bioinformatics}, 17\penalty0
+  (2--3):\penalty0 20200020, 2020.
+\newblock \doi{10.1515/jib-2020-0020}.
+
+\bibitem[Gennari et~al.(2021)Gennari, K{\"o}nig, Misirli, Neal, Nickerson, and
+  Waltemath]{gennari2021omex}
+John~H. Gennari, Matthias K{\"o}nig, Goksel Misirli, Maxwell~L. Neal, David~P.
+  Nickerson, and Dagmar Waltemath.
+\newblock {OMEX} metadata specification (version 1.2).
+\newblock \emph{Journal of Integrative Bioinformatics}, 18\penalty0
+  (3):\penalty0 20210020, 2021.
+\newblock \doi{10.1515/jib-2021-0020}.
+
+\bibitem[Neal et~al.(2019{\natexlab{b}})Neal, K{\"o}nig, Nickerson,
+  M{\i}s{\i}rl{\i}, Kalbasi, Dr{\"a}ger, Atalag, Chelliah, Cooling, Cook,
+  Crook, de~Alba, Friedman, Garny, Gennari, Gleeson, Golebiewski, Hucka, Juty,
+  Myers, Olivier, Sauro, Scharm, Snoep, Tour{\'e}, Wipat, Wolkenhauer, and
+  Waltemath]{neal2019harmonizing}
+Maxwell~L. Neal, Matthias K{\"o}nig, David Nickerson, G{\"o}ksel
+  M{\i}s{\i}rl{\i}, Reza Kalbasi, Andreas Dr{\"a}ger, Koray Atalag,
+  Vijayalakshmi Chelliah, Michael~T. Cooling, Daniel~L. Cook, Sharon Crook,
+  Miguel de~Alba, Samuel~H. Friedman, Alan Garny, John~H. Gennari, Padraig
+  Gleeson, Martin Golebiewski, Michael Hucka, Nick Juty, Chris Myers, Brett~G.
+  Olivier, Herbert~M. Sauro, Martin Scharm, Jacky~L. Snoep, Vasundra Tour{\'e},
+  Anil Wipat, Olaf Wolkenhauer, and Dagmar Waltemath.
+\newblock Harmonizing semantic annotations for computational models in biology.
+\newblock \emph{Briefings in Bioinformatics}, 20\penalty0 (2):\penalty0
+  540--550, 2019{\natexlab{b}}.
+\newblock \doi{10.1093/bib/bby087}.
+
+\bibitem[Paeme et~al.(2011)Paeme, Moorhead, Chase, Lambermont, Kolh, D'Orio,
+  Pierard, Moonen, Lancellotti, Dauby, and Desaive]{paeme2011mitral}
+Sabine Paeme, Katherine~T. Moorhead, J.~Geoffrey Chase, Bernard Lambermont,
+  Philippe Kolh, Vincent D'Orio, Luc Pierard, Marie Moonen, Patrizio
+  Lancellotti, Pierre~C. Dauby, and Thomas Desaive.
+\newblock Mathematical multi-scale model of the cardiovascular system including
+  mitral valve dynamics. {Application} to ischemic mitral insufficiency.
+\newblock \emph{BioMedical Engineering OnLine}, 10:\penalty0 86, 2011.
+\newblock \doi{10.1186/1475-925X-10-86}.
+
+\bibitem[Revie et~al.(2013)Revie, Stevenson, Chase, Pretty, Lambermont,
+  Ghuysen, Kolh, Shaw, and Desaive]{revie2013porcine}
+James~A. Revie, David~J. Stevenson, J.~Geoffrey Chase, Christopher~J. Pretty,
+  Bernard~C. Lambermont, Alexandre Ghuysen, Philippe Kolh, Geoffrey~M. Shaw,
+  and Thomas Desaive.
+\newblock Evaluation of a model-based hemodynamic monitoring method in a
+  porcine study of septic shock.
+\newblock \emph{Computational and Mathematical Methods in Medicine},
+  2013:\penalty0 505417, 2013.
+\newblock \doi{10.1155/2013/505417}.
+
+\bibitem[Pironet et~al.(2013)Pironet, Desaive, Kosta, Lucas, Paeme, Collet,
+  Pretty, Kolh, and Dauby]{pironet2013multiscale}
+Antoine Pironet, Thomas Desaive, Sarah Kosta, Alexandra Lucas, Sabine Paeme,
+  Arthur Collet, Christopher~J. Pretty, Philippe Kolh, and Pierre~C. Dauby.
+\newblock A multi-scale cardiovascular system model can account for the
+  load-dependence of the end-systolic pressure-volume relationship.
+\newblock \emph{BioMedical Engineering OnLine}, 12:\penalty0 8, 2013.
+\newblock \doi{10.1186/1475-925X-12-8}.
+
+\bibitem[Lloyd et~al.(2008)Lloyd, Lawson, Hunter, and Nielsen]{lloyd2008pmr}
+Catherine~M. Lloyd, James~R. Lawson, Peter~J. Hunter, and Poul~F. Nielsen.
+\newblock The {CellML} {Model} {Repository}.
+\newblock \emph{Bioinformatics}, 24\penalty0 (18):\penalty0 2122--2123, 2008.
+\newblock \doi{10.1093/bioinformatics/btn390}.
+
+\bibitem[Cuellar et~al.(2003)Cuellar, Lloyd, Nielsen, Bullivant, Nickerson, and
+  Hunter]{cuellar2003cellml}
+Autumn~A. Cuellar, Catherine~M. Lloyd, Poul~F. Nielsen, David~P. Bullivant,
+  David~P. Nickerson, and Peter~J. Hunter.
+\newblock An overview of {CellML} 1.1, a biological model description language.
+\newblock \emph{Simulation}, 79\penalty0 (12):\penalty0 740--747, 2003.
+\newblock \doi{10.1177/0037549703040939}.
+
+\bibitem[Garny and Hunter(2015)]{garny2015opencor}
+Alan Garny and Peter~J. Hunter.
+\newblock {OpenCOR}: a modular and interoperable approach to computational
+  biology.
+\newblock \emph{Frontiers in Physiology}, 6:\penalty0 26, 2015.
+\newblock \doi{10.3389/fphys.2015.00026}.
+
+\bibitem[Rosse and Mejino(2003)]{rosse2003fma}
+Cornelius Rosse and Jos{\'e} L.~V. Mejino.
+\newblock A reference ontology for biomedical informatics: the {Foundational
+  Model of Anatomy}.
+\newblock \emph{Journal of Biomedical Informatics}, 36\penalty0 (6):\penalty0
+  478--500, 2003.
+\newblock \doi{10.1016/j.jbi.2003.11.007}.
+
+\bibitem[Mungall et~al.(2012)Mungall, Torniai, Gkoutos, Lewis, and
+  Haendel]{mungall2012uberon}
+Christopher~J. Mungall, Carlo Torniai, Georgios~V. Gkoutos, Suzanna~E. Lewis,
+  and Melissa~A. Haendel.
+\newblock {Uberon}, an integrative multi-species anatomy ontology.
+\newblock \emph{Genome Biology}, 13\penalty0 (1):\penalty0 R5, 2012.
+\newblock \doi{10.1186/gb-2012-13-1-r5}.
+
+\bibitem[Courtot et~al.(2011)Courtot, Juty, Kn{\"u}pfer, Waltemath, Zhukova,
+  Dr{\"a}ger, Dumontier, Finney, Golebiewski, Hastings, Hoops, Keating, Kell,
+  Kerrien, Lawson, Lister, Lu, Machne, Mendes, Pocock, Rodriguez, Villeger,
+  Wilkinson, Wimalaratne, Laibe, Hucka, and
+  Le~Nov{\`e}re]{courtot2011qualifiers}
+M{\'e}lanie Courtot, Nick Juty, Christian Kn{\"u}pfer, Dagmar Waltemath, Anna
+  Zhukova, Andreas Dr{\"a}ger, Michel Dumontier, Andrew Finney, Martin
+  Golebiewski, Janna Hastings, Stefan Hoops, Sarah Keating, Douglas~B. Kell,
+  Samuel Kerrien, James Lawson, Allyson Lister, James Lu, Rainer Machne, Pedro
+  Mendes, Matthew Pocock, Nicolas Rodriguez, Alice Villeger, Darren~J.
+  Wilkinson, Sarala Wimalaratne, Camille Laibe, Michael Hucka, and Nicolas
+  Le~Nov{\`e}re.
+\newblock Controlled vocabularies and semantics in systems biology.
+\newblock \emph{Molecular Systems Biology}, 7:\penalty0 543, 2011.
+\newblock \doi{10.1038/msb.2011.77}.
+
+\bibitem[Knublauch and Kontokostas(2017)]{shacl2017}
+Holger Knublauch and Dimitris Kontokostas.
+\newblock Shapes constraint language ({SHACL}).
+\newblock W3c recommendation, World Wide Web Consortium, 2017.
+\newblock \url{https://www.w3.org/TR/shacl/}.
+
+\bibitem[Lebo et~al.(2013)Lebo, Sahoo, and McGuinness]{provo2013}
+Timothy Lebo, Satya Sahoo, and Deborah McGuinness.
+\newblock {PROV-O}: The {PROV} ontology.
+\newblock W3c recommendation, World Wide Web Consortium, 2013.
+\newblock \url{https://www.w3.org/TR/prov-o/}.
+
+\bibitem[Pathmanathan and Gray(2013)]{pathmanathan2013reliability}
+Pras Pathmanathan and Richard~A. Gray.
+\newblock Ensuring reliability of safety-critical clinical applications of
+  computational cardiac models.
+\newblock \emph{Frontiers in Physiology}, 4:\penalty0 358, 2013.
+\newblock \doi{10.3389/fphys.2013.00358}.
+
+\bibitem[Pathmanathan and Gray(2014)]{pathmanathan2014verification}
+Pras Pathmanathan and Richard~A. Gray.
+\newblock Verification of computational models of cardiac electro-physiology.
+\newblock \emph{International Journal for Numerical Methods in Biomedical
+  Engineering}, 30\penalty0 (5):\penalty0 525--544, 2014.
+\newblock \doi{10.1002/cnm.2615}.
+
+\bibitem[Erdemir et~al.(2020)Erdemir, Mulugeta, Ku, Drach, Horner, Morrison,
+  Peng, Vadigepalli, Lytton, and Myers]{erdemir2020credible}
+Ahmet Erdemir, Lealem Mulugeta, Joy~P. Ku, Andrew Drach, Marc Horner, Tina~M.
+  Morrison, Grace C.~Y. Peng, Rajanikanth Vadigepalli, William~W. Lytton, and
+  Jerry~G. Myers.
+\newblock Credible practice of modeling and simulation in healthcare: ten rules
+  from a multidisciplinary perspective.
+\newblock \emph{Journal of Translational Medicine}, 18:\penalty0 369, 2020.
+\newblock \doi{10.1186/s12967-020-02540-4}.
+
+\bibitem[{ASME}(2018)]{asme2018vv40}
+{ASME}.
+\newblock Assessing credibility of computational modeling through verification
+  and validation: Application to medical devices ({ASME} {V\&V} 40-2018).
+\newblock Technical report, American Society of Mechanical Engineers, 2018.
+
+\bibitem[{U.S. Food and Drug Administration}(2023)]{fda2023credibility}
+{U.S. Food and Drug Administration}.
+\newblock Assessing the credibility of computational modeling and simulation in
+  medical device submissions: Guidance for industry and {FDA} staff.
+\newblock Technical report, Center for Devices and Radiological Health, 2023.
+\newblock Docket FDA-2021-D-0980.
+
+\bibitem[Roache(1994)]{roache1994gci}
+Patrick~J. Roache.
+\newblock Perspective: a method for uniform reporting of grid refinement
+  studies.
+\newblock \emph{Journal of Fluids Engineering}, 116\penalty0 (3):\penalty0
+  405--413, 1994.
+\newblock \doi{10.1115/1.2910291}.
+
+\bibitem[Shampine and Thompson(2000)]{shampine2000event}
+Lawrence~F. Shampine and Skip Thompson.
+\newblock Event location for ordinary differential equations.
+\newblock \emph{Computers \& Mathematics with Applications}, 39\penalty0
+  (5--6):\penalty0 43--54, 2000.
+\newblock \doi{10.1016/S0898-1221(00)00045-6}.
+
+\bibitem[Hairer et~al.(1993)Hairer, N{\o}rsett, and Wanner]{hairer1993}
+Ernst Hairer, Syvert~P. N{\o}rsett, and Gerhard Wanner.
+\newblock \emph{Solving Ordinary Differential Equations {I}: Nonstiff
+  Problems}.
+\newblock Springer, Berlin, 2nd edition, 1993.
+
+\bibitem[Virtanen et~al.(2020)Virtanen, Gommers, Oliphant,
+  et~al.]{virtanen2020scipy}
+Pauli Virtanen, Ralf Gommers, Travis~E. Oliphant, et~al.
+\newblock {SciPy} 1.0: fundamental algorithms for scientific computing in
+  {Python}.
+\newblock \emph{Nature Methods}, 17:\penalty0 261--272, 2020.
+\newblock \doi{10.1038/s41592-019-0686-2}.
+
+\bibitem[Boiko et~al.(2023)Boiko, MacKnight, Kline, and
+  Gomes]{boiko2023autonomous}
+Daniil~A. Boiko, Robert MacKnight, Ben Kline, and Gabe Gomes.
+\newblock Autonomous chemical research with large language models.
+\newblock \emph{Nature}, 624:\penalty0 570--578, 2023.
+\newblock \doi{10.1038/s41586-023-06792-0}.
+
+\bibitem[M.~Bran et~al.(2024)M.~Bran, Cox, Schilter, Baldassari, White, and
+  Schwaller]{bran2024chemcrow}
+Andres M.~Bran, Sam Cox, Oliver Schilter, Carlo Baldassari, Andrew~D. White,
+  and Philippe Schwaller.
+\newblock Augmenting large language models with chemistry tools.
+\newblock \emph{Nature Machine Intelligence}, 6:\penalty0 525--535, 2024.
+\newblock \doi{10.1038/s42256-024-00832-8}.
+
+\bibitem[Suga et~al.(1973)Suga, Sagawa, and Shoukas]{suga1973elastance}
+Hiroyuki Suga, Kiichi Sagawa, and Artin~A. Shoukas.
+\newblock Load independence of the instantaneous pressure-volume ratio of the
+  canine left ventricle and effects of epinephrine and heart rate on the ratio.
+\newblock \emph{Circulation Research}, 32\penalty0 (3):\penalty0 314--322,
+  1973.
+\newblock \doi{10.1161/01.RES.32.3.314}.
+
+\end{thebibliography}
