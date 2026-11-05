@@ -117,6 +117,19 @@ A research tool for running synthetic cardiovascular experiments from plain-lang
 Passing the first two checks does not imply the third.
 <!-- five-questions:end -->
 
+## Work in progress (after the hackathon submission)
+
+Work has continued on the lung-context module of the ontology and on its validation (SHACL shapes plus Python
+regression checks), in a separate private branch. Rounds 3d, 3e and 3f were each reviewed independently by an AI
+model from a different provider than the implementing model, using new adversarial inputs, and each review returned
+blocking findings (for example look-alike IRIs, a forged decision entry and unpinned provenance headers that could
+carry false validation claims). These were addressed in the following candidate rounds. The round 3g candidate
+passes the SHACL-required test suite (1,281 passed, 0 skipped), and the receipts of its 280 adversarial
+regression-layer tests were identical under Python hash seeds 0, 3 and 7; the independent review of the round 3g candidate is still in progress.
+
+None of this work is merged here yet. The ontology, data and website in this submission are unchanged; the
+round 3g data remain candidate data, and no physiological validation is claimed.
+
 ## Built during the Meta Global AI Developer Hackathon
 
 Event period: 2026-10-26 to 2026-11-04. This public, filtered repository was created on 2026-11-02 (GitHub `created_at` 2026-11-02T10:43:26Z). The first commit is dated 2026-10-31; **every commit in the history is dated inside the event period** (history preserved from the original private repository; sensitive strings and some third-party text redacted, see [REDACTIONS.md](REDACTIONS.md) and [RIGHTS.md](RIGHTS.md)). Commit hashes changed because of the redaction.
