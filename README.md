@@ -125,7 +125,7 @@ model from a different provider than the implementing model, using new adversari
 blocking findings (for example look-alike IRIs, a forged decision entry and unpinned provenance headers that could
 carry false validation claims). These were addressed in the following candidate rounds. The round 3g candidate
 passes the SHACL-required test suite (1,281 passed, 0 skipped), and the receipts of its 280 adversarial
-regression-layer tests were identical under Python hash seeds 0, 3 and 7; the independent review of the round 3g candidate is still in progress.
+regression-layer tests were identical under Python hash seeds 0, 3 and 7; the independent review of the round 3g candidate also returned blocking findings (literal values and evidence pointers in the core model graphs, and the set of named graphs, are not yet closed), which a further round is addressing.
 
 None of this work is merged here yet. The ontology, data and website in this submission are unchanged; the
 round 3g data remain candidate data, and no physiological validation is claimed.
