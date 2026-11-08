@@ -120,12 +120,16 @@ Passing the first two checks does not imply the third.
 ## Work in progress (after the hackathon submission)
 
 Work has continued on the lung-context module of the ontology and on its validation (SHACL shapes plus Python
-regression checks), in a separate private branch. Rounds 3d, 3e and 3f were each reviewed independently by an AI
-model from a different provider than the implementing model, using new adversarial inputs, and each review returned
-blocking findings (for example look-alike IRIs, a forged decision entry and unpinned provenance headers that could
-carry false validation claims). These were addressed in the following candidate rounds. The round 3g candidate
-passes the SHACL-required test suite (1,281 passed, 0 skipped), and the receipts of its 280 adversarial
-regression-layer tests were identical under Python hash seeds 0, 3 and 7; the independent review of the round 3g candidate also returned blocking findings (literal values and evidence pointers in the core model graphs, and the set of named graphs, are not yet closed), which a further round is addressing.
+regression checks), in a separate private branch. Rounds 3d to 3g were each reviewed independently by an AI model
+from a different provider than the implementing model, using new adversarial inputs; each review returned blocking
+findings, addressed in the following rounds. Round 3h added a written validation scope and addressed the RDF
+dataset gaps identified in the round 3g review: in its independent review, 0 of the reviewer's held-out attacks on the RDF dataset and its
+source files succeeded, and the follow-up candidate passes the SHACL-required test suite (1,571 passed, 0 skipped).
+These results cover only the attacks and tests that were run; they do not show that no other edit could pass. The
+latest review still found four places where the documentation claims more than the checks enforce (one also needs
+a small script fix), and the public CI does not yet run the SHACL and generator checks. The documentation fix is in
+progress; the CI change has not started. Nothing from these rounds will be published before an independent review
+passes.
 
 None of this work is merged here yet. The ontology, data and website in this submission are unchanged; the
 round 3g data remain candidate data, and no physiological validation is claimed.
