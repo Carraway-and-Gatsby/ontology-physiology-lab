@@ -125,11 +125,12 @@ from a different provider than the implementing model, using new adversarial inp
 findings, addressed in the following rounds. Round 3h added a written validation scope and addressed the RDF
 dataset gaps identified in the round 3g review: in its independent review, 0 of the reviewer's held-out attacks on the RDF dataset and its
 source files succeeded, and the follow-up candidate passes the SHACL-required test suite (1,571 passed, 0 skipped).
-These results cover only the attacks and tests that were run; they do not show that no other edit could pass. The
-latest review still found four places where the documentation claims more than the checks enforce (one also needs
-a small script fix), and the public CI does not yet run the SHACL and generator checks. The documentation fix is in
-progress; the CI change has not started. Nothing from these rounds will be published before an independent review
-passes.
+These results cover only the attacks and tests that were run; they do not show that no other edit could pass. A
+follow-up round corrected four places where the documentation claimed more than the checks enforce (one also needed a
+small script fix); its independent re-review found no blocking issues. Public CI now also runs the Smith 2004 SHACL
+control comparison. The project SHACL, generator and full ontology test gates are configured in CI but run only when
+the ontology files are present in the checked-out tree, so the CI badge does not cover them yet (see [docs/ci.md](docs/ci.md)). Nothing
+from these rounds will be published before the remaining preparation steps are done and approved.
 
 None of this work is merged here yet. The ontology, data and website in this submission are unchanged; the
 round 3g data remain candidate data, and no physiological validation is claimed.
