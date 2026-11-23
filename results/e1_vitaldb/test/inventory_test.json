@@ -1,0 +1,602 @@
+{
+ "12": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "55": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "251": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "349": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "397": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "553": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "783": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "818": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "945": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "985": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1018": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1083": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1590": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1730": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1785": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1820": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1900": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": false,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "1959": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "2016": {
+  "SNUADC/ART": false,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": false,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "2185": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "2252": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "2326": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "2327": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "2332": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "2453": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "2700": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "2738": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "2761": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "2872": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "3113": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "3188": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "3270": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": false,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "3311": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "3524": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "3719": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "3930": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4034": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4112": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4283": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4398": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4573": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4578": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "4721": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4800": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": false,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "4959": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5018": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5175": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5304": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "5442": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5490": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "5607": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5682": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5687": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": false
+ },
+ "5693": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5698": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5837": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "5983": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "6009": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "6227": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ },
+ "6297": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": true,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": true,
+  "Vigilance/ESV": true,
+  "Vigilance/RVEF": true
+ }
+}

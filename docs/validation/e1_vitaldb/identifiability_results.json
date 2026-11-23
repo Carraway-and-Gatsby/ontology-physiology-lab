@@ -1,0 +1,155 @@
+{
+  "observables": "40 samples of P_sa over the final beat + mean P_sv + mean P_pa (42 values, mmHg)",
+  "parameters": [
+    "emin_lv",
+    "emax_lv",
+    "emin_rv",
+    "emax_rv",
+    "systolic_fraction",
+    "compliance_sa",
+    "compliance_sv",
+    "compliance_pa",
+    "compliance_pv",
+    "resistance_aortic",
+    "resistance_systemic",
+    "resistance_tricuspid",
+    "resistance_pulmonary_valve",
+    "resistance_pulmonary",
+    "resistance_mitral",
+    "stressed_volume"
+  ],
+  "scaling_exponents": [
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    0.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    1.0
+  ],
+  "points": {
+    "default": {
+      "mean_p_sa": 133.50101819007043,
+      "mean_p_sv": 5.249275645301565,
+      "mean_p_pa": 23.763094214162575,
+      "cardiac_output_l_min": 7.699312558797421,
+      "scaling": [
+        {
+          "k": 0.5,
+          "max_abs_pressure_difference_mmhg": 1.0594078844405885e-05,
+          "cardiac_output_l_min": 3.8496562839447246
+        },
+        {
+          "k": 0.7,
+          "max_abs_pressure_difference_mmhg": 5.636852904444822e-06,
+          "cardiac_output_l_min": 5.389518755416052
+        },
+        {
+          "k": 1.0,
+          "max_abs_pressure_difference_mmhg": 0.0,
+          "cardiac_output_l_min": 7.69931255883182
+        },
+        {
+          "k": 1.5,
+          "max_abs_pressure_difference_mmhg": 4.508568792971346e-06,
+          "cardiac_output_l_min": 11.548968891376033
+        },
+        {
+          "k": 2.0,
+          "max_abs_pressure_difference_mmhg": 6.009127957895544e-06,
+          "cardiac_output_l_min": 15.398625257369844
+        }
+      ],
+      "sensitivity": {
+        "singular_values_mmhg_per_unit_log_change": [
+          1161.3354037283593,
+          165.56204061717082,
+          116.9633655695247,
+          19.516477122451533,
+          8.616636930556425,
+          4.201953248299059,
+          1.5219787079192373,
+          0.32857931432734666,
+          0.05565855552512343,
+          0.0234203117481488,
+          0.0005542332003581012,
+          8.153114259960938e-05,
+          4.414809476788744e-05,
+          1.066420636101057e-07,
+          1.975419257509524e-09,
+          8.641234922571478e-11
+        ],
+        "norm_of_jacobian_times_scaling_direction": 0.018933679763017155,
+        "dlnCO_along_scaling_direction": 1.000946440244399,
+        "directions_above_1_percent_of_largest": 4,
+        "directions_above_0p1_percent_of_largest": 7
+      }
+    },
+    "lower_pressure": {
+      "mean_p_sa": 95.18205356119859,
+      "mean_p_sv": 5.328231932638738,
+      "mean_p_pa": 22.97889996476542,
+      "cardiac_output_l_min": 7.185872103212422,
+      "scaling": [
+        {
+          "k": 0.5,
+          "max_abs_pressure_difference_mmhg": 6.218803193291933e-06,
+          "cardiac_output_l_min": 3.592936082718056
+        },
+        {
+          "k": 0.7,
+          "max_abs_pressure_difference_mmhg": 3.800051658231496e-06,
+          "cardiac_output_l_min": 5.030110490047212
+        },
+        {
+          "k": 1.0,
+          "max_abs_pressure_difference_mmhg": 0.0,
+          "cardiac_output_l_min": 7.185872103213225
+        },
+        {
+          "k": 1.5,
+          "max_abs_pressure_difference_mmhg": 2.9860255494895682e-06,
+          "cardiac_output_l_min": 10.778808166524477
+        },
+        {
+          "k": 2.0,
+          "max_abs_pressure_difference_mmhg": 4.207600412087231e-06,
+          "cardiac_output_l_min": 14.371744197850063
+        }
+      ],
+      "sensitivity": {
+        "singular_values_mmhg_per_unit_log_change": [
+          831.3286779794324,
+          130.93354749203732,
+          88.54511989726701,
+          18.729804581933266,
+          6.6108950940327,
+          4.3226817799344595,
+          0.7139719721052283,
+          0.45945166463732673,
+          0.06987023564152446,
+          0.0319371571460023,
+          0.0007445190135201551,
+          9.256839126867307e-05,
+          3.874429825999017e-05,
+          2.3733672238998802e-07,
+          5.757635889077425e-10,
+          5.880987957543532e-11
+        ],
+        "norm_of_jacobian_times_scaling_direction": 0.012591761090730848,
+        "dlnCO_along_scaling_direction": 0.9684245577731787,
+        "directions_above_1_percent_of_largest": 4,
+        "directions_above_0p1_percent_of_largest": 6
+      }
+    }
+  }
+}

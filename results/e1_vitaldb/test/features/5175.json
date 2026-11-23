@@ -1,0 +1,29 @@
+{
+ "windows": [],
+ "rejections": {
+  "too few cardiac output readings": 114,
+  "heart rate not stationary": 4,
+  "arterial signal coverage too low": 35,
+  "cardiac output not stationary": 34,
+  "vasoactive infusion rate changed": 11,
+  "too few CVP or PA readings": 2
+ },
+ "n_beats_detected": 19079,
+ "duration_s": 16863.56,
+ "caseid": 5175,
+ "loaded": true,
+ "tracks_numeric": [
+  "co",
+  "cvp",
+  "mpap",
+  "rv_edv",
+  "rv_esv",
+  "rvef",
+  "sv_ref"
+ ],
+ "infusion_tracks": [
+  "Orchestra/PGE1_RATE"
+ ],
+ "require_co": true,
+ "dev_co_standin": false
+}

@@ -1,0 +1,102 @@
+{
+ "1292": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "2174": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": false,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "2331": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "2489": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "3631": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "3849": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": false,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "4255": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "5262": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "5862": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ },
+ "6084": {
+  "SNUADC/ART": true,
+  "Vigilance/CO": false,
+  "Solar8000/PA_MBP": true,
+  "Solar8000/CVP": true,
+  "SNUADC/CVP": true,
+  "Vigilance/EDV": false,
+  "Vigilance/ESV": false,
+  "Vigilance/RVEF": false
+ }
+}

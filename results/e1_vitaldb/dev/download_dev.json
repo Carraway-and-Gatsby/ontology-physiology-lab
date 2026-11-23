@@ -1,0 +1,60 @@
+{
+ "source": "https://physionet.org/files/vitaldb/1.0.0/",
+ "files": [
+  {
+   "file": "clinical_data.csv",
+   "bytes": 2199588,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1292.vital",
+   "bytes": 42271264,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2174.vital",
+   "bytes": 13984297,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2331.vital",
+   "bytes": 43203279,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2489.vital",
+   "bytes": 54290571,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3631.vital",
+   "bytes": 47521631,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3849.vital",
+   "bytes": 32265733,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4255.vital",
+   "bytes": 47153236,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5262.vital",
+   "bytes": 18019805,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5862.vital",
+   "bytes": 46844733,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/6084.vital",
+   "bytes": 49815053,
+   "sha256_ok": true
+  }
+ ]
+}

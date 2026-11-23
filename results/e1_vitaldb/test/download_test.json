@@ -1,0 +1,310 @@
+{
+ "source": "https://physionet.org/files/vitaldb/1.0.0/",
+ "files": [
+  {
+   "file": "clinical_data.csv",
+   "bytes": 2199588,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0012.vital",
+   "bytes": 43886187,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0055.vital",
+   "bytes": 41619410,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0251.vital",
+   "bytes": 46042248,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0349.vital",
+   "bytes": 44036228,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0397.vital",
+   "bytes": 43613443,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0553.vital",
+   "bytes": 41240481,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0783.vital",
+   "bytes": 37501055,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0818.vital",
+   "bytes": 64410756,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0945.vital",
+   "bytes": 35075431,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/0985.vital",
+   "bytes": 42105679,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1018.vital",
+   "bytes": 47292207,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1083.vital",
+   "bytes": 49530085,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1590.vital",
+   "bytes": 44833953,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1730.vital",
+   "bytes": 45680872,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1785.vital",
+   "bytes": 40110466,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1820.vital",
+   "bytes": 40366975,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1900.vital",
+   "bytes": 40674685,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/1959.vital",
+   "bytes": 43317037,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2016.vital",
+   "bytes": 43829567,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2185.vital",
+   "bytes": 44242997,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2252.vital",
+   "bytes": 49825236,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2326.vital",
+   "bytes": 41844608,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2327.vital",
+   "bytes": 47700741,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2332.vital",
+   "bytes": 45968535,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2453.vital",
+   "bytes": 50524183,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2700.vital",
+   "bytes": 48207698,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2738.vital",
+   "bytes": 52880817,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2761.vital",
+   "bytes": 37900585,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/2872.vital",
+   "bytes": 41215149,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3113.vital",
+   "bytes": 38397863,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3188.vital",
+   "bytes": 53204536,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3270.vital",
+   "bytes": 34160011,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3311.vital",
+   "bytes": 64417913,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3524.vital",
+   "bytes": 49696515,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3719.vital",
+   "bytes": 46513687,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/3930.vital",
+   "bytes": 41476986,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4034.vital",
+   "bytes": 37487185,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4112.vital",
+   "bytes": 45466142,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4283.vital",
+   "bytes": 47728232,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4398.vital",
+   "bytes": 42297281,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4573.vital",
+   "bytes": 46477338,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4578.vital",
+   "bytes": 41876655,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4721.vital",
+   "bytes": 44413190,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4800.vital",
+   "bytes": 37871371,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/4959.vital",
+   "bytes": 46198012,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5018.vital",
+   "bytes": 34988527,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5175.vital",
+   "bytes": 28866277,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5304.vital",
+   "bytes": 43147935,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5442.vital",
+   "bytes": 34520191,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5490.vital",
+   "bytes": 20604782,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5607.vital",
+   "bytes": 50110579,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5682.vital",
+   "bytes": 31098027,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5687.vital",
+   "bytes": 61079317,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5693.vital",
+   "bytes": 55073896,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5698.vital",
+   "bytes": 61134924,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5837.vital",
+   "bytes": 47809987,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/5983.vital",
+   "bytes": 45487962,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/6009.vital",
+   "bytes": 57241791,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/6227.vital",
+   "bytes": 28403403,
+   "sha256_ok": true
+  },
+  {
+   "file": "vital_files/6297.vital",
+   "bytes": 46561385,
+   "sha256_ok": true
+  }
+ ]
+}
