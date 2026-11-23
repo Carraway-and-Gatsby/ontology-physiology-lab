@@ -16,6 +16,9 @@ private repository after the experiment was finished. Read them with the followi
     omitted; every case id that remains had its tracks read from the PhysioNet files. The list of cases with RV
     volumetrics is given as read from the PhysioNet files (48 cases; the index lists 49).
   - Nothing else differs from the private files.
+- **Later addition (2026-11-23).** `FAILURE_ANALYSIS_E1.md`, the four `posthoc_*.py` scripts, the files under
+  `results/e1_vitaldb/posthoc_failure_analysis/` and a correction paragraph in `RESULTS_E1.md` section 4 were copied
+  unchanged from the private commit `3f9ab52` (a hash of the private history).
 - **Data.** No recording is included. The numbers under `results/e1_vitaldb/` are derived from VitalDB recordings
   obtained from PhysioNet (version 1.0.0, CC BY 4.0); attribution is in `NOTICE.md`.
 - **Review status.** The analysis and the texts were written by an AI system (Claude) and checked by an automated

@@ -1,0 +1,1994 @@
+{
+ "subset": [
+  12,
+  397,
+  985,
+  1730,
+  2252,
+  2700,
+  3188,
+  4034,
+  4573,
+  5018,
+  5687,
+  6227
+ ],
+ "results": [
+  {
+   "kind": "A",
+   "caseid": 2872,
+   "variant": "12 starts",
+   "measured_pp": 34.99037595136701,
+   "ok": true,
+   "flow_index_l_min": 0.17002746928077955,
+   "cost": 2.801933961954631,
+   "rmse_waveform_mmhg": 9.468992919782474,
+   "at_bound": [
+    "resistance_systemic",
+    "systolic_fraction",
+    "resistance_pulmonary"
+   ],
+   "start": 4,
+   "parameters": {
+    "resistance_systemic": 19.99999999999999,
+    "emax_lv": 0.11996414068839457,
+    "systolic_fraction": 0.5999999999999999,
+    "stressed_volume": 0.6280386356724601,
+    "resistance_pulmonary": 0.050000001806828814,
+    "emin_rv": 3.9133862393573957
+   },
+   "model_pp": 1.0727515967723633
+  },
+  {
+   "kind": "A",
+   "caseid": 2326,
+   "variant": "12 starts",
+   "measured_pp": 52.02772813829839,
+   "ok": true,
+   "flow_index_l_min": 0.31978985166348206,
+   "cost": 9.78297584629644,
+   "rmse_waveform_mmhg": 17.69274332288094,
+   "at_bound": [
+    "emax_lv",
+    "systolic_fraction",
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 9.998146067458482,
+    "emax_lv": 0.1000000000000486,
+    "systolic_fraction": 0.5999999999999993,
+    "stressed_volume": 1.5327175146143255,
+    "resistance_pulmonary": 19.999999999995822,
+    "emin_rv": 9.800592559251614
+   },
+   "model_pp": 2.2888745880138757
+  },
+  {
+   "kind": "A",
+   "caseid": 5837,
+   "variant": "12 starts",
+   "measured_pp": 51.630809258685844,
+   "ok": true,
+   "flow_index_l_min": 0.20338978054259654,
+   "cost": 9.682103107573152,
+   "rmse_waveform_mmhg": 17.593541183340708,
+   "at_bound": [
+    "resistance_systemic",
+    "systolic_fraction",
+    "emin_rv"
+   ],
+   "start": 7,
+   "parameters": {
+    "resistance_systemic": 19.999961764915238,
+    "emax_lv": 0.11585020030895217,
+    "systolic_fraction": 0.5999999999999999,
+    "stressed_volume": 1.134942018704485,
+    "resistance_pulmonary": 0.23696648574419152,
+    "emin_rv": 9.999999999999998
+   },
+   "model_pp": 1.2445209319457433
+  },
+  {
+   "kind": "A",
+   "caseid": 5607,
+   "variant": "12 starts",
+   "measured_pp": 45.582645738117805,
+   "ok": true,
+   "flow_index_l_min": 0.763892417150039,
+   "cost": 6.1621983278394294,
+   "rmse_waveform_mmhg": 13.990373723528977,
+   "at_bound": [
+    "systolic_fraction"
+   ],
+   "start": 9,
+   "parameters": {
+    "resistance_systemic": 5.325477319578523,
+    "emax_lv": 0.28758067735078013,
+    "systolic_fraction": 0.5999125668237337,
+    "stressed_volume": 1.0960412289147963,
+    "resistance_pulmonary": 8.21231524049849,
+    "emin_rv": 9.98013729528936
+   },
+   "model_pp": 4.515015331481024
+  },
+  {
+   "kind": "A",
+   "caseid": 4800,
+   "variant": "12 starts",
+   "measured_pp": 49.96525386488636,
+   "ok": true,
+   "flow_index_l_min": 1.5966422561598002,
+   "cost": 8.598823386873061,
+   "rmse_waveform_mmhg": 16.586182270692284,
+   "at_bound": [],
+   "start": 4,
+   "parameters": {
+    "resistance_systemic": 2.057453618802935,
+    "emax_lv": 0.1983979240260456,
+    "systolic_fraction": 0.5997382253192481,
+    "stressed_volume": 1.4672166120172436,
+    "resistance_pulmonary": 3.9635781716580327,
+    "emin_rv": 9.981988793880475
+   },
+   "model_pp": 8.993244943964974
+  },
+  {
+   "kind": "B",
+   "caseid": 12,
+   "variant": "emin_lv x2",
+   "measured_pp": 47.77557745418498,
+   "ok": true,
+   "flow_index_l_min": 6.259844766330293,
+   "cost": 0.8539856041890597,
+   "rmse_waveform_mmhg": 4.975101672141163,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.6245012317707833,
+    "emax_lv": 2.1655488138084245,
+    "systolic_fraction": 0.5969871718427947,
+    "stressed_volume": 0.6653737254938614,
+    "resistance_pulmonary": 0.05000032896189593,
+    "emin_rv": 0.5375433788997085
+   },
+   "model_pp": 40.17595453132893
+  },
+  {
+   "kind": "B",
+   "caseid": 12,
+   "variant": "emin_lv /2",
+   "measured_pp": 47.77557745418498,
+   "ok": true,
+   "flow_index_l_min": 7.440619728875743,
+   "cost": 0.44194808349743486,
+   "rmse_waveform_mmhg": 3.7604617241394034,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5238913497293832,
+    "emax_lv": 0.1756077491349824,
+    "systolic_fraction": 0.48064240045135115,
+    "stressed_volume": 0.8178752974745069,
+    "resistance_pulmonary": 0.050000143830564905,
+    "emin_rv": 0.5057538981141841
+   },
+   "model_pp": 50.56548600776135
+  },
+  {
+   "kind": "B",
+   "caseid": 12,
+   "variant": "emax_rv x2",
+   "measured_pp": 47.77557745418498,
+   "ok": true,
+   "flow_index_l_min": 7.398711479300089,
+   "cost": 0.4704019167112824,
+   "rmse_waveform_mmhg": 3.8746986232448477,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.5268076050321505,
+    "emax_lv": 0.5446742999664684,
+    "systolic_fraction": 0.5195901365156927,
+    "stressed_volume": 0.6907389711247988,
+    "resistance_pulmonary": 0.05000000001727832,
+    "emin_rv": 0.5084850288035738
+   },
+   "model_pp": 48.65348078845376
+  },
+  {
+   "kind": "B",
+   "caseid": 12,
+   "variant": "compliance_sv x2",
+   "measured_pp": 47.77557745418498,
+   "ok": true,
+   "flow_index_l_min": 7.403760348782831,
+   "cost": 0.4669874009262109,
+   "rmse_waveform_mmhg": 3.8612587965993557,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5263693871304433,
+    "emax_lv": 0.5328200316271748,
+    "systolic_fraction": 0.5176937313147743,
+    "stressed_volume": 0.9533919176911232,
+    "resistance_pulmonary": 0.05000000006275667,
+    "emin_rv": 0.4639910088362565
+   },
+   "model_pp": 48.74698891620861
+  },
+  {
+   "kind": "B",
+   "caseid": 12,
+   "variant": "compliance_pv x2",
+   "measured_pp": 47.77557745418498,
+   "ok": true,
+   "flow_index_l_min": 7.423703929886148,
+   "cost": 0.461576513255474,
+   "rmse_waveform_mmhg": 3.8411310126597216,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5246378533227833,
+    "emax_lv": 0.4752341736342958,
+    "systolic_fraction": 0.5072781002871144,
+    "stressed_volume": 0.8876523054021386,
+    "resistance_pulmonary": 0.050000000476847196,
+    "emin_rv": 0.4765702693486483
+   },
+   "model_pp": 49.17144389306923
+  },
+  {
+   "kind": "B",
+   "caseid": 12,
+   "variant": "compliance_pa x2",
+   "measured_pp": 47.77557745418498,
+   "ok": true,
+   "flow_index_l_min": 7.414770936504021,
+   "cost": 0.4651468676509787,
+   "rmse_waveform_mmhg": 3.8548991552517258,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5254556526898624,
+    "emax_lv": 0.5057055853133624,
+    "systolic_fraction": 0.5127992358161151,
+    "stressed_volume": 0.7510824771555557,
+    "resistance_pulmonary": 0.05000000125592863,
+    "emin_rv": 0.4648048643023324
+   },
+   "model_pp": 48.95251092752817
+  },
+  {
+   "kind": "B",
+   "caseid": 12,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 47.77557745418498,
+   "ok": true,
+   "flow_index_l_min": 7.429110717439099,
+   "cost": 0.4403982163355506,
+   "rmse_waveform_mmhg": 3.753723891953512,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5250612502000466,
+    "emax_lv": 0.5425917056202303,
+    "systolic_fraction": 0.44063615768714254,
+    "stressed_volume": 0.7083822535815504,
+    "resistance_pulmonary": 0.05000000001051171,
+    "emin_rv": 0.5520958477316446
+   },
+   "model_pp": 49.99327969614213
+  },
+  {
+   "kind": "B",
+   "caseid": 397,
+   "variant": "emin_lv x2",
+   "measured_pp": 46.89235606822623,
+   "ok": true,
+   "flow_index_l_min": 6.4404889531923315,
+   "cost": 1.1323735876477135,
+   "rmse_waveform_mmhg": 5.858301433636738,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5248684763040656,
+    "emax_lv": 1.6463177883180427,
+    "systolic_fraction": 0.593646390153431,
+    "stressed_volume": 0.8606417404135162,
+    "resistance_pulmonary": 0.052314982703728655,
+    "emin_rv": 1.5972755948658681
+   },
+   "model_pp": 39.60393897230637
+  },
+  {
+   "kind": "B",
+   "caseid": 397,
+   "variant": "emin_lv /2",
+   "measured_pp": 46.89235606822623,
+   "ok": true,
+   "flow_index_l_min": 7.81771039317216,
+   "cost": 0.6972563809877403,
+   "rmse_waveform_mmhg": 4.72303568125416,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.4306199626591824,
+    "emax_lv": 0.1581815310752039,
+    "systolic_fraction": 0.5371260579400057,
+    "stressed_volume": 1.01994576863458,
+    "resistance_pulmonary": 0.05000000111288021,
+    "emin_rv": 1.3498288798498996
+   },
+   "model_pp": 49.45437289283628
+  },
+  {
+   "kind": "B",
+   "caseid": 397,
+   "variant": "emax_rv x2",
+   "measured_pp": 46.89235606822623,
+   "ok": true,
+   "flow_index_l_min": 7.682136920423713,
+   "cost": 0.7486769128833567,
+   "rmse_waveform_mmhg": 4.88641059832747,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.4384344322743454,
+    "emax_lv": 0.4638047711905743,
+    "systolic_fraction": 0.5715160676893494,
+    "stressed_volume": 0.8918634546564673,
+    "resistance_pulmonary": 0.050000000004586535,
+    "emin_rv": 1.477508663671539
+   },
+   "model_pp": 47.12119005943907
+  },
+  {
+   "kind": "B",
+   "caseid": 397,
+   "variant": "compliance_sv x2",
+   "measured_pp": 46.89235606822623,
+   "ok": true,
+   "flow_index_l_min": 7.694568364259544,
+   "cost": 0.7430507156912101,
+   "rmse_waveform_mmhg": 4.868777507144361,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.4376611428315206,
+    "emax_lv": 0.45498745697353754,
+    "systolic_fraction": 0.5702160437136703,
+    "stressed_volume": 1.3457816035647856,
+    "resistance_pulmonary": 0.05000000000706542,
+    "emin_rv": 1.3496962559619377
+   },
+   "model_pp": 47.230811474410594
+  },
+  {
+   "kind": "B",
+   "caseid": 397,
+   "variant": "compliance_pv x2",
+   "measured_pp": 46.89235606822623,
+   "ok": true,
+   "flow_index_l_min": 7.741213115556146,
+   "cost": 0.7346980843911572,
+   "rmse_waveform_mmhg": 4.844577809132942,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.4349223950300591,
+    "emax_lv": 0.40920247398117127,
+    "systolic_fraction": 0.5615022746657135,
+    "stressed_volume": 1.0992079168173812,
+    "resistance_pulmonary": 0.05000000000939069,
+    "emin_rv": 1.3490119373955396
+   },
+   "model_pp": 47.71847434686233
+  },
+  {
+   "kind": "B",
+   "caseid": 397,
+   "variant": "compliance_pa x2",
+   "measured_pp": 46.89235606822623,
+   "ok": true,
+   "flow_index_l_min": 7.71620330523077,
+   "cost": 0.7407684880876019,
+   "rmse_waveform_mmhg": 4.862967652692468,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.43640855526043587,
+    "emax_lv": 0.434487328745755,
+    "systolic_fraction": 0.566235477905458,
+    "stressed_volume": 0.9549705981221556,
+    "resistance_pulmonary": 0.05000000767653123,
+    "emin_rv": 1.3371791625068339
+   },
+   "model_pp": 47.4514473210076
+  },
+  {
+   "kind": "B",
+   "caseid": 397,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 46.89235606822623,
+   "ok": true,
+   "flow_index_l_min": 7.767881373793464,
+   "cost": 0.6956559517820995,
+   "rmse_waveform_mmhg": 4.716884133557188,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4335344770826589,
+    "emax_lv": 0.4711060911860259,
+    "systolic_fraction": 0.49402343500764395,
+    "stressed_volume": 0.9097044450451468,
+    "resistance_pulmonary": 0.05000000003953152,
+    "emin_rv": 1.3968176336010982
+   },
+   "model_pp": 48.79023380526589
+  },
+  {
+   "kind": "B",
+   "caseid": 985,
+   "variant": "emin_lv x2",
+   "measured_pp": 81.55912997334201,
+   "ok": true,
+   "flow_index_l_min": 8.251040658462133,
+   "cost": 2.5640934838636316,
+   "rmse_waveform_mmhg": 7.498727516256723,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.6138231276408279,
+    "emax_lv": 13.696017084948698,
+    "systolic_fraction": 0.21811285515506143,
+    "stressed_volume": 0.9884358436409628,
+    "resistance_pulmonary": 0.050000000031886656,
+    "emin_rv": 1.7318218565697627
+   },
+   "model_pp": 61.999569920772814
+  },
+  {
+   "kind": "B",
+   "caseid": 985,
+   "variant": "emin_lv /2",
+   "measured_pp": 81.55912997334201,
+   "ok": true,
+   "flow_index_l_min": 10.993101251489882,
+   "cost": 0.7149638369323047,
+   "rmse_waveform_mmhg": 4.782261376643338,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4597810521653281,
+    "emax_lv": 0.5177842614769023,
+    "systolic_fraction": 0.1604370768046096,
+    "stressed_volume": 1.025181117116727,
+    "resistance_pulmonary": 0.05000000006662702,
+    "emin_rv": 1.307842095223923
+   },
+   "model_pp": 80.50709530772781
+  },
+  {
+   "kind": "B",
+   "caseid": 985,
+   "variant": "emax_rv x2",
+   "measured_pp": 81.55912997334201,
+   "ok": true,
+   "flow_index_l_min": 10.504179462519051,
+   "cost": 0.92636008401262,
+   "rmse_waveform_mmhg": 5.189907098936809,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.48195290820340586,
+    "emax_lv": 2.659987548394114,
+    "systolic_fraction": 0.22397819528205862,
+    "stressed_volume": 0.9574212816747076,
+    "resistance_pulmonary": 0.05000000261166884,
+    "emin_rv": 1.5575537602606968
+   },
+   "model_pp": 74.45954346149303
+  },
+  {
+   "kind": "B",
+   "caseid": 985,
+   "variant": "compliance_sv x2",
+   "measured_pp": 81.55912997334201,
+   "ok": true,
+   "flow_index_l_min": 10.49543672836781,
+   "cost": 0.8655096564474745,
+   "rmse_waveform_mmhg": 5.075921597586143,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.4788488265238387,
+    "emax_lv": 3.0030519190834983,
+    "systolic_fraction": 0.20692255060417128,
+    "stressed_volume": 1.4791079472079103,
+    "resistance_pulmonary": 0.05000001346110681,
+    "emin_rv": 1.382481884205801
+   },
+   "model_pp": 76.26016790242497
+  },
+  {
+   "kind": "B",
+   "caseid": 985,
+   "variant": "compliance_pv x2",
+   "measured_pp": 81.55912997334201,
+   "ok": true,
+   "flow_index_l_min": 10.65468828030812,
+   "cost": 0.8684721899074876,
+   "rmse_waveform_mmhg": 5.11383422603998,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.47516944609170886,
+    "emax_lv": 2.507074792007776,
+    "systolic_fraction": 0.2225192061780752,
+    "stressed_volume": 1.108824001185901,
+    "resistance_pulmonary": 0.05000000132328584,
+    "emin_rv": 1.3812261771413643
+   },
+   "model_pp": 75.4981266938827
+  },
+  {
+   "kind": "B",
+   "caseid": 985,
+   "variant": "compliance_pa x2",
+   "measured_pp": 81.55912997334201,
+   "ok": true,
+   "flow_index_l_min": 10.600358281257643,
+   "cost": 0.8873358656235337,
+   "rmse_waveform_mmhg": 5.137522597998432,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.47759012351754243,
+    "emax_lv": 2.548257221714388,
+    "systolic_fraction": 0.22255516087543956,
+    "stressed_volume": 1.004016669779862,
+    "resistance_pulmonary": 0.05000000115683036,
+    "emin_rv": 1.3991378071166585
+   },
+   "model_pp": 75.14601053697483
+  },
+  {
+   "kind": "B",
+   "caseid": 985,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 81.55912997334201,
+   "ok": true,
+   "flow_index_l_min": 10.63162483459383,
+   "cost": 0.8199005694897864,
+   "rmse_waveform_mmhg": 4.960349384999693,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4753082454482994,
+    "emax_lv": 3.5182279933764113,
+    "systolic_fraction": 0.2030321398943356,
+    "stressed_volume": 0.9639082354084682,
+    "resistance_pulmonary": 0.050000000000025586,
+    "emin_rv": 1.365409417483286
+   },
+   "model_pp": 76.57565630975773
+  },
+  {
+   "kind": "B",
+   "caseid": 1730,
+   "variant": "emin_lv x2",
+   "measured_pp": 61.63291947429016,
+   "ok": true,
+   "flow_index_l_min": 10.302586113526347,
+   "cost": 0.3563560980167013,
+   "rmse_waveform_mmhg": 3.324904034876051,
+   "at_bound": [
+    "systolic_fraction",
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.4335275983270757,
+    "emax_lv": 0.8917038119304476,
+    "systolic_fraction": 0.5999999999999999,
+    "stressed_volume": 1.6731820308093144,
+    "resistance_pulmonary": 0.050000000000000405,
+    "emin_rv": 2.3643401051105393
+   },
+   "model_pp": 60.71387774169955
+  },
+  {
+   "kind": "B",
+   "caseid": 1730,
+   "variant": "emin_lv /2",
+   "measured_pp": 61.63291947429016,
+   "ok": true,
+   "flow_index_l_min": 10.711145185780246,
+   "cost": 0.21733229839847398,
+   "rmse_waveform_mmhg": 2.6370470317309413,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4168618015465719,
+    "emax_lv": 0.2304533091088133,
+    "systolic_fraction": 0.5503050793965494,
+    "stressed_volume": 1.6452609052918605,
+    "resistance_pulmonary": 0.6005106631668279,
+    "emin_rv": 2.2084145477025396
+   },
+   "model_pp": 66.16748070801353
+  },
+  {
+   "kind": "B",
+   "caseid": 1730,
+   "variant": "emax_rv x2",
+   "measured_pp": 61.63291947429016,
+   "ok": true,
+   "flow_index_l_min": 10.781237588911887,
+   "cost": 0.2135295533662006,
+   "rmse_waveform_mmhg": 2.6136259687081327,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.41442257193776433,
+    "emax_lv": 0.2400251835065036,
+    "systolic_fraction": 0.5364769346213099,
+    "stressed_volume": 1.7794075426689537,
+    "resistance_pulmonary": 0.05000000002278598,
+    "emin_rv": 2.6233866634788625
+   },
+   "model_pp": 66.19007836381373
+  },
+  {
+   "kind": "B",
+   "caseid": 1730,
+   "variant": "compliance_sv x2",
+   "measured_pp": 61.63291947429016,
+   "ok": true,
+   "flow_index_l_min": 10.786094720275662,
+   "cost": 0.21144956134307785,
+   "rmse_waveform_mmhg": 2.6008866718980603,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.4142308913636627,
+    "emax_lv": 0.23739320448167858,
+    "systolic_fraction": 0.5361134879286693,
+    "stressed_volume": 2.7470388711445852,
+    "resistance_pulmonary": 0.05000005240976558,
+    "emin_rv": 2.341662317393654
+   },
+   "model_pp": 66.22182591747736
+  },
+  {
+   "kind": "B",
+   "caseid": 1730,
+   "variant": "compliance_pv x2",
+   "measured_pp": 61.63291947429016,
+   "ok": true,
+   "flow_index_l_min": 10.78208898970178,
+   "cost": 0.21116239072575643,
+   "rmse_waveform_mmhg": 2.5991605033010727,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.4144338126549429,
+    "emax_lv": 0.2232112275369905,
+    "systolic_fraction": 0.5322459584828475,
+    "stressed_volume": 2.163208215729046,
+    "resistance_pulmonary": 0.05000000000004333,
+    "emin_rv": 2.346874891387605
+   },
+   "model_pp": 66.31094283480411
+  },
+  {
+   "kind": "B",
+   "caseid": 1730,
+   "variant": "compliance_pa x2",
+   "measured_pp": 61.63291947429016,
+   "ok": true,
+   "flow_index_l_min": 10.781223370516281,
+   "cost": 0.21222828828062462,
+   "rmse_waveform_mmhg": 2.6056873973324244,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.41441127314443466,
+    "emax_lv": 0.23083134922198367,
+    "systolic_fraction": 0.5341614958177979,
+    "stressed_volume": 1.8934269778898696,
+    "resistance_pulmonary": 0.05000000000015386,
+    "emin_rv": 2.331891255890223
+   },
+   "model_pp": 66.25914507702915
+  },
+  {
+   "kind": "B",
+   "caseid": 1730,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 61.63291947429016,
+   "ok": true,
+   "flow_index_l_min": 10.652323039686497,
+   "cost": 0.19643685997862664,
+   "rmse_waveform_mmhg": 2.50702255333857,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.41936119154373175,
+    "emax_lv": 0.2463301936574089,
+    "systolic_fraction": 0.43714180980678635,
+    "stressed_volume": 1.8173689688064896,
+    "resistance_pulmonary": 0.050000000155981016,
+    "emin_rv": 2.3908339864322565
+   },
+   "model_pp": 67.21594880520948
+  },
+  {
+   "kind": "B",
+   "caseid": 2252,
+   "variant": "emin_lv x2",
+   "measured_pp": 69.92562196865117,
+   "ok": true,
+   "flow_index_l_min": 8.098506270830155,
+   "cost": 1.880985082212362,
+   "rmse_waveform_mmhg": 7.594320805838568,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.6297675115245153,
+    "emax_lv": 2.3163716047197265,
+    "systolic_fraction": 0.414610189683849,
+    "stressed_volume": 1.130588298914318,
+    "resistance_pulmonary": 0.05000000366516585,
+    "emin_rv": 2.086422054678933
+   },
+   "model_pp": 52.010582402332815
+  },
+  {
+   "kind": "B",
+   "caseid": 2252,
+   "variant": "emin_lv /2",
+   "measured_pp": 69.92562196865117,
+   "ok": true,
+   "flow_index_l_min": 9.24187330185401,
+   "cost": 1.3959509969020716,
+   "rmse_waveform_mmhg": 6.683320552177447,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.551562695275356,
+    "emax_lv": 0.1814950507667359,
+    "systolic_fraction": 0.33021785494869216,
+    "stressed_volume": 1.3294347091969716,
+    "resistance_pulmonary": 0.050000000000000606,
+    "emin_rv": 1.8846336881333057
+   },
+   "model_pp": 61.92069995737178
+  },
+  {
+   "kind": "B",
+   "caseid": 2252,
+   "variant": "emax_rv x2",
+   "measured_pp": 69.92562196865117,
+   "ok": true,
+   "flow_index_l_min": 9.15166497662387,
+   "cost": 1.4440705097498605,
+   "rmse_waveform_mmhg": 6.7944031206836435,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5571350672425597,
+    "emax_lv": 0.51894858356533,
+    "systolic_fraction": 0.35076120547273665,
+    "stressed_volume": 1.1741227152110205,
+    "resistance_pulmonary": 0.05000000003429826,
+    "emin_rv": 2.120211312647496
+   },
+   "model_pp": 60.37028885816407
+  },
+  {
+   "kind": "B",
+   "caseid": 2252,
+   "variant": "compliance_sv x2",
+   "measured_pp": 69.92562196865117,
+   "ok": true,
+   "flow_index_l_min": 9.161353181961662,
+   "cost": 1.440060303380497,
+   "rmse_waveform_mmhg": 6.785186808624127,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5565259055747245,
+    "emax_lv": 0.5131083666916689,
+    "systolic_fraction": 0.35027572889822517,
+    "stressed_volume": 1.7953937700455764,
+    "resistance_pulmonary": 0.050000000600315966,
+    "emin_rv": 1.9015205321893724
+   },
+   "model_pp": 60.44094031833292
+  },
+  {
+   "kind": "B",
+   "caseid": 2252,
+   "variant": "compliance_pv x2",
+   "measured_pp": 69.92562196865117,
+   "ok": true,
+   "flow_index_l_min": 9.175954437125915,
+   "cost": 1.4351459883288342,
+   "rmse_waveform_mmhg": 6.774657432566191,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5554650582022582,
+    "emax_lv": 0.47726059892135453,
+    "systolic_fraction": 0.346164253291942,
+    "stressed_volume": 1.4033820734003348,
+    "resistance_pulmonary": 0.05000015539587862,
+    "emin_rv": 1.904862043975384
+   },
+   "model_pp": 60.66528178067898
+  },
+  {
+   "kind": "B",
+   "caseid": 2252,
+   "variant": "compliance_pa x2",
+   "measured_pp": 69.92562196865117,
+   "ok": true,
+   "flow_index_l_min": 9.167525844823327,
+   "cost": 1.4385202212193782,
+   "rmse_waveform_mmhg": 6.782159918048762,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5560833377179316,
+    "emax_lv": 0.49372795989586354,
+    "systolic_fraction": 0.3480087695702115,
+    "stressed_volume": 1.2436253518405853,
+    "resistance_pulmonary": 0.05000007222477435,
+    "emin_rv": 1.902698320397475
+   },
+   "model_pp": 60.55258264534426
+  },
+  {
+   "kind": "B",
+   "caseid": 2252,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 69.92562196865117,
+   "ok": true,
+   "flow_index_l_min": 9.241411199647061,
+   "cost": 1.390442239621985,
+   "rmse_waveform_mmhg": 6.669818680326501,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5511343147883679,
+    "emax_lv": 0.5531026692775478,
+    "systolic_fraction": 0.28839554677029383,
+    "stressed_volume": 1.1929283123763341,
+    "resistance_pulmonary": 0.05000000008626425,
+    "emin_rv": 1.8779359516576624
+   },
+   "model_pp": 61.48992472097454
+  },
+  {
+   "kind": "B",
+   "caseid": 2700,
+   "variant": "emin_lv x2",
+   "measured_pp": 38.01593368209894,
+   "ok": true,
+   "flow_index_l_min": 5.848129920671845,
+   "cost": 0.20799312914468143,
+   "rmse_waveform_mmhg": 2.5796912437510886,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.4816341495714286,
+    "emax_lv": 0.764577088080286,
+    "systolic_fraction": 0.4799902549564772,
+    "stressed_volume": 1.0231910009653105,
+    "resistance_pulmonary": 0.28498543803030535,
+    "emin_rv": 2.0000319330512526
+   },
+   "model_pp": 40.94395321509693
+  },
+  {
+   "kind": "B",
+   "caseid": 2700,
+   "variant": "emin_lv /2",
+   "measured_pp": 38.01593368209894,
+   "ok": true,
+   "flow_index_l_min": 5.843679061822969,
+   "cost": 0.20891793685488053,
+   "rmse_waveform_mmhg": 2.5854196429900327,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.48156513355749114,
+    "emax_lv": 0.6937864189360475,
+    "systolic_fraction": 0.5100442779650813,
+    "stressed_volume": 0.8637637375530578,
+    "resistance_pulmonary": 1.3007355229985642,
+    "emin_rv": 1.9659146439436763
+   },
+   "model_pp": 40.9090056225252
+  },
+  {
+   "kind": "B",
+   "caseid": 2700,
+   "variant": "emax_rv x2",
+   "measured_pp": 38.01593368209894,
+   "ok": true,
+   "flow_index_l_min": 5.84391680060925,
+   "cost": 0.20869851235257206,
+   "rmse_waveform_mmhg": 2.584060168734395,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.48173407493481346,
+    "emax_lv": 0.7127449605358225,
+    "systolic_fraction": 0.49962437246396263,
+    "stressed_volume": 0.9036851744484798,
+    "resistance_pulmonary": 0.9718054133906614,
+    "emin_rv": 2.326986955985246
+   },
+   "model_pp": 40.91844433536029
+  },
+  {
+   "kind": "B",
+   "caseid": 2700,
+   "variant": "compliance_sv x2",
+   "measured_pp": 38.01593368209894,
+   "ok": true,
+   "flow_index_l_min": 5.84988824278188,
+   "cost": 0.2072731004841979,
+   "rmse_waveform_mmhg": 2.575216076851961,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4812236041577895,
+    "emax_lv": 0.7231979985983886,
+    "systolic_fraction": 0.5019326878742393,
+    "stressed_volume": 1.4507958758658102,
+    "resistance_pulmonary": 0.9766804103033282,
+    "emin_rv": 1.9849919078065754
+   },
+   "model_pp": 40.904357716103206
+  },
+  {
+   "kind": "B",
+   "caseid": 2700,
+   "variant": "compliance_pv x2",
+   "measured_pp": 38.01593368209894,
+   "ok": true,
+   "flow_index_l_min": 5.84618398494527,
+   "cost": 0.20863351780122813,
+   "rmse_waveform_mmhg": 2.583659356261678,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4815523187360515,
+    "emax_lv": 0.7159757062472262,
+    "systolic_fraction": 0.5002951862597389,
+    "stressed_volume": 1.0334834612197972,
+    "resistance_pulmonary": 1.0040904921765355,
+    "emin_rv": 1.9672175043606372
+   },
+   "model_pp": 40.91501137762564
+  },
+  {
+   "kind": "B",
+   "caseid": 2700,
+   "variant": "compliance_pa x2",
+   "measured_pp": 38.01593368209894,
+   "ok": true,
+   "flow_index_l_min": 5.857563941816964,
+   "cost": 0.20768943986251942,
+   "rmse_waveform_mmhg": 2.577806842376697,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.48081018839179196,
+    "emax_lv": 0.6108132491779675,
+    "systolic_fraction": 0.5021222593724588,
+    "stressed_volume": 0.9942254333628584,
+    "resistance_pulmonary": 0.93045218381787,
+    "emin_rv": 2.045415352467701
+   },
+   "model_pp": 40.961111818447556
+  },
+  {
+   "kind": "B",
+   "caseid": 2700,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 38.01593368209894,
+   "ok": true,
+   "flow_index_l_min": 5.82823494981263,
+   "cost": 0.20539530197819017,
+   "rmse_waveform_mmhg": 2.563541504245634,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4831330430250854,
+    "emax_lv": 1.374230812521905,
+    "systolic_fraction": 0.5091620504739576,
+    "stressed_volume": 0.879439172257469,
+    "resistance_pulmonary": 1.1017074531158388,
+    "emin_rv": 1.9708010162698475
+   },
+   "model_pp": 40.47747157455047
+  },
+  {
+   "kind": "B",
+   "caseid": 3188,
+   "variant": "emin_lv x2",
+   "measured_pp": 40.923562555152344,
+   "ok": true,
+   "flow_index_l_min": 7.478383340295768,
+   "cost": 0.7105655715023939,
+   "rmse_waveform_mmhg": 4.767740833632898,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.3620816526468134,
+    "emax_lv": 0.37779715961241933,
+    "systolic_fraction": 0.4817171079989956,
+    "stressed_volume": 1.7424712031133123,
+    "resistance_pulmonary": 0.05000000001578955,
+    "emin_rv": 3.9266445753930586
+   },
+   "model_pp": 43.326884091408004
+  },
+  {
+   "kind": "B",
+   "caseid": 3188,
+   "variant": "emin_lv /2",
+   "measured_pp": 40.923562555152344,
+   "ok": true,
+   "flow_index_l_min": 7.456652675519651,
+   "cost": 0.7152410650422621,
+   "rmse_waveform_mmhg": 4.7835248966382125,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.3628443989428024,
+    "emax_lv": 0.2720281449109053,
+    "systolic_fraction": 0.5144841900816889,
+    "stressed_volume": 1.5468021141808643,
+    "resistance_pulmonary": 1.1622686477892084,
+    "emin_rv": 3.7615123286166603
+   },
+   "model_pp": 43.709000765923385
+  },
+  {
+   "kind": "B",
+   "caseid": 3188,
+   "variant": "emax_rv x2",
+   "measured_pp": 40.923562555152344,
+   "ok": true,
+   "flow_index_l_min": 7.44612470361115,
+   "cost": 0.7073414526687285,
+   "rmse_waveform_mmhg": 4.756902925601768,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.3634801745632253,
+    "emax_lv": 0.1343157640611952,
+    "systolic_fraction": 0.45021456289662365,
+    "stressed_volume": 1.858641155414102,
+    "resistance_pulmonary": 0.05000000003980965,
+    "emin_rv": 4.61542234608113
+   },
+   "model_pp": 44.29508876461582
+  },
+  {
+   "kind": "B",
+   "caseid": 3188,
+   "variant": "compliance_sv x2",
+   "measured_pp": 40.923562555152344,
+   "ok": true,
+   "flow_index_l_min": 7.459164788925426,
+   "cost": 0.7053195410750747,
+   "rmse_waveform_mmhg": 4.750101259129375,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.36281961938205615,
+    "emax_lv": 0.1337742198790451,
+    "systolic_fraction": 0.4507177167454461,
+    "stressed_volume": 2.9476597162432148,
+    "resistance_pulmonary": 0.05000000020766605,
+    "emin_rv": 3.953867491304043
+   },
+   "model_pp": 44.34061554506466
+  },
+  {
+   "kind": "B",
+   "caseid": 3188,
+   "variant": "compliance_pv x2",
+   "measured_pp": 40.923562555152344,
+   "ok": true,
+   "flow_index_l_min": 7.452356999790228,
+   "cost": 0.7059847989974253,
+   "rmse_waveform_mmhg": 4.752329710051364,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.3630789528666635,
+    "emax_lv": 0.1299630992215913,
+    "systolic_fraction": 0.4499462970741191,
+    "stressed_volume": 2.2174601934871316,
+    "resistance_pulmonary": 0.050000023678228554,
+    "emin_rv": 3.9709280862242005
+   },
+   "model_pp": 44.30476954969443
+  },
+  {
+   "kind": "B",
+   "caseid": 3188,
+   "variant": "compliance_pa x2",
+   "measured_pp": 40.923562555152344,
+   "ok": true,
+   "flow_index_l_min": 7.4630102966413725,
+   "cost": 0.7027186911111925,
+   "rmse_waveform_mmhg": 4.741333884713225,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.36241087081774503,
+    "emax_lv": 0.14766860481489713,
+    "systolic_fraction": 0.4673379298741235,
+    "stressed_volume": 1.9097753896769507,
+    "resistance_pulmonary": 0.19979796123580928,
+    "emin_rv": 3.9009352796573427
+   },
+   "model_pp": 44.12704916988428
+  },
+  {
+   "kind": "B",
+   "caseid": 3188,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 40.923562555152344,
+   "ok": true,
+   "flow_index_l_min": 7.397186065437305,
+   "cost": 0.7141210134686804,
+   "rmse_waveform_mmhg": 4.779763983695687,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.36602108498116726,
+    "emax_lv": 0.47091577623703257,
+    "systolic_fraction": 0.43431813828282684,
+    "stressed_volume": 1.5559732646699669,
+    "resistance_pulmonary": 0.9719479617602949,
+    "emin_rv": 3.7831360674397265
+   },
+   "model_pp": 43.80468134793467
+  },
+  {
+   "kind": "B",
+   "caseid": 4034,
+   "variant": "emin_lv x2",
+   "measured_pp": 44.40311253648471,
+   "ok": true,
+   "flow_index_l_min": 4.771120605412779,
+   "cost": 0.6657347590617454,
+   "rmse_waveform_mmhg": 4.615343768863968,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5564326975866601,
+    "emax_lv": 0.33123093300004075,
+    "systolic_fraction": 0.2232558171682285,
+    "stressed_volume": 1.5781780159152181,
+    "resistance_pulmonary": 0.05000000007282402,
+    "emin_rv": 4.114154083452442
+   },
+   "model_pp": 39.82039245718407
+  },
+  {
+   "kind": "B",
+   "caseid": 4034,
+   "variant": "emin_lv /2",
+   "measured_pp": 44.40311253648471,
+   "ok": true,
+   "flow_index_l_min": 4.795611962010285,
+   "cost": 0.6689130529305423,
+   "rmse_waveform_mmhg": 4.626352071558478,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.5565914488510345,
+    "emax_lv": 0.6510334213258548,
+    "systolic_fraction": 0.25910346797997075,
+    "stressed_volume": 1.2790694999432914,
+    "resistance_pulmonary": 2.063694998398152,
+    "emin_rv": 4.005650737835492
+   },
+   "model_pp": 39.44084642789611
+  },
+  {
+   "kind": "B",
+   "caseid": 4034,
+   "variant": "emax_rv x2",
+   "measured_pp": 44.40311253648471,
+   "ok": true,
+   "flow_index_l_min": 4.794070937691333,
+   "cost": 0.6670472107669514,
+   "rmse_waveform_mmhg": 4.619892931636613,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.5560891421525256,
+    "emax_lv": 0.5650635170108106,
+    "systolic_fraction": 0.2544086200500261,
+    "stressed_volume": 1.3310089272273753,
+    "resistance_pulmonary": 1.6136446057836384,
+    "emin_rv": 4.849337657320324
+   },
+   "model_pp": 39.504579636771055
+  },
+  {
+   "kind": "B",
+   "caseid": 4034,
+   "variant": "compliance_sv x2",
+   "measured_pp": 44.40311253648471,
+   "ok": true,
+   "flow_index_l_min": 4.801017787616203,
+   "cost": 0.6666751623289221,
+   "rmse_waveform_mmhg": 4.618608753530219,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5553294459415319,
+    "emax_lv": 0.5864297150953053,
+    "systolic_fraction": 0.25665319528881614,
+    "stressed_volume": 2.280220818761249,
+    "resistance_pulmonary": 1.6269124966777673,
+    "emin_rv": 3.98453157173312
+   },
+   "model_pp": 39.49754054502415
+  },
+  {
+   "kind": "B",
+   "caseid": 4034,
+   "variant": "compliance_pv x2",
+   "measured_pp": 44.40311253648471,
+   "ok": true,
+   "flow_index_l_min": 4.794896687507506,
+   "cost": 0.6673065041830533,
+   "rmse_waveform_mmhg": 4.620792025435828,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5560087517667387,
+    "emax_lv": 0.5692367649160507,
+    "systolic_fraction": 0.25482078834539834,
+    "stressed_volume": 1.459509789485403,
+    "resistance_pulmonary": 1.622815403826008,
+    "emin_rv": 3.993032271694446
+   },
+   "model_pp": 39.498594310890404
+  },
+  {
+   "kind": "B",
+   "caseid": 4034,
+   "variant": "compliance_pa x2",
+   "measured_pp": 44.40311253648471,
+   "ok": true,
+   "flow_index_l_min": 4.794891062291162,
+   "cost": 0.6671736905198763,
+   "rmse_waveform_mmhg": 4.620330903474053,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5560071608674434,
+    "emax_lv": 0.5684938541269363,
+    "systolic_fraction": 0.25475560648532475,
+    "stressed_volume": 1.4199559232465657,
+    "resistance_pulmonary": 1.6197431594786307,
+    "emin_rv": 4.164834599332677
+   },
+   "model_pp": 39.500637608196875
+  },
+  {
+   "kind": "B",
+   "caseid": 4034,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 44.40311253648471,
+   "ok": true,
+   "flow_index_l_min": 4.786857667463591,
+   "cost": 0.6650718159443936,
+   "rmse_waveform_mmhg": 4.613048030366846,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.556890100363588,
+    "emax_lv": 0.9600448888836073,
+    "systolic_fraction": 0.22404441981377196,
+    "stressed_volume": 1.3078048556854855,
+    "resistance_pulmonary": 1.7889992853564964,
+    "emin_rv": 3.986314851965098
+   },
+   "model_pp": 39.53745435788474
+  },
+  {
+   "kind": "B",
+   "caseid": 4573,
+   "variant": "emin_lv x2",
+   "measured_pp": 42.77706957547926,
+   "ok": true,
+   "flow_index_l_min": 4.922998577737972,
+   "cost": 0.8355980115947365,
+   "rmse_waveform_mmhg": 5.107337034004307,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 1.0408817165993205,
+    "emax_lv": 0.6112584174558171,
+    "systolic_fraction": 0.5940300949136733,
+    "stressed_volume": 1.0592025980385584,
+    "resistance_pulmonary": 0.08663319488207323,
+    "emin_rv": 1.899573768559621
+   },
+   "model_pp": 36.5869964791775
+  },
+  {
+   "kind": "B",
+   "caseid": 4573,
+   "variant": "emin_lv /2",
+   "measured_pp": 42.77706957547926,
+   "ok": true,
+   "flow_index_l_min": 5.314857534301579,
+   "cost": 0.7286613478865192,
+   "rmse_waveform_mmhg": 4.804756443201437,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.9660862989931044,
+    "emax_lv": 0.24845014373340188,
+    "systolic_fraction": 0.5992355757559735,
+    "stressed_volume": 0.9912542607000147,
+    "resistance_pulmonary": 1.0155837642450654,
+    "emin_rv": 1.6040757189232644
+   },
+   "model_pp": 40.42180429742976
+  },
+  {
+   "kind": "B",
+   "caseid": 4573,
+   "variant": "emax_rv x2",
+   "measured_pp": 42.77706957547926,
+   "ok": true,
+   "flow_index_l_min": 5.209235374689127,
+   "cost": 0.714703716986274,
+   "rmse_waveform_mmhg": 4.761359050017029,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.9836065334667902,
+    "emax_lv": 0.24812544186751043,
+    "systolic_fraction": 0.5952793070322961,
+    "stressed_volume": 1.1116878253297386,
+    "resistance_pulmonary": 0.20205665955300595,
+    "emin_rv": 2.0943658378065355
+   },
+   "model_pp": 39.431406244707574
+  },
+  {
+   "kind": "B",
+   "caseid": 4573,
+   "variant": "compliance_sv x2",
+   "measured_pp": 42.77706957547926,
+   "ok": true,
+   "flow_index_l_min": 5.370659142372678,
+   "cost": 0.7356736678025163,
+   "rmse_waveform_mmhg": 4.833895941566604,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.9517162135491729,
+    "emax_lv": 0.39910040239608907,
+    "systolic_fraction": 0.5812508239048951,
+    "stressed_volume": 1.4835625339285552,
+    "resistance_pulmonary": 0.6688261482211408,
+    "emin_rv": 1.724182496259787
+   },
+   "model_pp": 40.48323652845454
+  },
+  {
+   "kind": "B",
+   "caseid": 4573,
+   "variant": "compliance_pv x2",
+   "measured_pp": 42.77706957547926,
+   "ok": true,
+   "flow_index_l_min": 5.129724933739896,
+   "cost": 0.7494030933937702,
+   "rmse_waveform_mmhg": 4.876338274581365,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.9994062932545681,
+    "emax_lv": 0.34610551056323086,
+    "systolic_fraction": 0.5993054344612274,
+    "stressed_volume": 1.216872789849692,
+    "resistance_pulmonary": 0.647370567446766,
+    "emin_rv": 1.7059411219117269
+   },
+   "model_pp": 38.684878354264356
+  },
+  {
+   "kind": "B",
+   "caseid": 4573,
+   "variant": "compliance_pa x2",
+   "measured_pp": 42.77706957547926,
+   "ok": true,
+   "flow_index_l_min": 5.738647356287739,
+   "cost": 0.6455320065605612,
+   "rmse_waveform_mmhg": 4.543431892324735,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.8919870882579387,
+    "emax_lv": 0.368550904116945,
+    "systolic_fraction": 0.5901960019407338,
+    "stressed_volume": 1.1004092075905207,
+    "resistance_pulmonary": 0.493151201556421,
+    "emin_rv": 1.6105715562763927
+   },
+   "model_pp": 42.91161230455448
+  },
+  {
+   "kind": "B",
+   "caseid": 4573,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 42.77706957547926,
+   "ok": true,
+   "flow_index_l_min": 5.861813073076988,
+   "cost": 0.4426973073316538,
+   "rmse_waveform_mmhg": 3.7626951350798943,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.874239835959587,
+    "emax_lv": 0.3658711384642512,
+    "systolic_fraction": 0.5696274757606389,
+    "stressed_volume": 1.0460987195694003,
+    "resistance_pulmonary": 0.43819510666188627,
+    "emin_rv": 1.5505146814946182
+   },
+   "model_pp": 43.317696565938235
+  },
+  {
+   "kind": "B",
+   "caseid": 5018,
+   "variant": "emin_lv x2",
+   "measured_pp": 30.102813165147587,
+   "ok": true,
+   "flow_index_l_min": 4.925752668165977,
+   "cost": 0.8567136469407086,
+   "rmse_waveform_mmhg": 5.219199720404714,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.581690793018969,
+    "emax_lv": 0.5063036448094912,
+    "systolic_fraction": 0.5862806552578124,
+    "stressed_volume": 1.049703749507643,
+    "resistance_pulmonary": 0.07075738263162624,
+    "emin_rv": 3.6955553280225013
+   },
+   "model_pp": 25.954536043790682
+  },
+  {
+   "kind": "B",
+   "caseid": 5018,
+   "variant": "emin_lv /2",
+   "measured_pp": 30.102813165147587,
+   "ok": true,
+   "flow_index_l_min": 4.8345319906888955,
+   "cost": 0.9009380177008968,
+   "rmse_waveform_mmhg": 5.3673686796338025,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5939250006688305,
+    "emax_lv": 0.16958666809309866,
+    "systolic_fraction": 0.5981154833761326,
+    "stressed_volume": 1.0448995222169706,
+    "resistance_pulmonary": 0.7324253313530524,
+    "emin_rv": 3.6131948115994046
+   },
+   "model_pp": 26.19271056893394
+  },
+  {
+   "kind": "B",
+   "caseid": 5018,
+   "variant": "emax_rv x2",
+   "measured_pp": 30.102813165147587,
+   "ok": true,
+   "flow_index_l_min": 4.990500185626181,
+   "cost": 0.8465012800706202,
+   "rmse_waveform_mmhg": 5.198505312872732,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5746948346493089,
+    "emax_lv": 0.23801752074717508,
+    "systolic_fraction": 0.5932217820673605,
+    "stressed_volume": 1.0560568207027863,
+    "resistance_pulmonary": 0.31148103012861156,
+    "emin_rv": 4.23522002014538
+   },
+   "model_pp": 26.679576535043374
+  },
+  {
+   "kind": "B",
+   "caseid": 5018,
+   "variant": "compliance_sv x2",
+   "measured_pp": 30.102813165147587,
+   "ok": true,
+   "flow_index_l_min": 4.823768563999507,
+   "cost": 0.857441292735654,
+   "rmse_waveform_mmhg": 5.218626892728377,
+   "at_bound": [
+    "systolic_fraction"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5943842449903338,
+    "emax_lv": 0.21411351027983563,
+    "systolic_fraction": 0.599999978420599,
+    "stressed_volume": 1.700994133446997,
+    "resistance_pulmonary": 0.2666932409419626,
+    "emin_rv": 3.6566716934847867
+   },
+   "model_pp": 25.822646231434355
+  },
+  {
+   "kind": "B",
+   "caseid": 5018,
+   "variant": "compliance_pv x2",
+   "measured_pp": 30.102813165147587,
+   "ok": true,
+   "flow_index_l_min": 4.714536027313122,
+   "cost": 0.8896714894328298,
+   "rmse_waveform_mmhg": 5.317462480096832,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.6078935311766258,
+    "emax_lv": 0.23344606854492647,
+    "systolic_fraction": 0.5984079737026844,
+    "stressed_volume": 1.2263755859962646,
+    "resistance_pulmonary": 0.4030121452070253,
+    "emin_rv": 3.6793083617055142
+   },
+   "model_pp": 25.312611525246552
+  },
+  {
+   "kind": "B",
+   "caseid": 5018,
+   "variant": "compliance_pa x2",
+   "measured_pp": 30.102813165147587,
+   "ok": true,
+   "flow_index_l_min": 4.61809968021143,
+   "cost": 0.9086512295687466,
+   "rmse_waveform_mmhg": 5.38365177998882,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.6213681844579306,
+    "emax_lv": 0.24389866884398892,
+    "systolic_fraction": 0.5968120807471422,
+    "stressed_volume": 1.1011544092969954,
+    "resistance_pulmonary": 0.42930192187285116,
+    "emin_rv": 3.8659229170150566
+   },
+   "model_pp": 24.855469518571155
+  },
+  {
+   "kind": "B",
+   "caseid": 5018,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 30.102813165147587,
+   "ok": true,
+   "flow_index_l_min": 5.762593714792368,
+   "cost": 0.5141825387547065,
+   "rmse_waveform_mmhg": 4.05228556466449,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.49686617078257617,
+    "emax_lv": 0.2724725569441892,
+    "systolic_fraction": 0.5894136402916874,
+    "stressed_volume": 1.0704025752822688,
+    "resistance_pulmonary": 0.24313158020722928,
+    "emin_rv": 3.154464056659092
+   },
+   "model_pp": 29.50811469464825
+  },
+  {
+   "kind": "B",
+   "caseid": 5687,
+   "variant": "emin_lv x2",
+   "measured_pp": 40.11718154023353,
+   "ok": true,
+   "flow_index_l_min": 6.837362554050804,
+   "cost": 0.7086595849046305,
+   "rmse_waveform_mmhg": 4.74093507128143,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5405297538045225,
+    "emax_lv": 2.0391659237690196,
+    "systolic_fraction": 0.5943592858508389,
+    "stressed_volume": 0.8617336205294577,
+    "resistance_pulmonary": 0.05958341745328835,
+    "emin_rv": 1.8465622021266934
+   },
+   "model_pp": 36.962014728605894
+  },
+  {
+   "kind": "B",
+   "caseid": 5687,
+   "variant": "emin_lv /2",
+   "measured_pp": 40.11718154023353,
+   "ok": true,
+   "flow_index_l_min": 7.243304846402,
+   "cost": 0.58313900824511,
+   "rmse_waveform_mmhg": 4.319582875203231,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.5097723407433801,
+    "emax_lv": 0.25991263694430206,
+    "systolic_fraction": 0.5178641013840657,
+    "stressed_volume": 0.9077251470407577,
+    "resistance_pulmonary": 0.34504726755709814,
+    "emin_rv": 1.7381582295223792
+   },
+   "model_pp": 41.16371019658512
+  },
+  {
+   "kind": "B",
+   "caseid": 5687,
+   "variant": "emax_rv x2",
+   "measured_pp": 40.11718154023353,
+   "ok": true,
+   "flow_index_l_min": 7.210849323172553,
+   "cost": 0.593377589590151,
+   "rmse_waveform_mmhg": 4.3569983777502355,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.5120588782342755,
+    "emax_lv": 0.4309810628894361,
+    "systolic_fraction": 0.5136478367558981,
+    "stressed_volume": 0.9008513500797742,
+    "resistance_pulmonary": 0.10560805410568753,
+    "emin_rv": 2.070718409231053
+   },
+   "model_pp": 40.615625049491626
+  },
+  {
+   "kind": "B",
+   "caseid": 5687,
+   "variant": "compliance_sv x2",
+   "measured_pp": 40.11718154023353,
+   "ok": true,
+   "flow_index_l_min": 7.200042300142926,
+   "cost": 0.5920468286224616,
+   "rmse_waveform_mmhg": 4.351783216601386,
+   "at_bound": [],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5128057766193831,
+    "emax_lv": 0.43280158164498733,
+    "systolic_fraction": 0.5136940314083001,
+    "stressed_volume": 1.3748743259968237,
+    "resistance_pulmonary": 0.11812284408927884,
+    "emin_rv": 1.8292033969273724
+   },
+   "model_pp": 40.557203860251825
+  },
+  {
+   "kind": "B",
+   "caseid": 5687,
+   "variant": "compliance_pv x2",
+   "measured_pp": 40.11718154023353,
+   "ok": true,
+   "flow_index_l_min": 7.223956790921172,
+   "cost": 0.5922786641843306,
+   "rmse_waveform_mmhg": 4.353266389163038,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.511096676741208,
+    "emax_lv": 0.4183574369665887,
+    "systolic_fraction": 0.5108921455091037,
+    "stressed_volume": 1.0750274335301238,
+    "resistance_pulmonary": 0.13251188472279854,
+    "emin_rv": 1.8044526157172018
+   },
+   "model_pp": 40.7403790278324
+  },
+  {
+   "kind": "B",
+   "caseid": 5687,
+   "variant": "compliance_pa x2",
+   "measured_pp": 40.11718154023353,
+   "ok": true,
+   "flow_index_l_min": 7.1987466315227016,
+   "cost": 0.5931841212935542,
+   "rmse_waveform_mmhg": 4.356038327618823,
+   "at_bound": [],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.512882830181212,
+    "emax_lv": 0.42687012244132333,
+    "systolic_fraction": 0.5122857435257745,
+    "stressed_volume": 0.9537906453806261,
+    "resistance_pulmonary": 0.1292550872328966,
+    "emin_rv": 1.833649685557344
+   },
+   "model_pp": 40.58047534051736
+  },
+  {
+   "kind": "B",
+   "caseid": 5687,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 40.11718154023353,
+   "ok": true,
+   "flow_index_l_min": 7.236761283177439,
+   "cost": 0.5693120822952531,
+   "rmse_waveform_mmhg": 4.268097992752872,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5098243246763755,
+    "emax_lv": 0.3943682392732808,
+    "systolic_fraction": 0.42892583360919995,
+    "stressed_volume": 0.9378254068121327,
+    "resistance_pulmonary": 0.05000000057151942,
+    "emin_rv": 1.8958275360257502
+   },
+   "model_pp": 41.36834088292229
+  },
+  {
+   "kind": "B",
+   "caseid": 6227,
+   "variant": "emin_lv x2",
+   "measured_pp": 56.660454090473586,
+   "ok": true,
+   "flow_index_l_min": 7.218099407427363,
+   "cost": 2.0923467060004466,
+   "rmse_waveform_mmhg": 8.171468914433817,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.5085660555650481,
+    "emax_lv": 1.0513857442438053,
+    "systolic_fraction": 0.40377790001587244,
+    "stressed_volume": 1.0407617659360726,
+    "resistance_pulmonary": 0.05000009788130757,
+    "emin_rv": 1.9272211161950423
+   },
+   "model_pp": 46.957248873495175
+  },
+  {
+   "kind": "B",
+   "caseid": 6227,
+   "variant": "emin_lv /2",
+   "measured_pp": 56.660454090473586,
+   "ok": true,
+   "flow_index_l_min": 7.542315288918677,
+   "cost": 1.983325694648089,
+   "rmse_waveform_mmhg": 7.965990319871613,
+   "at_bound": [],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.4858334935318963,
+    "emax_lv": 0.2271642238791972,
+    "systolic_fraction": 0.36405218478113627,
+    "stressed_volume": 1.0482591089143865,
+    "resistance_pulmonary": 0.5421271233239761,
+    "emin_rv": 1.7584674601404549
+   },
+   "model_pp": 50.63669435633113
+  },
+  {
+   "kind": "B",
+   "caseid": 6227,
+   "variant": "emax_rv x2",
+   "measured_pp": 56.660454090473586,
+   "ok": true,
+   "flow_index_l_min": 7.5586751538346855,
+   "cost": 1.9848733787345019,
+   "rmse_waveform_mmhg": 7.969121089052601,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 2,
+   "parameters": {
+    "resistance_systemic": 0.48455523868028655,
+    "emax_lv": 0.2745954469157868,
+    "systolic_fraction": 0.36397072337511693,
+    "stressed_volume": 1.112828471029575,
+    "resistance_pulmonary": 0.05000000739120212,
+    "emin_rv": 2.1293203016733484
+   },
+   "model_pp": 50.47498186825561
+  },
+  {
+   "kind": "B",
+   "caseid": 6227,
+   "variant": "compliance_sv x2",
+   "measured_pp": 56.660454090473586,
+   "ok": true,
+   "flow_index_l_min": 7.567516817564277,
+   "cost": 1.9813878913963856,
+   "rmse_waveform_mmhg": 7.962125260385928,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 1,
+   "parameters": {
+    "resistance_systemic": 0.4839707725966904,
+    "emax_lv": 0.2726271180830626,
+    "systolic_fraction": 0.36394731268629055,
+    "stressed_volume": 1.654717185192831,
+    "resistance_pulmonary": 0.05000000107401367,
+    "emin_rv": 1.873763008034987
+   },
+   "model_pp": 50.524225406774654
+  },
+  {
+   "kind": "B",
+   "caseid": 6227,
+   "variant": "compliance_pv x2",
+   "measured_pp": 56.660454090473586,
+   "ok": true,
+   "flow_index_l_min": 7.565142124508591,
+   "cost": 1.9829252966978757,
+   "rmse_waveform_mmhg": 7.965241559047837,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.48413644981538984,
+    "emax_lv": 0.25990429982226043,
+    "systolic_fraction": 0.36181716777262,
+    "stressed_volume": 1.3651656418154834,
+    "resistance_pulmonary": 0.05000001825000674,
+    "emin_rv": 1.8789481221319158
+   },
+   "model_pp": 50.55832134302233
+  },
+  {
+   "kind": "B",
+   "caseid": 6227,
+   "variant": "compliance_pa x2",
+   "measured_pp": 56.660454090473586,
+   "ok": true,
+   "flow_index_l_min": 7.563109150052537,
+   "cost": 1.9836596490431246,
+   "rmse_waveform_mmhg": 7.966705821715664,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.48427401435206435,
+    "emax_lv": 0.26581287349217303,
+    "systolic_fraction": 0.3626883736608857,
+    "stressed_volume": 1.1876143696393728,
+    "resistance_pulmonary": 0.05000000006784704,
+    "emin_rv": 1.8757159846179194
+   },
+   "model_pp": 50.5273719089646
+  },
+  {
+   "kind": "B",
+   "caseid": 6227,
+   "variant": "resistance_aortic x3",
+   "measured_pp": 56.660454090473586,
+   "ok": true,
+   "flow_index_l_min": 7.595032464368097,
+   "cost": 1.9570450283109335,
+   "rmse_waveform_mmhg": 7.913131804392162,
+   "at_bound": [
+    "resistance_pulmonary"
+   ],
+   "start": 0,
+   "parameters": {
+    "resistance_systemic": 0.4823351029653251,
+    "emax_lv": 0.29987701667632144,
+    "systolic_fraction": 0.3002052755900732,
+    "stressed_volume": 1.1329418713002921,
+    "resistance_pulmonary": 0.05000000059550956,
+    "emin_rv": 1.8631975815510342
+   },
+   "model_pp": 50.935890748539194
+  }
+ ]
+}

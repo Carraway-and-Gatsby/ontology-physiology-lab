@@ -172,3 +172,7 @@ freeze and the results are not reproduced here). Changes made to the copied file
 from `case_lists.json`. Commit hashes quoted in these files refer to the private history. Details:
 `docs/validation/e1_vitaldb/PUBLIC_COPY_NOTE.md`. Scan of the added files for local paths, user and host names, the
 private repository name, request ids and token counts: zero hits.
+
+Later the same day the post hoc failure analysis of E1 (`docs/validation/e1_vitaldb/FAILURE_ANALYSIS_E1.md`, four
+`posthoc_*.py` scripts, `results/e1_vitaldb/posthoc_failure_analysis/`, one paragraph in `RESULTS_E1.md`) was copied
+from the private repository without any change to the copied text. Scan of the added lines: zero hits.

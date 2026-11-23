@@ -75,6 +75,10 @@ Looked at after the registered numbers were known, to see where the error comes 
   +11.6 points. So even when the calibration behaves, the model index is not distinguishable from body size and age
   alone, or from the mean of the other subjects, and stays far from the 30 % limit.
 - Restricted to the 17 fits with no parameter at a bound: MODEL 112.5 %.
+- Correction (2026-11-23, `FAILURE_ANALYSIS_E1.md`): the five flat fits are not an optimiser problem. In those windows
+  the beat was segmented in early diastole instead of at the foot of the upstroke, and a flat line is then the best
+  fit of the model. With the alignment of those five windows corrected, MODEL gives 47.4 % (34.9 to 59.0), the same
+  as the baselines. The registered verdict is unchanged.
 
 ## 5. What this establishes and what it does not
 
