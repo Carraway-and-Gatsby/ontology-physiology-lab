@@ -25,7 +25,8 @@ shown as `[private repository]`, revision `70784bcdb9c14fba5271ee73f3c62b5f94ccb
 CC BY 4.0 for this public release (owner decision of 2026-11-02).
 
 Code (`src/`, `scripts/`, `tests/`, `tools/**/*.py`, `tools/**/viewer.html`, `agent_eval/run_eval.py`,
-`docs/evidence*/**/*.py`) is under the MIT licence; see [LICENSE](LICENSE).
+`docs/evidence*/**/*.py`, `experiments/**/*.py`, `docs/validation/**/*.py`) is under the MIT licence; see
+[LICENSE](LICENSE).
 
 ## Exceptions: third-party files that keep their own licences
 
@@ -51,6 +52,7 @@ RIGHTS.md and NOTICE.md control.
 | `docs/evidence/b_ols_terms.json`, `b_annotations.trig` | Ontology term extracts (Uberon, FMA, OBO RO) | Upstream ontology terms (Uberon CC BY 3.0, FMA CC BY 4.0, OBO RO CC0) |
 | `docs/evidence_review/evidence_cards.md`, `evidence_review.md`, `d_sources.json` | Short quotations from third-party sources inside the review | Quotations remain under their sources' terms; the review text is CC BY 4.0 |
 | `docs/evidence_review/shacl/ws267_omex_form.ttl`, `smith2004_dependencies.ttl` | Translations of the Smith 2004 workspace 267 annotations | Derived from CC BY 3.0 material; attribute as in NOTICE.md |
+| `results/e1_vitaldb/**`, `docs/validation/e1_vitaldb/case_lists.json` | Per-case numbers derived from VitalDB recordings (PhysioNet version 1.0.0) and the case lists of experiment E1 | Derived from CC BY 4.0 material; attribute as in NOTICE.md |
 
 ### Not redistributed: stubs and redactions (cited only)
 

@@ -161,3 +161,14 @@ the tests. It was removed from the current tree of every public branch and added
 the host name, remains in the earlier history of this repository**; the history was not rewritten. The test count it
 recorded is cited in `docs/independent_verification.md`; to regenerate the report locally run
 `python -m pytest -q --junitxml=results/tests.xml`.
+
+## 2026-11-23: validation experiment E1 copied by hand
+
+`docs/validation/e1_vitaldb/`, `experiments/e1_vitaldb/` and `results/e1_vitaldb/` were copied from the private
+repository in one commit (no history rewrite; the private commits that separate the pre-registration seal, the code
+freeze and the results are not reproduced here). Changes made to the copied files: rule 2 applied to
+`experiments/e1_vitaldb/run_e1.py` (one local path -> `<local path>`); a private pull-request number is written as
+"PR #11 of [private repository]" in two documents; 13 case ids known only from the vitaldb.net track index are omitted
+from `case_lists.json`. Commit hashes quoted in these files refer to the private history. Details:
+`docs/validation/e1_vitaldb/PUBLIC_COPY_NOTE.md`. Scan of the added files for local paths, user and host names, the
+private repository name, request ids and token counts: zero hits.

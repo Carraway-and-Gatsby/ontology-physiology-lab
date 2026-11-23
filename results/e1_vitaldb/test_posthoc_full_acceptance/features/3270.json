@@ -1,0 +1,27 @@
+{
+ "windows": [],
+ "rejections": {
+  "heart rate not stationary": 110,
+  "mean arterial pressure not stationary": 21,
+  "arterial signal coverage too low": 41,
+  "cardiac output not stationary": 49,
+  "vasoactive infusion rate changed": 84
+ },
+ "n_beats_detected": 25152,
+ "duration_s": 22432.138,
+ "caseid": 3270,
+ "loaded": true,
+ "tracks_numeric": [
+  "co",
+  "cvp",
+  "mpap"
+ ],
+ "infusion_tracks": [
+  "Orchestra/DOPA_RATE",
+  "Orchestra/NEPI_RATE",
+  "Orchestra/PGE1_RATE"
+ ],
+ "require_co": true,
+ "dev_co_standin": false,
+ "hr_bins_full_acceptance": true
+}

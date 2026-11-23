@@ -1,0 +1,22 @@
+{
+ "windows": [],
+ "rejections": {
+  "cardiac output not stationary": 180,
+  "too few CVP or PA readings": 137,
+  "vasoactive infusion rate changed": 23
+ },
+ "n_beats_detected": 32565,
+ "duration_s": 25859.646,
+ "caseid": 3631,
+ "loaded": true,
+ "tracks_numeric": [
+  "co",
+  "cvp",
+  "mpap"
+ ],
+ "infusion_tracks": [
+  "Orchestra/PGE1_RATE"
+ ],
+ "require_co": false,
+ "dev_co_standin": true
+}

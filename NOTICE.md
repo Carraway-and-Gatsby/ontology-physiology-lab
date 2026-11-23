@@ -23,6 +23,21 @@ and [SemSim-annotated workspace 267 encoding](https://models.physiomeproject.org
 The captured licence statements and model attribution are retained in
 `docs/evidence/a_smith_2004_license.txt` and `docs/physiology_sources.json`.
 
+## VitalDB (validation experiment E1)
+
+`results/e1_vitaldb/` and `docs/validation/e1_vitaldb/` contain numbers derived from recordings of the VitalDB
+database obtained from PhysioNet, version 1.0.0, distributed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). No recording is redistributed here; the derived per-case
+values (pressures, heart rate, cardiac output, model fits) are changed forms of the source data.
+
+Attribution: Lee HC, Park Y, Yoon SB, Yang SM, Park D, Jung CW. VitalDB, a high-fidelity multi-parameter vital signs
+database in surgical patients. *Scientific Data* 2022;9:279, https://doi.org/10.1038/s41597-022-01411-5. Dataset:
+VitalDB on PhysioNet, version 1.0.0, https://doi.org/10.13026/czw8-9p62.
+
+The cases were chosen with the public track index of vitaldb.net (case id and track name only). That site states
+its own terms (CC BY-NC-SA 4.0 and a data use agreement); nothing from it is redistributed here beyond case ids whose
+tracks were re-read from the PhysioNet files.
+
 ## Other retained open material
 
 The following table transcribes the supplied offline rights audit. Author and
